@@ -2,8 +2,6 @@
 class Filebrowser_Controller extends Template_Controller {
 
   public function index($path='') {
-    print "index";
-    exit();
   }
 
 }
