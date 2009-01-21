@@ -1,15 +1,8 @@
 <?php
 /**
- * S7Ncms - www.s7n.de
  *
- * Copyright (c) 2007-2008, Eduard Baun <eduard at baun.de>
- * All rights reserved.
+ * Based on code found on Kohana Forums
  *
- * See license.txt for full text and disclaimer
- *
- * @author Eduard Baun <eduard at baun.de>
- * @copyright Eduard Baun, 2007-2008
- * @version $Id$
  */
 class View extends View_Core {
   public function set_filename($name, $type = NULL) {
