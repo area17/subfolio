@@ -2,6 +2,8 @@
 
 $config['theme'] = 'default';
 
+$config['directory'] = dirname(APPPATH).'/directory';
+
 # NOTE IF YOU CHANGE THIS YOU WILL NEED TO REGENERATE YOUR PASSWORD LIST
 
 $config['auth_session'] = 'some_random_string';
