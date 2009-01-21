@@ -1,0 +1,13 @@
+
+users:
+  mubs:
+   fullname: Mubashar Iqbal
+   password: testing
+   #hashed_password: xxx
+   admin: false
+  
+  super:
+   fullname: Superman
+   password: duper
+   #hashed_password: xxx
+   admin: true
