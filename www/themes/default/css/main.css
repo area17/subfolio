@@ -187,12 +187,14 @@ hr
 
 .filename, .filesize, .filedate, .filekind, .filecomment { padding: 1px 1em 0 0; }
 
-.file_edit { width: 18px; }
+thead tr td .file_edit { width: 18px; }
 .fileicon { width: 30px; }
-.filename { width: 26em; font-weight: bold; }
+.filename { width: 26em; }
+  thead tr td.filename { font-weight: bold; }
 .filesize { width: 6em; }
 .filedate { width: 9em; }
 .filekind { width: 12em; }
+.filecomment {  }
 
 .parent_arrow { background-color: #333; }
 .parent_arrow:HOVER { background-color: #1C7AD5; }

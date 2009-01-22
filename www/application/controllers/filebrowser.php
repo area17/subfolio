@@ -5,6 +5,7 @@ class Filebrowser_Controller extends Website_Controller {
     
     $this->filebrowser->set_path($_REQUEST['path']);
 
+
     // CHECK IF I HAVE ACCESS TO path
     $file = $this->filebrowser->fullfilepath;
     
@@ -30,10 +31,15 @@ class Filebrowser_Controller extends Website_Controller {
   		$content = View::factory('content');
   		$this->template->content = $content;
     } else {
+
+  		$gallery = View::factory('gallery');
+  		$gallery->files   = $this->filebrowser->get_file_list("img");
+  		$this->template->content .= $gallery;
+
   		$listing = View::factory('content_listing');
   		$listing->files   = $this->filebrowser->get_file_list();
   		$listing->folders = $this->filebrowser->get_folder_list();
-  		$this->template->content = $listing;
+  		$this->template->content .= $listing;
 		}
     
   }
