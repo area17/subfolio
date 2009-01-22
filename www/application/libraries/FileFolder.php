@@ -24,9 +24,18 @@ class FileFolder {
 
     if (!file_exists(".thumbnails")) mkdir(".thumbnails", 0755, true);
 
-    $this->image = new Image($this->name);
-    $this->image->resize(100, 100, Image::WIDTH);            
-    $this->image->save($thumbnail);
+    $build_thumbnail = false;
+    if (!file_exists($thumbnail)) {
+      //$build_thumbnail = true;
+    } else {
+      // check age of thumbnail compared to the age of the source
+    }
+
+    if ($build_thumbnail) {
+      $this->image = new Image($this->name);
+      $this->image->resize(100, 100, Image::WIDTH);            
+      $this->image->save($thumbnail);
+    }
     
     return $url;
   }

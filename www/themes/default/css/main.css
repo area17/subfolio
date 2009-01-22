@@ -212,6 +212,10 @@ thead tr td .file_edit { width: 18px; }
 
 .feature_filename { padding: 2px 0 8px 0; font-weight: bold; }
 
+.thumbnail:hover {
+  background: #1C7AD5;
+}
+
 .thumbnail, .thumbnail_nolink { float: left; padding: 2px; }
 
 .thumbnail { background-color: #FFF; }

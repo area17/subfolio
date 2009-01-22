@@ -104,7 +104,12 @@ class Filebrowser {
   }
 
   public function get_link($name) {
-    return "".$this->folder."/".$name;
+    if ($this->folder == "") {
+      $link = "/".$name;
+    } else {
+      $link = "/".$this->folder."/".$name;
+    }
+    return $link;
   }
 
   public function get_file_url() {
