@@ -45,8 +45,9 @@
   </tr>
 <?php endforeach ?>
 
-<?php foreach ($files as $file) : ?>
-
+<?php foreach ($files as $file) :
+  if (!$file->has_thumbnail()) :
+  ?>
   <tr>
     <td>
       <img src='/themes/default/images/i_<?php echo $this->filebrowser->get_kind($file->name) ?>.gif' width='30' height='14' border='0' />
@@ -66,6 +67,7 @@
     <td class="filecomment">
     </td>
   </tr>
+  <?php endif ?>
 <?php endforeach ?>
 </tbody>
 </table>

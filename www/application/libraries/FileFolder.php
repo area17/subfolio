@@ -17,6 +17,15 @@ class FileFolder {
     $this->stats    = $stats;
     $this->comment  = $comment;
   }
+
+  public function has_thumbnail() {
+    $thumbnail = ".thumbnails/".$this->name;
+    if (file_exists($thumbnail)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
   
   public function get_thumbnail_url() {
     $thumbnail = ".thumbnails/".$this->name;
@@ -26,14 +35,15 @@ class FileFolder {
 
     $build_thumbnail = false;
     if (!file_exists($thumbnail)) {
-      //$build_thumbnail = true;
+      $build_thumbnail = true;
     } else {
       // check age of thumbnail compared to the age of the source
     }
 
     if ($build_thumbnail) {
       $this->image = new Image($this->name);
-      $this->image->resize(100, 100, Image::WIDTH);            
+      $this->image->resize(320, 240, Image::WIDTH);            
+      $this->image->crop(320, 240);
       $this->image->save($thumbnail);
     }
     

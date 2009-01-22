@@ -6,6 +6,8 @@
 class Filebrowser {
   var $config_name    = "auth";
 
+  var $path           = "";
+
   var $folder         = "";
   var $fullfolderpath = "";
   
@@ -33,7 +35,12 @@ class Filebrowser {
     return $instance;
 	}
 
+  public function get_path() {
+    return $this->path;
+  }
+
   public function set_path($path='') {
+    $this->path = $path;
     $fullpath = $this->config['directory']."/".$path;
     
     if (is_dir($fullpath)) {
@@ -62,6 +69,43 @@ class Filebrowser {
     }
   }
 
+  public function get_folder() {
+    return $this->folder;
+  }
+
+  public function get_file() {
+    $stats = stat($this->file);
+    $ff = new FileFolder($this->file, $this->folder, 'file', $stats, 'comment');
+    return $ff;
+  }
+
+
+  public function get_next($list, $name) {
+    $max = sizeof($list);
+    for($i=0; $i<$max; $i++) {
+      $file = $list[$i];
+      if ($file->name == $name) {
+        if ($i < (sizeof($list)-1)) {
+          return $list[++$i];
+        }
+      }
+    }
+    return null;
+  }
+
+  public function get_prev($list, $name) {
+    $max = sizeof($list);
+    for($i=0; $i<$max; $i++) {
+      $file = $list[$i];
+      if ($file->name == $name) {
+        if ($i > 0) {
+          return $list[--$i];
+        }
+      }
+    }
+    return null;
+  }
+
   public function is_dir() {
     if ($this->file == '') {
       return true;
@@ -69,6 +113,30 @@ class Filebrowser {
       return false;
     }
   }
+
+  public function get_parent_file_list($kind=null) {
+    $files = array();
+    foreach (glob($this->folder."/*") as $filename) {
+      if (!is_dir($filename)) {
+        $filename = substr($filename, 2);
+        $stats = stat($filename);
+        $ff = new FileFolder($filename, $this->folder, 'file', $stats, 'comment');
+        
+        if ($kind != null) {
+          $filekind = $this->get_kind($filename);
+          if ($filekind === $kind) {
+            $files[] = $ff;
+          }
+        } else {
+          $files[] = $ff;
+        }
+      }
+    }
+    
+    return $files;
+  }
+
+
 
   public function get_file_list($kind=null){
     $files = array();
@@ -91,12 +159,25 @@ class Filebrowser {
     return $files;
   }
 
+
+  public function get_parent_folder_list($pattern='*'){
+    $folders = array();
+    foreach (glob("../*") as $filename) {
+      if (is_dir($filename)) {
+        $filename = substr($filename, 3);
+        $ff = new FileFolder($filename, $this->folder, 'folder', array(), 'comment');
+        $folders[] = $ff;
+      }
+    }
+    return $folders;
+  }
+
   public function get_folder_list($pattern='*'){
     $folders = array();
     foreach (glob("*") as $filename) {
       if (is_dir($filename)) {
         $stats = stat($filename);
-        $ff = new FileFolder($filename, $this->folder, 'file', $stats, 'comment');
+        $ff = new FileFolder($filename, $this->folder, 'folder', $stats, 'comment');
         $folders[] = $ff;
       }
     }

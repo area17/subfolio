@@ -1,5 +1,7 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 
+$config['site_name'] = 'filebrowser2';
+
 $config['theme'] = 'default';
 
 $config['directory'] = dirname(APPPATH).'/directory';

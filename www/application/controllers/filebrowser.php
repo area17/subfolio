@@ -28,7 +28,10 @@ class Filebrowser_Controller extends Website_Controller {
     $this->filebrowser->set_path($path);
     
     if ($this->filebrowser->is_file()) {
-  		$content = View::factory('content');
+      $file = $this->filebrowser->get_file();
+      
+      $kind = $this->filebrowser->get_kind($file->name);
+  		$content = View::factory('content_'.$kind);
   		$this->template->content = $content;
     } else {
 

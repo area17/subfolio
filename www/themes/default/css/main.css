@@ -216,6 +216,10 @@ thead tr td .file_edit { width: 18px; }
   background: #1C7AD5;
 }
 
+  .thumbnail:hover .thumbnail_name {
+    color: #fff;
+  }
+
 .thumbnail, .thumbnail_nolink { float: left; padding: 2px; }
 
 .thumbnail { background-color: #FFF; }
@@ -301,7 +305,9 @@ input.radio
 
 #header { padding: 2px 0 5px 0; border-bottom: 1px dotted #000; margin: 0 0 2px 0}
 
-#navigation { padding: 2px 0 5px 0; border-bottom: 1px dotted #000; margin: 0 0 2px 0}
+#navigation { font-weight: bold; padding: 5px 0 5px 0; border-bottom: 1px dotted #000; margin: 0 0 5px 0}
+
+  #navigation .prev_next{ font-weight: bold; padding: 5px 0 5px 0; border-top: 1px dotted #000; margin: 5px 0 2px 0}
 
 #lock { padding: 7px 0 0 0; }
 
@@ -327,7 +333,7 @@ input.radio
 
 #cms { padding: 0 0 0 0; }
 
-#footer { padding: 2px 0 5px 0; border-top: 1px dotted #000; margin: 0 0 2px 0}
+#footer { padding: 2px 0 5px 0; border-top: 1px dotted #000; margin: 5px 0 2px 0}
 
 
 #path {
