@@ -2,7 +2,7 @@
 
 $config['site_name'] = 'filebrowser2.dev.area17.com';
 $config['theme'] = 'default';
-$config['directory'] = dirname(APPPATH).'/../directory';
+$config['directory'] = dirname(APPPATH).'/../content';
 $config['access_file']     = '-fbaccess';
 $config['properties_file'] = '-fbproperties';
 
