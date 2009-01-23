@@ -107,15 +107,4 @@ $config['modules'] = array
 	// MODPATH.'object_db', // New OOP Database library (testing only!)
 );
 
-$httpHost = $_SERVER["HTTP_HOST"];
-switch ($httpHost) {
-  case "area17.browser2.hpdesktop01" :
-	case "suffolksoftware.browser2.localip":
-    DEFINE ("CONFIG_NAME", "dev");
-  break;
-
-  default:
-    DEFINE ("CONFIG_NAME", "live");
-    $config['display_errors'] = TRUE;
-  break;
-}
+$config['display_errors'] = TRUE;

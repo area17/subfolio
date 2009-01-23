@@ -2,7 +2,7 @@
 RewriteEngine On
 
 # Installation directory
-RewriteBase /
+RewriteBase /engine/
 
 # Protect application and system files from being viewed
 RewriteRule ^(application|modules|system) - [F,L]
@@ -17,3 +17,4 @@ RewriteRule ^directory/(.*)$ index.php/filebrowser/access?path=$1 [PT,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule .* index.php?path=$0 [QSA,PT,L]
+RewriteRule ^$ index.php?path= [QSA,PT,L]

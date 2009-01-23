@@ -3,7 +3,7 @@
 <thead>
   <tr>
     <td>
-      <img src='/themes/default/images/no_icon.gif' width='30' height='14' border='0' />
+      <img src='<?php echo view::get_view_url() ?>/images/no_icon.gif' width='30' height='14' border='0' />
     </td>
     <td class="filename">
       filename
@@ -29,14 +29,14 @@
     <td>
       <?php
         //different folder based on the access
-        $thumbnail = "/themes/default/images/i_dir.gif";
+        $thumbnail = view::get_view_url()."/images/i_dir.gif";
          
         if ($folder->is_restricted()) {
-          $thumbnail = "/themes/default/images/i_dir.gif";
+          $thumbnail = view::get_view_url()."/images/i_dir.gif";
           if ($folder->have_access($this->auth->get_user())) {
-            $thumbnail = "/themes/default/images/i_dir_unlocked.gif";
+            $thumbnail = view::get_view_url()."/images/i_dir_unlocked.gif";
           } else {
-            $thumbnail = "/themes/default/images/i_dir_locked.gif";
+            $thumbnail = view::get_view_url()."/images/i_dir_locked.gif";
           }
         }
       ?>
@@ -66,7 +66,7 @@
   ?>
   <tr>
     <td>
-      <img src='/themes/default/images/i_<?php echo $this->filebrowser->get_kind($file->name) ?>.gif' width='30' height='14' border='0' />
+      <img src='<?php echo view::get_view_url() ?>/images/i_<?php echo $this->filebrowser->get_kind($file->name) ?>.gif' width='30' height='14' border='0' />
     </td>
     <td class="filename">
       <?php 
