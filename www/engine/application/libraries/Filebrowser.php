@@ -122,16 +122,19 @@ class Filebrowser {
     foreach (glob($this->folder."/*") as $filename) {
       if (!is_dir($filename)) {
         $filename = substr($filename, 2);
-        $stats = stat($filename);
-        $ff = new FileFolder($filename, $this->folder, 'file', $stats, 'comment');
-        
-        if ($kind != null) {
-          $filekind = $this->get_kind($filename);
-          if ($filekind === $kind) {
+
+        if (!$this->is_hidden($filename)) {
+          $stats = stat($filename);
+          $ff = new FileFolder($filename, $this->folder, 'file', $stats, 'comment');
+          
+          if ($kind != null) {
+            $filekind = $this->get_kind($filename);
+            if ($filekind === $kind) {
+              $files[] = $ff;
+            }
+          } else {
             $files[] = $ff;
           }
-        } else {
-          $files[] = $ff;
         }
       }
     }
@@ -145,16 +148,19 @@ class Filebrowser {
     $files = array();
     foreach (glob("*") as $filename) {
       if (!is_dir($filename)) {
-        $stats = stat($filename);
-        $ff = new FileFolder($filename, $this->folder, 'file', $stats, 'comment');
-        
-        if ($kind != null) {
-          $filekind = $this->get_kind($filename);
-          if ($filekind === $kind) {
+
+        if (!$this->is_hidden($filename)) {
+          $stats = stat($filename);
+          $ff = new FileFolder($filename, $this->folder, 'file', $stats, 'comment');
+          
+          if ($kind != null) {
+            $filekind = $this->get_kind($filename);
+            if ($filekind === $kind) {
+              $files[] = $ff;
+            }
+          } else {
             $files[] = $ff;
           }
-        } else {
-          $files[] = $ff;
         }
       }
     }
@@ -168,8 +174,10 @@ class Filebrowser {
     foreach (glob("../*") as $filename) {
       if (is_dir($filename)) {
         $filename = substr($filename, 3);
-        $ff = new FileFolder($filename, $this->folder, 'folder', array(), 'comment');
-        $folders[] = $ff;
+        if (!$this->is_hidden($filename)) {
+          $ff = new FileFolder($filename, $this->folder, 'folder', array(), 'comment');
+          $folders[] = $ff;
+        }
       }
     }
     return $folders;
@@ -179,9 +187,11 @@ class Filebrowser {
     $folders = array();
     foreach (glob("*") as $filename) {
       if (is_dir($filename)) {
-        $stats = stat($filename);
-        $ff = new FileFolder($filename, $this->folder, 'folder', $stats, 'comment');
-        $folders[] = $ff;
+        if (!$this->is_hidden($filename)) {
+          $stats = stat($filename);
+          $ff = new FileFolder($filename, $this->folder, 'folder', $stats, 'comment');
+          $folders[] = $ff;
+        }
       }
     }
     return $folders;
@@ -467,6 +477,20 @@ class Filebrowser {
       }
     }
     return $display;
+  }
+  
+  private function is_hidden($filename) {
+    $hidden = false;
+    $pos = strpos($filename, '-');    
+    if ($pos === false) {
+      $hidden = false;
+    } else {
+      if ($pos == 0) {
+        $hidden = true;
+      }
+    }
+    
+    return $hidden;
   }
   
 }
