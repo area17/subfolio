@@ -5,6 +5,7 @@ class User {
   var $password;
   var $hashed_password;
   var $admin;
+  var $groups;
   
   public function __construct($name, $array) {
     $this->name     = $name;

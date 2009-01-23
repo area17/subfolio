@@ -26,7 +26,21 @@
 <?php foreach ($folders as $folder) : ?>
   <tr>
     <td>
-      <img src='/themes/default/images/i_dir.gif' width='30' height='14' border='0' />
+      <?php
+        //different folder based on the access
+        $thumbnail = "/themes/default/images/i_dir.gif";
+         
+        if ($folder->is_restricted()) {
+          $thumbnail = "/themes/default/images/i_dir.gif";
+          if ($folder->have_access($this->auth->get_user())) {
+            $thumbnail = "/themes/default/images/i_dir_unlocked.gif";
+          } else {
+            $thumbnail = "/themes/default/images/i_dir_locked.gif";
+          }
+        }
+        
+      ?>
+      <img src='<?php echo $thumbnail ?>' width='30' height='14' border='0' />
     </td>
     <td class="filename">
       <a href="<?php echo $this->filebrowser->get_link($folder->name); ?>"><?php echo $folder->name; ?></a>

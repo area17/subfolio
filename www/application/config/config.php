@@ -116,6 +116,6 @@ switch ($httpHost) {
 
   default:
     DEFINE ("CONFIG_NAME", "live");
-    $config['display_errors'] = FALSE;
+    $config['display_errors'] = TRUE;
   break;
 }

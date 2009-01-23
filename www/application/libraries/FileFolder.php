@@ -9,6 +9,8 @@ class FileFolder {
   var $stats;
 
   var $comment;
+
+  var $access = null;
   
   public function __construct($name, $parent, $type, $stats, $comment) {
     $this->name     = $name;
@@ -16,6 +18,29 @@ class FileFolder {
     $this->type     = $type;
     $this->stats    = $stats;
     $this->comment  = $comment;
+  }
+
+  protected function load_access() {
+    if ($this->access == null) {
+      $this->access = new Access();
+      $this->access->load_access($this->name);
+    }
+  }
+
+  public function is_restricted() {
+    $this->load_access();
+    return $this->access->is_restricted();
+  }
+
+  public function have_access($user) {
+    $have_access = false;
+    
+    $this->load_access();
+    if ($this->access->check_access($user)) {
+      $have_access = true;
+    }        
+    
+    return $have_access;
   }
 
   public function has_thumbnail() {
