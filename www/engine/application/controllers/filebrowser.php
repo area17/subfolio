@@ -57,20 +57,31 @@ class Filebrowser_Controller extends Website_Controller {
     $this->filebrowser->set_path($path);
     $this->access->load_access($this->filebrowser->get_folder());
 
-    // CHECK IF I HAVE ACCESS TO path
-    $file = $this->filebrowser->fullfilepath;
-    
-    header('Content-Description: File Transfer');
-    header('Content-Type: ' . mime_content_type($file));
-    header('Content-Transfer-Encoding: binary');
-    header('Expires: 0');
-    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-    header('Pragma: public');
-    header('Content-Length: ' . filesize($file));
-    ob_clean();
-    flush();
-    readfile($file);
-    exit;  
+    if ($this->access->is_restricted()) {
+      // if user is not logged in redirect to login screen
+      if (!$this->auth->logged_in()) {
+        url::redirect("/login"); 
+      }
+    }
+
+    if ($this->access->check_access($this->auth->get_user())) {
+      // CHECK IF I HAVE ACCESS TO path
+      $file = $this->filebrowser->fullfilepath;
+      
+      header('Content-Description: File Transfer');
+      header('Content-Type: ' . mime_content_type($file));
+      header('Content-Transfer-Encoding: binary');
+      header('Expires: 0');
+      header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+      header('Pragma: public');
+      header('Content-Length: ' . filesize($file));
+      ob_clean();
+      flush();
+      readfile($file);
+      exit;  
+		} else {
+      url::redirect("/denied"); 
+		}
   }
 
   public function index() {
@@ -112,7 +123,7 @@ class Filebrowser_Controller extends Website_Controller {
 
   		}
 		} else {
-      //url::redirect("/denied"); 
+      url::redirect("/denied"); 
 		}
     
   }
