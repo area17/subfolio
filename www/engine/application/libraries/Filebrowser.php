@@ -60,7 +60,9 @@ class Filebrowser {
     chdir($this->fullfolderpath."/");
     
     // load properties
-    $array = Spyc::YAMLLoad(".fbproperties");
+    $properties_file = Kohana::config('filebrowser.properties_file');
+    
+    $array = Spyc::YAMLLoad($properties_file);
     $this->properties = $array;
   }  
 
