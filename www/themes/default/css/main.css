@@ -344,3 +344,10 @@ input.radio
     text-align: right;
 }
 
+.listing-top {
+  padding: 2px 0 5px 0; border-bottom: 1px dotted #000; margin: 0 0 10px 0;
+}
+
+.listing-bottom {
+  padding: 5px 0 2px 0; border-top: 1px dotted #000; margin: 10px 0 0  0;
+}

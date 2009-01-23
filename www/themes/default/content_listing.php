@@ -1,3 +1,4 @@
+
 <table class="file_folder_listing">
 <thead>
   <tr>
@@ -38,7 +39,6 @@
             $thumbnail = "/themes/default/images/i_dir_locked.gif";
           }
         }
-        
       ?>
       <img src='<?php echo $thumbnail ?>' width='30' height='14' border='0' />
     </td>
@@ -55,19 +55,57 @@
       folder
     </td>
     <td class="filecomment">
+      <?php echo $this->filebrowser->get_item_property($folder->name, 'comment') ?>
     </td>
   </tr>
 <?php endforeach ?>
 
 <?php foreach ($files as $file) :
   if (!$file->has_thumbnail()) :
+    $kind = $this->filebrowser->get_kind($file->name);
   ?>
   <tr>
     <td>
       <img src='/themes/default/images/i_<?php echo $this->filebrowser->get_kind($file->name) ?>.gif' width='30' height='14' border='0' />
     </td>
     <td class="filename">
-      <a href="<?php echo $this->filebrowser->get_link($file->name); ?>"><?php echo $file->name; ?></a>
+      <?php 
+		  switch ($kind) {
+  			case "ai" :
+  			case "eps" :
+  			case "gen" :
+  			case "bmp" :
+  			case "psd" :
+  			case "tif" :
+  			case "xls" :
+  			case "ppt" :
+  			case "doc" :
+  			case "fnt" :
+  			case "suit" :
+  			case "rtf" :
+  			case "zip" :
+  			  ?>
+  			  <a href="/directory<?php echo $this->filebrowser->get_link($file->name); ?>"><?php echo $file->name; ?></a>
+          <?php
+  			  break;
+
+  			case "net" :
+          $url = $this->filebrowser->get_item_property($file->name, 'url')    ? $this->filebrowser->get_item_property($file->name, 'url') : '';
+          $target = $this->filebrowser->get_item_property($file->name, 'target')    ? $this->filebrowser->get_item_property($file->name, 'target') : '_blank';
+          
+          if ($url <> '') { ?>
+            <a target="<?php echo $target ?>" href="<?php echo $url ?>"><?php echo $file->name ?></a>
+          <? }
+  			  break;
+
+  			default:
+  			  ?>
+  			  <a href="<?php echo $this->filebrowser->get_link($file->name); ?>"><?php echo $file->name; ?></a>
+          <?php
+          break;  			
+	    }
+      ?>
+      
     </td>
     <td class="filesize">
       <?php echo format::filesize($file->stats['size']); ?>
@@ -79,6 +117,7 @@
       <?php echo $this->filebrowser->get_kind_display($file->name) ?>
     </td>
     <td class="filecomment">
+      <?php echo $this->filebrowser->get_item_property ($file->name, 'comment') ?>
     </td>
   </tr>
   <?php endif ?>

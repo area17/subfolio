@@ -24,7 +24,6 @@ class Filebrowser {
     $this->config_name = $config_name;
     
     $this->folder = $this->config['directory'];
-    $this->path = '';
   }
 
 
@@ -59,6 +58,10 @@ class Filebrowser {
       $this->fullfilepath = $this->config['directory']."/".$path;
     }
     chdir($this->fullfolderpath."/");
+    
+    // load properties
+    $array = Spyc::YAMLLoad(".fbproperties");
+    $this->properties = $array;
   }  
 
   public function is_file() {
@@ -198,7 +201,23 @@ class Filebrowser {
   }
 
 
+  public function get_folder_property($propertyname) {
+    if (isset($this->properties[$propertyname])) {
+      return $this->properties[$propertyname];
+    }
+    
+    return null;
+  }
 
+  public function get_item_property($filename, $propertyname) {
+    if (isset($this->properties[$filename])) {
+      $info = $this->properties[$filename];
+      if (isset($info[$propertyname])) {
+        return $info[$propertyname];
+      }
+    }
+    return null;
+  }
 
   
   function get_kind($file) {

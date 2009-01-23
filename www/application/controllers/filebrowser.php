@@ -94,6 +94,9 @@ class Filebrowser_Controller extends Website_Controller {
     		$content = View::factory('content_'.$kind);
     		$this->template->content = $content;
       } else {
+
+    		$top = View::factory('content_listing_top');
+    		$this->template->content .= $top;
   
     		$gallery = View::factory('gallery');
     		$gallery->files   = $this->filebrowser->get_file_list("img");
@@ -103,6 +106,10 @@ class Filebrowser_Controller extends Website_Controller {
     		$listing->files   = $this->filebrowser->get_file_list();
     		$listing->folders = $this->filebrowser->get_folder_list();
     		$this->template->content .= $listing;
+
+    		$bottom = View::factory('content_listing_bottom');
+    		$this->template->content .= $bottom;
+
   		}
 		} else {
       //url::redirect("/denied"); 
