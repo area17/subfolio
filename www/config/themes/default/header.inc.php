@@ -44,8 +44,8 @@
   </div>
   <div id="pathlinks">
       <?php
-      if (false) {
-          print "<a title='Logout' alt='' href='/system/logout/'>logout</a> | ";
+      if ($this->auth->logged_in()) {
+          print "<a title='Logout' alt='' href='/logout'>logout</a> | ";
       }
   
       $subject = "Link from " . $_SERVER["SERVER_NAME"];

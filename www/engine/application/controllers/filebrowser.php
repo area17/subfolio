@@ -9,6 +9,8 @@ class Filebrowser_Controller extends Website_Controller {
 			->add_rules('username','required')
 			->add_rules('password', 'required');
 
+    $return_path = $this->session->get('return_path') ? $this->session->get('return_path') : '/';
+
 		$login = View::factory('login');
 	  $login->login_failed = false;
 
@@ -23,7 +25,8 @@ class Filebrowser_Controller extends Website_Controller {
 				if ($this->auth->login($username, $password, true)) {
 					// Login successful, redirect
 					Session::instance()->set_flash('flash', 'Login complete.');		
-					url::redirect('/');
+					url::redirect($return_path);
+          exit();
 				} else {
     		  $login->login_failed = true;
 					Session::instance()->set_flash('flash', 'Login Failed');		
@@ -39,6 +42,7 @@ class Filebrowser_Controller extends Website_Controller {
     $this->auth->logout(true);
 		Session::instance()->set_flash('flash', 'Logout complete.');		
 		url::redirect('/');
+    exit();
   }
 
   public function denied() {
@@ -60,7 +64,9 @@ class Filebrowser_Controller extends Website_Controller {
     if ($this->access->is_restricted()) {
       // if user is not logged in redirect to login screen
       if (!$this->auth->logged_in()) {
+        $this->session->set('return_path', $path);
         url::redirect("/login"); 
+        exit();
       }
     }
 
@@ -81,6 +87,7 @@ class Filebrowser_Controller extends Website_Controller {
       exit;  
 		} else {
       url::redirect("/denied"); 
+      exit();
 		}
   }
 
@@ -93,7 +100,9 @@ class Filebrowser_Controller extends Website_Controller {
     if ($this->access->is_restricted()) {
       // if user is not logged in redirect to login screen
       if (!$this->auth->logged_in()) {
+        $this->session->set('return_path', $path);
         url::redirect("/login"); 
+        exit();
       }
     }
 
@@ -124,6 +133,7 @@ class Filebrowser_Controller extends Website_Controller {
   		}
 		} else {
       url::redirect("/denied"); 
+      exit();
 		}
     
   }
