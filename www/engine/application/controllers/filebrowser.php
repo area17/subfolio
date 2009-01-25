@@ -111,23 +111,27 @@ class Filebrowser_Controller extends Website_Controller {
         $file = $this->filebrowser->get_file();
         
         $kind = $this->filebrowser->get_kind($file->name);
-    		$content = View::factory('content_'.$kind);
+        if (View::view_exists('content/types/'.$kind)) {
+      		$content = View::factory('content/types/'.$kind);
+  		  } else {
+      		$content = View::factory('content/types/default');
+  		  }
     		$this->template->content = $content;
       } else {
 
-    		$top = View::factory('content_listing_top');
+    		$top = View::factory('content/listing_top');
     		$this->template->content .= $top;
   
-    		$gallery = View::factory('gallery');
+    		$gallery = View::factory('content/gallery');
     		$gallery->files   = $this->filebrowser->get_file_list("img");
     		$this->template->content .= $gallery;
   
-    		$listing = View::factory('content_listing');
+    		$listing = View::factory('content/listing');
     		$listing->files   = $this->filebrowser->get_file_list();
     		$listing->folders = $this->filebrowser->get_folder_list();
     		$this->template->content .= $listing;
 
-    		$bottom = View::factory('content_listing_bottom');
+    		$bottom = View::factory('content/listing_bottom');
     		$this->template->content .= $bottom;
 
   		}
