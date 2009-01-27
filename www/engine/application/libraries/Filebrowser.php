@@ -234,11 +234,16 @@ class Filebrowser {
   
   function get_kind($file) {
     $path_parts = pathinfo($file);
-    $extension = $path_parts['extension'];
+    
+    $extension ="";
+    if (isset($path_parts['extension'])) {
+      $extension = $path_parts['extension'];
+    } else {
+    }
 
   	// get the extention
     $extension = strtolower($extension);
-    $kind = "none";
+    $kind = "folder";
   
     if ($extension <> "") {
       switch ($extension) {
