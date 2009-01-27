@@ -45,7 +45,7 @@ foreach ($folders as $folder):
             $icon_file = "i_dir_locked";
           }
         } else {
-          if ($folder->stats['ctime'] > $new_updated_start) {
+          if (false && $folder->stats['ctime'] > $new_updated_start) {
               $new = "_new";
           } else if ($folder->stats['mtime'] > $new_updated_start) {
               $updated = "_up";
@@ -98,9 +98,9 @@ foreach ($folders as $folder):
     $new = "";
     $updated = "";
 
-      if ($file->stats['ctime'] > $new_updated_start) {
+      if (false && $file->stats['ctime'] < $new_updated_start) {
           $new = "_new";
-      } else if ($file->stats['mtime'] > $new_updated_start) {
+      } else if ($file->stats['mtime'] < $new_updated_start) {
           $updated = "_up";
       }
 
