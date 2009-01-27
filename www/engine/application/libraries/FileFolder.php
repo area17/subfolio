@@ -44,25 +44,29 @@ class FileFolder {
   }
 
   public function has_thumbnail() {
-    $thumbnail = ".thumbnails/".$this->name;
+    $thumbnail = "-thumbnails/".$this->name;
     if (file_exists($thumbnail)) {
-      return true;
+      // check the age of the thumbnail, if it was generated before the file modified, return false;
+     $thumbnail_stats = stat($thumbnail);
+     if ($thumbnail_stats['mtime'] > $this->stats['mtime']) {
+       return true;
+     } else {
+       return false;
+     }
     } else {
       return false;
     }
   }
   
   public function get_thumbnail_url() {
-    $thumbnail = ".thumbnails/".$this->name;
-    $url = "/directory/".$this->parent."/.thumbnails/".$this->name;
+    $thumbnail = "-thumbnails/".$this->name;
+    $url = "/directory/".$this->parent."/-thumbnails/".$this->name;
 
-    if (!file_exists(".thumbnails")) mkdir(".thumbnails", 0755, true);
+    if (!file_exists("-thumbnails")) mkdir("-thumbnails", 0755, true);
 
     $build_thumbnail = false;
-    if (!file_exists($thumbnail)) {
+    if (!$this->has_thumbnail()) {
       $build_thumbnail = true;
-    } else {
-      // check age of thumbnail compared to the age of the source
     }
 
     if ($build_thumbnail) {
@@ -72,7 +76,8 @@ class FileFolder {
       $this->image->save($thumbnail);
     }
     
-    return $url;
+    $thumbnail_stats = stat($thumbnail);
+    return $url."?rnd=".$thumbnail_stats['mtime'];
   }
   
 }
