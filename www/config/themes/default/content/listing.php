@@ -24,23 +24,37 @@
 </thead>
 
 <tbody>
-<?php foreach ($folders as $folder) : 
+<?php 
+$new_updated_start = strtotime("-7 days");
+foreach ($folders as $folder): 
     $kind = $this->filebrowser->get_kind($folder->name);
 ?>
   <tr>
     <td>
       <?php
         //different folder based on the access
-        $thumbnail = view::get_view_url()."/images/i_dir.gif";
+        $icon_file = "i_dir";
+        $new = "";
+        $updated = "";
          
         if ($folder->is_restricted()) {
-          $thumbnail = view::get_view_url()."/images/i_dir.gif";
+          $icon_file = "i_dir";
           if ($folder->have_access($this->auth->get_user())) {
-            $thumbnail = view::get_view_url()."/images/i_dir_unlocked.gif";
+            $icon_file = "i_dir_unlocked";
           } else {
-            $thumbnail = view::get_view_url()."/images/i_dir_locked.gif";
+            $icon_file = "i_dir_locked";
+          }
+        } else {
+          if ($folder->stats['ctime'] > $new_updated_start) {
+              $new = "_new";
+          } else if ($folder->stats['mtime'] > $new_updated_start) {
+              $updated = "_up";
           }
         }
+        
+        
+        $thumbnail = view::get_view_url()."/images/".$icon_file.$new.$updated.".gif";        
+        
       ?>
       <img src='<?php echo $thumbnail ?>' width='30' height='14' border='0' />
     </td>
@@ -80,10 +94,20 @@
 <?php foreach ($files as $file) :
   if (!$file->has_thumbnail()) :
     $kind = $this->filebrowser->get_kind($file->name);
+    
+    $new = "";
+    $updated = "";
+
+      if ($file->stats['ctime'] > $new_updated_start) {
+          $new = "_new";
+      } else if ($file->stats['mtime'] > $new_updated_start) {
+          $updated = "_up";
+      }
+
   ?>
   <tr>
     <td>
-      <img src='<?php echo view::get_view_url() ?>/images/i_<?php echo $this->filebrowser->get_kind($file->name) ?>.gif' width='30' height='14' border='0' />
+      <img src='<?php echo view::get_view_url() ?>/images/i_<?php echo $this->filebrowser->get_kind($file->name).$new.$updated; ?>.gif' width='30' height='14' border='0' />
     </td>
     <td class="filename">
       <?php 
