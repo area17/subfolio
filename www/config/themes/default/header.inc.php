@@ -1,10 +1,10 @@
 <?php
     $showHide = "showSwitch";
-    $showHideLabel = "collapse header";
+    $showHideLabel = "".Kohana::lang('filebrowser.collapseheader');
     if (isset($_COOKIE['logo'])) {
         if ($_COOKIE['logo'] == "hideSwitch") {
             $showHide = "hideSwitch";
-            $showHideLabel = "expand header";
+            $showHideLabel = "".Kohana::lang('filebrowser.expandheader');;
         }
     }
 ?>
@@ -39,13 +39,13 @@
       endforeach ?>
   
     <?php } else { ?>
-      index of <?php echo Kohana::config('filebrowser.site_name'); ?>
+      <?php echo Kohana::lang('filebrowser.indexof'); ?> <?php echo Kohana::config('filebrowser.site_name'); ?>
     <?php } ?>
   </div>
   <div id="pathlinks">
       <?php
       if ($this->auth->logged_in()) {
-          print "<a title='Logout' alt='' href='/logout'>logout</a> | ";
+          print "<a title='Logout' alt='' href='/logout'>".Kohana::lang('filebrowser.logout')."</a> | ";
       }
   
       $subject = "Link from " . $_SERVER["SERVER_NAME"];
@@ -53,7 +53,7 @@
       ?>
     <script>
       <!--
-      document.write('<a href="mailto:?subject=<?php print "".$subject?>&body='+location.href+'">send page</a>');
+      document.write('<a href="mailto:?subject=<?php print "".$subject?>&body='+location.href+'"><?php echo Kohana::lang('filebrowser.sendpage') ?></a>');
       -->
     </script>
     | <a id="showHideSwitch" href="javascript:showHideSwitch('logo', document.getElementById('hideText')); "><FONT id="hideText"><?php print "".$showHideLabel;?></FONT></a>
@@ -107,3 +107,4 @@
   </div>
   <?php endif ?>
 </div>
+  
