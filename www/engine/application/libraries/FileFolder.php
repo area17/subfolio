@@ -8,16 +8,13 @@ class FileFolder {
 
   var $stats;
 
-  var $comment;
-
   var $access = null;
   
-  public function __construct($name, $parent, $type, $stats, $comment) {
+  public function __construct($name, $parent, $type, $stats) {
     $this->name     = $name;
     $this->parent   = $parent;
     $this->type     = $type;
     $this->stats    = $stats;
-    $this->comment  = $comment;
   }
 
   protected function load_access() {

@@ -95,51 +95,56 @@ class Filebrowser_Controller extends Website_Controller {
     $path = isset($_REQUEST['path']) ? $_REQUEST['path'] : '';
     
     $this->filebrowser->set_path($path);
-    $this->access->load_access($this->filebrowser->get_folder());
-    
-    if ($this->access->is_restricted()) {
-      // if user is not logged in redirect to login screen
-      if (!$this->auth->logged_in()) {
-        $this->session->set('return_path', $path);
-        url::redirect("/login"); 
-        exit();
+
+    if ($this->filebrowser->exists()) {
+      $this->access->load_access($this->filebrowser->get_folder());
+      
+      if ($this->access->is_restricted()) {
+        // if user is not logged in redirect to login screen
+        if (!$this->auth->logged_in()) {
+          $this->session->set('return_path', $path);
+          url::redirect("/login"); 
+          exit();
+        }
       }
-    }
-
-    if ($this->access->check_access($this->auth->get_user())) {
-      if ($this->filebrowser->is_file()) {
-        $file = $this->filebrowser->get_file();
-        
-        $kind = $this->filebrowser->get_kind($file->name);
-        if (View::view_exists('content/types/'.$kind)) {
-      		$content = View::factory('content/types/'.$kind);
-  		  } else {
-      		$content = View::factory('content/types/default');
-  		  }
-    		$this->template->content = $content;
-      } else {
-
-    		$top = View::factory('content/listing_top');
-    		$this->template->content .= $top;
   
-    		$gallery = View::factory('content/gallery');
-    		$gallery->files   = $this->filebrowser->get_file_list("img");
-    		$this->template->content .= $gallery;
+      if ($this->access->check_access($this->auth->get_user())) {
+        if ($this->filebrowser->is_file()) {
+          $file = $this->filebrowser->get_file();
+          
+          $kind = $this->filebrowser->get_kind($file->name);
+          if (View::view_exists('content/types/'.$kind)) {
+        		$content = View::factory('content/types/'.$kind);
+    		  } else {
+        		$content = View::factory('content/types/default');
+    		  }
+      		$this->template->content = $content;
+        } else {
   
-    		$listing = View::factory('content/listing');
-    		$listing->files   = $this->filebrowser->get_file_list();
-    		$listing->folders = $this->filebrowser->get_folder_list();
-    		$this->template->content .= $listing;
-
-    		$bottom = View::factory('content/listing_bottom');
-    		$this->template->content .= $bottom;
-
-  		}
-		} else {
-      url::redirect("/denied"); 
-      exit();
-		}
+      		$top = View::factory('content/listing_top');
+      		$this->template->content .= $top;
     
+      		$gallery = View::factory('content/gallery');
+      		$gallery->files   = $this->filebrowser->get_file_list("img");
+      		$this->template->content .= $gallery;
+    
+      		$listing = View::factory('content/listing');
+      		$listing->files   = $this->filebrowser->get_file_list();
+      		$listing->folders = $this->filebrowser->get_folder_list();
+      		$this->template->content .= $listing;
+  
+      		$bottom = View::factory('content/listing_bottom');
+      		$this->template->content .= $bottom;
+  
+    		}
+  		} else {
+    		$content = View::factory('denied');
+    		$this->template->content .= $content;
+  		}
+    } else {
+  		$content = View::factory('notfound');
+  		$this->template->content .= $content;
+    }
   }
 }
 
