@@ -1,6 +1,7 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 
-$config['site_name'] = 'filebrowser2.dev.area17.com';
+$config['site_name'] = 'Subfolio Portable';
+$config['site_domain'] = 'filebrowser2.dev.area17.com';
 $config['theme'] = 'default';
 $config['directory'] = dirname(APPPATH).'/../directory';
 $config['access_file']     = '-fbaccess';
@@ -11,5 +12,7 @@ $config['properties_file'] = '-fbproperties';
 $config['auth_session'] = 'some_random_string';
 $config['auth_salt'] = 'some_random_string';
 
-$config['users_yaml_file']  = APPPATH."config/users.yaml";
-$config['groups_yaml_file'] = APPPATH."config/groups.yaml";
+$config['users_yaml_file']  = APPPATH."../../config/settings/users.yaml";
+$config['groups_yaml_file'] = APPPATH."../../config/settings/groups.yaml";
+
+// 

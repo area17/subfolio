@@ -10,7 +10,7 @@ class Website_Controller extends Template_Controller {
     $this->access = Access::instance();
     $this->filebrowser = Filebrowser::instance();
  		
- 		$this->template->site_title = "Filebrowser2";
+ 		$this->template->site_title = Kohana::config('filebrowser.site_name');
  		$this->template->page_title = "Home";
  	}
 }

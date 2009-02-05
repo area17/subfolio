@@ -13,11 +13,19 @@ class Auth {
     $user_file  = Kohana::config('filebrowser.users_yaml_file');
     $group_file = Kohana::config('filebrowser.groups_yaml_file');
     
-    $array = Spyc::YAMLLoad($user_file);
-    $this->users = $array['users'];
-
-    $array = Spyc::YAMLLoad($group_file);
-    $this->groups = $array['groups'];
+    if ($user_file <> '') { 
+      $array = Spyc::YAMLLoad($user_file);
+      if (isset($array['users'])) {
+        $this->users = $array['users'];
+      }
+    }
+  
+    if ($group_file <> '') { 
+      $array = Spyc::YAMLLoad($group_file);
+      if (isset($array['groups'])) {
+        $this->groups = $array['groups'];
+      }
+    }
   }
   
 	public static function instance($config_name='auth') {
