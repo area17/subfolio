@@ -62,7 +62,7 @@
   <?php if ($ff <> ""): ?>
   <div class="prev_next">
     
-		<div class='fileicon parent_arrow''><a href='/<?php echo dirname($ff) ?>'><img src='/themes/default/images/i_parent.gif' alt='' width='30' height='14' border='0' /></a></div>
+		<div class='fileicon parent_arrow'><a href='/<?php echo dirname($ff) ?>'><img src='<?php echo view::get_view_url() ?>/images/i_parent.gif' alt='' width='30' height='14' border='0' /></a></div>
 		<div class='filename'><a href='/<?php echo dirname($ff) ?>'>Parent Directory</a></div>
     
     <?php if($this->filebrowser->is_file()): 
