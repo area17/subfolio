@@ -9,7 +9,7 @@
     }
 ?>
 <div id="header">
-	<h1 id="logo" class="logo <?php print "".$showHide;?>"><a href='/' ><?php echo $site_title ?></a></div>
+	<h1 id="logo" class="logo <?php print "".$showHide;?>"><a href='/' ><?php echo Kohana::config('filebrowser.site_name'); ?></a></div>
 </div>
 
 <div id="navigation">
@@ -21,7 +21,7 @@
     <?php if ($ff <> "" && sizeof($parts) > 0) { 
       $path = "/";
       ?>
-      index of <a href="/"><?php echo Kohana::config('filebrowser.site_name'); ?></a>
+      index of <a href="/"><?php echo Kohana::config('filebrowser.site_domain'); ?></a>
   
       <?php 
       $count = 1;
@@ -39,7 +39,7 @@
       endforeach ?>
   
     <?php } else { ?>
-      <?php echo Kohana::lang('filebrowser.indexof'); ?> <?php echo Kohana::config('filebrowser.site_name'); ?>
+      <?php echo Kohana::lang('filebrowser.indexof'); ?> <?php echo Kohana::config('filebrowser.site_domain'); ?>
     <?php } ?>
   </div>
   <div id="pathlinks">

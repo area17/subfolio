@@ -17,7 +17,7 @@
 </head>
   <?php include("header.inc.php") ?>
 
-    <?php echo Session::instance()->get('flash'); ?>
+  <?php echo Session::instance()->get('flash'); ?>
 
   <?php if (isset($content)) echo $content; ?>		
 

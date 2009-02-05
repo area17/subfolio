@@ -118,9 +118,11 @@ class Filebrowser_Controller extends Website_Controller {
     		  } else {
         		$content = View::factory('content/types/default');
     		  }
+          $this->template->page_title = "File: ".$file->name;
       		$this->template->content = $content;
         } else {
-  
+          $folder = $this->filebrowser->get_folder();
+
       		$top = View::factory('content/listing_top');
       		$this->template->content .= $top;
     
@@ -136,6 +138,9 @@ class Filebrowser_Controller extends Website_Controller {
       		$bottom = View::factory('content/listing_bottom');
       		$this->template->content .= $bottom;
   
+      		if ($folder <> "") {
+            $this->template->page_title = "Directory: ".$folder;
+          }
     		}
   		} else {
     		$content = View::factory('denied');
