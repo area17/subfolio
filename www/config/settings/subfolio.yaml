@@ -1,0 +1,17 @@
+
+site_name: Subfolio Name from Yaml
+site_domain: Subfolio Name from Yaml
+
+theme: default
+directory: directory
+
+access_file: -fbaccess
+properties_file: -fbproperties
+
+auth_session: some_random_string
+auth_salt: some_random_string
+
+users_yaml_file: users.yaml
+groups_yaml_file: groups.yaml
+
+// 
