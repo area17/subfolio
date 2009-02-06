@@ -68,7 +68,7 @@ class FileFolder {
 
     if ($build_thumbnail) {
       $this->image = new Image($this->name);
-      $this->image->resize(320, 240, Image::WIDTH);            
+      $this->image->resize(320, 240, Image::HEIGHT);            
       $this->image->crop(320, 240);
       $this->image->save($thumbnail);
     }

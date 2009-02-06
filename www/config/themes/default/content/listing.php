@@ -1,4 +1,4 @@
-
+<?php if (sizeof($folders) + sizeof($files) > 0) { ?>
 <table class="file_folder_listing">
 <thead>
   <tr>
@@ -176,3 +176,6 @@ foreach ($folders as $folder):
 <?php endforeach ?>
 </tbody>
 </table>
+<?php } else { ?>
+  <p>No files present</p>
+<?php } ?>

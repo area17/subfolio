@@ -155,23 +155,34 @@ class Filebrowser {
 
 
 
-  public function get_file_list($kind=null){
+  public function get_file_list($kind=null, $prefix=null, $hidden=false){
     $files = array();
-    foreach (glob("*") as $filename) {
+
+    $name = "*";
+    if ($prefix != null) {
+      $name = $prefix."*";
+    }
+    foreach (glob($name) as $filename) {
       if (!is_dir($filename)) {
 
-        if (!$this->is_hidden($filename)) {
-          $stats = stat($filename);
-          $ff = new FileFolder($filename, $this->folder, 'file', $stats);
+        if ($hidden || !$this->is_hidden($filename)) {
+          $include = false;
           
           if ($kind != null) {
             $filekind = $this->get_kind($filename);
             if ($filekind === $kind) {
-              $files[] = $ff;
+              $include = true;
             }
           } else {
+            $include = true;
+          }
+        
+          if ($include) {
+            $stats = stat($filename);
+            $ff = new FileFolder($filename, $this->folder, 'file', $stats);
             $files[] = $ff;
           }
+          
         }
       }
     }
