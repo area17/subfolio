@@ -500,7 +500,7 @@ class Filebrowser {
         break;
   
         default:
-          $display = $kind;
+          $display = ucfirst($kind);
       }
     }
     return $display;
