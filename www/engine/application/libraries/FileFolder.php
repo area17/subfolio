@@ -41,40 +41,53 @@ class FileFolder {
   }
 
   public function has_thumbnail() {
-    $thumbnail = "-thumbnails/".$this->name;
-    if (file_exists($thumbnail)) {
-      // check the age of the thumbnail, if it was generated before the file modified, return false;
-     $thumbnail_stats = stat($thumbnail);
-     if ($thumbnail_stats['mtime'] > $this->stats['mtime']) {
-       return true;
-     } else {
-       return false;
-     }
+    $custom_thumbnail = "-custom-thumbnails/".$this->name;
+    if (file_exists($custom_thumbnail)) {
+      return true;
     } else {
-      return false;
+      $thumbnail = "-thumbnails/".$this->name;
+      if (file_exists($thumbnail)) {
+        // check the age of the thumbnail, if it was generated before the file modified, return false;
+       $thumbnail_stats = stat($thumbnail);
+       if ($thumbnail_stats['mtime'] > $this->stats['mtime']) {
+         return true;
+       } else {
+         return false;
+       }
+      } else {
+        return false;
+      }
     }
+    return false;
   }
   
   public function get_thumbnail_url() {
-    $thumbnail = "-thumbnails/".$this->name;
-    $url = "/directory/".$this->parent."/-thumbnails/".$this->name;
+    $custom_thumbnail = "-custom-thumbnails/".$this->name;
+    $url = "/directory/".$this->parent."/-custom-thumbnails/".$this->name;
 
-    if (!file_exists("-thumbnails")) mkdir("-thumbnails", 0755, true);
-
-    $build_thumbnail = false;
-    if (!$this->has_thumbnail()) {
-      $build_thumbnail = true;
+    if (file_exists($custom_thumbnail)) {
+      return $url;
+    } else {
+      $thumbnail = "-thumbnails/".$this->name;
+      $url = "/directory/".$this->parent."/-thumbnails/".$this->name;
+  
+      if (!file_exists("-thumbnails")) mkdir("-thumbnails", 0755, true);
+  
+      $build_thumbnail = false;
+      if (!$this->has_thumbnail()) {
+        $build_thumbnail = true;
+      }
+  
+      if ($build_thumbnail) {
+        $this->image = new Image($this->name);
+        $this->image->resize(320, 240, Image::HEIGHT);            
+        $this->image->crop(320, 240, 'top', 'left');
+        $this->image->save($thumbnail);
+      }
+      
+      $thumbnail_stats = stat($thumbnail);
+      return $url."?rnd=".$thumbnail_stats['mtime'];
     }
-
-    if ($build_thumbnail) {
-      $this->image = new Image($this->name);
-      $this->image->resize(320, 240, Image::HEIGHT);            
-      $this->image->crop(320, 240, 'top', 'left');
-      $this->image->save($thumbnail);
-    }
-    
-    $thumbnail_stats = stat($thumbnail);
-    return $url."?rnd=".$thumbnail_stats['mtime'];
   }
   
 }
