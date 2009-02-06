@@ -91,20 +91,19 @@
 			$next    = $this->filebrowser->get_next($folders, $folder);
 
 			if ($prev <> "") {
-				print "<a href='$prev->name'>Prev Folder</a>";
+				print "<a href='$prev->name'>Prev Directory</a>";
 			} else {
-				print "<span class='faded'>Prev Folder</span>";
+				print "<span class='faded'>Prev Directory</span>";
 			}
 			echo "&nbsp;&nbsp;|&nbsp;&nbsp;";
 
 			if ($next <> "") {
-				print "<a href='$next->name'>Next Folder</a>";
+				print "<a href='$next->name'>Next Directory</a>";
 			} else {
-				print "<span class='faded'>Next Folder</span>";
+				print "<span class='faded'>Next Directory</span>";
 			}
       ?>
     <?php endif ?>
   </div>
   <?php endif ?>
 </div>
-  
