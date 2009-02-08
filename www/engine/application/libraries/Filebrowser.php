@@ -19,13 +19,63 @@ class Filebrowser {
 
   var $properties     = array();
 
+  var $updated_since  = "last_week";
+
   public function __construct($config_name='filebrowser') {
     $this->config = Kohana::config($config_name);
     $this->config_name = $config_name;
     
     $this->folder = $this->config['directory'];
+
+    // check and update the updated_since settings
+    $this->set_updated_since();
   }
 
+  private function set_updated_since() {
+    if (isset($_REQUEST["updated_since"])) {
+        if ($_REQUEST["updated_since"] == "lastweek" || $_REQUEST["updated_since"] == "lastmonth" || $_REQUEST["updated_since"] == "lastvisit") {
+          $this->updated_since = $_REQUEST["updated_since"];
+          cookie::set("update_since", $this->updated_since, (3600 * 24 * 60));
+        }
+    } else {
+      $val = cookie::get("update_since");
+      if ($val != NULL) {
+         $this->updated_since = $val;
+      }
+    }
+
+    $session= Session::instance();
+
+    if ($session->get('previous_visit') != NULL) {
+        $value = date("Y-m-d h:i:s");
+        cookie::set("last_visit", "".mktime(), 3600 * 24 * 60);
+    } else {
+        $last_visit = cookie::get("last_visit");
+        if ($last_visit != NULL) {
+          $session->set('previous_visit', $last_visit);
+        } else {
+          cookie::set("last_visit", "".mktime(), 3600 * 24 * 60);
+          $session->set('previous_visit', "".mktime());
+        }
+
+    }
+  }
+  public function get_updated_since() {
+    return $this->updated_since;
+  }
+
+  public function get_updated_since_time() {
+    $time = strtotime("-7 days");
+    if ($this->updated_since == "lastweek") {
+    } else if ($this->updated_since == "lastmonth") {
+      $time = strtotime("-1 month");
+    } else if ($this->updated_since == "lastvisit") {
+      $session= Session::instance();
+      $time = $session->get('previous_visit', "".mktime());
+    }
+    
+    return $time;
+  }
 
 	public static function instance($config_name='filebrowser') {
     static $instance;

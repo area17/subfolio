@@ -25,7 +25,7 @@
 
 <tbody>
 <?php 
-$new_updated_start = strtotime("-7 days");
+$new_updated_start = $this->filebrowser->get_updated_since_time();
 foreach ($folders as $folder): 
     $kind = $this->filebrowser->get_kind($folder->name);
 
@@ -93,9 +93,9 @@ foreach ($folders as $folder):
     $new = "";
     $updated = "";
 
-      if (false && $file->stats['ctime'] < $new_updated_start) {
+      if (false && $file->stats['ctime'] > $new_updated_start) {
           $new = "_new";
-      } else if ($file->stats['mtime'] < $new_updated_start) {
+      } else if ($file->stats['mtime'] > $new_updated_start) {
           $updated = "_up";
       }
 
