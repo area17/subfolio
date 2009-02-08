@@ -5,7 +5,7 @@
     <title><?php print $site_title;?> | <?php print $page_title;?></title>
 
 	<link href="<?php echo view::get_view_url() ?>/css/main.css" type="text/css" rel="stylesheet" >
-	<link media="only screen and (max-device-width: 480px)" href="<?php echo view::get_view_url() ?>css/iphone.css" type="text/css" rel="stylesheet" >
+	<link media="only screen and (max-device-width: 480px)" href="<?php echo view::get_view_url() ?>/css/iphone.css" type="text/css" rel="stylesheet" >
 		 
 	<link rel="icon" href="<?php echo view::get_view_url() ?>/favicon.ico" type="image/x-con" />
 	<link rel="shortcut icon" href="<?php echo view::get_view_url() ?>/favicon.ico" type="image/x-con" />

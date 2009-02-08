@@ -1,8 +1,5 @@
 /* --------------------------------------------------------------------- */
-/*  AREA 17 MEDIA CSS													 */
-/* --------------------------------------------------------------------- */
-/*  last modification: June 1 2005										 */
-/*  by: Arnaud Mercier													 */
+/* AREA 17 MEDIA CSS													                           */
 /* --------------------------------------------------------------------- */
 
 html, body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, form, fieldset, a { 
@@ -149,21 +146,14 @@ hr
 
 .top_message { padding: 2px 0 3px 0; }
 
-.a17_logo {
+.logo {
 	padding-bottom: 11px;
-	background-image: url(../images/logo.gif);
 	background-repeat: no-repeat;
-	width: 124px;
-	height: 60px;
 }
-.a17_logo a {
+.logo a {
 	display : block;
-	width : 124px;
-	height : 61px;
-	text-indent : -5000px;
 }
-.a17_logo:HOVER {
-	background-image: url(../images/logo_over.gif);
+.logo:HOVER {
 }
 
 .list, .unspaced_list { clear: both; }
@@ -211,13 +201,21 @@ hr
 
 .feature_filename { padding: 2px 0 8px 0; font-weight: bold; }
 
-.thumbnail, .thumbnail_nolink { float: left; padding: 2px; }
 
-.thumbnail { background-color: #FFF; }
 
-.thumbnail_name { padding: 5px 0 2px 4px; }
+#gallery {
+  padding: 0 0 5px 0;
+}
 
-.spacing { margin: 0 1px 1px 0; }
+#gallery ul {
+  display: inline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+  #gallery ul li { float: left; padding: 2px; margin: 0 1px 1px 0; background-color: #fff; }
+  #gallery ul li:hover { background: #1C7AD5; color: #fff; }
+  #gallery ul li p { margin: 0; padding: 5px 0 2px 4px; }
 
 .newsletter_text { color: #F5F5F5; padding: 0 0 5px 0; font-weight: bold; }
 
@@ -294,6 +292,19 @@ input.radio
 #header, #inline_picture, #inline_text, #gallery, #features, #file_listing, #description, #related, #footer
 { margin-bottom: 1px; }
 
+#navigation {
+  padding: 2px 0 5px 0;
+  border-bottom: 1px dotted #000;
+  margin: 0 0 10px 0;
+}
+
+#navigation .prev_next {
+  margin: 5px 0 2px 0;
+  padding: 5px 0 2px 0;
+  border-top: 1px dotted #000;
+}
+
+
 #header { padding: 2px 0 5px 0; }
 
 #lock { padding: 7px 0 0 0; }
@@ -303,8 +314,6 @@ input.radio
 #top_inline_text { padding-bottom: 0px; }
 
 #bottom_inline_text { padding-bottom: 10px; }
-
-#gallery { padding-bottom: 4px; }
 
 #features { }
 
@@ -320,7 +329,11 @@ input.radio
 
 #cms { padding: 0 0 0 0; }
 
-#footer { padding: 0 0 0 0; }
+#footer { padding: 0 0 0 0; 
+  margin: 10px 0 0px 0;
+  border-top: 1px dotted #000;
+  
+}
 
 
 #path {

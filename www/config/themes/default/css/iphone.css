@@ -193,15 +193,20 @@ hr
 	float: left;
 }
 
-.feature_filename { padding: 2px 0 8px 0; font-weight: bold; }
 
-.thumbnail, .thumbnail_nolink { float: left; padding: 2px; }
+#gallery {
+  padding: 0 0 5px 0;
+}
 
-.thumbnail { background-color: #FFF; }
-
-.thumbnail_name { padding: 5px 0 2px 4px; }
-
-.spacing { margin: 0 1px 1px 0; }
+#gallery ul {
+  display: inline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+  #gallery ul li { float: left; padding: 2px; margin: 0 1px 1px 0; background-color: #fff; }
+  #gallery ul li:hover { background: #1C7AD5; color: #fff; }
+  #gallery ul li p { margin: 0; padding: 5px 0 2px 4px; }
 
 .newsletter_text { color: #F5F5F5; padding: 0 0 5px 0; font-weight: bold; }
 
@@ -287,8 +292,6 @@ input.radio
 #top_inline_text { padding-bottom: 0px; }
 
 #bottom_inline_text { padding-bottom: 10px; }
-
-#gallery { padding-bottom: 4px; }
 
 #features { }
 

@@ -1,9 +1,13 @@
 <?php if (sizeof($files) > 0) { ?>
+<div id="gallery">
+  <ul class="gallery">
   <?php foreach ($files as $file) { ?>
-    <div class="thumbnail spacing">
+    <li>
       <a href="<?php echo $this->filebrowser->get_link($file->name); ?>"><img src="<?php echo $file->get_thumbnail_url() ?>" /></a>
-      <div class='thumbnail_name'><?php echo $file->name ?></div>
-    </div>
+      <p><?php echo $file->name ?></p>
+    </li>
   <?php } ?>
+  </ul>
   <div class="clearfix"></div>
+</div>
 <?php } ?>
