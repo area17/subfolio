@@ -1,5 +1,5 @@
 <?php 
-if ((sizeof($folders) + sizeof($files) > 0) && sizeof($gallery_files) < sizeof($files)) { ?>
+if ((sizeof($folders) + sizeof($files) > 0) && (sizeof($gallery_files) <= sizeof($files))) { ?>
 <table class="file_folder_listing">
 <thead>
   <tr>
