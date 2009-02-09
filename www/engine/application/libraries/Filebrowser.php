@@ -19,7 +19,10 @@ class Filebrowser {
 
   var $properties     = array();
 
-  var $updated_since  = "last_week";
+  var $updated_since  = "lastweek";
+
+  var $sort_order           = "listingNameCmp";
+  var $sort_order_direction = "Asc";
 
   public function __construct($config_name='filebrowser') {
     $this->config = Kohana::config($config_name);
@@ -28,10 +31,53 @@ class Filebrowser {
     $this->folder = $this->config['directory'];
 
     // check and update the updated_since settings
-    $this->set_updated_since();
+    $this->_updated_since();
+    $this->_sort_order();
   }
 
-  private function set_updated_since() {
+  public function _sort_order() {
+    $session= Session::instance();
+    $sortFunction = "listingNameCmp";
+
+    $currentSort = $session->get('sort_order');
+    $currentSortOrder = $session->get('sort_order_direction');
+
+    if (isset($_REQUEST["sort"])) {
+      if ($_REQUEST["sort"] == "filename") {
+        $sortFunction = "listingNameCmp";
+      } else if ($_REQUEST["sort"] == "size") {
+        $sortFunction = "listingSizeCmp";
+      } else if ($_REQUEST["sort"] == "date") {
+        $sortFunction = "listingDateCmp";
+      } else if ($_REQUEST["sort"] == "kind") {
+        $sortFunction = "listingKindCmp";
+      }
+      $session->set('sort_order', $sortFunction);
+      $this->sort_order = $sortFunction;
+      if ($currentSort == $sortFunction) {
+        $newSortOrder = "Asc";
+        if ($currentSortOrder == "Asc") {
+          $newSortOrder = "Desc";
+        }
+        $session->set('sort_order_direction', $newSortOrder);
+        $this->sort_order_direction = $newSortOrder;
+      } else {
+        $session->set('sort_order_direction', "Asc");
+        $this->sort_order_direction = "Asc";
+      }
+    } else if ($currentSort != NULL) {
+      $this->sort_order = $currentSort;
+      $this->sort_order_order = $currentSortOrder;
+    }
+  }
+
+  public function sort($list) {
+    $func = "".$this->sort_order.$this->sort_order_direction;
+		usort($list, array("FileFolder", $func));
+		return $list;
+  }
+
+  private function _updated_since() {
     if (isset($_REQUEST["updated_since"])) {
         if ($_REQUEST["updated_since"] == "lastweek" || $_REQUEST["updated_since"] == "lastmonth" || $_REQUEST["updated_since"] == "lastvisit") {
           $this->updated_since = $_REQUEST["updated_since"];
@@ -139,7 +185,7 @@ class Filebrowser {
       $stats = array();
     }
     
-    $ff = new FileFolder($this->file, $this->folder, 'file', $stats);
+    $ff = new FileFolder($this->file, $this->folder, 'file', $this->get_kind_display($this->file), $stats);
     return $ff;
   }
 
@@ -186,7 +232,7 @@ class Filebrowser {
 
         if (!$this->is_hidden($filename)) {
           $stats = stat($filename);
-          $ff = new FileFolder($filename, $this->folder, 'file', $stats);
+          $ff = new FileFolder($filename, $this->folder, 'file', $this->get_kind_display($filename), $stats);
           
           if ($kind != null) {
             $filekind = $this->get_kind($filename);
@@ -229,7 +275,7 @@ class Filebrowser {
         
           if ($include) {
             $stats = stat($filename);
-            $ff = new FileFolder($filename, $this->folder, 'file', $stats);
+            $ff = new FileFolder($filename, $this->folder, 'file', $this->get_kind_display($filename), $stats);
             $files[] = $ff;
           }
           
@@ -247,7 +293,7 @@ class Filebrowser {
       if (is_dir($filename)) {
         $filename = substr($filename, 3);
         if (!$this->is_hidden($filename)) {
-          $ff = new FileFolder($filename, $this->folder, 'folder', array());
+          $ff = new FileFolder($filename, $this->folder, 'folder', "folder", array());
           $folders[] = $ff;
         }
       }
@@ -261,7 +307,7 @@ class Filebrowser {
       if (is_dir($filename)) {
         if (!$this->is_hidden($filename)) {
           $stats = stat($filename);
-          $ff = new FileFolder($filename, $this->folder, 'folder', $stats);
+          $ff = new FileFolder($filename, $this->folder, 'folder', $this->get_kind_display($filename), $stats);
           $folders[] = $ff;
         }
       }

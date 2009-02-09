@@ -214,7 +214,7 @@ hr
   padding: 0;
 }
   #gallery ul li { float: left; padding: 2px; margin: 0 1px 1px 0; background-color: #fff; }
-  #gallery ul li:hover { background: #1C7AD5; color: #fff; }
+  #gallery ul li:hover, #gallery ul li:hover p { background: #1C7AD5; color: #fff; }
   #gallery ul li p { margin: 0; padding: 5px 0 2px 4px; }
 
 .newsletter_text { color: #F5F5F5; padding: 0 0 5px 0; font-weight: bold; }

@@ -8,21 +8,21 @@
    <?php if ($updated_since == "lastweek") { ?>
 	   last week
    <?php } else { ?>
-	   <a href="&updated_since=lastweek">last week</a>
+	   <a href="?updated_since=lastweek">last week</a>
    <?php } ?>
 
  | 
    <?php if ($updated_since == "lastmonth") { ?>
 		last month
    <?php } else { ?>
-		<a href="&updated_since=lastmonth">last month</a>
+		<a href="?updated_since=lastmonth">last month</a>
    <?php } ?>
  
  | 
    <?php if ($updated_since == "lastvisit") { ?>
 		my last visit
    <?php } else { ?>
-		<a href="&updated_since=lastvisit">my last visit</a>
+		<a href="?updated_since=lastvisit">my last visit</a>
    <?php } ?>
   </p>
 

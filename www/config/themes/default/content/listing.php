@@ -6,19 +6,19 @@
       <img src='<?php echo view::get_view_url() ?>/images/no_icon.gif' width='30' height='14' border='0' />
     </td>
     <td class="filename">
-      filename
+      <a href="?sort=filename">filename</a>
     </td>
     <td class="filesize">
-      size
+      <a href="?sort=size">size</a>
     </td>
     <td class="filedate">
-      date
+      <a href="?sort=date">date</a>
     </td>
     <td class="filekind">
-      kind
+      <a href="?sort=kind">kind</a>
     </td>
     <td class="filecomment">
-      comments
+      comment
     </td>
   </tr>
 </thead>

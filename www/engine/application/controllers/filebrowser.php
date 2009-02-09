@@ -131,8 +131,13 @@ class Filebrowser_Controller extends Website_Controller {
       		$this->template->content .= $gallery;
     
       		$listing = View::factory('content/listing');
-      		$listing->files   = $this->filebrowser->get_file_list();
-      		$listing->folders = $this->filebrowser->get_folder_list();
+      		$files  = $this->filebrowser->get_file_list();
+      		$files  = $this->filebrowser->sort($files);
+          $listing->files = $files;
+      		
+      		$folders = $this->filebrowser->get_folder_list();
+      		$folders = $this->filebrowser->sort($folders);
+          $listing->folders = $folders;
       		$this->template->content .= $listing;
   
       		$bottom = View::factory('content/listing_bottom');

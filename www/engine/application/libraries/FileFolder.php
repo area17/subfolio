@@ -5,15 +5,16 @@ class FileFolder {
 
   // 'file' or 'folder'
   var $type;
-
+  var $kind;
   var $stats;
 
   var $access = null;
   
-  public function __construct($name, $parent, $type, $stats) {
+  public function __construct($name, $parent, $type, $kind, $stats) {
     $this->name     = $name;
     $this->parent   = $parent;
     $this->type     = $type;
+    $this->kind     = $kind;
     $this->stats    = $stats;
   }
 
@@ -89,6 +90,57 @@ class FileFolder {
       return $url."?rnd=".$thumbnail_stats['mtime'];
     }
   }
-  
+
+	// COMPARES TWO DATES
+  public function listingDateCmpAsc($a, $b) {
+    if ($a->stats['mtime'] == $b->stats['mtime']) {
+     return 0;
+    }
+    return ($a->stats['mtime'] < $b->stats['mtime']) ? -1 : 1;
+  }
+
+	// COMPARES TWO SIZES
+  public function listingSizeCmpAsc($a, $b) {
+    if ($a->stats['size'] == $b->stats['size']) {
+     return 0;
+    }
+    return ($a->stats['size'] < $b->stats['size']) ? -1 : 1;
+  }
+
+	// COMPARE TWO NAMES
+  public function listingNameCmpAsc($a, $b) {
+    return strcmp($a->name, $b->name);
+  }
+
+	// COMPARES TWO KIND
+  public function listingKindCmpAsc($a, $b) {
+    return strcmp($a->kind, $b->kind);
+  }
+
+	// COMPARES TWO DATES
+  public static function listingDateCmpDesc($a, $b) {
+    if ($a->stats['mtime'] == $b->stats['mtime']) {
+     return 0;
+    }
+    return ($a->stats['mtime'] > $b->stats['mtime']) ? -1 : 1;
+  }
+
+	// COMPARES TWO SIZES
+  public static function listingSizeCmpDesc($a, $b) {
+    if ($a->stats['size'] == $b->stats['size']) {
+     return 0;
+    }
+    return ($a->stats['size'] > $b->stats['size']) ? -1 : 1;
+  }
+
+	// COMPARE TWO NAMES
+  public static function listingNameCmpDesc($a, $b) {
+    return strcmp($b->name, $a->name);
+  }
+
+	// COMPARES TWO KIND
+  public static function listingKindCmpDesc($a, $b) {
+    return strcmp($b->kind, $a->kind);
+  }  
 }
 ?>
