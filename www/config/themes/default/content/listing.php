@@ -1,5 +1,17 @@
 <?php 
-if ((sizeof($folders) + sizeof($files) > 0) && (sizeof($gallery_files) <= sizeof($files))) { ?>
+$showListing = true;
+
+if (sizeof($folders) > 0) {
+  $showListing = true;
+} else {
+  if (sizeof($files) > sizeof($gallery_files)) {
+    $showListing = true;
+  } else {
+    $showListing = false;
+  }
+}
+
+if ($showListing) { ?>
 <table class="file_folder_listing">
 <thead>
   <tr>
