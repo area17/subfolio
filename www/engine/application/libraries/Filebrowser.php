@@ -466,14 +466,18 @@ class Filebrowser {
         case 'doc':
         case 'rtf':
         case 'sql':
+        case 'docx':
           $kind = 'doc';
         break;
         
         case 'ppt':
+        case 'pptx':
+        case 'pps':
           $kind = 'ppt';
         break;
         
         case 'xls':
+        case 'xlsx':
           $kind = 'xls';
         break;
         
