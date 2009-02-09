@@ -1,4 +1,5 @@
-<?php if (sizeof($folders) + sizeof($files) > 0) { ?>
+<?php 
+if ((sizeof($folders) + sizeof($files) > 0) && sizeof($gallery_files) < sizeof($files)) { ?>
 <table class="file_folder_listing">
 <thead>
   <tr>
@@ -165,5 +166,7 @@ foreach ($folders as $folder):
 </tbody>
 </table>
 <?php } else { ?>
+  <?php if (sizeof($gallery_files) < 1) { ?>
   <p>No files present</p>
+  <?php } ?>
 <?php } ?>

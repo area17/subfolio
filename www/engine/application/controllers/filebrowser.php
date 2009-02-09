@@ -133,6 +133,7 @@ class Filebrowser_Controller extends Website_Controller {
       		$listing = View::factory('content/listing');
       		$files  = $this->filebrowser->get_file_list();
       		$files  = $this->filebrowser->sort($files);
+      		$listing->gallery_files = $this->filebrowser->get_file_list("img");
           $listing->files = $files;
       		
       		$folders = $this->filebrowser->get_folder_list();
