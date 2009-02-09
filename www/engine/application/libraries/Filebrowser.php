@@ -226,10 +226,8 @@ class Filebrowser {
 
   public function get_parent_file_list($kind=null) {
     $files = array();
-    foreach (glob($this->folder."/*") as $filename) {
+    foreach (glob("*") as $filename) {
       if (!is_dir($filename)) {
-        $filename = substr($filename, 2);
-
         if (!$this->is_hidden($filename)) {
           $stats = stat($filename);
           $ff = new FileFolder($filename, $this->folder, 'file', $this->get_kind_display($filename), $stats);
