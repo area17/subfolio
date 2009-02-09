@@ -89,20 +89,24 @@ class Auth {
       return false;
     }
     
-    $user = new User($username, $this->users[$username]);
-    
-    if ($user->password === $password) {
-      $this->session->set($this->config['session_key'], $user);
+    if (isset($this->users[$username])) {
+      $user = new User($username, $this->users[$username]);
       
-      if ($remember == true) {
-        $token = $user->name.":".$this->hash($user->name.$this->config['salt']);
-        cookie::set("auth_{$this->config_name}_autologin", $token, $this->config['lifetime']);
+      if ($user->password === $password) {
+        $this->session->set($this->config['session_key'], $user);
+        
+        if ($remember == true) {
+          $token = $user->name.":".$this->hash($user->name.$this->config['salt']);
+          cookie::set("auth_{$this->config_name}_autologin", $token, $this->config['lifetime']);
+        }
+        
+        return $user;
+      } else {
+        return false;
       }
-      
-      return $user;
-    } else {
-      return false;
     }
+    return false;
+    
   }
 	
   public function logout($destroy = false) {
