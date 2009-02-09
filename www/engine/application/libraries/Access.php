@@ -29,14 +29,14 @@ class Access {
     $folders = explode("/", $rootFolder);
     $file_list = array();
     
-    $file = $source_directory."/".$access_file;
+    $file = $access_file;
     if (file_exists($file)) {
       $file_list[] = $file;
     }
 
     foreach ($folders as $folder) {
       if ($folder <> "") {
-        $file = $source_directory."/".$folder."/".$access_file;
+        $file = $folder."/".$access_file;
         if (file_exists($file)) {
           $file_list[] = $file;
         }
@@ -50,7 +50,7 @@ class Access {
       $file_list = array_reverse($file_list);
       foreach($file_list as $id => $path) {
         $current = false;
-        $file = $source_directory."/".$folder."/".$access_file;
+        $file = $folder."/".$access_file;
 
         if ($file == $path) {
           $current = true;
