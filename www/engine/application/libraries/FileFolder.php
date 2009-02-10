@@ -18,6 +18,11 @@ class FileFolder {
     $this->stats    = $stats;
   }
 
+  public function get_display_name() {
+    $display = $this->fix_display_name($this->name);
+    return $display;
+  }
+
   protected function load_access() {
     if ($this->access == null) {
       $this->access = new Access();
@@ -110,6 +115,12 @@ class FileFolder {
       $thumbnail_stats = stat($thumbnail);
       return $url."?rnd=".$thumbnail_stats['mtime'];
     }
+  }
+
+  public static function fix_display_name($value='') {
+    $display = $value;
+    $display = str_replace("_", " ", $display);
+    return $display;
   }
 
 	// COMPARES TWO DATES

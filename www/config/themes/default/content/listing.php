@@ -83,7 +83,7 @@ foreach ($folders as $folder):
       <a href="<?php echo $url ?>"><img src='<?php echo $thumbnail ?>' width='30' height='14' border='0' /></a>
     </td>
     <td class="filename">
-      <a href="<?php echo $url ?>"><?php echo $folder->name ?></a>
+      <a href="<?php echo $url ?>"><?php echo $folder->get_display_name() ?></a>
     </td>
     <td class="filesize">
     </td>
@@ -158,7 +158,7 @@ foreach ($folders as $folder):
       <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><img src='<?php echo view::get_view_url() ?>/images/i_<?php echo $this->filebrowser->get_kind($file->name).$new.$updated; ?>.gif' width='30' height='14' border='0' /></a>
     </td>
     <td class="filename">
-      <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><?php echo $file->name ?></a>
+      <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><?php echo $file->get_display_name() ?></a>
     </td>
     <td class="filesize">
       <?php echo format::filesize($file->stats['size']); ?>

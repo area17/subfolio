@@ -29,9 +29,9 @@
         &nbsp;/&nbsp;
         
         <?php if ($count == sizeof($parts)) { ?>
-          <?php echo $value ?>
+          <?php echo FileFolder::fix_display_name($value) ?>
         <?php } else { ?>
-          <a href="<?php echo $path.$value ?>"><?php echo $value ?></a>
+          <a href="<?php echo $path.$value ?>"><?php echo FileFolder::fix_display_name($value) ?></a>
         <?php }  ?>
       <?php 
         $path .=  $value . "/";
