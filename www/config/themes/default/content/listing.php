@@ -178,7 +178,7 @@ foreach ($folders as $folder):
 </tbody>
 </table>
 <?php } else { ?>
-  <?php if (sizeof($gallery_files) < 1) { ?>
+  <?php if (sizeof($gallery_files) < 1 && !$this->filebrowser->get_displayed_content()) { ?>
   <p>No files present</p>
   <?php } ?>
 <?php } ?>

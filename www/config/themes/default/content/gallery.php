@@ -1,4 +1,6 @@
-<?php if (sizeof($files) > 0) { ?>
+<?php if (sizeof($files) > 0) { 
+  $this->filebrowser->set_displayed_content(true);
+?>
 <div id="gallery">
   <ul class="gallery">
   <?php foreach ($files as $file) { 

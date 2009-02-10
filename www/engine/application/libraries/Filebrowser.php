@@ -24,6 +24,8 @@ class Filebrowser {
   var $sort_order           = "listingNameCmp";
   var $sort_order_direction = "Asc";
 
+  var $displayed_conent = false;
+
   public function __construct($config_name='filebrowser') {
     $this->config = Kohana::config($config_name);
     $this->config_name = $config_name;
@@ -33,6 +35,14 @@ class Filebrowser {
     // check and update the updated_since settings
     $this->_updated_since();
     $this->_sort_order();
+  }
+
+  public function get_displayed_content() {
+    return $this->displayed_conent;
+  }
+
+  public function set_displayed_content($displayed) {
+    $this->displayed_conent = $displayed;
   }
 
   public function _sort_order() {
