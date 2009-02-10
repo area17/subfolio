@@ -10,6 +10,9 @@ $config['directory'] = $site_folder.'directory';
 $config['access_file']     = '-fbaccess';
 $config['properties_file'] = '-fbproperties';
 
+$config['thumbnail_width'] = 320;
+$config['thumbnail_height'] = 240;
+
 # NOTE IF YOU CHANGE THIS YOU WILL NEED TO REGENERATE YOUR PASSWORD LIST
 
 $config['auth_session'] = 'some_random_string';
@@ -35,3 +38,7 @@ $config['properties_file'] = isset($settings['properties_file']) ? $settings['pr
 
 $config['users_yaml_file'] = isset($settings['users_yaml_file']) ? $config_folder.$settings['users_yaml_file'] : $config['users_yaml_file'];
 $config['groups_yaml_file'] = isset($settings['groups_yaml_file']) ? $config_folder.$settings['groups_yaml_file'] : $config['groups_yaml_file'];
+
+
+$config['thumbnail_width'] = isset($settings['thumbnail_width']) ? $config_folder.$settings['thumbnail_width'] : $config['thumbnail_width'];
+$config['thumbnail_height'] = isset($settings['thumbnail_height']) ? $config_folder.$settings['thumbnail_height'] : $config['thumbnail_height'];

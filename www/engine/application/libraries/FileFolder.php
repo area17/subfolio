@@ -41,6 +41,19 @@ class FileFolder {
     return $have_access;
   }
 
+  public function needs_thumbnail() {
+    $needs = true;
+    $thumbnail_width = Kohana::config('filebrowser.thumbnail_width');
+    $thumbnail_height = Kohana::config('filebrowser.thumbnail_height');
+    
+		$info = @getimagesize($this->name);
+    if ($info[0] <= $thumbnail_width && $info[1] <= $thumbnail_height) {
+      $needs = false;
+    }
+    
+    return $needs;
+  }
+
   public function has_thumbnail() {
     $custom_thumbnail = "-custom-thumbnails/".$this->name;
     if (file_exists($custom_thumbnail)) {
@@ -61,6 +74,11 @@ class FileFolder {
     }
     return false;
   }
+
+  public function get_url() {
+    $url = "/directory/".$this->parent."/".$this->name;
+    return $url;
+  }
   
   public function get_thumbnail_url() {
     $custom_thumbnail = "-custom-thumbnails/".$this->name;
@@ -80,9 +98,12 @@ class FileFolder {
       }
   
       if ($build_thumbnail) {
+        $thumbnail_width = Kohana::config('filebrowser.thumbnail_width');
+        $thumbnail_height = Kohana::config('filebrowser.thumbnail_height');
+        
         $this->image = new Image($this->name);
-        $this->image->resize(320, 240, Image::HEIGHT);            
-        $this->image->crop(320, 240, 'top', 'left');
+        $this->image->resize($thumbnail_width, $thumbnail_height, Image::HEIGHT);            
+        $this->image->crop($thumbnail_width, $thumbnail_height, 'top', 'left');
         $this->image->save($thumbnail);
       }
       
