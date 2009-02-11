@@ -357,22 +357,20 @@ class Filebrowser {
 
   public function create_archive($recursive) {
     $archive = new Archive('zip');
-		$this->add_to_archive($archive, "", $recursive);
+		$this->add_to_archive($archive, "../".basename($this->folder)."", $recursive);
     return $archive;
   }  
 
   private function add_to_archive($archive, $folder, $recursive) {
-    print "<br />xx: ".$folder;
     foreach (glob($folder."*") as $filename) {
-      print "<br />&nbsp;yy:".$filename;
       if (is_dir($filename)) {
         if ($recursive) {
           $this->add_to_archive($archive, $filename."/", $recursive);
         }
       } else {
-        $archive->add($filename);
+        $archive->add($filename, str_replace("../", "", $filename));
       }
-    }
+    }    
   }
 
   function get_kind($file) {
