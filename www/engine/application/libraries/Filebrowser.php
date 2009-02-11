@@ -355,7 +355,26 @@ class Filebrowser {
     return null;
   }
 
-  
+  public function create_archive($recursive) {
+    $archive = new Archive('zip');
+		$this->add_to_archive($archive, "", $recursive);
+    return $archive;
+  }  
+
+  private function add_to_archive($archive, $folder, $recursive) {
+    print "<br />xx: ".$folder;
+    foreach (glob($folder."*") as $filename) {
+      print "<br />&nbsp;yy:".$filename;
+      if (is_dir($filename)) {
+        if ($recursive) {
+          $this->add_to_archive($archive, $filename."/", $recursive);
+        }
+      } else {
+        $archive->add($filename);
+      }
+    }
+  }
+
   function get_kind($file) {
     $path_parts = pathinfo($file);
     
@@ -495,6 +514,10 @@ class Filebrowser {
         
         case 'mail':
           $kind = 'mail';
+        break;
+
+        case 'pages':
+          $kind = 'pages';
         break;
         
         default:

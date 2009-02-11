@@ -71,20 +71,28 @@ class Filebrowser_Controller extends Website_Controller {
     }
 
     if ($this->access->check_access($this->auth->get_user())) {
-      // CHECK IF I HAVE ACCESS TO path
-      $file = $this->filebrowser->fullfilepath;
-      
-      header('Content-Description: File Transfer');
-      header('Content-Type: ' . mime_content_type($file));
-      header('Content-Transfer-Encoding: binary');
-      header('Expires: 0');
-      header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-      header('Pragma: public');
-      header('Content-Length: ' . filesize($file));
-      ob_clean();
-      flush();
-      readfile($file);
-      exit;  
+      if ($this->filebrowser->is_file()) {
+        // CHECK IF I HAVE ACCESS TO path
+        $file = $this->filebrowser->fullfilepath;
+        
+        header('Content-Description: File Transfer');
+        header('Content-Type: ' . mime_content_type($file));
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($file));
+        ob_clean();
+        flush();
+        readfile($file);
+        exit;  
+      } else {
+        // must be a folder
+        $archive = $this->filebrowser->create_archive(true);
+        $folder = basename($this->filebrowser->get_folder());
+        $archive->download($folder.".zip");
+        exit();
+      }
 		} else {
       url::redirect("/denied"); 
       exit();

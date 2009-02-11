@@ -4,7 +4,7 @@ $site_folder = dirname(APPPATH).'/../';
 $config_folder = $site_folder.'config/settings/';
 
 $config['site_name'] = 'Subfolio Portable';
-$config['site_domain'] = 'filebrowser2.dev.area17.com';
+$config['site_domain'] = 'sandbox.subfolio.com';
 $config['theme'] = 'default';
 $config['directory'] = $site_folder.'directory';
 $config['access_file']     = '-fbaccess';

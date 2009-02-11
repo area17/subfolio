@@ -47,6 +47,10 @@ foreach ($folders as $folder):
 			case "site" :
 			  $url = "/directory".$this->filebrowser->get_link($folder->name)."/index.html";
         break;
+
+			case "pages" :
+  			  $url = "/directory".$this->filebrowser->get_link($folder->name);
+  			  break;
         
 			default:
           $url = "".$this->filebrowser->get_link($folder->name);
