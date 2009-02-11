@@ -19,7 +19,9 @@
 
   <?php echo Session::instance()->get('flash'); ?>
 
+  <div id="content">
   <?php if (isset($content)) echo $content; ?>		
+  </div>
 
   <?php include("footer.inc.php") ?>
 </body>

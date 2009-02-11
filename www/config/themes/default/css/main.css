@@ -82,6 +82,9 @@ ul, ol { padding-left: 20px; }
 
 .huge { font-size: 500%; //font-size: 100%; }
 
+#content {
+  min-width: 960px;
+}
 
 /* ------------- LINKS -------------------------------------------------- */
 
@@ -180,10 +183,11 @@ hr
 
 .file_edit { width: 18px; }
 .fileicon { width: 30px; }
-.filename { width: 36em; }
+.filename { width: 22em; }
 .filesize { width: 6em; }
 .filedate { width: 9em; }
 .filekind { width: 12em; }
+.filecomment { width: 10em; white-space: nowrap;}
 
 .parent_arrow { background-color: #333; }
 .parent_arrow:HOVER { background-color: #1C7AD5; }
@@ -206,7 +210,6 @@ hr
     #features ul li .info { float: left;  width: 160px; padding: 10px;}
 
     #features ul li:hover { background: #E0E0E0; }
-
 
     #features ul li a img { border: 2px solid #fff; }
     #features ul li a:hover img { border: 2px solid #1C7AD5; }
