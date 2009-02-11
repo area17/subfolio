@@ -60,7 +60,7 @@ class FileFolder {
   }
 
   public function has_thumbnail() {
-    $custom_thumbnail = "-custom-thumbnails/".$this->name;
+    $custom_thumbnail = "-thumbnails-custom/".$this->name;
     if (file_exists($custom_thumbnail)) {
       return true;
     } else {
@@ -86,8 +86,8 @@ class FileFolder {
   }
   
   public function get_thumbnail_url() {
-    $custom_thumbnail = "-custom-thumbnails/".$this->name;
-    $url = "/directory/".$this->parent."/-custom-thumbnails/".$this->name;
+    $custom_thumbnail = "-thumbnails-custom/".$this->name;
+    $url = "/directory/".$this->parent."/-thumbnails-custom/".$this->name;
 
     if (file_exists($custom_thumbnail)) {
       return $url;
