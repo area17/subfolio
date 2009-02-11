@@ -188,18 +188,36 @@ hr
 .parent_arrow { background-color: #333; }
 .parent_arrow:HOVER { background-color: #1C7AD5; }
 
-.feature_box { float: left; padding: 0 1px 10px 0; background-color: #F5F5F5; }
 
-.feature { float: left; display: block; }
-
-.feature_description
-{
-	padding: 10px 9px 8px 11px;
-	width: 150px;
-	float: left;
+#features {
+  margin-bottom: 10px;
 }
+  #features ul {
+    display: inline;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-.feature_filename { padding: 2px 0 8px 0; font-weight: bold; }
+
+    #features ul li { float: left; }
+
+    #features ul li .image { float: left; }
+    #features ul li .info { float: left;  width: 160px; padding: 10px;}
+
+    #features ul li:hover { background: #E0E0E0; }
+
+
+    #features ul li a img { border: 2px solid #fff; }
+    #features ul li a:hover img { border: 2px solid #1C7AD5; }
+    #features ul li img {  }
+    #features ul li h2 { margin: 0; padding: 2px 0 8px 0; color: #1a1a1a; font-weight: bold; text-transform: none; text-decoration: underline;}
+    #features ul li h2:hover {color:#1C7AD5 }
+    #features ul li p {
+      margin: 0;
+      padding: 0;
+    }
+
 
 
 
@@ -289,7 +307,7 @@ input.radio
 
 /* ------------- MODULE SPACING -------------------------------------------------- */
 
-#header, #inline_picture, #inline_text, #gallery, #features, #file_listing, #description, #related, #footer
+#header, #inline_picture, #inline_text, #gallery,  #file_listing, #description, #related, #footer
 { margin-bottom: 1px; }
 
 #navigation {
@@ -314,8 +332,6 @@ input.radio
 #top_inline_text { padding-bottom: 0px; }
 
 #bottom_inline_text { padding-bottom: 10px; }
-
-#features { }
 
 #file_listing { padding: 5px 0 10px 0; }
 
