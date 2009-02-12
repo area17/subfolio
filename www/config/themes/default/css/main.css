@@ -175,19 +175,19 @@ hr
 	background-color: #E0E0E0;
 }
 
-.file_edit, .fileicon, .filename, .filesize, .filedate, .filekind, .filecomment, .legend_img, .legend_txt { float: left;  }
+.file_edit, .fileicon, .filename, .legend_img, .legend_txt { float: left;  }
 
 .legend_txt { vertical-align: text-top; }
 
 .filename, .filesize, .filedate, .filekind, .filecomment { padding: 1px 1em 0 0; }
 
-.file_edit { width: 18px; }
-.fileicon { width: 30px; }
-.filename { width: 22em; }
-.filesize { width: 6em; }
-.filedate { width: 9em; }
-.filekind { width: 12em; }
-.filecomment { width: 10em; white-space: nowrap;}
+table tr td.file_edit { width: 18px; }
+table tr td.fileicon { width: 36px; }
+table tr td.filename { width: 22em; float: none; }
+table tr td.filesize { width: 6em; }
+table tr td.filedate { width: 9em; }
+table tr td.filekind { width: 12em; }
+table tr td.filecomment { width: 10em; white-space: nowrap;}
 
 .parent_arrow { background-color: #333; }
 .parent_arrow:HOVER { background-color: #1C7AD5; }
