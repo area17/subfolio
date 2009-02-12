@@ -59,13 +59,13 @@
     | <a id="showHideSwitch" href="javascript:showHideSwitch('logo', document.getElementById('hideText')); "><FONT id="hideText"><?php print "".$showHideLabel;?></FONT></a>
   </div>
 
-  <?php if ($ff <> ""): ?>
+  <?php if ($ff <> "") { ?>
   <div class="prev_next">
     
 		<div class='fileicon parent_arrow'><a href='/<?php echo dirname($ff) ?>'><img src='<?php echo view::get_view_url() ?>/images/i_parent.gif' alt='' width='30' height='14' border='0' /></a></div>
 		<div class='filename'><a href='/<?php echo dirname($ff) ?>'>Parent Directory</a></div>
     
-    <?php if($this->filebrowser->is_file()): 
+    <?php if($this->filebrowser->is_file()) {
       $file = $this->filebrowser->get_file();
       $files = $this->filebrowser->get_parent_file_list();
 			$prev = $this->filebrowser->get_prev($files, $file->name);
@@ -84,7 +84,7 @@
 				print "<span class='faded'>Next</span>";
 			}
       ?>
-    <?php else: 
+    <?php } else { 
       $folder  = basename($this->filebrowser->get_folder());
       $folders = $this->filebrowser->get_parent_folder_list();
 			$prev    = $this->filebrowser->get_prev($folders, $folder);
@@ -103,7 +103,7 @@
 				print "<span class='faded'>Next Directory</span>";
 			}
       ?>
-    <?php endif ?>
+    <?php } ?>
   </div>
-  <?php endif ?>
+  <?php } ?>
 </div>
