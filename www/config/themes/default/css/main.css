@@ -46,8 +46,6 @@ h1, .bigFont {
 	max-width: 36em;
 }
 
-h1, .bigFont { //font-size: 18px; //line-height: 19px; //font-weight: bold; }
-
 h1 { margin: 0.25em 0 0.7em 0; }
 
 h2 { margin: 2em 0 0 0; text-transform: uppercase; }
@@ -83,7 +81,6 @@ ul, ol { padding-left: 20px; }
 .huge { font-size: 500%; //font-size: 100%; }
 
 #content {
-  min-width: 960px;
 }
 
 /* ------------- LINKS -------------------------------------------------- */
