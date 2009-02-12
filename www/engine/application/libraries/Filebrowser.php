@@ -199,6 +199,21 @@ class Filebrowser {
     return $ff;
   }
 
+  public function prev_next_sort($list) {
+    $gallery = array();
+    $other = array();
+    
+    foreach ($list as $item) {
+      if ($item->kind == 'Image') {
+        $gallery[] = $item;
+      } else {
+        $other[] = $item;
+      }
+    }
+
+    $newlist = array_merge($gallery, $other);
+    return $newlist;
+  }
 
   public function get_next($list, $name) {
     $max = sizeof($list);

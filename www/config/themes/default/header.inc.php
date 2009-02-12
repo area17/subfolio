@@ -68,6 +68,9 @@
     <?php if($this->filebrowser->is_file()) {
       $file = $this->filebrowser->get_file();
       $files = $this->filebrowser->get_parent_file_list();
+      
+      $files = $this->filebrowser->prev_next_sort($files);
+      
 			$prev = $this->filebrowser->get_prev($files, $file->name);
 			$next = $this->filebrowser->get_next($files, $file->name);
 
