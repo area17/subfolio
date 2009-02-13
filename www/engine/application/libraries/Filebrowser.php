@@ -471,8 +471,13 @@ class Filebrowser {
         case 'mel':
           $kind = 'mel';
         break;
+
+        case 'merlin2':
+          $kind = 'merlin';
+        break;
         
         case 'sit':
+        case 'tar':
         case 'zip':
         case 'dmg':
         case 'gz':
@@ -487,6 +492,7 @@ class Filebrowser {
         case 'mov':
         case 'mpg':
         case 'mpeg':
+        case 'mp4':
           $kind = 'vid';
         break;
         
@@ -532,6 +538,10 @@ class Filebrowser {
         case 'pages':
           $kind = 'pages';
         break;
+
+        case 'numbers':
+          $kind = 'numbers';
+        break;
         
         default:
           $kind = "unknown";
@@ -555,6 +565,14 @@ class Filebrowser {
     
         case 'doc':
           $display = 'Word Document';
+        break;
+
+        case 'pages':
+          $display = 'Pages Document';
+        break;
+
+        case 'numbers':
+          $display = 'Numbers Document';
         break;
     
         case 'ppt':

@@ -42,6 +42,7 @@ if ($showListing) { ?>
 $new_updated_start = $this->filebrowser->get_updated_since_time();
 foreach ($folders as $folder): 
     $kind = $this->filebrowser->get_kind($folder->name);
+    $icon_file = "i_dir";
 
     $url = "";
 	  switch ($kind) {
@@ -51,6 +52,12 @@ foreach ($folders as $folder):
 
 			case "pages" :
   			  $url = "/directory".$this->filebrowser->get_link($folder->name);
+          $icon_file = "i_pages";
+  			  break;
+
+			case "numbers" :
+  			  $url = "/directory".$this->filebrowser->get_link($folder->name);
+          $icon_file = "i_numbers";
   			  break;
         
 			default:
@@ -62,7 +69,6 @@ foreach ($folders as $folder):
     <td>
       <?php
         //different folder based on the access
-        $icon_file = "i_dir";
         $new = "";
         $updated = "";
          
@@ -74,6 +80,7 @@ foreach ($folders as $folder):
             $icon_file = "i_dir_locked";
           }
         } else {
+          
           if (false && $folder->stats['ctime'] > $new_updated_start) {
               $new = "_new";
           } else if ($folder->stats['mtime'] > $new_updated_start) {
@@ -122,6 +129,7 @@ foreach ($folders as $folder):
 
 		  switch ($kind) {
   			case "ai" :
+  			case "merlin" :
   			case "eps" :
   			case "gen" :
   			case "bmp" :
