@@ -311,14 +311,14 @@ input.radio
 { margin-bottom: 1px; }
 
 #navigation {
-  padding: 2px 0 5px 0;
+  padding: 2px 0 10px 0;
   border-bottom: 1px dotted #000;
   margin: 0 0 10px 0;
 }
 
 #navigation .prev_next {
-  margin: 5px 0 2px 0;
-  padding: 5px 0 2px 0;
+  margin: 10px 0 2px 0;
+  padding: 10px 0 2px 0;
   border-top: 1px dotted #000;
 }
 
