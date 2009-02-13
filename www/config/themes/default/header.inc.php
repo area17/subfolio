@@ -21,7 +21,7 @@
     <?php if ($ff <> "" && sizeof($parts) > 0) { 
       $path = "/";
       ?>
-      index of <a href="/"><?php echo Kohana::config('filebrowser.site_domain'); ?></a>
+      <?php echo Kohana::lang('filebrowser.indexof'); ?> <a href="/"><?php echo Kohana::config('filebrowser.site_domain'); ?></a>
   
       <?php 
       $count = 1;
@@ -39,7 +39,7 @@
       endforeach ?>
   
     <?php } else { ?>
-      <?php echo Kohana::lang('filebrowser.indexof'); ?> <?php echo Kohana::config('filebrowser.site_domain'); ?>
+      <?php echo Kohana::lang('filebrowser.indexof'); ?> <a href="/"><?php echo Kohana::config('filebrowser.site_domain'); ?></a>
     <?php } ?>
   </div>
   <div id="pathlinks">
