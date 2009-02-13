@@ -35,6 +35,12 @@ $inline = $this->filebrowser->get_file_list("txt", "-b-footer", true);
 if (sizeof($inline) > 0) { 
   $this->filebrowser->set_displayed_content(true);
   foreach($inline as $file) {
-    readfile($file->name);
+    ?>
+    <div id="bottom_inline_text" class="clearfix">
+    <?php
+      readfile($file->name);
+    ?>
+    </div>
+    <?php
   }
 } ?>

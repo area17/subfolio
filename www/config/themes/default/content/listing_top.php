@@ -4,7 +4,9 @@ $this->filebrowser->set_displayed_content(true);
 if (sizeof($inline) > 0) { 
   foreach($inline as $file) {
   ?>
-  <img src='/directory/<?php echo $this->filebrowser->get_folder()."/".$file->name ?>' />
+  <div id="inline-picture">
+    <img src='/directory/<?php echo $this->filebrowser->get_folder()."/".$file->name ?>' />
+  </div>
 <?php 
   }
 } ?>
