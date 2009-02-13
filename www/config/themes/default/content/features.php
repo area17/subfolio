@@ -1,3 +1,12 @@
+<?php 
+$inline = $this->filebrowser->get_file_list("txt", "-t-intro", true);
+if (sizeof($inline) > 0) { 
+  $this->filebrowser->set_displayed_content(true);
+  foreach($inline as $file) {
+    readfile($file->name);
+  }
+} ?>
+
 <?php $features = $this->filebrowser->get_folder_property('features');
 if (sizeof($features) > 0) { ?>
 <div id="features">

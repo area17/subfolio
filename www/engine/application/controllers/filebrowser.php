@@ -134,12 +134,12 @@ class Filebrowser_Controller extends Website_Controller {
       		$top = View::factory('content/listing_top');
       		$this->template->content .= $top;
 
-      		$features = View::factory('content/features');
-      		$this->template->content .= $features;
-    
       		$gallery = View::factory('content/gallery');
       		$gallery->files   = $this->filebrowser->get_file_list("img");
       		$this->template->content .= $gallery;
+
+      		$features = View::factory('content/features');
+      		$this->template->content .= $features;
     
       		$listing = View::factory('content/listing');
       		$files  = $this->filebrowser->get_file_list();
