@@ -1,7 +1,7 @@
 <?php if (sizeof($files) > 0) { 
   $this->filebrowser->set_displayed_content(true);
 ?>
-<div id="gallery">
+<div id="gallery" >
   <ul class="gallery">
   <?php foreach ($files as $file) { 
     if ($file->needs_thumbnail()) { ?>

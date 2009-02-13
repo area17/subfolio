@@ -4,7 +4,7 @@ $this->filebrowser->set_displayed_content(true);
 if (sizeof($inline) > 0) { 
   foreach($inline as $file) {
   ?>
-  <div id="inline-picture">
+  <div id="inline-picture" class="clearfix">
     <img src='/directory/<?php echo $this->filebrowser->get_folder()."/".$file->name ?>' />
   </div>
 <?php 
