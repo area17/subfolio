@@ -178,6 +178,10 @@ hr
 
 .filename, .filesize, .filedate, .filekind, .filecomment { padding: 1px 1em 0 0; }
 
+table {
+  margin: 0 0 10px 0;
+}
+
 table tr td.file_edit { width: 18px; }
 table tr td.fileicon { width: 36px; }
 table tr td.filename { width: 22em; float: none; }
