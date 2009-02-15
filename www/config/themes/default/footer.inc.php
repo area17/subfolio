@@ -26,6 +26,9 @@
    <?php } ?>
   </p>
 
-	<p class="copyright">Subfolio Portable &copy; <?php echo date("Y"); ?> <a target="_blank" href="http://www.area17.com">Area 17</a> Media LLC &ndash; All rights reserved</p>
+	<p class="copyright">
+	  <!-- Removal of link to subfolio.com violates the terms of use  -->
+	  Content Copyright &copy; 2009 AREA 17, all rights reserved &ndash; This is a <a target="_blank" href="http://www.subfolio.com">Subfolio</a>
+  </p>
 	
 </div>
