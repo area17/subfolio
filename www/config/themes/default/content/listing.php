@@ -59,6 +59,11 @@ foreach ($folders as $folder):
   			  $url = "/directory".$this->filebrowser->get_link($folder->name);
           $icon_file = "i_numbers";
   			  break;
+
+			case "key" :
+  			  $url = "/directory".$this->filebrowser->get_link($folder->name);
+          $icon_file = "i_key";
+  			  break;
         
 			default:
           $url = "".$this->filebrowser->get_link($folder->name);

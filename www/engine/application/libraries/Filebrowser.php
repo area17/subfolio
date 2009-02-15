@@ -542,6 +542,10 @@ class Filebrowser {
         case 'numbers':
           $kind = 'numbers';
         break;
+
+        case 'key':
+          $kind = 'key';
+        break;
         
         default:
           $kind = "unknown";
@@ -573,6 +577,10 @@ class Filebrowser {
 
         case 'numbers':
           $display = 'Numbers Document';
+        break;
+
+        case 'key':
+          $display = 'Keynote Document';
         break;
     
         case 'ppt':
