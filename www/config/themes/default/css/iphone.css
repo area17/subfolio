@@ -35,7 +35,6 @@ p, h1, h2, ul, ol, pre, .copy, .bigFont
 	font-family: sans-serif;
 	line-height: 120%;
 	margin-right: 5%;
-	max-width: 50em;
 	font-weight: normal;
 }
 
@@ -45,7 +44,6 @@ h1, .bigFont {
 	font-size: 2.1em;
 	font-family: Georgia;
 	line-height: 1.2em;
-	max-width: 36em;
 }
 
 h1, .bigFont { //font-size: 18px; //line-height: 19px; //font-weight: bold; }
