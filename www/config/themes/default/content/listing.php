@@ -147,6 +147,10 @@ foreach ($folders as $folder):
   			case "suit":
   			case "rtf" :
   			case "zip" :
+
+  			case "pages" :
+  			case "key" :
+  			case "numbers" :
   			  $url = "/directory".$this->filebrowser->get_link($file->name);
   			  break;
 
