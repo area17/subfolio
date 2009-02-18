@@ -324,6 +324,7 @@ input.radio
   border-top: 1px dotted #000;
 }
 
+  #navigation .prev_next .filename { width: 36em; }
 
 #header { padding: 2px 0 5px 0; }
 
