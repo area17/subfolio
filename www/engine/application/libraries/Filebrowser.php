@@ -361,13 +361,30 @@ class Filebrowser {
   }
 
   public function get_item_property($filename, $propertyname) {
-    if (isset($this->properties[$filename])) {
-      $info = $this->properties[$filename];
-      if (isset($info[$propertyname])) {
-        return $info[$propertyname];
+    $property = null;
+    $info_ext = Kohana::config('filebrowser.info_extension');
+    if ($info_ext == "") {
+     $info_ext = ".info";
+    }
+    
+    // load properties file if it exists
+    $info_filename = "-".$filename.$info_ext;
+    if (file_exists($info_filename)) {
+      $array = Spyc::YAMLLoad($info_filename);
+      if (isset($array[$propertyname])) {
+        $property = $array[$propertyname];
       }
     }
-    return null;
+    
+    if ($property == null) {
+      if (isset($this->properties[$filename])) {
+        $info = $this->properties[$filename];
+        if (isset($info[$propertyname])) {
+          $property = $info[$propertyname];
+        }
+      }
+    }
+    return $property;
   }
 
   public function create_archive($recursive) {
