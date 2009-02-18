@@ -474,6 +474,10 @@ class Filebrowser {
         break;
         
         case 'swf':
+          $kind = 'swf';
+        break;
+
+        case 'fla':
           $kind = 'fla';
         break;
         
@@ -543,6 +547,10 @@ class Filebrowser {
         case 'xlsx':
           $kind = 'xls';
         break;
+
+        case 'csv':
+          $kind = 'csv';
+        break;
         
         case 'site':
           $kind = 'site';
@@ -607,6 +615,10 @@ class Filebrowser {
         case 'xls':
           $display = 'Excel Document';
         break;
+
+        case 'csv':
+          $display = 'Comma Seperated File';
+        break;
     
         case 'img':
           $display = 'Image';
@@ -646,6 +658,10 @@ class Filebrowser {
   
         case 'vid':
           $display = 'Movie';
+        break;
+
+        case 'swf':
+          $display = 'Flash Movie';
         break;
   
         case 'fla':
