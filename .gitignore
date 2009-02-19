@@ -1,3 +1,6 @@
 www/engine/application/logs/*
 www/directory/*
 www/content/*
+www/config/settings/groups.yml
+www/config/settings/users.yml
+www/config/settings/subfolio.yml

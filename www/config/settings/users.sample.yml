@@ -1,0 +1,11 @@
+
+users:
+  demo:
+   fullname: Subfolio Demo User
+   password: demo
+   admin: false
+
+  client:
+   fullname: Client Demo User
+   password: client
+   admin: false

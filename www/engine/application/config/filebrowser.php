@@ -4,7 +4,7 @@ $site_folder = dirname(APPPATH).'/../';
 $config_folder = $site_folder.'config/settings/';
 
 $config['site_name'] = 'Subfolio Portable';
-$config['site_domain'] = 'sandbox.subfolio.com';
+$config['site_domain'] = 'www.subfolio.com';
 $config['theme'] = 'default';
 $config['directory'] = $site_folder.'directory';
 $config['access_file']     = '-fbaccess';
@@ -18,11 +18,11 @@ $config['thumbnail_height'] = 240;
 $config['auth_session'] = 'some_random_string';
 $config['auth_salt'] = 'some_random_string';
 
-$config['users_yaml_file']  = $config_folder."users.yaml";
-$config['groups_yaml_file'] = $config_folder."groups.yaml";
+$config['users_yaml_file']  = $config_folder."users.yml";
+$config['groups_yaml_file'] = $config_folder."groups.yml";
 
 //Load settings from yaml file
-$settings_file  = $config_folder."subfolio.yaml";
+$settings_file  = $config_folder."subfolio.yml";
 $settings = Spyc::YAMLLoad($settings_file);
 
 //rint_r($settings);
