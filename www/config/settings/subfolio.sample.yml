@@ -1,5 +1,5 @@
 
-site_name: Subfolio Name from Yaml
+site_name: Subfolio Portable
 site_domain: sandbox.subfolio.com
 
 theme: default
@@ -11,7 +11,7 @@ properties_file: -fbproperties
 auth_session: some_random_string
 auth_salt: some_random_string
 
-users_yaml_file: users.yaml
-groups_yaml_file: groups.yaml
+users_yaml_file: users.yml
+groups_yaml_file: groups.yml
 
 // 
