@@ -1,9 +1,3 @@
-<?php if ($this->filebrowser->get_folder_property('text-bottom') <> '') { ?>
-<div class="listing-bottom">
-  <?php echo $this->filebrowser->get_folder_property('text-bottom') ?>
-</div>
-<?php } ?>
-
 <?php
 $inline = $this->filebrowser->get_file_list("cut", null, true);
 if (sizeof($inline) > 0) { 
@@ -29,6 +23,12 @@ if (sizeof($inline) > 0) {
 <?php 
   }
 } ?>
+
+<?php if ($this->filebrowser->get_folder_property('text-bottom') <> '') { ?>
+<div class="listing-bottom">
+  <?php echo $this->filebrowser->get_folder_property('text-bottom') ?>
+</div>
+<?php } ?>
 
 <?php 
 $inline = $this->filebrowser->get_file_list("txt", "-b-footer", true);
