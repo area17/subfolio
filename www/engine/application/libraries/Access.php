@@ -68,6 +68,11 @@ class Access {
 	public function check_access($user) {
 	  $groups = array();
     $have_access = false;
+    
+    if ($user->admin) {
+      return true;
+    }
+    
     if ($this->is_restricted) {
       $have_access = false;
       if ($user != null) {
