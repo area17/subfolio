@@ -1,4 +1,7 @@
 <div id="footer" class="clearfix">
+
+  <?php require("prev_next.inc.php") ?>
+
   <?php
   $updated_since = $this->filebrowser->get_updated_since();
   ?>
