@@ -92,17 +92,33 @@ class Auth {
     if (isset($this->users[$username])) {
       $user = new User($username, $this->users[$username]);
       
-      if ($user->password === $password) {
-        $this->session->set($this->config['session_key'], $user);
-        
-        if ($remember == true) {
-          $token = $user->name.":".$this->hash($user->name.$this->config['salt']);
-          cookie::set("auth_{$this->config_name}_autologin", $token, $this->config['lifetime']);
+      if ($user->hashed_password <> '') {
+        $hashed = $this->hash($password);
+        if ($user->hashed_password === $hashed) {
+          $this->session->set($this->config['session_key'], $user);
+          
+          if ($remember == true) {
+            $token = $user->name.":".$this->hash($user->name.$this->config['salt']);
+            cookie::set("auth_{$this->config_name}_autologin", $token, $this->config['lifetime']);
+          }
+          
+          return $user;
+        } else {
+          return false;
         }
-        
-        return $user;
       } else {
-        return false;
+        if ($user->password === $password) {
+          $this->session->set($this->config['session_key'], $user);
+          
+          if ($remember == true) {
+            $token = $user->name.":".$this->hash($user->name.$this->config['salt']);
+            cookie::set("auth_{$this->config_name}_autologin", $token, $this->config['lifetime']);
+          }
+          
+          return $user;
+        } else {
+          return false;
+        }
       }
     }
     return false;
@@ -128,8 +144,9 @@ class Auth {
     return ! $this->logged_in();
   }
   
-  protected function hash($str) {
-    return md5($str);
+  public function hash($str) {
+    $salt = Kohana::config('filebrowser.auth_salt');
+    return md5($salt.$str);
   }  
   
 }

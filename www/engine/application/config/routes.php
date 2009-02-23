@@ -2,11 +2,11 @@
 /**
  * @package  Core
  *
- * Sets the default route to "welcome"
  */
 
 $config['login'] = 'filebrowser/login';
 $config['logout'] = 'filebrowser/logout';
+$config['hash/(.*)'] = 'filebrowser/hash/$1';
 
 $config['denied'] = 'filebrowser/denied';
 $config['notfound'] = 'filebrowser/notfound';

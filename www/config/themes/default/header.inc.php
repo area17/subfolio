@@ -14,6 +14,10 @@
 
 <div id="navigation">
   <div id="path">
+    <?php if ($this->auth->logged_in()) { ?>
+      <strong><?php echo $this->auth->get_user()->name ?></strong> browsing
+    <?php } ?>
+
     <?php 
       $ff = $this->filebrowser->get_path(); 
       $parts = explode( "/", $ff);

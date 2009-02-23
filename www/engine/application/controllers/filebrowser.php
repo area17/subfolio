@@ -1,6 +1,11 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 class Filebrowser_Controller extends Website_Controller {
 
+  public function hash($password) {
+    print $this->auth->hash($password);
+    exit();
+  }
+
   public function login() {
     // if user is logged in, redirect refering page    
 
