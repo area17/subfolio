@@ -11,14 +11,6 @@ if (sizeof($inline) > 0) {
   }
 } ?>
 
-<?php if ($this->filebrowser->get_folder_property('text-top') <> '') { 
-  $this->filebrowser->set_displayed_content(true);
-?>
-<div class="listing-top">
-  <p><?php echo $this->filebrowser->get_folder_property('text-top'); ?></p>
-</div>
-<?php } ?>
-
 <?php 
 $inline = $this->filebrowser->get_file_list("img", "-b", true);
 if (sizeof($inline) > 0) { 

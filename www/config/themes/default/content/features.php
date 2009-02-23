@@ -13,6 +13,14 @@ if (sizeof($inline) > 0) {
   }
 } ?>
 
+<?php if ($this->filebrowser->get_folder_property('text-top') <> '') { 
+  $this->filebrowser->set_displayed_content(true);
+?>
+<div class="listing-top">
+  <p><?php echo $this->filebrowser->get_folder_property('text-top'); ?></p>
+</div>
+<?php } ?>
+
 <?php $features = $this->filebrowser->get_folder_property('features');
 if (sizeof($features) > 0) { ?>
 <div id="features">
