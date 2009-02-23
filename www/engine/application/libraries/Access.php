@@ -69,7 +69,7 @@ class Access {
 	  $groups = array();
     $have_access = false;
     
-    if ($user->admin) {
+    if ($user && $user->admin) {
       return true;
     }
     
