@@ -136,6 +136,10 @@ foreach ($folders as $folder):
 
 		  switch ($kind) {
   			case "ai" :
+  			case "csv" :
+  			case "swf" :
+  			case "tif" :
+  			case "xml" :
   			case "merlin" :
   			case "eps" :
   			case "gen" :
