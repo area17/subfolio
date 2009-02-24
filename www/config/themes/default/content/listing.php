@@ -41,6 +41,7 @@ if ($showListing) { ?>
 <?php 
 $new_updated_start = $this->filebrowser->get_updated_since_time();
 foreach ($folders as $folder): 
+    $target = "";
     $kind = $this->filebrowser->get_kind($folder->name);
     $icon_file = "i_dir";
 
@@ -48,6 +49,7 @@ foreach ($folders as $folder):
 	  switch ($kind) {
 			case "site" :
 			  $url = "/directory".$this->filebrowser->get_link($folder->name)."/index.html";
+			  $target = "_blank";
         break;
 
 			case "pages" :
@@ -97,7 +99,7 @@ foreach ($folders as $folder):
         $thumbnail = view::get_view_url()."/images/".$icon_file.$new.$updated.".gif";        
         
       ?>
-      <a href="<?php echo $url ?>"><img src='<?php echo $thumbnail ?>' width='30' height='14' border='0' /></a>
+      <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><img src='<?php echo $thumbnail ?>' width='30' height='14' border='0' /></a>
     </td>
     <td class="filename">
       <a href="<?php echo $url ?>"><?php echo $folder->get_display_name() ?></a>
