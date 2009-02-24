@@ -31,7 +31,7 @@ if (sizeof($inline) > 0) {
 <?php } ?>
 
 <?php 
-$inline = $this->filebrowser->get_file_list("txt", "-b-footer", true);
+$inline = $this->filebrowser->get_file_list("txt", "-t-bottom", true);
 if (sizeof($inline) > 0) { 
   $this->filebrowser->set_displayed_content(true);
   foreach($inline as $file) {
