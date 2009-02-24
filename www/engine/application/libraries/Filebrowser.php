@@ -351,6 +351,19 @@ class Filebrowser {
     return "/directory/".$this->filepath;
   }
 
+  public function is_feature($foldername) {
+    $is_feature = false;
+    $features = $this->get_folder_property('features');
+    if (sizeof($features) > 0) {
+      foreach ($features as $feature) {
+        if (isset($feature['folder']) && $feature['folder'] == $foldername) {
+          $is_feature = true;
+          break;
+        }
+      }
+    }
+    return $is_feature;
+  }
 
   public function get_folder_property($propertyname) {
     if (isset($this->properties[$propertyname])) {

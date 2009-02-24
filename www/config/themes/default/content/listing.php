@@ -41,6 +41,8 @@ if ($showListing) { ?>
 <?php 
 $new_updated_start = $this->filebrowser->get_updated_since_time();
 foreach ($folders as $folder): 
+
+    if (!$this->filebrowser->is_feature($folder->name)) {
     $target = "";
     $kind = $this->filebrowser->get_kind($folder->name);
     $icon_file = "i_dir";
@@ -116,7 +118,9 @@ foreach ($folders as $folder):
       <?php echo $this->filebrowser->get_item_property($folder->name, 'comment') ?>
     </td>
   </tr>
-<?php endforeach ?>
+<?php 
+  }
+endforeach ?>
 
 <?php foreach ($files as $file) :
   if (!$file->has_thumbnail()) :
