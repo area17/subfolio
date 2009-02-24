@@ -397,6 +397,18 @@ class Filebrowser {
         }
       }
     }
+    
+    if ($property == null) {
+      $kind = $this->get_kind($filename);
+      if ($kind == "cut" || $kind == "pop" || $kind == "net") {
+        $array = Spyc::YAMLLoad($filename);
+        if (isset($array[$propertyname])) {
+          $property = $array[$propertyname];
+        }
+      }
+    }
+    
+    
     return $property;
   }
 
