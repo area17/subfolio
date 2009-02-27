@@ -34,6 +34,7 @@ p, h1, h2, ul, ol, pre, .copy, .bigFont
 	margin-right: 5%;
 	font-weight: normal;
 	color: #333;
+  max-width: 50em;
 }
 
 h1, h2 { color: #1C7AD5; } 
@@ -42,6 +43,7 @@ h1, .bigFont {
 	font-size: 2.1em;
 	font-family: Georgia;
 	line-height: 1.2em;
+  max-width: 36em;
 }
 
 h1 { margin: 0.25em 0 0.7em 0; }
