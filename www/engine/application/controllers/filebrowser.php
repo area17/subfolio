@@ -128,8 +128,10 @@ class Filebrowser_Controller extends Website_Controller {
           $kind = $this->filebrowser->get_kind($file->name);
           if (View::view_exists('content/types/'.$kind)) {
         		$content = View::factory('content/types/'.$kind);
+        		$content->file = $file;
     		  } else {
         		$content = View::factory('content/types/default');
+        		$content->file = $file;
     		  }
           $this->template->page_title = "File: ".$file->name;
       		$this->template->content = $content;
