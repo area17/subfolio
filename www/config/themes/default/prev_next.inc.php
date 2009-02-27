@@ -14,9 +14,9 @@
 		$next = $this->filebrowser->get_next($files, $file->name);
 
 		if ($prev <> "") {
-			print "<a href='$prev->name'>Prev</a>";
+			print "<a href='$prev->name'>Previous</a>";
 		} else {
-			print "<span class='faded'>Prev</span>";
+			print "<span class='faded'>Previous</span>";
 		}
 		echo "&nbsp;&nbsp;|&nbsp;&nbsp;";
 
@@ -33,9 +33,9 @@
 		$next    = $this->filebrowser->get_next($folders, $folder);
 
 		if ($prev <> "") {
-			print "<a href='$prev->name'>Prev Directory</a>";
+			print "<a href='$prev->name'>Previous Directory</a>";
 		} else {
-			print "<span class='faded'>Prev Directory</span>";
+			print "<span class='faded'>Previous Directory</span>";
 		}
 		echo "&nbsp;&nbsp;|&nbsp;&nbsp;";
 
