@@ -5,8 +5,8 @@ site_domain: www.subfolio.com
 theme: default
 directory: directory
 
-access_file: -fbaccess
-properties_file: -fbproperties
+access_file: -access
+properties_file: -properties
 
 auth_session: some_random_string
 auth_salt: some_random_string

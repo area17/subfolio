@@ -7,8 +7,8 @@ $config['site_name'] = 'Subfolio Portable';
 $config['site_domain'] = 'www.subfolio.com';
 $config['theme'] = 'default';
 $config['directory'] = $site_folder.'directory';
-$config['access_file']     = '-fbaccess';
-$config['properties_file'] = '-fbproperties';
+$config['access_file']     = '-access';
+$config['properties_file'] = '-properties';
 
 $config['thumbnail_width'] = 320;
 $config['thumbnail_height'] = 240;
