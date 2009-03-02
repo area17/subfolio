@@ -1,4 +1,6 @@
-<?php if (sizeof($files) > 0) { 
+<?php 
+$files   = $this->filebrowser->get_file_list("img");
+if (sizeof($files) > 0) { 
   $this->filebrowser->set_displayed_content(true);
 ?>
 <div id="gallery" >

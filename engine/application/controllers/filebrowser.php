@@ -16,7 +16,7 @@ class Filebrowser_Controller extends Website_Controller {
 
     $return_path = $this->session->get('return_path') ? $this->session->get('return_path') : '/';
 
-		$login = View::factory('login');
+		$login = View::factory('pages/login');
 	  $login->login_failed = false;
 
 		if ($_POST) {
@@ -51,12 +51,12 @@ class Filebrowser_Controller extends Website_Controller {
   }
 
   public function denied() {
-		$denied = View::factory('denied');
+		$denied = View::factory('pages/denied');
   	$this->template->content .= $denied;
   }
 
   public function notfound() {
-		$notfound = View::factory('notfound');
+		$notfound = View::factory('pages/notfound');
   	$this->template->content .= $notfound;
   }
 
@@ -126,11 +126,11 @@ class Filebrowser_Controller extends Website_Controller {
           $file = $this->filebrowser->get_file();
           
           $kind = $this->filebrowser->get_kind($file->name);
-          if (View::view_exists('content/types/'.$kind)) {
-        		$content = View::factory('content/types/'.$kind);
+          if (View::view_exists('pages/elements/filekinds/'.$kind)) {
+        		$content = View::factory('pages/elements/filekinds/'.$kind);
         		$content->file = $file;
     		  } else {
-        		$content = View::factory('content/types/default');
+        		$content = View::factory('pages/elements/filekinds/default');
         		$content->file = $file;
     		  }
           $this->template->page_title = "File: ".$file->name;
@@ -138,30 +138,9 @@ class Filebrowser_Controller extends Website_Controller {
         } else {
           $folder = $this->filebrowser->get_folder();
 
-      		$top = View::factory('content/listing_top');
-      		$this->template->content .= $top;
+      		$content = View::factory('pages/listing');
+      		$this->template->content = $content;
 
-      		$gallery = View::factory('content/gallery');
-      		$gallery->files   = $this->filebrowser->get_file_list("img");
-      		$this->template->content .= $gallery;
-
-      		$features = View::factory('content/features');
-      		$this->template->content .= $features;
-    
-      		$listing = View::factory('content/listing');
-      		$files  = $this->filebrowser->get_file_list();
-      		$files  = $this->filebrowser->sort($files);
-      		$listing->gallery_files = $this->filebrowser->get_file_list("img");
-          $listing->files = $files;
-      		
-      		$folders = $this->filebrowser->get_folder_list();
-      		$folders = $this->filebrowser->sort($folders);
-          $listing->folders = $folders;
-      		$this->template->content .= $listing;
-  
-      		$bottom = View::factory('content/listing_bottom');
-      		$this->template->content .= $bottom;
-  
       		if ($folder <> "") {
             $this->template->page_title = "Directory: ".$folder;
           }

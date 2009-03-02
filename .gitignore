@@ -1,6 +1,6 @@
 engine/application/logs/*
 directory/*
 content/*
-config/settings/groups.yml
-config/settings/users.yml
-config/settings/subfolio.yml
+config/users/groups.yml
+config/users/users.yml
+config/settings/settings.yml

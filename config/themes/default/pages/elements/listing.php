@@ -1,5 +1,11 @@
-
 <?php 
+$gallery_files = $this->filebrowser->get_file_list("img");
+$folders = $this->filebrowser->get_folder_list();
+$folders = $this->filebrowser->sort($folders);
+
+$files  = $this->filebrowser->get_file_list();
+$files  = $this->filebrowser->sort($files);
+
 $showListing = true;
 
 if (sizeof($folders) > 0) {
