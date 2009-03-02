@@ -21,11 +21,17 @@ if (sizeof($inline) > 0) {
 </div>
 <?php } ?>
 
-<?php $features = $this->filebrowser->get_folder_property('features');
-if (sizeof($features) > 0) { ?>
+
+<?php 
+$file_features = $this->filebrowser->get_file_list("ftr", null, true);
+$prop_features = $this->filebrowser->get_folder_property('features');
+
+if (sizeof($file_features) > 0 || sizeof($prop_features) > 0) { ?>
 <div id="features">
   <ul>
-  <?php foreach ($features as $feature) { ?>
+  <?php foreach ($file_features as $file_feature) { 
+    $feature = Spyc::YAMLLoad($file_feature->name);
+    ?>
     <li>
       <div class="image">
         <a href="<?php echo $feature['link'] ?>"><img src="/directory/<?php echo $this->filebrowser->get_folder() ?>/<?php echo $feature['image'] ?>"></a>
@@ -36,6 +42,20 @@ if (sizeof($features) > 0) { ?>
       </div>
       <div class="clear"></div>
     </li>
+  <?php } ?>
+
+  <?php foreach ($prop_features as $feature) { ?>
+    <li>
+      <div class="image">
+        <a href="<?php echo $feature['link'] ?>"><img src="/directory/<?php echo $this->filebrowser->get_folder() ?>/<?php echo $feature['image'] ?>"></a>
+      </div>
+      <div class="info">
+        <a href="<?php echo $feature['link'] ?>"><h2><?php echo $feature['title'] ?></h2></a>
+        <p><?php echo $feature['description'] ?></p>
+      </div>
+      <div class="clear"></div>
+    </li>
+
   <?php } ?>
   </ul>
   <div class="clear"></div>

@@ -596,6 +596,10 @@ class Filebrowser {
         case 'key':
           $kind = 'key';
         break;
+
+        case 'ftr':
+          $kind = 'ftr';
+        break;
         
         default:
           $kind = "unknown";
