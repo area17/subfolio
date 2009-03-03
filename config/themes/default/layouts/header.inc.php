@@ -15,7 +15,7 @@
 <div id="navigation">
   <div id="path">
     <?php if ($this->auth->logged_in()) { ?>
-      <strong><?php echo $this->auth->get_user()->name ?></strong> browsing
+      <?php echo $this->auth->get_user()->name ?> browsing
     <?php } ?>
 
     <?php 
