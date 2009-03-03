@@ -14,7 +14,7 @@
  *
  * @see http://docs.kohanaphp.com/installation/deployment
  */
-define('IN_PRODUCTION', FALSE);
+define('IN_PRODUCTION', TRUE);
 
 /**
  * Website application directory. This directory should contain your application
