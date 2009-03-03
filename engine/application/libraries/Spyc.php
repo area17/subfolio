@@ -267,8 +267,8 @@ class Spyc {
     $this->path = array();
     $this->result = array();
 
-
-    for ($i = 0; $i < count($Source); $i++) {
+    $source_count = count($Source);
+    for ($i = 0; $i < $source_count; $i++) {
       $line = $Source[$i];
       $lineIndent = $this->_getIndent($line);
       $this->path = $this->getParentPathByIndent($lineIndent);
@@ -280,7 +280,7 @@ class Spyc {
         $literalBlock = '';
         $line .= $this->LiteralPlaceHolder;
 
-        while ($this->literalBlockContinues($Source[++$i], $lineIndent)) {
+        while (($i < $source_count-1) && $this->literalBlockContinues($Source[++$i], $lineIndent)) {
           $literalBlock = $this->addLiteralLine($literalBlock, $Source[$i], $literalBlockStyle);
         }
         $i--;
