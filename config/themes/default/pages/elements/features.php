@@ -29,7 +29,9 @@ $prop_features = $this->filebrowser->get_folder_property('features');
 if (sizeof($file_features) > 0 || sizeof($prop_features) > 0) { ?>
 <div id="features">
   <ul>
-  <?php foreach ($file_features as $file_feature) { 
+  <?php 
+  if (sizeof($file_features) > 0) {
+    foreach ($file_features as $file_feature) { 
     $feature = Spyc::YAMLLoad($file_feature->name);
     ?>
     <li>
@@ -42,9 +44,11 @@ if (sizeof($file_features) > 0 || sizeof($prop_features) > 0) { ?>
       </div>
       <div class="clear"></div>
     </li>
-  <?php } ?>
+  <?php } 
+  } ?>
 
-  <?php foreach ($prop_features as $feature) { ?>
+  <?php if (sizeof($prop_features) > 0) {
+  foreach ($prop_features as $feature) { ?>
     <li>
       <div class="image">
         <a href="<?php echo $feature['link'] ?>"><img src="/directory/<?php echo $this->filebrowser->get_folder() ?>/<?php echo $feature['image'] ?>"></a>
@@ -56,7 +60,8 @@ if (sizeof($file_features) > 0 || sizeof($prop_features) > 0) { ?>
       <div class="clear"></div>
     </li>
 
-  <?php } ?>
+  <?php } 
+  } ?>
   </ul>
   <div class="clear"></div>
 </div>
