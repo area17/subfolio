@@ -146,11 +146,11 @@ class Filebrowser_Controller extends Website_Controller {
           }
     		}
   		} else {
-    		$content = View::factory('denied');
+    		$content = View::factory('pages/denied');
     		$this->template->content .= $content;
   		}
     } else {
-  		$content = View::factory('notfound');
+  		$content = View::factory('pages/notfound');
   		$this->template->content .= $content;
     }
   }
