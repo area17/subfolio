@@ -12,7 +12,7 @@ if (sizeof($inline) > 0) {
   <div style='padding-bottom: 5px;'>see also:<br/></div>
   <div class='clearfix list'>
     <div class='fileicon'>
-      <a href='<?php echo $url ?>'><img src='<?php echo view::get_view_url() ?>/images/i_dir_cut.gif' alt='' width='30' height='14' border='0' /></a>
+      <a href='<?php echo $url ?>'><img src='<?php echo view::get_view_url() ?>/images/icons/i_dir_cut.gif' alt='' width='30' height='14' border='0' /></a>
     </div>
     <div class='filename'>
       <a href='<?php echo $url ?>'><?php echo $name ?></a>
