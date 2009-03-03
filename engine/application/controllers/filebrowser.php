@@ -126,11 +126,11 @@ class Filebrowser_Controller extends Website_Controller {
           $file = $this->filebrowser->get_file();
           
           $kind = $this->filebrowser->get_kind($file->name);
-          if (View::view_exists('pages/elements/filekinds/'.$kind)) {
-        		$content = View::factory('pages/elements/filekinds/'.$kind);
+          if (View::view_exists('pages/filekinds/'.$kind)) {
+        		$content = View::factory('pages/filekinds/'.$kind);
         		$content->file = $file;
     		  } else {
-        		$content = View::factory('pages/elements/filekinds/default');
+        		$content = View::factory('pages/filekinds/default');
         		$content->file = $file;
     		  }
           $this->template->page_title = "File: ".$file->name;
