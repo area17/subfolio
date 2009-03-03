@@ -23,7 +23,7 @@ if ($showListing) { ?>
 <thead>
   <tr>
     <td>
-      <img src='<?php echo view::get_view_url() ?>/images/no_icon.gif' width='30' height='14' border='0' />
+      <img src='<?php echo view::get_view_url() ?>/images/icons/no_icon.gif' width='30' height='14' border='0' />
     </td>
     <td class="filename">
       <a href="?sort=filename">filename</a>
@@ -104,7 +104,7 @@ foreach ($folders as $folder):
         }
         
         
-        $thumbnail = view::get_view_url()."/images/".$icon_file.$new.$updated.".gif";        
+        $thumbnail = view::get_view_url()."/images/icons/".$icon_file.$new.$updated.".gif";        
         
       ?>
       <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><img src='<?php echo $thumbnail ?>' width='30' height='14' border='0' /></a>
@@ -193,7 +193,7 @@ endforeach ?>
   ?>
   <tr>
     <td>
-      <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><img src='<?php echo view::get_view_url() ?>/images/i_<?php echo $this->filebrowser->get_kind($file->name).$new.$updated; ?>.gif' width='30' height='14' border='0' /></a>
+      <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><img src='<?php echo view::get_view_url() ?>/images/icons/i_<?php echo $this->filebrowser->get_kind($file->name).$new.$updated; ?>.gif' width='30' height='14' border='0' /></a>
     </td>
     <td class="filename">
       <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><?php echo $file->get_display_name() ?></a>
