@@ -1,5 +1,6 @@
-groups:
-  subfolio: [subfolio]
-  client: [client]
-  
-
+# define your groups for easy permission management
+# 
+# format:
+# groupname:
+#  - user
+#  - user

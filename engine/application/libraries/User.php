@@ -14,6 +14,14 @@ class User {
     $this->hashed_password = isset($array['hashed_password']) ? $array['hashed_password'] : '';
     $this->admin           = isset($array['admin']) ? $array['admin'] : false;
   }
-  
+ 
+  public function set_groups($groups) {
+    $this->groups = $groups;
+  }
+
+  public function get_groups() {
+    return $this->groups;
+  }
+   
 }
 ?>

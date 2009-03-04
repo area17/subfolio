@@ -15,16 +15,12 @@ class Auth {
     
     if ($user_file <> '') { 
       $array = Spyc::YAMLLoad($user_file);
-      if (isset($array['users'])) {
-        $this->users = $array['users'];
-      }
+      $this->users = $array;
     }
   
     if ($group_file <> '') { 
       $array = Spyc::YAMLLoad($group_file);
-      if (isset($array['groups'])) {
-        $this->groups = $array['groups'];
-      }
+      $this->groups = $array;
     }
   }
   
@@ -35,6 +31,17 @@ class Auth {
     return $instance;
 	}
   
+	public function user_group_list($user) {
+	  $groups = array();
+	  foreach ($this->groups as $id => $group) {
+      if (in_array($user->name, $group)) {
+        $groups[] = $id;
+      }
+	  }
+	  
+	  return $groups;
+	}
+	
 	public function in_group($user, $groupname) {
     if (isset($this->groups[$groupname])) {
       if (in_array($user->name, $this->groups[$groupname])) {
@@ -62,14 +69,19 @@ class Auth {
 
         if ($hash == $cookie_vars[1]) {
           $user = new User($cookie_vars[0], $this->users[$cookie_vars[0]]);
-          $status = true;
           $this->session->set($this->config['session_key'], $user);
+          $status = true;
         }
       }
     }
  
     if ($status == true) {
-      return $user;
+      $groups = $this->user_group_list($user);
+      $user->set_groups($groups);
+
+      if (isset($this->users[$user->name])) {
+        return $user;
+      }
     }
     
     return false;
@@ -92,6 +104,9 @@ class Auth {
     if (isset($this->users[$username])) {
       $user = new User($username, $this->users[$username]);
       
+      $groups = $this->user_group_list($user);
+      $user->set_groups($groups);
+            
       if ($user->hashed_password <> '') {
         $hashed = $this->hash($password);
         if ($user->hashed_password === $hashed) {

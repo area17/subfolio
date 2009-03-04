@@ -66,7 +66,7 @@ class Access {
   }
 	
 	public function check_access($user) {
-	  $groups = array();
+    $groups = array();
     $have_access = false;
     
     if ($user && $user->admin) {
@@ -76,10 +76,12 @@ class Access {
     if ($this->is_restricted) {
       $have_access = false;
       if ($user != null) {
+    	  $groups = $user->get_groups();
         if (in_array($user->name, $this->allowed_users)) {
             $have_access = true;
         } else {
             // check groups
+            
             $by_groups = array_intersect($groups, $this->allowed_groups);
             
             if (sizeof($by_groups) > 0) {
