@@ -1,5 +1,11 @@
-groups:
-  subfolio: [subfolio]
-  client: [client]
-  
+# format:
+# groupname:
+#  - user
+#  - user
 
+subfolio:
+ - mubs
+ - subfolio
+
+client:
+ - client

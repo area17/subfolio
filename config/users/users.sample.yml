@@ -1,11 +1,15 @@
+# format
+# user:
+#  fullname: User Full Name
+#  password: user_password
+#  admin: true or false
 
-users:
-  demo:
-   fullname: Subfolio Demo User
-   password: demo
-   admin: false
+demo:
+ fullname: Subfolio Demo User
+ password: demo
+ admin: false
 
-  client:
-   fullname: Client Demo User
-   password: client
-   admin: false
+client:
+ fullname: Client Demo User
+ password: client
+ admin: false
