@@ -26,7 +26,7 @@ class Auth {
   
 	public static function instance($config_name='auth') {
     static $instance;
-    // Load the Authlite instance
+
     empty($instance) and $instance = new Auth($config_name);
     return $instance;
 	}
