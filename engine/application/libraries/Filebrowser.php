@@ -4,7 +4,7 @@
  *  Filebrowser
  */
 class Filebrowser {
-  var $config_name    = "auth";
+  var $config_name    = "filebrowser";
 
   var $path           = "";
 
@@ -25,6 +25,8 @@ class Filebrowser {
   var $sort_order_direction = "Asc";
 
   var $displayed_conent = false;
+
+  var $file_kinds = null;
 
   public function __construct($config_name='filebrowser') {
     $this->config = Kohana::config($config_name);
@@ -135,7 +137,7 @@ class Filebrowser {
 
 	public static function instance($config_name='filebrowser') {
     static $instance;
-    // Load the Authlite instance
+
     empty($instance) and $instance = new Filebrowser($config_name);
     return $instance;
 	}
