@@ -84,30 +84,33 @@ foreach ($folders as $folder):
     <td>
       <?php
         //different folder based on the access
-        $new = "";
-        $updated = "";
+
+        $icon_file = "";
+        $restricted = false;
+        $have_access = false;
+        $new = false;
+        $updated = false;
          
         if ($folder->is_restricted()) {
-          $icon_file = "i_dir";
+          $restricted = true;
           if ($folder->have_access($this->auth->get_user())) {
-            $icon_file = "i_dir_unlocked";
+            $have_access = true;
           } else {
-            $icon_file = "i_dir_locked";
+            $have_access = false;
           }
         } else {
-          
           if (false && $folder->stats['ctime'] > $new_updated_start) {
-              $new = "_new";
+              $new = true;
           } else if ($folder->stats['mtime'] > $new_updated_start) {
-              $updated = "_up";
+              $updated = true;
           }
         }
+        $folder_kind = $this->filekind->get_kind_by_extension("dir");
+        $icon_file = $this->filekind->get_icon_by_file($folder_kind, $new, $updated, $restricted, $have_access);
         
-        
-        $thumbnail = view::get_view_url()."/images/icons/".$icon_file.$new.$updated.".gif";        
-        
+        $icon = view::get_view_url()."/images/icons/".$icon_file.".gif";        
       ?>
-      <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><img src='<?php echo $thumbnail ?>' width='30' height='14' border='0' /></a>
+      <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><img src='<?php echo "".$icon ?>' width='30' height='14' border='0' /></a>
     </td>
     <td class="filename">
       <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><?php echo $folder->get_display_name() ?></a>
@@ -130,16 +133,26 @@ endforeach ?>
 
 <?php foreach ($files as $file) :
   if (!$file->has_thumbnail()) :
-    $kind = $this->filebrowser->get_kind($file->name);
-    
-    $new = "";
-    $updated = "";
+      $file_kind = $this->filekind->get_kind_by_file($file->name);
+      
+      if (isset($file_kind['kind'])) {
+        $kind = $file_kind['kind'];
+      } else {
+        $kind = "";
+      }
+      
+      $icon_file = "";
+      $new = false;
+      $updated = false;
 
       if (false && $file->stats['ctime'] > $new_updated_start) {
-          $new = "_new";
+          $new = true;
       } else if ($file->stats['mtime'] > $new_updated_start) {
-          $updated = "_up";
+          $updated = false;
       }
+
+      $icon_file = $this->filekind->get_icon_by_file($file_kind, $new, $updated);
+      $icon = view::get_view_url()."/images/icons/".$icon_file.".gif";   
 
       $target = "";
       $url = "";
@@ -193,7 +206,7 @@ endforeach ?>
   ?>
   <tr>
     <td>
-      <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><img src='<?php echo view::get_view_url() ?>/images/icons/i_<?php echo $this->filebrowser->get_kind($file->name).$new.$updated; ?>.gif' width='30' height='14' border='0' /></a>
+      <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><img src='<?php echo $icon; ?>' width='30' height='14' border='0' /></a>
     </td>
     <td class="filename">
       <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><?php echo $file->get_display_name() ?></a>

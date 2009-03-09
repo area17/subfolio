@@ -1,0 +1,139 @@
+#
+#
+#
+
+ai:
+  extensions: [ai]
+  icon: ai
+  display: Illustrator File
+
+csv:
+  extensions: [csv]
+  icon: csv
+  display: Comma Seperated File
+
+dir:
+  extensions: [dir]
+  icon: dir
+  display: Folder
+
+doc:
+  extensions: [doc]
+  icon: doc
+  display: Word Document
+
+img:
+  extensions: [gif, png, jpg]
+  icon: img
+  display: Image
+
+indd:
+  extensions: [indd]
+  icon: indd
+  display: InDesign Document
+
+key:
+  extensions: [key]
+  icon: key
+  display: Keynote Document
+
+  
+numbers:
+  extensions: [nummbers]
+  icon: numbers
+  display: Numbers Document
+
+pages:
+  extensions: [pages]
+  icon: pages
+  display: Pages Document
+  
+ppt:
+  extensions: [ppt]
+  icon: ppt
+  display: Powerpoint Document
+
+psd:
+  extensions: [psd]
+  icon: psd
+  display: Photoshop File
+
+snd:
+  extensions: [mp3, wav]
+  icon: snd
+  display: Audio File
+
+swf:
+  extensions: [swf]
+  icon: swf
+  display: Flash Movie
+
+txt:
+  extensions: [txt]
+  icon: txt
+  display: Text
+
+vid:
+  extensions: [avi, mov, mp4, mpg, mpeg]
+  icon: vid
+  display: Movie
+  
+xls:
+  extensions: [xls]
+  icon: xls
+  display: Excel Document                
+
+fla:
+  extensions: [fla]
+  icon: fla
+  display: Flash Movie
+  
+zip:
+  extensions: [zip, dmg, str, tar, gz]
+  icon: zip
+  display: Archive
+
+dcr:
+  extensions: [dcr]
+  icon: dcr
+  display: Shockwave Movie
+  
+pdf:
+  extensions: [pdf]
+  icon: pdf
+  display: PDF Document
+  
+fnt:
+  extensions: [fnt]
+  icon: fnt
+  display: Font Suitcase
+
+
+#
+# Enhancers
+#
+
+cut:
+  extensions: [cut]
+  icon: cut
+  display: Shortcut
+
+ftr:
+  extensions: [ftr]
+  icon: ftr
+  display: Feature
+  
+pop:
+  extensions: [pop]
+  icon: pop
+  display: Popup Window
+
+net:
+  extensions: [net]
+  icon: net
+  display: Internet Location
+
+site:
+  extensions: [site]
+  icon: site
+  display: Mini Site
