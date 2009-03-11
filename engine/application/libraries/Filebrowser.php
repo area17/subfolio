@@ -371,7 +371,7 @@ class Filebrowser {
     if (isset($this->properties[$propertyname])) {
       return $this->properties[$propertyname];
     }
-    
+
     return null;
   }
 
@@ -379,10 +379,19 @@ class Filebrowser {
     $property = null;
     $info_ext = Kohana::config('filebrowser.info_extension');
     if ($info_ext == "") {
-     $info_ext = ".info";
+      $info_ext = ".info";
     }
-    
-    // load properties file if it exists
+
+    // load properties file if it exists (not hidden)
+    $info_filename = $filename.$info_ext;
+    if (file_exists($info_filename)) {
+      $array = Spyc::YAMLLoad($info_filename);
+      if (isset($array[$propertyname])) {
+        $property = $array[$propertyname];
+      }
+    }
+
+    // load properties file if it exists (hidden)
     $info_filename = "-".$filename.$info_ext;
     if (file_exists($info_filename)) {
       $array = Spyc::YAMLLoad($info_filename);
@@ -390,7 +399,7 @@ class Filebrowser {
         $property = $array[$propertyname];
       }
     }
-    
+
     if ($property == null) {
       if (isset($this->properties[$filename])) {
         $info = $this->properties[$filename];
@@ -399,7 +408,7 @@ class Filebrowser {
         }
       }
     }
-    
+
     if ($property == null) {
       $kind = $this->get_kind($filename);
       if ($kind == "cut" || $kind == "pop" || $kind == "net") {
@@ -720,29 +729,29 @@ class Filebrowser {
         case 'pdf':
           $display = 'PDF Document';
         break;
-  
+
         case 'fnt':
           $display = 'Font Suitcase';
         break;
-  
+
         case 'site':
           $display = 'Mini Site';
         break;
-  
+
         case 'mail':
           $display = 'Contact Form';
         break;
-  
+
         default:
           $display = ucfirst($kind);
       }
     }
     return $display;
   }
-  
+
   private function is_hidden($filename) {
     $hidden = false;
-    $pos = strpos($filename, '-');    
+    $pos = strpos($filename, '-');
     if ($pos === false) {
       $hidden = false;
     } else {
@@ -750,11 +759,18 @@ class Filebrowser {
         $hidden = true;
       }
     }
-    
+
+    if (!$hidden) {
+      $info_ext = Kohana::config('filebrowser.info_extension');
+      if ($info_ext == "") {
+       $info_ext = ".info";
+      }
+      if (substr($filename, (-1 * strlen($info_ext))) == $info_ext) {
+        $hidden = true;
+      }
+    }
+
     return $hidden;
   }
-  
 }
-
-
 ?>
