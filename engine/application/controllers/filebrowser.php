@@ -106,12 +106,12 @@ class Filebrowser_Controller extends Website_Controller {
 
   public function index() {
     $path = isset($_REQUEST['path']) ? $_REQUEST['path'] : '';
-    
+
     $this->filebrowser->set_path($path);
 
     if ($this->filebrowser->exists()) {
       $this->access->load_access($this->filebrowser->get_folder());
-      
+
       if ($this->access->is_restricted()) {
         // if user is not logged in redirect to login screen
         if (!$this->auth->logged_in()) {
@@ -120,11 +120,11 @@ class Filebrowser_Controller extends Website_Controller {
           exit();
         }
       }
-  
+
       if ($this->access->check_access($this->auth->get_user())) {
         if ($this->filebrowser->is_file()) {
           $file = $this->filebrowser->get_file();
-          
+
           $kind = $this->filebrowser->get_kind($file->name);
           if (View::view_exists('pages/filekinds/'.$kind)) {
         		$content = View::factory('pages/filekinds/'.$kind);

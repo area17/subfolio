@@ -10,7 +10,7 @@ class Filebrowser {
 
   var $folder         = "";
   var $fullfolderpath = "";
-  
+
   var $file           = "";
   var $filepath       = "";
   var $fullfilepath   = "";
@@ -31,7 +31,7 @@ class Filebrowser {
   public function __construct($config_name='filebrowser') {
     $this->config = Kohana::config($config_name);
     $this->config_name = $config_name;
-    
+
     $this->folder = $this->config['directory'];
 
     // check and update the updated_since settings
@@ -131,7 +131,7 @@ class Filebrowser {
       $session= Session::instance();
       $time = $session->get('previous_visit', "".mktime());
     }
-    
+
     return $time;
   }
 
@@ -149,7 +149,7 @@ class Filebrowser {
   public function set_path($path='') {
     $this->path = $path;
     $fullpath = $this->config['directory']."/".$path;
-    
+
     if (is_dir($fullpath)) {
       $this->folder = $path;
       $this->fullfolderpath = $fullpath;
@@ -165,13 +165,13 @@ class Filebrowser {
       $this->fullfilepath = $this->config['directory']."/".$path;
     }
     chdir($this->fullfolderpath."/");
-    
+
     // load properties
     $properties_file = Kohana::config('filebrowser.properties_file');
-    
+
     $array = Spyc::YAMLLoad($properties_file);
     $this->properties = $array;
-  }  
+  }
 
   public function exists() {
     if ($this->is_file()) return file_exists($this->fullfilepath);
@@ -196,7 +196,7 @@ class Filebrowser {
     } else  {
       $stats = array();
     }
-    
+
     $ff = new FileFolder($this->file, $this->folder, 'file', $this->get_kind_display($this->file), $stats);
     return $ff;
   }
@@ -204,7 +204,7 @@ class Filebrowser {
   public function prev_next_sort($list) {
     $gallery = array();
     $other = array();
-    
+
     foreach ($list as $item) {
       if ($item->kind == 'Image') {
         $gallery[] = $item;
@@ -258,7 +258,7 @@ class Filebrowser {
         if (!$this->is_hidden($filename)) {
           $stats = stat($filename);
           $ff = new FileFolder($filename, $this->folder, 'file', $this->get_kind_display($filename), $stats);
-          
+
           if ($kind != null) {
             $filekind = $this->get_kind($filename);
             if ($filekind === $kind) {
@@ -270,7 +270,7 @@ class Filebrowser {
         }
       }
     }
-    
+
     return $files;
   }
 
@@ -288,7 +288,7 @@ class Filebrowser {
 
         if ($hidden || !$this->is_hidden($filename)) {
           $include = false;
-          
+
           if ($kind != null) {
             $filekind = $this->get_kind($filename);
             if ($filekind === $kind) {
@@ -297,17 +297,16 @@ class Filebrowser {
           } else {
             $include = true;
           }
-        
+
           if ($include) {
             $stats = stat($filename);
             $ff = new FileFolder($filename, $this->folder, 'file', $this->get_kind_display($filename), $stats);
             $files[] = $ff;
           }
-          
         }
       }
     }
-    
+
     return $files;
   }
 
@@ -433,8 +432,7 @@ class Filebrowser {
         }
       }
     }
-    
-    
+
     return $property;
   }
 
@@ -442,7 +440,7 @@ class Filebrowser {
     $archive = new Archive('zip');
 		$this->add_to_archive($archive, "../".basename($this->folder)."", $recursive);
     return $archive;
-  }  
+  }
 
   private function add_to_archive($archive, $folder, $recursive) {
     foreach (glob($folder."*") as $filename) {
@@ -453,12 +451,12 @@ class Filebrowser {
       } else {
         $archive->add($filename, str_replace("../", "", $filename));
       }
-    }    
+    }
   }
 
   function get_kind($file) {
     $path_parts = pathinfo($file);
-    
+
     $extension ="";
     if (isset($path_parts['extension'])) {
       $extension = $path_parts['extension'];
@@ -468,42 +466,42 @@ class Filebrowser {
   	// get the extention
     $extension = strtolower($extension);
     $kind = "folder";
-  
+
     if ($extension <> "") {
       switch ($extension) {
         case '':
           $kind = 'gen';
         break;
-  
+
         case 'dir':
           $kind = 'dir';
         break;
-  
+
         case 'png':
         case 'gif':
         case 'jpg':
           $kind = 'img';
         break;
-  
+
         case 'ai':
         case 'eps':
           $kind = 'ai';
         break;
-  
+
         case 'indd':
         $kind = 'indd';
         break;
-        
+
         case 'psd':
         case 'tif':
         case 'tiff':
           $kind = 'psd';
         break;
-        
+
         case 'bmp':
           $kind = 'gen';
         break;
-        
+
         case 'lnk':
         case 'fr':
         case 'biz':
@@ -513,17 +511,17 @@ class Filebrowser {
         case 'html':
           $kind = 'net';
         break;
-        
+
         case 'pop':
           $kind = 'pop';
         break;
-        
+
         case 'xml':
         case 'txt':
         case 'php':
           $kind = 'txt';
         break;
-        
+
         case 'swf':
           $kind = 'swf';
         break;
@@ -531,15 +529,15 @@ class Filebrowser {
         case 'fla':
           $kind = 'fla';
         break;
-        
+
         case 'cut':
           $kind = 'cut';
         break;
-        
+
         case 'dcr':
           $kind = 'dcr';
         break;
-        
+
         case 'mel':
           $kind = 'mel';
         break;
@@ -547,7 +545,7 @@ class Filebrowser {
         case 'merlin2':
           $kind = 'merlin';
         break;
-        
+
         case 'sit':
         case 'tar':
         case 'zip':
@@ -555,11 +553,11 @@ class Filebrowser {
         case 'gz':
           $kind = 'zip';
         break;
-        
+
         case 'suit':
           $kind = 'fnt';
         break;
-        
+
         case 'avi':
         case 'mov':
         case 'mpg':
@@ -567,33 +565,33 @@ class Filebrowser {
         case 'mp4':
           $kind = 'vid';
         break;
-        
+
         case 'mp3':
         case 'wav':
           $kind = 'snd';
         break;
-        
+
         case 'php':
           $kind = 'php';
         break;
-        
+
         case 'pdf':
           $kind = 'pdf';
         break;
-        
+
         case 'doc':
         case 'rtf':
         case 'sql':
         case 'docx':
           $kind = 'doc';
         break;
-        
+
         case 'ppt':
         case 'pptx':
         case 'pps':
           $kind = 'ppt';
         break;
-        
+
         case 'xls':
         case 'xlsx':
           $kind = 'xls';
@@ -602,11 +600,11 @@ class Filebrowser {
         case 'csv':
           $kind = 'csv';
         break;
-        
+
         case 'site':
           $kind = 'site';
         break;
-        
+
         case 'mail':
           $kind = 'mail';
         break;
@@ -626,15 +624,14 @@ class Filebrowser {
         case 'ftr':
           $kind = 'ftr';
         break;
-        
+
         default:
           $kind = "unknown";
       }
     }
-    
     return $kind;
   }
-  
+
   function get_kind_display($file) {
     $kind = $this->get_kind($file);
     if ($kind<> "") {
@@ -642,11 +639,11 @@ class Filebrowser {
         case 'gen':
           $display = '';
         break;
-    
+
         case 'dir':
           $display = 'Folder';
         break;
-    
+
         case 'doc':
           $display = 'Word Document';
         break;
@@ -662,11 +659,11 @@ class Filebrowser {
         case 'key':
           $display = 'Keynote Document';
         break;
-    
+
         case 'ppt':
           $display = 'Powerpoint Document';
         break;
-    
+
         case 'xls':
           $display = 'Excel Document';
         break;
@@ -674,43 +671,43 @@ class Filebrowser {
         case 'csv':
           $display = 'Comma Seperated File';
         break;
-    
+
         case 'img':
           $display = 'Image';
         break;
-    
+
         case 'ai':
           $display = 'Illustrator File';
         break;
-                  
+
         case 'indd':
           $display = 'InDesign Document';
         break;
-                  
+
         case 'psd':
           $display = 'Photoshop File';
         break;
-  
+
         case 'cut':
           $display = 'Shortcut';
         break;
-  
+
         case 'net':
           $display = 'Internet Location';
         break;
-  
+
         case 'pop':
           $display = 'Popup Window';
         break;
-            
+
         case 'txt':
           $display = 'Text';
         break;
-  
+
         case 'snd':
           $display = 'Audio File';
         break;
-  
+
         case 'vid':
           $display = 'Movie';
         break;
@@ -718,29 +715,29 @@ class Filebrowser {
         case 'swf':
           $display = 'Flash Movie';
         break;
-  
+
         case 'fla':
           $display = 'Flash Movie';
         break;
-  
+
         case 'ftr':
           $display = 'Feature';
         break;
-  
+
         case 'zip':
         case 'dmg':
         case 'sit':
           $display = 'Archive';
         break;
-  
+
         case 'php':
           $display = 'Script';
         break;
-  
+
         case 'dcr':
           $display = 'Shockwave Movie';
         break;
-  
+
         case 'pdf':
           $display = 'PDF Document';
         break;
@@ -776,11 +773,12 @@ class Filebrowser {
     }
 
     if (!$hidden) {
-      $info_ext = Kohana::config('filebrowser.info_extension');
-      if ($info_ext == "") {
-       $info_ext = ".info";
-      }
+      $info_ext = Kohana::config('filebrowser.info_extension') ?  Kohana::config('filebrowser.info_extension') : ".info" ;
+      $ftr_ext = Kohana::config('filebrowser.feature_extension') ?  Kohana::config('filebrowser.feature_extension') : ".ftr" ;
+
       if (substr($filename, (-1 * strlen($info_ext))) == $info_ext) {
+        $hidden = true;
+      } else if (substr($filename, (-1 * strlen($ftr_ext))) == $ftr_ext) {
         $hidden = true;
       }
     }
