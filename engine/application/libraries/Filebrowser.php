@@ -364,6 +364,21 @@ class Filebrowser {
         }
       }
     }
+
+    // need to check all the fetaure files too
+    if (!$is_feature) {
+      $file_features = $this->get_file_list("ftr", null, true);
+      if (sizeof($file_features) > 0) {
+        foreach ($file_features as $file_feature) {
+          $feature = Spyc::YAMLLoad($file_feature->name);
+          if (isset($feature['folder']) && $feature['folder'] == $foldername) {
+            $is_feature = true;
+            break;
+          }
+        }
+      }
+    }
+
     return $is_feature;
   }
 
