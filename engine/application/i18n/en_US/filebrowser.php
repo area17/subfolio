@@ -30,4 +30,17 @@ $lang = array
   'error'                 => 'Error',
 );
 
+// Override these settings from the content of a language Yaml file
+
+$language_file = Kohana::config('filebrowser.language_yaml_file');
+
+if ($language_file <> '') {
+  if (file_exists($language_file)) {
+    $array = Spyc::YAMLLoad($language_file);
+    foreach ($array as $name => $value) {
+      $lang[$name] = $value;
+    }
+  }
+}
+
 ?>
