@@ -8,9 +8,6 @@ directory: directory
 access_file: -access
 properties_file: -properties
 
-auth_session: some_random_string
-auth_salt: some_random_string
-
 users_yaml_file: users.yml
 groups_yaml_file: groups.yml
 

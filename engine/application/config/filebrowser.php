@@ -15,10 +15,10 @@ $config['properties_file'] = '-properties';
 $config['thumbnail_width'] = 320;
 $config['thumbnail_height'] = 240;
 
-# NOTE IF YOU CHANGE THIS YOU WILL NEED TO REGENERATE YOUR PASSWORD LIST
+# NOTE IF YOU CHANGE THIS YOU WILL NEED TO REGENERATE YOUR HASHED PASSWORD LIST
 
-$config['auth_session'] = 'some_random_string';
-$config['auth_salt'] = 'some_random_string';
+$config['auth_session'] = '1Gmo0pangF8FZ05R';
+$config['auth_salt']    = 'W8Kivk5ykGhSrc11';
 
 $config['users_yaml_file']  = $users_folder."users.yml";
 $config['groups_yaml_file'] = $users_folder."groups.yml";
@@ -32,12 +32,16 @@ $settings = Spyc::YAMLLoad($settings_file);
 
 //rint_r($settings);
 
-$config['site_name']           = isset($settings['site_name'])           ? $settings['site_name'] : $config['site_name'];
-$config['site_domain']         = isset($settings['site_domain'])         ? $settings['site_domain'] : $config['site_domain'];
+$config['site_name']           = isset($settings['site_name'])           	? $settings['site_name'] : $config['site_name'];
+$config['site_domain']         = isset($settings['site_domain'])         	? $settings['site_domain'] : $config['site_domain'];
 
-$config['theme']               = isset($settings['theme'])               ? $settings['theme'] : $config['theme'];
+$config['theme']               = isset($settings['theme'])               	? $settings['theme'] : $config['theme'];
 
-$config['directory']           = isset($settings['directory'])           ? $site_folder.$settings['directory'] : $config['directory'];
+$config['directory']           = isset($settings['directory'])          	? $site_folder.$settings['directory'] : $config['directory'];
+
+$config['auth_session']        = isset($settings['auth_session'])         ? $settings['auth_session'] : $config['auth_session'];
+$config['auth_salt']     			= isset($settings['auth_salt'])     				? $settings['auth_salt'] : $config['auth_salt'];
+
 
 $config['access_file']         = isset($settings['access_file'])         ? $settings['access_file'] : $config['access_file'];
 $config['properties_file']     = isset($settings['properties_file'])     ? $settings['properties_file'] : $config['properties_file'];
