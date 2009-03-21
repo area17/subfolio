@@ -7,7 +7,10 @@
   ?>
 
   <p>
-	Updated since: 
+    <!-- Removal of link to subfolio.com violates the terms of use  -->
+    <a target="_blank" href="http://www.subfolio.com">Subfolio</a> &mdash;
+    Updated since: 
+        
    <?php if ($updated_since == "lastweek") { ?>
 	   last week
    <?php } else { ?>
@@ -27,11 +30,6 @@
    <?php } else { ?>
 		<a href="?updated_since=lastvisit">my last visit</a>
    <?php } ?>
-  </p>
-
-	<p class="copyright">
-	  <!-- Removal of link to subfolio.com violates the terms of use  -->
-	  Content Copyright &copy; 2009 AREA 17, all rights reserved &ndash; This is a <a target="_blank" href="http://www.subfolio.com">Subfolio</a>
   </p>
 	
 </div>
