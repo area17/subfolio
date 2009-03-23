@@ -26,11 +26,12 @@ class Filebrowser {
 
   var $displayed_conent = false;
 
-  var $file_kinds = null;
+  var $filekind = null;
 
   public function __construct($config_name='filebrowser') {
     $this->config = Kohana::config($config_name);
     $this->config_name = $config_name;
+    $this->filekind = FileKind::instance();
 
     $this->folder = $this->config['directory'];
 
@@ -197,7 +198,10 @@ class Filebrowser {
       $stats = array();
     }
 
-    $ff = new FileFolder($this->file, $this->folder, 'file', $this->get_kind_display($this->file), $stats);
+    $fkind = $this->filekind->get_kind_by_file($this->file);
+    $kind = isset($fkind['kind']) ? $fkind['kind'] : '';
+
+    $ff = new FileFolder($this->file, $this->folder, 'file', $kind, $stats);
     return $ff;
   }
 
@@ -257,10 +261,13 @@ class Filebrowser {
       if (!is_dir($filename)) {
         if (!$this->is_hidden($filename)) {
           $stats = stat($filename);
-          $ff = new FileFolder($filename, $this->folder, 'file', $this->get_kind_display($filename), $stats);
+
+
+          $fkind = $this->filekind->get_kind_by_file($filename);
+          $filekind = isset($fkind['kind']) ? $fkind['kind'] : '';
+          $ff = new FileFolder($filename, $this->folder, 'file', $filekind, $stats);
 
           if ($kind != null) {
-            $filekind = $this->get_kind($filename);
             if ($filekind === $kind) {
               $files[] = $ff;
             }
@@ -290,7 +297,8 @@ class Filebrowser {
           $include = false;
 
           if ($kind != null) {
-            $filekind = $this->get_kind($filename);
+            $fkind = $this->filekind->get_kind_by_file($filename);
+            $filekind = isset($fkind['kind']) ? $fkind['kind'] : '';
             if ($filekind === $kind) {
               $include = true;
             }
@@ -300,7 +308,9 @@ class Filebrowser {
 
           if ($include) {
             $stats = stat($filename);
-            $ff = new FileFolder($filename, $this->folder, 'file', $this->get_kind_display($filename), $stats);
+            $fkind = $this->filekind->get_kind_by_file($filename);
+            $filekind = isset($fkind['kind']) ? $fkind['kind'] : '';
+            $ff = new FileFolder($filename, $this->folder, 'file', $filekind, $stats);
             $files[] = $ff;
           }
         }
@@ -331,7 +341,8 @@ class Filebrowser {
       if (is_dir($filename)) {
         if (!$this->is_hidden($filename)) {
           $stats = stat($filename);
-          $ff = new FileFolder($filename, $this->folder, 'folder', $this->get_kind_display($filename), $stats);
+          $fkind = $this->filekind->get_kind_by_file($filename);
+          $ff = new FileFolder($filename, $this->folder, 'folder', $fkind, $stats);
           $folders[] = $ff;
         }
       }
@@ -424,8 +435,9 @@ class Filebrowser {
     }
 
     if ($property == null) {
-      $kind = $this->get_kind($filename);
-      if ($kind == "cut" || $kind == "pop" || $kind == "net") {
+      $fkind = $this->filekind->get_kind_by_file($filename);
+      $kind = isset($fkind['kind']) ? $fkind['kind'] : '';
+      if ($kind == "cut" || $kind == "pop" || $kind == "net" || $kind == "link") {
         $array = Spyc::YAMLLoad($filename);
         if (isset($array[$propertyname])) {
           $property = $array[$propertyname];
@@ -454,7 +466,7 @@ class Filebrowser {
     }
   }
 
-  function get_kind($file) {
+  function __get_kind($file) {
     $path_parts = pathinfo($file);
 
     $extension ="";
@@ -632,7 +644,7 @@ class Filebrowser {
     return $kind;
   }
 
-  function get_kind_display($file) {
+  function __get_kind_display($file) {
     $kind = $this->get_kind($file);
     if ($kind<> "") {
       switch ($kind) {

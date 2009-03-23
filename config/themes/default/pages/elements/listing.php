@@ -73,7 +73,7 @@ foreach ($folders as $folder):
 
     if (!$this->filebrowser->is_feature($folder->name)) {
     $target = "";
-    $kind = $this->filebrowser->get_kind($folder->name);
+    $kind = $this->filekind->get_kind_by_file($folder->name);
     $icon_file = "i_dir";
 
     $url = "";
@@ -144,7 +144,7 @@ foreach ($folders as $folder):
       <?php echo format::filedate($folder->stats['mtime']); ?>
     </td>
     <td class="filekind">
-        <?php echo $this->filebrowser->get_kind_display($folder->name) ?>
+        <?php echo $kind ?>
     </td>
     <td class="filecomment">
       <?php echo $this->filebrowser->get_item_property($folder->name, 'comment') ?>
@@ -163,6 +163,8 @@ endforeach ?>
       } else {
         $kind = "";
       }
+      
+      $display = isset($file_kind['display']) ? $file_kind['display'] : '';
       
       $icon_file = "";
       $new = false;
@@ -215,7 +217,7 @@ endforeach ?>
           $url = "javascript:pop('$url','$name',$width,$height,'$style');";
           break;
 
-  			case "net" :
+  			case "link" :
           $url = $this->filebrowser->get_item_property($file->name, 'url')    ? $this->filebrowser->get_item_property($file->name, 'url') : '';
           $target = $this->filebrowser->get_item_property($file->name, 'target')    ? $this->filebrowser->get_item_property($file->name, 'target') : '_blank';
   			  break;
@@ -240,7 +242,7 @@ endforeach ?>
       <?php echo format::filedate($file->stats['mtime']); ?>
     </td>
     <td class="filekind">
-      <?php echo $this->filebrowser->get_kind_display($file->name) ?>
+      <?php echo $display ?>
     </td>
     <td class="filecomment">
       <?php echo $this->filebrowser->get_item_property ($file->name, 'comment') ?>

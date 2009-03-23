@@ -128,8 +128,8 @@ pop:
   icon: pop
   display: Popup Window
 
-net:
-  extensions: [net]
+link:
+  extensions: [net, link]
   icon: net
   display: Internet Location
 
