@@ -73,9 +73,11 @@ foreach ($folders as $folder):
 
     if (!$this->filebrowser->is_feature($folder->name)) {
     $target = "";
-    $kind = $this->filekind->get_kind_by_file($folder->name);
+    $folder_kind = $this->filekind->get_kind_by_file($folder->name);
+    $kind = isset($folder_kind['kind']) ? $folder_kind['kind'] : '';
     $icon_file = "i_dir";
 
+    $display = isset($folder_kind['display']) ? $folder_kind['display'] : '';
     $url = "";
 	  switch ($kind) {
 			case "site" :
@@ -144,7 +146,7 @@ foreach ($folders as $folder):
       <?php echo format::filedate($folder->stats['mtime']); ?>
     </td>
     <td class="filekind">
-        <?php echo $kind ?>
+        <?php echo $display ?>
     </td>
     <td class="filecomment">
       <?php echo $this->filebrowser->get_item_property($folder->name, 'comment') ?>
