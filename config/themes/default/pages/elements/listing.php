@@ -1,4 +1,27 @@
 <?php 
+$inline = $this->filebrowser->get_file_list("txt", "-t-intro", true);
+if (sizeof($inline) > 0) { 
+  $this->filebrowser->set_displayed_content(true);
+  foreach($inline as $file) {
+    ?>
+    <div id="top_inline_text" class="clearfix">
+    <?php
+      readfile($file->name);
+    ?>
+    </div>
+    <?php
+  }
+} ?>
+
+<?php if ($this->filebrowser->get_folder_property('text-intro') <> '') { 
+  $this->filebrowser->set_displayed_content(true);
+?>
+<div class="top_inline_text">
+  <p><?php echo $this->filebrowser->get_folder_property('text-intro'); ?></p>
+</div>
+<?php } ?>
+
+<?php 
 $gallery_files = $this->filebrowser->get_file_list("img");
 $folders = $this->filebrowser->get_folder_list();
 $folders = $this->filebrowser->sort($folders);
