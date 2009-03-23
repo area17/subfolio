@@ -77,12 +77,14 @@ foreach ($folders as $folder):
     $kind = isset($folder_kind['kind']) ? $folder_kind['kind'] : '';
     $icon_file = "i_dir";
 
-    $display = isset($folder_kind['display']) ? $folder_kind['display'] : '';
+    $kind_display = isset($folder_kind['display']) ? $folder_kind['display'] : '';
     $url = "";
+    $display = $folder->get_display_name();
 	  switch ($kind) {
 			case "site" :
 			  $url = "/directory".$this->filebrowser->get_link($folder->name)."/index.html";
 			  $target = "_blank";
+        $display = format::filename($folder->get_display_name(), false);
         break;
 
 			case "pages" :
@@ -138,7 +140,7 @@ foreach ($folders as $folder):
       <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><img src='<?php echo "".$icon ?>' width='30' height='14' border='0' /></a>
     </td>
     <td class="filename">
-      <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><?php echo $folder->get_display_name() ?></a>
+      <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><?php echo $display ?></a>
     </td>
     <td class="filesize">
     </td>
@@ -146,7 +148,7 @@ foreach ($folders as $folder):
       <?php echo format::filedate($folder->stats['mtime']); ?>
     </td>
     <td class="filekind">
-        <?php echo $display ?>
+        <?php echo $kind_display ?>
     </td>
     <td class="filecomment">
       <?php echo $this->filebrowser->get_item_property($folder->name, 'comment') ?>
@@ -166,7 +168,7 @@ endforeach ?>
         $kind = "";
       }
       
-      $display = isset($file_kind['display']) ? $file_kind['display'] : '';
+      $kind_display = isset($file_kind['display']) ? $file_kind['display'] : '';
       
       $icon_file = "";
       $new = false;
@@ -183,6 +185,7 @@ endforeach ?>
 
       $target = "";
       $url = "";
+      $display = "";
 
 		  switch ($kind) {
   			case "ai" :
@@ -207,6 +210,7 @@ endforeach ?>
   			case "key" :
   			case "numbers" :
   			  $url = "/directory".$this->filebrowser->get_link($file->name);
+  			  $display = $file->get_display_name();
   			  break;
 
   			case "pop" :
@@ -217,15 +221,18 @@ endforeach ?>
           $style    = $this->filebrowser->get_item_property($file->name, 'style')    ? $this->filebrowser->get_item_property($file->name, 'style') : 'POPSCROLL';
 
           $url = "javascript:pop('$url','$name',$width,$height,'$style');";
+  			  $display = format::filename($file->get_display_name(), false);
           break;
 
   			case "link" :
           $url = $this->filebrowser->get_item_property($file->name, 'url')    ? $this->filebrowser->get_item_property($file->name, 'url') : '';
           $target = $this->filebrowser->get_item_property($file->name, 'target')    ? $this->filebrowser->get_item_property($file->name, 'target') : '_blank';
+  			  $display = format::filename($file->get_display_name(), false);
   			  break;
 
   			default:
   			  $url = $this->filebrowser->get_link($file->name);
+  			  $display = $file->get_display_name();
           break;  			
 	    }
 
@@ -235,7 +242,7 @@ endforeach ?>
       <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><img src='<?php echo $icon; ?>' width='30' height='14' border='0' /></a>
     </td>
     <td class="filename">
-      <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><?php echo $file->get_display_name() ?></a>
+      <a <?php if ($target <> "") print "target='$target'" ?> href="<?php echo $url ?>"><?php echo $display ?></a>
     </td>
     <td class="filesize">
       <?php echo format::filesize($file->stats['size']); ?>
@@ -244,7 +251,7 @@ endforeach ?>
       <?php echo format::filedate($file->stats['mtime']); ?>
     </td>
     <td class="filekind">
-      <?php echo $display ?>
+      <?php echo $kind_display ?>
     </td>
     <td class="filecomment">
       <?php echo $this->filebrowser->get_item_property ($file->name, 'comment') ?>

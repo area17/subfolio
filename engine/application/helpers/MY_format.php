@@ -27,4 +27,21 @@ class format extends format_Core {
 	  return date($format, $date);
   }
 
+  public static function filename($name, $show_ext=true) {
+    $filename = $name;
+    if ($show_ext) {
+      $filename = $name;
+    } else {
+      $extension ="";
+      $path_parts = pathinfo($name);
+      if (isset($path_parts['extension'])) {
+        $extension = $path_parts['extension'];
+      }
+      if ($extension) {
+        $filename = substr($name, 0, (-1 * strlen($extension)-1));
+      }
+    }
+    return $filename;
+  }
+
 } // End format
