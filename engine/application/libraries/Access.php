@@ -34,13 +34,23 @@ class Access {
       $file_list[] = $file;
     }
 
-    foreach ($folders as $folder) {
-      if ($folder <> "") {
-        $file = $folder."/".$access_file;
-        if (file_exists($file)) {
-          $file_list[] = $file;
+    if (sizeof($folders) > 0) {
+      $root_path = "";
+      foreach ($folders as $folder) {
+        if ($folder <> "") {
+          $root_path .= "../";
+          $file = $folder."/".$access_file;
+          if (file_exists($file)) {
+            $file_list[] = $file;
+          }
         }
-      } else {
+
+      }
+      
+      // Need to check the root of the site
+      $file = $root_path.$access_file;
+      if (file_exists($file)) {
+        $file_list[] = $file;
       }
     }
 
