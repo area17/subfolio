@@ -6,6 +6,7 @@ $users_folder    = $site_folder.'config/users/';
 $settings_folder = $site_folder.'config/settings/';
 
 $config['site_name'] = 'Subfolio Portable';
+$config['site_logo_url'] = '';
 $config['site_domain'] = 'www.subfolio.com';
 $config['theme'] = 'default';
 $config['directory'] = $site_folder.'directory';
@@ -33,6 +34,7 @@ $settings = Spyc::YAMLLoad($settings_file);
 //rint_r($settings);
 
 $config['site_name']           = isset($settings['site_name'])           	? $settings['site_name'] : $config['site_name'];
+$config['site_logo_url']       = isset($settings['site_logo_url'])        ? $settings['site_logo_url'] : $config['site_logo_url'];
 $config['site_domain']         = isset($settings['site_domain'])         	? $settings['site_domain'] : $config['site_domain'];
 
 $config['theme']               = isset($settings['theme'])               	? $settings['theme'] : $config['theme'];

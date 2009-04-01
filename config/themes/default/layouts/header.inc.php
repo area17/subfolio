@@ -9,7 +9,15 @@
     }
 ?>
 <div id="header">
-	<h1 id="logo" class="logo <?php print "".$showHide;?>"><a href='/' ><?php echo Kohana::config('filebrowser.site_name'); ?></a></div>
+  <?
+    $site_name_display = Kohana::config('filebrowser.site_name');
+    $logo = Kohana::config('filebrowser.site_logo_url');
+    if ($logo <> "") {
+      $site_name_display = "<img src='$logo' />";
+    }
+  ?>
+  
+	<h1 id="logo" class="logo <?php print "".$showHide;?>"><a href='/' ><?php echo $site_name_display ?></a></div>
 </div>
 
 <div id="navigation">
