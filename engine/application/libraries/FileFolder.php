@@ -92,6 +92,7 @@ class FileFolder {
     if (file_exists($custom_thumbnail)) {
       return $url;
     } else {
+      
       $thumbnail = "-thumbnails/".$this->name;
       $url = "/directory/".$this->parent."/-thumbnails/".$this->name;
   
@@ -103,13 +104,19 @@ class FileFolder {
       }
   
       if ($build_thumbnail) {
-        $thumbnail_width = Kohana::config('filebrowser.thumbnail_width');
-        $thumbnail_height = Kohana::config('filebrowser.thumbnail_height');
-        
-        $this->image = new Image($this->name);
-        $this->image->resize($thumbnail_width, $thumbnail_height, Image::HEIGHT);            
-        $this->image->crop($thumbnail_width, $thumbnail_height, 'top', 'left');
-        $this->image->save($thumbnail);
+        $max_size = Kohana::config('filebrowser.thumbnail_max_filesize');
+        $stats = stat($this->name);
+        if ($stats['size'] > ($max_size * 1024 * 1024)) {
+          return '';
+        } else {
+          $thumbnail_width = Kohana::config('filebrowser.thumbnail_width');
+          $thumbnail_height = Kohana::config('filebrowser.thumbnail_height');
+          
+          $this->image = new Image($this->name);
+          $this->image->resize($thumbnail_width, $thumbnail_height, Image::HEIGHT);            
+          $this->image->crop($thumbnail_width, $thumbnail_height, 'top', 'left');
+          $this->image->save($thumbnail);
+        }
       }
       
       $thumbnail_stats = stat($thumbnail);

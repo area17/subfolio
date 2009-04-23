@@ -15,4 +15,6 @@ groups_yaml_file: groups.yml
 filekinds_yaml_file: filekinds.yml
 language_yaml_file: language.yml
 
+thumbnail_max_filesize: 5
+
 // 
