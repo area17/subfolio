@@ -79,7 +79,8 @@ class Filebrowser_Controller extends Website_Controller {
       if ($this->filebrowser->is_file()) {
         // CHECK IF I HAVE ACCESS TO path
         $file = $this->filebrowser->fullfilepath;
-        
+
+        set_time_limit(0);
         header('Content-Description: File Transfer');
         header('Content-Type: ' . mime_content_type($file));
         header('Content-Transfer-Encoding: binary');
@@ -87,9 +88,15 @@ class Filebrowser_Controller extends Website_Controller {
         header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
         header('Pragma: public');
         header('Content-Length: ' . filesize($file));
-        ob_clean();
-        flush();
-        readfile($file);
+        ob_end_clean();
+        //readfile($file);
+        
+        $fp = fopen($file, "rb");
+        while (!feof($fp)){
+          print(@fread($fp, 4096));
+          flush();
+        }
+        fclose($fp);
         exit;  
       } else {
         // must be a folder
@@ -187,8 +194,8 @@ if(!function_exists('mime_content_type')) {
             'gif' => 'image/gif',
             'bmp' => 'image/bmp',
             'ico' => 'image/vnd.microsoft.icon',
-            'tiff' => 'image/tiff',
-            'tif' => 'image/tiff',
+            //'tiff' => 'image/tiff',
+            //'tif' => 'image/tiff',
             'svg' => 'image/svg+xml',
             'svgz' => 'image/svg+xml',
 
