@@ -1,0 +1,15 @@
+/* -------------------------------------------------------------- 
+  
+   ie7.css
+   * Subfolio by AREA 17
+   
+-------------------------------------------------------------- */
+
+#features ul li a { overflow: visible; }
+#features ul li a .image { margin-bottom: -3px;}
+
+.updated { margin: 0 0 0 12px; } 
+.locked, .unlocked { margin: 5px 0 0 3px;}
+
+
+
