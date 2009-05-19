@@ -404,6 +404,7 @@ min-width:550px;
 	
 	#gallery ul li a div.gallery_thumbnail {
 	text-align:center;
+	background-color: white;
 	}
 	
 	div[id=gallery] ul li a div.gallery_thumbnail {
