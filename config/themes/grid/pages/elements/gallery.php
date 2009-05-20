@@ -9,6 +9,7 @@ if (sizeof($files) > 0) {
     if ($file->needs_thumbnail()) { 
       $thumbnail = $file->get_thumbnail_url();
       if ($thumbnail <> '') {
+			// File With Thumbnail --------------
       ?>
       <li>
         <a href="<?php echo $this->filebrowser->get_link($file->name); ?>">
@@ -21,7 +22,9 @@ if (sizeof($files) > 0) {
 				</a>
       </li>
       <?php } ?>
-    <? } else { ?>
+    <? } else { 
+		// File Without Thumbnail --------------
+			?>
       <li>
         <a href="<?php echo $this->filebrowser->get_link($file->name); ?>">
 					<div class="gallery_thumbnail">
