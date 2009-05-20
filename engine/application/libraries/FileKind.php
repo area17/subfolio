@@ -26,20 +26,21 @@ class FileKind {
     $icon_file = "i_gen";
 
     if ($kind) {
-      $icon_file = "i_" . $kind['icon'];
-      if ($is_restricted) {
-        if ($have_access) {
-          $icon_file .= "_unlocked";
-        } else {
-          $icon_file .= "_locked";
-        }
-      } else {
-        if ($new) {
-          $icon_file .= "_new";
-        } else if ($updated) {
-          $icon_file .= "_up";
-        }
-      }
+			$icon_file = "i_" . $kind['icon'];
+      // $icon_file = "i_" . $kind['icon'];
+      //       if ($is_restricted) {
+      //         if ($have_access) {
+      //           $icon_file .= "_unlocked";
+      //         } else {
+      //           $icon_file .= "_locked";
+      //         }
+      //       } else {
+      //         if ($new) {
+      //           $icon_file .= "_new";
+      //         } else if ($updated) {
+      //           $icon_file .= "_up";
+      //         }
+      //       }
     }
     return $icon_file;
   }
