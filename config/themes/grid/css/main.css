@@ -399,15 +399,25 @@ overflow:hidden;
 float:left;
 background-color:#e5e5e5;
 margin:0 1px 1px 0;
-padding:2px;
+padding:1px;
 }
 
 #gallery ul li a div.gallery_thumbnail {
 background-color: white;
+	text-align: center;
+}
+#gallery ul li a span.hcenterer {
+height: 240px;
+width: 10px;
+}
+#gallery ul li a div.vcenterer {
 display: table-cell;
 vertical-align: middle;
-}
+min-width: 100px;
+height:240px;
 
+width: 100px;
+}
 div[id=gallery] ul li a div.gallery_thumbnail {
 height:240px;
 } /** not for IE6 **/
@@ -425,7 +435,7 @@ color:#fff;
 
 #gallery ul li a p {
 margin:0;
-padding:3px 0 2px 4px;
+padding:9px 5px 5px 7px;
 }
 
 * html #gallery {

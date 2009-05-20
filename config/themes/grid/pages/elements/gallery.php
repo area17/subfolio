@@ -11,14 +11,28 @@ if (sizeof($files) > 0) {
       if ($thumbnail <> '') {
       ?>
       <li>
-        <a href="<?php echo $this->filebrowser->get_link($file->name); ?>"><div class="gallery_thumbnail"><img src="<?php echo $thumbnail ?>" /></div>
-        <p><?php echo $file->name ?></p></a>
+        <a href="<?php echo $this->filebrowser->get_link($file->name); ?>">
+					<div class="gallery_thumbnail">
+						<div class="vcenterer">
+							<img src="<?php echo $thumbnail ?>" />
+						</div>
+					</div>
+        	<p><?php echo $file->name ?></p>
+				</a>
       </li>
       <?php } ?>
     <? } else { ?>
       <li>
-        <a href="<?php echo $this->filebrowser->get_link($file->name); ?>"><div class="gallery_thumbnail"><img src="<?php echo $file->get_url() ?>" /></div>
-        <p><?php echo $file->name ?></p></a>
+        <a href="<?php echo $this->filebrowser->get_link($file->name); ?>">
+					<div class="gallery_thumbnail">
+						<span class='hcenterer'>
+							<div class="vcenterer">
+								<img src="<?php echo $file->get_url() ?>" />
+							</div>
+						</span>
+					</div>
+        	<p><?php echo $file->name ?></p>
+				</a>
       </li>
     <?php } ?>
     <?php } ?>
