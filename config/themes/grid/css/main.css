@@ -351,9 +351,9 @@ color:#666;
 
 #footer .footer_sep {
 background-repeat: no-repeat;
-display: inline-block;
+display: inline-block;	
 width: 5px;
-height: 5px;
+height: 35px;
 background-image: url(../images/system/dot.png);
 color:#999;
 font-size:16px;
@@ -527,6 +527,7 @@ position:absolute;
 /* -------------------------------------------------------------- 
    MODULES: CONTENT / LISTING GRID VIEW
 -------------------------------------------------------------- */
+
 #listing ul {
 list-style:none;
 max-width:none;
@@ -586,6 +587,31 @@ overflow: hidden; /* Crop the text if longer */
 display:none;
 }
 
+#listing ul li .icon_download {
+background-repeat:no-repeat;
+width:5px;
+height:17px;
+float:left;
+top: 35px;
+left: 65px;
+background-image:url("../images/system/download.png");
+}
+
+#listing ul li .icon_download.blank {
+background:none;
+}
+
+#listing ul li .updated {
+position:absolute;
+display:block;
+width:11px;
+height:11px;
+z-index:99;
+background:url("../images/system/updated.png") no-repeat top left;
+top: 22px;
+left: 99px;
+}
+
 #listing ul li span.comment {
 color:#aaa;
 }
@@ -610,31 +636,6 @@ position: absolute;
 position: absolute;
 top: 20px;
 left: 73px;
-}
-
-#listing ul li .icon_download {
-background-repeat:no-repeat;
-width:5px;
-height:17px;
-float:left;
-top: 35px;
-left: 65px;
-background-image:url("../images/system/download.png");
-}
-
-#listing ul li .icon_download.blank {
-background:none;
-}
-
-#listing ul li .updated {
-position:absolute;
-display:block;
-width:9px;
-height:9px;
-z-index:99;
-background:url("../images/system/updated.png") no-repeat top left;
-top: 22px;
-left: 100px;
 }
 
 #listing ul li.locked,#listing ul li .unlocked {
