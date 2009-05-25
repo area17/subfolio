@@ -28,11 +28,11 @@ if (sizeof($files) > 0) {
       <li>
         <a href="<?php echo $this->filebrowser->get_link($file->name); ?>">
 					<div class="gallery_thumbnail">
-						<span class='hcenterer'>
+						<div class='hcenterer'>
 							<div class="vcenterer">
 								<img src="<?php echo $file->get_url() ?>" />
 							</div>
-						</span>
+						</div>
 					</div>
         	<p><?php echo $file->name ?></p>
 				</a>

@@ -404,11 +404,11 @@ padding:1px;
 
 #gallery ul li a div.gallery_thumbnail {
 background-color: white;
-	text-align: center;
 }
-#gallery ul li a span.hcenterer {
+#gallery ul li a div.hcenterer {
 height: 240px;
-width: 10px;
+width: 100px;
+margin: 0 auto;
 }
 #gallery ul li a div.vcenterer {
 display: table-cell;
