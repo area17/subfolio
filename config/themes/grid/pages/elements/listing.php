@@ -119,7 +119,7 @@ foreach ($folders as $folder):
 						        $have_access = false;
 						        $new = false;
 						        $updated = false;
-
+										
 						        if ($folder->is_restricted()) {
 						          $restricted = true;
 						          if ($folder->have_access($this->auth->get_user())) {
@@ -192,7 +192,8 @@ endforeach ?>
       $icon_file = "";
       $new = false;
       $updated = false;
-
+			$downloadable = $file_kind['download'];
+				
       if (false && $file->stats['ctime'] > $new_updated_start) {
           $new = true;
       } else if ($file->stats['mtime'] > $new_updated_start) {
@@ -269,8 +270,7 @@ endforeach ?>
 								<?php	if ($new) { ?>
 				      		<span class="new"><!-- --></span>
 								<?php	} ?>
-								
-								<span class="icon_download"><!-- --></span>
+								<span class="icon_download <?php if (!$downloadable) { echo 'blank'; } ?>"><!-- --></span>
 								<img src='<?php echo $icon; ?>' />
 							</span>
 							<span class="filename column"><?php echo $display ?></span>

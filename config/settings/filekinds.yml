@@ -6,167 +6,199 @@ ai:
   extensions: [ai]
   icon: ai
   display: Illustrator File
-
+  download: true
+  
 eps:
   extensions: [eps]
   icon: eps
   display: Postscript File
+  download: true
   
 csv:
   extensions: [csv]
   icon: sql
   display: Comma Separated File
+  download: true
 
 dir:
   extensions: [dir]
   icon: dir
   display: Folder
+  download: false
 
 doc:
   extensions: [doc, docx]
   icon: doc
-  display: Word Document
-
+  display: Word Document yo!
+  download: true
+  
 img:
   extensions: [gif, png, jpg]
   icon: pic
   display: Image
+  download: false
 
 bmp:
   extensions: [bmp]
   icon: pic
   display: Bitmap Image
+  download: true
 
 tiff:
   extensions: [tiff, tif]
   icon: pic
-  display: TIFF Image  
+  display: TIFF Image
+  download: true
 
 indd:
   extensions: [indd]
   icon: indd
   display: InDesign Document
+  download: true
 
 indb:
   extensions: [indb]
   icon: indd
   display: InDesign Book
+  download: true
   
 key:
   extensions: [key]
   icon: key
   display: Keynote Document
-
+  download: true
   
 numbers:
   extensions: [numbers]
   icon: numbers
   display: Numbers Document
+  download: true
 
 pages:
   extensions: [pages]
   icon: pages
   display: Pages Document
+  download: true
   
 ppt:
   extensions: [ppt, pptx, pps]
   icon: ppt
   display: Powerpoint Document
+  download: true
 
 psd:
   extensions: [psd]
   icon: psd
   display: Photoshop File
+  download: true
 
 ae:
   extensions: [ae, aep]
   icon: ae
   display: AfterEffect File
+  download: true
   
 snd:
   extensions: [mp3, wav]
   icon: snd
   display: Audio File
+  download: false
 
 swf:
   extensions: [swf]
   icon: swf
   display: Flash Movie
+  download: false
 
 txt:
   extensions: [txt]
   icon: txt
   display: Text File
+  download: false
 
 rtf:
   extensions: [rtf]
   icon: txt
   display: Rich Text File
+  download: true
   
 vid:
   extensions: [avi, mov, mp4, mpg, mpeg]
   icon: vid
   display: Movie
+  download: false
   
 xls:
   extensions: [xls, xlsx]
   icon: xls
-  display: Excel Document                
+  display: Excel Document
+  download: true                
 
 fla:
   extensions: [fla]
   icon: fla
   display: Flash Movie
+  download: true
   
 zip:
   extensions: [zip, str, tar, gz]
   icon: zip
   display: Archive
+  download: true
 
 dmg:
   extensions: [dmg]
   icon: dmg
   display: Disc Image
+  download: true
   
 dcr:
   extensions: [dcr]
   icon: dcr
   display: Shockwave Movie
+  download: true
   
 pdf:
   extensions: [pdf]
   icon: pdf
   display: PDF Document
+  download: false
   
 fnt:
   extensions: [fnt, ttf, bmap, afm]
   icon: fnt
   display: Font
+  download: true
 
 suit:
   extensions: [suit]
   icon: fnt
   display: Font Suitcase
+  download: true
   
 merlin:
   extensions: [merlin, merlin2]
   icon: merlin
   display: Merlin File
+  download: true
 
 html:
   extensions: [htm, html, rhtml]
   icon: html
   display: HTML File
+  download: true
 
 ase:
   extensions: [ase]
   icon: ase
   display: Adobe Swatch File
+  download: true
   
 sql:
   extensions: [sql]
   icon: sql
   display: MySql Dump
+  download: true
   
 #
 # Enhancers
@@ -176,23 +208,28 @@ cut:
   extensions: [cut]
   icon: cut
   display: Shortcut
+  download: false
 
 ftr:
   extensions: [ftr]
   icon: ftr
   display: Feature
+  download: false
   
 pop:
   extensions: [pop]
   icon: pop
   display: Popup Window
+  download: false
 
 link:
   extensions: [net, link, com, fr, net, org, me, us, biz, mobi, info, es, de]
   icon: net
   display: Internet Location
+  download: false
 
 site:
   extensions: [site]
   icon: site
   display: Mini Site
+  download: false
