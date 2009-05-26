@@ -14,7 +14,7 @@ if (sizeof($inline) > 0) {
 <?php if ($this->filebrowser->get_folder_property('text-top') <> '') { 
   $this->filebrowser->set_displayed_content(true);
 ?>
-<div class="top-text">
+<div id="top-text" class="standard_paragraph">
   <p><?php echo $this->filebrowser->get_folder_property('text-top'); ?></p>
 </div>
 <?php } ?>
@@ -25,7 +25,7 @@ if (sizeof($inline) > 0) {
   $this->filebrowser->set_displayed_content(true);
   foreach($inline as $file) {
     ?>
-    <div id="top-text">
+    <div id="top-text" class="standard_paragraph">
     <?php
       readfile($file->name);
     ?>

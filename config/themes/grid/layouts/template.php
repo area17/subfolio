@@ -24,7 +24,9 @@
 		
 			<div id="flash"><?php echo Session::instance()->get('flash'); ?></div>
 		
-			<div id="content"><?php if (isset($content)) echo $content; ?></div>
+			<div id="content">
+				<div class="standard_paragraph"><?php if (isset($content)) echo $content; ?></div>
+			</div>
 		</div>
 		<?php include("footer.inc.php") ?>
 	</div>
