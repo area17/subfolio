@@ -57,9 +57,7 @@
   <div id="tools">
       <?php
       if ($this->auth->logged_in()) {
-          print "<a title='Logout' alt='' href='/logout'>".Kohana::lang('filebrowser.logout')."</a>"; ?>
-          <span class="nav_sep"></span>
-      <?php
+          print "<a title='Logout' alt='' href='/logout'>".Kohana::lang('filebrowser.logout')."</a> <span class='nav_sep'></span> ";
       }
   
       $subject = "Link from " . $_SERVER["SERVER_NAME"];

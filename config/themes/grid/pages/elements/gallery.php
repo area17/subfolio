@@ -1,4 +1,5 @@
 <?php 
+// -------------------- IMAGE GALLERY -----------------------------------------------------------------------------
 $files   = $this->filebrowser->get_file_list("img");
 if (sizeof($files) > 0) { 
   $this->filebrowser->set_displayed_content(true);
@@ -7,9 +8,8 @@ if (sizeof($files) > 0) {
   <ul>
   <?php foreach ($files as $file) { 
 		if ($file->needs_thumbnail()) { $image_source = $file->get_thumbnail_url(); } else { $image_source = $file->get_url(); }
-		
 			if ($file->has_custom_thumbnail()) { 
-			// Custom thumbnails
+			// Custom thumbnails -----------------------------------------------------------------------------
 			?>
       <li>
         <a href="<?php echo $this->filebrowser->get_link($file->name); ?>">
@@ -20,12 +20,12 @@ if (sizeof($files) > 0) {
 				</a>
       </li>
     	<?php } else { 
-			// Genrerated or no thumbnails
+			// Genrerated or not thumbnails -----------------------------------------------------------------------------
 			?>
 	    <li>
         <a href="<?php echo $this->filebrowser->get_link($file->name); ?>">
 					<div class="gallery_thumbnail generated">
-						<div class='hcenterer' style="width:<?php echo $file->get_width(); ?>px;">
+						<div class='hcenterer' style="width:<?php if (!$file->needs_thumbnail()) { echo $file->get_width(); } ?>px;">
 							<div class="vcenterer">
 								<img src="<?php echo $image_source ?>" />
 							</div>

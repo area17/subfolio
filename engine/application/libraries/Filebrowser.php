@@ -41,11 +41,11 @@ class Filebrowser {
   }
 
   public function get_displayed_content() {
-    return $this->displayed_conent;
+    return $this->displayed_content;
   }
 
   public function set_displayed_content($displayed) {
-    $this->displayed_conent = $displayed;
+    $this->displayed_content = $displayed;
   }
 
   public function _sort_order() {

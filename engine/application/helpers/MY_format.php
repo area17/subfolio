@@ -11,7 +11,7 @@ class format extends format_Core {
 	public static function filesize($bytes) {
     if(!empty($bytes)) {
 
-      $s = array('bytes', 'kb', 'MB', 'GB', 'TB', 'PB');
+      $s = array('B', 'KB', 'MB', 'GB', 'TB', 'PB');
       $e = floor(log($bytes)/log(1024));
 
       $output = sprintf('%.0f '.$s[$e], ($bytes/pow(1024, floor($e))));

@@ -150,7 +150,9 @@ width:96%;
 .error {
 color:#FF0000;
 }
-
+.flash {
+color:#FF0000;
+}
 .faded {
 color:#BBB;
 }
@@ -181,7 +183,7 @@ text-decoration:none;
 }
 
 a:hover {
-color:#DD0000;
+/*color:#DD0000;*/
 }
 
 h1 a,h1 a:link,h1 a:visited {
@@ -383,7 +385,7 @@ overflow:hidden;
 
 #gallery ul li a {
 float:left;
-background-color:#d9d9d9;
+background-color:#f5f5f5;
 margin:0 1px 1px 0;
 padding:1px;
 }
@@ -409,17 +411,17 @@ height:240px;
 #gallery ul li a img {
 border:none;
 overflow:hidden;
-
 }
 
 #gallery ul li a:hover,#gallery ul li a:hover p {
-background:#DD0000;
+background:#1a1a1a;
 color:#fff;
 }
 
 #gallery ul li a p {
 margin:0;
 padding:9px 5px 5px 7px;
+/*background-color: white;*/
 }
 
 * html #gallery {
@@ -459,11 +461,11 @@ position:relative;
 float:left;}
 
 #features ul li a .image img {
-border:2px solid #fff;
+border:1px solid #fff;
 }
 
 #features ul li a .info {
-width:160px;
+width:200px;
 position:relative;
 float:left;
 margin-right:-160px;
@@ -485,15 +487,15 @@ padding:0 10px 10px;
 }
 
 #features ul li a:hover {
-background-color:#E0E0E0;
+background-color:#f5f5f5;
 }
 
 #features ul li a:hover .image img {
-border:2px solid #DD0000;
+border:1px solid #1a1a1a;
 }
 
 #features ul li a:hover .info h2 {
-color:#DD0000;
+/*color:#DD0000;*/
 }
 
 * html #features {
@@ -506,151 +508,209 @@ position:absolute;
 
 /* @end */
 
-/* @group Listing : grid */
 
-/* -------------------------------------------------------------- 
-   MODULES: CONTENT / LISTING GRID VIEW
--------------------------------------------------------------- */
+/* MISC: to sort!!! */
 
-#listing ul {
-list-style:none;
-max-width:none;
+/* @group List */
+
+#listing ul,#related ul {
+width:100%;
 overflow:hidden;
 font-size:12px;
+padding:0;}
+
+#listing ul li,#related ul li {
 margin:0;
-padding:0;
 }
 
-#listing ul li {
-float:left;
-width:179px;
-height:104px;
-text-align:center;
-overflow:hidden;
-margin: 0 1px 1px 0;
+#listing ul li,#listing ul li.listing-header,#related ul li {
+list-style:none;
 }
 
-#listing ul li a {
-text-decoration:none;
+#listing ul li.listing-header {
+padding:0 0 5px;
+}
+
+#listing ul li a,#related ul li a {
 display:block;
-width:100%;
-height:100%;
-/*background-color:#f5f5f5;*/
+text-decoration:none;
+color:#777;
+margin-bottom:1px;
+padding:1px 0;
+}
+
+#listing ul li a:hover,#related ul li a:hover {
+color:#1A1A1A;
+background-color:#eee;
+cursor:pointer;
 -moz-border-radius:3px;
 -webkit-border-radius:3px;
 }
 
-#listing ul li a:hover {
-/*background-color:#f0f0f0;*/
-cursor:pointer;
+#listing ul li.listing-header a:hover {
+border:none;
+color:#1C7AD5;
+background-color:inherit;
 }
 
-#listing ul li .listing-content {
-position: relative;
+.listing-content {
+min-width:550px;
+min-height:16px;
+overflow:hidden;
 }
 
-#listing ul li .listing-content .listing-content-left {
-display:block;
-min-height: 75px;
-}
-
-#listing ul li .listing-content .listing-content-right {
+.listing-content span {
 display:block;
 }
 
-#listing ul li .listing-content span {
-display:block;
-}
-
-#listing ul li span.filename {
-max-height:1.2em;
-overflow: hidden; /* Crop the text if longer */
-}
-
-#listing ul li span.size,#listing ul li span.datekind {
-display:none;
-}
-
-#listing ul li .icon_download {
-background-repeat:no-repeat;
-width:5px;
-height:17px;
+.listing-content-left {
+width:35%;
 float:left;
-top: 35px;
-left: 65px;
-background-image:url("../images/system/download.png");
 }
 
-#listing ul li .icon_download.blank {
-background:none;
+.listing-content-right {
+margin:0 0 0 35%;
 }
 
-#listing ul li .updated {
-position:absolute;
-display:block;
-width:11px;
-height:11px;
-z-index:99;
-background:url("../images/system/updated.png") no-repeat top left;
-top: 22px;
-left: 99px;
+.listing-content-left-inner {
+padding-left:35px;
+padding-right:65px;
 }
 
-#listing ul li span.comment {
-color:#aaa;
+.listing-content-left-inner .column {
+position:relative;
+float:left;
 }
 
-/* @end */
+.icon {
+width:35px;
+margin-right:-100%;
+right:35px;
+height:17px;
+}
 
-/* @group Listing : icons */
+.name, .filename {
+width:100%;
+}
+
+.filename {
+color:#1A1A1A; /*font-family: "Arial Rounded MT Bold", Arial;*/
+}
+
+.size {
+width:50px;
+margin-right:-100%;
+text-align:right;
+}
+
+.datekind {
+width:220px;
+float:left;
+}
+
+.date {
+width:90px;
+float:left;
+}
+
+.kind {
+margin-left:90px;
+}
+
+.comment {
+margin-left:230px;
+}
+
+.filename,.name,.size,.date,.kind,.comment {
+padding:2px 0 0;
+}
+
+/* --- IE Fixes */
+* html .mw {
+clear:both; /* Forces clear and sets min-width for IE6 */
+padding:0 0 0 700px; 
+} 
+
+* html .mwc {
+margin-left:-700px; /* Min width fix for IE6 */
+position:relative;
+} 
+
+/**/
+/* The surrounding asterisks is used to hide this style from IE5 on a Mac. Prevents the comment column to drop down */
+* html .mw, * html .layout, * html .mwc, * html .listing-content-right-inner {
+height:1px;
+} 
+/**/
+
+* html .listing-content {
+margin:1px 0;
+padding:1px 0;
+}
+
+* html #listing {
+clear:left;
+}
 
 /* -------------------------------------------------------------- 
    MODULES: CONTENT / LISTING ICONS
 -------------------------------------------------------------- */
-
-#listing ul li .icon {
-height: 60px;
+/* --- Icon for Download */
+.icon_download {
+background-repeat:no-repeat;
+width:5px;
+height:17px;
+float:left;
+margin-left:4px;
+margin-right:1px;
+background-image:url("../images/system/download.png");
 }
 
-#listing ul li .icon span {
-position: absolute;
+.icon_download.blank {
+background:none;
 }
 
-#listing ul li .icon img {
-position: absolute;
-top: 20px;
-left: 73px;
+* html .icon img {
+margin-left:10px;
 }
 
-#listing ul li.locked,#listing ul li .unlocked {
+* html .icon .icon_download {
+position:absolute;
+}
+
+.updated, .new {
+position:absolute;
+display:block;
+width:9px;
+height:9px;
+z-index:99;
+background:url("../images/system/updated.png") no-repeat top left;
+margin:0 0 0 22px;
+}
+
+.new {
+background: url("../images/system/new.png") no-repeat top left;
+}
+
+.locked,.unlocked {
+position:absolute;
 display:block;
 width:10px;
 height:9px;
 z-index:98;
 background:url("../images/system/lock.png") no-repeat top left;
-top: 29px;
-left: 77px;
+margin:5px 0 0 13px;
 }
 
-#listing ul li .locked {
-background-position:top;
-}
+.locked {
+background-position:top;}
 
-#listing ul li .unlocked {
+.unlocked {
 background-position:0 -50px;
-}
-
-* html #listing ul li .icon img {
-
-}
-
-* html #listing ul li .icon .icon_download {
 }
 
 /* @end */
 
-
-/* MISC: to sort!!! */
 .top_message {
 padding:2px 0 3px;
 }

@@ -1,5 +1,5 @@
 
-<!--****************************** TOP TEXT ******************************-->
+<!--****************************** INTRO TEXT ******************************-->
 
 <?php 
 $inline = $this->filebrowser->get_file_list("txt", "-t-intro", true);
@@ -7,7 +7,7 @@ if (sizeof($inline) > 0) {
   $this->filebrowser->set_displayed_content(true);
   foreach($inline as $file) {
     ?>
-    <div id="middle-text">
+    <div id="middle-text" class="standard_paragraph">
     <?php
       readfile($file->name);
     ?>
@@ -51,31 +51,7 @@ if ($showListing) { ?>
 <div id="listing" class="mw"> <!-- Min width for IE --> 
   <div class="layout"> <!-- Container for IE -->
   <div class="mwc"> <!-- Container for IE -->
-	<ul>
-		<li class="listing-header">
-			<div class="listing-content">
-				<span class="listing-content-left">
-					<span class="listing-content-left-inner">
-						<span class="icon column">
-							<span class="icon_download blank"><!-- --></span>
-							<img src='<?php echo view::get_view_url() ?>/images/system/no_icon.png' width='18' height='17' border='0' />
-						</span>
-						<span class="name column"><a href="?sort=filename">filename</a></span>
-						<span class="size column"><a href="?sort=size">size</a></span>
-					</span>
-				</span>
-				<span class="listing-content-right">
-					<span class="listing-content-right-inner">
-						<span class="datekind">
-							<span class="date"><a href="?sort=date">date</a></span>
-							<span class="kind"><a href="?sort=kind">kind</a></span>
-						</span>
-						<span class="comment"><!-- --></span>
-					</span>
-				</span>
-			</div>
-		</li>
-		
+	<ul>		
 <!--****************************** FOLDERS ******************************-->
 <!-- Sites, pages, numbers and keynote documents (who uses folders) -->
 
@@ -152,7 +128,7 @@ foreach ($folders as $folder):
 						      	<span class="updated"><!-- --></span>
 						      	<span class="unlocked"><!-- --></span>
 						      	<span class="icon_download blank"><!-- --></span>
-								<img src='<?php echo "".$icon ?>' width='18' height='17' />
+								<img src='<?php echo "".$icon ?>' width='32' height='32' />
 							</span>
 							<span class="filename column"><?php echo $display ?></span>
 							<span class="size column">&mdash;</span>
@@ -265,7 +241,7 @@ endforeach ?>
 							<span class="icon column">
 								<span class="updated"></span>
 								<span class="icon_download"><!-- --></span>
-								<img src='<?php echo $icon; ?>' width='18' height='17' class='download_arrow' />
+								<img src='<?php echo $icon; ?>' width='32' height='32'/>
 							</span>
 							<span class="filename column"><?php echo $display ?></span>
 							<span class="size column"><?php echo format::filesize($file->stats['size']); ?></span>
@@ -290,7 +266,6 @@ endforeach ?>
   </div>
   </div>
 </div >
-
 <?php } else { ?>
   <?php if (sizeof($gallery_files) < 1 && !$this->filebrowser->get_displayed_content()) { ?>
   <p>No files present</p>

@@ -39,7 +39,7 @@ if (sizeof($inline) > 0) {
 <!-- INLINE TEXT --->
 
 <?php if ($this->filebrowser->get_folder_property('text-bottom') <> '') { ?>
-<div class="bottom-text">
+<div id="bottom-text" class="standard_paragraph">
   <?php echo $this->filebrowser->get_folder_property('text-bottom') ?>
 </div>
 <?php } ?>
@@ -50,7 +50,7 @@ if (sizeof($inline) > 0) {
   $this->filebrowser->set_displayed_content(true);
   foreach($inline as $file) {
     ?>
-    <div id="bottom-text">
+    <div id="bottom-text" class="standard_paragraph">
     <?php
       readfile($file->name);
     ?>

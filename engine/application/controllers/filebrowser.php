@@ -117,6 +117,7 @@ class Filebrowser_Controller extends Website_Controller {
     $this->filebrowser->set_path($path);
 
     if ($this->filebrowser->exists()) {
+	
       $this->access->load_access($this->filebrowser->get_folder());
 
       if ($this->access->is_restricted()) {
@@ -129,6 +130,7 @@ class Filebrowser_Controller extends Website_Controller {
       }
 
       if ($this->access->check_access($this->auth->get_user())) {
+			
         if ($this->filebrowser->is_file()) {
           $file = $this->filebrowser->get_file();
 
@@ -146,6 +148,7 @@ class Filebrowser_Controller extends Website_Controller {
           $this->template->page_title = "File: ".$file->name;
       		$this->template->content = $content;
         } else {
+					
           $folder = $this->filebrowser->get_folder();
 
       		$content = View::factory('pages/listing');

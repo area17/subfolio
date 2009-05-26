@@ -1,5 +1,5 @@
 #
-#
+# DOCUMENTS
 #
 
 ai:
@@ -7,10 +7,15 @@ ai:
   icon: ai
   display: Illustrator File
 
+eps:
+  extensions: [eps]
+  icon: eps
+  display: Postscript File
+  
 csv:
   extensions: [csv]
-  icon: csv
-  display: Comma Seperated File
+  icon: sql
+  display: Comma Separated File
 
 dir:
   extensions: [dir]
@@ -18,20 +23,35 @@ dir:
   display: Folder
 
 doc:
-  extensions: [doc]
+  extensions: [doc, docx]
   icon: doc
   display: Word Document
 
 img:
   extensions: [gif, png, jpg]
-  icon: img
+  icon: pic
   display: Image
+
+bmp:
+  extensions: [bmp]
+  icon: pic
+  display: Bitmap Image
+
+tiff:
+  extensions: [tiff, tif]
+  icon: pic
+  display: TIFF Image  
 
 indd:
   extensions: [indd]
   icon: indd
   display: InDesign Document
 
+indb:
+  extensions: [indb]
+  icon: indd
+  display: InDesign Book
+  
 key:
   extensions: [key]
   icon: key
@@ -39,7 +59,7 @@ key:
 
   
 numbers:
-  extensions: [nummbers]
+  extensions: [numbers]
   icon: numbers
   display: Numbers Document
 
@@ -49,7 +69,7 @@ pages:
   display: Pages Document
   
 ppt:
-  extensions: [ppt]
+  extensions: [ppt, pptx, pps]
   icon: ppt
   display: Powerpoint Document
 
@@ -58,6 +78,11 @@ psd:
   icon: psd
   display: Photoshop File
 
+ae:
+  extensions: [ae, aep]
+  icon: ae
+  display: AfterEffect File
+  
 snd:
   extensions: [mp3, wav]
   icon: snd
@@ -71,15 +96,20 @@ swf:
 txt:
   extensions: [txt]
   icon: txt
-  display: Text
+  display: Text File
 
+rtf:
+  extensions: [rtf]
+  icon: txt
+  display: Rich Text File
+  
 vid:
   extensions: [avi, mov, mp4, mpg, mpeg]
   icon: vid
   display: Movie
   
 xls:
-  extensions: [xls]
+  extensions: [xls, xlsx]
   icon: xls
   display: Excel Document                
 
@@ -89,10 +119,15 @@ fla:
   display: Flash Movie
   
 zip:
-  extensions: [zip, dmg, str, tar, gz]
+  extensions: [zip, str, tar, gz]
   icon: zip
   display: Archive
 
+dmg:
+  extensions: [dmg]
+  icon: dmg
+  display: Disc Image
+  
 dcr:
   extensions: [dcr]
   icon: dcr
@@ -104,11 +139,35 @@ pdf:
   display: PDF Document
   
 fnt:
-  extensions: [fnt]
+  extensions: [fnt, ttf, bmap, afm]
+  icon: fnt
+  display: Font
+
+suit:
+  extensions: [suit]
   icon: fnt
   display: Font Suitcase
+  
+merlin:
+  extensions: [merlin, merlin2]
+  icon: merlin
+  display: Merlin File
 
+html:
+  extensions: [htm, html, rhtml]
+  icon: html
+  display: HTML File
 
+ase:
+  extensions: [ase]
+  icon: ase
+  display: Adobe Swatch File
+  
+sql:
+  extensions: [sql]
+  icon: sql
+  display: MySql Dump
+  
 #
 # Enhancers
 #
@@ -129,7 +188,7 @@ pop:
   display: Popup Window
 
 link:
-  extensions: [net, link]
+  extensions: [net, link, com, fr, net, org, me, us, biz, mobi, info, es, de]
   icon: net
   display: Internet Location
 

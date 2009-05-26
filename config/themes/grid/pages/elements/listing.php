@@ -1,5 +1,5 @@
 
-<!--****************************** TOP TEXT ******************************-->
+<!--****************************** INTRO TEXT ******************************-->
 
 <?php 
 $inline = $this->filebrowser->get_file_list("txt", "-t-intro", true);
@@ -7,7 +7,7 @@ if (sizeof($inline) > 0) {
   $this->filebrowser->set_displayed_content(true);
   foreach($inline as $file) {
     ?>
-    <div id="middle-text">
+    <div id="middle-text" class="standard_paragraph">
     <?php
       readfile($file->name);
     ?>
@@ -24,9 +24,6 @@ if (sizeof($inline) > 0) {
 </div>
 <?php } ?>
 
-<!--****************************** FILE LISTING HEADER ******************************-->
-<!-- Shows only if there is no Gallery -->
-
 <?php 
 $gallery_files = $this->filebrowser->get_file_list("img");
 $folders = $this->filebrowser->get_folder_list();
@@ -35,23 +32,40 @@ $folders = $this->filebrowser->sort($folders);
 $files  = $this->filebrowser->get_file_list();
 $files  = $this->filebrowser->sort($files);
 
-$showListing = true;
+// ****************************** FILE LISTING HEADER ******************************
+// Shows only if there is no Gallery
 
-if (sizeof($folders) > 0) {
-  $showListing = true;
-} else {
-  if (sizeof($files) > sizeof($gallery_files)) {
-    $showListing = true;
-  } else {
-    $showListing = false;
-  }
-}
+$showListing = true;
 
 if ($showListing) { ?>
 <div id="listing" class="mw"> <!-- Min width for IE --> 
   <div class="layout"> <!-- Container for IE -->
   <div class="mwc"> <!-- Container for IE -->
-	<ul>		
+	<ul>
+		<li class="listing-header">
+			<div class="listing-content">
+				<span class="listing-content-left">
+					<span class="listing-content-left-inner">
+						<span class="icon column">
+							<span class="icon_download blank"><!-- --></span>
+							<img src='<?php echo view::get_view_url() ?>/images/system/no_icon.png' width='18' height='17' border='0' />
+						</span>
+						<span class="name column"><a href="?sort=filename">filename</a></span>
+						<span class="size column"><a href="?sort=size">size</a></span>
+					</span>
+				</span>
+				<span class="listing-content-right">
+					<span class="listing-content-right-inner">
+						<span class="datekind">
+							<span class="date"><a href="?sort=date">date</a></span>
+							<span class="kind"><a href="?sort=kind">kind</a></span>
+						</span>
+						<span class="comment"><!-- --></span>
+					</span>
+				</span>
+			</div>
+		</li>
+				
 <!--****************************** FOLDERS ******************************-->
 <!-- Sites, pages, numbers and keynote documents (who uses folders) -->
 
@@ -113,22 +127,31 @@ foreach ($folders as $folder):
 						          } else {
 						            $have_access = false;
 						          }
-						        } else {
-						          if (false && $folder->stats['ctime'] > $new_updated_start) {
-						              $new = true;
-						          } else if ($folder->stats['mtime'] > $new_updated_start) {
-						              $updated = true;
-						          }
 						        }
+						
+						        if (false && $folder->stats['ctime'] > $new_updated_start) {
+					              $new = true;
+					          } else if ($folder->stats['mtime'] > $new_updated_start) {
+					              $updated = true;
+					          }
+
 						        $folder_kind = $this->filekind->get_kind_by_extension("dir");
 						        $icon_file = $this->filekind->get_icon_by_file($folder_kind, $new, $updated, $restricted, $have_access);
 
 						        $icon = view::get_view_url()."/images/icons/".$icon_file.".png";        
 						      ?>
-						      	<span class="updated"><!-- --></span>
-						      	<span class="unlocked"><!-- --></span>
+										<?php	if ($updated) { ?>
+						      		<span class="updated"><!-- --></span>
+										<?php	} ?>
+										<?php	if ($new) { ?>
+						      		<span class="new"><!-- --></span>
+										<?php	} ?>
+										<?php	if ($restricted) { ?>
+											<span class="<?php if ($have_access) { echo "unlocked"; } else { echo "locked"; } ?>"><!-- --></span>
+										<?php	} ?>
+						      	
 						      	<span class="icon_download blank"><!-- --></span>
-								<img src='<?php echo "".$icon ?>' width='32' height='32' />
+								<img src='<?php echo "".$icon ?>' />
 							</span>
 							<span class="filename column"><?php echo $display ?></span>
 							<span class="size column">&mdash;</span>
@@ -239,9 +262,16 @@ endforeach ?>
 					<span class="listing-content-left">
 						<span class="listing-content-left-inner">
 							<span class="icon column">
-								<span class="updated"></span>
+								
+								<?php	if ($updated) { ?>
+				      		<span class="updated"><!-- --></span>
+								<?php	} ?>
+								<?php	if ($new) { ?>
+				      		<span class="new"><!-- --></span>
+								<?php	} ?>
+								
 								<span class="icon_download"><!-- --></span>
-								<img src='<?php echo $icon; ?>' width='32' height='32'/>
+								<img src='<?php echo $icon; ?>' />
 							</span>
 							<span class="filename column"><?php echo $display ?></span>
 							<span class="size column"><?php echo format::filesize($file->stats['size']); ?></span>
@@ -266,7 +296,6 @@ endforeach ?>
   </div>
   </div>
 </div >
-
 <?php } else { ?>
   <?php if (sizeof($gallery_files) < 1 && !$this->filebrowser->get_displayed_content()) { ?>
   <p>No files present</p>
