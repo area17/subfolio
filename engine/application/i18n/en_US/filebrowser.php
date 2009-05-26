@@ -22,7 +22,7 @@ $lang = array
   'check_url_go_back'     => 'Please check the url or go to the %s for a file listing.',
 
   'enter_user_password'   => 'Enter your username and password:',
-  'remember_my_login'     => 'remember my login',
+  'remember_my_login'     => 'Remember my login',
 
   'submit'                => 'Submit',
   'invalid_user_password'   => 'Invalid username or password.',

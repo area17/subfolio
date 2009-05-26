@@ -4,7 +4,7 @@ main.css
 * Subfolio by AREA 17
 
 -------------------------------------------------------------- */
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {
+html,body,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {
 border:0;
 outline:0;
 font-size:100%;
@@ -20,8 +20,8 @@ background-repeat:repeat-x;
 min-width:550px;
 }
 
-body, h1, h2, h3, h4, h5, h6, h7, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
-color:#1A1A1A;
+body, h1, h2, h3, h4, h5, h6, h7, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, field, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, .standard_paragraph b {
+color:#333;
 font-family:Arial, Helvetica, sans-serif;
 font-size:12px;
 font-weight: normal;
@@ -161,6 +161,11 @@ margin-bottom:5px;
 
 .copyright {
 margin-top:5px;
+}
+
+/* This is to use the Arial rounded bold and easily change it for Windows */
+b {
+	font-family: "Arial Rounded MT Bold";
 }
 
 /* @end */
@@ -346,6 +351,7 @@ background: url(../images/system/dot.png) no-repeat 0 17px;
 -------------------------------------------------------------- */
 #content {
 overflow:hidden;
+background-color: yellow;
 }
 
 /* @end */
@@ -809,25 +815,26 @@ float: left;
 border:1px solid #D9D9D9;
 background-color:#FFF;
 overflow:hidden;
+padding-top: 5px;
 }
 
 /* Form header */
 #lock .login_header {
 background-color:#1A1A1A;
-color:#FFF;
-padding:15px 0 7px 10px;
+padding:19px 0 0 10px;
+height: 20px;
 }
-
-#lock .login_header img {
-position:relative;
-margin: 0 7px 0 0;
-top: 1px;
+#lock .login_header b {
+color:#FFF;
 }
 
 /* Fields */
 #lock form input.field {
 width:203px;
-padding:2px;
+padding:5px;
+color: #333;
+font: 12px Arial, Helvetica, sans-serif;
+border: 1px solid #D9D9D9;
 }
 
 /* Checkbox */
@@ -863,7 +870,6 @@ margin-left:95px;
 /* Submit button */
 .subButton {
 width:100%;
-background-color:#eee;
 border-top:1px solid #D9D9D9;
 overflow:hidden;
 }
@@ -877,11 +883,11 @@ color:#FFF;
 -moz-border-radius:2px;
 -webkit-border-radius:2px;
 margin:10px;
-padding:10px 0 5px 7px;
+padding:14px 0 7px 10px;
 }
 
 .subButton a:hover {
-background-color:#000;
+background-color:#1A1A1A;
 }
 
 /* Login Info */
@@ -898,8 +904,6 @@ float: left;
 }
 
 .login_info span.text {
-color:#333;
-font-weight:bold;
 margin: 0 0 0 10px;
 }
 
@@ -943,11 +947,6 @@ margin:15px 0;
 /* Sets styles only for direct childs of #content (i.e gallery, features, listing) */
 #content > * {
 margin:0 0 15px;
-}
-
-
-#lock {
-padding:7px 0 0;
 }
 
 #inline_picture {
