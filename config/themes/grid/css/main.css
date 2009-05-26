@@ -21,7 +21,7 @@ min-width:550px;
 }
 
 body, h1, h2, h3, h4, h5, h6, h7, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, field, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, .standard_paragraph b {
-color:#333;
+/*color:#333;*/
 font-family:Arial, Helvetica, sans-serif;
 font-size:12px;
 font-weight: normal;
@@ -93,7 +93,7 @@ width:96%;
 	line-height: 30px;
 	color: #333;
 	margin-bottom: 5px;
-	margin-top: 10px;
+	margin-top: 20px;
 }
 .standard_paragraph p {
 	line-height: 15px;
@@ -110,7 +110,7 @@ width:96%;
 	font: italic 11px/15px Georgia, "Times New Roman", Times, serif;
 }
 .standard_paragraph p small a:hover {
-	color:#1C7AD5;
+	color:#DD0000;
 }
 .standard_paragraph ul li:before {
 	content: '— ';
@@ -181,11 +181,11 @@ text-decoration:none;
 }
 
 a:hover {
-color:#1C7AD5;
+color:#DD0000;
 }
 
 h1 a,h1 a:link,h1 a:visited {
-color:#1C7AD5;
+color:#DD0000;
 text-decoration:underline;
 }
 
@@ -211,7 +211,11 @@ text-decoration:none;
    MODULES: FLASH, HEADER, LOGO, BREADCRUMBTOOLS, NAVIGATION, FOOTER
 -------------------------------------------------------------- */
 #flash {
-margin: 10px 0 0;
+padding: 44px 10px 10px 10px;
+background-color: #666;
+}
+#flash p {
+color: white;
 }
 
 /* LOGO */
@@ -246,6 +250,7 @@ border-bottom:1px solid #D9D9D9;
 /* BREADCRUMBTOOLS: Breadcrumb */
 #breadcrumb {
 float: left;
+color: #666;
 }
 
 /* BREADCRUMBTOOLS: Tools */
@@ -351,7 +356,6 @@ background: url(../images/system/dot.png) no-repeat 0 17px;
 -------------------------------------------------------------- */
 #content {
 overflow:hidden;
-background-color: yellow;
 }
 
 /* @end */
@@ -379,7 +383,7 @@ overflow:hidden;
 
 #gallery ul li a {
 float:left;
-background-color:#f5f5f5;
+background-color:#d9d9d9;
 margin:0 1px 1px 0;
 padding:1px;
 }
@@ -397,7 +401,6 @@ display: table-cell;
 vertical-align: middle;
 min-width: 100px;
 height:240px;
-
 width: 100px;
 }
 div[id=gallery] ul li a div.gallery_thumbnail {
@@ -411,7 +414,7 @@ overflow:hidden;
 }
 
 #gallery ul li a:hover,#gallery ul li a:hover p {
-background:#1C7AD5;
+background:#DD0000;
 color:#fff;
 }
 
@@ -487,11 +490,11 @@ background-color:#E0E0E0;
 }
 
 #features ul li a:hover .image img {
-border:2px solid #1C7AD5;
+border:2px solid #DD0000;
 }
 
 #features ul li a:hover .info h2 {
-color:#1C7AD5;
+color:#DD0000;
 }
 
 * html #features {

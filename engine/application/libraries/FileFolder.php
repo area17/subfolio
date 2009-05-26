@@ -85,12 +85,15 @@ class FileFolder {
     return $url;
   }
   
-  public function get_thumbnail_url() {
-    $custom_thumbnail = "-thumbnails-custom/".$this->name;
-    $url = "/directory/".$this->parent."/-thumbnails-custom/".$this->name;
+	public function has_custom_thumbnail() {
+		$custom_thumbnail = "-thumbnails-custom/".$this->name;
+		return (file_exists($custom_thumbnail));
+	}
 
-    if (file_exists($custom_thumbnail)) {
-      return $url;
+  public function get_thumbnail_url() {
+    
+    if ($this->has_custom_thumbnail()) {
+      return "/directory/".$this->parent."/-thumbnails-custom/".$this->name;
     } else {
       
       $thumbnail = "-thumbnails/".$this->name;
