@@ -391,19 +391,18 @@ padding:1px;
 #gallery ul li a div.gallery_thumbnail {
 background-color: white;
 }
-#gallery ul li a div.hcenterer {
+#gallery ul li a div.gallery_thumbnail div.hcenterer {
 height: 240px;
-width: 100px;
+/*width: 100px;*/
 margin: 0 auto;
 }
-#gallery ul li a div.vcenterer {
+#gallery ul li a div.gallery_thumbnail div.vcenterer {
 display: table-cell;
 vertical-align: middle;
-min-width: 100px;
 height:240px;
 width: 100px;
 }
-div[id=gallery] ul li a div.gallery_thumbnail {
+div[id=gallery] ul li a div.gallery_thumbnail.generated {
 height:240px;
 } /** not for IE6 **/
  

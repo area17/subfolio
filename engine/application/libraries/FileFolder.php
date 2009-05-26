@@ -50,13 +50,22 @@ class FileFolder {
     $needs = true;
     $thumbnail_width = Kohana::config('filebrowser.thumbnail_width');
     $thumbnail_height = Kohana::config('filebrowser.thumbnail_height');
-    
 		$info = @getimagesize($this->name);
     if ($info[0] <= $thumbnail_width && $info[1] <= $thumbnail_height) {
       $needs = false;
     }
     
     return $needs;
+  }
+
+  public function get_width() {
+		$size = @getimagesize($this->name);
+    return $size[0];
+  }
+
+  public function get_height() {
+		$size = @getimagesize($this->name);
+    return $size[1];
   }
 
   public function has_thumbnail() {
