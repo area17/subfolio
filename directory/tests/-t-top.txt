@@ -1,6 +1,0 @@
-<h1>-t-top.txt</h1>
-<h2>Subfolio Beta Launch Summer 2009</h2>
-<h3>— <b>Subfolio is the simplest way to turn an FTP server into a website</b>. Super fast to set-up and use, it's been optimized to get you up and running in minutes. No database, no content management needed.</h3>
-
-<p><b>Subfolio can be used as a public website</b>, a private client area, a secure document server or just some place to put your digital stuff. It's good for designers, artists, studios, photographers, enterprise and even personal use.</p>
-<p>Oh and if you don't like how it looks, no worries, you have 100% control — so feel free to make it look better, worse or just different. And for you geeks out there, it is easy to extend.</p>
