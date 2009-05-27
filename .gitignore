@@ -4,3 +4,4 @@ config/users/groups.yml
 config/users/users.yml
 config/settings/settings.yml
 .DS_Store
+directory/
