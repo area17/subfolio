@@ -24,7 +24,7 @@ class Filebrowser {
   var $sort_order           = "listingNameCmp";
   var $sort_order_direction = "Asc";
 
-  var $displayed_conent = false;
+  var $displayed_content = false;
 
   var $filekind = null;
 

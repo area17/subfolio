@@ -57,13 +57,11 @@
   <div id="tools">
       <?php
       if ($this->auth->logged_in()) {
-          print "<a title='Logout' alt='' href='/logout'>".Kohana::lang('filebrowser.logout')."</a> <span class='nav_sep'></span> ";
-      }
-  
+          print "<a title='Logout' alt='' href='/logout'>".Kohana::lang('filebrowser.logout')."</a>";
+      ?><span class="nav_sep"></span><?php } ?><?php
       $subject = "Link from " . $_SERVER["SERVER_NAME"];
       $body = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
-      ?>
-    <script>
+      ?><script>
       <!--
       document.write('<a href="mailto:?subject=<?php print "".$subject?>&body='+location.href+'"><?php echo Kohana::lang('filebrowser.sendpage') ?></a>');
       -->

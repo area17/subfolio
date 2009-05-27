@@ -44,8 +44,8 @@ class Filebrowser_Controller extends Website_Controller {
   }
 
   public function logout() {
-    $this->auth->logout(true);
-		Session::instance()->set_flash('flash', 'Logout complete.');		
+		Session::instance()->set_flash('flash', 'Logout complete.');
+		$this->auth->logout(true);
 		url::redirect('/');
     exit();
   }

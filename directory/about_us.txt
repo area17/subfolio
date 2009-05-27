@@ -20,3 +20,13 @@ After all, (inter)actions speak louder than words.</p>
 <blockquote>
 <p>(inter)actions speak louder than words</p>
 </blockquote>
+
+<pre>
+<code>
+/* Code Block */ 
+  #include <stdio.h>
+  #include <stdlib.h>
+
+  int main()
+</code>
+</pre>

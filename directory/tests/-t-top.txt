@@ -1,4 +1,4 @@
-<h1 class='flash'>-t-top.txt</h1>
+<h1>-t-top.txt</h1>
 <h2>Subfolio Beta Launch Summer 2009</h2>
 <h3>— <b>Subfolio is the simplest way to turn an FTP server into a website</b>. Super fast to set-up and use, it's been optimized to get you up and running in minutes. No database, no content management needed.</h3>
 

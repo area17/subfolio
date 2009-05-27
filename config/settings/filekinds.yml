@@ -34,19 +34,19 @@ doc:
   
 img:
   extensions: [gif, png, jpg]
-  icon: pic
+  icon: img
   display: Image
   download: false
 
 bmp:
   extensions: [bmp]
-  icon: pic
+  icon: img
   display: Bitmap Image
   download: true
 
 tiff:
   extensions: [tiff, tif]
-  icon: pic
+  icon: img
   display: TIFF Image
   download: true
 

@@ -19,7 +19,9 @@
 </head>
 <body>
 	<div id="container">
-		<div id="flash"><p><b>Notice:&nbsp;</b><?php echo Session::instance()->get('flash'); ?></p></div>
+		<?php if (Session::instance()->get('flash')) { ?>
+			<div id="notice"><p><b>Notice:&nbsp;</b><?php echo Session::instance()->get('flash'); ?></p></div>
+		<?php } ?>
 		<div id="container-inner">
 			<?php include("header.inc.php") ?>
 			<div id="content">
