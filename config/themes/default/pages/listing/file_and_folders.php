@@ -180,13 +180,12 @@ endforeach ?>
       } else {
         $kind = "";
       }
-      
       $kind_display = isset($file_kind['display']) ? $file_kind['display'] : '';
+      $downloadable = isset($file_kind['download']) ? $file_kind['display'] : true;
       
       $icon_file = "";
       $new = false;
       $updated = false;
-			$downloadable = $file_kind['download'];
 				
       if (false && $file->stats['ctime'] > $new_updated_start) {
           $new = true;
