@@ -190,7 +190,7 @@ endforeach ?>
       if (false && $file->stats['ctime'] > $new_updated_start) {
           $new = true;
       } else if ($file->stats['mtime'] > $new_updated_start) {
-          $updated = false;
+          $updated = true;
       }
 
       $icon_file = $this->filekind->get_icon_by_file($file_kind, $new, $updated);

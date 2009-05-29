@@ -6,6 +6,6 @@
 <?php include("listing/features.php") ?>
 <?php include("listing/gallery.php") ?>
 <?php include("listing/inline_middle.php") ?>
-<?php include("listing/file_and_folders.php") ?>
+<?php include("listing/files_and_folders.php") ?>
 <?php include("listing/related.php") ?>
 <?php include("listing/inline_bottom.php") ?>

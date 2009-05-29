@@ -25,6 +25,7 @@ body, h1, h2, h3, h4, h5, h6, h7, p, blockquote, pre, a, abbr, acronym, address,
 font-family:Arial, Helvetica, sans-serif;
 font-size:12px;
 font-weight: normal;
+color: #666666;
 }
 
 /* @group Global layout */
@@ -82,18 +83,22 @@ width:96%;
 	font-size: 100%;
 }
 .standard_paragraph h1, .standard_paragraph h2 {
+	color: #333;
 	font-size: 36px;
 	line-height: 35px;
 }
+.standard_paragraph strong, .standard_paragraph em, .standard_paragraph b {
+	color: #1a1a1a;
+}
 .standard_paragraph h2 {
 	color: #666666;
+	margin-bottom: 10px;
 }
 .standard_paragraph h3 {
 	font-size: 22px;
 	line-height: 30px;
 	color: #333;
-	margin-bottom: 5px;
-	margin-top: 20px;
+	margin-bottom: 10px;
 }
 .standard_paragraph p {
 	line-height: 15px;
@@ -139,6 +144,20 @@ width:96%;
 	padding-bottom: 0em;
 	}
 	
+.standard_paragraph code {
+	display: block;
+	padding: 0 10px 15px 10px;
+	border: 1px solid #d9d9d9;
+	font: 10px Monaco, mono, "Courier New", Courier;
+	margin: 10px 0;
+	background-color: #fdfdfd;
+}
+.standard_paragraph a,
+.standard_paragraph a:link,
+.standard_paragraph a:visited {
+	text-decoration: underline;
+}
+
 /* @end */
 
 /* @group Text */
@@ -183,7 +202,7 @@ text-decoration:none;
 }
 
 a:hover {
-/*color:#DD0000;*/
+color:#1c7ad5;
 }
 
 h1 a,h1 a:link,h1 a:visited {
@@ -193,11 +212,6 @@ text-decoration:underline;
 
 #header h1 a img {
 border:none;
-}
-
-/* LINKS FOR GENERAL CONTENT */
-#content a {
-text-decoration:underline;
 }
 
 /* LINKS FOR GALLERY, FEATURES MODULES */
@@ -212,11 +226,11 @@ text-decoration:none;
 /* -------------------------------------------------------------- 
    MODULES: FLASH, HEADER, LOGO, BREADCRUMBTOOLS, NAVIGATION, FOOTER
 -------------------------------------------------------------- */
-#flash {
+#notice {
 padding: 44px 10px 10px 10px;
 background-color: #666;
 }
-#flash p {
+#notice p {
 color: white;
 }
 
@@ -508,7 +522,10 @@ position:absolute;
 
 /* @end */
 
-/* @group Listing : grid */
+
+/* MISC: to sort!!! */
+
+/* @group Grid */
 
 /* -------------------------------------------------------------- 
    MODULES: CONTENT / LISTING GRID VIEW
@@ -595,16 +612,12 @@ height:11px;
 z-index:99;
 background:url("../images/system/updated.png") no-repeat top left;
 top: 22px;
-left: 99px;
+left: 98px;
 }
 
 #listing ul li span.comment {
 color:#aaa;
 }
-
-/* @end */
-
-/* @group Listing : icons */
 
 /* -------------------------------------------------------------- 
    MODULES: CONTENT / LISTING ICONS
@@ -624,18 +637,14 @@ top: 20px;
 left: 73px;
 }
 
-#listing ul li.locked,#listing ul li .unlocked {
+#listing ul li .locked, #listing ul li .unlocked {
 display:block;
 width:10px;
 height:9px;
 z-index:98;
-background:url("../images/system/lock.png") no-repeat top left;
+background:url("../images/system/lock.png") no-repeat 0 0;
 top: 29px;
 left: 77px;
-}
-
-#listing ul li .locked {
-background-position:top;
 }
 
 #listing ul li .unlocked {
@@ -651,8 +660,10 @@ background-position:0 -50px;
 
 /* @end */
 
+#listing ul li.listing-header {
+display: none;
+}
 
-/* MISC: to sort!!! */
 .top_message {
 padding:2px 0 3px;
 }
@@ -682,7 +693,9 @@ padding:0 0 5px;
 /* -------------------------------------------------------------- 
    MODULE: RELATED
 -------------------------------------------------------------- */
-
+#related p {
+	padding-bottom: 5px;
+}
 #related ul {
 width:100%;
 overflow:hidden;
@@ -770,33 +783,6 @@ margin-left:10px;
 
 * html #related ul li .icon .icon_download {
 position:absolute;
-}
-
-#related ul li .updated {
-position:absolute;
-display:block;
-width:9px;
-height:9px;
-z-index:99;
-background:url("../images/system/updated.png") no-repeat top left;
-margin:0 0 0 22px;
-}
-
-#related ul li .locked,#related ul li .unlocked {
-position:absolute;
-display:block;
-width:10px;
-height:9px;
-z-index:98;
-background:url("../images/system/lock.png") no-repeat top left;
-margin:5px 0 0 13px;
-}
-
-#related ul li .locked {
-background-position:top;}
-
-#related ul li .unlocked {
-background-position:0 -50px;
 }
 
 /* @end */
@@ -941,6 +927,64 @@ text-decoration:none;
 
 /* @end */
 
+/* @group Download */
+#download_box {
+width: 220px;
+}
+
+#download_box .updated {
+position: absolute;
+display:block;
+width:11px;
+height:11px;
+z-index:99;
+background:url("../images/system/updated.png") no-repeat top left;
+margin-left: 25px;
+margin-top: 2px;
+}
+
+#download_box #filename {
+clear: both;
+padding-top: 9px;
+margin-bottom: 2px;
+}
+
+#download_box dl {
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	border-top: 1px solid #d9d9d9;
+	margin-top: 15px;
+}
+#download_box dt {
+	float: left;
+	padding-top: 4px;
+}
+#download_box dd {
+	display: block;
+	padding-top: 4px;
+	padding-left: 85px;
+	padding-bottom: 1px;
+	border-bottom: 1px solid #d9d9d9;
+}
+#download_box #instructions {
+	padding: 9px 0 10px 0;
+	border-bottom: 1px solid #d9d9d9;
+	margin-bottom: 9px;
+}
+#download_box #instructions a {
+	color: #666;
+	text-decoration: underline;
+}
+#download_box #instructions a:hover {
+	color: #1c7ad5;
+}
+#download_box #download {
+	display: block;
+	padding-bottom: 15px;
+}
+/* @end */
+
 /* -------------------------------------------------------------- 
 MODULE SPACING
 -------------------------------------------------------------- */
@@ -953,8 +997,19 @@ margin:15px 0;
 margin:0 0 15px;
 }
 
-#inline_picture {
-padding-bottom:10px;
+#inline_top_image,
+#inline_middle_image,
+#inline_bottom_image {
+width:  100%;
+overflow: hidden;
+}
+
+#inline_top_image img,
+#inline_middle_image img,
+#inline_bottom_image img {
+padding: 0;
+margin: 0 2px 2px 0;
+float: left;
 }
 
 #file_listing {

@@ -29,7 +29,7 @@ dir:
 doc:
   extensions: [doc, docx]
   icon: doc
-  display: Word Document yo!
+  display: Word Document
   download: true
   
 img:
