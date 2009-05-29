@@ -22,7 +22,7 @@
 
 <div id="download_box">
 	<!-- Icon -->
-	<?php	if (true) { ?>
+	<?php	if ($updated) { ?>
 		<span class="updated"><!-- --></span>
 	<?php	} ?>
 	<?php	if ($new) { ?>
