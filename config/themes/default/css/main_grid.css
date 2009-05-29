@@ -658,11 +658,11 @@ background-position:0 -50px;
 * html #listing ul li .icon .icon_download {
 }
 
-/* @end */
-
 #listing ul li.listing-header {
 display: none;
 }
+
+/* @end */
 
 .top_message {
 padding:2px 0 3px;
