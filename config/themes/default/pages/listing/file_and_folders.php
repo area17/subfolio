@@ -181,7 +181,7 @@ endforeach ?>
         $kind = "";
       }
       $kind_display = isset($file_kind['display']) ? $file_kind['display'] : '';
-      $downloadable = isset($file_kind['download']) ? $file_kind['display'] : true;
+      $downloadable = isset($file_kind['download']) ? $file_kind['download'] : true;
       
       $icon_file = "";
       $new = false;
