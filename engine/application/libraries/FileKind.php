@@ -43,7 +43,7 @@ class FileKind {
   {
     $kind = array();
     foreach($this->kinds as $k => $v) {
-      if (in_array($ext, $v['extensions'])) {
+      if (in_array(strtolower($ext), $v['extensions'])) {
         $kind = $v;
         $kind['kind'] = $k;
         break;
