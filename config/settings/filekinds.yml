@@ -163,6 +163,8 @@ pdf:
   icon: pdf
   display: PDF Document
   download: false
+  instructions:>
+    You must have the free Adobe Acrobat Reader to view this file. Download it <a href='http://get.adobe.com/reader/' target='_blank'>here</a>
   
 fnt:
   extensions: [fnt, ttf, bmap, afm]

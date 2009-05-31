@@ -41,7 +41,9 @@
 		<dt>Size: </dt><dd><?php echo $filesize ?></dd>
 	</dl>
 	<!-- Instructions -->
-	<p id='instructions'>Instructions: You must have the free Adobe Acrobat Reader to view that file. Download it <a href='#' target='_blank'>here</a></p>
+  <?php if ($file_kind && isset($file_kind['instructions'])) { ?>
+	<p id='instructions'>Instructions: <?php echo $file_kind['instructions'] ?></p>
+	<?php } ?>
 	<!-- Download -->
 	<a href="<?php echo $this->filebrowser->get_file_url(); ?>" id="download">Download</a>
 	
