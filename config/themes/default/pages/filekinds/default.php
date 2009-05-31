@@ -43,7 +43,7 @@
 	<!-- Instructions -->
 	<p id='instructions'>Instructions: You must have the free Adobe Acrobat Reader to view that file. Download it <a href='#' target='_blank'>here</a></p>
 	<!-- Download -->
-	<a href="#" id="download">Download</a>
+	<a href="<?php echo $this->filebrowser->get_file_url(); ?>" id="download">Download</a>
 	
 </div>
 
