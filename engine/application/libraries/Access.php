@@ -55,7 +55,7 @@ class Access {
     }
 
     if (sizeof($file_list) > 0) {
-      $this->is_restricted = true;
+      //$this->is_restricted = true;
 
       $file_list = array_reverse($file_list);
       foreach($file_list as $id => $path) {
@@ -65,8 +65,10 @@ class Access {
         if ($file == $path) {
           $current = true;
         }
-        $this->load_access_file($path, $current);
-        
+        $restricted = $this->load_access_file($path, $current);
+        if ($restricted) {
+          $this->is_restricted = true;
+        }
       }
     }
   }
@@ -137,34 +139,40 @@ class Access {
 	}
 	
 	public function load_access_file($file, $current=false) {
+	  $have_data = false;
     $array = Spyc::YAMLLoad($file);
     
     if (isset($array['allow_users'])) {
       foreach($array['allow_users'] as $user) {
         $this->allow_user($user);
       }
+  	  $have_data = true;
     }
 
     if (isset($array['allow_groups'])) {
       foreach($array['allow_groups'] as $group) {
         $this->allow_group($group);
       }
+  	  $have_data = true;
     }
 
     if (isset($array['deny_users'])) {
       foreach($array['deny_users'] as $user) {
         $this->deny_user($user);
       }
+  	  $have_data = true;
     }
 
     if (isset($array['deny_groups'])) {
       foreach($array['deny_groups'] as $group) {
         $this->deny_group($group);
       }
+  	  $have_data = true;
     }
     
     if ($current) {
       if (isset($array['current_folder'])) {
+    	  $have_data = true;
 
         if (isset($array['current_folder']['allow_users'])) {
           foreach($array['current_folder']['allow_users'] as $user) {
@@ -189,6 +197,7 @@ class Access {
         */
       }
     }
+	  return $have_data;
 	}
 
 
