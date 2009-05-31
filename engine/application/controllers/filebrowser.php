@@ -44,10 +44,11 @@ class Filebrowser_Controller extends Website_Controller {
   }
 
   public function logout() {
-		Session::instance()->set_flash('flash', 'Logout complete.');
 		$this->auth->logout(true);
+		$this->session->create();
+		Session::instance()->set_flash('flash', 'Logout complete.');
 		url::redirect('/');
-    exit();
+		exit();
   }
 
   public function denied() {
@@ -69,6 +70,7 @@ class Filebrowser_Controller extends Website_Controller {
     if ($this->access->is_restricted()) {
       // if user is not logged in redirect to login screen
       if (!$this->auth->logged_in()) {
+        $this->session->keep_flash();
         $this->session->set('return_path', $path);
         url::redirect("/login"); 
         exit();
@@ -124,6 +126,7 @@ class Filebrowser_Controller extends Website_Controller {
         // if user is not logged in redirect to login screen
         if (!$this->auth->logged_in()) {
           $this->session->set('return_path', $path);
+          $this->session->keep_flash();
           url::redirect("/login"); 
           exit();
         }
