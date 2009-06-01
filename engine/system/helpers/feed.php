@@ -2,7 +2,7 @@
 /**
  * Feed helper class.
  *
- * $Id: feed.php 3769 2008-12-15 00:48:56Z zombor $
+ * $Id: feed.php 4152 2009-04-03 23:26:23Z ixmatus $
  *
  * @package    Core
  * @author     Kohana Team
@@ -20,6 +20,10 @@ class feed_Core {
 	 */
 	public static function parse($feed, $limit = 0)
 	{
+		// Check if SimpleXML is installed
+		if( ! function_exists('simplexml_load_file'))
+			throw new Kohana_User_Exception('Feed Error', 'SimpleXML must be installed!');
+		
 		// Make limit an integer
 		$limit = (int) $limit;
 
@@ -61,13 +65,15 @@ class feed_Core {
 	 *
 	 * @param   array   feed information
 	 * @param   array   items to add to the feed
+	 * @param   string  define which format to use
+	 * @param   string  define which encoding to use
 	 * @return  string
 	 */
-	public static function create($info, $items, $format = 'rss2')
+	public static function create($info, $items, $format = 'rss2', $encoding = 'UTF-8')
 	{
 		$info += array('title' => 'Generated Feed', 'link' => '', 'generator' => 'KohanaPHP');
 
-		$feed = '<?xml version="1.0"?><rss version="2.0"><channel></channel></rss>';
+		$feed = '<?xml version="1.0" encoding="'.$encoding.'"?><rss version="2.0"><channel></channel></rss>';
 		$feed = simplexml_load_string($feed);
 
 		foreach ($info as $name => $value)

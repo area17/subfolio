@@ -2,7 +2,7 @@
 /**
  * Captcha library.
  *
- * $Id: Captcha.php 3769 2008-12-15 00:48:56Z zombor $
+ * $Id: Captcha.php 4072 2009-03-13 17:20:38Z jheathco $
  *
  * @package    Captcha
  * @author     Kohana Team
@@ -38,9 +38,9 @@ class Captcha_Core {
 	public static function instance()
 	{
 		// Create the instance if it does not exist
-		empty(self::$instance) and new Captcha;
+		empty(Captcha::$instance) and new Captcha;
 
-		return self::$instance;
+		return Captcha::$instance;
 	}
 
 	/**
@@ -49,7 +49,7 @@ class Captcha_Core {
 	 * @param   string  config group name
 	 * @return  object
 	 */
-	public function factory($group = NULL)
+	public static function factory($group = NULL)
 	{
 		return new Captcha($group);
 	}
@@ -64,7 +64,7 @@ class Captcha_Core {
 	public function __construct($group = NULL)
 	{
 		// Create a singleton instance once
-		empty(self::$instance) and self::$instance = $this;
+		empty(Captcha::$instance) and Captcha::$instance = $this;
 
 		// No config group name given
 		if ( ! is_string($group))
@@ -90,33 +90,33 @@ class Captcha_Core {
 		// Assign config values to the object
 		foreach ($config as $key => $value)
 		{
-			if (array_key_exists($key, self::$config))
+			if (array_key_exists($key, Captcha::$config))
 			{
-				self::$config[$key] = $value;
+				Captcha::$config[$key] = $value;
 			}
 		}
 
 		// Store the config group name as well, so the drivers can access it
-		self::$config['group'] = $group;
+		Captcha::$config['group'] = $group;
 
 		// If using a background image, check if it exists
 		if ( ! empty($config['background']))
 		{
-			self::$config['background'] = str_replace('\\', '/', realpath($config['background']));
+			Captcha::$config['background'] = str_replace('\\', '/', realpath($config['background']));
 
-			if ( ! is_file(self::$config['background']))
-				throw new Kohana_Exception('captcha.file_not_found', self::$config['background']);
+			if ( ! is_file(Captcha::$config['background']))
+				throw new Kohana_Exception('captcha.file_not_found', Captcha::$config['background']);
 		}
 
 		// If using any fonts, check if they exist
 		if ( ! empty($config['fonts']))
 		{
-			self::$config['fontpath'] = str_replace('\\', '/', realpath($config['fontpath'])).'/';
+			Captcha::$config['fontpath'] = str_replace('\\', '/', realpath($config['fontpath'])).'/';
 
 			foreach ($config['fonts'] as $font)
 			{
-				if ( ! is_file(self::$config['fontpath'].$font))
-					throw new Kohana_Exception('captcha.file_not_found', self::$config['fontpath'].$font);
+				if ( ! is_file(Captcha::$config['fontpath'].$font))
+					throw new Kohana_Exception('captcha.file_not_found', Captcha::$config['fontpath'].$font);
 			}
 		}
 
@@ -149,11 +149,11 @@ class Captcha_Core {
 		static $counted;
 
 		// User has been promoted, always TRUE and don't count anymore
-		if (self::instance()->promoted())
+		if (Captcha::instance()->promoted())
 			return TRUE;
 
 		// Challenge result
-		$result = (bool) self::instance()->driver->valid($response);
+		$result = (bool) Captcha::instance()->driver->valid($response);
 
 		// Increment response counter
 		if ($counted !== TRUE)
@@ -163,12 +163,12 @@ class Captcha_Core {
 			// Valid response
 			if ($result === TRUE)
 			{
-				self::instance()->valid_count(Session::instance()->get('captcha_valid_count') + 1);
+				Captcha::instance()->valid_count(Session::instance()->get('captcha_valid_count') + 1);
 			}
 			// Invalid response
 			else
 			{
-				self::instance()->invalid_count(Session::instance()->get('captcha_invalid_count') + 1);
+				Captcha::instance()->invalid_count(Session::instance()->get('captcha_invalid_count') + 1);
 			}
 		}
 
@@ -242,13 +242,13 @@ class Captcha_Core {
 	public function promoted($threshold = NULL)
 	{
 		// Promotion has been disabled
-		if (self::$config['promote'] === FALSE)
+		if (Captcha::$config['promote'] === FALSE)
 			return FALSE;
 
 		// Use the config threshold
 		if ($threshold === NULL)
 		{
-			$threshold = self::$config['promote'];
+			$threshold = Captcha::$config['promote'];
 		}
 
 		// Compare the valid response count to the threshold

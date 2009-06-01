@@ -40,7 +40,7 @@ class Filebrowser_Controller extends Website_Controller {
 		} else {
 		  $login->login_failed = false;
 		}
-  	$this->template->content .= $login;
+  	$this->template->content = $login;
   }
 
   public function logout() {
@@ -53,12 +53,12 @@ class Filebrowser_Controller extends Website_Controller {
 
   public function denied() {
 		$denied = View::factory('pages/denied');
-  	$this->template->content .= $denied;
+  	$this->template->content = $denied;
   }
 
   public function notfound() {
 		$notfound = View::factory('pages/notfound');
-  	$this->template->content .= $notfound;
+  	$this->template->content = $notfound;
   }
 
   public function access($path='') {
@@ -163,11 +163,11 @@ class Filebrowser_Controller extends Website_Controller {
     		}
   		} else {
     		$content = View::factory('pages/denied');
-    		$this->template->content .= $content;
+    		$this->template->content = $content;
   		}
     } else {
   		$content = View::factory('pages/notfound');
-  		$this->template->content .= $content;
+  		$this->template->content = $content;
     }
   }
 }

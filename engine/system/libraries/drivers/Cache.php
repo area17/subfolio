@@ -2,7 +2,7 @@
 /**
  * Cache driver interface.
  *
- * $Id: Cache.php 3769 2008-12-15 00:48:56Z zombor $
+ * $Id: Cache.php 4046 2009-03-05 19:23:29Z Shadowhand $
  *
  * @package    Cache
  * @author     Kohana Team
@@ -14,7 +14,7 @@ interface Cache_Driver {
 	/**
 	 * Set a cache item.
 	 */
-	public function set($id, $data, $tags, $lifetime);
+	public function set($id, $data, array $tags = NULL, $lifetime);
 
 	/**
 	 * Find all of the cache ids for a given tag.

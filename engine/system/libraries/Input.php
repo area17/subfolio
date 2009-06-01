@@ -2,7 +2,7 @@
 /**
  * Input library.
  *
- * $Id: Input.php 3818 2008-12-19 12:32:43Z OscarB $
+ * $Id: Input.php 4346 2009-05-11 17:08:15Z zombor $
  *
  * @package    Core
  * @author     Kohana Team
@@ -31,13 +31,13 @@ class Input_Core {
 	 */
 	public static function instance()
 	{
-		if (self::$instance === NULL)
+		if (Input::$instance === NULL)
 		{
 			// Create a new instance
 			return new Input;
 		}
 
-		return self::$instance;
+		return Input::$instance;
 	}
 
 	/**
@@ -51,7 +51,7 @@ class Input_Core {
 		// Use XSS clean?
 		$this->use_xss_clean = (bool) Kohana::config('core.global_xss_filtering');
 
-		if (self::$instance === NULL)
+		if (Input::$instance === NULL)
 		{
 			// magic_quotes_runtime is enabled
 			if (get_magic_quotes_runtime())
@@ -83,16 +83,13 @@ class Input_Core {
 				$preserve = array('GLOBALS', '_REQUEST', '_GET', '_POST', '_FILES', '_COOKIE', '_SERVER', '_ENV', '_SESSION');
 
 				// This loop has the same effect as disabling register_globals
-				foreach ($GLOBALS as $key => $val)
+				foreach (array_diff(array_keys($GLOBALS), $preserve) as $key)
 				{
-					if ( ! in_array($key, $preserve))
-					{
-						global $$key;
-						$$key = NULL;
+					global $$key;
+					$$key = NULL;
 
-						// Unset the global variable
-						unset($GLOBALS[$key], $$key);
-					}
+					// Unset the global variable
+					unset($GLOBALS[$key], $$key);
 				}
 
 				// Warn the developer about register globals
@@ -143,7 +140,7 @@ class Input_Core {
 			}
 
 			// Create a singleton
-			self::$instance = $this;
+			Input::$instance = $this;
 
 			Kohana::log('debug', 'Global GET, POST and COOKIE data sanitized');
 		}
@@ -240,17 +237,18 @@ class Input_Core {
 		if ($this->ip_address !== NULL)
 			return $this->ip_address;
 
-		if ($ip = $this->server('HTTP_CLIENT_IP'))
+		// Server keys that could contain the client IP address
+		$keys = array('HTTP_X_FORWARDED_FOR', 'HTTP_CLIENT_IP', 'REMOTE_ADDR');
+
+		foreach ($keys as $key)
 		{
-			 $this->ip_address = $ip;
-		}
-		elseif ($ip = $this->server('REMOTE_ADDR'))
-		{
-			 $this->ip_address = $ip;
-		}
-		elseif ($ip = $this->server('HTTP_X_FORWARDED_FOR'))
-		{
-			 $this->ip_address = $ip;
+			if ($ip = $this->server($key))
+			{
+				$this->ip_address = $ip;
+
+				// An IP address has been found
+				break;
+			}
 		}
 
 		if ($comma = strrpos($this->ip_address, ',') !== FALSE)

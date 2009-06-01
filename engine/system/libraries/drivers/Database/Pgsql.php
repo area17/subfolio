@@ -2,7 +2,7 @@
 /**
  * PostgreSQL 8.1+ Database Driver
  *
- * $Id: Pgsql.php 3769 2008-12-15 00:48:56Z zombor $
+ * $Id: Pgsql.php 4344 2009-05-11 16:41:39Z zombor $
  *
  * @package    Core
  * @author     Kohana Team
@@ -53,7 +53,7 @@ class Database_Pgsql_Driver extends Database_Driver {
 			}
 
 			// Clear password after successful connect
-			$this->config['connection']['pass'] = NULL;
+			$this->db_config['connection']['pass'] = NULL;
 
 			return $this->link;
 		}
@@ -68,16 +68,22 @@ class Database_Pgsql_Driver extends Database_Driver {
 		{
 			$hash = $this->query_hash($sql);
 
-			if ( ! isset(self::$query_cache[$hash]))
+			if ( ! isset($this->query_cache[$hash]))
 			{
 				// Set the cached object
-				self::$query_cache[$hash] = new Pgsql_Result(pg_query($this->link, $sql), $this->link, $this->db_config['object'], $sql);
+				$this->query_cache[$hash] = new Pgsql_Result(pg_query($this->link, $sql), $this->link, $this->db_config['object'], $sql);
+			}
+			else
+			{
+				// Rewind cached result
+				$this->query_cache[$hash]->rewind();
 			}
 
-			return self::$query_cache[$hash];
+			return $this->query_cache[$hash];
 		}
 
-		return new Pgsql_Result(pg_query($this->link, $sql), $this->link, $this->db_config['object'], $sql);
+		// Suppress warning triggered when a database error occurs (e.g., a constraint violation)
+		return new Pgsql_Result(@pg_query($this->link, $sql), $this->link, $this->db_config['object'], $sql);
 	}
 
 	public function set_charset($charset)
@@ -98,8 +104,21 @@ class Database_Pgsql_Driver extends Database_Driver {
 		if (!$this->db_config['escape'])
 			return $column;
 
-		if (strtolower($column) == 'count(*)' OR $column == '*')
+		if ($column == '*')
 			return $column;
+
+		// This matches any functions we support to SELECT.
+		if ( preg_match('/(avg|count|sum|max|min)\(\s*(.*)\s*\)(\s*as\s*(.+)?)?/i', $column, $matches))
+		{
+			if ( count($matches) == 3)
+			{
+				return $matches[1].'('.$this->escape_column($matches[2]).')';
+			}
+			else if ( count($matches) == 5)
+			{
+				return $matches[1].'('.$this->escape_column($matches[2]).') AS '.$this->escape_column($matches[2]);
+			}
+		}
 
 		// This matches any modifiers we support to SELECT.
 		if ( ! preg_match('/\b(?:all|distinct)\s/i', $column))
@@ -137,29 +156,23 @@ class Database_Pgsql_Driver extends Database_Driver {
 		return $column;
 	}
 
-	public function regex($field, $match = '', $type = 'AND ', $num_regexs)
+	public function regex($field, $match, $type, $num_regexs)
 	{
 		$prefix = ($num_regexs == 0) ? '' : $type;
 
-		return $prefix.' '.$this->escape_column($field).' REGEXP \''.$this->escape_str($match).'\'';
+		return $prefix.' '.$this->escape_column($field).' ~* \''.$this->escape_str($match).'\'';
 	}
 
-	public function notregex($field, $match = '', $type = 'AND ', $num_regexs)
+	public function notregex($field, $match, $type, $num_regexs)
 	{
 		$prefix = $num_regexs == 0 ? '' : $type;
 
-		return $prefix.' '.$this->escape_column($field).' NOT REGEXP \''.$this->escape_str($match) . '\'';
+		return $prefix.' '.$this->escape_column($field).' !~* \''.$this->escape_str($match) . '\'';
 	}
 
 	public function limit($limit, $offset = 0)
 	{
 		return 'LIMIT '.$limit.' OFFSET '.$offset;
-	}
-
-	public function stmt_prepare($sql = '')
-	{
-		is_object($this->link) or $this->connect();
-		return new Kohana_Mysqli_Statement($sql, $this->link);
 	}
 
 	public function compile_select($database)
@@ -225,10 +238,10 @@ class Database_Pgsql_Driver extends Database_Driver {
 		return pg_escape_string($this->link, $str);
 	}
 
-	public function list_tables(Database $db)
+	public function list_tables()
 	{
 		$sql    = 'SELECT table_schema || \'.\' || table_name FROM information_schema.tables WHERE table_schema NOT IN (\'pg_catalog\', \'information_schema\')';
-		$result = $db->query($sql)->result(FALSE, PGSQL_ASSOC);
+		$result = $this->query($sql)->result(FALSE, PGSQL_ASSOC);
 
 		$retval = array();
 		foreach ($result as $row)
@@ -244,84 +257,44 @@ class Database_Pgsql_Driver extends Database_Driver {
 		return pg_last_error($this->link);
 	}
 
-	public function list_fields($table, $query = FALSE)
+	public function list_fields($table)
 	{
-		static $tables;
+		$result = NULL;
 
-		if (is_object($query))
+		foreach ($this->field_data($table) as $row)
 		{
-			if (empty($tables[$table]))
-			{
-				$tables[$table] = array();
+			// Make an associative array
+			$result[$row->column_name] = $this->sql_type($row->data_type);
 
-				foreach ($query as $row)
-				{
-					$tables[$table][] = $row->Field;
-				}
+			if (!strncmp($row->column_default, 'nextval(', 8))
+			{
+				$result[$row->column_name]['sequenced'] = TRUE;
 			}
 
-			return $tables[$table];
+			if ($row->is_nullable === 'YES')
+			{
+				$result[$row->column_name]['null'] = TRUE;
+			}
 		}
 
-		// WOW...REALLY?!?
-		// Taken from http://www.postgresql.org/docs/7.4/interactive/catalogs.html
-		$query = $this->query('SELECT
-  -- Field
-  pg_attribute.attname AS "Field",
-  -- Type
-  CASE pg_type.typname
-    WHEN \'int2\' THEN \'smallint\'
-    WHEN \'int4\' THEN \'int\'
-    WHEN \'int8\' THEN \'bigint\'
-    WHEN \'varchar\' THEN \'varchar(\' || pg_attribute.atttypmod-4 || \')\'
-    ELSE pg_type.typname
-  END AS "Type",
-  -- Null
-  CASE WHEN pg_attribute.attnotnull THEN \'NO\'
-    ELSE \'YES\'
-  END AS "Null",
-  -- Default
-  CASE pg_type.typname
-    WHEN \'varchar\' THEN substring(pg_attrdef.adsrc from \'^(.*).*$\')
-    ELSE pg_attrdef.adsrc
-  END AS "Default"
-FROM pg_class
-  INNER JOIN pg_attribute
-    ON (pg_class.oid=pg_attribute.attrelid)
-  INNER JOIN pg_type
-    ON (pg_attribute.atttypid=pg_type.oid)
-  LEFT JOIN pg_attrdef
-    ON (pg_class.oid=pg_attrdef.adrelid AND pg_attribute.attnum=pg_attrdef.adnum)
-WHERE pg_class.relname=\''.$this->escape_str($table).'\' AND pg_attribute.attnum>=1 AND NOT pg_attribute.attisdropped
-ORDER BY pg_attribute.attnum');
+		if (!isset($result))
+			throw new Kohana_Database_Exception('database.table_not_found', $table);
 
-				// Load the result as objects
-				$query->result(TRUE);
-
-				$fields = array();
-				foreach ($query as $row)
-				{
-					$fields[$row->Field] = $row->Type;
-				}
-
-				return $fields;
+		return $result;
 	}
 
 	public function field_data($table)
 	{
-		// TODO: This whole function needs to be debugged.
-		$query  = pg_query('SELECT * FROM '.$this->escape_table($table).' LIMIT 1', $this->link);
-		$fields = pg_num_fields($query);
-		$table  = array();
+		// http://www.postgresql.org/docs/8.3/static/infoschema-columns.html
+		$result = $this->query('
+			SELECT column_name, column_default, is_nullable, data_type, udt_name,
+				character_maximum_length, numeric_precision, numeric_precision_radix, numeric_scale
+			FROM information_schema.columns
+			WHERE table_name = \''. $this->escape_str($table) .'\'
+			ORDER BY ordinal_position
+		');
 
-		for ($i=0; $i < $fields; $i++)
-		{
-			$table[$i]['type']  = pg_field_type($query, $i);
-			$table[$i]['name']  = pg_field_name($query, $i);
-			$table[$i]['len']   = pg_field_prtlen($query, $i);
-		}
-
-		return $table;
+		return $result->result_array(TRUE);
 	}
 
 } // End Database_Pgsql_Driver Class
@@ -345,6 +318,7 @@ class Pgsql_Result extends Database_Result {
 	 */
 	public function __construct($result, $link, $object = TRUE, $sql)
 	{
+		$this->link = $link;
 		$this->result = $result;
 
 		// If the query is a resource, it was a SELECT, SHOW, DESCRIBE, EXPLAIN query
@@ -445,9 +419,14 @@ class Pgsql_Result extends Database_Result {
 			}
 		}
 
-		while ($row = $fetch($this->result, NULL, $type))
+		if ($this->total_rows)
 		{
-			$rows[] = $row;
+			pg_result_seek($this->result, 0);
+
+			while ($row = $fetch($this->result, NULL, $type))
+			{
+				$rows[] = $row;
+			}
 		}
 
 		return $rows;
@@ -463,7 +442,7 @@ class Pgsql_Result extends Database_Result {
 			// tables that have no serial column.
 			$ER = error_reporting(0);
 
-			$result = pg_query($query);
+			$result = pg_query($this->link, $query);
 			$insert_id = pg_fetch_array($result, NULL, PGSQL_ASSOC);
 
 			$this->insert_id = $insert_id['insert_id'];
@@ -477,18 +456,25 @@ class Pgsql_Result extends Database_Result {
 
 	public function seek($offset)
 	{
-		if ( ! $this->offsetExists($offset))
-			return FALSE;
+		if ($this->offsetExists($offset) AND pg_result_seek($this->result, $offset))
+		{
+			// Set the current row to the offset
+			$this->current_row = $offset;
 
-		return pg_result_seek($this->result, $offset);
+			return TRUE;
+		}
+
+		return FALSE;
 	}
 
 	public function list_fields()
 	{
 		$field_names = array();
-		while ($field = pg_field_name($this->result))
+
+		$fields = pg_num_fields($this->result);
+		for ($i = 0; $i < $fields; ++$i)
 		{
-			$field_names[] = $field->name;
+			$field_names[] = pg_field_name($this->result, $i);
 		}
 
 		return $field_names;

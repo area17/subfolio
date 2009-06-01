@@ -2,7 +2,7 @@
 /**
  * Validation helper class.
  *
- * $Id: valid.php 3806 2008-12-18 04:35:41Z zombor $
+ * $Id: valid.php 4367 2009-05-27 21:23:57Z samsoir $
  *
  * @package    Core
  * @author     Kohana Team
@@ -161,13 +161,13 @@ class valid_Core {
 		for ($i = $length - 1; $i >= 0; $i -= 2)
 		{
 			// Add up every 2nd digit, starting from the right
-			$checksum += substr($number, $i, 1);
+			$checksum += $number[$i];
 		}
 
 		for ($i = $length - 2; $i >= 0; $i -= 2)
 		{
 			// Add up every 2nd digit doubled, starting from the right
-			$double = substr($number, $i, 1) * 2;
+			$double = $number[$i] * 2;
 
 			// Subtract 9 from the double where value is greater than 10
 			$checksum += ($double >= 10) ? $double - 9 : $double;
@@ -203,7 +203,7 @@ class valid_Core {
 	 * @param   string   date to check
 	 * @return  boolean
 	 */
-	public function date($str)
+	public static function date($str)
 	{
 		return (strtotime($str) !== FALSE);
 	}
@@ -277,7 +277,7 @@ class valid_Core {
 	{
 		// Use localeconv to set the decimal_point value: Usually a comma or period.
 		$locale = localeconv();
-		return (preg_match('/^[-0-9'.$locale['decimal_point'].']++$/D', (string) $str));
+		return (bool) preg_match('/^-?[0-9'.$locale['decimal_point'].']++$/D', (string) $str);
 	}
 
 	/**

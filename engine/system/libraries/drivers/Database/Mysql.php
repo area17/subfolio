@@ -2,7 +2,7 @@
 /**
  * MySQL Database Driver
  *
- * $Id: Mysql.php 3769 2008-12-15 00:48:56Z zombor $
+ * $Id: Mysql.php 4344 2009-05-11 16:41:39Z zombor $
  *
  * @package    Core
  * @author     Kohana Team
@@ -66,7 +66,7 @@ class Database_Mysql_Driver extends Database_Driver {
 			}
 
 			// Clear password after successful connect
-			$this->config['connection']['pass'] = NULL;
+			$this->db_config['connection']['pass'] = NULL;
 
 			return $this->link;
 		}
@@ -77,18 +77,23 @@ class Database_Mysql_Driver extends Database_Driver {
 	public function query($sql)
 	{
 		// Only cache if it's turned on, and only cache if it's not a write statement
-		if ($this->db_config['cache'] AND ! preg_match('#\b(?:INSERT|UPDATE|REPLACE|SET)\b#i', $sql))
+		if ($this->db_config['cache'] AND ! preg_match('#\b(?:INSERT|UPDATE|REPLACE|SET|DELETE|TRUNCATE)\b#i', $sql))
 		{
 			$hash = $this->query_hash($sql);
 
-			if ( ! isset(self::$query_cache[$hash]))
+			if ( ! isset($this->query_cache[$hash]))
 			{
 				// Set the cached object
-				self::$query_cache[$hash] = new Mysql_Result(mysql_query($sql, $this->link), $this->link, $this->db_config['object'], $sql);
+				$this->query_cache[$hash] = new Mysql_Result(mysql_query($sql, $this->link), $this->link, $this->db_config['object'], $sql);
+			}
+			else
+			{
+				// Rewind cached result
+				$this->query_cache[$hash]->rewind();
 			}
 
 			// Return the cached query
-			return self::$query_cache[$hash];
+			return $this->query_cache[$hash];
 		}
 
 		return new Mysql_Result(mysql_query($sql, $this->link), $this->link, $this->db_config['object'], $sql);
@@ -123,9 +128,22 @@ class Database_Mysql_Driver extends Database_Driver {
 		if (!$this->db_config['escape'])
 			return $column;
 
-		if (strtolower($column) == 'count(*)' OR $column == '*')
+		if ($column == '*')
 			return $column;
 
+		// This matches any functions we support to SELECT.
+		if ( preg_match('/(avg|count|sum|max|min)\(\s*(.*)\s*\)(\s*as\s*(.+)?)?/i', $column, $matches))
+		{
+			if ( count($matches) == 3)
+			{
+				return $matches[1].'('.$this->escape_column($matches[2]).')';
+			}
+			else if ( count($matches) == 5)
+			{
+				return $matches[1].'('.$this->escape_column($matches[2]).') AS '.$this->escape_column($matches[2]);
+			}
+		}
+		
 		// This matches any modifiers we support to SELECT.
 		if ( ! preg_match('/\b(?:rand|all|distinct(?:row)?|high_priority|sql_(?:small_result|b(?:ig_result|uffer_result)|no_cache|ca(?:che|lc_found_rows)))\s/i', $column))
 		{
@@ -162,14 +180,14 @@ class Database_Mysql_Driver extends Database_Driver {
 		return $column;
 	}
 
-	public function regex($field, $match = '', $type = 'AND ', $num_regexs)
+	public function regex($field, $match, $type, $num_regexs)
 	{
 		$prefix = ($num_regexs == 0) ? '' : $type;
 
 		return $prefix.' '.$this->escape_column($field).' REGEXP \''.$this->escape_str($match).'\'';
 	}
 
-	public function notregex($field, $match = '', $type = 'AND ', $num_regexs)
+	public function notregex($field, $match, $type, $num_regexs)
 	{
 		$prefix = $num_regexs == 0 ? '' : $type;
 
@@ -204,8 +222,8 @@ class Database_Mysql_Driver extends Database_Driver {
 			{
 				$froms[] = $this->escape_column($from);
 			}
-			$sql .= "\nFROM ";
-			$sql .= implode(', ', $froms);
+			$sql .= "\nFROM (";
+			$sql .= implode(', ', $froms).")";
 		}
 
 		if (count($database['join']) > 0)
@@ -260,11 +278,11 @@ class Database_Mysql_Driver extends Database_Driver {
 		return mysql_real_escape_string($str, $this->link);
 	}
 
-	public function list_tables(Database $db)
+	public function list_tables()
 	{
-		static $tables;
+		$tables = array();
 
-		if (empty($tables) AND $query = $db->query('SHOW TABLES FROM '.$this->escape_table($this->db_config['connection']['database'])))
+		if ($query = $this->query('SHOW TABLES FROM '.$this->escape_table($this->db_config['connection']['database'])))
 		{
 			foreach ($query->result(FALSE) as $row)
 			{
@@ -282,51 +300,37 @@ class Database_Mysql_Driver extends Database_Driver {
 
 	public function list_fields($table)
 	{
-		static $tables;
+		$result = NULL;
 
-		if (empty($tables[$table]))
+		foreach ($this->field_data($table) as $row)
 		{
-			foreach ($this->field_data($table) as $row)
+			// Make an associative array
+			$result[$row->Field] = $this->sql_type($row->Type);
+
+			if ($row->Key === 'PRI' AND $row->Extra === 'auto_increment')
 			{
-				// Make an associative array
-				$tables[$table][$row->Field] = $this->sql_type($row->Type);
+				// For sequenced (AUTO_INCREMENT) tables
+				$result[$row->Field]['sequenced'] = TRUE;
+			}
 
-				if ($row->Key === 'PRI' AND $row->Extra === 'auto_increment')
-				{
-					// For sequenced (AUTO_INCREMENT) tables
-					$tables[$table][$row->Field]['sequenced'] = TRUE;
-				}
-
-				if ($row->Null === 'YES')
-				{
-					// Set NULL status
-					$tables[$table][$row->Field]['null'] = TRUE;
-				}
+			if ($row->Null === 'YES')
+			{
+				// Set NULL status
+				$result[$row->Field]['null'] = TRUE;
 			}
 		}
 
-		if (!isset($tables[$table]))
+		if (!isset($result))
 			throw new Kohana_Database_Exception('database.table_not_found', $table);
 
-		return $tables[$table];
+		return $result;
 	}
 
 	public function field_data($table)
 	{
-		$columns = array();
+		$result = $this->query('SHOW COLUMNS FROM '.$this->escape_table($table));
 
-		if ($query = mysql_query('SHOW COLUMNS FROM '.$this->escape_table($table), $this->link))
-		{
-			if (mysql_num_rows($query) > 0)
-			{
-				while ($row = mysql_fetch_object($query))
-				{
-					$columns[] = $row;
-				}
-			}
-		}
-
-		return $columns;
+		return $result->result_array(TRUE);
 	}
 
 } // End Database_Mysql_Driver Class

@@ -2,7 +2,7 @@
 /**
  * URL helper class.
  *
- * $Id: url.php 3769 2008-12-15 00:48:56Z zombor $
+ * $Id: url.php 4029 2009-03-03 12:39:32Z Shadowhand $
  *
  * @package    Core
  * @author     Kohana Team
@@ -242,6 +242,9 @@ class url_Core {
 			header('HTTP/1.1 '.$method.' '.$codes[$method]);
 			header('Location: '.$uri);
 		}
+
+		// We are about to exit, so run the send_headers event
+		Event::run('system.send_headers');
 
 		exit('<h1>'.$method.' - '.$codes[$method].'</h1>'.$output);
 	}

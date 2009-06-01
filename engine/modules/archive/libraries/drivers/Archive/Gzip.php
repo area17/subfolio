@@ -2,7 +2,7 @@
 /**
  * Archive library gzip driver.
  *
- * $Id: Gzip.php 3917 2009-01-21 03:06:22Z zombor $
+ * $Id: Gzip.php 3769 2008-12-15 00:48:56Z zombor $
  *
  * @package    Archive
  * @author     Kohana Team

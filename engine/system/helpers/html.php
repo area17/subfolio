@@ -2,7 +2,7 @@
 /**
  * HTML helper class.
  *
- * $Id: html.php 3783 2008-12-15 23:02:18Z samsoir $
+ * $Id: html.php 4368 2009-05-27 21:58:51Z samsoir $
  *
  * @package    Core
  * @author     Kohana Team
@@ -50,6 +50,18 @@ class html_Core {
 	}
 
 	/**
+	 * Perform a html::specialchars() with additional URL specific encoding.
+	 *  
+	 * @param   string   string to convert
+	 * @param   boolean  encode existing entities
+	 * @return  string
+	 */
+	public static function specialurlencode($str, $double_encode = TRUE)
+	{
+		return str_replace(' ', '%20', html::specialchars($str, $double_encode));
+	}
+	
+	/**
 	 * Create HTML link anchors.
 	 *
 	 * @param   string  URL or URI string
@@ -80,11 +92,11 @@ class html_Core {
 
 		return
 		// Parsed URL
-		'<a href="'.html::specialchars($site_url, FALSE).'"'
+		'<a href="'.html::specialurlencode($site_url, FALSE).'"'
 		// Attributes empty? Use an empty string
 		.(is_array($attributes) ? html::attributes($attributes) : '').'>'
 		// Title empty? Use the parsed URL
-		.(($title === NULL) ? $site_url : $title).'</a>';
+		.html::specialchars((($title === NULL) ? $site_url : $title), FALSE).'</a>';
 	}
 
 	/**
@@ -100,7 +112,7 @@ class html_Core {
 	{
 		return
 		// Base URL + URI = full URL
-		'<a href="'.html::specialchars(url::base(FALSE, $protocol).$file, FALSE).'"'
+		'<a href="'.html::specialurlencode(url::base(FALSE, $protocol).$file, FALSE).'"'
 		// Attributes empty? Use an empty string
 		.(is_array($attributes) ? html::attributes($attributes) : '').'>'
 		// Title empty? Use the filename part of the URI
@@ -116,7 +128,7 @@ class html_Core {
 	 * @param   array   HTML anchor attributes
 	 * @return  string
 	 */
-	public static function panchor($protocol, $uri, $title = FALSE, $attributes = FALSE)
+	public static function panchor($protocol, $uri, $title = NULL, $attributes = FALSE)
 	{
 		return html::anchor($uri, $title, $attributes, $protocol);
 	}
@@ -419,7 +431,7 @@ class html_Core {
 		$compiled = '';
 		foreach ($attrs as $key => $val)
 		{
-			$compiled .= ' '.$key.'="'.$val.'"';
+			$compiled .= ' '.$key.'="'.html::specialchars($val).'"';
 		}
 
 		return $compiled;

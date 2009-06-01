@@ -4,7 +4,7 @@
  *
  * [ref-tcl]: http://en.wikipedia.org/wiki/Tag_cloud
  *
- * $Id: Tagcloud.php 3817 2008-12-18 22:36:39Z samsoir $
+ * $Id: Tagcloud.php 3824 2008-12-20 17:13:06Z samsoir $
  *
  * @package    Tagcloud
  * @author     Kohana Team
@@ -22,9 +22,9 @@ class Tagcloud_Core {
 	 * @param   integer  maximum font size
 	 * @return  Tagcloud
 	 */
-	public static function factory(array $elements, $min_size = NULL, $max_size = NULL)
+	public static function factory(array $elements, $min_size = NULL, $max_size = NULL, $shuffle = FALSE)
 	{
-		return new Tagcloud($elements, $min_size, $max_size);
+		return new Tagcloud($elements, $min_size, $max_size, $shuffle);
 	}
 
 	public $min_size   = 80;
@@ -47,9 +47,14 @@ class Tagcloud_Core {
 	 * @param   integer  maximum font size
 	 * @return  void
 	 */
-	public function __construct(array $elements, $min_size = NULL, $max_size = NULL)
+	public function __construct(array $elements, $min_size = NULL, $max_size = NULL, $shuffle = FALSE)
 	{
 		$this->elements = $elements;
+		
+		if($shuffle !== FALSE)
+		{
+			$this->shuffle = TRUE;
+		}
 
 		$counts = array();
 		foreach ($elements as $data)

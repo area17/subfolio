@@ -2,7 +2,7 @@
 /**
  * MySQLi Database Driver
  *
- * $Id: Mysqli.php 3769 2008-12-15 00:48:56Z zombor $
+ * $Id: Mysqli.php 4344 2009-05-11 16:41:39Z zombor $
  *
  * @package    Core
  * @author     Kohana Team
@@ -57,7 +57,7 @@ class Database_Mysqli_Driver extends Database_Mysql_Driver {
 			}
 
 			// Clear password after successful connect
-			$this->config['connection']['pass'] = NULL;
+			$this->db_config['connection']['pass'] = NULL;
 
 			return $this->link;
 		}
@@ -68,18 +68,23 @@ class Database_Mysqli_Driver extends Database_Mysql_Driver {
 	public function query($sql)
 	{
 		// Only cache if it's turned on, and only cache if it's not a write statement
-		if ($this->db_config['cache'] AND ! preg_match('#\b(?:INSERT|UPDATE|REPLACE|SET)\b#i', $sql))
+		if ($this->db_config['cache'] AND ! preg_match('#\b(?:INSERT|UPDATE|REPLACE|SET|DELETE|TRUNCATE)\b#i', $sql))
 		{
 			$hash = $this->query_hash($sql);
 
-			if ( ! isset(self::$query_cache[$hash]))
+			if ( ! isset($this->query_cache[$hash]))
 			{
 				// Set the cached object
-				self::$query_cache[$hash] = new Kohana_Mysqli_Result($this->link, $this->db_config['object'], $sql);
+				$this->query_cache[$hash] = new Kohana_Mysqli_Result($this->link, $this->db_config['object'], $sql);
+			}
+			else
+			{
+				// Rewind cached result
+				$this->query_cache[$hash]->rewind();
 			}
 
 			// Return the cached query
-			return self::$query_cache[$hash];
+			return $this->query_cache[$hash];
 		}
 
 		return new Kohana_Mysqli_Result($this->link, $this->db_config['object'], $sql);
@@ -89,12 +94,6 @@ class Database_Mysqli_Driver extends Database_Mysql_Driver {
 	{
 		if ($this->link->set_charset($charset) === FALSE)
 			throw new Kohana_Database_Exception('database.error', $this->show_error());
-	}
-
-	public function stmt_prepare($sql = '')
-	{
-		is_object($this->link) or $this->connect();
-		return new Kohana_Mysqli_Statement($sql, $this->link);
 	}
 
 	public function escape_str($str)
@@ -110,19 +109,6 @@ class Database_Mysqli_Driver extends Database_Mysql_Driver {
 	public function show_error()
 	{
 		return $this->link->error;
-	}
-
-	public function field_data($table)
-	{
-		$query  = $this->link->query('SHOW COLUMNS FROM '.$this->escape_table($table));
-
-		$table  = array();
-		while ($row = $query->fetch_object())
-		{
-			$table[] = $row;
-		}
-
-		return $table;
 	}
 
 } // End Database_Mysqli_Driver Class
@@ -297,12 +283,15 @@ class Kohana_Mysqli_Result extends Database_Result {
 
 	public function seek($offset)
 	{
-		if ( ! $this->offsetExists($offset))
-			return FALSE;
+		if ($this->offsetExists($offset) AND $this->result->data_seek($offset))
+		{
+			// Set the current row to the offset
+			$this->current_row = $offset;
 
-		$this->result->data_seek($offset);
+			return TRUE;
+		}
 
-		return TRUE;
+		return FALSE;
 	}
 
 	public function offsetGet($offset)

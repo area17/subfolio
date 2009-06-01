@@ -2,7 +2,7 @@
 /**
  * Calendar event observer class.
  *
- * $Id: Calendar_Event.php 3769 2008-12-15 00:48:56Z zombor $
+ * $Id: Calendar_Event.php 4129 2009-03-27 17:47:03Z zombor $
  *
  * @package    Calendar
  * @author     Kohana Team
@@ -159,8 +159,18 @@ class Calendar_Event_Core extends Event_Observer {
 
 		foreach ($condition as $key => $value)
 		{
+			// Timestamps need to be handled carefully
+			if($key === 'timestamp' AND isset($this->conditions['timestamp']))
+			{
+				// This adds 23 hours, 59 minutes and 59 seconds to today's timestamp, as 24 hours
+				// is classed as a new day
+				$next_day = $timestamp + 86399;
+				
+				if($this->conditions['timestamp'] < $timestamp OR $this->conditions['timestamp'] > $next_day)
+					return FALSE;
+			}
 			// Test basic conditions first
-			if (isset($this->conditions[$key]) AND $this->conditions[$key] !== $value)
+			elseif (isset($this->conditions[$key]) AND $this->conditions[$key] !== $value)
 				return FALSE;
 
 			// Condition has been tested

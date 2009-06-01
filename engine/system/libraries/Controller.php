@@ -3,7 +3,7 @@
  * Kohana Controller class. The controller class must be extended to work
  * properly, so this class is defined as abstract.
  *
- * $Id: Controller.php 3769 2008-12-15 00:48:56Z zombor $
+ * $Id: Controller.php 4365 2009-05-27 21:09:27Z samsoir $
  *
  * @package    Core
  * @author     Kohana Team
@@ -66,17 +66,17 @@ abstract class Controller_Core {
 		// Import the view variables to local namespace
 		extract($kohana_input_data, EXTR_SKIP);
 
+		// Views are straight HTML pages with embedded PHP, so importing them
+		// this way insures that $this can be accessed as if the user was in
+		// the controller, which gives the easiest access to libraries in views
 		try
 		{
-			// Views are straight HTML pages with embedded PHP, so importing them
-			// this way insures that $this can be accessed as if the user was in
-			// the controller, which gives the easiest access to libraries in views
 			include $kohana_view_filename;
 		}
 		catch (Exception $e)
 		{
-			// Display the exception using its internal __toString method
-			echo $e;
+			ob_end_clean();
+			throw $e;
 		}
 
 		// Fetch the output and close the buffer
