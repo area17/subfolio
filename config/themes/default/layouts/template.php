@@ -2,7 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 
-  	<title><?php print $site_title;?> | <?php print $page_title;?></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	
+  <title><?php print $site_title;?> | <?php print $page_title;?></title>
 
 	<link rel="shortcut icon" type="image/png" href="<?php echo view::get_view_url() ?>/images/logos/favicon.png" />
 	<link href="<?php echo view::get_view_url() ?>/css/main.css" type="text/css" rel="stylesheet" >
