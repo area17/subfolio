@@ -201,52 +201,28 @@ endforeach ?>
       $display = "";
 
 		  switch ($kind) {
-  			case "ai" :
-  			case "csv" :
-  			case "tif" :
-  			case "xml" :
-  			case "merlin" :
-  			case "eps" :
-  			case "gen" :
-  			case "bmp" :
-  			case "psd" :
-  			case "tif" :
-  			case "xls" :
-  			case "ppt" :
-  			case "doc" :
-  			case "fnt" :
-  			case "suit":
-  			case "rtf" :
-  			case "zip" :
-
-  			case "pages" :
-  			case "key" :
-  			case "numbers" :
-  			  $url = "/directory".$this->filebrowser->get_link($file->name);
-  			  $display = $file->get_display_name();
-  			  break;
 
   			case "pop" :
-	          $width    = $this->filebrowser->get_item_property($file->name, 'width')    ? $this->filebrowser->get_item_property($file->name, 'width') : 800;
-	          $height   = $this->filebrowser->get_item_property($file->name, 'height')   ? $this->filebrowser->get_item_property($file->name, 'height') : 600;
-	          $url      = $this->filebrowser->get_item_property($file->name, 'url')      ? $this->filebrowser->get_item_property($file->name, 'url') : 'http://www.subfolio.com';
-	          $name     = $this->filebrowser->get_item_property($file->name, 'name')     ? $this->filebrowser->get_item_property($file->name, 'name') : 'POPUP';
-	          $style    = $this->filebrowser->get_item_property($file->name, 'style')    ? $this->filebrowser->get_item_property($file->name, 'style') : 'POPSCROLL';
-	
-	          $url = "javascript:pop('$url','$name',$width,$height,'$style');";
-	  			  $display = format::filename($file->get_display_name(), false);
-	          break;
+	        $width    = $this->filebrowser->get_item_property($file->name, 'width')    ? $this->filebrowser->get_item_property($file->name, 'width') : 800;
+	        $height   = $this->filebrowser->get_item_property($file->name, 'height')   ? $this->filebrowser->get_item_property($file->name, 'height') : 600;
+	        $url      = $this->filebrowser->get_item_property($file->name, 'url')      ? $this->filebrowser->get_item_property($file->name, 'url') : 'http://www.subfolio.com';
+	        $name     = $this->filebrowser->get_item_property($file->name, 'name')     ? $this->filebrowser->get_item_property($file->name, 'name') : 'POPUP';
+	        $style    = $this->filebrowser->get_item_property($file->name, 'style')    ? $this->filebrowser->get_item_property($file->name, 'style') : 'POPSCROLL';
+
+	        $url = "javascript:pop('$url','$name',$width,$height,'$style');";
+				  $display = format::filename($file->get_display_name(), false);
+	        break;
 
   			case "link" :
-	          $url = $this->filebrowser->get_item_property($file->name, 'url')    ? $this->filebrowser->get_item_property($file->name, 'url') : '';
-	          $target = $this->filebrowser->get_item_property($file->name, 'target')    ? $this->filebrowser->get_item_property($file->name, 'target') : '_blank';
+	        $url = $this->filebrowser->get_item_property($file->name, 'url')    ? $this->filebrowser->get_item_property($file->name, 'url') : '';
+	        $target = $this->filebrowser->get_item_property($file->name, 'target')    ? $this->filebrowser->get_item_property($file->name, 'target') : '_blank';
   			  $display = format::filename($file->get_display_name(), false);
   			  break;
 
   			default:
   			  $url = $this->filebrowser->get_link($file->name);
   			  $display = $file->get_display_name();
-          	break;  			
+          break;  			
 	    }
 
   ?>
