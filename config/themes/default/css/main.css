@@ -15,7 +15,7 @@ padding:0;
 }
 
 body  {
-background-color:#F5f5f5;
+background-color:#FFF;
 background-repeat:repeat-x;
 min-width:550px;
 }
@@ -406,6 +406,9 @@ float:left;
 background-color:#f5f5f5;
 margin:0 1px 1px 0;
 padding:1px;
+}
+#gallery ul li a p {
+color: #1a1a1a;
 }
 
 #gallery ul li a div.gallery_thumbnail {
