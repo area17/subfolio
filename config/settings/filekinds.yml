@@ -50,6 +50,12 @@ bmp:
   display: Bitmap Image
   download: true
 
+raw:
+  extensions: [3fr, arw, srf, sr2, bay, crw, cr2, cap, iiq, eip, dng, erf, fff, mef, mos, mrw, nef, nrw, orf, ptx, pef, pxn, r3d, raf, raw, rw2, rwz, k25, kdc, dcs, drf, x3f]
+  icon: img
+  display: RAW Image
+  download: true
+    
 tiff:
   extensions: [tiff, tif]
   icon: img

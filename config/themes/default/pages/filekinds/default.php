@@ -3,7 +3,7 @@
 	// Also, we should remove any logic from views...
 	$new_updated_start = $this->filebrowser->get_updated_since_time();
 	$file_kind = $this->filekind->get_kind_by_file($file->name);
-	$kind_display = isset($file_kind['display']) ? $file_kind['display'] : '';
+	$kind_display = isset($file_kind['display']) ? $file_kind['display'] : '—';
 	$icon_file = "";
 	$comment  = $this->filebrowser->get_item_property($this->filebrowser->file, 'comment') ? $this->filebrowser->get_item_property($this->filebrowser->file, 'comment') : '';
   
