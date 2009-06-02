@@ -7,12 +7,16 @@ ai:
   icon: ai
   display: Illustrator File
   download: true
+  instructions:>
+    To read Illustrator Files, you need <a href='http://www.adobe.com/products/illustrator/' target='_blank'>Adobe Illustrator</a>.
   
 eps:
   extensions: [eps]
   icon: eps
   display: Postscript File
   download: true
+  instructions:>
+    To read Postscript Files, you need <a href='http://www.adobe.com/products/illustrator/' target='_blank'>Adobe Illustrator</a>.
   
 csv:
   extensions: [csv]
@@ -31,6 +35,8 @@ doc:
   icon: doc
   display: Word Document
   download: true
+  instructions:>
+    To read Word Documents, you need <a href='http://office.microsoft.com/en-us/word/' target='_blank'>Microsoft Word</a>.
   
 img:
   extensions: [gif, png, jpg]
@@ -67,18 +73,24 @@ key:
   icon: key
   display: Keynote Document
   download: true
+  instructions:>
+    To read Keynote Documents, you need <a href='http://www.apple.com/iwork/keynote/' target='_blank'>Apple Keynote</a>.
   
 numbers:
   extensions: [numbers]
   icon: numbers
   display: Numbers Document
   download: true
+  instructions:>
+    To read Numbers Documents, you need <a href='http://www.apple.com/iwork/numbers/' target='_blank'>Apple Numbers</a>.
 
 pages:
   extensions: [pages]
   icon: pages
   display: Pages Document
   download: true
+  instructions:>
+    To read Pages Documents, you need <a href='http://www.apple.com/iwork/pages/' target='_blank'>Apple Pages</a>.
   
 ppt:
   extensions: [ppt, pptx, pps]
@@ -91,12 +103,16 @@ psd:
   icon: psd
   display: Photoshop File
   download: true
+  instructions:>
+    To read Photoshop Files, you need <a href='http://www.adobe.com/products/photoshop/' target='_blank'>Adobe Photoshop</a>.
 
 ae:
   extensions: [ae, aep]
   icon: ae
   display: AfterEffect File
   download: true
+  instructions:>
+    To read After Effect Files, you need <a href='http://www.adobe.com/products/aftereffects/' target='_blank'>Adobe After Effects</a>.
   
 snd:
   extensions: [mp3, wav]
@@ -145,6 +161,8 @@ zip:
   icon: zip
   display: Archive
   download: true
+  instructions:>
+    Zip files should be supported by your computer. If it's not the case, see <a href='http://www.winzip.com' target='_blank'>Winzip</a> on PC.
 
 dmg:
   extensions: [dmg]
@@ -165,6 +183,8 @@ pdf:
   download: false
   instructions:>
     You must have the free Adobe Acrobat Reader to view this file. Download it <a href='http://get.adobe.com/reader/' target='_blank'>here</a>
+  default_width: 640
+  default_height: 480
   
 fnt:
   extensions: [fnt, ttf, bmap, afm]
