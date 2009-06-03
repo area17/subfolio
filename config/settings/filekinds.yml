@@ -228,6 +228,12 @@ sql:
   display: MySql Dump
   download: true
   
+css:
+  extensions: [css]
+  icon: gen
+  display: Stylesheet
+  download: true
+    
 #
 # Enhancers
 #
