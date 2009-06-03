@@ -180,6 +180,11 @@ endforeach ?>
       } else {
         $kind = "";
       }
+
+      if ($kind == "img" && !$file->needs_thumbnail()) {
+        // don't show listing for image smaller than thumbnail;
+        continue;
+      }
       $kind_display = isset($file_kind['display']) ? $file_kind['display'] : '';
       $downloadable = isset($file_kind['download']) ? $file_kind['download'] : true;
       

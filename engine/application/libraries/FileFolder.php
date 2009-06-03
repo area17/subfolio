@@ -68,7 +68,7 @@ class FileFolder {
     return $size[1];
   }
 
-  public function has_thumbnail() {
+  public function has_thumbnail($check_needs=false) {
     $custom_thumbnail = "-thumbnails-custom/".$this->name;
     if (file_exists($custom_thumbnail)) {
       return true;
