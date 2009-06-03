@@ -708,7 +708,7 @@ width:9px;
 height:9px;
 z-index:99;
 background:url("../images/system/updated.png") no-repeat top left;
-margin:0 0 0 22px;
+margin:0 0 0 12px;
 }
 
 .new {
@@ -1009,9 +1009,9 @@ display:block;
 width:11px;
 height:11px;
 z-index:99;
-background:url("../images/system/updated.png") no-repeat top left;
+background:url("../images/system/updated_xl.png") no-repeat top left;
 margin-left: 25px;
-margin-top: 2px;
+margin-top: 3px;
 }
 
 #download_box #filename {

@@ -234,6 +234,18 @@ css:
   display: Stylesheet
   download: true
     
+php:
+  extensions: [php]
+  icon: gen
+  display: PHP File
+  download: true
+
+yml:
+  extensions: [yml]
+  icon: sql
+  display: YAML File
+  download: true
+    
 #
 # Enhancers
 #
