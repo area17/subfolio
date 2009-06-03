@@ -15,3 +15,8 @@ $height   = $this->filebrowser->get_item_property($this->filebrowser->file, 'hei
   TYPE='application/x-shockwave-flash' 
   PLUGINSPAGE='http://public.macromedia.com/go/getflashplayer'>
 </EMBED>
+
+<!-- Download -->
+<div id="download_box">
+	<a href="<?php echo $this->filebrowser->get_file_url(); ?>" id="download" class="with_arrow">Download</a>
+</div>

@@ -3,6 +3,7 @@
 	// Also, we should remove any logic from views...
 	$new_updated_start = $this->filebrowser->get_updated_since_time();
 	$file_kind = $this->filekind->get_kind_by_file($file->name);
+	$kind = isset($file_kind['kind']) ? $file_kind['kind'] : '';
 	$kind_display = isset($file_kind['display']) ? $file_kind['display'] : '—';
 	$icon_file = "";
 	$comment  = $this->filebrowser->get_item_property($this->filebrowser->file, 'comment') ? $this->filebrowser->get_item_property($this->filebrowser->file, 'comment') : '';
@@ -21,19 +22,21 @@
 ?>
 
 <div id="download_box">
-	<!-- Icon -->
-	<?php	if ($updated) { ?>
-		<span class="updated"><!-- --></span>
-	<?php	} ?>
-	<?php	if ($new) { ?>
-		<span class="new"><!-- --></span>
-	<?php	} ?>
-	<a href="<?php echo $this->filebrowser->get_file_url(); ?>"><img src='<?php echo $icon; ?>' /></a>
-	<!-- Filename -->
-	<div id="filename">
-		<p><a href="<?php echo $this->filebrowser->get_file_url(); ?>"><?php echo $this->filebrowser->file ?></a></p>
-	</div>
-	<p><?php echo $comment ?></p>
+		
+	<a id="clickable-zone" href="<?php echo $this->filebrowser->get_file_url(); ?>">
+		<!-- Icon -->
+		<?php	if ($updated) { ?>
+			<span class="updated"><!-- --></span>
+		<?php	} ?>
+		<?php	if ($new) { ?>
+			<span class="new"><!-- --></span>
+		<?php	} ?>
+		<img src='<?php echo $icon; ?>' />
+		<!-- Filename / comment -->
+		<p id="filename"><?php echo $this->filebrowser->file ?></p>
+		<p><?php echo $comment ?></p>
+	</a>
+	
 	<!-- Infos -->
 	<dl>
 		<dt>Kind: </dt><dd><?php echo $kind_display ?></dd>
@@ -48,4 +51,3 @@
 	<a href="<?php echo $this->filebrowser->get_file_url(); ?>" id="download">Download</a>
 	
 </div>
-

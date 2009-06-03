@@ -1,1 +1,0 @@
-<p><a href="<?php echo $this->filebrowser->get_file_url(); ?>">Download</a></p>

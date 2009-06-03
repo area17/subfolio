@@ -17,3 +17,8 @@ $autoplay = $this->filebrowser->get_item_property($this->filebrowser->file, 'aut
   controller='true' 
   pluginspage='http://public.apple.com/quicktime/'>
 </EMBED>
+
+<!-- Download -->
+<div id="download_box">
+	<a href="<?php echo $this->filebrowser->get_file_url(); ?>" id="download" class="with_arrow">Download</a>
+</div>
