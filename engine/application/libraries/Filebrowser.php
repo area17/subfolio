@@ -257,27 +257,30 @@ class Filebrowser {
 
   public function get_parent_file_list($kind=null) {
     $files = array();
-    foreach (glob("*") as $filename) {
-      if (!is_dir($filename)) {
-        if (!$this->is_hidden($filename)) {
-          $stats = stat($filename);
-
-
-          $fkind = $this->filekind->get_kind_by_file($filename);
-          $filekind = isset($fkind['kind']) ? $fkind['kind'] : '';
-          $ff = new FileFolder($filename, $this->folder, 'file', $filekind, $stats);
-
-          if ($kind != null) {
-            if ($filekind === $kind) {
+    
+    $names = glob("*");
+    if ($names) {
+      foreach ($names as $filename) {
+        if (!is_dir($filename)) {
+          if (!$this->is_hidden($filename)) {
+            $stats = stat($filename);
+  
+  
+            $fkind = $this->filekind->get_kind_by_file($filename);
+            $filekind = isset($fkind['kind']) ? $fkind['kind'] : '';
+            $ff = new FileFolder($filename, $this->folder, 'file', $filekind, $stats);
+  
+            if ($kind != null) {
+              if ($filekind === $kind) {
+                $files[] = $ff;
+              }
+            } else {
               $files[] = $ff;
             }
-          } else {
-            $files[] = $ff;
           }
         }
       }
     }
-
     return $files;
   }
 
@@ -290,28 +293,32 @@ class Filebrowser {
     if ($prefix != null) {
       $name = $prefix."*";
     }
-    foreach (glob($name) as $filename) {
-      if (!is_dir($filename)) {
 
-        if ($hidden || !$this->is_hidden($filename)) {
-          $include = false;
-
-          if ($kind != null) {
-            $fkind = $this->filekind->get_kind_by_file($filename);
-            $filekind = isset($fkind['kind']) ? $fkind['kind'] : '';
-            if ($filekind === $kind) {
+    $names = glob($name);
+    if ($names) {
+      foreach ($names as $filename) {
+        if (!is_dir($filename)) {
+  
+          if ($hidden || !$this->is_hidden($filename)) {
+            $include = false;
+  
+            if ($kind != null) {
+              $fkind = $this->filekind->get_kind_by_file($filename);
+              $filekind = isset($fkind['kind']) ? $fkind['kind'] : '';
+              if ($filekind === $kind) {
+                $include = true;
+              }
+            } else {
               $include = true;
             }
-          } else {
-            $include = true;
-          }
-
-          if ($include) {
-            $stats = stat($filename);
-            $fkind = $this->filekind->get_kind_by_file($filename);
-            $filekind = isset($fkind['kind']) ? $fkind['kind'] : '';
-            $ff = new FileFolder($filename, $this->folder, 'file', $filekind, $stats);
-            $files[] = $ff;
+  
+            if ($include) {
+              $stats = stat($filename);
+              $fkind = $this->filekind->get_kind_by_file($filename);
+              $filekind = isset($fkind['kind']) ? $fkind['kind'] : '';
+              $ff = new FileFolder($filename, $this->folder, 'file', $filekind, $stats);
+              $files[] = $ff;
+            }
           }
         }
       }
@@ -323,12 +330,16 @@ class Filebrowser {
 
   public function get_parent_folder_list($pattern='*'){
     $folders = array();
-    foreach (glob("../*") as $filename) {
-      if (is_dir($filename)) {
-        $filename = substr($filename, 3);
-        if (!$this->is_hidden($filename)) {
-          $ff = new FileFolder($filename, $this->folder, 'folder', "folder", array());
-          $folders[] = $ff;
+
+    $names = glob("../*");
+    if ($names) {
+      foreach ($names as $filename) {
+        if (is_dir($filename)) {
+          $filename = substr($filename, 3);
+          if (!$this->is_hidden($filename)) {
+            $ff = new FileFolder($filename, $this->folder, 'folder', "folder", array());
+            $folders[] = $ff;
+          }
         }
       }
     }
@@ -337,13 +348,16 @@ class Filebrowser {
 
   public function get_folder_list($pattern='*'){
     $folders = array();
-    foreach (glob("*") as $filename) {
-      if (is_dir($filename)) {
-        if (!$this->is_hidden($filename)) {
-          $stats = stat($filename);
-          $fkind = $this->filekind->get_kind_by_file($filename);
-          $ff = new FileFolder($filename, $this->folder, 'folder', $fkind, $stats);
-          $folders[] = $ff;
+    $names = glob("*");
+      if ($names) {
+      foreach ($names as $filename) {
+        if (is_dir($filename)) {
+          if (!$this->is_hidden($filename)) {
+            $stats = stat($filename);
+            $fkind = $this->filekind->get_kind_by_file($filename);
+            $ff = new FileFolder($filename, $this->folder, 'folder', $fkind, $stats);
+            $folders[] = $ff;
+          }
         }
       }
     }
@@ -455,13 +469,17 @@ class Filebrowser {
   }
 
   private function add_to_archive($archive, $folder, $recursive) {
-    foreach (glob($folder."*") as $filename) {
-      if (is_dir($filename)) {
-        if ($recursive) {
-          $this->add_to_archive($archive, $filename."/", $recursive);
+
+    $names = glob($folder."*");
+    if ($names) {
+      foreach ($names as $filename) {
+        if (is_dir($filename)) {
+          if ($recursive) {
+            $this->add_to_archive($archive, $filename."/", $recursive);
+          }
+        } else {
+          $archive->add($filename, str_replace("../", "", $filename));
         }
-      } else {
-        $archive->add($filename, str_replace("../", "", $filename));
       }
     }
   }
