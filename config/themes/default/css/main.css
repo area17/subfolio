@@ -307,6 +307,7 @@ padding:12px 0 13px 0;
 
 span.parent_dir a span.fileicon {
 padding-bottom:10px;
+padding-left: 2px;
 }
 
 .parent_arrow {
@@ -316,7 +317,7 @@ width:18px;
 height:17px;
 text-indent:-2000px;
 background:url("../images/system/parent.png") no-repeat;
-margin:9px 4px 0 0;
+margin:8px 4px 0 0;
 }
 
 a:hover .parent_arrow {
@@ -594,7 +595,7 @@ margin:0 0 0 35%;
 }
 
 .listing-content-left-inner {
-padding-left:35px;
+padding-left:25px;
 padding-right:65px;
 }
 
@@ -604,10 +605,11 @@ float:left;
 }
 
 .icon {
-width:35px;
+width:25px;
 margin-right:-100%;
-right:35px;
+right:25px;
 height:17px;
+padding-left: 2px;
 }
 
 .name, .filename {
@@ -720,7 +722,7 @@ width:10px;
 height:9px;
 z-index:98;
 background:url("../images/system/lock.png") no-repeat top left;
-margin:5px 0 0 13px;
+margin:5px 0 0 3px;
 }
 
 .locked {
@@ -762,7 +764,7 @@ padding:0 0 5px;
    MODULE: RELATED
 -------------------------------------------------------------- */
 #related p {
-	padding-bottom: 5px;
+padding-bottom: 5px;
 }
 #related ul {
 width:100%;
@@ -806,7 +808,7 @@ display:block;
 
 #related ul li .listing-content-left-inner {
 overflow: hidden;
-padding-left:35px;
+padding-left:25px;
 padding-right:65px;
 }
 
@@ -816,9 +818,9 @@ float:left;
 }
 
 #related ul li .icon {
-width:35px;
+width:25px;
 margin-right:-100%;
-right:35px;
+right:25px;
 height:17px;
 }
 

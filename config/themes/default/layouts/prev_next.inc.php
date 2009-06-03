@@ -3,7 +3,7 @@
 	<span class="parent_dir">
     <a href='/<?php echo dirname($ff) ?>'>
 		<span class='fileicon'>
-			<span class="icon_download blank"><!-- --></span>
+			<!-- span class="icon_download blank"></span> -->
 			<span class="parent_arrow">Parent Directory</span>
 		</span>
 		<span class='name'>Parent Directory</span>

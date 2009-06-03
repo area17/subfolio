@@ -41,7 +41,7 @@ if ($showListing) {
 				<span class="listing-content-left">
 					<span class="listing-content-left-inner">
 						<span class="icon column">
-							<span class="icon_download blank"><!-- --></span>
+							<!-- <span class="icon_download blank"></span> -->
 							<img src='<?php echo view::get_view_url() ?>/images/system/no_icon.png' width='18' height='17' border='0' />
 						</span>
 						<span class="name column"><a href="?sort=filename">filename</a></span>
@@ -144,7 +144,7 @@ foreach ($folders as $folder):
 											<span class="<?php if ($have_access) { echo "unlocked"; } else { echo "locked"; } ?>"><!-- --></span>
 										<?php	} ?>
 						      	
-						      	<span class="icon_download blank"><!-- --></span>
+						      	<!-- <span class="icon_download blank"></span> -->
 								<img src='<?php echo "".$icon ?>' />
 							</span>
 							<span class="filename column"><?php echo $display ?></span>
@@ -244,7 +244,7 @@ endforeach ?>
 								<?php	if ($new) { ?>
 				      		<span class="new"><!-- --></span>
 								<?php	} ?>
-								<span class="icon_download <?php if (!$downloadable) { echo 'blank'; } ?>"><!-- --></span>
+								<!-- <span class="icon_download <?php if (!$downloadable) { echo 'blank'; } ?>"></span> -->
 								<img src='<?php echo $icon; ?>' />
 							</span>
 							<span class="filename column"><?php echo $display ?></span>
