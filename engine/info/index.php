@@ -206,6 +206,8 @@
 				<?php */ ?>
 			</table>
 		</div>
+
+		<p>If you wish to disable this page, create a blank file: /engine/info/disabled.php</p>
 	</body>
 </html>
 <?php } ?>
