@@ -89,6 +89,27 @@ class FileFolder {
     return false;
   }
 
+  public function get_gallery_width_height($value='')
+  {
+    $width = 320;
+    $height = 240;
+
+    $filename = null;
+    if ($this->has_custom_thumbnail()) {
+      $filename = "-thumbnails-custom/".$this->name;
+    } else if ($this->has_thumbnail()) {
+      $filename = "-thumbnails/".$this->name;
+    } else {
+      $filename = $this->name;
+    }
+    
+		$size = @getimagesize($filename);
+		$width = $size[0];
+		$height= $size[1];
+    
+    return array($width, $height);
+  }
+
   public function get_url() {
     $url = "/directory/".$this->parent."/".$this->name;
     return $url;

@@ -9,15 +9,14 @@
     }
 ?>
 <div id="header">
-  <?
+  <?php
     $site_name_display = Kohana::config('filebrowser.site_name');
     $logo = Kohana::config('filebrowser.site_logo_url');
     if ($logo <> "") {
       $site_name_display = "<img src='$logo' />";
     }
   ?>
-  
-	<h1 id="logo" class="logo <?php print "".$showHide;?>"><a href='/' ><?php echo $site_name_display ?></a></h1>
+	<h1 id="logo" class="logo <?php print "".$showHide; ?>"><a href='/' ><?php echo $site_name_display ?></a></h1>
 </div>
 
 <div id="breadcrumbtools">

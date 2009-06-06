@@ -13,6 +13,8 @@ if (sizeof($files) > 0) {
     		$image_source = $file->get_url(); 
     	}
 
+      list ($width, $height) = $file->get_gallery_width_height();
+  
       if ($image_source <> '') {
   			if ($file->has_custom_thumbnail()) { 
   			// Custom thumbnails -----------------------------------------------------------------------------
@@ -20,7 +22,7 @@ if (sizeof($files) > 0) {
         <li>
           <a href="<?php echo $this->filebrowser->get_link($file->name); ?>">
   					<div class="gallery_thumbnail">
-  						<img src="<?php echo $image_source ?>" />
+  						<img width="<?php echo $width ?>" height="<?php echo $height ?>" src="<?php echo $image_source ?>" />
   					</div>
           	<p><?php echo $file->name ?></p>
   				</a>
@@ -31,9 +33,9 @@ if (sizeof($files) > 0) {
   	    <li>
           <a href="<?php echo $this->filebrowser->get_link($file->name); ?>">
   					<div class="gallery_thumbnail generated">
-  						<div class='hcenterer' style="width:<?php if (!$file->needs_thumbnail()) { echo $file->get_width(); } ?>px;">
+  						<div class='hcenterer' style="width:<?php echo $width."px"; ?>" >
   							<div class="vcenterer">
-  								<img src="<?php echo $image_source ?>" />
+  								<img width="<?php echo $width ?>"  height="<?php echo $height ?>" src="<?php echo $image_source ?>" />
   							</div>
   						</div>
   					</div>
