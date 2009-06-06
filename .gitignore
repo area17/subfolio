@@ -1,4 +1,5 @@
 engine/application/logs/*
+engine/info/disabled.php
 content/*
 config/users/groups.yml
 config/users/users.yml

@@ -1,5 +1,5 @@
-<?php define('ENABLED', true); ?>
-<?php if (ENABLED) {  ?>
+<?php $enabled = file_exists("disabled.php") ? false : true;  ?>
+<?php if ($enabled) {  ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
