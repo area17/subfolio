@@ -31,6 +31,12 @@ $config['language_yaml_file']   = $settings_folder."language.yml";
 
 //Load settings from yaml file
 $settings_file  = $settings_folder."settings.yml";
+$config['settings_yaml_file']  = $settings_folder."settings.yml";
+
+if (!file_exists($settings_file)) {
+	url::redirect('engine/info');
+}
+
 $settings = Spyc::YAMLLoad($settings_file);
 
 //rint_r($settings);
