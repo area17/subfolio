@@ -51,7 +51,7 @@ class FileFolder {
     $thumbnail_width = Kohana::config('filebrowser.thumbnail_width');
     $thumbnail_height = Kohana::config('filebrowser.thumbnail_height');
 		$info = @getimagesize($this->name);
-    if ($info[0] <= $thumbnail_width && $info[1] <= $thumbnail_height) {
+    if ($info[1] <= $thumbnail_height) {
       $needs = false;
     }
     
@@ -144,11 +144,17 @@ class FileFolder {
         } else {
           $thumbnail_width = Kohana::config('filebrowser.thumbnail_width');
           $thumbnail_height = Kohana::config('filebrowser.thumbnail_height');
+
+      		$info = @getimagesize($this->name);
+          if ($info[1] <= $thumbnail_height) {
+            // don't need a thumbnail
+          } else {
+            $this->image = new Image($this->name);
+            $this->image->resize($thumbnail_width, $thumbnail_height, Image::HEIGHT);            
+            //$this->image->crop($thumbnail_width, $thumbnail_height, 'top', 'left');
+            $this->image->save($thumbnail);
+          }
           
-          $this->image = new Image($this->name);
-          $this->image->resize($thumbnail_width, $thumbnail_height, Image::HEIGHT);            
-          $this->image->crop($thumbnail_width, $thumbnail_height, 'top', 'left');
-          $this->image->save($thumbnail);
         }
       }
       
