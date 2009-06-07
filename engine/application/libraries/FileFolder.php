@@ -20,7 +20,7 @@ class FileFolder {
 
   public function get_display_name() {
     $display = $this->fix_display_name($this->name);
-    return $display;
+    return htmlentities($display);
   }
 
   protected function load_access() {

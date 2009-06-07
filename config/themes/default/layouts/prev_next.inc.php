@@ -1,7 +1,11 @@
 <?php if ($ff <> "") { ?>
 <div id="navigation">
 	<span class="parent_dir">
-    <a href='/<?php echo dirname($ff) ?>'>
+	  <?php 
+    	$parent_link = urlencode(dirname($ff));
+      $parent_link = str_replace('%2F', '/', $parent_link);
+	  ?>
+    <a href='/<?php echo $parent_link ?>'>
 		<span class='fileicon'>
 			<!-- span class="icon_download blank"></span> -->
 			<span class="parent_arrow">Parent Directory</span>
@@ -38,15 +42,21 @@
 			$prev    = $this->filebrowser->get_prev($folders, $folder);
 			$next    = $this->filebrowser->get_next($folders, $folder);
 
+
 			if ($prev <> "") {
-				print "<a href='$prev->name'>Previous Directory</a>";
+      	$link = urlencode($prev->name);
+        $link = str_replace('%2F', '/', $link);
+
+				print "<a href='$link'>Previous Directory</a>";
 			} else {
 				print "<span class='faded'>Previous Directory</span>";
 			}
 			echo "<span class='nav_sep'></span>";
 
 			if ($next <> "") {
-				print "<a href='$next->name'>Next Directory</a>";
+      	$link = urlencode($next->name);
+        $link = str_replace('%2F', '/', $link);
+				print "<a href='$link'>Next Directory</a>";
 			} else {
 				print "<span class='faded'>Next Directory</span>";
 			}

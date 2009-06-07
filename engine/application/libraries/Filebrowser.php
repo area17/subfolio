@@ -366,9 +366,11 @@ class Filebrowser {
 
   public function get_link($name) {
     if ($this->folder == "") {
-      $link = "/".$name;
+      $link = "/".urlencode($name);
     } else {
-      $link = "/".$this->folder."/".$name;
+      $link = "/".urlencode($this->folder)."/".urlencode($name);
+      // unencode '/'
+      $link = str_replace('%2F', '/', $link);
     }
     return $link;
   }
