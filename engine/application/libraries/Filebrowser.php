@@ -258,7 +258,7 @@ class Filebrowser {
   public function get_parent_file_list($kind=null) {
     $files = array();
     
-    $names = glob("*");
+    $names = $this->sub_glob("*");
     if ($names) {
       foreach ($names as $filename) {
         if (!is_dir($filename)) {
@@ -294,7 +294,7 @@ class Filebrowser {
       $name = $prefix."*";
     }
 
-    $names = glob($name);
+    $names = $this->sub_glob($name);
     if ($names) {
       foreach ($names as $filename) {
         if (!is_dir($filename)) {
@@ -331,7 +331,7 @@ class Filebrowser {
   public function get_parent_folder_list($pattern='*'){
     $folders = array();
 
-    $names = glob("../*");
+    $names = $this->sub_glob("../*");
     if ($names) {
       foreach ($names as $filename) {
         if (is_dir($filename)) {
@@ -348,7 +348,7 @@ class Filebrowser {
 
   public function get_folder_list($pattern='*'){
     $folders = array();
-    $names = glob("*");
+    $names = $this->sub_glob("*");
       if ($names) {
       foreach ($names as $filename) {
         if (is_dir($filename)) {
@@ -472,7 +472,7 @@ class Filebrowser {
 
   private function add_to_archive($archive, $folder, $recursive) {
 
-    $names = glob($folder."*");
+    $names = $this->sub_glob($folder."*");
     if ($names) {
       foreach ($names as $filename) {
         if (is_dir($filename)) {
@@ -817,5 +817,38 @@ class Filebrowser {
 
     return $hidden;
   }
+  
+  public function sub_glob($pattern, $flags=NULL)
+  {
+    $split=explode('/',$pattern);
+    $match=array_pop($split);
+    $path=implode('/',$split);
+
+    if ($path == "") $path = ".";
+    if (($dir=opendir($path))!==false) {
+        $glob=array();
+        while(($file=readdir($dir))!==false) {
+          if ($file != '.' && $file != '..') {
+            if (fnmatch($match,$file)) {
+                if ((is_dir("$path/$file"))||(!($flags&GLOB_ONLYDIR))) {
+                    if ($flags&GLOB_MARK) $file.='/';
+                    $glob[]=$file;
+                }
+            }
+          }
+        }
+        closedir($dir);
+        if (!($flags&GLOB_NOSORT)) sort($glob);
+        return $glob;
+    } else {
+        return false;
+    }   
+  }
 }
+
+if(!function_exists('fnmatch')) {
+    function fnmatch($pattern, $string) {
+        return preg_match("#^".strtr(preg_quote($pattern, '#'), array('\*' => '.*', '\?' => '.'))."$#i", $string);
+    } 
+} // end if
 ?>
