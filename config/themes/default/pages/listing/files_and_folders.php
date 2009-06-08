@@ -129,7 +129,14 @@ foreach ($folders as $folder):
 					              $updated = true;
 					          }
 
-						        $folder_kind = $this->filekind->get_kind_by_extension("dir");
+                    if ($kind == "site") {
+  						        $folder_kind = $this->filekind->get_kind_by_extension("site");
+						        } else {
+  						        $folder_kind = $this->filekind->get_kind_by_extension("dir");
+						          
+						        }
+						        
+
 						        $icon_file = $this->filekind->get_icon_by_file($folder_kind, $new, $updated, $restricted, $have_access);
 
 						        $icon = view::get_view_url()."/images/icons/".$icon_file.".png";        
