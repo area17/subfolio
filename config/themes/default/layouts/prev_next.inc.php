@@ -24,14 +24,18 @@
 			$next = $this->filebrowser->get_next($files, $file->name);
 
 			if ($prev <> "") {
-				print "<a href='$prev->name'>Previous</a>";
+      	$link = urlencode($prev->name);
+        $link = str_replace('%2F', '/', $link);
+				print "<a href='$link'>Previous</a>";
 			} else {
 				print "<span class='faded'>Previous</span>";
 			}
 			echo "<span class='nav_sep'></span>";
 
 			if ($next <> "") {
-				print "<a href='$next->name'>Next</a>";
+      	$link = urlencode($next->name);
+        $link = str_replace('%2F', '/', $link);
+				print "<a href='$link'>Next</a>";
 			} else {
 				print "<span class='faded'>Next</span>";
 			}
@@ -41,7 +45,6 @@
 	    $folders = $this->filebrowser->get_parent_folder_list();
 			$prev    = $this->filebrowser->get_prev($folders, $folder);
 			$next    = $this->filebrowser->get_next($folders, $folder);
-
 
 			if ($prev <> "") {
       	$link = urlencode($prev->name);

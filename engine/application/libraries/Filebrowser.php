@@ -832,7 +832,11 @@ class Filebrowser {
           if ($this->sub_fnmatch($match,$file)) {
             if ((is_dir("$path/$file"))||(!($flags&GLOB_ONLYDIR))) {
               if ($flags&GLOB_MARK) $file.='/';
-              $glob[]=$file;
+              if ($path != ".") {
+              	$glob[]=$path."/".$file;
+            	} else {
+              	$glob[]=$file;
+            	}
             }
           }
         }
