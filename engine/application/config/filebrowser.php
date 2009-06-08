@@ -59,8 +59,8 @@ $config['properties_file']        = isset($settings['properties_file'])     ? $s
 $config['users_yaml_file']        = isset($settings['users_yaml_file'])     ? $users_folder.$settings['users_yaml_file'] : $config['users_yaml_file'];
 $config['groups_yaml_file']       = isset($settings['groups_yaml_file'])    ? $users_folder.$settings['groups_yaml_file'] : $config['groups_yaml_file'];
 
-$config['thumbnail_width']        = isset($settings['thumbnail_width'])     ? $config_folder.$settings['thumbnail_width'] : $config['thumbnail_width'];
-$config['thumbnail_height']       = isset($settings['thumbnail_height'])    ? $config_folder.$settings['thumbnail_height'] : $config['thumbnail_height'];
+$config['thumbnail_width']        = isset($settings['thumbnail_width'])     ? $settings_folder.$settings['thumbnail_width'] : $config['thumbnail_width'];
+$config['thumbnail_height']       = isset($settings['thumbnail_height'])    ? $settings_folder.$settings['thumbnail_height'] : $config['thumbnail_height'];
 
 $config['thumbnail_max_filesize'] = isset($settings['thumbnail_max_filesize'])    ? $settings['thumbnail_max_filesize'] : $config['thumbnail_max_filesize'];
 
