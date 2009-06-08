@@ -98,7 +98,12 @@ width:96%;
 	font-size: 22px;
 	line-height: 30px;
 	color: #333;
-	margin-bottom: 10px;
+	margin-top: 10px;
+}
+.standard_paragraph h4 {
+	font-family: "Arial Rounded MT Bold";
+	color: #333;
+	margin-top: 10px;
 }
 .standard_paragraph p {
 	line-height: 15px;
@@ -120,7 +125,8 @@ width:96%;
 .standard_paragraph ul li:before {
 	content: '— ';
 }
-.standard_paragraph ul li {
+.standard_paragraph ul li,
+.standard_paragraph ol li {
 	color: #333;
 	margin-bottom: 5px;
 }
