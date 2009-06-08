@@ -1,0 +1,2 @@
+<h1>-t-*.text</h1>
+<p>This text will appear the the top of the page, <em><b>above</b></em> any images or features you may have in the folder. You can use html or textile.</p>

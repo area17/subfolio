@@ -1,0 +1,9 @@
+<h1>Welcome</h1>
+<h2>to your Subfolio</h2>
+<h3>Start now:</h3>
+<p>You can start by adding files and folders in this directory.</p>
+<p>The following folders will help you to get started.</p>
+<h4>Enhancers</h4>
+<p>Contains small files or techniques that we call "enhancers", to make you Subfolio to look much more than a regular file browser.</p>
+<h4>File kinds</h4>
+<p>Shows you all the supported files. Also shows you how to handle size for certain types (like movies or PDFs)</p>
