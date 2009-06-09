@@ -35,6 +35,11 @@ class FileFolder {
     return $this->access->is_restricted();
   }
 
+  public function contains_access_file() {
+		$access_file = $this->name."/".Kohana::config('filebrowser.access_file');;
+		return (file_exists($access_file));
+  }
+
   public function have_access($user) {
     $have_access = false;
     

@@ -114,7 +114,7 @@ foreach ($folders as $folder):
 						        $new = false;
 						        $updated = false;
 										
-						        if ($folder->is_restricted()) {
+						        if ($folder->contains_access_file()) {
 						          $restricted = true;
 						          if ($folder->have_access($this->auth->get_user())) {
 						            $have_access = true;
