@@ -165,7 +165,9 @@ class Filebrowser {
       $this->filepath     = $path;
       $this->fullfilepath = $this->config['directory']."/".$path;
     }
-    chdir($this->fullfolderpath."/");
+    if (file_exists($this->fullfolderpath)) {
+      chdir($this->fullfolderpath."/");
+    }
 
     // load properties
     $properties_file = Kohana::config('filebrowser.properties_file');
