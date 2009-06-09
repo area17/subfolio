@@ -1,0 +1,1 @@
+<p>Installation is complete, visit your <a href="/">Subfolio</a>.</p>

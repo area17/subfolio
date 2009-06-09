@@ -1,6 +1,6 @@
 
 site_name: Subfolio Portable
-# site_logo_url: /directory/logo.png
+site_logo_url: /config/themes/default/images/logos/logo.png
 site_domain: www.subfolio.com
 
 theme: default
