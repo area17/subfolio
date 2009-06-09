@@ -1,7 +1,13 @@
 <?php
-$width    = $this->filebrowser->get_item_property($this->filebrowser->file, 'width')    ? $this->filebrowser->get_item_property($this->filebrowser->file, 'width') : 200;
-$height   = $this->filebrowser->get_item_property($this->filebrowser->file, 'height')   ? $this->filebrowser->get_item_property($this->filebrowser->file, 'height') : 16;
-$autoplay = $this->filebrowser->get_item_property($this->filebrowser->file, 'autoplay') ? $this->filebrowser->get_item_property($this->filebrowser->file, 'autoplay') : 'false';
+$file_kind = $this->filekind->get_kind_by_file($file->name);
+
+$width    = isset($file_kind['width']) ? $file_kind['width'] : 200; 
+$height   = isset($file_kind['height']) ? $file_kind['height'] : 16;
+$autoplay = isset($file_kind['autoplay']) ? $file_kind['autoplay'] : 'false';
+
+$width    = $this->filebrowser->get_item_property($this->filebrowser->file, 'width')    ? $this->filebrowser->get_item_property($this->filebrowser->file, 'width') : $width;
+$height   = $this->filebrowser->get_item_property($this->filebrowser->file, 'height')   ? $this->filebrowser->get_item_property($this->filebrowser->file, 'height') : $height;
+$autoplay = $this->filebrowser->get_item_property($this->filebrowser->file, 'autoplay') ? $this->filebrowser->get_item_property($this->filebrowser->file, 'autoplay') : $autoplay;
 ?>
 <EMBED 
   src='<?php echo $this->filebrowser->get_file_url(); ?>' 

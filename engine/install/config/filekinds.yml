@@ -189,8 +189,8 @@ pdf:
   download: false
   instructions:>
     You must have the free Adobe Acrobat Reader to view this file. Download it <a href='http://get.adobe.com/reader/' target='_blank'>here</a>
-  default_width: 640
-  default_height: 480
+  width: 640
+  height: 480
   
 fnt:
   extensions: [fnt, ttf, bmap, afm]
