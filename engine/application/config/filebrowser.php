@@ -34,7 +34,7 @@ $settings_file  = $settings_folder."settings.yml";
 $config['settings_yaml_file']  = $settings_folder."settings.yml";
 
 if (!file_exists($settings_file)) {
-	url::redirect('engine/info');
+	url::redirect('engine/install');
 }
 
 $settings = Spyc::YAMLLoad($settings_file);
