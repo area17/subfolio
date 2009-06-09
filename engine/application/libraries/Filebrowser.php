@@ -805,6 +805,17 @@ class Filebrowser {
     }
 
     if (!$hidden) {
+      $pos = strpos($filename, '.');
+      if ($pos === false) {
+        $hidden = false;
+      } else {
+        if ($pos == 0) {
+          $hidden = true;
+        }
+      }
+    }
+
+    if (!$hidden) {
       $info_ext = Kohana::config('filebrowser.info_extension') ?  Kohana::config('filebrowser.info_extension') : ".info" ;
       $ftr_ext = Kohana::config('filebrowser.feature_extension') ?  Kohana::config('filebrowser.feature_extension') : ".ftr" ;
 
