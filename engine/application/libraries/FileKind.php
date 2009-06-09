@@ -10,7 +10,10 @@ class FileKind {
     
     // load kinds from file
     $list_file = $this->config['filekinds_yaml_file'];
-    $this->kinds = Spyc::YAMLLoad($list_file);
+    
+    if (file_exists($list_file)) {
+      $this->kinds = Spyc::YAMLLoad($list_file);
+    }
     //rint_r($this->kinds);
     
     //$this->_test();
@@ -42,11 +45,13 @@ class FileKind {
   public function get_kind_by_extension($ext)
   {
     $kind = array();
-    foreach($this->kinds as $k => $v) {
-      if (in_array(strtolower($ext), $v['extensions'])) {
-        $kind = $v;
-        $kind['kind'] = $k;
-        break;
+    if (sizeof($this->kinds) > 0) {
+      foreach($this->kinds as $k => $v) {
+        if (in_array(strtolower($ext), $v['extensions'])) {
+          $kind = $v;
+          $kind['kind'] = $k;
+          break;
+        }
       }
     }
     return $kind;
