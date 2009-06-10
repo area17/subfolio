@@ -383,7 +383,7 @@ background: url(../images/system/dot.png) no-repeat 0 17px;
    MODULES: CONTENT
 -------------------------------------------------------------- */
 #content {
-overflow:hidden;
+/*overflow:hidden;*/
 }
 
 /* @end */
