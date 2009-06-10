@@ -77,11 +77,15 @@
 
 			<tr>
 				<th>Mod Rewrite</th>
-				<?php if (apache_is_module_loaded('mod_rewrite')): ?>
-				<td class="pass">Pass</td>
-				<?php else: ?>
-				<td class="pass">Fail</td>
-				<?php endif ?>
+				<?php 
+				$have_module = apache_is_module_loaded('mod_rewrite');
+				if ($have_module) { ?>
+  				<td class="pass">Pass</td>
+				<?php } else if ($have_module == null) { ?>
+  				<td class="unkown">Unknown</td>
+				<?php } else { ?>
+  				<td class="fail">Fail</td>
+				<?php } ?>
 			</tr>
 
 			<tr>
@@ -227,8 +231,12 @@
   }
 
 	function apache_is_module_loaded($mod_name) {
-    $modules = apache_get_modules();
-    return in_array($mod_name, $modules);
+    if (function_exists('aapache_get_modules')) {
+      $modules = apache_get_modules();
+      return in_array($mod_name, $modules);
+    } else {
+      return null;
+    }
  	}
 
 ?>
