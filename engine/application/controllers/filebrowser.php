@@ -158,7 +158,7 @@ class Filebrowser_Controller extends Website_Controller {
           if (View::view_exists('pages/filekinds/'.$kind)) {
         		$content = View::factory('pages/filekinds/'.$kind);
         		$content->file = $file;
-        		$content->folder = $folder;
+        		if (isset($folder)) $content->folder = $folder;
     		  } else {
         		$content = View::factory('pages/filekinds/default');
         		$content->file = $file;
