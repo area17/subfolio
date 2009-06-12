@@ -29,9 +29,9 @@ class Access {
     $folders = explode("/", $rootFolder);
     $file_list = array();
     
-    $file = $access_file;
-    if (file_exists($file)) {
-      $file_list[] = $file;
+    $current_file = $access_file;
+    if (file_exists($current_file)) {
+      //$file_list[] = $current_file;
     }
 
     if (sizeof($folders) > 0) {
@@ -60,16 +60,14 @@ class Access {
       }
     }
 
-
     if (sizeof($file_list) > 0) {
-      //$this->is_restricted = true;
+      $this->is_restricted = true;
 
       $file_list = array_reverse($file_list);
       foreach($file_list as $id => $path) {
         $current = false;
-        $file = $folder."/".$access_file;
 
-        if ($file == $path) {
+        if ($current_file == $path) {
           $current = true;
         }
         $restricted = $this->load_access_file($path, $current);
