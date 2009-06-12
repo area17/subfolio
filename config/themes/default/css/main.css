@@ -28,6 +28,8 @@ font-weight: normal;
 color: #666666;
 }
 
+ul li { list-style-type: none; }
+
 /* @group Global layout */
 
 /* -------------------------------------------------------------- 
@@ -108,6 +110,7 @@ width:96%;
 .standard_paragraph p {
 	line-height: 15px;
 	color: #333;
+	margin-top: 10px;
 }
 .standard_paragraph p b, .standard_paragraph p strong  {
 	color: #1A1A1A;
@@ -127,8 +130,12 @@ width:96%;
 }
 .standard_paragraph ul li,
 .standard_paragraph ol li {
-	color: #333;
-	margin-bottom: 5px;
+color: #333;
+margin-bottom: 5px;
+margin-top: 5px;
+}
+.standard_paragraph ol li {
+margin-left: 22px;
 }
 .standard_paragraph blockquote p:before {
 	content: '“';
@@ -1026,6 +1033,8 @@ clear: both;
 padding-top: 9px;
 margin-bottom: 2px;
 color: #1a1a1a;
+width: 220px;
+overflow: hidden;
 }
 
 #download_box #clickable-zone {
