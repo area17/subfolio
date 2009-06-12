@@ -133,17 +133,32 @@ class Filebrowser_Controller extends Website_Controller {
       }
 
       if ($this->access->check_access($this->auth->get_user())) {
-			
-        if ($this->filebrowser->is_file()) {
+        $is_folder = false;
+			  $single = $this->filebrowser->is_file();
+			  
+        if (!$single) {
+          $folder = $this->filebrowser->get_folder();
+			    $fkind = $this->filekind->get_kind_by_file($folder);
+          $kind = isset($fkind['kind']) ? $fkind['kind'] : '';
+			    if ($kind == "site") {
+  			    $single = true;
+	  		    $is_folder = true;
+  		    }
+        }
+			  
+        if ($single) {
           $file = $this->filebrowser->get_file();
 
-          //$kind = $this->filebrowser->get_kind($file->name);
-          $fkind = $this->filekind->get_kind_by_file($file->name);
-          $kind = isset($fkind['kind']) ? $fkind['kind'] : '';
+          if ($is_folder) {
+          } else {
+            $fkind = $this->filekind->get_kind_by_file($file->name);
+            $kind = isset($fkind['kind']) ? $fkind['kind'] : '';
+          }
 
           if (View::view_exists('pages/filekinds/'.$kind)) {
         		$content = View::factory('pages/filekinds/'.$kind);
         		$content->file = $file;
+        		$content->folder = $folder;
     		  } else {
         		$content = View::factory('pages/filekinds/default');
         		$content->file = $file;
