@@ -1077,6 +1077,34 @@ color:#1c7ad5 ;
 
 /* @end */
 
+/* @group Permalink */
+
+#info {
+}
+
+#info-button {
+display: block;
+width: 15px;
+height: 15px;
+text-indent: -2000px;
+background: url(../images/system/info_button.png) no-repeat;
+margin-bottom: 10px;
+}
+#info-button:hover { background-position: 0 -50px; }
+#info-button.on { background-position: 0 -100px; }
+#info-button.on:hover { background-position: 0 -150px; }
+
+#info-box {
+border: 1px solid #dedede;
+padding: 9px 10px 5px 10px;
+width: 220px;
+}
+
+
+/* @end */
+
+
+
 /* -------------------------------------------------------------- 
 MODULE SPACING
 -------------------------------------------------------------- */
@@ -1121,7 +1149,12 @@ margin-bottom:30px;
 }
 
 /* ------------- FLOAT AND CLEAR MISC ------------------------------------- */
-
+.show {
+display: block;
+}
+.hide {
+display: none;
+}
 .clear {
 clear:both;
 }
