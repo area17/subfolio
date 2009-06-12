@@ -620,6 +620,7 @@ padding-left: 2px;
 
 .name, .filename {
 width:100%;
+overflow: hidden;
 }
 
 .filename {
@@ -830,7 +831,7 @@ right:25px;
 height:17px;
 }
 
-#related ul li .name, .filename {
+#related ul li .name {
 width:100%;
 }
 
