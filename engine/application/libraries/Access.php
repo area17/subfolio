@@ -94,6 +94,7 @@ class Access {
       $have_access = false;
       if ($user != null) {
     	  $groups = $user->get_groups();
+    	  
         if (in_array($user->name, $this->allowed_users)) {
             $have_access = true;
         } else {
@@ -129,7 +130,6 @@ class Access {
           } else {
             // check groups
             $by_groups = array_intersect($groups, $this->current_allowed_groups);
-              
             if (sizeof($by_groups) > 0) {
                 $have_access = true;
             }
@@ -211,7 +211,7 @@ class Access {
   }
 
   function current_allow_group($group) {
-    $this->current_allowed_users[$group] = $group;  
+    $this->current_allowed_groups[$group] = $group;  
   }
 
   function allow_user($user) {
