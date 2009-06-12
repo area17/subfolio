@@ -14,7 +14,9 @@ class format extends format_Core {
       $s = array('B', 'KB', 'MB', 'GB', 'TB', 'PB');
       $e = floor(log($bytes)/log(1024));
 
-      $output = sprintf('%.0f '.$s[$e], ($bytes/pow(1024, floor($e))));
+      $se = "";
+      if (isset($s[$e])) $se = $s[$e];
+      $output = sprintf('%.0f '.$se, ($bytes/pow(1024, floor($e))));
 
       //SEND OUTPUT TO BROWSER
       return $output;
