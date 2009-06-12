@@ -95,7 +95,7 @@
 				<?php else: ?>
 				<td class="pass">Fail</td>
 				<td class="info">.htaccess</td>
-				<td class="action"><a href="#">Generate</a></td>
+				<td class="action">Put instructions here</td>
 				<?php endif ?>
 			</tr>
 
@@ -106,7 +106,7 @@
 				<?php else: ?>
 				<td class="pass">Fail</td>
 				<td class="info">/config/settings/settings.yml</td>
-				<td class="action"><a href="#">Generate</a></td>
+				<td class="action">Put instructions here</td>
 				<?php endif ?>
 			</tr>
 
@@ -117,7 +117,7 @@
 				<?php else: ?>
 				<td class="pass">Fail</td>
 				<td class="info">/config/settings/filekinds.yml</td>
-				<td class="action"><a href="#">Generate</a></td>
+				<td class="action">Put instructions here</td>
 			<?php endif ?>
 			</tr>
 
@@ -128,7 +128,7 @@
 				<?php else: ?>
 				<td class="pass">Fail</td>
 				<td class="info">/config/settings/language.yml</td>
-				<td class="action"><a href="#">Generate</a></td>
+				<td class="action">Put instructions here</td>
 				<?php endif ?>
 			</tr>
 
@@ -139,7 +139,7 @@
 				<?php else: ?>
 				<td class="pass">Fail</td>
 				<td class="info">/config/users/users.yml</td>
-				<td class="action"><a href="#">Generate</a></td>
+				<td class="action">Put instructions here</td>
 			<?php endif ?>
 			</tr>
 
@@ -150,7 +150,7 @@
 				<?php else: ?>
 				<td class="pass">Fail</td>
 				<td class="info">/config/users/groups.yml</td>
-				<td class="action"><a href="#">Generate</a></td>
+				<td class="action">Put instructions here</td>
 			<?php endif ?>
 			</tr>
 
