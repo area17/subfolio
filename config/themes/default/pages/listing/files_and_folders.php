@@ -133,9 +133,7 @@ foreach ($folders as $folder):
   						        $folder_kind = $this->filekind->get_kind_by_extension("site");
 						        } else {
   						        $folder_kind = $this->filekind->get_kind_by_extension("dir");
-						          
 						        }
-						        
 
 						        $icon_file = $this->filekind->get_icon_by_file($folder_kind, $new, $updated, $restricted, $have_access);
 
@@ -164,7 +162,7 @@ foreach ($folders as $folder):
 								<span class="date"><?php echo format::filedate($folder->stats['mtime']); ?></span>
 								<span class="kind"><?php echo $kind_display ?></span>
 							</span>
-							<span class="comment"><?php echo $this->filebrowser->get_item_property($folder->name, 'comment') ?></span>
+							<span class="comment"><?php echo format::get_rendered_text($this->filebrowser->get_item_property($folder->name, 'comment')) ?></span>
 						</span>
 					</span>
 				</div>
