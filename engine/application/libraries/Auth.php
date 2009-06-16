@@ -14,13 +14,17 @@ class Auth {
     $group_file = Kohana::config('filebrowser.groups_yaml_file');
     
     if ($user_file <> '') { 
-      $array = Spyc::YAMLLoad($user_file);
-      $this->users = $array;
+    	if (file_exists($user_file)) {
+			  $array = Spyc::YAMLLoad($user_file);
+			  $this->users = $array;
+		  }
     }
   
     if ($group_file <> '') { 
-      $array = Spyc::YAMLLoad($group_file);
-      $this->groups = $array;
+    	if (file_exists($group_file)) {
+	      $array = Spyc::YAMLLoad($group_file);
+	      $this->groups = $array;
+      }
     }
   }
   
@@ -33,10 +37,12 @@ class Auth {
   
 	public function user_group_list($user) {
 	  $groups = array();
-	  foreach ($this->groups as $id => $group) {
-      if (in_array($user->name, $group)) {
-        $groups[] = $id;
-      }
+	  if (is_array($this->groups)) {
+		  foreach ($this->groups as $id => $group) {
+	      if (in_array($user->name, $group)) {
+	        $groups[] = $id;
+	      }
+		  }
 	  }
 	  
 	  return $groups;
