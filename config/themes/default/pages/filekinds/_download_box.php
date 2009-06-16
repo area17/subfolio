@@ -14,7 +14,7 @@
 		<!-- Filename / comment -->
 		<p id="filename"><?php echo $this->filebrowser->file ?></p>
 		<?php	if (isset($comment) && $comment <> '') { ?>
-		<p><?php echo $comment ?></p>
+		<p><?php echo format::get_rendered_text($comment) ?></p>
 		<?php } ?>
 	</a>
 

@@ -25,7 +25,7 @@ class FileKind {
     return $instance;
 	}
 
-  public function get_icon_by_file($kind, $new=false, $updated=false, $is_restricted=false, $have_access=false) {
+  public function get_icon_by_file($kind) {
     $icon_file = "i_gen";
     if ($kind) {
 			$icon_file = "i_" . $kind['icon'];
@@ -63,7 +63,7 @@ class FileKind {
     /*
     $kind = $this->get_kind_by_extension("gif");
     print "get_icon_by_file('mubs-test.gif') \n";
-    print_r($this->get_icon_by_file('mubs-test.gif', $kind, false, false));
+    print_r($this->get_icon_by_file('mubs-test.gif'));
     */
 
     print "get_kind_by_file('abc.tar') \n";

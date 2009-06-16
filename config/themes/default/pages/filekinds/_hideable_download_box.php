@@ -9,7 +9,7 @@
 			<a id="clickable-zone" href="<?php echo $this->filebrowser->get_file_url(); ?>">
 				<!-- Filename / comment -->
 				<p id="filename"><?php echo $this->filebrowser->file ?></p>
-				<p><?php echo $comment ?></p>
+				<p><?php echo format::get_rendered_text($comment) ?></p>
 			</a>
 
 			<!-- Infos -->

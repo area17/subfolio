@@ -137,7 +137,7 @@ foreach ($folders as $folder):
   						        $folder_kind = $this->filekind->get_kind_by_extension("dir");
 						        }
 
-						        $icon_file = $this->filekind->get_icon_by_file($folder_kind, $new, $updated, $restricted, $have_access);
+						        $icon_file = $this->filekind->get_icon_by_file($folder_kind);
 
 						        $icon = view::get_view_url()."/images/icons/".$icon_file.".png";        
 						      ?>
@@ -205,7 +205,7 @@ endforeach ?>
           $updated = true;
       }
 
-      $icon_file = $this->filekind->get_icon_by_file($file_kind, $new, $updated);
+      $icon_file = $this->filekind->get_icon_by_file($file_kind);
       $icon = view::get_view_url()."/images/icons/".$icon_file.".png";   
 
       $target = "";
