@@ -5,7 +5,8 @@ if (sizeof($inline) > 0) {
 	$this->filebrowser->set_displayed_content(true);
 	?> <div id="inline_bottom_image"> <?php
   foreach($inline as $file) {
-  ?> <img src='/directory/<?php echo $this->filebrowser->get_folder()."/".$file->name ?>' /> <?php 
+		list($width, $height, $type, $attr) = getimagesize($this->filebrowser->fullfolderpath."/".$file->name);
+  ?> <img width='<?php echo $width ?>' height='<?php echo $height ?>' src='/directory/<?php echo $this->filebrowser->get_folder()."/".$file->name ?>' /> <?php 
   }
 	?> </div> <?php
 } ?>
