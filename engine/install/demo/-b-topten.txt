@@ -1,44 +1,19 @@
-<h3>Top ten things you need to know</h3>
-<ol>
-	<li>
-		<h4>1. Putting a dash "-" before any filename will make it disappear from the page.</h4>
-		<p>You can still access it. It's a nice way to work on your site and show things only when you are ready to.</p>
-	</li>
-	<li>
-		<h4>2. Use underscores instead of spaces</h4>
-		<p>You can use spaces for your filenames, but it's better to use underscores "_", we replace them with spaces, it's cleaner that way.</p>
-	</li>
-	<li>
-		<h4>3. Don't fight it</h4>
-		<p>Subfolio creates pages from the content of folders, it has expected behaviors that you can learn. Have fun with it, don't fight it.</p>
-		<p>Images show up as thumbnails, the rest as files and folders. Enhancers will give you more possibilities.</p>
-	</li>
-	<li>
-		<h4>4. Security</h4>
-		<p>With Subfolio you can show your work to the world or to just a few people, even on the same website. That's the beauty of it. We created a powerful way to manage access, just drag and drop an access file in your directory and it's protected. See the enhancers folder for a sample file.</p>
-	</li>
-	<li>
-		<h4>5. Inline images and text</h4>
-		<p>Every images and text files can show up inline (not in the form of an icon or thumbnail). Just add -t- to the beginning of your filename, or -m- or -b- and you'll get an inline asset showing up at the top, middle or bottom of the page.</p>
-	</li>
-	<li>
-		<h4>6. </h4>
-		<p></p>
-	</li>
-	<li>
-		<h4>7. </h4>
-		<p></p>
-	</li>
-	<li>
-		<h4>8. </h4>
-		<p></p>
-	</li>
-	<li>
-		<h4>9. </h4>
-		<p></p>
-	</li>
-	<li>
-		<h4>10. </h4>
-		<p>Accés</p>
-	</li>
-</ol>
+h3. Top ten things you need to know
+
+1. Putting a dash "-" before any filename will make it disappear from the page.
+You can still access it. It's a nice way to work on your site and show things only when you are ready to.
+
+2. Use underscores instead of spaces
+		You can use spaces for your filenames, but it's better to use underscores "_", we replace them with spaces, it's cleaner that way.
+		
+3. Don't fight it
+		Subfolio creates pages from the content of folders, it has expected behaviors that you can learn. Have fun with it, don't fight it.
+		Images show up as thumbnails, the rest as files and folders. Enhancers will give you more possibilities.
+		
+4. Security
+		With Subfolio you can show your work to the world or to just a few people, even on the same website. That's the beauty of it. We created a powerful way to manage access, just drag and drop an access file in your directory and it's protected. See the enhancers folder for a sample file.
+		
+5. Inline images and text
+		Every images and text files can show up inline (not in the form of an icon or thumbnail). Just add -t- to the beginning of your filename, or -m- or -b- and you'll get an inline asset showing up at the top, middle or bottom of the page.
+		
+6.
