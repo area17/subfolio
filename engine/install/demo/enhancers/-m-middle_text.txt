@@ -1,2 +1,7 @@
-<h1>-m-*.text</h1>
-<p>This text will appear the the top of the page, <em><b>below</b></em> any images or features you may have in the folder, but above the file listing. You can use html or textile.</p>
+h1. Middle text
+
+<pre><code>
+	-m-*.text
+</code></pre>
+
+This text will appear the the top of the page, *below* any images or features you may have in the folder, but above the file listing. You can use html or textile.

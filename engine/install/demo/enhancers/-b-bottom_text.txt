@@ -1,2 +1,7 @@
-<h1>-b-*.text</h1>
-<p>This text will appear the the bottom of the page, <em><b>below</b></em> the file listing. You can use html or textile.</p>
+h1. Bottom text
+
+<pre><code>
+	-b-*.text
+</code></pre>
+
+This text will appear the the bottom of the page, *below* the file listing. You can use html or textile.
