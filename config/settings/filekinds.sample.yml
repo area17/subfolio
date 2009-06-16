@@ -189,6 +189,7 @@ pdf:
   download: false
   instructions:>
     You must have the free Adobe Acrobat Reader to view this file. Download it <a href='http://get.adobe.com/reader/' target='_blank'>here</a>
+    For firefox users, you can find the plugin "here:":https://addons.mozilla.org/en-US/firefox/addon/7518
   width: 640
   height: 480
   
