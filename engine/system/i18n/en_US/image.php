@@ -11,7 +11,7 @@ $lang = array
 	'invalid_dimensions'      => 'The dimensions specified for %s are not valid.',
 	'invalid_master'          => 'The master dimension specified is not valid.',
 	'invalid_flip'            => 'The flip direction specified is not valid.',
-	'directory_unwritable'    => 'The specified directory, %s, is not writable.',
+	'directory_unwritable'    => "The specified directory, %s, is not writable.<br/> Please set the permissions to read and write (777) on <b>directory</b>, apply to enclosed items and try again.<br/>See <a href='#'>this documentation</a> for more help.",
 
 	// ImageMagick specific messages
 	'imagemagick' => array
