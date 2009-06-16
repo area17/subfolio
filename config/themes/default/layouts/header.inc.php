@@ -13,7 +13,18 @@
     $site_name_display = Kohana::config('filebrowser.site_name');
     $logo = Kohana::config('filebrowser.site_logo_url');
     if ($logo <> "") {
-      $site_name_display = "<img src='$logo' />";
+
+    	$width = Kohana::config('filebrowser.site_logo_width');
+			$height = Kohana::config('filebrowser.site_logo_height');
+
+			if ($width <> '') {
+				$width = " wdith='$width' ";
+			}
+
+			if ($height <> '') {
+				$width = " wdith='$width' ";
+			}
+      $site_name_display = "<img $width $height src='$logo' />";
     }
   ?>
 	<h1 id="logo" class="logo <?php print "".$showHide; ?>"><a href='/' ><?php echo $site_name_display ?></a></h1>

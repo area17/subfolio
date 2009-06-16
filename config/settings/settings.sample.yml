@@ -1,6 +1,8 @@
 
 site_name: Subfolio Portable
 site_logo_url: /config/themes/default/images/logos/logo.png
+site_logo_width: 256
+site_logo_height: 53
 site_domain: www.subfolio.com
 
 theme: default
