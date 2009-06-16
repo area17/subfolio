@@ -28,24 +28,4 @@ $height   = $this->filebrowser->get_item_property($this->filebrowser->file, 'hei
   }
 ?>
 	
-<div id="download_box">
-
-	<a id="clickable-zone" href="<?php echo $this->filebrowser->get_file_url(); ?>">
-		<!-- Filename / comment -->
-		<p><?php echo $comment ?></p>
-	</a>
-
-	<!-- Infos -->
-	<dl>
-		<dt>Kind: </dt><dd><?php echo $kind_display ?></dd>
-		<dt>Last modified: </dt><dd><?php echo format::filedate($file->stats['mtime']) ?></dd>
-		<dt>Size: </dt><dd><?php echo $filesize ?></dd>
-	</dl>
-	<!-- Instructions -->
-  <?php if ($file_kind && isset($file_kind['instructions'])) { ?>
-	<p id='instructions'>Instructions: <?php echo format::get_rendered_text($file_kind['instructions']) ?></p>
-	<?php } ?>
-	<!-- Download -->
-	<a href="<?php echo $this->filebrowser->get_file_url(); ?>" id="download">Download</a>
-
-</div>
+<?php require("_download_box.php") ?>

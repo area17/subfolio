@@ -21,26 +21,4 @@
   $icon = view::get_view_url()."/images/icons/big/".$icon_file.".png";
 ?>
 
-<div id="download_box">
-		
-	<a id="clickable-zone" href="<?php echo $this->filebrowser->get_file_url(); ?>">
-		<!-- Icon -->
-		<?php	if ($updated) { ?>
-			<span class="updated"><!-- --></span>
-		<?php	} ?>
-		<?php	if ($new) { ?>
-			<span class="new"><!-- --></span>
-		<?php	} ?>
-		<img src='<?php echo $icon; ?>' />
-		<!-- Filename / comment -->
-		<p id="filename"><?php echo $this->filebrowser->file ?></p>
-		<p><?php echo $comment ?></p>
-	</a>
-	
-	<!-- Instructions -->
-  <?php if ($file_kind && isset($file_kind['instructions'])) { ?>
-	<p id='instructions'>Instructions: <?php echo format::get_rendered_text($file_kind['instructions']) ?></p>
-	<?php } ?>
-	
-</div>
-
+<?php require("_download_box.php") ?>
