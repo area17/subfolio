@@ -10,6 +10,7 @@
   
 	$filesize = format::filesize($file->stats['size']);
 	$filesize = format::filesize($file->stats['size']) ? format::filesize($file->stats['size']) : "—";
+	list($width, $height, $type, $attr) = getimagesize($this->filebrowser->fullfolderpath."/".$file->name);
 	$new = false;
   $updated = false;
   if (false && $file->stats['ctime'] > $new_updated_start) {
@@ -21,6 +22,6 @@
   $icon = view::get_view_url()."/images/icons/big/".$icon_file.".png";
 ?>
 
-<img src='<?php echo $this->filebrowser->get_file_url(); ?>' />
+<img width='<?php echo $width ?>' height='<?php echo $height ?>' src='<?php echo $this->filebrowser->get_file_url(); ?>' />
 
 <?php require("_hideable_download_box.php") ?>
