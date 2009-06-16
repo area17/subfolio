@@ -145,7 +145,7 @@ rtf:
   download: true
   
 vid:
-  extensions: [avi, mov, mp4, mpg, mpeg]
+  extensions: [avi, mov, mp4, mpg, mpeg, wmv]
   icon: vid
   display: Movie
   download: false
