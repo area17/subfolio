@@ -122,13 +122,15 @@ foreach ($folders as $folder):
 						            $have_access = false;
 						          }
 						        }
-						
-						        if (false && $folder->stats['ctime'] > $new_updated_start) {
-					              $new = true;
-					          } else if ($folder->stats['mtime'] > $new_updated_start) {
-					              $updated = true;
-					          }
 
+										if (!$restricted || $have_access) {
+							        if (false && $folder->stats['ctime'] > $new_updated_start) {
+						              $new = true;
+						          } else if ($folder->stats['mtime'] > $new_updated_start) {
+						              $updated = true;
+						          }
+					          }
+	
                     if ($kind == "site") {
   						        $folder_kind = $this->filekind->get_kind_by_extension("site");
 						        } else {
