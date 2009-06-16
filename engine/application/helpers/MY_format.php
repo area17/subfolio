@@ -1,7 +1,6 @@
 <?php defined('SYSPATH') OR die('No direct access allowed.');
 class format extends format_Core {
 
-
 	/**
 	 * Formats a file size to contain a protocol at the beginning.
 	 *
@@ -45,5 +44,15 @@ class format extends format_Core {
     }
     return $filename;
   }
+
+	public static function get_rendered_text($text) {
+    $style = Kohana::config('filebrowser.text_rendering');
+    if ($style == "textile") {
+			$textile = new Textile();
+			return $textile->TextileThis($text);
+    } else {
+    	return $text;
+    }
+	}
 
 } // End format

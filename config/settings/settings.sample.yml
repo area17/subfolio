@@ -17,4 +17,6 @@ language_yaml_file: language.yml
 
 thumbnail_max_filesize: 5
 
+text_rendering: textile
+
 // 

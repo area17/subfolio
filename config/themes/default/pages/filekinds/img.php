@@ -45,7 +45,7 @@
 			</dl>
 			<!-- Instructions -->
 		  <?php if ($file_kind && isset($file_kind['instructions'])) { ?>
-			<p id='instructions'>Instructions: <?php echo $file_kind['instructions'] ?></p>
+			<p id='instructions'>Instructions: <?php echo format::get_rendered_text($file_kind['instructions']) ?></p>
 			<?php } ?>
 			<!-- Download -->
 			<a href="<?php echo $this->filebrowser->get_file_url(); ?>" id="download">Download</a>

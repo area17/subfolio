@@ -8,6 +8,8 @@ class Website_Controller extends Template_Controller {
 		parent::__construct();
  		$this->session = Session::instance(); 
 
+    require (Kohana::find_file('vendor','classTextile'));
+
     $this->auth        = Auth::instance();
     $this->access      = Access::instance();
     $this->filebrowser = Filebrowser::instance();

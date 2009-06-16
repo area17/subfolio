@@ -25,7 +25,7 @@ if (sizeof($file_features) > 0) {
 	      </div>
 	      <div class="info">
 	        <h2><?php echo $feature['title'] ?></h2>
-	        <p><?php echo $feature['description'] ?></p>
+	        <?php echo format::get_rendered_text($feature['description']) ?>
 	      </div>
 		  </a>
 	    </li>

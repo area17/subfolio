@@ -18,6 +18,8 @@ $config['thumbnail_height'] = 240;
 
 $config['thumbnail_max_filesize'] = 1;    // In Megabytes
 
+$config['text_rendering'] = "none";    // none|textile
+
 // NOTE IF YOU CHANGE THIS YOU WILL NEED TO REGENERATE YOUR HASHED PASSWORD LIST
 
 $config['auth_session'] = '1Gmo0pangF8FZ05R';
@@ -41,17 +43,16 @@ $settings = Spyc::YAMLLoad($settings_file);
 
 //rint_r($settings);
 
-$config['site_name']              = isset($settings['site_name'])           	? $settings['site_name'] : $config['site_name'];
-$config['site_logo_url']          = isset($settings['site_logo_url'])        ? $settings['site_logo_url'] : $config['site_logo_url'];
-$config['site_domain']            = isset($settings['site_domain'])         	? $settings['site_domain'] : $config['site_domain'];
+$config['site_name']              = isset($settings['site_name'])           ? $settings['site_name'] : $config['site_name'];
+$config['site_logo_url']          = isset($settings['site_logo_url'])       ? $settings['site_logo_url'] : $config['site_logo_url'];
+$config['site_domain']            = isset($settings['site_domain'])         ? $settings['site_domain'] : $config['site_domain'];
 
-$config['theme']                  = isset($settings['theme'])               	? $settings['theme'] : $config['theme'];
+$config['theme']                  = isset($settings['theme'])               ? $settings['theme'] : $config['theme'];
 
 $config['directory']              = isset($settings['directory'])          	? $site_folder.$settings['directory'] : $config['directory'];
 
-$config['auth_session']           = isset($settings['auth_session'])         ? $settings['auth_session'] : $config['auth_session'];
-$config['auth_salt']     			    = isset($settings['auth_salt'])     				? $settings['auth_salt'] : $config['auth_salt'];
-
+$config['auth_session']           = isset($settings['auth_session'])        ? $settings['auth_session'] : $config['auth_session'];
+$config['auth_salt']     			    = isset($settings['auth_salt'])     			? $settings['auth_salt'] : $config['auth_salt'];
 
 $config['access_file']            = isset($settings['access_file'])         ? $settings['access_file'] : $config['access_file'];
 $config['properties_file']        = isset($settings['properties_file'])     ? $settings['properties_file'] : $config['properties_file'];
@@ -63,6 +64,8 @@ $config['thumbnail_width']        = isset($settings['thumbnail_width'])     ? $s
 $config['thumbnail_height']       = isset($settings['thumbnail_height'])    ? $settings_folder.$settings['thumbnail_height'] : $config['thumbnail_height'];
 
 $config['thumbnail_max_filesize'] = isset($settings['thumbnail_max_filesize'])    ? $settings['thumbnail_max_filesize'] : $config['thumbnail_max_filesize'];
+
+$config['text_rendering'] 				= isset($settings['text_rendering'])    	? $settings['text_rendering'] : $config['text_rendering'];
 
 $config['filekinds_yaml_file']    = isset($settings['filekinds_yaml_file']) ? $settings_folder.$settings['filekinds_yaml_file'] : $config['filekinds_yaml_file'];
 $config['language_yaml_file']     = isset($settings['language_yaml_file'])  ? $settings_folder.$settings['language_yaml_file']  : $config['language_yaml_file'];

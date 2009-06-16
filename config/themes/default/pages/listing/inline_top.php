@@ -17,7 +17,7 @@ if (sizeof($inline) > 0) {
   $this->filebrowser->set_displayed_content(true);
 	?> <div id="inline_top_text" class="standard_paragraph"> <?php
   foreach($inline as $file) {
-      readfile($file->name);
+      echo format::get_rendered_text(file_get_contents($file->name));
   }
 	?> </div> <?php
 } ?>

@@ -264,7 +264,7 @@ endforeach ?>
 								<span class="date"><?php echo format::filedate($file->stats['mtime']); ?></span>
 								<span class="kind"><?php echo $kind_display ?></span>
 							</span>
-							<span class="comment"><?php echo $this->filebrowser->get_item_property ($file->name, 'comment') ?></span>
+							<span class="comment"><?php echo format::get_rendered_text($this->filebrowser->get_item_property ($file->name, 'comment')) ?></span>
 						</span>
 					</span>
 				</div>
