@@ -9,7 +9,7 @@ Rake::PackageTask.new('subfolio', version) do |pkg|
 
   pkg.package_files = FileList['config/**/*', 'engine/**/*','directory',
     'README.txt', 'INSTALL.txt', 'LICENSE.txt',
-    '.htaccess']
+    '.htaccess', 'htaccess']
 
   pkg.package_files.exclude('.gitignore')
   pkg.package_files.exclude('engine/application/logs/*')
