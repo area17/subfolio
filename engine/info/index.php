@@ -18,12 +18,14 @@
 		?>
 		<h2>Subfolio Version: <?php echo $version ?></h2>
 
+
 		<div id="tests">
+      <h3>Server Requirements</h3>
 			<table cellspacing="0">
 			<tr>
 				<th>Apache Version</th>
 				<?php if (version_compare(apacheversion(), '2.0', '>=')): ?>
-				<td class="pass">Pass</td>
+				<td class="pass">OK</td>
 				<td class="info"><?php echo apacheversion() ?></td>
 				<?php else: $failed = TRUE ?>
 				<td class="fail">Subfolio requires Apache 2.0 or newer.</td>
@@ -33,7 +35,7 @@
 			<tr>
 				<th>PHP Version</th>
 				<?php if (version_compare(PHP_VERSION, '5.2', '>=')): ?>
-				<td class="pass">Pass</td>
+				<td class="pass">OK</td>
 				<td class="info"><?php echo PHP_VERSION ?></td>
 				<?php else: $failed = TRUE ?>
 				<td class="fail">Subfolio requires PHP 5.2 or newer.</td>
@@ -44,17 +46,17 @@
 			<tr>
 				<th>GD</th>
 				<?php if (extension_loaded('gd')): ?>
-				<td class="pass">Pass</td>
+				<td class="pass">OK</td>
 				<td class="info"><?php echo gdversion() ?></td>
 				<?php else: ?>
-				<td class="pass">Fail</td>
+				<td class="fail">GD is not enabled</td>
 				<?php endif ?>
 			</tr>
 
 			<tr>
 			<th>SPL Enabled</th>
 			<?php if (function_exists('spl_autoload_register')): ?>
-			<td class="pass">Pass</td>
+			<td class="pass">OK</td>
 			<?php else: $failed = TRUE ?>
 			<td class="fail"><a href="http://php.net/spl">SPL</a> is not enabled.</td>
 			<?php endif ?>
@@ -70,7 +72,7 @@
 				<?php elseif ( ! @preg_match('/^\pL$/u', 'ñ')): $failed = TRUE ?>
 				<td class="fail"><a href="http://php.net/pcre">PCRE</a> has not been compiled with Unicode property support.</td>
 				<?php else: ?>
-				<td class="pass">Pass</td>
+				<td class="pass">OK</td>
 				<?php endif ?>
 			</tr>
 
@@ -80,31 +82,37 @@
 				<?php 
 				$have_module = apache_is_module_loaded('mod_rewrite');
 				if ($have_module) { ?>
-  				<td class="pass">Pass</td>
+  				<td class="pass">OK</td>
 				<?php } else if ($have_module == null) { ?>
   				<td class="unkown">Unknown</td>
 				<?php } else { ?>
-  				<td class="fail">Fail</td>
+  				<td class="fail">Mod Rewrite is not enabled</td>
 				<?php } ?>
 			</tr>
 
 			<tr>
 				<th>.htaccess file</th>
 				<?php if (file_exists('../../.htaccess')): ?>
-				<td class="pass">Pass</td>
+				<td class="pass">OK</td>
 				<?php else: ?>
-				<td class="pass">Fail</td>
+				<td class="pass">Not found</td>
 				<td class="info">.htaccess</td>
 				<td class="action">Put instructions here</td>
 				<?php endif ?>
 			</tr>
 
+      <tr>
+      <td colspan=4>
+      <h3>Settings</h3>
+      </td>
+      </tr>
+
 			<tr>
 				<th>Settings YML</th>
 				<?php if (file_exists('../../config/settings/settings.yml')): ?>
-				<td class="pass">Pass</td>
+				<td class="pass">Found</td>
 				<?php else: ?>
-				<td class="pass">Fail</td>
+				<td class="pass">Not found</td>
 				<td class="info">/config/settings/settings.yml</td>
 				<td class="action">Put instructions here</td>
 				<?php endif ?>
@@ -113,9 +121,9 @@
 			<tr>
 				<th>File Kinds YML</th>
 				<?php if (file_exists('../../config/settings/filekinds.yml')): ?>
-				<td class="pass">Pass</td>
+				<td class="pass">Found</td>
 				<?php else: ?>
-				<td class="pass">Fail</td>
+				<td class="pass">Not found</td>
 				<td class="info">/config/settings/filekinds.yml</td>
 				<td class="action">Put instructions here</td>
 			<?php endif ?>
@@ -124,9 +132,9 @@
 			<tr>
 				<th>Language YML</th>
 				<?php if (file_exists('../../config/settings/language.yml')): ?>
-				<td class="pass">Pass</td>
+				<td class="pass">Found</td>
 				<?php else: ?>
-				<td class="pass">Fail</td>
+				<td class="pass">Not found</td>
 				<td class="info">/config/settings/language.yml</td>
 				<td class="action">Put instructions here</td>
 				<?php endif ?>
@@ -135,9 +143,9 @@
 			<tr>
 				<th>Users YML</th>
 				<?php if (file_exists('../../config/users/users.yml')): ?>
-				<td class="pass">Pass</td>
+				<td class="pass">Found</td>
 				<?php else: ?>
-				<td class="pass">Fail</td>
+				<td class="pass">Not found</td>
 				<td class="info">/config/users/users.yml</td>
 				<td class="action">Put instructions here</td>
 			<?php endif ?>
@@ -146,9 +154,9 @@
 			<tr>
 				<th>Groups YML</th>
 				<?php if (file_exists('../../config/users/groups.yml')): ?>
-				<td class="pass">Pass</td>
+				<td class="pass">Found</td>
 				<?php else: ?>
-				<td class="pass">Fail</td>
+				<td class="pass">Not found</td>
 				<td class="info">/config/users/groups.yml</td>
 				<td class="action">Put instructions here</td>
 			<?php endif ?>
@@ -231,7 +239,7 @@
   }
 
 	function apache_is_module_loaded($mod_name) {
-    if (function_exists('aapache_get_modules')) {
+    if (function_exists('apache_get_modules')) {
       $modules = apache_get_modules();
       return in_array($mod_name, $modules);
     } else {
