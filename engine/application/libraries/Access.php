@@ -31,7 +31,7 @@ class Access {
     
     $current_file = $access_file;
     if (file_exists($current_file)) {
-      //$file_list[] = $current_file;
+      $file_list[] = $current_file;
     }
 
     if (sizeof($folders) > 0) {
