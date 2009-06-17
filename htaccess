@@ -1,0 +1,21 @@
+# Turn on URL rewriting
+RewriteEngine On
+
+# Installation directory
+RewriteBase /engine/
+
+# Protect application and system files from being viewed
+RewriteRule ^(application|modules|system) - [F,L]
+
+# Rewrite all other URLs to index.php/URL
+RewriteRule ^notfound$  index.php/$0 [PT,L]
+RewriteRule ^denied$  index.php/$0 [PT,L]
+RewriteRule ^hash/(.*)$  index.php/$0 [PT,L]
+RewriteRule ^login$  index.php/$0 [PT,L]
+RewriteRule ^logout$ index.php/$0 [PT,L]
+RewriteRule ^directory/(.*)$ index.php/filebrowser/access?path=$1 [PT,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php?path=$0 [QSA,PT,L]
+RewriteRule ^$ index.php?path= [QSA,PT,L]
