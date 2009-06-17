@@ -22,7 +22,7 @@ class Access {
     return $instance;
 	}
   
-	public function load_access($rootFolder, $check_child=false) {
+	public function load_access($rootFolder, $checking_child=false) {
     $source_directory = Kohana::config('filebrowser.directory');
     $access_file      = Kohana::config('filebrowser.access_file');
 
@@ -39,12 +39,18 @@ class Access {
       $folder_path = "";
       $folders = array_reverse($folders);
       foreach ($folders as $folder) {
-        if ($folder <> "") {
-          if ($check_child) {
-            $file = $folder ."/" . $access_file;
-          } else {
-            $file = $root_path ."" . $access_file;
+
+        if ($root_path == "") {
+          if ($checking_child) {
+            $current_file = $folder."/".$access_file;
+            if (file_exists($current_file)) {
+              $file_list[] = $current_file;
+            }
           }
+        }
+
+        if ($folder <> "") {
+          $file = $root_path ."" . $access_file;
           if (file_exists($file)) {
             $file_list[] = $file;
           }

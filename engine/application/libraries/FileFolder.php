@@ -26,7 +26,12 @@ class FileFolder {
   protected function load_access() {
     if ($this->access == null) {
       $this->access = new Access();
-      $this->access->load_access($this->name, true);
+      if ($this->parent <> '') {
+        $folder = $this->parent . "/" . $this->name;
+      } else {
+        $folder = $this->name;
+      }
+      $this->access->load_access($folder, true);
     }
   }
 
