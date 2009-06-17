@@ -62,7 +62,7 @@ class Filebrowser_Controller extends Website_Controller {
   }
 
   public function access($path='') {
-    $path = isset($_REQUEST['path']) ? $_REQUEST['path'] : '';
+    $path = isset($_GET['path']) ? $_GET['path'] : '';
 
     $this->filebrowser->set_path($path);
     $this->access->load_access($this->filebrowser->get_folder());
@@ -114,7 +114,7 @@ class Filebrowser_Controller extends Website_Controller {
   }
 
   public function index() {
-    $path = isset($_REQUEST['path']) ? $_REQUEST['path'] : '';
+    $path = isset($_GET['path']) ? $_GET['path'] : '';
 
     $this->filebrowser->set_path($path);
 

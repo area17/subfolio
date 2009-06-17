@@ -55,14 +55,14 @@ class Filebrowser {
     $currentSort = $session->get('sort_order');
     $currentSortOrder = $session->get('sort_order_direction');
 
-    if (isset($_REQUEST["sort"])) {
-      if ($_REQUEST["sort"] == "filename") {
+    if (isset($_GET["sort"])) {
+      if ($_GET["sort"] == "filename") {
         $sortFunction = "listingNameCmp";
-      } else if ($_REQUEST["sort"] == "size") {
+      } else if ($_GET["sort"] == "size") {
         $sortFunction = "listingSizeCmp";
-      } else if ($_REQUEST["sort"] == "date") {
+      } else if ($_GET["sort"] == "date") {
         $sortFunction = "listingDateCmp";
-      } else if ($_REQUEST["sort"] == "kind") {
+      } else if ($_GET["sort"] == "kind") {
         $sortFunction = "listingKindCmp";
       }
       $session->set('sort_order', $sortFunction);
@@ -91,9 +91,9 @@ class Filebrowser {
   }
 
   private function _updated_since() {
-    if (isset($_REQUEST["updated_since"])) {
-        if ($_REQUEST["updated_since"] == "lastweek" || $_REQUEST["updated_since"] == "lastmonth" || $_REQUEST["updated_since"] == "lastvisit") {
-          $this->updated_since = $_REQUEST["updated_since"];
+    if (isset($_GET["updated_since"])) {
+        if ($_GET["updated_since"] == "lastweek" || $_GET["updated_since"] == "lastmonth" || $_GET["updated_since"] == "lastvisit") {
+          $this->updated_since = $_GET["updated_since"];
           cookie::set("update_since", $this->updated_since, (3600 * 24 * 60));
         }
     } else {
