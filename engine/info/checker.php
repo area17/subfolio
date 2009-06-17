@@ -61,11 +61,11 @@
       <h3 class="ready">You are good to go!</h3>
       <p>It appears that your system is ready to run the latest version of Subfolio (v 1.0)</p>
     <?php } else { ?>
-      <h3 class="not-ready">Ops, it seems that your system is not yet ready.</h3>
-      <p>It appears that your system is NOT ready to run the latest version of Subfolio (v 1.0)</p>
+      <h3 class="not-ready">Ops, it seems that your system may not be ready.</h3>
+      <p>It appears that your system may NOT be ready to run the latest version of Subfolio (v 1.0)</p>
     <?php } ?>
 
-    <p>The chart below details the test carried out on your system.</p>
+    <p>The chart below details the tests carried out on your system.</p>
 
 		<hr/ >
 		
