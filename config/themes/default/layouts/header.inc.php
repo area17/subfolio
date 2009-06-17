@@ -68,7 +68,7 @@
       <!--
       document.write('<a href="mailto:?subject=<?php print "".$subject?>&body='+location.href+'"><?php echo Kohana::lang('filebrowser.sendpage') ?></a>');
       -->
-    </script><span class="nav_sep"></span><a id="showHideSwitch" href="javascript:showHideSwitch('logo', document.getElementById('hideText')); "><FONT id="hideText"><?php print "".$showHideLabel;?></FONT></a>
+    </script><span class="nav_sep"></span><a id="showHideSwitch" href="javascript:showHideSwitch('logo', document.getElementById('hideText'));"><FONT id="hideText"><?php print "".$showHideLabel;?></FONT></a>
     <?php /* ?> | <a href="javascript:void(location.href='http://tinyurl.com/create.php?url='+encodeURIComponent(location.href))">generate tiny url</a><?php */ ?>
 
   </div>

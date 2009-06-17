@@ -23,13 +23,13 @@
 	<div id="container">
 		<?php if (Session::instance()->get('flash')) { ?>
 			<div id="notice">
-				<a href="#" id="close">Close</a>
+				<a href="javascript:hideFlash('notice');" id="close">Close</a>
 				<p><b><?php echo Session::instance()->get('flash'); ?></b></p>
 			</div>
 		<?php } ?>
 		<?php if (Session::instance()->get('error')) { ?>
 			<div id="notice" class="error">
-				<a href="#" id="close">Close</a>
+				<a href="javascript:hideFlash('notice');" id="close">Close</a>
 				<p><b><?php echo Session::instance()->get('error'); ?></b></p>
 			</div>
 		<?php } ?>

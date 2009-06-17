@@ -8,5 +8,12 @@
 #features ul li a { overflow: visible; }
 #features ul li a .image { margin-bottom: -3px;}
 
-
-
+#notice p {
+background: url(../images/system/icon_exclam8.png) no-repeat 10px 10px;
+}
+#notice p, #notice p b {
+color: white;
+}
+#notice #close {
+background: url(../images/system/close8.png) no-repeat 10px 10px;
+}
