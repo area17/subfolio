@@ -22,8 +22,18 @@
 <body>
 	<div id="container">
 		<?php if (Session::instance()->get('flash')) { ?>
-			<div id="notice"><p><b>Notice:&nbsp;</b><?php echo Session::instance()->get('flash'); ?></p></div>
+			<div id="notice">
+				<a href="#" id="close">Close</a>
+				<p><b><?php echo Session::instance()->get('flash'); ?></b></p>
+			</div>
 		<?php } ?>
+		<?php if (Session::instance()->get('error')) { ?>
+			<div id="notice" class="error">
+				<a href="#" id="close">Close</a>
+				<p><b><?php echo Session::instance()->get('error'); ?></b></p>
+			</div>
+		<?php } ?>
+		
 		<div id="container-inner">
 			<?php include("header.inc.php") ?>
 			<div id="content">

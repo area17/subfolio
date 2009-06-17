@@ -34,7 +34,7 @@ class Filebrowser_Controller extends Website_Controller {
           exit();
 				} else {
     		  $login->login_failed = true;
-					Session::instance()->set_flash('flash', 'Login Failed');		
+					Session::instance()->set_flash('error', 'Login Failed');		
 				}
 			}
 		} else {

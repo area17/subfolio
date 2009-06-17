@@ -241,13 +241,31 @@ text-decoration:none;
    MODULES: FLASH, HEADER, LOGO, BREADCRUMBTOOLS, NAVIGATION, FOOTER
 -------------------------------------------------------------- */
 #notice {
-padding: 44px 10px 10px 10px;
+overflow: hidden;
+width: 100%;
 background-color: #666;
+}
+#notice.error {
+background-color: #d11226;
+}
+#notice p {
+padding: 44px 0 0 10px;
+background: url(../images/system/icon_exclam24.png) no-repeat 10px 10px;
 }
 #notice p, #notice p b {
 color: white;
 }
-
+#notice #close {
+float: right;
+display: block;
+height: 69px;
+width: 36px;
+text-indent: -5000px;
+background: url(../images/system/close24.png) no-repeat 10px 10px;
+}
+#notice #close:hover {
+background-position: 10px -140px;
+}
 #header {
 }
 
