@@ -1,0 +1,13 @@
+#
+#allow_users: [username, username, username]
+#allow_groups: [groupname]
+
+#deny_users: [username, username]
+#deny_groups: [groupname, groupname]
+
+#current_folder:
+# allow_users: [username, username]
+# allow_groups: [groupname, groupname]
+  
+# deny_users: [username, username]
+# deny_groups: [groupname, groupname]

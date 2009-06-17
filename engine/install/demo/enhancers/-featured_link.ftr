@@ -1,0 +1,7 @@
+title: Featured Link
+link: /demo/file_kinds
+description:>
+ This demo links to another folder or file not in this directory. Ça marche aussi avec les accents!
+image: -thumbnails_custom/fl_thumbnail.png
+
+

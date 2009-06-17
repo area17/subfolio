@@ -1,0 +1,5 @@
+url: http://jukebox.giantstep.net/player
+width: 494
+height: 560
+style: WINDOW
+comment: Example link within a pop-up window.
