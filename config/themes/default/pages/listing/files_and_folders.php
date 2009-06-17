@@ -279,6 +279,6 @@ endforeach ?>
 </div >
 <?php } else { ?>
   <?php if (sizeof($gallery_files) < 1 && !$this->filebrowser->get_displayed_content()) { ?>
-  <p>This page is empty</p>
+  <p>This folder is empty</p>
   <?php } ?>
 <?php } ?>
