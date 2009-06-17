@@ -16,6 +16,9 @@ $config['properties_file'] = '-properties';
 $config['thumbnail_width'] = 320;
 $config['thumbnail_height'] = 240;
 
+$config['site_logo_width'] = 256;
+$config['site_logo_height'] = 53;
+
 $config['thumbnail_max_filesize'] = 1;    // In Megabytes
 
 $config['text_rendering'] = "none";    // none|textile
