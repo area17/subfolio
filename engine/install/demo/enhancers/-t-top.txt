@@ -1,7 +1,0 @@
-h1. Top text
-
-<pre><code>
-	-t-*.text
-</code></pre>
-
-This text will appear the the top of the page, *above* any images or features you may have in the folder. You can use html or textile.

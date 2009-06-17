@@ -1,7 +1,0 @@
-h1. Welcome
-
-h2. to your Subfolio
-
-h3. Start now:
-
-You can start by adding files and folders in this directory.
