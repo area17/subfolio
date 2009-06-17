@@ -1,0 +1,98 @@
+/* -------------------------------------------------------------- 
+
+main.css
+* Subfolio by AREA 17
+
+-------------------------------------------------------------- */
+html,body,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td, hr {
+border:0;
+outline:0;
+font-size:100%;
+vertical-align:baseline;
+background:transparent;
+margin:0;
+padding:0;
+text-align: left;
+}
+
+body  {
+background-color:#FFF;
+background-repeat:repeat-x;
+min-width:550px;
+}
+
+body, h1, h2, h3, h4, h5, h6, h7, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, field, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, .standard_paragraph b {
+color: #1A1A1A;
+font: normal 12px/15px Arial, Helvetica, sans-serif;
+}
+
+ul li { list-style-type: none; }
+
+body {
+margin: 15px;
+padding-bottom: 15px;
+}
+
+#logo {
+background: url(../images/logo.png) no-repeat;
+width: 53px;
+height: 59px;
+padding-left: 65px;
+}
+
+hr {
+width: 100%;
+height: 1px;
+background-color: #d9d9d9;
+margin-top: 10px;
+margin-bottom: 20px;
+}
+
+tr {
+height: 20px;
+}
+th, td {
+padding-right: 15px;
+}
+.label {
+width: 120px;
+}
+.sign {
+width: 15px;
+text-indent: -2000px;
+}
+.sign.pass {
+background: url(../images/pass.png) no-repeat 0 1px;
+}
+.sign.fail {
+background: url(../images/fail.png) no-repeat 0 1px;
+}
+.sign.gloups {
+background: url(../images/gloups.png) no-repeat 0 1px;
+}
+.version {
+
+}
+.red {
+color: #d21c26;
+}
+.grey {
+color: #666;
+}
+i {
+font-style: italic;
+}
+.instructions {
+padding-left: 20px;
+}
+.instructions.exclam {
+background: url(../images/exclam.png) no-repeat 0 0;
+}
+
+h2 {
+font-family: "Arial Rounded MT Bold";
+}
+small {
+color: #666;
+font: italic 11px Georgia, "Times New Roman", Times, serif;
+}
