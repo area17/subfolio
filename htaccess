@@ -5,7 +5,7 @@ RewriteEngine On
 RewriteBase /engine/
 
 # Protect application and system files from being viewed
-RewriteRule ^(application|modules|system) - [F,L]
+RewriteRule ^(config/settings|config/users|application|modules|system) - [F,L]
 
 # Rewrite all other URLs to index.php/URL
 RewriteRule ^notfound$  index.php/$0 [PT,L]
