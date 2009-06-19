@@ -82,13 +82,16 @@ class Filebrowser_Controller extends Website_Controller {
         // CHECK IF I HAVE ACCESS TO path
         $file = $this->filebrowser->fullfilepath;
 
+        $cache_for = 3600 * 1;	
+        $gmt_mtime = gmdate('D, d M Y H:i:s', (time() + $cache_for)) . ' GMT';
+        
         set_time_limit(0);
         header('Content-Description: File Transfer');
         header('Content-Type: ' . mime_content_type($file));
         header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
+        header('Expires: '.$gmt_mtime);
         header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
+        header('Pragma: private');
         header('Content-Length: ' . filesize($file));
         ob_end_clean();
         //readfile($file);
