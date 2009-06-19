@@ -205,8 +205,9 @@ margin-top:5px;
 }
 
 /* This is to use the Arial rounded bold and easily change it for Windows */
-b {
-	font-family: "Arial Rounded MT Bold";
+b, strong {
+font-family: "Arial Rounded MT Bold";
+color: #1a1a1a;
 }
 
 /* @end */
