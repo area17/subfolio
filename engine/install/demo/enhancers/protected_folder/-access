@@ -11,3 +11,5 @@
   
 # deny_users: [username, username]
 # deny_groups: [groupname, groupname]
+
+allow_users: [demo]
