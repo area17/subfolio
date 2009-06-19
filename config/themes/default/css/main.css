@@ -80,8 +80,9 @@ width:96%;
 /* @group Standard Paragraph */
 .standard_paragraph {
 	max-width: 750px;
+	/*font-size: 110%;*/
 }
-.standard_paragraph b, .standard_paragraph strong, .standard_paragraph em, .standard_paragraph i  {
+.standard_paragraph b, .standard_paragraph strong, .standard_paragraph em, .standard_paragraph i, .standard_paragraph li  {
 	font-size: 100%;
 }
 .standard_paragraph h1, .standard_paragraph h2 {
@@ -97,20 +98,28 @@ width:96%;
 	margin-bottom: 10px;
 }
 .standard_paragraph h3 {
-	font-size: 22px;
+	font-size: 24px;
 	line-height: 30px;
-	color: #333;
-	margin-top: 10px;
+	color: #1a1a1a;
+	margin-top: 30px;
+	margin-bottom: 10px;
 }
 .standard_paragraph h4 {
+	font-size: 18px;
+	line-height: 30px;
+	color: #1a1a1a;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+.standard_paragraph h5 {
 	font-family: "Arial Rounded MT Bold";
-	color: #333;
+	color: #1a1a1a;
 	margin-top: 10px;
 }
 .standard_paragraph p {
 	line-height: 15px;
 	color: #333;
-	margin-top: 10px;
+	margin-bottom: 10px;
 }
 .standard_paragraph p b, .standard_paragraph p strong  {
 	color: #1A1A1A;
@@ -125,46 +134,43 @@ width:96%;
 .standard_paragraph p small a:hover {
 	color:#DD0000;
 }
-.standard_paragraph ul li:before {
-	content: '— ';
+.standard_paragraph ul,
+.standard_paragraph ol {
+/*padding-bottom: 10px;*/
 }
 .standard_paragraph ul li,
 .standard_paragraph ol li {
 color: #333;
 margin-bottom: 5px;
 margin-top: 5px;
+list-style-image: url(../images/system/dot.png);
+margin-left: 20px;
 }
 .standard_paragraph ol li {
 margin-left: 22px;
 }
-.standard_paragraph blockquote p:before {
-	content: '“';
-}
-.standard_paragraph blockquote p:after {
-	content: '”';
-}
 
 .standard_paragraph blockquote {
-	display: block;	
-	padding-left: 10px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	border-left: 1px solid #e0e1e2;
+	display: block;
+	padding: 14px 10px 5px 10px;
+	border: 1px solid #d9d9d9;
+	margin: 10px 0 15px 9px;
+	color: #333;
+	overflow: auto;
 }
 .standard_paragraph blockquote p {
-	font: italic normal 2em/25px Georgia, "Times New Roman", Times, serif;
-	color: #666;
-	padding-bottom: 0em;
+
 	}
 	
 .standard_paragraph code {
 	display: block;
-	padding: 0 10px 15px 10px;
+	padding: 14px 10px 10px 10px;
 	border: 1px solid #d9d9d9;
-	font: 10px Monaco, mono, "Courier New", Courier;
+	font: 11px Monaco, mono, "Courier New", Courier;
 	margin: 10px 0;
-	background-color: #fdfdfd;
+	background-color: #f5f5f5;
 	color: #1a1a1a;
+	overflow: auto;
 }
 .standard_paragraph a,
 .standard_paragraph a:link,
