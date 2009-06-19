@@ -169,7 +169,7 @@ class FileFolder {
       }
       
       $thumbnail_stats = stat($thumbnail);
-      return $url."?rnd=".$thumbnail_stats['mtime'];
+      return $url."?rnd=".$thumbnail_stats['ctime'];
     }
   }
 
