@@ -1,0 +1,34 @@
+h1. About Subfolio
+
+h3. Introduction
+
+* Enhanced file browser to use as a private studio or a public website
+* Simplified workflow through easy and secure presentation of your work online
+* Unified asset management between parties involved
+* Instant gratification with basic usage and infinite possibilities with advanced features
+
+
+h3. Features
+
+* Easy to install
+* Ready to use after installation
+* Simple management of content (drag and drop)
+* Unlimited directories and files
+* Standard file types supported and either viewable through your browser or available for download
+* Use of GD image library for dynamic creation of thumbnails
+* Apache URL Rewriting for easy to read - SEO friendly URLs
+* Efficient and beautiful user interface
+* Easy front-end customization
+* Database free!
+* Permissions and Groups
+* Easily restrict access ?
+* Secure access to your files ?
+
+
+h3. System Requirements
+
+* Operating Systems: Linux, Mac OS X, Windows Vista
+* Apache web server with mod_rewrite module (Apache 2+)
+* PHP 5.2+ (KohanaPHP)
+* GD Library
+* Server with Unicode support

@@ -1,0 +1,214 @@
+h3. Introduction
+
+You can use enhancers to customize the Subfolio.  Specially named and files with Yaml formatted content implement behavioral and visual changes.
+
+Download the demo package situated in the download folder: http://www.subfolio.com/download/ for example of enhancer files.
+We recommend that you copy these files from your demo folder as you need them (like a library).
+
+h3. What is Yaml?
+
+YAML, a data serialization format that can be easily read by humans and is well-suited to encoding the data types used in dynamic programming languages.
+
+You can find the complete specification for the Yaml format at: http://yaml.org/
+
+Subfolio relies on a subset of its features:
+
+Name/Value Pairs:
+
+bq. name: value
+
+Collections:
+
+<pre><code>parent:
+ child1: value1
+ child2: value2
+</code></pre>
+
+Comments:
+
+All text following a # character is considered a comment, we have documented Subfolio Yaml files to provide you details and examples.
+
+bq.  # This is a comment
+
+h3. How do I add an inline image to my page?
+
+* Drop an image file whose name is formatted like this and it will show up inline:
+<pre><code>-t-*.png</code></pre>
+Use *t* if you want your image to appear on *top*, *m* for *middle*, and *b* for *bottom*
+
+h3. How do I add an inline text to my page?
+
+* Like for images, you can drop a text file whose name is formatted like this and it will show up inline:
+<pre><code>-t-*.txt</code></pre>
+Use *t* if you want your text to appear on *top*, *m* for *middle*, and *b* for *bottom*
+
+h3. How do I create a popup link?
+
+* Create a file with a .pop extension and that contains the following Yaml code:
+
+<pre><code>url: The destination URL
+width: The width of the popup window (default 800)
+height: The height of the popup window (default 600)
+name: Name to display in the popup window title bar ('POPUP')
+style: WINDOW or POP or POPSCROLL (default POPSCROLL)
+</code></pre>
+
+* WINDOW includes statusbar, menubar, scrollbars and is resizeable.
+* POP: no statusbar, menubar nor scrollbars and not resizeable.
+* POPSCROLL: no statusbar, menubar not resizeable, scrollbars if content is larger than the pop up width & height
+
+Example:
+
+<pre><code>url: http://www.example.com
+width: 800
+height: 600
+name: MyPopUp
+style: POP
+</code></pre>
+
+* Upload the file on your server in the folder you want the link to appear in.
+
+h3. How do I link to an external site?
+
+Create a file with a .net extension and that includes the following Yaml code:
+
+<pre><code>url: The destination URL
+target: Target an new or existing window
+comment: Your comment, you can use textile
+</code></pre>
+
+Example:
+<pre><code>url: http://www.area17.com
+target: _blank
+comment: This is our _website_
+</code></pre>
+
+* Upload the file on your server in the folder you want the link to appear in.
+
+h3. How do I create a feature?
+
+Featured are stored in files with the .ftr extension.
+
+<pre><code>title: The title of the feature
+link: A url or folder that the feature links to
+folder: If the feature links to a folder in the current folder you can hide the folder by putting its name here
+description:>
+ The description you wish to use for the feature.
+ You can use textile here.
+image: The image you wish to use for the feature
+</code></pre>
+
+Example create file named feature.ftr:
+
+<pre><code>title: Demo Feature File Kinds
+link: /demo/file_kinds
+description:>
+ See what file kinds Subfolio recognizes out of the box
+image: -feature.png
+</code></pre>
+
+You can create a feature for a folder, this will hide the folder from the listing, this is done by replacing the link property with a folder property that contains the name of the folder you'd like to feature.  Example:
+
+<pre><code>title: Demo Folder Feature 
+folder: featured_folder
+description:>
+ This folder is being *featured*
+image: -feature.png
+</code></pre>
+
+
+h3. How do I specify the video properties?
+
+* Create a file with the same name and extension than your video and add a .info to the end.
+
+* In the file include the following Yaml code:
+
+<pre><code>width: width
+  height: height
+  autoplay: false or true (default false)
+</code></pre>
+
+Example (for myvideo.mov):
+
+bq. myvideo.mov.info
+
+<pre><code>width:640
+height:500
+autoplay: true
+</code></pre>
+
+h3. How do I create shortcut links?
+
+Upload a hidden file with a .cut extension that includes the following Yaml code:
+
+<pre><code>name: the name to display for the shortcut
+directory: the folder this shortcut links to (full path from the root)
+</code></pre>
+
+Example
+
+bq. -my_shortcut.cut
+
+<pre><code>name: file kinds
+directory: /demo/file_kinds</code></pre>
+
+h3. How do I manage access?
+
+h1. Advanced Usage
+
+h2. Enhancers
+
+* Before assigning authorizations or restrictions, make sure that users and groups have been created. 
+* Ask your administrator if you need to create users and groups, or see the "Advanced Set-up - Users & Groups" documentation.
+
+* Permissions are assigned to individual users, or groups of users via group names.
+* Permissions are set in "access restriction" files which default name is "-access" 
+* Subfolio Portable access is listed and managed in a Yaml file, which is defined in Subfolio general properties file.
+
+<pre><code>-access</code></pre>
+
+* An access restriction file can be placed in any folder you want to grant/deny access to. 
+* The access restriction file is a simple yaml that controls access to all file browser content recursively, or just the content in the current folder.
+* If no access restriction file is found then the parent folder is checked recursively until the root of the site is reached.
+* If no access restriction file is found all visitors will be able to see all content.
+* Directly in the access restriction Yaml file, permissions are configured using the following Yaml format:
+
+<pre><code>allow_users: [username]
+allow_groups: [groupname]
+
+deny_users: [username]
+deny_groups: [groupname]
+
+current_folder:
+  allow_users: [username]
+  allow_groups: [groupname]
+  
+  deny_users: [folderusername]
+  deny_groups: [foldergroupname]</code></pre>
+
+Example:
+
+<pre><code>allow_users: [barack, michelle]
+allow_groups: [presidents]
+
+current_folder:
+  allow_users: [joe]</code></pre>
+
+* This access restriction file would grant access to the current folder to Joe.  It would also allow access to Barack, Michelle and all users in the presidents group
+
+h4. Revoking a user in a sub folder
+
+* Granted permissions can be revoked in a sub folder.  For example, in a folder /marketing which grants access to all "clients" and all "staff", if there is a sub folder /marketing/internal, you can deny access to this folder for clients using the following -access file:
+
+<pre><code>deny_groups: [clients]
+</code></pre>
+
+
+h3. How do i update my copyright?
+
+* The default theme contains the copyright statement
+
+bq. File location: /config/themes/default/layouts/footer.inc.php
+
+* You can update the copyright statement by editing this file.  
+* Note that other themes may use different locations (hint: replace default with the theme name).

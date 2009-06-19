@@ -1,0 +1,41 @@
+h1. Basic Usage
+
+h2. Viewing the website
+
+h3. Login / logout
+
+_(if applies)_
+* Enter the website with your username and password
+* Before you log in to the secure area, you have the ability to check a 'Remember me' box that will keep you logged into the website between visits 
+* Once logged in, you will access content you have been granted access to
+* Logout at any time with logout link in the upper right corner
+
+h3. Simple tools
+
+* Easy to read breadcrumb to keep track of your location inside the Subfolio
+* Parent - Previous / Next buttons to navigate through directories and files
+* Collapsable header to get rid of the logo in order to see more of the page within the browser window
+* 'Send page' to email a link to the page with logical and readable URL (ie: www.area17.com/client_name/project_name/file_name)
+* 'Updated since' options in the footer to see what has changed on the website since last week | last month | your last visit (through "updated" icons)
+
+h3. Viewing content
+
+* The Front-end view is an exact mirror of what is on your server. Directories and files appear in the Front-End using the same organization you have on your server.
+* Thumbnails are auto generated for jpg, gif and png images. They appear at the top of the page.
+* Click on thumbnails to see larger version of images. Then navigates from file to file using Previous File - Next File buttons.
+* Content without auto generated thumbnails is listed below thumbnails.
+* Content listing is sortable by 	filename, size, date, kind.
+* Content in listing can have comments attached to them.
+
+h3. Downloading content
+
+* Any file can be downloaded from its page, by clicking on the _download_ link.
+If the piece of content is shown directly on the page, you'll find a small _i_ icon at the bottom to show the download box. Note that this cannot be done directly at folder level.
+
+h3. Viewing vs downloading
+
+Most standard file types are supported.
+
+* File types directly viewable through your browser: Images (png, gif, jpg), Flash (swf), Quicktime (mov, mpg), Audio (mp3, wav), Portable Document Format (pdf), simple text files(txt).
+
+* Other file types are only downloadable (their format will be recognized).

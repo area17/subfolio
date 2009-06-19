@@ -1,0 +1,63 @@
+h1. Basic Setup
+
+h3. Fast installation
+
+* Download the most recent version of Subfolio Portable here: http://www.subfolio.com/download/
+* Unzip the Subfolio package
+* FTP it to your web server
+* Mac user : once uploaded, rename the file htaccess to .htaccess 
+
+h4. Subfolio package contents
+
+Subfolio is a simple folder structure.
+
+* Directory: Where you put all your files 
+* Configuration: Advanced usage: website settings, creating users and themes
+* Engine: Do not touch.
+
+bq. Next steps:
+* Start using Subfolio instantly (see Basic Usage section)
+* Or edit the configuration files to customize your Subfolio (see Advanced Set-up section)
+* Optionally, see hosting recommendations below.
+
+bq. Configuration informations:
+* You can connect your browser to www.yoursite.domaine/engine/info to get informations of your current configuration
+* Instructions are on the /engine/info page to disable it.
+
+h4. Permissions
+
+If you have permission issues, make sure you _directory_ folder is set to 777 (and its content too).
+
+h3. Optional Recommended hosting
+
+* Shared vs. dedicated hosting
+* Bandwidth and Storage
+* Main site vs. subdomain
+
+h4. Does Subfolio have special hosting needs? (Shared vs. dedicated hosting)
+
+The short answer is no. Subfolio was made to just drop onto your server and for it to work immediately. You can use it with Shared Hosting or on a Dedicated Server. Most everything works on a shared server, however for some features (such as using special characters in URL's) you may need control of the server, which requires dedicated servers. 
+
+h4. What do I need for hosting (storage and bandwidth)?
+
+h5. I am a designer that will use Subfolio for my portfolio and maybe a couple documents (no more than 1GB)
+
+MUBS Recommendations ...
+
+h5. I am a small design studio that will use Subfolio to present all client work (no more than 10GB)
+
+MUBS Recommendations ...
+
+h5. I am a small design studio looking to use Subfolio for our file server and present client work (50GB+)
+
+MUBS Recommendations ...
+
+h5. I am a large enterprise company looking to use Subfolio ... what do I need to consider? Are their limitations? We're talking in the high Terabytes of data
+
+MUBS Recommendations ...
+
+h4. What if I don't want it for my main website? (main site vs subdomain)
+
+No problem, we recommend setting up a subdomain such as studio.yourwebsite.com. Its clean and purdy. 
+
+

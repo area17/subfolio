@@ -1,0 +1,63 @@
+h1. Basic Usage
+
+h2. Adding Content
+
+The structure is already in place and you only need to drop your files onto your server for them to display in the Front-end.
+
+h3. FTP
+
+* FTP unlimited number of folders and files onto your server and the Subfolio engine will display them.
+
+bq. Location to drop your folders and files: /directory
+
+h3. Structure
+
+* The Front-end view is an exact mirror of what is on your server.
+* Any folder you upload on your server will become a section in the Front-end.
+* All files included in a folder will appear in the corresponding section in the Front-end.
+
+h3. File types
+
+You can upload most standard file types. If a file type is not recognized, it will be shown as generic.
+
+h4. How do i add other unlisted file types on my own?
+
+You can add your file types to the config/settings/filekinds.yml file.
+
+h3. Thumbnails
+
+* After you upload an image, thumbnails are auto generated when someone visits the Front-end for the first time.
+* So when you upload images on your server, make sure to visit the Front-end right after. This way, users (especially your clients) will not have to wait for thumbnails to generate.
+* Thumbnail specifications: Resize original image to height of 240 pixels, using height to maintain aspect ratio. (this height can be set in the settings.yml file). Files bigger than a defined weight will not get thumbnails. (this maximum height can be defined in the setting file).
+* Once thumbnails have been created, they are automatically stored on the server in a folder named -thumbnails.
+* If the image is smaller than the thumbnail size (320x240) then no thumbnail is created and the original image is displayed in its place.
+
+h4. How do i create custom thumbnails?
+
+* Create a “-thumbnails-custom” folder and drop here your own customized thumbnails
+* You can give a custom thumbnail the look and size you wish
+* You need to give it the name of the image you want it to be the thumbnail for. 
+* Upload this folder at the level of the auto generated folder
+
+h3. Naming conventions
+
+h4. Can i use foreign accents and special characters?
+
+* Foreign accents in filenames are only supported if you web server allows them.
+* We recommend to avoid special characters when possible as your web server may not allow use of them (eg. “#”, “?”, “%”, “&”, “*”, “@”).
+* We recommend to replace spaces with underscores ( _ ) in file names. Underscores will be replaced by spaces on the front-end. This is made to keep urls clean.
+
+h4. Can i name content the way i want (Restricted names)
+
+ To avoid conflict between existing files and new ones, content in the root of the directory cannot be named:
+* login
+* logout
+* notfound
+* denied
+
+h3. Can i hide content?
+
+- Yes, any folder or file on your server starting with a ‘-’ are considered hidden and will not appear in the Front-end.
+
+bq. You want to customize the Subfolio to act more like a website? 
+Use the Subfolio enhancers!

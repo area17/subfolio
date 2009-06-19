@@ -1,0 +1,89 @@
+h1. Advanced Setup 
+
+h2. Users & groups
+
+h3. Introduction
+
+* You can make your site public or private, part public or part private for users and groups.
+* Security in the file browser is managed via a collection of Yaml access restriction files.
+* Permissions can be assigned at folder level for individual users or groups of users.
+
+h3. Creating users and groups 
+
+h4. Users
+
+* Subfolio Portable users are listed and managed in a Yaml file, which is defined in Subfolio general properties file:
+
+bq. File location: /config/users/users.yml
+
+* Directly in the users Yaml file, users are configured using the following Yaml format:
+
+<pre><code>
+username:
+ fullname: Full Name
+ password: yourpassword
+ admin: false
+username:
+ fullname: Full Name
+ password: yourpassword
+ admin: true
+</code></pre>
+
+* Note that any user marked as an admin (admin set to true in the users yaml file), will automatically have access to all content.
+
+If you do not wish to keep plain text passwords in your configuration files.  You can encrypt a password, and store this hashed password in the configuration instead.
+
+You can access the password encrypter:
+<pre><code>http://www.yoursite.com/hash/[your_password]</code></pre>
+(do not use the brackets)
+
+The page will display the encrypted version of your password.
+
+You can now store the encrypted password in the users yaml file using the following format:
+<pre><code>username:
+ fullname: Full Name
+ hashed_password: encrypted_password
+ admin: false
+</code></pre>
+
+Examples:
+<pre><code>john:
+ fullname: John Doe
+ password: kingkong
+ admin: false
+marc:
+ fullname: Marc Doe
+ hashed_password: 5b0fcd785081fa9422fd7b613b540ada
+ admin: true
+</code></pre>
+
+h4. Groups
+
+* Users can be assigned to groups to simplify granting of permissions.
+
+* Subfolio Portable groups are listed and managed in a Yaml file, which is defined in Subfolio general properties file:
+
+bq. File location: /config/users/groups.yml
+
+* Directly in the groups Yaml file, groups are configured using the following Yaml format:
+
+<pre><code>groupname: [username]
+groupname: [username, username, username]
+</code></pre>
+
+Examples:
+<pre><code>administrators: [john, marc]
+guests: [anna, caroline]
+</code></pre>
+
+(The space after the comma is mandatory)
+
+h3. Managing permissions
+
+* Permissions are set in “access restriction” files which default name is “-access”
+* An access restriction file can be placed in any folder you want to grant/deny access to. 
+* For more information on how this enhancer works, see the section "How do I manage access?" within the Advanced usage - Enhancer documentation.
+
+
+
+
