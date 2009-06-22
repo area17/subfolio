@@ -20,7 +20,7 @@
 	// Icon
 	$icon_file = "";
 	$icon_file = $this->filekind->get_icon_by_file($file_kind);
-  $icon = view::get_view_url()."/images/icons/big/".$icon_file.".png";
+  $icon = view::get_view_url()."/images/icons/grid/".$icon_file.".png";
 	
 	// Comment
 	$comment  = $this->filebrowser->get_item_property($this->filebrowser->file, 'comment') ? $this->filebrowser->get_item_property($this->filebrowser->file, 'comment') : '';

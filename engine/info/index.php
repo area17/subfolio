@@ -47,7 +47,7 @@
 			
 			<tr>
 				<th class="label">PHP Version</th>
-				<?php if (version_compare(PHP_VERSION, '5.2', '>=')): ?>
+				<?php if (!version_compare(PHP_VERSION, '5.2', '>=')): ?>
 					<td class="sign pass">Pass</td>
 					<td class="version"><?php echo PHP_VERSION ?></td>
 					<td class="instructions"></td>
@@ -146,7 +146,7 @@
 			</tr>
 			<tr>
 				<th class="label">Settings file</th>
-				<?php if (file_exists('../../config/settings/settings.yml')): ?>
+				<?php if (!file_exists('../../config/settings/settings.yml')): ?>
 					<td class="sign pass">Pass</td>
 					<td class="version">found</td>
 					<td class="instructions"></td>
