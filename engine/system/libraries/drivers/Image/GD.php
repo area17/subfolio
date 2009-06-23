@@ -255,6 +255,14 @@ class Image_GD_Driver extends Image_Driver {
 			// Create the temporary image to copy to
 			$img = $this->imagecreatetransparent($pre_width, $pre_height);
 
+      $trnprt_indx    = imagecolortransparent($this->tmp_image);
+      if ($trnprt_indx >= 0) {
+        $trnprt_color   = imagecolorsforindex($this->tmp_image, $trnprt_indx);
+        $trnprt_indx    = imagecolorallocate($img, $trnprt_color['red'], $trnprt_color['green'], $trnprt_color['blue']);        
+        imagefill($img, 0, 0, $trnprt_indx);
+        imagecolortransparent($img, $trnprt_indx);
+      }
+
 			if ($status = imagecopyresized($img, $this->tmp_image, 0, 0, 0, 0, $pre_width, $pre_height, $width, $height))
 			{
 				// Swap the new image for the old one
