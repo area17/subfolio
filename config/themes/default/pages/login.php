@@ -13,7 +13,7 @@
 			<label for="remember_me"><?php echo Kohana::lang('filebrowser.remember_my_login');?></label>
 		</div>
 		<div class="subButton copy">
-			<a href="javascript:void(document.protection.submit())" type="submit"><?php echo Kohana::lang('filebrowser.submit');?></a>
+			<input id="contact_submit" type="submit" value="<?php echo Kohana::lang('filebrowser.submit');?>" name="commit"/>
 		</div>
 		<script type="text/javascript">
 			document.getElementById('username').focus();
