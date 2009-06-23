@@ -8,7 +8,7 @@ Rake::PackageTask.new('subfolio', version) do |pkg|
   pkg.need_tar = true
 
   pkg.package_files = FileList['config/**/*', 'engine/**/*','directory',
-    'README.txt', 'INSTALL.txt', 'LICENSE.txt',
+    'README.txt', 'INSTALL.txt', 'LICENSE.txt', 'CHANGELOG.txt',
     '.htaccess', 'htaccess']
 
   pkg.package_files.exclude('.gitignore')
