@@ -1,0 +1,9 @@
+SUBFOLIO CHANGELOG
+
+
+UNRELEASED CHANGES
+
+[ENGINE]    Upgraded routing from Kohana 2.3.4 Trunk
+[THEMES]    Continued development of Grid view enabled theme
+
+VERSION: 0.9.20090622
