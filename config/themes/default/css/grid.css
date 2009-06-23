@@ -1,0 +1,138 @@
+/* @group Grid */
+
+/* -------------------------------------------------------------- 
+   MODULES: CONTENT / LISTING GRID VIEW
+-------------------------------------------------------------- */
+
+#listing ul {
+list-style:none;
+max-width:none;
+overflow:hidden;
+font-size:12px;
+margin:0;
+padding:0;
+}
+
+#listing ul li {
+float:left;
+width:179px;
+height:104px;
+text-align:center;
+overflow:hidden;
+margin: 0 1px 1px 0;
+}
+
+#listing ul li a {
+text-decoration:none;
+display:block;
+width:100%;
+height:100%;
+/*background-color:#f5f5f5;*/
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+}
+
+#listing ul li a:hover {
+background-color:#f5f5f5;
+cursor:pointer;
+}
+
+#listing ul li .listing-content {
+position: relative;
+}
+
+#listing ul li .listing-content .listing-content-left {
+display:block;
+min-height: 75px;
+}
+
+#listing ul li .listing-content .listing-content-right {
+display:block;
+}
+
+#listing ul li .listing-content span {
+display:block;
+}
+
+#listing ul li span.filename {
+max-height:1.2em;
+overflow: hidden; /* Crop the text if longer */
+}
+
+#listing ul li span.size,#listing ul li span.datekind {
+display:none;
+}
+
+#listing ul li .icon_download {
+background-repeat:no-repeat;
+width:5px;
+height:17px;
+float:left;
+top: 35px;
+left: 65px;
+background-image:url("../images/system/download.png");
+}
+
+#listing ul li .icon_download.blank {
+background:none;
+}
+
+#listing ul li .updated {
+position:absolute;
+display:block;
+width:11px;
+height:11px;
+z-index:99;
+background:url("../images/system/updated_xl.png") no-repeat top left;
+top: 22px;
+left: 98px;
+}
+
+#listing ul li span.comment {
+color:#aaa;
+}
+
+/* -------------------------------------------------------------- 
+   MODULES: CONTENT / LISTING ICONS
+-------------------------------------------------------------- */
+
+#listing ul li .icon {
+height: 60px;
+}
+
+#listing ul li .icon span {
+position: absolute;
+}
+
+#listing ul li .icon img {
+position: absolute;
+top: 20px;
+left: 73px;
+}
+
+#listing ul li .locked, #listing ul li .unlocked {
+display:block;
+width:10px;
+height:9px;
+z-index:98;
+background:url("../images/system/lock.png") no-repeat 0 0;
+top: 29px;
+left: 77px;
+}
+
+#listing ul li .unlocked {
+background-position:0 -50px;
+}
+
+* html #listing ul li .icon img {
+
+}
+
+* html #listing ul li .icon .icon_download {
+}
+
+#listing ul li.listing-header {
+display: none;
+}
+
+/* @end */

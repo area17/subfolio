@@ -8,6 +8,7 @@
 
 	<link rel="shortcut icon" type="image/png" href="<?php echo view::get_view_url() ?>/images/logos/favicon.png" />
 	<link href="<?php echo view::get_view_url() ?>/css/main.css" type="text/css" rel="stylesheet" >
+	<link href="<?php echo view::get_view_url()."/css/".Kohana::config('filebrowser.listing_mode') ?>.css" type="text/css" rel="stylesheet" >
 	<!--[if IE 7]><link href="<?php echo view::get_view_url() ?>/css/ie7.css" type="text/css" rel="stylesheet" ><![endif]-->
 	<link media="only screen and (max-device-width: 480px)" href="<?php echo view::get_view_url() ?>/css/iphone.css" type="text/css" rel="stylesheet" >
 		 

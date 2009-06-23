@@ -138,8 +138,8 @@ foreach ($folders as $folder):
 						        }
 
 						        $icon_file = $this->filekind->get_icon_by_file($folder_kind);
-
-						        $icon = view::get_view_url()."/images/icons/".$icon_file.".png";        
+										$listing_mode = Kohana::config('filebrowser.listing_mode');
+						        $icon = view::get_view_url()."/images/icons/".$listing_mode."/".$icon_file.".png";        
 						      ?>
 										<?php	if ($updated) { ?>
 						      		<span class="updated"><!-- --></span>
@@ -206,7 +206,8 @@ endforeach ?>
       }
 
       $icon_file = $this->filekind->get_icon_by_file($file_kind);
-      $icon = view::get_view_url()."/images/icons/".$icon_file.".png";   
+			$listing_mode = Kohana::config('filebrowser.listing_mode');
+      $icon = view::get_view_url()."/images/icons/".$listing_mode."/".$icon_file.".png";
 
       $target = "";
       $url = "";
