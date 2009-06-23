@@ -410,12 +410,12 @@ class Filebrowser {
     return $is_feature;
   }
 
-  public function get_folder_property($propertyname) {
+  public function get_folder_property($propertyname, $default=null) {
     if (isset($this->properties[$propertyname])) {
       return $this->properties[$propertyname];
+    } else {
+	    return $default;
     }
-
-    return null;
   }
 
   public function get_item_property($filename, $propertyname) {
