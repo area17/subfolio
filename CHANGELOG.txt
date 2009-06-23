@@ -5,5 +5,7 @@ UNRELEASED CHANGES
 
 [ENGINE]    Upgraded routing from Kohana 2.3.4 Trunk
 [THEMES]    Continued development of Grid view enabled theme
+[THEMES]    Can specify the default listing mode in the settings.yml file
+[THEMES]    Can specify the listing mode in the -properties file for each folder
 
 VERSION: 0.9.20090622
