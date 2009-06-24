@@ -18,7 +18,8 @@
 	// Site
 	$url = "/directory/".$folder."/index.html";
 	$target = "_blank";
-
+  
+	$ff = new FileFolder(basename($folder), $folder, 'folder', "folder", array());
 ?>
 
 <div id="download_box">
@@ -29,7 +30,7 @@
 			<img src='<?php echo $icon; ?>' />
 		<?php } ?>
 		<!-- Filename / comment -->
-		<p id="filename"><?php echo $this->filebrowser->file ?>We are missing the filename here!</p>
+		<p id="filename"><?php echo format::filename($ff->get_display_name(), false) ?></p>
 		<?php	if (isset($comment) && $comment <> '') { ?>
 			<p><?php echo format::get_rendered_text($comment) ?></p>
 		<?php } ?>
