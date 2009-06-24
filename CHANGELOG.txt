@@ -2,6 +2,7 @@ SUBFOLIO CHANGELOG
 
 UNRELEASED CHANGES
 
+[HTACCESS]  Force download of files from detail page
 
 VERSION: 0.9.20090623
 

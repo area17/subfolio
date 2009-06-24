@@ -86,8 +86,15 @@ class Filebrowser_Controller extends Website_Controller {
         $gmt_mtime = gmdate('D, d M Y H:i:s', (time() + $cache_for)) . ' GMT';
         
         set_time_limit(0);
-        header('Content-Description: File Transfer');
-        header('Content-Type: ' . mime_content_type($file));
+
+        if (isset($_GET['download'])) {
+          header('Content-Disposition: attachment; filname="' . basename($file) .'"; ');
+          header('Content-Type: octet-stream');
+        } else {
+          header('Content-Description: File Transfer');
+          header('Content-Type: ' . mime_content_type($file));
+        }
+
         header('Content-Transfer-Encoding: binary');
         header('Expires: '.$gmt_mtime);
         header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
