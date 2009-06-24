@@ -20,9 +20,15 @@
 	// Specific to this file
 	$width = $this->filebrowser->get_item_property($this->filebrowser->file, 'width') ? $this->filebrowser->get_item_property($this->filebrowser->file, 'width') : $width;
 	$height = $this->filebrowser->get_item_property($this->filebrowser->file, 'height') ? $this->filebrowser->get_item_property($this->filebrowser->file, 'height') : $height;
-	
 ?>
 
-<embed src="<?php echo $this->filebrowser->get_file_url(); ?>" width="<?php echo $width ?>" height="<?php echo $height ?>">
+<object type="application/pdf" data="<?php echo $this->filebrowser->get_file_url(); ?>" width="<?php echo $width ?>" height="<?php echo $height ?>">
+  <?php if ($file_kind && isset($file_kind['instructions'])) { ?>
+	<p id='instructions'>Instructions: <?php echo format::get_rendered_text($file_kind['instructions']) ?></p>
+	<?php } ?>
+</object>
+</div></body></html>
+
+<!-- embed src="<?php echo $this->filebrowser->get_file_url(); ?>" width="<?php echo $width ?>" height="<?php echo $height ?>" -->
 	
 <?php require("_hideable_download_box.php") ?>
