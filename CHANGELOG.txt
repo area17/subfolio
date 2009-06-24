@@ -2,7 +2,12 @@ SUBFOLIO CHANGELOG
 
 UNRELEASED CHANGES
 
-[HTACCESS]  Force download of files from detail page
+VERSION: 0.9.20090623.b
+
+[HTACCESS,
+ENGINE,
+THEME]      Force download of files from detail page
+[THEME]     Trying a different way to embeded PDF files into the detail pages
 
 VERSION: 0.9.20090623
 
