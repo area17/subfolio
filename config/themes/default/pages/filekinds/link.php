@@ -27,7 +27,7 @@
 	<a id="clickable-zone" target="<?php echo $target; ?>" href="<?php echo $url; ?>">
 		<!-- Icon -->
 		<?php	if (isset($icon) && $icon <> '') { ?>
-		<img src='<?php echo $icon; ?>' />
+		<img  width='32' height='32' src='<?php echo $icon; ?>' />
 		<?php } ?>
 		<!-- Filename / comment -->
 		<p id="filename"><?php echo $display ?></p>

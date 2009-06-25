@@ -9,7 +9,7 @@
 			<span class="new"><!-- --></span>
 		<?php	} ?>
 		<?php	if (isset($icon) && $icon <> '') { ?>
-		<img src='<?php echo $icon; ?>' />
+		<img width='32' height='32' src='<?php echo $icon; ?>' />
 		<?php } ?>
 		<!-- Filename / comment -->
 		<p id="filename"><?php echo $this->filebrowser->file ?></p>
