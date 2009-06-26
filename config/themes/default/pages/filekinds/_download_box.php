@@ -1,6 +1,6 @@
 <div id="download_box">
 		
-	<a id="clickable-zone" href="<?php echo $this->filebrowser->get_file_url(); ?>">
+	<a id="clickable-zone" href="<?php echo $this->filebrowser->get_file_url(); ?>?download=true">
 		<!-- Icon -->
 		<?php	if (isset($updated) && $updated) { ?>
 			<span class="updated"><!-- --></span>

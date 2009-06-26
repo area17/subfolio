@@ -22,6 +22,7 @@
 	$height = $this->filebrowser->get_item_property($this->filebrowser->file, 'height') ? $this->filebrowser->get_item_property($this->filebrowser->file, 'height') : $height;
 ?>
 
+<?php /* ?>
 <object type="application/pdf" data="<?php echo $this->filebrowser->get_file_url(); ?>" width="<?php echo $width ?>" height="<?php echo $height ?>">
   <?php if ($file_kind && isset($file_kind['instructions'])) { ?>
 	<p id='instructions'>Instructions: <?php echo format::get_rendered_text($file_kind['instructions']) ?></p>
@@ -29,6 +30,8 @@
 </object>
 </div></body></html>
 
-<!-- embed src="<?php echo $this->filebrowser->get_file_url(); ?>" width="<?php echo $width ?>" height="<?php echo $height ?>" -->
+<embed src="<?php echo $this->filebrowser->get_file_url(); ?>" width="<?php echo $width ?>" height="<?php echo $height ?>">
+
+<?php */ ?>
 	
-<?php require("_hideable_download_box.php") ?>
+<?php require("_download_box.php") ?>
