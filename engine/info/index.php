@@ -146,7 +146,7 @@
 			</tr>
 			<tr>
 				<th class="label">Settings file</th>
-				<?php if (!file_exists('../../config/settings/settings.yml')): ?>
+				<?php if (file_exists('../../config/settings/settings.yml')): ?>
 					<td class="sign pass">Pass</td>
 					<td class="version">found</td>
 					<td class="instructions"></td>
