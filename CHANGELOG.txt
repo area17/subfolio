@@ -2,6 +2,11 @@ SUBFOLIO CHANGELOG
 
 UNRELEASED CHANGES
 
+VERSION: 0.9.20090625
+
+[THEME]     Icon sizing fixed
+[ENGINE]    Fix for sorting by kind
+
 VERSION: 0.9.20090623.b
 
 [HTACCESS,
