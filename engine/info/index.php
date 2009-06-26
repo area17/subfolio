@@ -47,7 +47,7 @@
 			
 			<tr>
 				<th class="label">PHP Version</th>
-				<?php if (!version_compare(PHP_VERSION, '5.2', '>=')): ?>
+				<?php if (version_compare(PHP_VERSION, '5.2', '>=')): ?>
 					<td class="sign pass">Pass</td>
 					<td class="version"><?php echo PHP_VERSION ?></td>
 					<td class="instructions"></td>
