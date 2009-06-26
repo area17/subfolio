@@ -202,7 +202,32 @@ class FileFolder {
 
 	// COMPARES TWO KIND
   public function listingKindCmpAsc($a, $b) {
-    return strcmp($a->kind, $b->kind);
+    $a_kind = "";
+    $b_kind = "";
+    
+    if ($a->kind) {
+      if (is_string($a->kind)) {
+        $kind = FileKind::instance()->get_kind_by_extension($a->kind);
+        if ($kind && isset($kind['display'])) {
+          $a_kind = $kind['display'];
+        }
+      } else if (is_array($a->kind)) {
+        $a_kind = $a->kind['display'];
+      }
+    }
+
+    if ($b->kind) {
+      if (is_string($b->kind)) {
+        $kind = FileKind::instance()->get_kind_by_extension($b->kind);
+        if ($kind && isset($kind['display'])) {
+          $b_kind = $kind['display'];
+        }
+      } else if (is_array($b->kind)) {
+        $b_kind = $b->kind['display'];
+      }
+    }
+    
+    return strcmp($a_kind, $b_kind);
   }
 
 	// COMPARES TWO DATES
@@ -228,7 +253,32 @@ class FileFolder {
 
 	// COMPARES TWO KIND
   public static function listingKindCmpDesc($a, $b) {
-    return strcmp($b->kind, $a->kind);
+    $a_kind = "";
+    $b_kind = "";
+
+    if ($a->kind) {
+      if (is_string($a->kind)) {
+        $kind = FileKind::instance()->get_kind_by_extension($a->kind);
+        if ($kind && isset($kind['display'])) {
+          $a_kind = $kind['display'];
+        }
+      } else if (is_array($a->kind)) {
+        $a_kind = $a->kind['display'];
+      }
+    }
+
+    if ($b->kind) {
+      if (is_string($b->kind)) {
+        $kind = FileKind::instance()->get_kind_by_extension($b->kind);
+        if ($kind && isset($kind['display'])) {
+          $b_kind = $kind['display'];
+        }
+      } else if (is_array($b->kind)) {
+        $b_kind = $b->kind['display'];
+      }
+    }
+    
+    return strcmp($b_kind, $a_kind);
   }  
 }
 ?>
