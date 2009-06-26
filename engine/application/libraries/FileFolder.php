@@ -197,7 +197,7 @@ class FileFolder {
 
 	// COMPARE TWO NAMES
   public function listingNameCmpAsc($a, $b) {
-    return strcmp($a->name, $b->name);
+    return strcmp(strtolower($a->name), strtolower($b->name));
   }
 
 	// COMPARES TWO KIND
@@ -227,7 +227,7 @@ class FileFolder {
       }
     }
     
-    return strcmp($a_kind, $b_kind);
+    return strcmp(strtolower($a_kind), strtolower($b_kind));
   }
 
 	// COMPARES TWO DATES
@@ -248,7 +248,7 @@ class FileFolder {
 
 	// COMPARE TWO NAMES
   public static function listingNameCmpDesc($a, $b) {
-    return strcmp($b->name, $a->name);
+    return strcmp(strtolower($b->name), strtolower($a->name));
   }
 
 	// COMPARES TWO KIND
@@ -278,7 +278,7 @@ class FileFolder {
       }
     }
     
-    return strcmp($b_kind, $a_kind);
+    return strcmp(strtolower($b_kind), strtolower($a_kind));
   }  
 }
 ?>
