@@ -545,7 +545,10 @@ class Textile
 		$find = $this->btag;
 		$tre = join('|', $find);
 
-		$text = explode("\n\n", $text);
+    if (is_string($text)) {
+	  	$text = explode("\n\n", $text);
+    } else {
+    }
 
 		$tag = 'p';
 		$atts = $cite = $graf = $ext  = '';
