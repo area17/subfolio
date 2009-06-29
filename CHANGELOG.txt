@@ -2,6 +2,12 @@ SUBFOLIO CHANGELOG
 
 UNRELEASED CHANGES
 
+VERSION: 0.9.20090628
+
+[THEME]     Removed PDF embedding
+[ENGINE]    Fix for poorly formatted yml being passed into Textile
+[ENGINE]    Made sorting case insenstive, and fix for by Kind sorting
+
 VERSION: 0.9.20090625
 
 [THEME]     Icon sizing fixed
