@@ -10,3 +10,11 @@ display_file_names_in_gallery: true
 display_info: true
 
 listing_mode: list
+
+display_title: true
+display_breadcrumb: true
+display_navigation:  true
+display_send_page: true
+display_collapse_header: true
+display_tiny_url: false
+display_updated_since: true
