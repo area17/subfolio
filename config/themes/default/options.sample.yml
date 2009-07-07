@@ -8,3 +8,5 @@ replace_dash_space: true
 display_file_extensions: true
 display_file_names_in_gallery: true
 display_info: true
+
+listing_mode: list
