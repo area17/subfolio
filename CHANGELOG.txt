@@ -2,6 +2,12 @@ SUBFOLIO CHANGELOG
 
 UNRELEASED CHANGES
 
+VERSION: 0.9.20090706
+
+[THEME]     Moved display options from setting to new options.yml file 
+            and added showcase mode options
+[ENGINE]    Updated for new theme options.yml file
+
 VERSION: 0.9.20090628
 
 [THEME]     Removed PDF embedding
