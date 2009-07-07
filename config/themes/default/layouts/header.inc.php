@@ -7,14 +7,23 @@
             $showHideLabel = "".Kohana::lang('filebrowser.expandheader');;
         }
     }
+
+  $replace_dash_space = view::get_option('replace_dash_space', true);  
+  $replace_underscore_space = view::get_option('replace_underscore_space', true);
+  $display_file_extensions = true;
 ?>
 <div id="header">
   <?php
     $site_name_display = Kohana::config('filebrowser.site_name');
     $logo = Kohana::config('filebrowser.site_logo_url');
+    $logo = view::get_option('site_logo_url', $logo);
     if ($logo <> "") {
     	$width = Kohana::config('filebrowser.site_logo_width');
+    	$width = view::get_option('site_logo_width', $width);
+    	
 			$height = Kohana::config('filebrowser.site_logo_height');
+    	$height = view::get_option('site_logo_height', $height);
+			
 			if ($width <> '') { $width = " width='$width' "; }
 			if ($height <> '') { $height = " height='$height' "; }
       $site_name_display = "<img $width $height src='$logo' />";
@@ -44,9 +53,9 @@
         &nbsp;/&nbsp;
         
         <?php if ($count == sizeof($parts)) { ?>
-          <?php echo htmlentities(FileFolder::fix_display_name($value)) ?>
+          <?php echo htmlentities(FileFolder::fix_display_name($value, $replace_dash_space, $replace_underscore_space, $display_file_extensions)) ?>
         <?php } else { ?>
-          <a href="<?php echo $path.$value ?>"><?php echo htmlentities(FileFolder::fix_display_name($value)) ?></a>
+          <a href="<?php echo $path.$value ?>"><?php echo htmlentities(FileFolder::fix_display_name($value, $replace_dash_space, $replace_underscore_space, $display_file_extensions)) ?></a>
         <?php }  ?>
       <?php 
         $path .=  $value . "/";

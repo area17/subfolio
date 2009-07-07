@@ -1,4 +1,6 @@
 <?php
+  $display_info = view::get_option('display_info', true);
+
 	// This is not very DRY (also used in files_and_foder) we have to refactor it...
 	// Also, we should remove any logic from views...
 	
@@ -33,4 +35,6 @@
   PLUGINSPAGE='http://public.macromedia.com/go/getflashplayer'>
 </EMBED>
 
+<?php if ($display_info) { ?>
 <?php require("_hideable_download_box.php") ?>
+<?php } ?>

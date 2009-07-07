@@ -1,0 +1,10 @@
+
+site_logo_url: /config/themes/default/images/logos/logo.png
+site_logo_width: 256
+site_logo_height: 53
+
+replace_underscore_space: true
+replace_dash_space: true
+display_file_extensions: true
+display_file_names_in_gallery: true
+display_info: true

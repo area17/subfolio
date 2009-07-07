@@ -1,5 +1,9 @@
 <?php 
 
+$replace_dash_space = view::get_option('replace_dash_space', true);  
+$replace_underscore_space = view::get_option('replace_underscore_space', true);
+$display_file_extensions = view::get_option('display_file_extensions', true);
+
 $gallery_files = $this->filebrowser->get_file_list("img");
 $folders = $this->filebrowser->get_folder_list();
 $folders = $this->filebrowser->sort($folders);
@@ -74,12 +78,12 @@ foreach ($folders as $folder):
 
     $kind_display = isset($folder_kind['display']) ? $folder_kind['display'] : '';
     $url = "";
-    $display = $folder->get_display_name();
+    $display = $folder->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions);
 	  switch ($kind) {
 			case "site" :
 			  		$url = "/directory".$this->filebrowser->get_link($folder->name)."/index.html";
 			  		$target = "_blank";
-		        $display = format::filename($folder->get_display_name(), false);
+		        $display = format::filename($folder->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions), false);
 		        break;
 
 			case "pages" :
@@ -221,18 +225,18 @@ endforeach ?>
 	        $style    = $this->filebrowser->get_item_property($file->name, 'style')    ? $this->filebrowser->get_item_property($file->name, 'style') : 'POPSCROLL';
 
 	        $url = "javascript:pop('$url','$name',$width,$height,'$style');";
-				  $display = format::filename($file->get_display_name(), false);
+				  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions), false);
 	        break;
 
   			case "link" :
 	        $url = $this->filebrowser->get_item_property($file->name, 'url')    ? $this->filebrowser->get_item_property($file->name, 'url') : '';
 	        $target = $this->filebrowser->get_item_property($file->name, 'target')    ? $this->filebrowser->get_item_property($file->name, 'target') : '_blank';
-  			  $display = format::filename($file->get_display_name(), false);
+  			  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions), false);
   			  break;
 
   			default:
   			  $url = $this->filebrowser->get_link($file->name);
-  			  $display = $file->get_display_name();
+  			  $display = $file->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions);
           break;  			
 	    }
 

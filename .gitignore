@@ -1,4 +1,3 @@
 engine/application/logs/*
 engine/info/disabled.php
-pkg/*
 .DS_Store

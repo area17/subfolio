@@ -19,6 +19,7 @@ Rake::PackageTask.new('subfolio', version) do |pkg|
   pkg.package_files.exclude('config/settings/filekinds.yml')
   pkg.package_files.exclude('config/users/users.yml')
   pkg.package_files.exclude('config/users/groups.yml')
+  pkg.package_files.exclude('config/themes/default/options.yml')
   pkg.package_files.exclude('directory/*')
 
 end
@@ -28,6 +29,8 @@ task :copyfiles do
   cp "config/settings/settings.sample.yml", "pkg/subfolio-#{version}/config/settings/settings.yml", :verbose => true
   cp "config/settings/language.sample.yml", "pkg/subfolio-#{version}/config/settings/language.yml", :verbose => true
   cp "config/settings/filekinds.sample.yml", "pkg/subfolio-#{version}/config/settings/filekinds.yml", :verbose => true
+
+  mv "config/themes/default/options.sample.yml", "pkg/subfolio-#{version}/config/themes/default/options.yml", :verbose => true
 
   cp "config/users/users.sample.yml", "pkg/subfolio-#{version}/config/users/users.yml", :verbose => true
   cp "config/users/groups.sample.yml", "pkg/subfolio-#{version}/config/users/groups.yml", :verbose => true

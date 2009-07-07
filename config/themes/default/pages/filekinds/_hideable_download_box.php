@@ -1,11 +1,7 @@
 <div id="info">
-	
 	<a href="javascript:InfoHideSwitch('info-box','info-button');" id="info-button" class="">Info</a>
-	
 	<div id="info-box" class="hide">
-
 		<div id="download_box">
-
 			<a id="clickable-zone" href="<?php echo $this->filebrowser->get_file_url(); ?>">
 				<!-- Filename / comment -->
 				<p id="filename"><?php echo $this->filebrowser->file ?></p>
@@ -24,9 +20,6 @@
 			<?php } ?>
 			<!-- Download -->
 			<a href="<?php echo $this->filebrowser->get_file_url(); ?>?download=true" id="download">Download</a>
-
-		</div>
-		
+		</div>	
 	</div>
-	
 </div>

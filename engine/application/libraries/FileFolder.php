@@ -18,8 +18,8 @@ class FileFolder {
     $this->stats    = $stats;
   }
 
-  public function get_display_name() {
-    $display = $this->fix_display_name($this->name);
+  public function get_display_name($replace_dashes=true, $replace_underscores=true, $display_extension=true) {
+    $display = $this->fix_display_name($this->name, $replace_dashes, $replace_underscores, $display_extension);
     return htmlentities($display);
   }
 
@@ -173,9 +173,24 @@ class FileFolder {
     }
   }
 
-  public static function fix_display_name($value='') {
+  public static function fix_display_name($value='', $replace_dashes=true, $replace_underscores=true, $display_extension=true) {
     $display = $value;
-    $display = str_replace("_", " ", $display);
+
+    if ($replace_dashes) {
+      $display = str_replace("-", " ", $display);
+    }
+    
+    if ($replace_underscores) {
+      $display = str_replace("_", " ", $display);
+    }
+    
+    if (!$display_extension) {
+      $path_parts = pathinfo($value);
+      if (isset($path_parts['extension'])) {
+        $display = substr($display, 0, (-1 * (1+strlen($path_parts['extension']))));
+      }
+    }
+    
     return $display;
   }
 
