@@ -1,4 +1,6 @@
 <?php 
+$listing_mode = Kohana::config('filebrowser.listing_mode');
+$listing_mode = view::get_option('listing_mode', $listing_mode);
 
 $replace_dash_space = view::get_option('replace_dash_space', true);  
 $replace_underscore_space = view::get_option('replace_underscore_space', true);
@@ -141,7 +143,7 @@ foreach ($folders as $folder):
 						        }
 
 						        $icon_file = $this->filekind->get_icon_by_file($folder_kind);
-										$listing_mode = $this->filebrowser->get_folder_property('listing_mode', Kohana::config('filebrowser.listing_mode'));
+										$listing_mode = $this->filebrowser->get_folder_property('listing_mode', $listing_mode);
 						        $icon = view::get_view_url()."/images/icons/".$listing_mode."/".$icon_file.".png";        
 						      ?>
 										<?php	if ($updated) { ?>
@@ -208,7 +210,7 @@ endforeach ?>
       }
 
       $icon_file = $this->filekind->get_icon_by_file($file_kind);
-			$listing_mode = $this->filebrowser->get_folder_property('listing_mode', Kohana::config('filebrowser.listing_mode'));
+			$listing_mode = $this->filebrowser->get_folder_property('listing_mode', $listing_mode);
       $icon = view::get_view_url()."/images/icons/".$listing_mode."/".$icon_file.".png";
 
       $target = "";
