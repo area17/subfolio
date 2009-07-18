@@ -61,8 +61,14 @@ class Auth {
   public function logged_in() {
     // Get the user from the session
     $user = $this->session->get($this->config['session_key']);
-    
     $status = (gettype($user) == "object") ? true : false;
+
+		// check if user still exists
+		if ($status && !isset($this->users[$user->name])) {
+			$user = null;
+			$status = false;
+			$this->session->delete($this->config['session_key']);
+		}
 
     // Get the user from the cookie
     if ($status == false) {
@@ -74,9 +80,11 @@ class Auth {
         $hash = $this->hash($username.$this->config['salt']);
 
         if ($hash == $cookie_vars[1]) {
-          $user = new User($cookie_vars[0], $this->users[$cookie_vars[0]]);
-          $this->session->set($this->config['session_key'], $user);
-          $status = true;
+        	if (isset($this->users[$cookie_vars[0]])) {
+	          $user = new User($cookie_vars[0], $this->users[$cookie_vars[0]]);
+	          $this->session->set($this->config['session_key'], $user);
+	          $status = true;
+          }
         }
       }
     }
