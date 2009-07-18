@@ -1,7 +1,76 @@
-h1. Welcome
+h1. Installation Successful
 
-h2. to your Subfolio
+h2. Welcome to your Subfolio
 
-h3. Start now:
 
-You can start by adding files and folders in this directory.
+h3. Quick Start
+
+There is little-to-nothing you _need_ to know about Subfolio to get started with basic usage. 
+
+_Below are a few things that you may want to know:_
+
+
+h4. Starting to use it immediately
+
+* Add files and folders to the _directory_ folder and Subfolio will create pages from files and sections from folders
+* Thumbnails will be generated automatically for any browser-viewable files
+* Play around and get a feel of how it behaves
+* Subfolio supports most file kinds, download a package of "example file kinds":http://www.subfolio.com/download to play with
+
+h4. Giving it a name
+
+* Go to /config/settings/settings.yml and change the name of your website and the URL
+* For fun, take a look at all the other settings files
+
+h4. Adding your logo
+
+* Go to /config/themes/default/options.yml and replace the Subfolio logo
+* In the same location, there are other options to turn on and off interface elements
+
+h4. Delete this file
+
+* This file is an _Enhancer_ for embedding text into a page. Don't forget to delete it before you go live
+* Learn to use "Enhancers":http://www.subfolio.com/documentation or download
+
+h3. Explore the possibilities
+
+h4. Making it private
+
+* If you are using Subfolio for private purposes, make sure you add access control
+* This is done by setting up a user at /config/users/users.yml
+* Then adding a _-access_ file with the user permissions to the folder you'd like to protect
+* Read the access control "documentation":http://www.subfolio.com/documentation for full instructions
+
+h4. Making it your own
+
+* Change your interface options at /config/themes/default/options.yml
+* Learn to use "Enhancers":http://www.subfolio.com/documentation to feature items and much more
+* Download a package of "example Enhancers":http://www.subfolio.com/download to play with
+* Themes are interchangeable. Choose a theme that fits your needs
+* If you know a bit of HTML/CSS, feel free to customize a theme or create your own
+
+h4. Read the documentation
+
+* There are a lot of hidden features to take advantage of, read the "documentation":http://www.subfolio.com/documentation to know your options
+
+h3. And a few fast tips...
+
+h4. Embedding images and text into the page
+
+* Add a _&ndash;t&ndash;_ or _&ndash;m&ndash;_ or _&ndash;b&ndash;_ to the beginning of any txt or image file name to embed it at the _top_ or _middle_ or _bottom_ of the page
+
+h4. Hiding content
+
+* Put a dash at the start of a file or folder name and it will disappear from the listing
+* You can still access hidden content directly via URL
+* It's a nice way to work on a part of your Subfolio in private (just remove the dash when you are done)
+
+h4. Using dashes or underscores instead of spaces in filenames
+
+* You can use spaces for your filenames, but it's better to use underscores as it will make your URL's cleaner
+* Subfolio will replace all underscores and dashes with a space on the website itself
+* You can turn this option off in _/config/themes/default/options.yml_
+
+h4. Getting system information
+
+* Visit the following URL on your domain: http://www.example.com/engine/info

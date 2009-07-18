@@ -34,6 +34,8 @@ task :copyfiles do
 
   cp "config/users/users.sample.yml", "pkg/subfolio-#{version}/config/users/users.yml", :verbose => true
   cp "config/users/groups.sample.yml", "pkg/subfolio-#{version}/config/users/groups.yml", :verbose => true
+
+  cp "engine/install/demo/-t-welcome.txt", "pkg/subfolio-#{version}/directory/-t-welcome.txt", :verbose => true
   
   rm "pkg/subfolio-#{version}.tgz"
 end
