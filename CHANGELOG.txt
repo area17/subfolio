@@ -2,6 +2,13 @@ SUBFOLIO CHANGELOG
 
 UNRELEASED CHANGES
 
+VERSION: 0.9.20090718
+
+[THEME]			Fix for large icon display in grid vie
+[CONFIG]		Removed logo setting from sample settings file
+[DIRECTORY]	Add intro text file 
+[ENGINE]		Properly handle users who are delete while activeon the website
+
 VERSION: 0.9.20090706
 
 [THEME]     Moved display options from setting to new options.yml file 
