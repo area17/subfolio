@@ -88,7 +88,7 @@
     <?php if (view::get_option('display_tiny_url', true)) { ?>
     <span class="nav_sep"></span><a href="javascript:void(location.href='http://tinyurl.com/create.php?url='+encodeURIComponent(location.href))">generate tiny url</a>
     <?php } ?>
-    <?php if (view::get_option('display_collapse_header', true)) { ?>
+    <?php if (view::get_option('display_collapse_header', true) and view::get_option('display_header', true)) { ?>
     <span class="nav_sep"></span><a id="showHideSwitch" href="javascript:showHideSwitch('logo', document.getElementById('hideText'));"><FONT id="hideText"><?php print "".$showHideLabel;?></FONT></a>
     <?php } ?>
 
