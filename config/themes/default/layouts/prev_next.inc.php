@@ -5,13 +5,7 @@
     	$parent_link = urlencode(dirname($ff));
       $parent_link = str_replace('%2F', '/', $parent_link);
 	  ?>
-    <a href='/<?php echo $parent_link ?>'>
-		<span class='fileicon'>
-			<!-- span class="icon_download blank"></span> -->
-			<span class="parent_arrow">Parent Directory</span>
-		</span>
-		<span class='name'>Parent Directory</span>
-    </a>
+    <a href='/<?php echo $parent_link ?>'>Parent Directory</a>
    </span>
 	<span class="prev_next">
 		<?php if($this->filebrowser->is_file()) {
@@ -30,7 +24,6 @@
 			} else {
 				print "<span class='faded'>Previous</span>";
 			}
-			echo "<span class='nav_sep'></span>";
 
 			if ($next <> "") {
       	$link = urlencode($next->name);
@@ -54,7 +47,6 @@
 			} else {
 				print "<span class='faded'>Previous Directory</span>";
 			}
-			echo "<span class='nav_sep'></span>";
 
 			if ($next <> "") {
       	$link = urlencode($next->name);

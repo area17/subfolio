@@ -38,7 +38,7 @@ if (view::get_option('display_header', true)) {
   <?php if (view::get_option('display_breadcrumb', true)) { ?>
   <div id="breadcrumb">
     <?php if ($this->auth->logged_in()) { ?>
-      <?php echo $this->auth->get_user()->name ?> browsing
+      <span><?php echo $this->auth->get_user()->name ?> browsing</span>
     <?php } ?>
 
     <?php 
@@ -47,15 +47,15 @@ if (view::get_option('display_header', true)) {
     <?php if ($ff <> "" && sizeof($parts) > 0) { 
       $path = "/";
       ?>
-      <?php echo Kohana::lang('filebrowser.indexof'); ?> <a href="/"><?php echo Kohana::config('filebrowser.site_domain'); ?></a>
+      <span><?php echo Kohana::lang('filebrowser.indexof'); ?>&nbsp;</span><a href="/"><?php echo Kohana::config('filebrowser.site_domain'); ?></a>
   
       <?php 
       $count = 1;
       foreach ($parts as $key => $value): ?>
-        &nbsp;/&nbsp;
+        <span class='slash'>&nbsp;/&nbsp;</span>
         
         <?php if ($count == sizeof($parts)) { ?>
-          <?php echo htmlentities(FileFolder::fix_display_name($value, $replace_dash_space, $replace_underscore_space, $display_file_extensions)) ?>
+          <span><?php echo htmlentities(FileFolder::fix_display_name($value, $replace_dash_space, $replace_underscore_space, $display_file_extensions)) ?></span>
         <?php } else { ?>
           <a href="<?php echo $path.$value ?>"><?php echo htmlentities(FileFolder::fix_display_name($value, $replace_dash_space, $replace_underscore_space, $display_file_extensions)) ?></a>
         <?php }  ?>
@@ -65,33 +65,34 @@ if (view::get_option('display_header', true)) {
       endforeach ?>
   
     <?php } else { ?>
-      <?php echo Kohana::lang('filebrowser.indexof'); ?> <a href="/"><?php echo Kohana::config('filebrowser.site_domain'); ?></a>
+      <span><?php echo Kohana::lang('filebrowser.indexof'); ?>&nbsp;</span><a href="/"><?php echo Kohana::config('filebrowser.site_domain'); ?></a>
     <?php } ?>
   </div>
   <?php } ?>
-  <div id="tools">
+  <ul id="tools">
+
+
       <?php
       if ($this->auth->logged_in()) {
-          print "<a title='Logout' alt='' href='/logout'>".Kohana::lang('filebrowser.logout')."</a>";
+          print "<li><a title='Logout' alt='' href='/logout'>".Kohana::lang('filebrowser.logout')."</a></li>";
       }
-      if (view::get_option('display_send_page', true)) { ?>
-      <span class="nav_sep"></span><?php
+      if (view::get_option('display_send_page', true)) {
       $subject = "Link from " . $_SERVER["SERVER_NAME"];
       $body = "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
       ?><script>
       <!--
-      document.write('<a href="mailto:?subject=<?php print "".$subject?>&body='+location.href+'"><?php echo Kohana::lang('filebrowser.sendpage') ?></a>');
+      document.write('<li><a href="mailto:?subject=<?php print "".$subject?>&body='+location.href+'"><?php echo Kohana::lang('filebrowser.sendpage') ?></a></li>');
       -->
       </script>
       <?php } ?>
     <?php if (view::get_option('display_tiny_url', true)) { ?>
-    <span class="nav_sep"></span><a href="javascript:void(location.href='http://tinyurl.com/create.php?url='+encodeURIComponent(location.href))">generate tiny url</a>
+    <li><a href="javascript:void(location.href='http://tinyurl.com/create.php?url='+encodeURIComponent(location.href))">generate tiny url</a></li>
     <?php } ?>
     <?php if (view::get_option('display_collapse_header', true) and view::get_option('display_header', true)) { ?>
-    <span class="nav_sep"></span><a id="showHideSwitch" href="javascript:showHideSwitch('header', document.getElementById('hideText'));"><FONT id="hideText"><?php print "".$showHideLabel;?></FONT></a>
+    <li><a id="showHideSwitch" href="javascript:showHideSwitch('header', document.getElementById('hideText'));"><FONT id="hideText"><?php print "".$showHideLabel;?></FONT></a></li>
     <?php } ?>
 
-  </div>
+  </ul>
 </div>
  
 <?php if (view::get_option('display_navigation', true)) { ?>
