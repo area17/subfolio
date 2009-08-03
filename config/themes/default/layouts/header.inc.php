@@ -14,7 +14,7 @@
 ?>
 <div id="header">
   <?php
-  if (view::get_option('display_title', true)) {
+  if (view::get_option('display_header', true)) {
     $site_name_display = Kohana::config('filebrowser.site_name');
     $logo = Kohana::config('filebrowser.site_logo_url');
     $logo = view::get_option('site_logo_url', $logo);

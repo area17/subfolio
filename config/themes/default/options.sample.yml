@@ -11,7 +11,7 @@ display_info: true
 
 listing_mode: list
 
-display_title: true
+display_header: true
 display_breadcrumb: true
 display_navigation:  true
 display_send_page: true
