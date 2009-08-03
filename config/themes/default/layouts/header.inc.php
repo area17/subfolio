@@ -1,38 +1,37 @@
 <?php
-    $showHide = "showSwitch";
-    $showHideLabel = "".Kohana::lang('filebrowser.collapseheader');
-    if (isset($_COOKIE['logo'])) {
-        if ($_COOKIE['logo'] == "hideSwitch") {
-            $showHide = "hideSwitch";
-            $showHideLabel = "".Kohana::lang('filebrowser.expandheader');;
-        }
-    }
-
   $replace_dash_space = view::get_option('replace_dash_space', true);
   $replace_underscore_space = view::get_option('replace_underscore_space', true);
   $display_file_extensions = true;
 ?>
-<div id="header">
-  <?php
-  if (view::get_option('display_header', true)) {
-    $site_name_display = Kohana::config('filebrowser.site_name');
-    $logo = Kohana::config('filebrowser.site_logo_url');
-    $logo = view::get_option('site_logo_url', $logo);
-    if ($logo <> "") {
-    	$width = Kohana::config('filebrowser.site_logo_width');
-    	$width = view::get_option('site_logo_width', $width);
-    	
-			$height = Kohana::config('filebrowser.site_logo_height');
-    	$height = view::get_option('site_logo_height', $height);
-			
-			if ($width <> '') { $width = " width='$width' "; }
-			if ($height <> '') { $height = " height='$height' "; }
-      $site_name_display = "<img $width $height src='$logo' />";
-    }
-  ?>
-	<h1 id="logo" class="logo <?php print "".$showHide; ?>"><a href='/' ><?php echo $site_name_display ?></a></h1>
-	<?php } ?>
+<?php
+if (view::get_option('display_header', true)) {
+  $site_name_display = Kohana::config('filebrowser.site_name');
+  $logo = Kohana::config('filebrowser.site_logo_url');
+  $logo = view::get_option('site_logo_url', $logo);
+  if ($logo <> "") {
+  	$width = Kohana::config('filebrowser.site_logo_width');
+  	$width = view::get_option('site_logo_width', $width);
+  	
+		$height = Kohana::config('filebrowser.site_logo_height');
+  	$height = view::get_option('site_logo_height', $height);
+		
+		if ($width <> '') { $width = " width='$width' "; }
+		if ($height <> '') { $height = " height='$height' "; }
+    $site_name_display = "<img $width $height src='$logo' />";
+  }
+	$showHide = "showSwitch";
+  $showHideLabel = "".Kohana::lang('filebrowser.collapseheader');
+  if (isset($_COOKIE['header'])) {
+      if ($_COOKIE['header'] == "hideSwitch") {
+          $showHide = "hideSwitch";
+          $showHideLabel = "".Kohana::lang('filebrowser.expandheader');;
+      }
+  }
+?>
+<div id="header" class="<?php print $showHide; ?>">
+	<h1 id="logo"><a href='/' ><?php echo $site_name_display ?></a></h1>	
 </div>
+<?php } ?>
 
 <div id="breadcrumbtools">
   <?php $ff = $this->filebrowser->get_path(); ?>

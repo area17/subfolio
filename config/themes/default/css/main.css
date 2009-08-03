@@ -272,6 +272,7 @@ background: url(../images/system/close24.png) no-repeat 10px 10px;
 background-position: 10px -140px;
 }
 #header {
+
 }
 
 /* LOGO */
@@ -284,9 +285,9 @@ margin:0;
 overflow:hidden;
 line-height:37px;
 width:100%;
-height: 35px;
+/*height: 35px;*/
 }
-
+#breadcrumbtools { min-height: 15px; }
 #breadcrumbtools a, #footer a, #navigation a, #navigation .faded {
 padding:14px 0;
 }
