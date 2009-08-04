@@ -1,7 +1,7 @@
 <?php
   $replace_dash_space = view::get_option('replace_dash_space', true);
   $replace_underscore_space = view::get_option('replace_underscore_space', true);
-  $display_file_extensions = true;
+  $display_file_extensions = view::get_option('display_file_extensions', true);
 ?>
 <?php
 if (view::get_option('display_header', true)) {

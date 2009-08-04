@@ -1,3 +1,8 @@
+<?php
+  $replace_dash_space = view::get_option('replace_dash_space', true);
+  $replace_underscore_space = view::get_option('replace_underscore_space', true);
+  $display_file_extensions = view::get_option('display_file_extensions', true);
+?>
 <div id="download_box">
 		
 	<a id="clickable-zone" href="<?php echo $this->filebrowser->get_file_url(); ?>?download=true">
@@ -12,7 +17,8 @@
 		<img width='32' height='32' src='<?php echo $icon; ?>' />
 		<?php } ?>
 		<!-- Filename / comment -->
-		<p id="filename"><?php echo $this->filebrowser->file ?></p>
+		<p id="filename"><?php echo htmlentities(FileFolder::fix_display_name($this->filebrowser->file, $replace_dash_space, $replace_underscore_space, $display_file_extensions)) ?></p>
+		
 		<?php	if (isset($comment) && $comment <> '') { ?>
 		<p><?php echo format::get_rendered_text($comment) ?></p>
 		<?php } ?>
