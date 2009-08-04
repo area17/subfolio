@@ -133,6 +133,16 @@ background-color: #f5f5f5;
 color: #1a1a1a;
 overflow: auto;
 }
+.standard_paragraph table {
+padding: 10px 0;
+}
+.standard_paragraph table td { color: #1a1a1a; }
+.standard_paragraph table td {
+padding:9px 0 0 5px;
+border-top: 1px solid #e0e0e0;
+}
+.standard_paragraph table tr:last-child td { border-bottom: 1px solid #e0e0e0;}
+
 .standard_paragraph a, .standard_paragraph a:link, .standard_paragraph a:visited { text-decoration: underline; }
 
 /* @end */
