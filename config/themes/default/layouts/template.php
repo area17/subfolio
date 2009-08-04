@@ -8,7 +8,7 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	
-  <title><?php print $site_title;?> | <?php print $page_title;?></title>
+  <title><?php print $page_title;?> — <?php print $site_title;?></title>
 
 	<link rel="shortcut icon" type="image/png" href="<?php echo view::get_view_url() ?>/images/logos/favicon.png" />
 	<link href="<?php echo view::get_view_url() ?>/css/main.css" type="text/css" rel="stylesheet" >

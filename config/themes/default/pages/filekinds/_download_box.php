@@ -31,6 +31,6 @@
 	<?php } ?>
 	<!-- Download -->
 	<?php } ?>
-	<a href="<?php echo $this->filebrowser->get_file_url(); ?>?download=true" id="download">Download</a>
+	<a href="<?php echo $this->filebrowser->get_file_url(); ?>?download=true" id="download">Download File</a>
 	
 </div>

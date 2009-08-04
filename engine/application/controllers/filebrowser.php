@@ -156,9 +156,13 @@ class Filebrowser_Controller extends Website_Controller {
   		    }
         }
 			  
+				$replace_dash_space = view::get_option('replace_dash_space', true);
+			  $replace_underscore_space = view::get_option('replace_underscore_space', true);
+			  $display_file_extensions = view::get_option('display_file_extensions', true);
+			
         if ($single) {
           $file = $this->filebrowser->get_file();
-
+					
           if ($is_folder) {
           } else {
             $fkind = $this->filekind->get_kind_by_file($file->name);
@@ -173,7 +177,8 @@ class Filebrowser_Controller extends Website_Controller {
         		$content = View::factory('pages/filekinds/default');
         		$content->file = $file;
     		  }
-          $this->template->page_title = "File: ".$file->name;
+          $this->template->page_title = $file->name;
+					$this->template->page_title = FileFolder::fix_display_name($file->name, $replace_dash_space, $replace_underscore_space, $display_file_extensions);
       		$this->template->content = $content;
         } else {
 					
@@ -183,7 +188,8 @@ class Filebrowser_Controller extends Website_Controller {
       		$this->template->content = $content;
 
       		if ($folder <> "") {
-            $this->template->page_title = "Directory: ".$folder;
+            $this->template->page_title = $folder;
+						$this->template->page_title = FileFolder::fix_display_name($folder, $replace_dash_space, $replace_underscore_space, $display_file_extensions);
           }
     		}
   		} else {
