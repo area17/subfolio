@@ -27,7 +27,7 @@ font-size:12px;
 font-weight: normal;
 color: #666666;
 }
-ul, ol { list-style-type: none; }
+ul { list-style-type: none; }
 
 
 /* @group Global layout */
@@ -101,15 +101,17 @@ font: italic 11px/15px Georgia, "Times New Roman", Times, serif;
 display: block;
 margin: 15px 0;
 }
-
-.standard_paragraph ul li, .standard_paragraph ol li {
+.standard_paragraph li {
 color: #333;
 margin-bottom: 5px;
 margin-top: 5px;
+}
+.standard_paragraph ul li {
+color: #333;
 list-style-image: url(../images/system/dot.png);
 margin-left: 20px;
 }
-.standard_paragraph ol li { margin-left: 22px; }
+.standard_paragraph ol li { margin-left: 21px; }
 
 .standard_paragraph blockquote {
 display: block;
