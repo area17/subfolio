@@ -7,6 +7,7 @@
 .listing {
 	font-size:12px;
 	width: 100%;
+	position: relative;
 }
 
 	.listing li {
@@ -20,6 +21,7 @@
 			display: block;
 			overflow: hidden;
 			_padding-bottom: 3px; /* IE6: allows the hover to "wrap" properly the list item */
+			
 		}
 		
 		.listing li a:hover {
@@ -47,9 +49,10 @@
 	.listing li span {
 		display: block;
 		float: left;
+		
 	}
 
-	.icon { width: 25px;}
+	.icon { width: 25px; height: 17px; position: relative; }
 	.filename { width: 200px;}
 	.size { width: 65px;}
 	.date { width: 90px;}
@@ -63,29 +66,30 @@
 /* -------------------------------------------------------------- 
    MODULES: CONTENT / LISTING ICONS
 -------------------------------------------------------------- */
-
 * html .icon .icon_download { position:absolute; }
 
 .updated, .new {
 position:absolute;
+top: 0;
+left: 12px;
 display:block;
 width:9px;
 height:9px;
 z-index:99;
 background:url("../images/system/updated.png") no-repeat top left;
-margin:0 0 0 12px !important;
 }
 
 .new { background: url("../images/system/new.png") no-repeat top left; }
 
 .locked, .unlocked {
 position:absolute;
+top: 5px;
+left: 3px;
 display:block;
 width:10px;
 height:9px;
 z-index:98;
 background:url("../images/system/lock.png") no-repeat top left;
-margin:5px 0 0 3px;
 }
 .locked { background-position:top; }
 .unlocked { background-position:0 -50px; }
