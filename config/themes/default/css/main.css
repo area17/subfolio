@@ -317,16 +317,7 @@ padding: 1px;
 	position: relative;
 	_margin-bottom: 0 !important; 
 }
-/*#gallery ul li a div.gallery_thumbnail div.hcenterer { height: 240px; margin: 0 auto; overflow: hidden; }
-#gallery ul li a div.gallery_thumbnail div.vcenterer {
-display: table-cell;
-vertical-align: middle;
-height:240px;
-width: 100px;
-}*/
 
-/*div[id=gallery] ul li a div.gallery_thumbnail.generated { height:240px; } *//** not for IE6 **/
- 
 #gallery ul li a img { border:none; overflow:hidden; }
 
 #gallery ul li a:hover,#gallery ul li a:hover p {
@@ -338,8 +329,6 @@ color:#fff;
 margin:0;
 padding:9px 5px 5px 7px;
 }
-
-* html #gallery { clear:left; }
 
 /* @end */
 
@@ -366,12 +355,11 @@ padding:0 160px 0 0;
 _display: inline-block;
 }
 
-
-#features ul li a .image {
-float:left;
+#features ul li a .image img { border:1px solid #fff; }*/
+#features ul li a img {
+	float: left;
+	border: 1px solid #fff;
 }
-
-#features ul li a .image img { border:1px solid #fff; }
 
 #features ul li a > .info {
 float:left;
@@ -398,7 +386,7 @@ padding:0 10px 10px;
 }
 
 #features ul li a:hover { background-color:#f5f5f5; }
-#features ul li a:hover .image img { border:1px solid #1a1a1a; }
+#features ul li a:hover img { border:1px solid #1a1a1a; }
 /** html #features { clear:left; }
 * html #features ul li a .info { position:absolute; }*
 
