@@ -289,7 +289,7 @@ border-right: 1px solid #e0e0e0;
    MODULES: CONTENT / GALLERY
 -------------------------------------------------------------- */
 
-#gallery { display: inline-block;  }
+#gallery { display: inline-block; position: relative; }
 
 #gallery ul {
 list-style: none;
@@ -318,6 +318,7 @@ padding: 1px;
 	_margin-bottom: 0 !important; 
 }
 
+ 
 #gallery ul li a img { border:none; overflow:hidden; }
 
 #gallery ul li a:hover,#gallery ul li a:hover p {
@@ -330,6 +331,8 @@ margin:0;
 padding:9px 5px 5px 7px;
 }
 
+/** html #gallery { clear:left; }*/
+
 /* @end */
 
 /* @group Features */
@@ -337,7 +340,7 @@ padding:9px 5px 5px 7px;
 /* -------------------------------------------------------------- 
    MODULES: CONTENT / FEATURES
 -------------------------------------------------------------- */
-#features { overflow:hidden; }
+#features { overflow:hidden; _display: inline-block;}
 
 #features ul {
 list-style:none;
@@ -353,6 +356,11 @@ display:block;
 overflow:hidden;
 padding:0 160px 0 0;
 _display: inline-block;
+}
+
+
+/*#features ul li a .image {
+float:left;
 }
 
 #features ul li a .image img { border:1px solid #fff; }*/
@@ -386,7 +394,7 @@ padding:0 10px 10px;
 }
 
 #features ul li a:hover { background-color:#f5f5f5; }
-#features ul li a:hover img { border:1px solid #1a1a1a; }
+#features ul li a:hover /*.image*/ img { border:1px solid #1a1a1a; }
 /** html #features { clear:left; }
 * html #features ul li a .info { position:absolute; }*
 
@@ -671,7 +679,7 @@ margin:15px 0;
 }
 
 /* Sets styles only for direct childs of #content (i.e gallery, features, listing). IE6 doesn't get it */
-#content > * {
+#content > div {
 margin:0 0 15px;
 }
 

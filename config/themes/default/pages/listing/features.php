@@ -20,7 +20,9 @@ if (sizeof($file_features) > 0) {
 	    ?>
 	    <li>
 		  <a href="<?php echo $feature_link ?>">
-	      <img src="/directory/<?php echo $this->filebrowser->get_folder() ?>/<?php echo $feature['image'] ?>">
+	      <!--<div class="image">-->
+	        <img src="/directory/<?php echo $this->filebrowser->get_folder() ?>/<?php echo $feature['image'] ?>">
+	      <!--</div>-->
 	      <div class="info">
 	        <h2><?php echo $feature['title'] ?></h2>
 	        <?php echo format::get_rendered_text($feature['description']) ?>
