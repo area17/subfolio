@@ -18,10 +18,9 @@
 
 		
 		.listing li a {
-			display: block;
+			display: inline-block;
 			overflow: hidden;
-			_padding-bottom: 3px; /* IE6: allows the hover to "wrap" properly the list item */
-			
+			width: 100%;
 		}
 		
 		.listing li a:hover {
