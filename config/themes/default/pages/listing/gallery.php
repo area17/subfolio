@@ -24,7 +24,7 @@ if (sizeof($files) > 0) {
   			?>
         <li>
           <a href="<?php echo $this->filebrowser->get_link($file->name); ?>">
-  					<div class="gallery_thumbnail">
+  					<div class="gallery_thumbnail" style="width:<?php echo $width."px"; ?>">
   						<img width="<?php echo $width ?>" height="<?php echo $height ?>" src="<?php echo $image_source ?>" />
   					</div>
   					<?php if ($display_filenames) { ?>
@@ -37,12 +37,8 @@ if (sizeof($files) > 0) {
   			?>
   	    <li>
           <a href="<?php echo $this->filebrowser->get_link($file->name); ?>">
-  					<div class="gallery_thumbnail generated">
-  						<div class='hcenterer' style="width:<?php echo $width."px"; ?>" >
-  							<div class="vcenterer">
-  								<img width="<?php echo $width ?>"  height="<?php echo $height ?>" src="<?php echo $image_source ?>" />
-  							</div>
-  						</div>
+  					<div class="gallery_thumbnail" style="width:<?php echo $width."px"; ?>">
+  						<img width="<?php echo $width ?>"  height="<?php echo $height ?>" src="<?php echo $image_source ?>" />
   					</div>
   					<?php if ($display_filenames) { ?>
             	<p><?php echo $file->name ?></p>

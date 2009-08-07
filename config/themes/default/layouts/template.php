@@ -19,9 +19,8 @@
 	<link rel="icon" href="<?php echo view::get_view_url() ?>/favicon.ico" type="image/x-con" />
 	<link rel="shortcut icon" href="<?php echo view::get_view_url() ?>/favicon.ico" type="image/x-con" />
 	
-	<script language="javascript" type="text/javascript" src="<?php echo view::get_view_url() ?>/js/browserdetect_lite.js"></script>
-	<script language="javascript" type="text/javascript" src="<?php echo view::get_view_url() ?>/js/global.js"></script>
-	<script language="javascript" type="text/javascript" src="<?php echo view::get_view_url() ?>/js/rollover.js"></script>
+	<script language="javascript" type="text/javascript" src="/config/themes/default/js/jquery-1.3.2.min.js"></script>
+	<script language="javascript" type="text/javascript" src="/config/themes/default/js/main.js"></script>
 
 </head>
 <body>

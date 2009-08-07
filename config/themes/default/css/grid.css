@@ -4,113 +4,106 @@
    MODULES: CONTENT / LISTING GRID VIEW
 -------------------------------------------------------------- */
 
-#listing ul {
-list-style:none;
-max-width:none;
-overflow:hidden;
-font-size:12px;
-margin:0;
-padding:0;
+#listing .listing {
+	font-size:12px;
+	display: inline-block;
 }
 
-#listing ul li {
-float:left;
-width:179px;
-height:104px;
-text-align:center;
-overflow:hidden;
-margin: 0 1px 1px 0;
-}
+	#listing .listing .listing-header {
+		display: none;
+	}
 
-#listing ul li a {
-text-decoration:none;
-display:block;
-width:100%;
-height:100%;
-/*background-color:#f5f5f5;*/
--moz-border-radius:3px;
--webkit-border-radius:3px;
-}
+	#listing .listing li {
+		float:left;
+		width: 179px;
+		height: 104px;
+		text-align: center;
+		overflow: hidden;
+		margin: 0 1px 1px 0 !important;
+	}
 
-#listing ul li a:hover {
-background-color:#f5f5f5;
-cursor:pointer;
-}
+		#listing .listing li a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			-moz-border-radius:3px;
+			-webkit-border-radius:3px;
+			
+		}
 
-#listing ul li .listing-content {
-position: relative;
-}
+		#listing .listing li a:hover {
+			background-color: #f5f5f5;
+			cursor: pointer;
+		}
+		
+		#listing .listing li span {
+			display: block;
+		}
+		
+			#listing .listing li span.filename {
+				max-height: 1.2em;
+				overflow: hidden; /* Crop the text if longer */
+			}
+			
+			#listing .listing li span.comment {
+				color: #aaa;
+			}
+		
+	#listing .size, #listing .date, #listing .kind {
+		display: none !important;
+	}
 
-#listing ul li .listing-content .listing-content-left {
-display:block;
-min-height: 75px;
-}
+/* :TODO: Check if we need the following
 
-#listing ul li .listing-content .listing-content-right {
-display:block;
-}
+	.listing li .icon_download {
+	background-repeat:no-repeat;
+	width:5px;
+	height:17px;
+	float:left;
+	top: 35px;
+	left: 65px;
+	background-image:url("../images/system/download.png");
+	}
 
-#listing ul li .listing-content span {
-display:block;
-}
+	.listing li .icon_download.blank {
+	background:none;
+	}
 
-#listing ul li span.filename {
-max-height:1.2em;
-overflow: hidden; /* Crop the text if longer */
-}
+	.listing li .updated {
+	position:absolute;
+	display:block;
+	width:11px;
+	height:11px;
+	z-index:99;
+	background:url("../images/system/updated_xl.png") no-repeat top left;
+	top: 22px;
+	left: 98px;
+	}
 
-#listing ul li span.size,#listing ul li span.datekind {
-display:none;
-}
-
-#listing ul li .icon_download {
-background-repeat:no-repeat;
-width:5px;
-height:17px;
-float:left;
-top: 35px;
-left: 65px;
-background-image:url("../images/system/download.png");
-}
-
-#listing ul li .icon_download.blank {
-background:none;
-}
-
-#listing ul li .updated {
-position:absolute;
-display:block;
-width:11px;
-height:11px;
-z-index:99;
-background:url("../images/system/updated_xl.png") no-repeat top left;
-top: 22px;
-left: 98px;
-}
-
-#listing ul li span.comment {
-color:#aaa;
-}
+	*/
 
 /* -------------------------------------------------------------- 
    MODULES: CONTENT / LISTING ICONS
 -------------------------------------------------------------- */
 
-#listing ul li .icon {
-height: 60px;
+#listing .listing li .icon {
+	height: 60px;
+	position: relative;
 }
 
-#listing ul li .icon span {
-position: absolute;
+	#listing .listing li .icon img {
+		position: absolute;
+		top: 20px;
+		left: 73px;
+	}
+
+/* :TODO: Check if we need the following
+
+.listing li .icon span {
+	position: absolute;
 }
 
-#listing ul li .icon img {
-position: absolute;
-top: 20px;
-left: 73px;
-}
-
-#listing ul li .locked, #listing ul li .unlocked {
+.listing li .locked, .listing li .unlocked {
 display:block;
 width:10px;
 height:9px;
@@ -120,19 +113,17 @@ top: 29px;
 left: 77px;
 }
 
-#listing ul li .unlocked {
+.listing li .unlocked {
 background-position:0 -50px;
 }
 
-* html #listing ul li .icon img {
+* html .listing li .icon img {
 
 }
 
-* html #listing ul li .icon .icon_download {
+* html .listing li .icon .icon_download {
 }
 
-#listing ul li.listing-header {
-display: none;
-}
+*/
 
 /* @end */

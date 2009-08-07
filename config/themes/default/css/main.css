@@ -17,8 +17,9 @@ padding:0;
 body  {
 background-color:#FFF;
 background-repeat:repeat-x;
-min-width:550px;
+min-width: 550px;
 }
+
 
 body, h1, h2, h3, h4, h5, h6, h7, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, field, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, .standard_paragraph b, input {
 /*color:#333;*/
@@ -44,9 +45,6 @@ position: absolute;
 bottom: 0;
 overflow: hidden;
 }
-* html { width: 95%; }
-* html body { width: 96%; }
-* html body #container { width: 96%; }
 
 /* @end */
 
@@ -234,7 +232,7 @@ padding: 14px 10px 0 10px;
 height: 25px; /* 25+14 = 39*/
 border-left: 1px solid #e0e0e0;
 }
-#tools li:last-child a { padding-right: 0; }
+#tools li:last-child a, #tools li.last a { padding-right: 0; }
 
 /* NAVIGATION */
 div#navigation { overflow:hidden; }
@@ -251,7 +249,7 @@ background: url(../images/system/parent.png) no-repeat 3px 12px;
 #breadcrumbtools a:hover, #footer a:hover, #navigation a:hover { background-color: #eee; }
 
 #navigation span.prev_next a, #navigation span.prev_next .faded { padding-left:15px; padding-right:15px; }
-#navigation span.prev_next :first-child { border-right: 1px solid #e0e0e0; }
+#navigation span.prev_next:first-child { border-right: 1px solid #e0e0e0; }
 
 /* FOOTER */
 #footer { border-top:1px solid #e0e0e0; }
@@ -266,11 +264,13 @@ background: url(../images/system/dot.png) no-repeat 0 19px;
 padding-left: 0;
 padding-right: 0;
 }
-#footer a:first-child {
+
+#footer a#footer-home{
 padding-left: 0;
 padding-right: 10px;
 border-right: 1px solid #e0e0e0;
 }
+
 
 /* @end */
 
@@ -289,7 +289,7 @@ border-right: 1px solid #e0e0e0;
    MODULES: CONTENT / GALLERY
 -------------------------------------------------------------- */
 
-#gallery { overflow: hidden; }
+#gallery { display: inline-block;  }
 
 #gallery ul {
 list-style: none;
@@ -311,15 +311,21 @@ padding: 1px;
 }
 #gallery ul li a p { color: #1a1a1a; }
 
-#gallery ul li a div.gallery_thumbnail { background-color: white; }
-#gallery ul li a div.gallery_thumbnail div.hcenterer { height: 240px; margin: 0 auto; overflow: hidden; }
+#gallery ul li a div.gallery_thumbnail { 
+	background-color: white; 
+	height:240px;
+	position: relative;
+	_margin-bottom: 0 !important; 
+}
+/*#gallery ul li a div.gallery_thumbnail div.hcenterer { height: 240px; margin: 0 auto; overflow: hidden; }
 #gallery ul li a div.gallery_thumbnail div.vcenterer {
 display: table-cell;
 vertical-align: middle;
 height:240px;
 width: 100px;
-}
-div[id=gallery] ul li a div.gallery_thumbnail.generated { height:240px; } /** not for IE6 **/
+}*/
+
+/*div[id=gallery] ul li a div.gallery_thumbnail.generated { height:240px; } *//** not for IE6 **/
  
 #gallery ul li a img { border:none; overflow:hidden; }
 
@@ -351,24 +357,28 @@ padding:0;
 overflow:hidden;
 }
 
-#features ul li { float:left; }
+#features ul li { float: left; }
 
 #features ul li a {
 display:block;
 overflow:hidden;
 padding:0 160px 0 0;
+_display: inline-block;
 }
 
+
 #features ul li a .image {
-position:relative;
-float:left;}
+float:left;
+}
 
 #features ul li a .image img { border:1px solid #fff; }
 
+#features ul li a > .info {
+float:left;
+}
+
 #features ul li a .info {
 width:200px;
-position:relative;
-float:left;
 margin-right:-160px;
 padding:0;
 }
@@ -389,8 +399,8 @@ padding:0 10px 10px;
 
 #features ul li a:hover { background-color:#f5f5f5; }
 #features ul li a:hover .image img { border:1px solid #1a1a1a; }
-* html #features { clear:left; }
-* html #features ul li a .info { position:absolute; }
+/** html #features { clear:left; }
+* html #features ul li a .info { position:absolute; }*
 
 /* @end */
 
@@ -400,63 +410,48 @@ padding:0 10px 10px;
 /* -------------------------------------------------------------- 
    MODULE: RELATED
 -------------------------------------------------------------- */
-#related p { padding-bottom: 5px; }
-#related ul {
-width:100%;
-overflow:hidden;
-font-size:12px;
-padding:0;}
-
-#related ul li { margin:0; }
-
-#related ul li a {
-display:block;
-text-decoration:none;
-color:#777;
-margin-bottom:1px;
-padding:1px 0;
+#related {
+	 
 }
+	#related p { margin: 0 0 5px; }
 
-#related ul li a:hover {
-color:#1A1A1A;
-background-color:#eee;
-cursor:pointer;
--moz-border-radius:3px;
--webkit-border-radius:3px;
-}
+	#related .listing {
+		font-size:12px;
+		width: 100%;
+	}
 
-#related ul li .listing-content {
-min-width:550px;
-min-height:16px;
-overflow:hidden;
-}
+		#related .listing li {
+			overflow: hidden; /* clears the left float applied on li span elements - all browsers except IE6 and below */
+			_clear: left; /* IE6: clears the left float */
+			margin: 0 0 1px;
+		}
 
-#related ul li .listing-content span { display:block; }
 
-#related ul li .listing-content-left-inner {
-overflow: hidden;
-padding-left:25px;
-padding-right:65px;
-}
+			#related .listing li a {
+				display: block;
+				overflow: hidden;
+				_padding-bottom: 3px; /* IE6: allows the hover to "wrap" properly the list item */
+			}
 
-#related ul li .listing-content-left-inner .column {
-position:relative;
-float:left;
-}
+			#related .listing li a:hover {
+				color: #1A1A1A;
+				background-color: #eee;
+				cursor: pointer;
+				-moz-border-radius: 3px;
+				-webkit-border-radius: 3px;
+			}
 
-#related ul li .icon {
-width:25px;
-margin-right:-100%;
-right:25px;
-height:17px;
-}
 
-#related ul li .name { width:100%; }
+		#related .listing li span {
+			display: block;
+			float: left;
+		}
 
-#related ul li .filename {
-color:#1A1A1A; 
-padding:2px 0 0;
-}
+		#related .icon { width: 25px;}
+		#related .filename { width: 200px; padding: 2px 0 0;}
+	
+		
+/* :TODO: Check if we need the following
 
 #related ul li .icon_download {
 background-repeat:no-repeat;
@@ -476,7 +471,7 @@ margin-left:10px;
 
 * html #related ul li .icon .icon_download {
 position:absolute;
-}
+}*/
 
 /* @end */
 
@@ -490,7 +485,6 @@ position:absolute;
 #lock {
 overflow:hidden;
 width:325px;
-float: left;
 }
 
 /* Form */
@@ -688,10 +682,18 @@ MODULE SPACING
 margin:15px 0;
 }
 
-/* Sets styles only for direct childs of #content (i.e gallery, features, listing) */
+/* Sets styles only for direct childs of #content (i.e gallery, features, listing). IE6 doesn't get it */
 #content > * {
 margin:0 0 15px;
 }
+
+/* IE6 Workaround to set styles only for direct childs of #content */
+/*#content div {
+_margin: 0 0 15px;
+}
+#content div * {
+_margin: 0;
+}*/
 
 #inline_top_image,
 #inline_middle_image,

@@ -1,131 +1,68 @@
 /* @group List */
 
-#listing ul,#related ul {
-width:100%;
-overflow:hidden;
-font-size:12px;
-padding:0;}
+/* -------------------------------------------------------------- 
+   MODULES: CONTENT / LISTING LIST VIEW
+-------------------------------------------------------------- */
 
-#listing ul li,#related ul li { margin:0; }
-
-#listing ul li,#listing ul li.listing-header,#related ul li { list-style:none; }
-
-#listing ul li.listing-header { padding:0 0 5px; }
-
-#listing ul li a,#related ul li a {
-display:block;
-text-decoration:none;
-color:#777;
-margin-bottom:1px;
-padding:1px 0;
+.listing {
+	font-size:12px;
+	width: 100%;
 }
 
-#listing ul li a:hover,#related ul li a:hover {
-color:#1A1A1A;
-background-color:#eee;
-cursor:pointer;
--moz-border-radius:3px;
--webkit-border-radius:3px;
-}
+	.listing li {
+		overflow: hidden; /* clears the left float applied on li span elements - all browsers except IE6 and below */
+		_clear: left; /* IE6: clears the left float */
+		margin: 0 0 1px;
+	}
 
-#listing ul li.listing-header a:hover {
-border:none;
-color:#1C7AD5;
-background-color:inherit;
-}
+		
+		.listing li a {
+			display: block;
+			overflow: hidden;
+			_padding-bottom: 3px; /* IE6: allows the hover to "wrap" properly the list item */
+		}
+		
+		.listing li a:hover {
+			color: #1A1A1A;
+			background-color: #eee;
+			cursor: pointer;
+			-moz-border-radius: 3px;
+			-webkit-border-radius: 3px;
+		}
+	
+	
+	.listing li.listing-header {
+		margin: 0 0 5px;
+	}
+	
+		.listing li.listing-header a {
+			color: #777;
+		}
+		
+		.listing li.listing-header a:hover {
+			color: #1C7AD5;
+			background-color: #fff;
+		}
+	
+	.listing li span {
+		display: block;
+		float: left;
+	}
 
-.listing-content {
-min-width:550px;
-min-height:16px;
-overflow:hidden;
-}
+	.icon { width: 25px;}
+	.filename { width: 200px;}
+	.size { width: 65px;}
+	.date { width: 90px;}
+	.kind { width: 130px;}
+	.comment {  }
+	.filename, .name, .size, .date, .kind, .comment { padding: 2px 0 0; }
 
-.listing-content span { display:block; }
 
-.listing-content-left {
-width:35%;
-float:left;
-}
 
-.listing-content-right { margin:0 0 0 35%; }
-
-.listing-content-left-inner {
-padding-left:25px;
-padding-right:65px;
-}
-
-.listing-content-left-inner .column {
-position:relative;
-float:left;
-}
-
-.icon {
-width:25px;
-margin-right:-100%;
-right:25px;
-height:17px;
-padding-left: 2px;
-}
-
-.name, .filename {
-width:100%;
-overflow: hidden;
-}
-
-.filename { color:#1A1A1A; /*font-family: "Arial Rounded MT Bold", Arial;*/ }
-
-.size {
-width:50px;
-margin-right:-100%;
-text-align:right;
-}
-
-.datekind {
-width:220px;
-float:left;
-}
-
-.date {
-width:90px;
-float:left;
-}
-
-.kind { margin-left:90px; }
-
-.comment { margin-left:230px; }
-
-.filename,.name,.size,.date,.kind,.comment { padding:2px 0 0; }
-
-/* --- IE Fixes */
-* html .mw {
-clear:both; /* Forces clear and sets min-width for IE6 */
-padding:0 0 0 700px; 
-} 
-
-* html .mwc {
-margin-left:-700px; /* Min width fix for IE6 */
-position:relative;
-} 
-
-/**/
-/* The surrounding asterisks is used to hide this style from IE5 on a Mac. Prevents the comment column to drop down */
-* html .mw, * html .layout, * html .mwc, * html .listing-content-right-inner {
-height:1px;
-} 
-/**/
-
-* html .listing-content {
-margin:1px 0;
-padding:1px 0;
-}
-
-* html #listing { clear:left; }
 
 /* -------------------------------------------------------------- 
    MODULES: CONTENT / LISTING ICONS
 -------------------------------------------------------------- */
-
-* html .icon img { margin-left:10px; }
 
 * html .icon .icon_download { position:absolute; }
 
@@ -136,7 +73,7 @@ width:9px;
 height:9px;
 z-index:99;
 background:url("../images/system/updated.png") no-repeat top left;
-margin:0 0 0 12px;
+margin:0 0 0 12px !important;
 }
 
 .new { background: url("../images/system/new.png") no-repeat top left; }
