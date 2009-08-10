@@ -27,6 +27,11 @@ function setUpClasses() {
 	$('li:first-child').addClass("first");
 	$('li:last-child').addClass("last");
 	
+	/* Setting border for 1st child of the breadcrumb */
+	if ($('#navigation')[0]) {
+		$('#navigation span.prev_next').children(':first').addClass("first");
+	}
+	
 	/* Setting margin for all direct children of #content. This is a duplicate of a CSS rule but IE can't handle it so we put it here */
 	$('#content > div').css("marginBottom", "15px");
 }

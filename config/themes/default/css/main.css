@@ -249,7 +249,7 @@ background: url(../images/system/parent.png) no-repeat 3px 12px;
 #breadcrumbtools a:hover, #footer a:hover, #navigation a:hover { background-color: #eee; }
 
 #navigation span.prev_next a, #navigation span.prev_next .faded { padding-left:15px; padding-right:15px; }
-#navigation span.prev_next:first-child { border-right: 1px solid #e0e0e0; }
+#navigation span.prev_next .first { border-right: 1px solid #e0e0e0; }
 
 /* FOOTER */
 #footer { border-top:1px solid #e0e0e0; }
