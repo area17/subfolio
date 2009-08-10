@@ -321,9 +321,10 @@ padding: 1px;
  
 #gallery ul li a img { border:none; overflow:hidden; }
 
-#gallery ul li a:hover,#gallery ul li a:hover p {
-background:#1a1a1a;
-color:#fff;
+#gallery ul li a:hover, #gallery ul li a:hover p, #gallery ul li.hover {
+background: #1a1a1a;
+color: #fff;
+cursor: pointer;
 }
 
 #gallery ul li a p {

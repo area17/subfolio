@@ -5,75 +5,185 @@ main.js
 
 -------------------------------------------------------------- */
 
+/* Setting up variables
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+var isSafari = false;
+var isSafari3 = false;
+var isSafari4 = false;
+var isIE = false;
+var isIE6 = false;
+var isIE7 = false;
+var isIE8 = false;
+var isMozilla = false;
+var isOpera = false;
+var isMac = false;
+var isIphone = false;
+
+var offsetMac = 0;
+
+
 /* What to do when DOM is ready
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 $(document).ready(function(){
+	//console.time("runOnDOMready");
 	runOnDOMready();
+	//console.timeEnd("runOnDOMready");
 });
 
 /* Run when DOM is ready
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
-function runOnDOMready() {	
-	var is = new BrowserDetectLite();
-	if (is.mac) { var offsetMac = 0; } else { var offsetMac = 0; }
+function runOnDOMready() {
+	browserDectect();
+	gallery(); // runs first to speed vertical/horizontal alignement rendering if needed. 
 	setUpClasses();
-	alignHV();
+}
+
+/* Browser Detect
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+function browserDectect() {
+
+	function searchVersion(browser) {
+		var dataString = navigator.userAgent;
+		var index = dataString.indexOf(browser);
+		if (index == -1) return;
+		var bVersion = parseFloat(dataString.substring(index+browser.length+1));
+		return bVersion.toString().split(".")[0];
+	}
+	
+	// are we on a Mac ?
+	if (navigator.appVersion.indexOf("Mac")!=-1) {
+		isMac = true;
+		$('body').addClass("isMac");
+	} 
+	
+	// Safari versioning
+	isSafari =  jQuery.browser.safari;
+	if (isSafari) {	
+		$('body').addClass("isSafari");
+		version = searchVersion("Version") || + "";	
+		$('body').addClass("isSafari"+version);
+		isSafari3 = (version == 3) ? true : false;
+		isSafari4 = (version == 4) ? true : false;
+	}
+		
+	// IE versioning
+	isIE = jQuery.browser.msie;
+	if (isIE) {	
+		version = searchVersion("MSIE") || "";
+		isIE6 = (version == 6) ? true : false;
+		isIE7 = (version == 7) ? true : false;
+		isIE8 = (version == 8) ? true : false;
+	}
+	
+	// Mozilla versioning
+	isMozilla = jQuery.browser.mozilla;
+	if (isMozilla) {
+		$('body').addClass("isMozilla");
+		version = searchVersion("Firefox") || "";
+		$('body').addClass("isMozilla"+version);
+	}
+	
+	// Opera versioning
+	isOpera = jQuery.browser.opera;
+	if (isOpera) {
+		$('body').addClass("isOpera");
+	}
+	
+	// iPhone
+	if (navigator.userAgent.indexOf("iPhone") != -1) {
+		isIphone = true;
+		$('body').addClass("isIphone");
+	}
+
 }
 
 /* Setting classes to handle cross browser dom parsing
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function setUpClasses() {
-	$('li:nth-child(even)').addClass("even");	
-	$('li:first-child').addClass("first");
-	$('li:last-child').addClass("last");
 	
 	/* Setting border for 1st child of the breadcrumb */
 	if ($('#navigation')[0]) {
-		$('#navigation span.prev_next').children(':first').addClass("first");
+		$('#navigation').find('span.prev_next').children(':first').addClass("first");
 	}
 	
-	/* Setting margin for all direct children of #content. This is a duplicate of a CSS rule but IE can't handle it so we put it here */
-	$('#content > div').css("marginBottom", "15px");
+	if ($('#content')[0]) {
+		
+		/* Setting margin for all direct children of #content. This is a duplicate of a CSS rule but IE can't handle it so we put it here */
+		$('#content > div').css("marginBottom", "15px");
+		
+		$('li:nth-child(even)').addClass("even");	
+		$('li:first-child').addClass("first");
+		$('li:last-child').addClass("last");
+	}
+
 }
 
-/* Horizontal and vertical alignment of images in the Gallery module
+/* Gallery Module
+   - Horizontal and vertical alignment of images
+   - Handling image hover/click for IE6/7
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
-function alignHV() {
+function gallery() {
 	
 	if ($('#gallery')[0]) {
 		
-		$('#gallery ul li a div.gallery_thumbnail').each(function() {
+		// Setting the context to optimize the each function
+		var _context = $('#gallery').find('ul').find('li');
+		var _galthumb = _context.find('a').find('.gallery_thumbnail');
+		
+		_galthumb.each(function() {
 			
-			// Setting the right width (based on the widest between the img and the filename)
-			var wImg = $(this).find("img").width();
+			_img = $(this).find('img');
+			var wImg = _img.width();
+			var hImg = _img.height();
 			var wP = $(this).parent().find("p").outerWidth();
+			var hP = $(this).outerHeight();
+			
+			// If the image width is smaller than its container's then we align it horizontally
 			if (wImg < wP) {
+				// Setting the right width (based on the widest between the img and the filename)
 				$(this).css("width", wP + "px");
+				var m = wImg / 2;
+				_img.css("position", "absolute");
+				_img.css("left", "50%");
+				_img.css("marginLeft", "-" + m + "px");
 			}
 			
-			// Horizontal align
-			var m = wImg / 2;
-			$(this).find("img").css("position", "absolute");
-			$(this).find("img").css("left", "50%");
-			$(this).find("img").css("marginLeft", "-" + m + "px");
-			
-			// Vertical align
-			var h = $(this).find("img").height();
-			m = h / 2;
-			$(this).find("img").css("top", "50%");
-			$(this).find("img").css("marginTop", "-" + m + "px");
+			// If the image height is smaller than its container's then we align it vertically
+			if (hImg < hP) {
+				var m = hImg / 2;
+				_img.css("position", "absolute");
+				_img.css("top", "50%");
+				_img.css("marginTop", "-" + m + "px");			
+			}
 			
 		});
+		
+		if (isIE6 || isIE7) {
+			$('#gallery').find('ul').find('li').click(function(e) {
+				e.preventDefault();
+				var href = $(this).find("a").attr("href");
+				if (href != "#" && href != "" && href != undefined) {
+					window.location = href;
+				}
+			});
+			$('#gallery').find('ul').find('li').hover(function(){
+				$(this).addClass("hover");
+			}, function() {
+				$(this).removeClass("hover");
+			});
+		}
+		
 	}
-	
 }
+
+
 
 
 /* Browser Detect Lite  v1.01
    http://www.dithered.com/javascript/browser_detect/index.html
    modified by Chris Nott (chris@dithered.com)
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
-function BrowserDetectLite() {
+/*function BrowserDetectLite() {
 	var agent = navigator.userAgent.toLowerCase(); 
 	
 	// Browser version
@@ -113,7 +223,7 @@ function BrowserDetectLite() {
 	this.win   = (agent.indexOf("win")!=-1 || agent.indexOf("16bit")!=-1);
 	this.win32 = (agent.indexOf("win95")!=-1 || agent.indexOf("windows 95")!=-1 || agent.indexOf("win98")!=-1 || agent.indexOf("windows 98")!=-1 || agent.indexOf("winnt")!=-1 || agent.indexOf("windows nt")!=-1 || (this.versionMajor >= 4 && navigator.platform == "win32") || agent.indexOf("win32")!=-1 || agent.indexOf("32bit")!=-1);
 	this.mac   = (agent.indexOf("mac")!=-1);
-}
+}*/
 
 
 /* Remove the focus of the links
@@ -151,7 +261,7 @@ function pop(goPage,nom,windowWidth,windowHeight,style) {
 		var popped = window.open(goPage,nom,'width='+windowWidth+',height='+(windowHeight+offsetMac)+',status=yes,menubar=yes,scrollbars=yes,resizable=yes,screenX='+x+',screenY='+y+',left='+x+',top='+y);
 	}
 	
-	if ( is.ns || document.all) popped.focus();
+	if ( isMozilla || document.all) popped.focus();
 	if ( !popped.opener) { popped.opener = window; }
 }
 
@@ -189,17 +299,17 @@ function showHideSwitch (theid, lnk) {
 function InfoHideSwitch (box, button) {
     if (document.getElementById) {
         var box_id = document.getElementById(box);
-				var button_id = document.getElementById(button);
+		var button_id = document.getElementById(button);
 
         if (box_id.className == "show") {
             // collapse
             box_id.className = 'hide';
-						button_id.className = '';
+			button_id.className = '';
         } else { 
             // expand
             box_id.className = 'show';
-						button_id.className = 'on';
-						scrollToBottom();
+			button_id.className = 'on';
+			scrollToBottom();
         }
     }
 }
@@ -215,7 +325,7 @@ function scrollToBottom () {
 function hideFlash(theid) {
 	if (document.getElementById) {
       var notice_id = document.getElementById(theid);
-			notice_id.className = 'hide';
+	  notice_id.className = 'hide';
   }
 }
 
