@@ -140,7 +140,7 @@ function bindHeaderEvents() {
 			}
 		});
 		
-		/* TODO = handle cookie in IE6
+		/* TODO = handle cookie in IE6 */
 	}
 }
 

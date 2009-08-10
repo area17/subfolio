@@ -89,7 +89,6 @@ if (view::get_option('display_header', true)) {
     <li><a href="javascript:void(location.href='http://tinyurl.com/create.php?url='+encodeURIComponent(location.href))">generate tiny url</a></li>
     <?php } ?>
     <?php if (view::get_option('display_collapse_header', true) and view::get_option('display_header', true)) { ?>
-    <!--<li><a id="showHideSwitch" href="javascript:showHideSwitch('header', document.getElementById('hideText'));"><FONT id="hideText"><?php print "".$showHideLabel;?></FONT></a></li>-->
 	<li>
 		<a id="showHideSwitch" href="#"><FONT id="hideText"><?php print "".$showHideLabel;?></FONT></a>
 	</li>
