@@ -52,15 +52,12 @@
 	}
 
 	.icon { width: 25px; height: 17px; position: relative; }
-	.filename { width: 200px;}
+	.filename { width: 200px; position: relative; }
 	.size { width: 65px;}
 	.date { width: 90px;}
 	.kind { width: 130px;}
 	.comment {  }
 	.filename, .name, .size, .date, .kind, .comment { padding: 2px 0 0; }
-
-
-
 
 /* -------------------------------------------------------------- 
    MODULES: CONTENT / LISTING ICONS

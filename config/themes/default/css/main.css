@@ -607,8 +607,10 @@ width:11px;
 height:11px;
 z-index:99;
 background:url("../images/system/updated_xl.png") no-repeat top left;
-margin-left: 25px;
-margin-top: 3px;
+/*margin-left: 25px;*/
+/*margin-top: 3px;*/
+top: 0;
+left: 25px;
 }
 
 #download_box #filename {
@@ -620,7 +622,7 @@ width: 220px;
 overflow: hidden;
 }
 
-#download_box #clickable-zone { display: block; }
+#download_box #clickable-zone { display: block; position: relative;}
 #download_box #clickable-zone:hover #filename { color:#1c7ad5 ; }
 
 #download_box dl {

@@ -28,9 +28,12 @@ if (view::get_option('display_header', true)) {
       }
   }
 ?>
+<?php if (strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) { ?>
+<?php } else { ?>
 <div id="header" class="<?php print $showHide; ?>">
 	<h1 id="logo"><a href='/' ><?php echo $site_name_display ?></a></h1>	
 </div>
+<?php } ?>
 <?php } ?>
 
 <div id="breadcrumbtools">
@@ -69,6 +72,9 @@ if (view::get_option('display_header', true)) {
     <?php } ?>
   </div>
   <?php } ?>
+
+  <?php if (strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) { ?>
+  <?php } else { ?>
   <ul id="tools">
 
 
@@ -95,6 +101,7 @@ if (view::get_option('display_header', true)) {
     <?php } ?>
 
   </ul>
+  <?php } ?>
 </div>
  
 <?php if (view::get_option('display_navigation', true)) { ?>

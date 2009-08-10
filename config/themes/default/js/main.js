@@ -36,6 +36,14 @@ function runOnDOMready() {
 	browserDectect();
 	gallery(); // runs first to speed vertical/horizontal alignement rendering if needed. 
 	setUpClasses();
+	
+	/* Testing iPhone behavior */
+	//if (isIphone) {
+		$('#listing ul li a span.filename').each(function() {
+			$(this).append('<span class="ecetera"></span');
+			$(this).append('<span class="ecetera2"></span');
+		});
+	//}
 }
 
 /* Browser Detect
