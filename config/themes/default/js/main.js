@@ -133,16 +133,16 @@ function setUpClasses() {
 function bindHeaderEvents() {
 	if ($('#showHideSwitch')[0]) {
 		$('#showHideSwitch').click(function(e) {
-			if ($('#hideText').html() == 'expand header') {
+			if ($(this).html() == 'expand header') {
 				$(this).addClass('hideSwitch');
 				$(this).removeClass('showSwitch');
-				$('#hideText').html('collapse header');
+				$(this).html('collapse header');
 				$('#header').show();
 				createCookie('header', 'showSwitch');
 			} else {
 				$(this).addClass('showSwitch');
 				$(this).removeClass('hideSwitch');
-				$('#hideText').html("expand header");
+				$(this).html("expand header");
 				$('#header').hide();
 				createCookie('header', 'hideSwitch');
 			}

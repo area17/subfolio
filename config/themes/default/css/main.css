@@ -183,7 +183,7 @@ b, strong { font-family: "Arial Rounded MT Bold"; color: #1a1a1a; }
 /* -------------------------------------------------------------- 
    LINKS
 -------------------------------------------------------------- */
-a, a:link,a:visited { color: #1a1a1a; text-decoration: none; }
+a, a:link,a:visited { color: #1a1a1a; text-decoration: none; outline: none;}
 a:hover { color: #1c7ad5; }
 
 
