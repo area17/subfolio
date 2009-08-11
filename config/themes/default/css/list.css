@@ -7,6 +7,7 @@
 .listing {
 	font-size:12px;
 	width: 100%;
+	min-width: 510px; /* We set the min-width of the listing to match the kind column */
 	position: relative;
 }
 
@@ -21,6 +22,7 @@
 			display: inline-block;
 			overflow: hidden;
 			width: 100%;
+			position: relative;
 		}
 		
 		.listing li a:hover {
@@ -56,7 +58,12 @@
 	.size { width: 65px;}
 	.date { width: 90px;}
 	.kind { width: 130px;}
-	.comment {  }
+	.comment { 
+		position: absolute; /* turning it absolute so that it sticks inline, preventing it to float on browser resizing */
+		left: 510px; /* setting its left equals the sum of the widths of previous columns */
+		top: 0;
+	}
+		
 	.filename, .name, .size, .date, .kind, .comment { padding: 2px 0 0; }
 
 /* -------------------------------------------------------------- 
