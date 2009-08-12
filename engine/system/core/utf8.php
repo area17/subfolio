@@ -122,7 +122,7 @@ final class utf8 {
 				$ER = error_reporting(~E_NOTICE);
 
 				// iconv is expensive, so it is only used when needed
-				$str = iconv('UTF-8', 'UTF-8//IGNORE', $str);
+				//$str = iconv('UTF-8', 'UTF-8//IGNORE', $str);
 
 				// Turn notices back on
 				error_reporting($ER);
