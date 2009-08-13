@@ -2,6 +2,10 @@ SUBFOLIO CHANGELOG
 
 UNRELEASED CHANGES
 
+VERSION: 0.9.20090813
+[THEME]			General update IE6 and IPhone capatability
+[ENGINE]		Fix for foreign characters
+
 VERSION: 0.9.20090718
 
 [THEME]			Fix for large icon display in grid vie
