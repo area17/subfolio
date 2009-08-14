@@ -36,14 +36,7 @@ function runOnDOMready() {
 	browserDectect();
 	gallery(); // runs first to speed vertical/horizontal alignement rendering if needed. 
 	setUpClasses();
-	
-	/* Testing iPhone behavior */
-	//if (isIphone) {
-		$('#listing ul li a span.filename').each(function() {
-			$(this).append('<span class="ecetera"></span');
-			$(this).append('<span class="ecetera2"></span');
-		});
-	//}
+
 }
 
 /* Browser Detect
@@ -175,28 +168,35 @@ function gallery() {
 		
 		_galthumb.each(function() {
 			
-			_img = $(this).find('img');
-			var wImg = _img.width();
-			var hImg = _img.height();
-			var wP = $(this).parent().find("p").outerWidth();
-			var hP = $(this).outerHeight();
+			if ($(this).hasClass("custom")) {
+				
+				// =TODO fix the bug in IE6/7
+				
+			} else {
+				
+				_img = $(this).find('img');
+				var wImg = _img.width();
+				var hImg = _img.height();
+				var wP = $(this).parent().find("p").outerWidth();
+				var hP = $(this).outerHeight();
 			
-			// If the image width is smaller than its container's then we align it horizontally
-			if (wImg < wP) {
-				// Setting the right width (based on the widest between the img and the filename)
-				$(this).css("width", wP + "px");
-				var m = wImg / 2;
-				_img.css("position", "absolute");
-				_img.css("left", "50%");
-				_img.css("marginLeft", "-" + m + "px");
-			}
+				// If the image width is smaller than its container's then we align it horizontally
+				if (wImg < wP) {
+					// Setting the right width (based on the widest between the img and the filename)
+					$(this).css("width", wP + "px");
+					var m = wImg / 2;
+					_img.css("position", "absolute");
+					_img.css("left", "50%");
+					_img.css("marginLeft", "-" + m + "px");
+				}
 			
-			// If the image height is smaller than its container's then we align it vertically
-			if (hImg < hP) {
-				var m = hImg / 2;
-				_img.css("position", "absolute");
-				_img.css("top", "50%");
-				_img.css("marginTop", "-" + m + "px");			
+				// If the image height is smaller than its container's then we align it vertically
+				if (hImg < hP) {
+					var m = hImg / 2;
+					_img.css("position", "absolute");
+					_img.css("top", "50%");
+					_img.css("marginTop", "-" + m + "px");			
+				}
 			}
 			
 		});

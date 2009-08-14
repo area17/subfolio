@@ -339,6 +339,10 @@ padding: 1px;
 	_margin-bottom: 0 !important; 
 }
 
+#gallery ul li a div.custom { 
+	height: auto;
+}
+
  
 #gallery ul li a img { border:none; overflow:hidden; }
 
