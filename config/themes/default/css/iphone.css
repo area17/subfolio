@@ -12,39 +12,83 @@ width: 450px; /* keeping the side margins with 15px */
 min-width: 450px; /* Resetting the original min-width from main.css */
 }
 
+
+
 /* File Listing 
-icon (25)
-filename (200)
-size (65)
-date (90)
-kind (130)
 -------------------------------------------------------------- */
-.listing li {
-margin-bottom: 5px;
+.listing {
+	min-width: 100% !important; /* Resetting the original min-width from main.css */
+	border: 1px solid #E0E0E0 !important;
+	-webkit-border-radius: 4px !important;
+	-moz-border-radius: 4px !important;
+	border-radius: 4px !important;
 }
 
-.filename {
-width: 110px;
-/*background-color: #ccc;*/
+.listing span, .listing a {
+	font-size: 20px !important;
 }
 
-.size {
-width: 50px;
-/*background-color: #eee;*/
-}
+	.listing > li {
+		padding: 8px 0 8px 10px!important;
+		position: relative !important ;
+		overflow: hidden !important;
+		margin: 0 !important;
+	}
 
-.date {
-width: 50px;
-/*background-color: #ddd;*/
-}
+	.listing > li:not(.listing-header) {
+		border-top: 1px solid #E0E0E0 !important;
+	}
+	
+	.listing > li:not(.listing-header):first-child {
+		border-top: none !important;
+	}
+	
+	.listing > li:not(.listing-header):hover {
+		background-color: #1A1A1A !important;
+		cursor: pointer !important;
+	}
+	
+	.listing > li:not(.listing-header):hover:last-child {
+		-webkit-border-bottom-left-radius: 4px !important;
+		-webkit-border-bottom-right-radius: 4px !important;
+		
+		-moz-border-radius-bottomleft: 4px !important;
+		-moz-border-radius-bottomright: 4px !important;
+		
+		border-bottom-left-radius: 4px !important;
+		border-bottom-right-radius: 4px !important;
+	}
+	
+	.listing > li:not(.listing-header):hover:first-child {
+		-webkit-border-radius: 4px !important;
+		-moz-border-radius: 4px !important;
+		border-radius: 4px !important;
+	}
+	
+		.listing > li:not(.listing-header):hover > a > span {
+			color: #FFF;
+		}
 
-.kind {
-width: 100px;
-/*background-color: #ccc;*/
-}
+		.listing > li:not(.listing-header) > a {
+			display: block !important;
+			-moz-background-clip: border !important;
+			-moz-background-inline-policy: continuous !important;
+			-moz-background-origin: padding !important;
+			background: transparent url(../images/system/iphone/listArrow.png) no-repeat scroll right center !important;
+			
+		}
+		
+			.listing > li:not(.listing-header) > a > span.kind,
+			.listing > li:not(.listing-header) > a > span.comment,
+			.listing > li.listing-header > span.kind,
+			.listing > li.listing-header > span.comment {
+				display: none !important;
+			}
+			
+			.listing > li > a > span.filename {
+				width: 200px;
+			}
 
-.comment {
-/*background-color: #222;*/
-}
+
 
 

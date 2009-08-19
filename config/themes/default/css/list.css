@@ -5,7 +5,6 @@
 -------------------------------------------------------------- */
 
 .listing {
-	font-size:12px;
 	width: 100%;
 	min-width: 510px; /* We set the min-width of the listing to match the kind column */
 	position: relative;

@@ -33,6 +33,12 @@ $(document).ready(function(){
 /* Run when DOM is ready
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function runOnDOMready() {
+	
+	/* Setting border for 1st child of the breadcrumb */
+	if ($('#navigation')[0]) {
+		$('#navigation').find('span.prev_next').find(":nth-child(1)").addClass("first");
+	}
+	
 	browserDectect();
 	gallery(); // runs first to speed vertical/horizontal alignement rendering if needed. 
 	setUpClasses();
@@ -102,10 +108,7 @@ function browserDectect() {
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function setUpClasses() {
 	
-	/* Setting border for 1st child of the breadcrumb */
-	if ($('#navigation')[0]) {
-		$('#navigation').find('span.prev_next').find(":nth-child(1)").addClass("first");
-	}
+
 	
 	if ($('#content')[0]) {
 		
