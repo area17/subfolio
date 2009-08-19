@@ -222,7 +222,7 @@ function gallery() {
 /* Register keypress events on the whole document when navigation exists
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function keyPress () {
-	$(document).keypress(function(e) {
+	$(document).keydown(function(e) {
 		switch(e.keyCode) {
 			// user pressed "left" arrow
 			case 37:
