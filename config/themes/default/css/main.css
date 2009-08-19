@@ -265,7 +265,7 @@ background: url(../images/system/parent.png) no-repeat 3px 12px;
 }
 #navigation .parent_dir a:hover { background-position: 3px -38px; }
 
-#breadcrumbtools a:hover, #footer a:hover, #navigation a:hover { background-color: #eee; }
+#breadcrumbtools a:hover, #footer a:hover, #navigation a:hover, #navigation a.hover { background-color: #eee; }
 
 #navigation span.prev_next a, #navigation span.prev_next .faded { padding-left:15px; padding-right:15px; }
 #navigation span.prev_next .first, #navigation span.prev_next *:first-child { border-right: 1px solid #e0e0e0; }

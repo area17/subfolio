@@ -20,7 +20,7 @@
 			if ($prev <> "") {
       	$link = urlencode($prev->name);
         $link = str_replace('%2F', '/', $link);
-				print "<a href='$link'>Previous</a>";
+				print "<a href='$link' id='previous'>Previous</a>";
 			} else {
 				print "<span class='faded'>Previous</span>";
 			}
@@ -28,7 +28,7 @@
 			if ($next <> "") {
       	$link = urlencode($next->name);
         $link = str_replace('%2F', '/', $link);
-				print "<a href='$link'>Next</a>";
+				print "<a href='$link' id='next'>Next</a>";
 			} else {
 				print "<span class='faded'>Next</span>";
 			}
@@ -43,7 +43,7 @@
       	$link = urlencode($prev->name);
         $link = str_replace('%2F', '/', $link);
 
-				print "<a href='$link'>Previous Directory</a>";
+				print "<a href='$link' id='previous'>Previous Directory</a>";
 			} else {
 				print "<span class='faded'>Previous Directory</span>";
 			}
@@ -51,7 +51,7 @@
 			if ($next <> "") {
       	$link = urlencode($next->name);
         $link = str_replace('%2F', '/', $link);
-				print "<a href='$link'>Next Directory</a>";
+				print "<a href='$link' id='next'>Next Directory</a>";
 			} else {
 				print "<span class='faded'>Next Directory</span>";
 			}

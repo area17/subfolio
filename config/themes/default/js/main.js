@@ -36,7 +36,7 @@ function runOnDOMready() {
 	browserDectect();
 	gallery(); // runs first to speed vertical/horizontal alignement rendering if needed. 
 	setUpClasses();
-
+	keyPress();
 }
 
 /* Browser Detect
@@ -219,7 +219,46 @@ function gallery() {
 	}
 }
 
-
+/* Register keypress events on the whole document when navigation exists
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+function keyPress () {
+	if ($('#navigation')[0]) {
+		var _scrollTop = 100;
+		$(document).keypress(function(e) {
+			switch(e.keyCode) {
+				// user pressed "left" arrow
+				case 37:
+					if ($('#previous')[0]) {
+						var previous = $('#previous');
+						var previous_url = previous.attr("href");
+						if (previous_url) {
+							previous.addClass('hover').fadeTo(250, 1, function() {
+								window.location = previous_url;
+							});
+						}
+					}
+				break;				
+				
+				// user pressed "top" arrow
+				case 38: $('html,body').animate({scrollTop: 0}, 250);
+				break;
+				
+				// user pressed "right" arrow
+				case 39: 
+					if ($('#next')[0]) {
+						var next = $('#next');
+						var next_url = next.attr("href");
+						if (next_url) {
+							next.addClass('hover').fadeTo(250, 1, function() {
+								window.location = next_url;
+							});
+						}
+					} 
+				break;
+			}
+		});
+	}
+}
 
 
 
