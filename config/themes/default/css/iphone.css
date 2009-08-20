@@ -60,6 +60,11 @@ ul.listing {
 		border-bottom: 1px solid #E0E0E0;
 	}
 
+
+	.listing > li:hover {
+		cursor: pointer;
+	}
+	
 		.listing > li:not(.listing-header) > a {
 			display: block !important;
 			-moz-background-clip: border !important;
