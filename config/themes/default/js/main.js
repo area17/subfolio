@@ -25,9 +25,7 @@ var offsetMac = 0;
 /* What to do when DOM is ready
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 $(document).ready(function(){
-	//console.time("runOnDOMready");
 	runOnDOMready();
-	//console.timeEnd("runOnDOMready");
 });
 
 /* Run when DOM is ready
@@ -108,8 +106,6 @@ function browserDectect() {
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function setUpClasses() {
 	
-
-	
 	if ($('#content')[0]) {
 		
 		/* Setting margin for all direct children of #content. This is a duplicate of a CSS rule but IE can't handle it so we put it here */
@@ -143,8 +139,6 @@ function bindHeaderEvents() {
 				createCookie('header', 'hideSwitch');
 			}
 		});
-		
-		/* TODO = handle cookie in IE6 */
 	}
 }
 

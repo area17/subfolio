@@ -16,6 +16,20 @@ body  {
 	overflow-x: hidden;
 }
 
+/* Resetting FONTS for all modules when needed
+-------------------------------------------------------------- */
+#breadcrumbtools *, #navigation *, #footer *, #features *, #listing *, #related * {
+	font-size: 18px !important;
+}
+
+#breadcrumbtools a, #breadcrumbtools span, #footer a, #navigation a, #navigation .prev_next span, #footer a, #footer span {
+	height: 35px; 
+}
+
+/* Turning off some elements (for test purpose, to be confirmed) */
+#footer span:nth-child(2){
+	display: none;
+}
 
 /* Resetting PADDING for all modules when needed
 -------------------------------------------------------------- */
@@ -41,6 +55,7 @@ body > #container > #container-inner > #content > #related > *:not(.list) {
 	padding-left: 5px;
 }
 
+
 /* iPhone LIST VIEW for LISTING module
 -------------------------------------------------------------- */
 .list {
@@ -61,6 +76,7 @@ body > #container > #container-inner > #content > #related > *:not(.list) {
 
 	.list > li:hover {
 		cursor: pointer;
+		
 	}
 	
 	#listing .list > li > a {
