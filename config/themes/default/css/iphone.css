@@ -8,66 +8,57 @@ iphone.css (based on main.css)
 /* Body 
 -------------------------------------------------------------- */
 body  {
-width: 450px; /* keeping the side margins with 15px */
-min-width: 450px; /* Resetting the original min-width from main.css */
+	-moz-background-clip: border;
+	-moz-background-inline-policy: continuous;
+	-moz-background-origin: padding;
+	min-width: 320px; /* Resetting the original min-width from main.css */
+	margin: 0;
+	overflow-x: hidden;
 }
 
 
+/* Resetting padding for all modules when needed
+-------------------------------------------------------------- */
+body > #container > #container-inner > #breadcrumbtools,
+body > #container > #container-inner > #content > * {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+body > #container > #container-inner > #content > #listing, 
+body > #container > #container-inner > #content > #related {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+body > #container > #container-inner > #content > #listing > *:not(.listing),
+body > #container > #container-inner > #content > #related > *:not(.listing) {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#footer a#footer-home {
+	padding-left: 5px;
+}
 
 /* File Listing 
 -------------------------------------------------------------- */
-.listing {
-	min-width: 100% !important; /* Resetting the original min-width from main.css */
-	border: 1px solid #E0E0E0 !important;
-	-webkit-border-radius: 4px !important;
-	-moz-border-radius: 4px !important;
-	border-radius: 4px !important;
+ul.listing {
+	min-width: 100% !important; 
 }
 
-.listing span, .listing a {
-	font-size: 20px !important;
-}
 
 	.listing > li {
 		padding: 8px 0 8px 10px!important;
 		position: relative !important ;
 		overflow: hidden !important;
 		margin: 0 !important;
-	}
-
-	.listing > li:not(.listing-header) {
-		border-top: 1px solid #E0E0E0 !important;
+		border-top: 1px solid #E0E0E0;
 	}
 	
-	.listing > li:not(.listing-header):first-child {
-		border-top: none !important;
+	.listing > li:last-child {
+		border-bottom: 1px solid #E0E0E0;
 	}
-	
-	.listing > li:not(.listing-header):hover {
-		background-color: #1A1A1A !important;
-		cursor: pointer !important;
-	}
-	
-	.listing > li:not(.listing-header):hover:last-child {
-		-webkit-border-bottom-left-radius: 4px !important;
-		-webkit-border-bottom-right-radius: 4px !important;
-		
-		-moz-border-radius-bottomleft: 4px !important;
-		-moz-border-radius-bottomright: 4px !important;
-		
-		border-bottom-left-radius: 4px !important;
-		border-bottom-right-radius: 4px !important;
-	}
-	
-	.listing > li:not(.listing-header):hover:first-child {
-		-webkit-border-radius: 4px !important;
-		-moz-border-radius: 4px !important;
-		border-radius: 4px !important;
-	}
-	
-		.listing > li:not(.listing-header):hover > a > span {
-			color: #FFF;
-		}
 
 		.listing > li:not(.listing-header) > a {
 			display: block !important;
@@ -89,6 +80,9 @@ min-width: 450px; /* Resetting the original min-width from main.css */
 				width: 200px;
 			}
 
-
-
+/* Image 
+-------------------------------------------------------------- */
+img {
+	max-width: 450px;
+}
 

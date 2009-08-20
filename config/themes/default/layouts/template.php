@@ -48,6 +48,7 @@
 		</div>
 		<?php include("footer.inc.php") ?>
 	</div>
+	<script language="javascript" type="text/javascript" src="/config/themes/default/js/common.js"></script>
 	<?php if (strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) { ?>
 	<script language="javascript" type="text/javascript" src="/config/themes/default/js/main-iphone.js"></script>
 	<?php }	else { ?>
