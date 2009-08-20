@@ -60,8 +60,8 @@ body { height: 100%; margin: 0 15px 0; }
 #container{ position: relative; min-height: 100%; }
 #container-inner{ padding-bottom: 38px; }
 #footer{
-position: absolute;
-bottom: 0;
+position: absolute !important;
+bottom: 0 !important;
 overflow: hidden;
 }
 
@@ -717,7 +717,10 @@ line-height: 59px;
 /* @end */
 
 /* @group Download */
-#download_box { width: 220px; padding-top: 10px; }
+#download_box {
+	width: 220px; 
+	padding-top: 10px; 
+}
 
 #download_box .updated {
 position: absolute;
@@ -788,6 +791,7 @@ background: url(../images/system/download_xl.png) no-repeat 0 2px;
 /* @group Permalink */
 
 #info {
+
 }
 
 #info-button {

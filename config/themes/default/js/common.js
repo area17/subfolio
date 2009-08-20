@@ -69,6 +69,8 @@ function InfoHideSwitch (box, button) {
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function scrollToBottom () {
 	window.scrollTo(0,5000);
+	// IE6 : making sure the footer sticks at the bottom when expanding the info block
+	document.getElementById('footer').style.bottom = 0;
 }
 
 /* Hide flash

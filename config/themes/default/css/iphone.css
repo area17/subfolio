@@ -11,7 +11,7 @@ body  {
 	-moz-background-clip: border;
 	-moz-background-inline-policy: continuous;
 	-moz-background-origin: padding;
-	min-width: 320px; /* Resetting the original min-width from main.css */
+	/* Resetting the original min-width from main.css */
 	margin: 0;
 	overflow-x: hidden;
 }
@@ -75,13 +75,6 @@ body > #container > #container-inner > #content > #related > *:not(.list) {
 		-moz-background-origin: padding !important;
 		background: transparent url(../images/system/iphone/listArrow.png) no-repeat scroll right center !important;
 	}
-	
-		.list > li:not(.listing-header) > a > span.kind,
-		.list > li:not(.listing-header) > a > span.comment,
-		.list > li.listing-header > span.kind,
-		.list > li.listing-header > span.comment {
-			display: none !important;
-		}
 		
 	.list > li:not(.listing-header) span {
 		line-height: 31px;
@@ -92,12 +85,12 @@ body > #container > #container-inner > #content > #related > *:not(.list) {
 	}
 	
 	.list .filename {
-		width: 300px;
 		font-weight: bold;
 	}
 	
-	.list .size, .list .date {
+	.list .size, .list .date, .list .kind, .list .comment {
 		color: #777;
+		display: none !important;
 	}
 	
 	.list .updated, .list .new {
