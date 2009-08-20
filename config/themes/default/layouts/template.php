@@ -17,7 +17,7 @@
 	<link rel="shortcut icon" type="image/png" href="<?php echo view::get_view_url() ?>/images/logos/favicon.png" />
 	
 	<link href="<?php echo view::get_view_url() ?>/css/main.css" type="text/css" rel="stylesheet" >
-	<link href="<?php echo view::get_view_url()."/css/".$listing_mode ?>.css" type="text/css" rel="stylesheet" >
+	<!--<link href="<?php echo view::get_view_url()."/css/".$listing_mode ?>.css" type="text/css" rel="stylesheet" >-->
 	<!--[if IE 7]><link href="<?php echo view::get_view_url() ?>/css/ie7.css" type="text/css" rel="stylesheet" ><![endif]-->
 	
 	<?php if (strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) { ?>

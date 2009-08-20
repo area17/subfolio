@@ -10,6 +10,9 @@ main-iphone.js (light javascript for Subfolio on iPhone)
 /* Listeners
 -------------------------------------------------------------- */
 	addEventListener("load", function(event) {
+		if (navigator.userAgent.indexOf("iPhone") != -1) {
+			document.body.className = 'isIphone';
+		}
 		gallery();
 	}, false);
 

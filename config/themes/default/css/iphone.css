@@ -5,7 +5,7 @@ iphone.css (based on main.css)
 
 -------------------------------------------------------------- */
 
-/* Body 
+/* BODY 
 -------------------------------------------------------------- */
 body  {
 	-moz-background-clip: border;
@@ -17,7 +17,7 @@ body  {
 }
 
 
-/* Resetting padding for all modules when needed
+/* Resetting PADDING for all modules when needed
 -------------------------------------------------------------- */
 body > #container > #container-inner > #breadcrumbtools,
 body > #container > #container-inner > #content > * {
@@ -31,8 +31,8 @@ body > #container > #container-inner > #content > #related {
 	padding-right: 0;
 }
 
-body > #container > #container-inner > #content > #listing > *:not(.listing),
-body > #container > #container-inner > #content > #related > *:not(.listing) {
+body > #container > #container-inner > #content > #listing > *:not(.list),
+body > #container > #container-inner > #content > #related > *:not(.list) {
 	padding-left: 5px;
 	padding-right: 5px;
 }
@@ -41,53 +41,70 @@ body > #container > #container-inner > #content > #related > *:not(.listing) {
 	padding-left: 5px;
 }
 
-/* File Listing 
+/* iPhone LIST VIEW for LISTING module
 -------------------------------------------------------------- */
-ul.listing {
+.list {
 	min-width: 100% !important; 
 }
 
-
-	.listing > li {
-		padding: 8px 0 8px 10px!important;
+	.list > li {
+		padding: 8px 0 8px 5px !important;
 		position: relative !important ;
 		overflow: hidden !important;
 		margin: 0 !important;
 		border-top: 1px solid #E0E0E0;
 	}
 	
-	.listing > li:last-child {
+	.list > li:last-child {
 		border-bottom: 1px solid #E0E0E0;
 	}
 
-
-	.listing > li:hover {
+	.list > li:hover {
 		cursor: pointer;
 	}
 	
-		.listing > li:not(.listing-header) > a {
-			display: block !important;
-			-moz-background-clip: border !important;
-			-moz-background-inline-policy: continuous !important;
-			-moz-background-origin: padding !important;
-			background: transparent url(../images/system/iphone/listArrow.png) no-repeat scroll right center !important;
-			
+	#listing .list > li > a {
+		min-height: 31px;
+	}
+	
+	
+	.list > li:not(.listing-header) > a {
+		display: block !important;
+		-moz-background-clip: border !important;
+		-moz-background-inline-policy: continuous !important;
+		-moz-background-origin: padding !important;
+		background: transparent url(../images/system/iphone/listArrow.png) no-repeat scroll right center !important;
+	}
+	
+		.list > li:not(.listing-header) > a > span.kind,
+		.list > li:not(.listing-header) > a > span.comment,
+		.list > li.listing-header > span.kind,
+		.list > li.listing-header > span.comment {
+			display: none !important;
 		}
 		
-			.listing > li:not(.listing-header) > a > span.kind,
-			.listing > li:not(.listing-header) > a > span.comment,
-			.listing > li.listing-header > span.kind,
-			.listing > li.listing-header > span.comment {
-				display: none !important;
-			}
-			
-			.listing > li > a > span.filename {
-				width: 200px;
-			}
+	.list > li:not(.listing-header) span {
+		line-height: 31px;
+	}
+		
+	.list .icon {
+		width: 43px;
+	}
+	
+	.list .filename {
+		width: 300px;
+		font-weight: bold;
+	}
+	
+	.list .size, .list .date {
+		color: #777;
+	}
+	
+	.list .updated, .list .new {
+		top: 2px;
+		left: 26px;
+	}
 
-/* Image 
--------------------------------------------------------------- */
-img {
-	max-width: 450px;
-}
-
+	.list .locked, .list .unlocked {
+		left: 17px;
+	}
