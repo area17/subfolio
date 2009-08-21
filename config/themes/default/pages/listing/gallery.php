@@ -24,7 +24,7 @@ if (sizeof($files) > 0) {
   			?>
         <li>
           <a href="<?php echo $this->filebrowser->get_link($file->name); ?>">
-  					<div class="gallery_thumbnail" style="width:<?php echo $width."px"; ?>">
+  					<div class="gallery_thumbnail custom">
   						<img width="<?php echo $width ?>" height="<?php echo $height ?>" src="<?php echo $image_source ?>" />
   					</div>
   					<?php if ($display_filenames) { ?>

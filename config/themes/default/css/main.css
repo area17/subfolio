@@ -60,8 +60,8 @@ body { height: 100%; margin: 0 15px 0; }
 #container{ position: relative; min-height: 100%; }
 #container-inner{ padding-bottom: 38px; }
 #footer{
-position: absolute;
-bottom: 0;
+position: absolute !important;
+bottom: 0 !important;
 overflow: hidden;
 }
 
@@ -265,10 +265,10 @@ background: url(../images/system/parent.png) no-repeat 3px 12px;
 }
 #navigation .parent_dir a:hover { background-position: 3px -38px; }
 
-#breadcrumbtools a:hover, #footer a:hover, #navigation a:hover { background-color: #eee; }
+#breadcrumbtools a:hover, #footer a:hover, #navigation a:hover, #navigation a.hover { background-color: #eee; }
 
 #navigation span.prev_next a, #navigation span.prev_next .faded { padding-left:15px; padding-right:15px; }
-#navigation span.prev_next .first { border-right: 1px solid #e0e0e0; }
+#navigation span.prev_next .first, #navigation span.prev_next *:first-child { border-right: 1px solid #e0e0e0; }
 
 /* FOOTER */
 #footer { border-top:1px solid #e0e0e0; }
@@ -337,6 +337,10 @@ padding: 1px;
 	height:240px;
 	position: relative;
 	_margin-bottom: 0 !important; 
+}
+
+#gallery ul li a div.custom { 
+	height: auto;
 }
 
  
@@ -422,6 +426,178 @@ padding:0 10px 10px;
 
 /* @end */
 
+/* @group List */
+
+/* -------------------------------------------------------------- 
+   MODULES: CONTENT / LISTING LIST VIEW
+-------------------------------------------------------------- */
+
+.list {
+	width: 100%;
+	min-width: 510px; /* We set the min-width of the listing to match the kind column */
+	position: relative;
+}
+
+	.list li {
+		overflow: hidden; /* clears the left float applied on li span elements - all browsers except IE6 and below */
+		_clear: left; /* IE6: clears the left float */
+		margin: 0 0 1px;
+	}
+
+		
+		.list li a {
+			display: inline-block;
+			overflow: hidden;
+			width: 100%;
+			position: relative;
+		}
+		
+		.list li a:hover {
+			color: #1A1A1A;
+			background-color: #eee;
+			cursor: pointer;
+			-moz-border-radius: 2px;
+			-webkit-border-radius: 2px;
+		}
+	
+	
+	.list li.listing-header {
+		margin: 0 0 5px;
+	}
+	
+		.list li.listing-header a {
+			color: #777;
+		}
+		
+		.list li.listing-header a:hover {
+			color: #1C7AD5;
+			background-color: #fff;
+		}
+	
+	.list li span {
+		display: block;
+		float: left;
+		
+	}
+
+	.list .icon { width: 25px; height: 17px; position: relative; }
+	.list .filename { width: 200px; position: relative; }
+	.list .size { width: 65px;}
+	.list .date { width: 90px;}
+	.list .kind { width: 130px;}
+	.list .comment { 
+		position: absolute; /* turning it absolute so that it sticks inline, preventing it to float on browser resizing */
+		left: 510px; /* setting its left equals the sum of the widths of previous columns */
+		top: 0;
+	}
+		
+	.list .filename, .list .name, .list .size, .list .date, .list .kind, .list .comment { padding: 2px 0 0; }
+
+/* -------------------------------------------------------------- 
+   MODULES: CONTENT / LISTING ICONS
+-------------------------------------------------------------- */
+* html .list .icon .icon_download { position:absolute; }
+
+.list .updated, .list .new {
+position:absolute;
+top: 0;
+left: 12px;
+display:block;
+width:9px;
+height:9px;
+z-index:99;
+background:url("../images/system/updated.png") no-repeat top left;
+}
+
+.list .new { background: url("../images/system/new.png") no-repeat top left; }
+
+.list .locked, .list .unlocked {
+position:absolute;
+top: 5px;
+left: 3px;
+display:block;
+width:10px;
+height:9px;
+z-index:98;
+background:url("../images/system/lock.png") no-repeat top left;
+}
+.list .locked { background-position:top; }
+.list .unlocked { background-position:0 -50px; }
+
+/* @end */
+
+/* @group Grid */
+
+/* -------------------------------------------------------------- 
+   MODULES: CONTENT / LISTING GRID VIEW
+-------------------------------------------------------------- */
+
+.grid {
+	font-size:12px;
+	display: inline-block;
+}
+
+	.grid .listing-header {
+		display: none;
+	}
+
+	.grid li {
+		float:left;
+		width: 179px;
+		height: 104px;
+		text-align: center;
+		overflow: hidden;
+		margin: 0 1px 1px 0 !important;
+	}
+
+		.grid li a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			-moz-border-radius:3px;
+			-webkit-border-radius:3px;
+			
+		}
+
+		.grid li a:hover {
+			background-color: #f5f5f5;
+			cursor: pointer;
+		}
+		
+		.grid li span {
+			display: block;
+		}
+		
+			.grid li span.filename {
+				max-height: 1.2em;
+				overflow: hidden; /* Crop the text if longer */
+			}
+			
+			.grid li span.comment {
+				color: #aaa;
+			}
+		
+	.grid .size, .grid .date, .grid .kind {
+		display: none !important;
+	}
+
+/* -------------------------------------------------------------- 
+   MODULES: CONTENT / LISTING ICONS
+-------------------------------------------------------------- */
+
+.grid li .icon {
+	height: 60px;
+	position: relative;
+}
+
+	.grid li .icon img {
+		position: absolute;
+		top: 20px;
+		left: 73px;
+	}
+
+
+/* @end */
 
 /* @group Related */
 
@@ -432,64 +608,6 @@ padding:0 10px 10px;
 	 
 }
 	#related p { margin: 0 0 5px; }
-
-	#related .listing {
-		font-size:12px;
-		width: 100%;
-	}
-
-		#related .listing li {
-			overflow: hidden; /* clears the left float applied on li span elements - all browsers except IE6 and below */
-			_clear: left; /* IE6: clears the left float */
-			margin: 0 0 1px;
-		}
-
-
-			#related .listing li a {
-				display: block;
-				overflow: hidden;
-				_padding-bottom: 3px; /* IE6: allows the hover to "wrap" properly the list item */
-			}
-
-			#related .listing li a:hover {
-				color: #1A1A1A;
-				background-color: #eee;
-				cursor: pointer;
-				-moz-border-radius: 3px;
-				-webkit-border-radius: 3px;
-			}
-
-
-		#related .listing li span {
-			display: block;
-			float: left;
-		}
-
-		#related .icon { width: 25px;}
-		#related .filename { width: 200px; padding: 2px 0 0;}
-	
-		
-/* :TODO: Check if we need the following
-
-#related ul li .icon_download {
-background-repeat:no-repeat;
-width:5px;
-height:17px;
-float:left;
-margin-left:4px;
-margin-right:1px;
-background-image:url("../images/system/download.png");
-}
-
-#related ul li .icon_download.blank { background:none; }
-
-* html #related ul li .icon img {
-margin-left:10px;
-}
-
-* html #related ul li .icon .icon_download {
-position:absolute;
-}*/
 
 /* @end */
 
@@ -599,7 +717,10 @@ line-height: 59px;
 /* @end */
 
 /* @group Download */
-#download_box { width: 220px; padding-top: 10px; }
+#download_box {
+	width: 220px; 
+	padding-top: 10px; 
+}
 
 #download_box .updated {
 position: absolute;
@@ -670,6 +791,7 @@ background: url(../images/system/download_xl.png) no-repeat 0 2px;
 /* @group Permalink */
 
 #info {
+
 }
 
 #info-button {
@@ -688,6 +810,7 @@ margin-bottom: 10px;
 border: 1px solid #dedede;
 padding: 9px 10px 5px 10px;
 width: 220px;
+position: relative;
 }
 
 
