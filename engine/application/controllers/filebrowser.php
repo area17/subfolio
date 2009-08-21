@@ -89,7 +89,7 @@ class Filebrowser_Controller extends Website_Controller {
 
         if (isset($_GET['download'])) {
           header('Content-Disposition: attachment; filname="' . basename($file) .'"; ');
-          header('Content-Type: octet-stream');
+          header('Content-Type: application/octet-stream');
         } else {
           header('Content-Description: File Transfer');
           header('Content-Type: ' . mime_content_type($file));
