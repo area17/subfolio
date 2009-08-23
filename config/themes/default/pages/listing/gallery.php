@@ -23,12 +23,12 @@ if (sizeof($files) > 0) {
   			// Custom thumbnails -----------------------------------------------------------------------------
   			?>
         <li>
-          <a href="<?php echo $this->filebrowser->get_link($file->name); ?>">
+          <a href="<?php echo urlencode($this->filebrowser->get_link($file->name)); ?>">
   					<div class="gallery_thumbnail custom">
   						<img width="<?php echo $width ?>" height="<?php echo $height ?>" src="<?php echo $image_source ?>" />
   					</div>
   					<?php if ($display_filenames) { ?>
-          	  <p><?php echo $file->name ?></p>
+          	  <p><?php echo htmlentities($file->name) ?></p>
           	<?php } ?>
   				</a>
         </li>
@@ -36,12 +36,12 @@ if (sizeof($files) > 0) {
   			// Genrerated or not thumbnails -----------------------------------------------------------------------------
   			?>
   	    <li>
-          <a href="<?php echo $this->filebrowser->get_link($file->name); ?>">
+          <a href="<?php echo $this->filebrowser->get_link(urlencode($file->name)); ?>">
   					<div class="gallery_thumbnail" style="width:<?php echo $width."px"; ?>">
   						<img width="<?php echo $width ?>"  height="<?php echo $height ?>" src="<?php echo $image_source ?>" />
   					</div>
   					<?php if ($display_filenames) { ?>
-            	<p><?php echo $file->name ?></p>
+            	<p><?php echo htmlentities($file->name) ?></p>
           	<?php } ?>
   				</a>
         </li>

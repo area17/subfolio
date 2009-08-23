@@ -79,6 +79,7 @@ class Filebrowser_Controller extends Website_Controller {
 
     if ($this->access->check_access($this->auth->get_user())) {
       if ($this->filebrowser->is_file()) {
+
         // CHECK IF I HAVE ACCESS TO path
         $file = $this->filebrowser->fullfilepath;
 
@@ -92,18 +93,18 @@ class Filebrowser_Controller extends Website_Controller {
           header('Content-Type: application/octet-stream');
         } else {
           header('Content-Description: File Transfer');
-          header('Content-Type: ' . mime_content_type($file));
+          //header('Content-Type: ' . mime_content_type($file));
         }
 
         header('Content-Transfer-Encoding: binary');
         header('Expires: '.$gmt_mtime);
         header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
         header('Pragma: private');
-        header('Content-Length: ' . filesize($file));
+        header('Content-Length: ' . filesize(urldecode($file)));
         ob_end_clean();
         //readfile($file);
         
-        $fp = fopen($file, "rb");
+        $fp = fopen(urldecode($file), "rb");
         while (!feof($fp)){
           print(@fread($fp, 4096));
           flush();
