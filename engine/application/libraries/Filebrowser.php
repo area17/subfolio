@@ -21,8 +21,8 @@ class Filebrowser {
 
   var $updated_since  = "lastweek";
 
-  var $sort_order           = "listingNameCmp";
-  var $sort_order_direction = "Asc";
+  var $sort_order           = "listingDateCmp";
+  var $sort_order_direction = "Desc";
 
   var $displayed_content = false;
 
@@ -50,7 +50,7 @@ class Filebrowser {
 
   public function _sort_order() {
     $session= Session::instance();
-    $sortFunction = "listingNameCmp";
+    $sortFunction = "listingDateCmp";
 
     $currentSort = $session->get('sort_order');
     $currentSortOrder = $session->get('sort_order_direction');
