@@ -131,13 +131,12 @@ class FileFolder {
 	}
 
   public function get_thumbnail_url() {
-    
     if ($this->has_custom_thumbnail()) {
       return "/directory/".$this->parent."/-thumbnails-custom/".$this->name;
     } else {
       
       $thumbnail = "-thumbnails/".$this->name;
-      $url = "/directory/".$this->parent."/-thumbnails/".$this->name;
+      $url = "/directory/".$this->parent."/-thumbnails/".urlencode($this->name);
   
       if (!file_exists("-thumbnails")) mkdir("-thumbnails", 0755, true);
   

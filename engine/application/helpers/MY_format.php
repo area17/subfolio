@@ -55,4 +55,18 @@ class format extends format_Core {
     }
 	}
 
+  public static function urlencode_parts($path) {
+    $ret = "";
+    $parts = explode("/", $path);
+    
+    foreach ($parts as $part) {
+      if ($ret != "") {
+        $ret .= "/";
+      }
+      $ret .= "".urlencode($part);
+    }
+    
+    return $ret;
+  }
+
 } // End format

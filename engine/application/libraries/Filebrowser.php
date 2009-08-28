@@ -378,7 +378,7 @@ class Filebrowser {
   }
 
   public function get_file_url() {
-    return "/directory/".$this->filepath;
+    return "/directory/".format::urlencode_parts($this->filepath);
   }
 
   public function is_feature($foldername) {
