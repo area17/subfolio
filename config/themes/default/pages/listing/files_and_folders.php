@@ -1,6 +1,7 @@
 <?php 
 $listing_mode = Kohana::config('filebrowser.listing_mode');
 $listing_mode = view::get_option('listing_mode', $listing_mode);
+$listing_mode = $this->filebrowser->get_folder_property('listing_mode', $listing_mode); 
 
 $replace_dash_space = view::get_option('replace_dash_space', true);  
 $replace_underscore_space = view::get_option('replace_underscore_space', true);
