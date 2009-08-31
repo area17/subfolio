@@ -75,8 +75,13 @@ class Filebrowser {
         $session->set('sort_order_direction', $newSortOrder);
         $this->sort_order_direction = $newSortOrder;
       } else {
-        $session->set('sort_order_direction', "Asc");
-        $this->sort_order_direction = "Asc";
+        if ($sortFunction == "listingDateCmp") {
+          $session->set('sort_order_direction', "Desc");
+          $this->sort_order_direction = "Desc";
+        } else {
+          $session->set('sort_order_direction', "Asc");
+          $this->sort_order_direction = "Asc";
+        }
       }
     } else if ($currentSort != NULL) {
       $this->sort_order = $currentSort;
