@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') or die('No direct script access.');
+﻿<?php defined('SYSPATH') or die('No direct script access.');
 class Filebrowser_Controller extends Website_Controller {
 
   public function hash($password) {
@@ -9,56 +9,56 @@ class Filebrowser_Controller extends Website_Controller {
   public function login() {
     // if user is logged in, redirect refering page    
 
-		$validation = Validation::factory($_POST)
-			->pre_filter('trim', TRUE)
-			->add_rules('username','required')
-			->add_rules('password', 'required');
+    $validation = Validation::factory($_POST)
+      ->pre_filter('trim', TRUE)
+      ->add_rules('username','required')
+      ->add_rules('password', 'required');
 
     $return_path = $this->session->get('return_path') ? $this->session->get('return_path') : '/';
 
-		$login = View::factory('pages/login');
-	  $login->login_failed = false;
+    $login = View::factory('pages/login');
+    $login->login_failed = false;
 
-		if ($_POST) {
-			if ( ! $validation->validate()) {
-  		  $login->login_failed = true;
-				$form = $validation->as_array();
-				$errors = $validation->errors('custom_error');
-			} else {
-				$username = $validation->username;
-				$password = $validation->password;
-				if ($this->auth->login($username, $password, true)) {
-					// Login successful, redirect
-					Session::instance()->set_flash('flash', 'Login complete.');		
-					url::redirect($return_path);
+    if ($_POST) {
+      if ( ! $validation->validate()) {
+        $login->login_failed = true;
+        $form = $validation->as_array();
+        $errors = $validation->errors('custom_error');
+      } else {
+        $username = $validation->username;
+        $password = $validation->password;
+        if ($this->auth->login($username, $password, true)) {
+          // Login successful, redirect
+          Session::instance()->set_flash('flash', 'Login complete.');		
+          url::redirect($return_path);
           exit();
-				} else {
-    		  $login->login_failed = true;
-					Session::instance()->set_flash('error', 'Login Failed');		
-				}
-			}
-		} else {
-		  $login->login_failed = false;
-		}
-  	$this->template->content = $login;
+        } else {
+          $login->login_failed = true;
+          Session::instance()->set_flash('error', 'Login Failed');		
+        }
+      }
+    } else {
+      $login->login_failed = false;
+    }
+    $this->template->content = $login;
   }
 
   public function logout() {
-		$this->auth->logout(true);
-		$this->session->create();
-		Session::instance()->set_flash('flash', 'Logout complete.');
-		url::redirect('/');
-		exit();
+    $this->auth->logout(true);
+    $this->session->create();
+    Session::instance()->set_flash('flash', 'Logout complete.');
+    url::redirect('/');
+    exit();
   }
 
   public function denied() {
-		$denied = View::factory('pages/denied');
-  	$this->template->content = $denied;
+    $denied = View::factory('pages/denied');
+    $this->template->content = $denied;
   }
 
   public function notfound() {
-		$notfound = View::factory('pages/notfound');
-  	$this->template->content = $notfound;
+    $notfound = View::factory('pages/notfound');
+    $this->template->content = $notfound;
   }
 
   public function access($path='') {
@@ -85,8 +85,6 @@ class Filebrowser_Controller extends Website_Controller {
 
         $cache_for = 3600 * 1;	
         $gmt_mtime = gmdate('D, d M Y H:i:s', (time() + $cache_for)) . ' GMT';
-        
-        set_time_limit(0);
 
         if (isset($_GET['download'])) {
           header('Content-Disposition: attachment; filname="' . basename($file) .'"; ');
@@ -103,7 +101,7 @@ class Filebrowser_Controller extends Website_Controller {
         header('Content-Length: ' . filesize(urldecode($file)));
         ob_end_clean();
         //readfile($file);
-        
+
         $fp = fopen(urldecode($file), "rb");
         while (!feof($fp)){
           print(@fread($fp, 4096));
@@ -118,10 +116,10 @@ class Filebrowser_Controller extends Website_Controller {
         $archive->download($folder.".zip");
         exit();
       }
-		} else {
+    } else {
       url::redirect("/denied"); 
       exit();
-		}
+    }
   }
 
   public function index() {
@@ -130,7 +128,7 @@ class Filebrowser_Controller extends Website_Controller {
     $this->filebrowser->set_path($path);
 
     if ($this->filebrowser->exists()) {
-	
+
       $this->access->load_access($this->filebrowser->get_folder());
 
       if ($this->access->is_restricted()) {
@@ -145,25 +143,25 @@ class Filebrowser_Controller extends Website_Controller {
 
       if ($this->access->check_access($this->auth->get_user())) {
         $is_folder = false;
-			  $single = $this->filebrowser->is_file();
-			  
+        $single = $this->filebrowser->is_file();
+
         if (!$single) {
           $folder = $this->filebrowser->get_folder();
-			    $fkind = $this->filekind->get_kind_by_file($folder);
+          $fkind = $this->filekind->get_kind_by_file($folder);
           $kind = isset($fkind['kind']) ? $fkind['kind'] : '';
-			    if ($kind == "site") {
-  			    $single = true;
-	  		    $is_folder = true;
-  		    }
+          if ($kind == "site") {
+            $single = true;
+            $is_folder = true;
+          }
         }
-			  
-				$replace_dash_space = view::get_option('replace_dash_space', true);
-			  $replace_underscore_space = view::get_option('replace_underscore_space', true);
-			  $display_file_extensions = view::get_option('display_file_extensions', true);
-			
+
+        $replace_dash_space = view::get_option('replace_dash_space', true);
+        $replace_underscore_space = view::get_option('replace_underscore_space', true);
+        $display_file_extensions = view::get_option('display_file_extensions', true);
+
         if ($single) {
           $file = $this->filebrowser->get_file();
-					
+
           if ($is_folder) {
           } else {
             $fkind = $this->filekind->get_kind_by_file($file->name);
@@ -171,35 +169,35 @@ class Filebrowser_Controller extends Website_Controller {
           }
 
           if (View::view_exists('pages/filekinds/'.$kind)) {
-        		$content = View::factory('pages/filekinds/'.$kind);
-        		$content->file = $file;
-        		if (isset($folder)) $content->folder = $folder;
-    		  } else {
-        		$content = View::factory('pages/filekinds/default');
-        		$content->file = $file;
-    		  }
+            $content = View::factory('pages/filekinds/'.$kind);
+            $content->file = $file;
+            if (isset($folder)) $content->folder = $folder;
+          } else {
+            $content = View::factory('pages/filekinds/default');
+            $content->file = $file;
+          }
           $this->template->page_title = $file->name;
-					$this->template->page_title = FileFolder::fix_display_name($file->name, $replace_dash_space, $replace_underscore_space, $display_file_extensions);
-      		$this->template->content = $content;
+          $this->template->page_title = FileFolder::fix_display_name($file->name, $replace_dash_space, $replace_underscore_space, $display_file_extensions);
+          $this->template->content = $content;
         } else {
-					
+
           $folder = $this->filebrowser->get_folder();
 
-      		$content = View::factory('pages/listing');
-      		$this->template->content = $content;
+          $content = View::factory('pages/listing');
+          $this->template->content = $content;
 
-      		if ($folder <> "") {
+          if ($folder <> "") {
             $this->template->page_title = $folder;
-						$this->template->page_title = FileFolder::fix_display_name($folder, $replace_dash_space, $replace_underscore_space, $display_file_extensions);
+            $this->template->page_title = FileFolder::fix_display_name($folder, $replace_dash_space, $replace_underscore_space, $display_file_extensions);
           }
-    		}
-  		} else {
-    		$content = View::factory('pages/denied');
-    		$this->template->content = $content;
-  		}
+        }
+      } else {
+        $content = View::factory('pages/denied');
+        $this->template->content = $content;
+      }
     } else {
-  		$content = View::factory('pages/notfound');
-  		$this->template->content = $content;
+      $content = View::factory('pages/notfound');
+      $this->template->content = $content;
     }
   }
 }
