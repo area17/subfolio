@@ -41,7 +41,7 @@ if (view::get_option('display_header', true)) {
   <?php if (view::get_option('display_breadcrumb', true)) { ?>
   <div id="breadcrumb">
     <?php if ($this->auth->logged_in()) { ?>
-      <span><?php echo $this->auth->get_user()->name ?> browsing</span>
+      <span><?php echo $this->auth->get_user()->name ?> <?php echo Kohana::lang('filebrowser.browsing'); ?></span>
     <?php } ?>
 
     <?php 
