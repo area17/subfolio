@@ -44,11 +44,11 @@ if ($showListing) {
 		<span class="icon">
 			<img src='/config/themes/default/images/system/no_icon.png' width='18' height='17' border='0' />
 		</span>
-		<span class="filename"><a href="?sort=filename">filename</a></span>
-		<span class="size"><a href="?sort=size">size</a></span>
-		<span class="date"><a href="?sort=date">date</a></span>
-		<span class="kind"><a href="?sort=kind">kind</a></span>
-		<span class="comment"><!-- --></span>
+		<span class="filename"><a href="?sort=filename"><?php echo Kohana::lang('filebrowser.filename'); ?></a></span>
+		<span class="size"><a href="?sort=size"><?php echo Kohana::lang('filebrowser.size'); ?></a></span>
+		<span class="date"><a href="?sort=date"><?php echo Kohana::lang('filebrowser.date'); ?></a></span>
+		<span class="kind"><a href="?sort=kind"><?php echo Kohana::lang('filebrowser.kind'); ?></a></span>
+		<span class="comment"><?php echo Kohana::lang('filebrowser.comment'); ?></span>
 	</li>
 				
 <!--****************************** FOLDERS ******************************-->

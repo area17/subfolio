@@ -19,3 +19,7 @@ remember_my_login: Remember my login
 submit: Submit
 invalid_user_password: Invalid username or password.
 error: Error
+updated_since: "Updated Since:"
+last_week: last week
+last_month: last month
+my_last_visit: my last visit
