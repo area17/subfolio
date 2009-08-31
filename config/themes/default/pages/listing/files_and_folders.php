@@ -40,6 +40,9 @@ if ($showListing) {
 ?>	
 <div id="listing">
 <ul class="<?php echo $listing_mode ?>">
+
+	<?php $display_listing_header = view::get_option('display_file_listing_header', true);
+	if ($display_listing_header) { ?>
 	<li class="listing-header">
 		<span class="icon">
 			<img src='/config/themes/default/images/system/no_icon.png' width='18' height='17' border='0' />
@@ -50,7 +53,7 @@ if ($showListing) {
 		<span class="kind"><a href="?sort=kind"><?php echo Kohana::lang('filebrowser.kind'); ?></a></span>
 		<span class="comment"><?php echo Kohana::lang('filebrowser.comment'); ?></span>
 	</li>
-				
+	<?php } ?>
 <!--****************************** FOLDERS ******************************-->
 <!-- Sites, pages, numbers and keynote documents (who uses folders) -->
 
