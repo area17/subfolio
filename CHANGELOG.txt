@@ -2,6 +2,13 @@ SUBFOLIO CHANGELOG
 
 UNRELEASED CHANGES
 
+VERSION: 0.9.20090830
+[THEME]			Additional option for hiding file listing headings
+[ENGINE]		Fix for foreign characters in filename, Added some missed language translations
+
+VERSION: 0.9.20090823
+[THEME]			General theme updates
+
 VERSION: 0.9.20090813
 [THEME]			General update IE6 and IPhone capatability
 [ENGINE]		Fix for foreign characters
