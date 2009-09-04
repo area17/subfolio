@@ -160,8 +160,8 @@ pdf:
   icon: pdf
   display: PDF Document
   instructions:>
-    You must have the free Adobe Acrobat Reader to view this file. Download it <a href='http://get.adobe.com/reader/' target='_blank'>here</a>
-    For firefox users, you can find the plugin "here:":https://addons.mozilla.org/en-US/firefox/addon/7518
+    You must have the free Adobe Acrobat Reader to view this file. Download it <a href='http://get.adobe.com/reader/' target='_blank'>here</a>.<br/>
+    For mac firefox users, you can find the plugin <a href='https://addons.mozilla.org/en-US/firefox/addon/7518' target='_blank'>here</a>.
   width: 100%
   height: 90%
   
