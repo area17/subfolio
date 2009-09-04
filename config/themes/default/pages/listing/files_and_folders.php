@@ -46,7 +46,7 @@ if ($showListing) {
 	if ($display_listing_header) { ?>
 	<li class="listing-header">
 		<span class="icon">
-			<img src='/config/themes/default/images/system/no_icon.png' width='18' height='17' border='0' />
+			<img src="<?php echo view::get_view_url() ?>/images/system/no_icon.png" width='18' height='17' border='0' />
 		</span>
 		<span class="filename"><a href="?sort=filename"><?php echo Kohana::lang('filebrowser.filename'); ?></a></span>
 		<span class="size"><a href="?sort=size"><?php echo Kohana::lang('filebrowser.size'); ?></a></span>
@@ -117,26 +117,26 @@ foreach ($folders as $folder):
 			        }
 
 					if (!$restricted || $have_access) {
-				        if (false && $folder->stats['ctime'] > $new_updated_start) {
+				      if (false && $folder->stats['ctime'] > $new_updated_start) {
 			            	$new = true;
 			          } else if ($folder->stats['mtime'] > $new_updated_start) {
 			        		$updated = true;
 			          }
 		         	}
 
-              		if ($kind == "site") {
+              if ($kind == "site") {
 			        	$folder_kind = $this->filekind->get_kind_by_extension("site");
 			        } else {
 			        	$folder_kind = $this->filekind->get_kind_by_extension("dir");
 			        }
 
 			        $icon_file = $this->filekind->get_icon_by_file($folder_kind);
-					$listing_mode = $this->filebrowser->get_folder_property('listing_mode', $listing_mode);
+							$listing_mode = $this->filebrowser->get_folder_property('listing_mode', $listing_mode);
 					
-					// to be confirmed
-					if (strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) {
-						$listing_mode = 'grid';
-					}
+							// to be confirmed
+							if (strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) {
+								$listing_mode = 'grid';
+							}
 					
 			        $icon = view::get_view_url()."/images/icons/".$listing_mode."/".$icon_file.".png";        
 			      ?>
@@ -193,7 +193,7 @@ endforeach ?>
       }
 
       $icon_file = $this->filekind->get_icon_by_file($file_kind);
-	  $listing_mode = $this->filebrowser->get_folder_property('listing_mode', $listing_mode);
+	  	$listing_mode = $this->filebrowser->get_folder_property('listing_mode', $listing_mode);
       
    	  // to be confirmed
 	  if (strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) {

@@ -48,12 +48,12 @@
 		</div>
 		<?php include("footer.inc.php") ?>
 	</div>
-	<script language="javascript" type="text/javascript" src="/config/themes/default/js/common.js"></script>
+	<script language="javascript" type="text/javascript" src="<?php echo view::get_view_url() ?>/js/common.js"></script>
 	<?php if (strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) { ?>
-	<script language="javascript" type="text/javascript" src="/config/themes/default/js/main-iphone.js"></script>
+		<script language="javascript" type="text/javascript" src="<?php echo view::get_view_url() ?>/js/main-iphone.js"></script>
 	<?php }	else { ?>
-	<script language="javascript" type="text/javascript" src="/config/themes/default/js/jquery-1.3.2.min.js"></script>
-	<script language="javascript" type="text/javascript" src="/config/themes/default/js/main.js"></script>
+		<script language="javascript" type="text/javascript" src="<?php echo view::get_view_url() ?>/js/jquery-1.3.2.min.js"></script>
+		<script language="javascript" type="text/javascript" src="<?php echo view::get_view_url() ?>/js/main.js"></script>
 	<?php }	?>
 </body>
 </html>
