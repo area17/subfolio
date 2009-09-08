@@ -219,12 +219,8 @@ function gallery() {
 /* Register keypress events on the whole document when navigation exists
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function keyPress () {
-	
-	
-	$(document).keydown(function(e) {
 		
-		console.log("key:"+e.keyCode)
-		
+	$(document).keydown(function(e) {	
 		switch(e.keyCode) {
 			// user pressed "left" arrow
 			case 37:
@@ -238,11 +234,9 @@ function keyPress () {
 					}
 				}
 			break;				
-			
 			// user pressed "top" arrow
 			case 84: $('html,body').animate({scrollTop: 0}, 250);
 			break;
-			
 			// user pressed "right" arrow
 			case 39: 
 				if ($('#next')[0]) {
