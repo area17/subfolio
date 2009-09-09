@@ -2,6 +2,16 @@ SUBFOLIO CHANGELOG
 
 UNRELEASED CHANGES
 
+VERSION: 1.0.RC1
+[THEME]			Updated keyboard controls and sorting issue
+[ENGINE]		Fix for download issue with Safari
+
+
+VERSION: 0.9.20090830
+[THEME]			Additional option for hiding file listing headings
+[ENGINE]		Fix for foreign characters in filename, Added some missed language translations
+
+
 VERSION: 0.9.20090830
 [THEME]			Additional option for hiding file listing headings
 [ENGINE]		Fix for foreign characters in filename, Added some missed language translations
