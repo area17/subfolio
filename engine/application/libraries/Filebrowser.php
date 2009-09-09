@@ -85,7 +85,7 @@ class Filebrowser {
       }
     } else if ($currentSort != NULL) {
       $this->sort_order = $currentSort;
-      $this->sort_order_order = $currentSortOrder;
+      $this->sort_order_direction = $currentSortOrder;
     }
   }
 
