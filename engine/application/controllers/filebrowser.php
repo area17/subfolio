@@ -91,7 +91,7 @@ class Filebrowser_Controller extends Website_Controller {
           header('Content-Type: application/octet-stream');
         } else {
           header('Content-Description: File Transfer');
-          //header('Content-Type: ' . mime_content_type($file));
+          header('Content-Type: ' . mime_content_type($file));
         }
 
         header('Content-Transfer-Encoding: binary');
