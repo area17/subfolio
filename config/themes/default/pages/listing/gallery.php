@@ -23,7 +23,7 @@ if (sizeof($files) > 0) {
   			// Custom thumbnails -----------------------------------------------------------------------------
   			?>
         <li>
-          <a href="<?php echo urlencode($this->filebrowser->get_link($file->name)); ?>">
+          <a href="<?php echo $this->filebrowser->get_link(urlencode($file->name)); ?>">
   					<div class="gallery_thumbnail custom">
   						<img width="<?php echo $width ?>" height="<?php echo $height ?>" src="<?php echo $image_source ?>" />
   					</div>
