@@ -2,7 +2,7 @@ SUBFOLIO CHANGELOG
 
 UNRELEASED CHANGES
 
-VERSION: 1.0.20090909rc1
+VERSION: 1.0.rc1
 [THEME]			Updated keyboard controls and sorting issue
 [ENGINE]		Fix for download issue with Safari
 
