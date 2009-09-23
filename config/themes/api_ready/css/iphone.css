@@ -1,0 +1,119 @@
+/* -------------------------------------------------------------- 
+
+iphone.css (based on main.css)
+* Subfolio by AREA 17
+
+-------------------------------------------------------------- */
+
+/* BODY 
+-------------------------------------------------------------- */
+body  {
+	-moz-background-clip: border;
+	-moz-background-inline-policy: continuous;
+	-moz-background-origin: padding;
+	/* Resetting the original min-width from main.css */
+	margin: 0;
+	overflow-x: hidden;
+}
+
+/* Resetting FONTS for all modules when needed
+-------------------------------------------------------------- */
+#breadcrumbtools *, #navigation *, #footer *, #features *, #listing *, #related * {
+	font-size: 18px !important;
+}
+
+#breadcrumbtools a, #breadcrumbtools span, #footer a, #navigation a, #navigation .prev_next span, #footer a, #footer span {
+	height: 35px; 
+}
+
+/* Turning off some elements (for test purpose, to be confirmed) */
+#footer span:nth-child(2){
+	display: none;
+}
+
+/* Resetting PADDING for all modules when needed
+-------------------------------------------------------------- */
+body > #container > #container-inner > #breadcrumbtools,
+body > #container > #container-inner > #content > * {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+body > #container > #container-inner > #content > #listing, 
+body > #container > #container-inner > #content > #related {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+body > #container > #container-inner > #content > #listing > *:not(.list),
+body > #container > #container-inner > #content > #related > *:not(.list) {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#footer a#footer-home {
+	padding-left: 5px;
+}
+
+
+/* iPhone LIST VIEW for LISTING module
+-------------------------------------------------------------- */
+.list {
+	min-width: 100% !important; 
+}
+
+	.list > li {
+		padding: 8px 0 8px 5px !important;
+		position: relative !important ;
+		overflow: hidden !important;
+		margin: 0 !important;
+		border-top: 1px solid #E0E0E0;
+	}
+	
+	.list > li:last-child {
+		border-bottom: 1px solid #E0E0E0;
+	}
+
+	.list > li:hover {
+		cursor: pointer;
+		
+	}
+	
+	#listing .list > li > a {
+		min-height: 31px;
+	}
+	
+	
+	.list > li:not(.listing-header) > a {
+		display: block !important;
+		-moz-background-clip: border !important;
+		-moz-background-inline-policy: continuous !important;
+		-moz-background-origin: padding !important;
+		background: transparent url(../images/system/iphone/listArrow.png) no-repeat scroll right center !important;
+	}
+		
+	.list > li:not(.listing-header) span {
+		line-height: 31px;
+	}
+		
+	.list .icon {
+		width: 43px;
+	}
+	
+	.list .filename {
+		font-weight: bold;
+	}
+	
+	.list .size, .list .date, .list .kind, .list .comment {
+		color: #777;
+		display: none !important;
+	}
+	
+	.list .updated, .list .new {
+		top: 2px;
+		left: 26px;
+	}
+
+	.list .locked, .list .unlocked {
+		left: 17px;
+	}
