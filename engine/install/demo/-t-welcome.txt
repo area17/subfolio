@@ -13,9 +13,8 @@ _Below are a few things that you may want to know:_
 h4. Starting to use it immediately
 
 * Add files and folders to the _directory_ folder and Subfolio will create pages from files and sections from folders
-* Thumbnails will be generated automatically for any browser-viewable files
-* Play around and get a feel of how it behaves
-* Subfolio supports most file kinds, download a package of "example file kinds":http://www.subfolio.com/download to play with
+* Thumbnails will be generated automatically for any image files
+* Play around and get a feel of how it behaves, Subfolio supports most file kinds
 
 h4. Giving it a name
 
@@ -29,8 +28,9 @@ h4. Adding your logo
 
 h4. Delete this file
 
-* This file is an _Enhancer_ for embedding text into a page. Don't forget to delete it before you go live
-* Learn to use "Enhancers":http://www.subfolio.com/documentation or download
+* This file (the one you're reading) is an _Enhancer_ for embedding text into a page. Don't forget to delete it before you go live:
+   * It's in the _directory_ folder and it's named "-t-welcome.txt".
+* Learn to use Enhancers at "support.subfolio.com":http://support.subfolio.com
 
 h3. Explore the possibilities
 
@@ -39,25 +39,29 @@ h4. Making it private
 * If you are using Subfolio for private purposes, make sure you add access control
 * This is done by setting up a user at /config/users/users.yml
 * Then adding a _-access_ file with the user permissions to the folder you'd like to protect
-* Read the access control "documentation":http://www.subfolio.com/documentation for full instructions
+* Read all about access control at "support.subfolio.com":http://support.subfolio.com
 
 h4. Making it your own
 
 * Change your interface options at /config/themes/default/options.yml
-* Learn to use "Enhancers":http://www.subfolio.com/documentation to feature items and much more
-* Download a package of "example Enhancers":http://www.subfolio.com/download to play with
-* Themes are interchangeable. Choose a theme that fits your needs
+* Learn to use Enhancers at "support.subfolio.com":http://support.subfolio.com
+* You are looking at the _Default Theme_. Themes are interchangeable. Choose a theme that fits your needs
 * If you know a bit of HTML/CSS, feel free to customize a theme or create your own
+
+h4. Don't read the documentation
+
+* Everything should work out-of-the-box
 
 h4. Read the documentation
 
-* There are a lot of hidden features to take advantage of, read the "documentation":http://www.subfolio.com/documentation to know your options
+* If you hit any bumps in your path
+* Also there are a lot of hidden features to take advantage of, read it at "support.subfolio.com":http://support.subfolio.com
 
 h3. And a few fast tips...
 
 h4. Embedding images and text into the page
 
-* Add a _&ndash;t&ndash;_ or _&ndash;m&ndash;_ or _&ndash;b&ndash;_ to the beginning of any txt or image file name to embed it at the _top_ or _middle_ or _bottom_ of the page
+* Add a _–t–_ or _–m–_ or _–b–_ to the beginning of any txt or image file name to embed it at the _top_ or _middle_ or _bottom_ of the page
 
 h4. Hiding content
 
@@ -65,12 +69,12 @@ h4. Hiding content
 * You can still access hidden content directly via URL
 * It's a nice way to work on a part of your Subfolio in private (just remove the dash when you are done)
 
-h4. Using dashes or underscores instead of spaces in filenames
+h4. For clean URL's, don't use spaces in filenames
 
-* You can use spaces for your filenames, but it's better to use underscores as it will make your URL's cleaner
 * Subfolio will replace all underscores and dashes with a space on the website itself
 * You can turn this option off in _/config/themes/default/options.yml_
+* And of course, feel free to use spaces if you want
 
 h4. Getting system information
 
-* Visit the following URL on your domain: http://www.example.com/engine/info
+* Add /engine/info to the end of your domain (eg. http://www.example.com/engine/info)

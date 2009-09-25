@@ -1,1 +1,0 @@
-= How to Install SubfolioFIXME: Provide instructions about how to isntall and workaround _htaccess file

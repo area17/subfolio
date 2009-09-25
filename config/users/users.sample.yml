@@ -1,15 +1,14 @@
-# format
-# user:
-#  fullname: User Full Name
-#  password: user_password
-#  admin: true or false
+# YAML NOTE: Spacing and capitalization is very important
 
-demo:
- fullname: Subfolio Demo User
- password: demo
- admin: false
+# User must exist in the user.yml file before they can be added to a group
+# Create unlimited groups, add unlimited users to a group
 
-client:
- fullname: Client Demo User
- password: client
- admin: false
+staff:
+ - jane
+ - john
+ - etc
+
+clients:
+ - apple
+ - microsoft
+ - etc
