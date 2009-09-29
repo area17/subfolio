@@ -15,6 +15,9 @@ class Website_Controller extends Template_Controller {
     $this->filebrowser = Filebrowser::instance();
     $this->filekind    = FileKind::instance();
  		
+    Subfolio::set_filebrowser($this->filebrowser);
+    Subfolio::set_auth($this->auth);
+    
  		$this->template->site_title = Kohana::config('filebrowser.site_name');
  		$this->template->page_title = "Home";
  	}
