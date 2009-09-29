@@ -1,21 +1,27 @@
+# YAML NOTE: Spacing and capitalization is very important
 
-site_name: Subfolio Portable
-site_domain: www.subfolio.com
+# To change your logo and other interface elements, go to /config/themes/default/options.yml
 
-theme: default
-directory: directory
+# GLOBAL SETTINGS
 
-access_file: -access
-properties_file: -properties
+site_name: Subfolio Portable       # appears in the header and HTML title of the page
+site_domain: www.subfolio.com      # appears in the breadcrumb navigation
 
-users_yaml_file: users.yml
-groups_yaml_file: groups.yml
+theme: default                     # name of the active theme
+directory: directory               # location of your content
 
-filekinds_yaml_file: filekinds.yml
-language_yaml_file: language.yml
+# YAML FILE NAMES
 
-thumbnail_max_filesize: 5
+users_yaml_file: users.yml         # name of YAML file for users
+groups_yaml_file: groups.yml       # name of YAML file for groups
 
-text_rendering: textile
+filekinds_yaml_file: filekinds.yml # name of YAML file for file kinds
+language_yaml_file: language.yml   # name of YAML file for interface language
 
-// 
+access_file: -access               # name of the Enhancer file containing folder permissions
+properties_file: -properties       # name of the Enhancer file containing folder properties
+
+# CONTENT SETTINGS
+
+text_rendering: textile            # markup language used to render inline text files: Textile or HTML
+thumbnail_max_filesize: 5          # file size cap (in MB) before a thumbnail will not be generated

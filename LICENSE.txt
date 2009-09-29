@@ -1,3 +1,6 @@
-= Subfolio License
+You have received a pre-release version of Subfolio which is highly confidential and proprietary. You are allowed to use Subfolio for personal testing purposes only. You have hold no other rights. 
 
-FIXME: Add defined Subfolio License terms here
+***
+Please respect our efforts and do not distribute Subfolio.
+
+© 2009 Subfolio by AREA 17. All rights reserved. 
