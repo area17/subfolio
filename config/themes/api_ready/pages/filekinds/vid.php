@@ -1,13 +1,13 @@
 <EMBED 
-  src='<?php echo API_CurrentFile('url') ?>' 
+  src='<?php echo Subfolio::current_file('url') ?>' 
   autoplay=<?php echo $autoplay ?>
   controller='true' 
   pluginspage='http://public.apple.com/quicktime/' 
-  width='<?php echo API_CurrentFile('width') ?>' 
-  height='<?php echo API_CurrentFile('height') ?>'
+  width='<?php echo Subfolio::current_file('width') ?>' 
+  height='<?php echo Subfolio::current_file('height') ?>'
   scale='noscale' 
   controller='true' 
   pluginspage='http://public.apple.com/quicktime/'>
 </EMBED>
 
-<?php if (API_Option('display_info')) { require("_download_box.php") } ?>
+<?php if (SubfolioTheme::get_option('display_info')) { require("_download_box.php") } ?>

@@ -34,7 +34,7 @@
 		<div id="container-inner">
 			<?php include("header.inc.php") ?>
 			<div id="content">
-				<?php echo SubfolioTheme::get_content() ?>
+				<?php if (isset($content)) echo $content; ?>
 			</div>
 		</div>
 		<?php include("footer.inc.php") ?>

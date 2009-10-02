@@ -1,5 +1,5 @@
 <div class="standard_paragraph"> 
-	<?php API_CurrentFile('body') ?>
+	<?php Subfolio::current_file('body') ?>
 </div>
 
-<?php if (API_Option('display_info')) { require("_download_box.php") } ?>
+<?php if (SubfolioTheme::get_option('display_info')) { require("_download_box.php"); } ?>

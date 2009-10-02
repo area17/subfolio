@@ -1,20 +1,18 @@
-<?php if (API_HaveInlineImages('top')) : ?>
-
+<?php if (SubfolioFiles::have_inline_images('top')) : ?>
 	<div id="inline_top_image" >
-			<?php foreach ( API_InlineImages('top') as $image) : ?>
+			<?php foreach (SubfolioFiles::inline_images('top') as $image) : ?>
 				<img width='<?php echo $image['width'] ?>' height='<?php echo $image['height'] ?>' src='<?php echo $image['url'] ?>' />
 			<?php endforeach; ?>
-	</div><!-- gallery -->
-
+	</div><!-- inline top image -->
 <?php endif ?>
 
 
-<?php if (API_HaveInlineTexts('top')) : ?>
+<?php if (SubfolioFiles::have_inline_texts('top')) : ?>
 
 	<div id="inline_top_text" class="standard_paragraph">
-			<?php foreach ( API_InlineTexts('top') as $text) : ?>
+			<?php foreach (SubfolioFiles::inline_texts('top') as $text) : ?>
 				<?php echo $text['body'] ?>
 			<?php endforeach; ?>
-	</div><!-- gallery -->
+	</div><!-- inline top text -->
 
 <?php endif ?>

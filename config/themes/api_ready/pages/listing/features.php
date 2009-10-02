@@ -1,8 +1,8 @@
-<?php if ( API_HaveFeatures() ) : ?>
+<?php if ( SubfolioFiles::have_features() ) : ?>
 
 	<div id="features">
 	  <ul>
-			<?php foreach ( API_Features() as $feature) : ?>
+			<?php foreach ( SubfolioFiles::features() as $feature) : ?>
 		    <li>
 				  <a href="<?php echo $feature['link'] ?>">
 			    	<img src="<?php echo $feature['image_file'] ?>">

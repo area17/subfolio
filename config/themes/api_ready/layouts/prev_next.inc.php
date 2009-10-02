@@ -1,12 +1,12 @@
 <div id="navigation">
-	
 	<span class="parent_dir">
-		<a href='/<?php echo API_ParentLink(); ?>'>Parent Directory</a>
+		<?php echo SubfolioFiles::parent_link('Parent Directory'); ?>
   </span>
 
+  <?php if (!SubfolioFiles::is_root()) { ?>
 	<span class="prev_next">		
-		<?php echo API_PreviousLinkOrSPan('faded'); ?> <!-- Will render a link or a span with the class 'faded' -->
-		<?php echo API_NextLinkOrSPan('faded'); ?>
+		<?php echo SubfolioFiles::previous_link_or_span('Previous', 'Previous Directory', 'previous', 'faded'); ?>
+		<?php echo SubfolioFiles::next_link_or_span('Next', 'Next Directory', 'next', 'faded'); ?>
 	</span>
-  
+  <?php } ?>  
 </div>

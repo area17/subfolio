@@ -23,3 +23,9 @@ updated_since: "Updated Since:"
 last_week: last week
 last_month: last month
 my_last_visit: my last visit
+username: Username
+password: Password
+authenticationrequired: Authentication Required
+generatetinyurl: generate tiny url
+lastmodified: last modified
+instructions: instructions

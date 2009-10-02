@@ -1,10 +1,10 @@
-<?php if (API_HaveRelated()) : ?>
+<?php if (SubfolioFiles::have_related()) : ?>
 	
 	<div id="related">
-		<p><?php API_Language('filebrowser.seealso') ?></p>
-		<ul class="<?php echo API_ListingMode() ?>">
+		<p><?php SubfolioLanguage::get_text('seealso') ?></p>
+		<ul class="<?php echo SubfolioTheme::get_listing_mode() ?>">
 			
-			<?php foreach ( API_Related() as $item) : ?>
+			<?php foreach ( SubfolioFiles::related() as $item) : ?>
 				<li>
 					<a href='<?php echo $item['link'] ?>'>
 						<span class="icon">
