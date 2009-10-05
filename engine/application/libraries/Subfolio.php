@@ -637,12 +637,41 @@ class SubfolioFiles extends Subfolio {
 
   public function have_related()
   {
-    return false;
+      $list = Subfolio::$filebrowser->get_file_list("cut", null, true);
+      return (sizeof($list) > 0);
   }
 
   public function related()
   {
-    return null;
+    $related = array();
+    
+    $listing_mode = Kohana::config('filebrowser.listing_mode');
+    $listing_mode = view::get_option('listing_mode', $listing_mode);
+    
+    $list = Subfolio::$filebrowser->get_file_list("cut", null, true);
+    
+    foreach ($list as $item) {
+      $link = Subfolio::$filebrowser->get_item_property($item->name, 'url');
+      if ($link == "") {
+        $link = Subfolio::$filebrowser->get_item_property($item->name, 'directory');
+      }
+      $name = Subfolio::$filebrowser->get_item_property($item->name, 'name');
+      $url = view::get_view_url() ."/images/icons/".$listing_mode."/i_cut.png";
+      $width = "18";
+      $height = "18";
+      
+      $rel = array();
+      $rel['link'] = $link;
+      $rel['filename'] = $name;
+
+      $rel['url']    = $url;
+      $rel['width']  = $width;
+      $rel['height'] = $height;
+      
+      $related[] = $rel;
+    }
+    
+    return $related;
   }
 
   public function is_root() {

@@ -1,5 +1,5 @@
-<img src='<?php echo API_ViewUrl() ?>/images/system/authentification_lock.png' width='59' height='59' border='0' />
+<img src='<?php echo SubfolioTheme::get_view_url() ?>/images/system/authentification_lock.png' width='59' height='59' border='0' />
 <p>
-	<?php echo API_Language('filebrowser.accessdenied'); ?><br/>
-	<a href="/login"><?php echo API_Language('filebrowser.loginasadifferentuser');?></a>
+	<?php echo SubfolioLanguage::get_text('accessdenied'); ?><br/>
+	<a href="/login"><?php echo SubfolioLanguage::get_text('loginasadifferentuser');?></a>
 </p>
