@@ -452,6 +452,10 @@ class SubfolioFiles extends Subfolio {
     $new_updated_start = Subfolio::$filebrowser->get_updated_since_time();
     $list = array();
     foreach ($folders as $folder) {
+      $restricted = false;
+      $have_access = false;
+      $new = false;
+      $updated = false;
 
       if (!Subfolio::$filebrowser->is_feature($folder->name)) {
     
@@ -463,11 +467,6 @@ class SubfolioFiles extends Subfolio {
         $kind_display = isset($folder_kind['display']) ? $folder_kind['display'] : '';
         $url = "";
         $display = $folder->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions);
-
-	        $restricted = false;
-	        $have_access = false;
-	        $new = false;
-	        $updated = false;
 					
 	        if ($folder->contains_access_file()) {
 	         	$restricted = true;
@@ -535,11 +534,20 @@ class SubfolioFiles extends Subfolio {
         $item['date'] = format::filedate($folder->stats['mtime']);
         $item['kind'] = $kind_display;
         $item['comment'] = format::get_rendered_text(Subfolio::$filebrowser->get_item_property($folder->name, 'comment'));
+        $item['restricted'] = $restricted;
+        $item['have_access'] = $have_access;
+        $item['new'] = $new;
+        $item['updated'] = $updated;
         $list[] = $item;
       }
     }
 
     foreach ($files as $file) {
+      $restricted = false;
+      $have_access = false;
+      $new = false;
+      $updated = false;
+
       if (!$file->has_thumbnail()) {
           $file_kind = Subfolio::$filekind->get_kind_by_file($file->name);
           
@@ -569,11 +577,11 @@ class SubfolioFiles extends Subfolio {
     	  	$listing_mode = Subfolio::$filebrowser->get_folder_property('listing_mode', $listing_mode);
           
        	  // to be confirmed
-    	  if (strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) {
-    		  $listing_mode = 'grid';
-    	  }
-    	
-    	  $icon = view::get_view_url()."/images/icons/".$listing_mode."/".$icon_file.".png";
+      	  if (strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) {
+      		  $listing_mode = 'grid';
+      	  }
+      	
+      	  $icon = view::get_view_url()."/images/icons/".$listing_mode."/".$icon_file.".png";
     
           $target = "";
           $url = "";
@@ -605,16 +613,20 @@ class SubfolioFiles extends Subfolio {
     	    }
 
 
-      $item = array();
-      $item['target'] = $target;
-      $item['url'] = $url;
-      $item['icon'] = $icon;
-      $item['filename'] = $display;
-      $item['size'] = format::filesize($file->stats['size']);
-      $item['date'] = format::filedate($file->stats['mtime']);
-      $item['kind'] = $kind_display;
-      $item['comment'] = format::get_rendered_text(Subfolio::$filebrowser->get_item_property($file->name, 'comment'));
-      $list[] = $item;
+        $item = array();
+        $item['target'] = $target;
+        $item['url'] = $url;
+        $item['icon'] = $icon;
+        $item['filename'] = $display;
+        $item['size'] = format::filesize($file->stats['size']);
+        $item['date'] = format::filedate($file->stats['mtime']);
+        $item['kind'] = $kind_display;
+        $item['comment'] = format::get_rendered_text(Subfolio::$filebrowser->get_item_property($file->name, 'comment'));
+        $item['restricted'] = $restricted;
+        $item['have_access'] = $have_access;
+        $item['new'] = $new;
+        $item['updated'] = $updated;
+        $list[] = $item;
 
         }
 
@@ -745,6 +757,4 @@ class SubfolioFiles extends Subfolio {
   }
 
 }
-
-
 ?>

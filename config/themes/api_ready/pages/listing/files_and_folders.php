@@ -26,6 +26,15 @@
 						<span class="date"><?php echo $item['date'] ?></span>
 						<span class="kind"><?php echo $item['kind'] ?></span>
 						<span class="comment"><?php echo $item['comment'] ?></span>
+  					<?php if ($item['updated']) { ?>
+  			      		<span class="updated"><!-- --></span>
+  					<?php } ?>
+  					<?php if ($item['new']) { ?>
+  			      	<span class="new"><!-- --></span>
+  					<?php } ?>
+  					<?php if ($item['restricted']) { ?>
+  						<span class="<?php if ($item['have_access']) { echo "unlocked"; } else { echo "locked"; } ?>"><!-- --></span>
+  					<?php	} ?>
 					</a>
 				</li>
 			<?php endforeach; ?>
