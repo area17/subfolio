@@ -241,9 +241,9 @@ class SubfolioLanguage extends Subfolio {
   // ------------------------------------------------------
   // LANGUAGE RELATED FUNCTIONS
   // ------------------------------------------------------
-  public function get_text($name)
+  public function get_text($name, $args = array())
   {
-    return Kohana::lang("filebrowser.".$name);
+    return Kohana::lang("filebrowser.".$name, $args);
   }
 }
 
