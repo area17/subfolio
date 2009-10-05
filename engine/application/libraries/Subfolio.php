@@ -180,6 +180,7 @@ class SubfolioTheme extends Subfolio {
         } else {
           $crumb['url'] = $path.$value;
         }
+        $path .= $value."/";
         $breadcrumbs[] = $crumb;
         $count ++;
       }
