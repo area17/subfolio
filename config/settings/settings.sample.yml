@@ -4,7 +4,7 @@
 
 # GLOBAL SETTINGS
 
-site_name: Subfolio Portable       # appears in the header and HTML title of the page
+site_name: Subfolio Filebrowser    # appears in the header and HTML title of the page
 site_domain: www.subfolio.com      # appears in the breadcrumb navigation
 
 theme: default                     # name of the active theme
