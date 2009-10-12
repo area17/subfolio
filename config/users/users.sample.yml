@@ -1,14 +1,15 @@
 # YAML NOTE: Spacing and capitalization is very important
 
 # User must exist in the user.yml file before they can be added to a group
-# Create unlimited groups, add unlimited users to a group
+# Create unlimited users
+# For securing passwords, read the documentation on hashed passwords
 
-staff:
- - jane
- - john
- - etc
+johndoe:
+ fullname: John Doe
+ password: gr8p4ssw0rd
+ admin: false
 
-clients:
- - apple
- - microsoft
- - etc
+janedoe:
+ fullname: Jane Doe
+ hashed_password: 34f28698680030c6dc4873ad82eafdf5
+ admin: true
