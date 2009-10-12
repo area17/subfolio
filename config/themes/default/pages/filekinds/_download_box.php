@@ -1,42 +1,23 @@
-<?php
-  $replace_dash_space = view::get_option('replace_dash_space', true);
-  $replace_underscore_space = view::get_option('replace_underscore_space', true);
-  $display_file_extensions = view::get_option('display_file_extensions', true);
-?>
 <div id="download_box">
 		
-	<a id="clickable-zone" href="<?php echo $this->filebrowser->get_file_url(); ?>?download=true">
-		<!-- Icon -->
-		<?php	if (isset($updated) && $updated) { ?>
-			<span class="updated"><!-- --></span>
-		<?php	} ?>
-		<?php	if (isset($new) && $new) { ?>
-			<span class="new"><!-- --></span>
-		<?php	} ?>
-		<?php	if (isset($icon) && $icon <> '') { ?>
-		<img width='32' height='32' src='<?php echo $icon; ?>' />
-		<?php } ?>
-		<!-- Filename / comment -->
-		<p id="filename"><?php echo htmlentities(FileFolder::fix_display_name($this->filebrowser->file, $replace_dash_space, $replace_underscore_space, $display_file_extensions)) ?></p>
+	<a id="clickable-zone" href="<?php echo Subfolio::current_file('link') ?>" target="<?php echo Subfolio::current_file('target') ?>">
+		<!-- ?download=true would be provided by the CurrentFile() method -->
+		<!-- By adding an option for target, we can use this box for more kinds... (links for example) -->
 		
-		<?php	if (isset($comment) && $comment <> '') { ?>
-		<p><?php echo format::get_rendered_text($comment) ?></p>
-		<?php } ?>
+		<!-- Tag -->
+		<span class="<?php echo Subfolio::current_file('tag') ?>"><!-- --></span>
+		<!-- Icon -->
+		<img width='32' height='32' src='<?php echo Subfolio::current_file('icon') ?>' />
+		<!-- Filename / comment -->
+		<p id="filename"><?php echo Subfolio::current_file('filename') ?></p>
 	</a>
-
-	<?php	if (isset($kind)) { ?>
-		<!-- Infos -->
-		<dl>
-			<dt>Kind: </dt><dd><?php echo $kind_display ?></dd>
-			<dt>Last modified: </dt><dd><?php echo format::filedate($file->stats['mtime']) ?></dd>
-			<dt>Size: </dt><dd><?php echo $filesize ?></dd>
-		</dl>
-		<!-- Instructions -->
-	  <?php if ($file_kind && isset($file_kind['instructions'])) { ?>
-		<p id='instructions'>Instructions: <?php echo $file_kind['instructions'] ?></p>
-		<?php } ?>
-	<?php } ?>
-	<!-- Download -->
-	<a href="<?php echo $this->filebrowser->get_file_url(); ?>?download=true" id="download">Download File</a>
+	<dl>
+		<dt><?php echo SubfolioLanguage::get_text('kind') ?></dt><dd><?php echo Subfolio::current_file('kind') ?></dd>
+		<dt><?php echo SubfolioLanguage::get_text('lastmodified') ?></dt><dd><?php echo Subfolio::current_file('lastmodified') ?></dd>
+		<dt><?php echo SubfolioLanguage::get_text('size') ?></dt><dd><?php echo Subfolio::current_file('size') ?></dd>
+	</dl>
+	<p><?php echo SubfolioLanguage::get_text('instructions') ?></dt><dd><?php echo Subfolio::current_file('instructions') ?></p>
+	<a id="download" href="<?php echo Subfolio::current_file('link') ?>" target="<?php echo Subfolio::current_file('target') ?>"><?php echo Subfolio::current_file('link_name') ?></a>
+	<!-- Link_name can be open or download. These words taken from the language file... -->
 	
 </div>

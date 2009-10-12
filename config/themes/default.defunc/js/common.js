@@ -14,6 +14,7 @@ function removeFocus () {
 	}	
 }
 
+
 /* Open a popup
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function pop(goPage,nom,windowWidth,windowHeight,style) {
@@ -24,6 +25,7 @@ function pop(goPage,nom,windowWidth,windowHeight,style) {
 		
 	if (screen) x = (screen.availWidth - windowWidth) / 2;
 	if (screen) y = (screen.availHeight - windowHeight) / 2;
+	
 	
 	if ( style == 'POP' ) { 
 	    var popped = window.open(goPage,nom,'width='+windowWidth+',height='+(windowHeight+offsetMac)+',status=no,menubar=no,scrollbars=no,resizable=no,screenX='+x+',screenY='+y+',left='+x+',top='+y); 
@@ -79,3 +81,4 @@ function hideFlash(theid) {
 	  notice_id.className = 'hide';
   }
 }
+

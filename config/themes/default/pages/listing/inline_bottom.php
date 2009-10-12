@@ -1,24 +1,22 @@
-<?php 
-// -------------------- INLINE TOP IMAGES (-t-*) -----------------------------------------------------------------------------
-$inline = $this->filebrowser->get_file_list("img", "-b-", true);
-if (sizeof($inline) > 0) { 
-	$this->filebrowser->set_displayed_content(true);
-	?> <div id="inline_bottom_image"> <?php
-  foreach($inline as $file) {
-		list($width, $height, $type, $attr) = getimagesize($this->filebrowser->fullfolderpath."/".$file->name);
-  ?> <img width='<?php echo $width ?>' height='<?php echo $height ?>' src='/directory/<?php echo $this->filebrowser->get_folder()."/".$file->name ?>' /> <?php 
-  }
-	?> </div> <?php
-} ?>
+<!-- Do we really need three different files for this || can we re-use the code? -->
 
-<?php
-// -------------------- INLINE TOP TEXT (-t-*) --------------------------------------------------------------------------------
-$inline = $this->filebrowser->get_file_list("txt", "-b-", true);
-if (sizeof($inline) > 0) { 
-  $this->filebrowser->set_displayed_content(true);
-	?> <div id="inline_bottom_text" class="standard_paragraph"> <?php
-  foreach($inline as $file) {
-      echo format::get_rendered_text(file_get_contents($file->name));
-  }
-	?> </div> <?php
-} ?>
+<?php if (SubfolioFiles::have_inline_images('bottom')) : ?>
+
+	<div id="inline_bottom_image" >
+			<?php foreach ( SubfolioFiles::inline_images('bottom') as $image) : ?>
+				<img width='<?php echo $image['width'] ?>' height='<?php echo $image['height'] ?>' src='<?php echo $image['url'] ?>' />
+			<?php endforeach; ?>
+	</div><!-- gallery -->
+
+<?php endif ?>
+
+
+<?php if (SubfolioFiles::have_inline_texts('bottom')) : ?>
+
+	<div id="inline_bottom_text" class="standard_paragraph">
+			<?php foreach ( SubfolioFiles::inline_texts('bottom') as $text) : ?>
+				<?php echo $text['body'] ?>
+			<?php endforeach; ?>
+	</div><!-- gallery -->
+
+<?php endif ?>
