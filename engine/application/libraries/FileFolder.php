@@ -41,7 +41,11 @@ class FileFolder {
   }
 
   public function contains_access_file() {
-		$access_file = $this->name."/".Kohana::config('filebrowser.access_file');;
+		$access_file = $this->name."/".Kohana::config('filebrowser.access_file');
+  	if (!file_exists($access_file)) {
+      $access_file = $this->name."/".Kohana::config('filebrowser.access_file').".txt";
+    }
+
 		return (file_exists($access_file));
   }
 

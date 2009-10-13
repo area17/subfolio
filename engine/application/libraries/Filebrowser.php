@@ -180,6 +180,9 @@ class Filebrowser {
 
     // load properties
     $properties_file = Kohana::config('filebrowser.properties_file');
+    if (!file_exists($properties_file)) {
+      $properties_file = Kohana::config('filebrowser.properties_file').".txt";
+    }
 
     $array = Spyc::YAMLLoad($properties_file);
     $this->properties = $array;

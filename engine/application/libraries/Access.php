@@ -32,7 +32,13 @@ class Access {
     $current_file = $access_file;
     if (file_exists($current_file)) {
       $file_list[] = $current_file;
+    } else {
+      $current_file = $access_file.".txt";
+      if (file_exists($current_file)) {
+        $file_list[] = $current_file;
+      }
     }
+
 
     if (sizeof($folders) > 0) {
       $root_path = "";
@@ -45,6 +51,12 @@ class Access {
             $current_file = $folder."/".$access_file;
             if (file_exists($current_file)) {
               $file_list[] = $current_file;
+            } else {
+              $current_file = $folder."/".$access_file.".txt";
+              if (file_exists($current_file)) {
+                $file_list[] = $current_file;
+              }              
+
             }
           }
         }
@@ -53,6 +65,11 @@ class Access {
           $file = $root_path ."" . $access_file;
           if (file_exists($file)) {
             $file_list[] = $file;
+          } else {
+            $file = $root_path ."" . $access_file.".txt";
+            if (file_exists($file)) {
+              $file_list[] = $file;
+            } 
           }
           $root_path .= "../";
         }
@@ -63,6 +80,11 @@ class Access {
       $file = $root_path.$access_file;
       if (file_exists($file)) {
         $file_list[] = $file;
+      } else {
+        $file = $root_path.$access_file.".txt";
+        if (file_exists($file)) {
+          $file_list[] = $file;
+        }
       }
     }
 
