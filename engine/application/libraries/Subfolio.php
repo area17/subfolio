@@ -195,10 +195,10 @@ class SubfolioTheme extends Subfolio {
 
   public static function subfolio_link()
   {
-    return "";
+    return "http://www.subfolio.com";
   }
 
-  public function get_collapse_header_button($wrap=""){
+  public static function get_collapse_header_button($wrap=""){
     $link = "<a href=''>Collapse</a>";
     if ($wrap <> '') {
       $link = "<$wrap>".$link."</$wrap>";
@@ -206,7 +206,7 @@ class SubfolioTheme extends Subfolio {
     return $link;
   }
 
-  public function get_tiny_url($name, $wrap=""){
+  public static function get_tiny_url($name, $wrap=""){
     $link = "<a href=\"javascript:void(location.href='http://tinyurl.com/create.php?url='+encodeURIComponent(location.href))\">$name</a>";
     if ($wrap <> '') {
       $link = "<$wrap>".$link."</$wrap>";
