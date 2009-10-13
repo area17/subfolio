@@ -50,6 +50,8 @@ class format extends format_Core {
     if ($style == "textile") {
 			$textile = new Textile();
 			return $textile->TextileThis($text);
+    } else if ($style == "markdown") {
+			return Markdown($text);
     } else {
     	return $text;
     }

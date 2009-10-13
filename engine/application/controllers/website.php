@@ -9,6 +9,7 @@ class Website_Controller extends Template_Controller {
  		$this->session = Session::instance(); 
 
     require (Kohana::find_file('vendor','classTextile'));
+    require (Kohana::find_file('vendor','Markdown'));
 
     $this->auth        = Auth::instance();
     $this->access      = Access::instance();
