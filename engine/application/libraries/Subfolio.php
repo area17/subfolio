@@ -79,6 +79,10 @@ class Subfolio {
       return Subfolio::$filebrowser->get_file_url();
     }
 
+    if ($data == "filename") {
+      return Subfolio::$template->content->file->name;
+    }
+
     if ($data == "lastmodified") {
       return format::filedate(Subfolio::$template->content->file->stats['mtime']);
     }

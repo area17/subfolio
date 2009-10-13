@@ -1,6 +1,6 @@
 <div id="download_box">
 		
-	<a id="clickable-zone" href="<?php echo Subfolio::current_file('link') ?>" target="<?php echo Subfolio::current_file('target') ?>">
+	<a id="clickable-zone" href="<?php echo Subfolio::current_file('link') ?>?download=true" target="<?php echo Subfolio::current_file('target') ?>">
 		<!-- ?download=true would be provided by the CurrentFile() method -->
 		<!-- By adding an option for target, we can use this box for more kinds... (links for example) -->
 		
@@ -16,8 +16,8 @@
 		<dt><?php echo SubfolioLanguage::get_text('lastmodified') ?></dt><dd><?php echo Subfolio::current_file('lastmodified') ?></dd>
 		<dt><?php echo SubfolioLanguage::get_text('size') ?></dt><dd><?php echo Subfolio::current_file('size') ?></dd>
 	</dl>
-	<p><?php echo SubfolioLanguage::get_text('instructions') ?></dt><dd><?php echo Subfolio::current_file('instructions') ?></p>
-	<a id="download" href="<?php echo Subfolio::current_file('link') ?>" target="<?php echo Subfolio::current_file('target') ?>"><?php echo Subfolio::current_file('link_name') ?></a>
+	<p id='instructions'><?php echo SubfolioLanguage::get_text('instructions') ?><?php echo Subfolio::current_file('instructions') ?></p>
+	<a id="download" href="<?php echo Subfolio::current_file('link') ?>?download=true" target="<?php echo Subfolio::current_file('target') ?>"><?php echo SubfolioLanguage::get_text('downloadfile') ?></a>
 	<!-- Link_name can be open or download. These words taken from the language file... -->
 	
 </div>

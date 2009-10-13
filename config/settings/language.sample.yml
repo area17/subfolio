@@ -28,4 +28,5 @@ password: Password
 authenticationrequired: Authentication Required
 generatetinyurl: generate tiny url
 lastmodified: last modified
-instructions: instructions
+instructions: "Instructions: "
+downloadfile: Download File
