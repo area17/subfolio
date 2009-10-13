@@ -15,6 +15,13 @@ We strongly recommend that you read the "version release notes" and documentatio
 ***
 CHANGE LOG
 
+
+Subfolio Version: 0.9.rc2
+[GENERAL]    Finialized new API
+[LANGUAGE]   Added additional words for localizations
+[GENERAL]    Added Markdown as a formatting option
+
+
 Subfolio Version: 1.0.rc1.api
 [GENERAL]    Introduced APIs for easier theme development
 
