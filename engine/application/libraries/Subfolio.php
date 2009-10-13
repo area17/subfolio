@@ -471,11 +471,18 @@ class SubfolioFiles extends Subfolio {
 					
 	        if ($folder->contains_access_file()) {
 	         	$restricted = true;
-	          	if ($folder->have_access($this->auth->get_user())) {
-	            	$have_access = true;
-	          	} else {
-	            	$have_access = false;
-	          	}
+          	if ($folder->have_access($this->auth->get_user())) {
+            	$have_access = true;
+          	} else {
+            	$have_access = false;
+          	}
+	        } else {
+          	if ($folder->have_access($this->auth->get_user())) {
+            	$have_access = true;
+          	} else {
+            	$have_access = false;
+  	         	$restricted = true;
+          	}
 	        }
 
 					if (!$restricted || $have_access) {
