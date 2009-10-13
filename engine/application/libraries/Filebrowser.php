@@ -83,6 +83,10 @@ class Filebrowser {
           $this->sort_order_direction = "Asc";
         }
       }
+      
+      // redirect to avoid url resorting issue
+      url::redirect(request::referrer());
+      exit();
     } else if ($currentSort != NULL) {
       $this->sort_order = $currentSort;
       $this->sort_order_direction = $currentSortOrder;
