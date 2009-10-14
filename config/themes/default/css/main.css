@@ -63,6 +63,7 @@ body { height: 100%; margin: 0 15px 0; }
 position: absolute !important;
 bottom: 0 !important;
 overflow: hidden;
+background-color: white;
 }
 
 /* @end */
@@ -621,6 +622,7 @@ background:url("../images/system/lock.png") no-repeat top left;
 #lock {
 overflow:hidden;
 width:325px;
+float: left;
 }
 
 /* Form */

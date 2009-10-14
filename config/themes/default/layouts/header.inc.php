@@ -1,5 +1,5 @@
 <?php if (!SubfolioTheme::get_mobile_viewport() && SubfolioTheme::get_option('display_header', true)) { ?>
-	<div id="header">  <!-- Can we move the hiding stuff in the JS onLoad? -->
+	<div id="header">
 		<h1 id="logo"><a href='/' ><?php echo SubfolioTheme::get_site_name(); ?></a></h1>	
 	</div>
 <?php } ?>
@@ -29,7 +29,6 @@
 			<?php if (SubfolioUser::is_logged_in()) { ?>
 				<li><?php echo Subfolio::link_to(SubfolioLanguage::get_text('logout'),'/logout') ?></li>
 			<?php } ?>
-			<!-- Or should we just do API_LogoutButton('li'); a function that includes the test + the rendering using li -->
 						
 			
 			<?php if (SubfolioTheme::get_option('display_send_page')) { 

@@ -33,7 +33,7 @@
 <div class="login_info">	
 	<?php if ($login_failed) { ?>
 		<span class="error">
-			<img src='<?php echo API_ViewUrl() ?>/images/system/authentification_exclam.gif' width='59' height='59' border='0' />
+			<img src='<?php echo SubfolioTheme::get_view_url() ?>/images/system/authentification_exclam.gif' width='59' height='59' border='0' />
 		</span>
 		<span class="text">
 			<b><?php echo SubfolioLanguage::get_text('error');?>: <?php echo SubfolioLanguage::get_text('invalid_user_password'); ?></b>
