@@ -195,7 +195,7 @@ class SubfolioTheme extends Subfolio {
 
   public static function subfolio_link()
   {
-    return "http://www.subfolio.com";
+		return "<a href='http://www.subfolio.com' id='footer-home' target='_blank'>Subfolio 1.0</a>";
   }
 
   public static function get_collapse_header_button($wrap=""){

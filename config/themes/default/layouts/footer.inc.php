@@ -1,7 +1,7 @@
 <div id="footer">
 
-	<?php SubfolioTheme::subfolio_link(); ?> <!-- Users can remove that line -->
-	
+	<?php echo SubfolioTheme::subfolio_link(); ?> <!-- Users can remove that line -->
+
 	<?php if (SubfolioTheme::get_option('display_updated_since')) { ?>
 		<span><?php echo SubfolioLanguage::get_text('updated_since'); ?></span>
 		<?php echo SubfolioFiles::updated_since_link_or_span('lastweek'); ?>
