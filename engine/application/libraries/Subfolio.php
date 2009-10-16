@@ -45,7 +45,6 @@ class Subfolio {
       list($width, $height, $type, $attr) = getimagesize(Subfolio::$filebrowser->fullfolderpath."/".Subfolio::$template->content->file->name);
       return $height;
     }
-
   
     if ($data == "icon") {
     	$file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$filebrowser->file);
