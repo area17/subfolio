@@ -44,6 +44,7 @@
 		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/main-iphone.js"></script>
 	<?php }	else { ?>
 		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/jquery-1.3.2.min.js"></script>
+		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/jquery.scrollTo-min.js"></script>
 		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/main.js"></script>
 	<?php }	?>
 </body>
