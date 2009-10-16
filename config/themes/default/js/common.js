@@ -43,34 +43,6 @@ function pop(goPage,nom,windowWidth,windowHeight,style) {
 }
 
 
-/* InfoHideSwitch
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
-function InfoHideSwitch (box, button) {
-    if (document.getElementById) {
-        var box_id = document.getElementById(box);
-		var button_id = document.getElementById(button);
-
-        if (box_id.className == "show") {
-            // collapse
-            box_id.className = 'hide';
-			button_id.className = '';
-        } else { 
-            // expand
-            box_id.className = 'show';
-			button_id.className = 'on';
-			scrollToBottom();
-        }
-    }
-}
-
-/* Scroll to bottom
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
-function scrollToBottom () {
-	window.scrollTo(0,5000);
-	// IE6 : making sure the footer sticks at the bottom when expanding the info block
-	document.getElementById('footer').style.bottom = 0;
-}
-
 /* Hide flash
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function hideFlash(theid) {
