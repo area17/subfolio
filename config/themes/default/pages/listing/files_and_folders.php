@@ -20,13 +20,7 @@
 			<?php foreach ( SubfolioFiles::files() as $item) : ?>
 				<li>
 					<a target="<?php echo $item['target'] ?>" href="<?php echo $item['url'] ?>">
-						<span class="icon"><img src='<?php echo $item['icon'] ?>' width='18' height='17' /></span>
-						<span class="filename"><?php echo $item['filename'] ?></span>
-						<span class="size"><?php echo $item['size'] ?></span>
-						<span class="date"><?php echo $item['date'] ?></span>
-						<span class="kind"><?php echo $item['kind'] ?></span>
-						<span class="comment"><?php echo $item['comment'] ?></span>
-  					<?php if ($item['updated']) { ?>
+						<?php if ($item['updated']) { ?>
   			      		<span class="updated"><!-- --></span>
   					<?php } ?>
   					<?php if ($item['new']) { ?>
@@ -35,6 +29,18 @@
   					<?php if ($item['restricted']) { ?>
   						<span class="<?php if ($item['have_access']) { echo "unlocked"; } else { echo "locked"; } ?>"><!-- --></span>
   					<?php	} ?>
+						<span class="icon">
+						<?php if (SubfolioTheme::get_listing_mode()=='list') : ?>
+							<img src='<?php echo $item['icon'] ?>' width='18' height='17' />
+						<?php else : ?>
+							<img src='<?php echo $item['icon'] ?>' width='32' height='32' />
+						<?php endif; ?>
+						</span>
+						<span class="filename"><?php echo $item['filename'] ?></span>
+						<span class="size"><?php echo $item['size'] ?></span>
+						<span class="date"><?php echo $item['date'] ?></span>
+						<span class="kind"><?php echo $item['kind'] ?></span>
+						<span class="comment"><?php echo $item['comment'] ?></span>
 					</a>
 				</li>
 			<?php endforeach; ?>
@@ -47,4 +53,4 @@
 	
 	<p><?php SubfolioLanguage::get_text('emptydirectory') ?></p>
 	
-<?php endif ?>
+<?php endif; ?>
