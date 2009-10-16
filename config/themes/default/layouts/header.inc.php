@@ -42,7 +42,7 @@
   			echo SubfolioTheme::get_tiny_url(SubfolioLanguage::get_text('generatetinyurl'), 'li');
 			} ?>
 				
-			<?php if (SubfolioTheme::get_option('display_collapse_header')) {
+			<?php if (SubfolioTheme::get_option('display_collapse_header') && SubfolioTheme::get_option('display_header', true)) {
   			echo SubfolioTheme::get_collapse_header_button('li');
 			} ?>
 
