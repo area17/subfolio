@@ -105,6 +105,10 @@ class Subfolio {
     	$file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$filebrowser->file);
     	return isset($file_kind['instructions']) ? $file_kind['instructions'] : '';
   	}
+
+    if ($data == "body") {
+      return format::get_rendered_text(file_get_contents(Subfolio::$filebrowser->fullfilepath));  	
+    }
    
     return "&nbsp;";
   }
@@ -795,7 +799,7 @@ class SubfolioFiles extends Subfolio {
 
     if ($type == "lastvisit") {
       if ($updated_since == "lastvisit") { 
-        $ls = "<span>".SubfolioLanguage::get_text('last_visit')."</span>";
+        $ls = "<span>".SubfolioLanguage::get_text('my_last_visit')."</span>";
       } else { 
         $ls = "<a href=\"?updated_since=lastvisit\">".SubfolioLanguage::get_text('my_last_visit')."</a>";
       }
