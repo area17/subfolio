@@ -1,6 +1,124 @@
-You have received a pre-release version of Subfolio which is highly confidential and proprietary. You are allowed to use Subfolio for personal testing purposes only. You have hold no other rights. 
+This End User Software License Agreement ("EULA") is a binding legal EULA between you (the “End User) — either as an individual User, corporation or single entity — and Area 17 Media, LLC (the “Author”).
 
-***
-Please respect our efforts and do not distribute Subfolio.
+By downloading, installing, using or possessing Subfolio (the "Software"), you signify that you have read, understood, and agreed to be bound by the terms of this EULA. If you are entering into an EULA on behalf of an organization you confirm that you have the legal right to do so.
 
-© 2009 Subfolio by AREA 17. All rights reserved. 
+You agree that you will install and use the Software legally and that you will abide by this EULA and any laws applicable to its use and this EULA or the operation of it.
+
+If you do NOT agree to the terms of this EULA, you may not download, install, use nor possess the Software; if this is the case, do not download the Software; if you have already downloaded, installed, used or are in possession of the Software, you are already bound by the terms of this EULA and you must terminate this EULA in compliance with section 6 of this EULA (Term, Breach and Cancellation).
+
+1. DEFINITIONS
+
+“Software” means the actual Software, Versions of the Software or any part of the Software, including but not limited to the Source Code, example documents, architecture, screen layout, graphics, icons, designs and associated media, printed or online electronic materials.
+
+“Software Version” or “Version” means the unique Version of the Software which is denoted with a number immediately after the Software title, for example “Subfolio 1.0”.
+
+“Software Update” or “Update” means any free Update to the Software which may include bug fixes, minor enhancements or security patches. The availability and stipulation of Software Updates is at the sole discretion of the Author.
+
+“Software Upgrade” or “Upgrade” means any paid Upgrade to the Software which may additionally include new features or major enhancements. The availability and stipulation of Software Upgrades is at the sole discretion of the Author.
+
+“Source Code” means the programming language used to make the Software, including but not limited to HTML, CSS, JavaScript, PHP, text files, code snippets, structure, organization, stored procedures, directory trees, comments and printed or online electronic documentation.
+
+“Intellectual Property Rights” means all vested, contingent and future Intellectual Property Rights including but not limited to any patent, trademark, service mark, registered design, copyright, design right, ideas, concepts, know-how, confidential information or process, any application for any of the above, and any other intellectual property right recognized in any part of the world whether or not presently existing or applied for.
+
+“Website Domain” means the domain name of one Internet second-level domain name (SLD), that operate as a single entity, on which the Software will be installed. This is the name directly to the left of .com, .net, and the other top-level domains. As an example, in the domain support.subfolio.com, “subfolio” is the second-level domain, or the “Website Domain”, operated by the single entity “Area 17 Media, LLC”.
+
+“Subdomain” means the name directly to the left of the Website Domain (as defined above), operated by the same single entity that operates the Website Domain. As an example, in the domain support.subfolio.com, “support” is the Subdomain name, operated by the single entity “Area 17 Media, LLC”.
+
+“License Fee” means the money paid by you at the time you completed your purchase at subfolio.com and paid the amount due for the Software download and usage.
+
+“Upgrade Fee” means the money paid (as defined above) for the Upgrade of the Software. Upgrade Fee discounts may be available at the sole discretion of the Author.
+
+“End User”, “User” or “you” refers to any individual User, corporation or single entity who has access to any of the Source Code located within the engine, configuration or theme directories.
+
+2. GRANT OF LICENSE
+
+The Author owns all rights, title and interest to the Software (including all Intellectual Property Rights) and reserves all rights to the Software that are not expressly granted in this EULA.
+
+This EULA grants a non-exclusive, non-transferable license;
+
+You are ALLOWED to:
+
+    * Use the Software on one Website Domain at a time
+    * Change the Software to suit your needs
+    * Update the Software with any free Software Updates
+    * Backup the Software to private and secured location only
+
+You are NOT ALLOWED to:
+
+    * Install, use or possess the Software without paying the License Fee
+    * Upgrade the Software without paying the Upgrade Fee
+    * Rent, lease, lend, redistribute, sell, nor relicense the Software
+    * Remove any Author copyright information
+
+With the understanding that:
+
+    * The Software and its Intellectual Property Rights are not sold but licensed to you. The Author retains ownership of the copy of the Software in your possession, and all copies you may be licensed to make.
+    * Updates and Upgrades will be available by the sole discretion of the Author.
+    * Support will be available by the sole discretion of the Author.
+
+3. NO WARRANTY
+
+THE AUTHOR EXPRESSLY DISCLAIMS ANY WARRANTY FOR THE SOFTWARE. THE SOFTWARE AND ANY RELATED DOCUMENTATION IS PROVIDED "AS IS WITH ALL FAULTS” AND WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, RELIABILITY, ACCURACY, COMPLETENESS OF RESPONSES, LACK OF VIRUSES, PROVISION OF OR FAILURE TO PROVIDE ADEQUATE SUPPORT OR SERVICE, OR NON-INFRINGEMENT. THE ENTIRE RISK ARISING OUT OF USE OR PERFORMANCE OF THE SOFTWARE REMAINS WITH YOU.
+
+4. COPYRIGHT AND TRADEMARK
+
+“Subfolio” and “Subfolio Filebrowser” are trademarks of Area 17 Media, LLC.
+
+All title and copyrights in and to the Software, the accompanying printed or online electronic materials, and any copies of the Software are owned by the Author.
+
+All Intellectual Property Rights of whatever nature in relation to the Software shall remain the Author’s, other than any third party rights which shall always remain vested within those third parties.
+
+You specifically agree to comply with both the Author’s Intellectual Property Rights and those of any third party in relation to the Software particularly its download, installation, use, possession and otherwise.
+
+You agree to immediately notify the Author if you become aware of any infringement of the Intellectual Property Rights in relation to the Software including any unauthorized downloading, installing, using, possession, copying or distribution.
+
+Third-party note: Portions of the Software use the Kohana framework under a BSD license.
+
+5. ASSIGNMENT
+
+You shall not assign or transfer this License or your rights hereunder without the prior written consent of the Author.
+
+6. TERM, BREACH AND CANCELLATION
+
+You may use the Software under this Agreement until either party terminates this Agreement as set forth in this paragraph. Either party may terminate the Agreement at any time and for any reason, upon written notice to the other party. Upon termination, all licenses granted to you will terminate, and you will immediately uninstall and cease all use of the Software. You will remove the Software from the Website Domain and from any hardware, and destroy any Source Code and Software including copies and back-ups. The Sections entitled "No Warranty," “Equitable Relief,” "Indemnification," "Limitation of Liability," “Enforcement Costs” and “Governing Law” will survive any termination of this EULA.
+
+This EULA will also terminate if either the End-User or the Author:
+
+    * is a company which goes into liquidation, whether compulsory or voluntary (except for the purposes of any reconstruction) or have a receiver appointed with respect to any of its assets or undertakings, or is unable to pay its debts in the normal course of business or ceases to substantially carry on its business OR
+    * is an individual who is declared bankrupt or becomes mentally incapacitated or dies. The Author may modify the Software and/or this EULA with notice to you either in email or by publishing content on the Software website, including but not limited to changing the functionality or appearance of the Software, and such modification will become binding on you unless you terminate this EULA.
+
+7. EQUITABLE RELIEF
+
+You hereby acknowledges that unauthorized disclosure or use of whole or part of the Software could cause irreparable harm and significant injury to the Author that may be difficult to ascertain. Accordingly, you agree that the Author will have the right to seek and obtain immediate injunctive relief to enforce obligations under this EULA in addition to any other rights and remedies the Author may have.
+
+8. LIMITATION OF LIABILITY
+
+NO LIABILITY FOR CONSEQUENTIAL DAMAGES. In no event shall the Author or its distributors be liable for any damages whatsoever (including, without limitation, damages for loss of business profits, business interruption, loss of business information, or any other pecuniary loss) arising out of the use of or inability to use the Software and related materials, even if the Author has been advised of the possibility of such damages. Because some states do not allow the exclusion or limitation of liability for consequential or incidental damages, the above limitation may not apply to you. The Author’s entire liability and your exclusive remedy for any breach of this EULA or any other liability relating to the Software shall be, at the Author’s option, from time to time exercised subject to applicable law, (a) return of the amount paid (if any) for the Software, or (b) repair or replacement of the Software.
+
+9. INDEMNIFICATION
+
+By accepting this EULA, you agree to indemnify and otherwise hold harmless the Author, its officers, employers, agents, subsidiaries, affiliates and other partners from any direct, indirect, incidental, special, consequential or exemplary damages arising out of, relating to, or resulting from your use of the Software or any other matter relating to the Software.
+
+10. CONSENT TO USE OF DATA
+
+You agree that the Author and its affiliates may collect and use technical information gathered as part of the product support services provided to you, if any, related to the Software. The Author may use this information solely to improve their products or to provide customized services or technologies to you and will not disclose this information in a form that personally identifies you.
+
+11. NO IMPLIED WAIVER
+
+Author’s failure or delay in exercising any of its rights will not constitute a waiver of such rights unless expressly waived in writing.
+
+12. SEVERABILITY
+
+If any provision of this EULA shall be held by a court of competent jurisdiction to be illegal, invalid or unenforceable, the remaining provisions shall remain in full force and effect.
+
+13. GOVERNING LAW: JURISDICTION AND VENUE
+
+Regardless of your place of business, the validity, interpretation, construction and performance of this License shall be governed by the laws of the State of New York. The courts located in the City of New York, New York (or, if there is exclusive federal jurisdiction, the United States District Court for the Southern or Eastern District of New York) shall have exclusive jurisdiction and venue over any dispute arising out of this EULA, and you hereby consent to the jurisdiction of such courts and waive any forum non convenient (inappropriate forum) claims.
+
+14. ENFORCEMENTS COSTS
+
+You agree to reimburse the Author for all costs, including reasonable attorney’s fees, incurred to enforce any of Author’s rights under this EULA or to defend any claims you assert unsuccessfully against the Author.
+
+15. ENTIRE AGREEMENT
+
+Aside from the fee arrangement, this EULA contains the entire understanding and agreement between the parties respecting the Software. This EULA may not be supplemented, modified, amended, released or discharged except by an instrument in writing signed by each party’s duly Authorized representative. All captions and headings in this EULA are for purposes of convenience only and shall not affect the construction or interpretation of any of its provisions. Any waiver by either party of any default or breach hereunder shall not constitute a waiver of any provision of this EULA or of any subsequent default or breach of the same or a different kind.
