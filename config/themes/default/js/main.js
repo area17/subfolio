@@ -149,29 +149,11 @@ function bindInfoboxEvents() {
 	if ($('#info-button')){
 		$('#info-button').click(function(el){
 			$('#info-box').toggle();
-			console.log(">>" + this.className);
+			$('#info-button').toggleClass('on')
 			$.scrollTo('#footer');
 			return false;
 		});
 	}
-}
-
-function InfoHideSwitch (box, button) {
-    if (document.getElementById) {
-        var box_id = document.getElementById(box);
-		var button_id = document.getElementById(button);
-
-        if (box_id.className == "show") {
-            // collapse
-            box_id.className = 'hide';
-			button_id.className = '';
-        } else { 
-            // expand
-            box_id.className = 'show';
-			button_id.className = 'on';
-			scrollToBottom();
-        }
-    }
 }
 
 /* Cookies functions
