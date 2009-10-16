@@ -3,8 +3,6 @@ indexof: index of
 logout: logout
 logout_complete: Logout complete
 login_failed: Login Failed
-Previous_Directory: Previous Directory
-Parent_Directory: Parent Directory
 sendpage: send page
 collapseheader: collapse header
 expandheader: expand header
@@ -34,7 +32,8 @@ generatetinyurl: generate tiny url
 lastmodified: last modified
 instructions: "Instructions: "
 downloadfile: Download File
-Previous: Previous
-Next: Next
-previous: previous
-next: next
+parent_directory: Parent Directory
+previous_directory: Previous Directory
+next_directory: Next Directory
+previous: Previous
+next: Next
