@@ -8,4 +8,4 @@
   PLUGINSPAGE='http://public.macromedia.com/go/getflashplayer'>
 </EMBED>
 
-<?php if (SubfolioTheme::get_option('display_info')) { require("_download_box.php") } ?>
+<?php if (SubfolioTheme::get_option('display_info')) { require("_hideable_download_box.php") } ?>

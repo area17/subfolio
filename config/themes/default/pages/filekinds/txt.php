@@ -2,4 +2,4 @@
 	<?php echo Subfolio::current_file('body') ?>
 </div>
 
-<?php if (SubfolioTheme::get_option('display_info')) { require("_download_box.php"); } ?>
+<?php if (SubfolioTheme::get_option('display_info')) { require("_hideable_download_box.php"); } ?>
