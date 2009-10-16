@@ -6,7 +6,7 @@
 
 <div id="breadcrumbtools">
 
-	<?php if (SubfolioTheme::get_option('breadcrumb', true)) { ?>
+	<?php if (SubfolioTheme::get_option('display_breadcrumb', true)) { ?>
 	  <div id="breadcrumb">
 			<?php if (SubfolioUser::is_logged_in()) { ?>
 				<span><?php echo SubfolioUser::current_user_name(); echo " "; echo SubfolioLanguage::get_text('browsing'); ?></span>
