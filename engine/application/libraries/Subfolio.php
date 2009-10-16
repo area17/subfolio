@@ -199,7 +199,14 @@ class SubfolioTheme extends Subfolio {
   }
 
   public static function get_collapse_header_button($wrap=""){
-    $link = "<a href=''>Collapse</a>";
+    $showHideLabel = "".SubfolioLanguage::get_text('collapseheader');
+    if (isset($_COOKIE['header'])) {
+        if ($_COOKIE['header'] == "hideSwitch") {
+            $showHide = "hideSwitch";
+            $showHideLabel = "".Kohana::lang('filebrowser.expandheader');;
+        }
+    }
+    $link = "<a id='showHideSwitch' href='#'>".$showHideLabel."</a>";
     if ($wrap <> '') {
       $link = "<$wrap>".$link."</$wrap>";
     }
