@@ -181,13 +181,13 @@ class SubfolioTheme extends Subfolio {
       foreach ($parts as $key => $value) {
         $crumb = array();
         $crumb['name'] = htmlentities(FileFolder::fix_display_name($value, $replace_dash_space, $replace_underscore_space, $display_file_extensions));
-
+        $evalue = Filebrowser::double_encode_specialcharacters(urlencode($value));
         if ($count == sizeof($parts)) {
           $crumb['url'] = '';
         } else {
-          $crumb['url'] = $path.$value;
+          $crumb['url'] = $path.$evalue;
         }
-        $path .= $value."/";
+        $path .= $evalue."/";
         $breadcrumbs[] = $crumb;
         $count ++;
       }

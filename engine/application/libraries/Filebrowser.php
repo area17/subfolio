@@ -381,10 +381,12 @@ class Filebrowser {
   public function get_link($name) {
     if ($this->folder == "") {
       $link = "/".urlencode($name);
+      $link = Filebrowser::double_encode_specialcharacters($link);
     } else {
       $link = "/".urlencode($this->folder)."/".urlencode($name);
       // unencode '/'
       $link = str_replace('%2F', '/', $link);
+      $link = Filebrowser::double_encode_specialcharacters($link);
     }
     return $link;
   }
@@ -888,6 +890,17 @@ class Filebrowser {
   function sub_fnmatch($pattern, $string) {
     return preg_match("#^".strtr(preg_quote($pattern, '#'), array('\*' => '.*', '\?' => '.'))."$#i", $string);
   } 
+
+  /**
+   * Work around for bug with + and # characters, double encode the % character
+   */
+  public static function double_encode_specialcharacters($value)
+  {
+      $ret = str_replace('%23', '%2523', $value);
+      $ret = str_replace('%2B', '%252B', $ret);
+      
+      return $ret;
+  }
 
 }
 
