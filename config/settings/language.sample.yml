@@ -44,6 +44,7 @@ submit: Submit
 invalid_user_password: Invalid username or password.
 error: Error
 logout: logout
+login_complete: Login complete
 logout_complete: Logout complete
 login_failed: Login Failed
 

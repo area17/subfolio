@@ -29,12 +29,12 @@ class Filebrowser_Controller extends Website_Controller {
         $password = $validation->password;
         if ($this->auth->login($username, $password, true)) {
           // Login successful, redirect
-          Session::instance()->set_flash('flash', 'Login complete.');		
+          Session::instance()->set_flash('flash', SubfolioLanguage::get_text('login_complete'));		
           url::redirect($return_path);
           exit();
         } else {
           $login->login_failed = true;
-          Session::instance()->set_flash('error', 'Login Failed');		
+          Session::instance()->set_flash('error', SubfolioLanguage::get_text('login_failed'));		
         }
       }
     } else {
@@ -46,7 +46,7 @@ class Filebrowser_Controller extends Website_Controller {
   public function logout() {
     $this->auth->logout(true);
     $this->session->create();
-    Session::instance()->set_flash('flash', 'Logout complete.');
+    Session::instance()->set_flash('flash', SubfolioLanguage::get_text('logout_complete'));		
     url::redirect('/');
     exit();
   }
