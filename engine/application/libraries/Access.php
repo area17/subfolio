@@ -29,6 +29,7 @@ class Access {
     $folders = explode("/", $rootFolder);
     $file_list = array();
     
+    if (!$checking_child) {
     $current_file = $access_file;
     if (file_exists($current_file)) {
       $file_list[] = $current_file;
@@ -37,6 +38,7 @@ class Access {
       if (file_exists($current_file)) {
         $file_list[] = $current_file;
       }
+    }
     }
 
 
@@ -138,7 +140,7 @@ class Access {
         if ($have_access) {
           // check to see if user denied
           if (in_array($user->name, $this->denied_users)) {
-            $have_access = false;
+              $have_access = false;
           } else {
             // check to see if user group
             $by_groups = array_intersect($groups, $this->denied_groups);
