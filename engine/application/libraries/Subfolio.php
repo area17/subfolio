@@ -441,15 +441,15 @@ class SubfolioFiles extends Subfolio {
     $files  = Subfolio::$filebrowser->get_file_list();
     $files  = Subfolio::$filebrowser->sort($files);
     
-    $showListing = false;
+    $haveFiles = false;
     if (sizeof($folders) > 0) {
-      $showListing = true;
+      $haveFiles= true;
     } else {
       if (sizeof($files)) {
-        $showListing = true;
+        $haveFiles = true;
       }
     }
-    return $showListing;
+    return $haveFiles;
   }
 
   public function files()
