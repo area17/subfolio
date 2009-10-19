@@ -25,15 +25,15 @@ function pop(goPage,nom,windowWidth,windowHeight,style) {
 	if (screen) x = (screen.availWidth - windowWidth) / 2;
 	if (screen) y = (screen.availHeight - windowHeight) / 2;
 	
-	if ( style == 'POP' ) { 
+	if ( style.toUpperCase() == 'POP' ) { 
 	    var popped = window.open(goPage,nom,'width='+windowWidth+',height='+(windowHeight+offsetMac)+',status=no,menubar=no,scrollbars=no,resizable=no,screenX='+x+',screenY='+y+',left='+x+',top='+y); 
     }
     
-	if ( style == 'POPSCROLL' ) { 
+	if ( style.toUpperCase() == 'POPSCROLL' ) { 
 	    var popped = window.open(goPage,nom,'width='+windowWidth+',height='+(windowHeight+offsetMac)+',status=no,menubar=no,scrollbars=yes,resizable=no,screenX='+x+',screenY='+y+',left='+x+',top='+y); 
     }
 
-	if ( style == 'WINDOW' ) {
+	if ( style.toUpperCase() == 'WINDOW' ) {
 		if (windowHeight > screen.availHeight) windowHeight = (screen.availHeight - offset);
 		var popped = window.open(goPage,nom,'width='+windowWidth+',height='+(windowHeight+offsetMac)+',status=yes,menubar=yes,scrollbars=yes,resizable=yes,screenX='+x+',screenY='+y+',left='+x+',top='+y);
 	}
