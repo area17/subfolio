@@ -898,6 +898,8 @@ class Filebrowser {
   {
       $ret = str_replace('%23', '%2523', $value);
       $ret = str_replace('%2B', '%252B', $ret);
+      $ret = str_replace('%3B', '%253B', $ret);
+      $ret = str_replace('%26', '%2526', $ret);
       
       return $ret;
   }
