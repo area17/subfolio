@@ -11,7 +11,7 @@ class User {
     $this->name     = $name;
         
     $this->password        = isset($array['password']) ? $array['password'] : '';
-    $this->hashed_password = isset($array['hash_password']) ? $array['hash_password'] : '';
+    $this->hashed_password = isset($array['hashed_password']) ? $array['hashed_password'] : '';
     $this->admin           = isset($array['admin']) ? $array['admin'] : false;
   }
  
