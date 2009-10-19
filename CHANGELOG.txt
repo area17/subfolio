@@ -16,6 +16,12 @@ We strongly recommend that you read the "version release notes" and documentatio
 CHANGE LOG
 
 
+Subfolio Version: 0.9.rc3
+[ENGINE]     Security system update
+[LANGUAGE]   More missing words added
+[GENERAL]    Support for special characters improved
+
+
 Subfolio Version: 0.9.rc2
 [GENERAL]    Finialized new API
 [LANGUAGE]   Added additional words for localizations
