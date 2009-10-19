@@ -1,218 +1,287 @@
-#
-# DOCUMENTS
-#
+# ****************************************
+# IMAGE FILE KINDS
 
-ai:
-  extensions: [ai]
-  icon: ai
-  display: Illustrator File
-  instructions:>
-    To read Illustrator Files, you need <a href='http://www.adobe.com/products/illustrator/' target='_blank'>Adobe Illustrator</a>.
-  
-eps:
-  extensions: [eps]
-  icon: eps
-  display: Postscript File
-  instructions:>
-    To read Postscript Files, you need <a href='http://www.adobe.com/products/illustrator/' target='_blank'>Adobe Illustrator</a>.
-  
-csv:
-  extensions: [csv]
-  icon: sql
-  display: Comma Separated File
-
-dir:
-  extensions: [dir]
-  icon: dir
-  display: Folder
-
-doc:
-  extensions: [doc, docx]
-  icon: doc
-  display: Word Document
-  instructions:>
-    To read Word Documents, you need <a href='http://office.microsoft.com/en-us/word/' target='_blank'>Microsoft Word</a>.
-  
 img:
   extensions: [gif, png, jpg]
   icon: img
-  display: Image
+  display: Image File
+  instructions:>
+    Most Image files are natively recognized by your computer.
+
+tiff:
+  extensions: [tiff, tif]
+  icon: img
+  display: TIFF Image
+  instructions:>
+    To read TIFF images, you need <a href='http://www.adobe.com/products/photoshop/' target='_blank'>Adobe Photoshop</a> or similar. 
+
+eps:
+  extensions: [eps, ps]
+  icon: eps
+  display: Postscript File
+  instructions:>
+    To read Postscript files, you need <a href='http://www.adobe.com/products/illustrator/' target='_blank'>Adobe Illustrator</a> or similar. 
 
 bmp:
   extensions: [bmp]
   icon: img
   display: Bitmap Image
+  instructions:>
+    To read Bitmap images, you need <a href='http://www.adobe.com/products/photoshop/' target='_blank'>Adobe Photoshop</a> or similar. 
 
 raw:
   extensions: [3fr, arw, srf, sr2, bay, crw, cr2, cap, iiq, eip, dng, erf, fff, mef, mos, mrw, nef, nrw, orf, ptx, pef, pxn, r3d, raf, raw, rw2, rwz, k25, kdc, dcs, drf, x3f]
   icon: img
   display: RAW Image
-    
-tiff:
-  extensions: [tiff, tif]
-  icon: img
-  display: TIFF Image
+  instructions:>
+    To read RAW images, you need <a href='http://www.adobe.com/products/photoshop/' target='_blank'>Adobe Photoshop</a> or similar. 
 
 indd:
   extensions: [indd]
   icon: indd
   display: InDesign Document
-
-indb:
-  extensions: [indb]
-  icon: indd
-  display: InDesign Book
-  
-key:
-  extensions: [key]
-  icon: key
-  display: Keynote Document
   instructions:>
-    To read Keynote Documents, you need <a href='http://www.apple.com/iwork/keynote/' target='_blank'>Apple Keynote</a>.
-  
-numbers:
-  extensions: [numbers]
-  icon: numbers
-  display: Numbers Document
-  instructions:>
-    To read Numbers Documents, you need <a href='http://www.apple.com/iwork/numbers/' target='_blank'>Apple Numbers</a>.
-
-pages:
-  extensions: [pages]
-  icon: pages
-  display: Pages Document
-  instructions:>
-    To read Pages Documents, you need <a href='http://www.apple.com/iwork/pages/' target='_blank'>Apple Pages</a>.
-  
-ppt:
-  extensions: [ppt, pptx, pps]
-  icon: ppt
-  display: Powerpoint Document
+    To read InDesign documents, you need <a href='http://www.adobe.com/products/indesign/' target='_blank'>Adobe InDesign</a> or similar.
 
 psd:
   extensions: [psd]
   icon: psd
   display: Photoshop File
   instructions:>
-    To read Photoshop Files, you need <a href='http://www.adobe.com/products/photoshop/' target='_blank'>Adobe Photoshop</a>.
+    To read Photoshop files, you need <a href='http://www.adobe.com/products/photoshop/' target='_blank'>Adobe Photoshop</a> or similar.
 
-ae:
-  extensions: [ae, aep]
-  icon: ae
-  display: AfterEffect File
+ai:
+  extensions: [ai]
+  icon: ai
+  display: Illustrator File
   instructions:>
-    To read After Effect Files, you need <a href='http://www.adobe.com/products/aftereffects/' target='_blank'>Adobe After Effects</a>.
-  
-snd:
-  extensions: [mp3, wav]
-  icon: snd
-  display: Audio File
+    To read Illustrator files, you need <a href='http://www.adobe.com/products/illustrator/' target='_blank'>Adobe Illustrator</a> or similar.
 
-swf:
-  extensions: [swf]
-  icon: swf
-  display: Flash Movie
-
-txt:
-  extensions: [txt]
-  icon: txt
-  display: Text File
-
-rtf:
-  extensions: [rtf]
-  icon: txt
-  display: Rich Text File
-  
-vid:
-  extensions: [avi, mov, mp4, mpg, mpeg, wmv]
-  icon: vid
-  display: Movie
-  
-xls:
-  extensions: [xls, xlsx]
-  icon: xls
-  display: Excel Document                
-
-fla:
-  extensions: [fla]
-  icon: fla
-  display: Flash Movie
-  
-zip:
-  extensions: [zip, str, tar, gz]
-  icon: zip
-  display: Archive
+indb:
+  extensions: [indb]
+  icon: indd
+  display: InDesign Book
   instructions:>
-    Zip files should be supported by your computer. If it's not the case, see <a href='http://www.winzip.com' target='_blank'>Winzip</a> on PC.
-
-dmg:
-  extensions: [dmg]
-  icon: dmg
-  display: Disc Image
-  
-dcr:
-  extensions: [dcr]
-  icon: dcr
-  display: Shockwave Movie
-  
-pdf:
-  extensions: [pdf]
-  icon: pdf
-  display: PDF Document
-  instructions:>
-    You must have the free Adobe Acrobat Reader to view this file. Download it <a href='http://get.adobe.com/reader/' target='_blank'>here</a>.<br/>
-    For mac firefox users, you can find the plugin <a href='https://addons.mozilla.org/en-US/firefox/addon/7518' target='_blank'>here</a>.
-  width: 100%
-  height: 90%
-  
-fnt:
-  extensions: [fnt, ttf, bmap, afm]
-  icon: fnt
-  display: Font
-
-suit:
-  extensions: [suit]
-  icon: fnt
-  display: Font Suitcase
-  
-merlin:
-  extensions: [merlin, merlin2]
-  icon: merlin
-  display: Merlin File
-
-html:
-  extensions: [htm, html, rhtml]
-  icon: html
-  display: HTML File
+    To read InDesign books, you need <a href='http://www.adobe.com/products/indesign/' target='_blank'>Adobe InDesign</a> or similar.
 
 ase:
   extensions: [ase]
   icon: ase
   display: Adobe Swatch File
-  
-sql:
-  extensions: [sql]
+  instructions:>
+    To read Swatch files, you need <a href='http://www.adobe.com/products/creativesuite/' target='_blank'>Adobe Creative Suite</a> or similar.
+
+
+# ****************************************
+# AUDIO/VIDEO FILE KINDS
+
+snd:
+  extensions: [mp3, wav]
+  icon: snd
+  display: Audio File
+  instructions:>
+    To listen to Audio files, you need Apple QuickTime, Windows Media Player or similar.
+
+vid:
+  extensions: [avi, mov, mp4, mpg, mpeg, wmv]
+  icon: vid
+  display: Movie File
+  instructions:>
+    To watch Movie files, you need Apple QuickTime, Windows Media Player or similar.
+
+fla:
+  extensions: [fla]
+  icon: fla
+  display: Flash Document
+  instructions:>
+    To read Flash documents, you need <a href='http://get.adobe.com/flashplayer/' target='_blank'>Adobe Flash player</a>.
+
+swf:
+  extensions: [swf]
+  icon: swf
+  display: Flash Movie
+  instructions:>
+    To read Flash movies, you need <a href='http://get.adobe.com/flashplayer/' target='_blank'>Adobe Flash player</a>.
+
+dcr:
+  extensions: [dcr]
+  icon: dcr
+  display: Shockwave Movie
+  instructions:>
+    To read Shockwave movies, you need <a href='http://get.adobe.com/flashplayer/' target='_blank'>Adobe Flash player</a>.
+
+ae:
+  extensions: [ae, aep]
+  icon: ae
+  display: After Effect File
+  instructions:>
+    To read After Effect files, you need <a href='http://www.adobe.com/products/aftereffects/' target='_blank'>Adobe After Effects</a>.
+
+
+# ****************************************
+# DOCUMENT FILE KINDS
+
+pdf:
+  extensions: [pdf]
+  icon: pdf
+  display: PDF Document
+  instructions:>
+    To read PDF documents, You need the free <a href='http://get.adobe.com/reader/' target='_blank'>Adobe Acrobat Reader</a> or similar.
+    # <br/>For mac firefox users, you can find the plugin <a href='https://addons.mozilla.org/en-US/firefox/addon/7518' target='_blank'>here</a>.
+  # width: 100%
+  # height: 90%
+
+# If you turn on the capability to view PDF's within Subfolio, uncomment the width, height and Firefox instructions.
+
+doc:
+  extensions: [doc, docx]
+  icon: doc
+  display: Word Document
+  instructions:>
+    To read Word documents, you need <a href='http://office.microsoft.com/en-us/word/' target='_blank'>Microsoft Word</a> or similar.
+
+xls:
+  extensions: [xls, xlsx]
+  icon: xls
+  display: Excel Document
+  instructions:>
+    To read Excel documents, you need <a href='http://office.microsoft.com/en-us/excel/' target='_blank'>Microsoft Excel</a>, or similar.
+
+ppt:
+  extensions: [ppt, pptx, pps]
+  icon: ppt
+  display: Powerpoint Document
+  instructions:>
+    To read PowerPoint documents, you need <a href='http://office.microsoft.com/en-us/powerpoint/' target='_blank'>Microsoft PowerPoint</a>, or similar.
+
+pages:
+  extensions: [pages]
+  icon: pages
+  display: Pages Document
+  instructions:>
+    To read Pages documents, you need <a href='http://www.apple.com/iwork/pages/' target='_blank'>Apple iWorks</a>.
+
+numbers:
+  extensions: [numbers]
+  icon: numbers
+  display: Numbers Document
+  instructions:>
+    To read Numbers documents, you need <a href='http://www.apple.com/iwork/numbers/' target='_blank'>Apple iWorks</a>.
+
+key:
+  extensions: [key]
+  icon: key
+  display: Keynote Document
+  instructions:>
+    To read Keynote Documents, you need <a href='http://www.apple.com/iwork/keynote/' target='_blank'>Apple iWorks</a>.
+
+csv:
+  extensions: [csv]
   icon: sql
-  display: MySql Dump
+  display: CSV File
+  instructions:>
+    CSV files can be opened with a spreadsheet application such as Microsoft Excel or similar.
+
+txt:
+  extensions: [txt]
+  icon: txt
+  display: Text File
+  instructions:>
+    To read TXT files, you need any standard text editor.
+
+rtf:
+  extensions: [rtf]
+  icon: txt
+  display: Rich Text File
+  instructions:>
+    To read FTF files, you need any standard text editor.
+    
+merlin:
+  extensions: [merlin, merlin2]
+  icon: merlin
+  display: Merlin File
+  instructions:>
+    To read Merlin files, you need <a href='http://projectwizards.net/' target='_blank'>Merlin</a>.
+
+
+# ****************************************
+# PACKAGES AND FONTS
+
+zip:
+  extensions: [zip, str, tar, gz]
+  icon: zip
+  display: Archive
+  instructions:>
+    Most archive formats are natively recognized by your computer.
+
+dmg:
+  extensions: [dmg]
+  icon: dmg
+  display: DMG Installer
+  instructions:>
+    DMG installers are disc images for Mac used for the installation of applications
+
+fnt:
+  extensions: [fnt, ttf, bmap, afm]
+  icon: fnt
+  display: Font
+  instructions:>
+    To open Font packages, you need a font manager application such as FontCreator on a PC or Font Book on a Mac.
   
+suit:
+  extensions: [suit]
+  icon: fnt
+  display: Font Suitcase
+  instructions:>
+    To open Font Suitcase, you need a Mac.
+
+
+# ****************************************
+# WEB FILE KINDS
+
+html:
+  extensions: [htm, html, rhtml]
+  icon: html
+  display: HTML File
+  instructions:>
+    To read HTML files, you need a standard text editor.
+
 css:
   extensions: [css]
   icon: gen
   display: Stylesheet
-    
+  instructions:>
+    To read CSS files, you need a standard text editor.
+
 php:
   extensions: [php]
   icon: gen
   display: PHP File
+  instructions:>
+    To read PHP files, you need a standard text editor.
 
 yml:
   extensions: [yml]
   icon: sql
   display: YAML File
-    
-#
-# Enhancers
-#
+  instructions:>
+    To read YAML files, you need a standard text editor.
+
+sql:
+  extensions: [sql]
+  icon: sql
+  display: MySql Dump
+  instructions:>
+    To read MySql Dump files, you need <a href='http://www.mysql.com/' target='_blank'>MySQL</a>.
+
+dir:
+  extensions: [dir]
+  icon: dir
+  display: Folder
+
+
+# ****************************************
+# ENHANCER FILE KINDS
 
 cut:
   extensions: [cut]

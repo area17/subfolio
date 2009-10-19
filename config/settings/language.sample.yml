@@ -1,39 +1,62 @@
+# YAML NOTE: Indentation, spacing and text case are super important.
+
+# Navigation 
+
 browsing: browsing
 indexof: index of
-logout: logout
-logout_complete: Logout complete
-login_failed: Login Failed
 sendpage: send page
+generatetinyurl: generate tiny url
 collapseheader: collapse header
 expandheader: expand header
-filename: filename
-size: size
-date: date
-kind: kind
-comment: comment
-accessdenied: Access Denied
-loginasadifferentuser: Log in as a different user
-youdonthaveaccesstothisdirectory: You don't have access to this directory.
-notfound: The item that you are looking for was not found.
-check_url_go_back: Please check the url or go to the %s for a file listing.
-enter_user_password: Enter your username and password
-remember_my_login: Remember my login
-submit: Submit
-invalid_user_password: Invalid username or password.
-error: Error
-updated_since: "Updated Since:"
-last_week: last week
-last_month: last month
-my_last_visit: my last visit
-username: Username
-password: Password
-authenticationrequired: Authentication Required
-generatetinyurl: generate tiny url
-lastmodified: last modified
-instructions: "Instructions: "
-downloadfile: Download File
 parent_directory: Parent Directory
 previous_directory: Previous Directory
 next_directory: Next Directory
 previous: Previous
 next: Next
+
+# Listing
+
+filename: filename
+size: size
+date: date
+kind: kind
+comment: comment
+
+# Access control
+
+accessdenied: Access Denied
+loginasadifferentuser: Log in as a different user
+youdonthaveaccesstothisdirectory: You don't have access to this directory.
+
+# 404 Error
+
+notfound: The item that you are looking for was not found.
+check_url_go_back: Please check the url or go to the %s for a file listing.
+
+# Login (if applicable)
+
+username: Username
+password: Password
+authenticationrequired: Authentication required
+enter_user_password: Enter your username and password
+remember_my_login: Remember my login
+submit: Submit
+invalid_user_password: Invalid username or password.
+error: Error
+logout: logout
+logout_complete: Logout complete
+login_failed: Login Failed
+
+# Footer
+
+updated_since: "Updated since:"
+last_week: last week
+last_month: last month
+my_last_visit: my last visit
+
+# Detail page
+
+lastmodified: last modified
+instructions: "Instructions:"
+downloadfile: Download file
+

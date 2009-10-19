@@ -1,21 +1,30 @@
+# YAML NOTE: Spacing and capitalization is very important
+
+# LOGO
 
 site_logo_url: /config/themes/default/images/logos/logo.png
-site_logo_width: 256
-site_logo_height: 53
+site_logo_width: 256                   # in pixels
+site_logo_height: 53                   # in pixels
 
-replace_underscore_space: true
-replace_dash_space: true
-display_file_extensions: true
-display_file_names_in_gallery: true
-display_info: true
+# FILE DISPLAY RULES
 
-listing_mode: list
+replace_underscore_space: true         # replace underscore in filename with space
+replace_dash_space: true               # replace dash in filename with space
 
-display_header: true
-display_breadcrumb: true
-display_navigation:  true
-display_send_page: true
-display_collapse_header: true
-display_tiny_url: false
-display_updated_since: true
-display_file_listing_header: true
+display_file_extensions: true          # show/hide file extensions
+display_file_names_in_gallery: true    # show/hide file names under thumbnails
+
+display_info: true                     # show/hide the info icon on file detail page
+listing_mode: list                     # default view for folders and files: list or grid
+
+# INTERFACE ELEMENTS
+
+display_header: true                   # show/hide top of page (logo area)
+display_breadcrumb: true               # show/hide breadcrumb navigation
+display_navigation: true               # show/hide page-to-page navigation
+display_file_listing_header: true      # show/hide column headers in list view
+display_send_page: true                # show/hide the send page button
+display_collapse_header: true          # show/hide the collapse header button
+display_tiny_url: false                # show/hide the make tiny url button
+display_updated_since: true            # show/hide the update information footer
+
