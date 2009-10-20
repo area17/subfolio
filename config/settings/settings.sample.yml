@@ -25,5 +25,5 @@ properties_file: -properties       # name of the Enhancer file containing folder
 
 text_rendering: textile            # markup language used to render inline text files: Textile or HTML
 thumbnail_max_filesize: 5          # file size cap (in MB) before a thumbnail will not be generated
-
+display_max_filesize: 5            # file size cap for inline display
 // 

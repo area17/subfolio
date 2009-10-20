@@ -34,6 +34,11 @@ class Subfolio {
     return "http://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];;
   }
 
+  public static function get_setting($name)
+  {
+    return Kohana::config('filebrowser.' . $name);  
+  }
+
   public static function current_file($data)
   {
     if ($data == "width") {
@@ -88,6 +93,10 @@ class Subfolio {
 
     if ($data == "size") {
       return format::filesize(Subfolio::$template->content->file->stats['size']) ? format::filesize(Subfolio::$template->content->file->stats['size']) : "—";
+    }
+
+    if ($data == "rawsize") {
+      return Subfolio::$template->content->file->stats['size'];
     }
 
     if ($data == "comment") {

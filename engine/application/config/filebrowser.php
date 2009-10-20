@@ -19,9 +19,10 @@ $config['thumbnail_height'] = 240;
 $config['site_logo_width'] = 256;
 $config['site_logo_height'] = 53;
 
+$config['display_max_filesize'] = 5;    // In Megabytes
 $config['thumbnail_max_filesize'] = 1;    // In Megabytes
 
-$config['text_rendering'] = "none";    // none|textile
+$config['text_rendering'] = "none";    // none|textile|markdown
 $config['listing_mode'] = "list";    // list|grid
 
 // NOTE IF YOU CHANGE THIS YOU WILL NEED TO REGENERATE YOUR HASHED PASSWORD LIST
@@ -69,7 +70,8 @@ $config['groups_yaml_file']       = isset($settings['groups_yaml_file'])    ? $u
 $config['thumbnail_width']        = isset($settings['thumbnail_width'])     ? $settings_folder.$settings['thumbnail_width'] : $config['thumbnail_width'];
 $config['thumbnail_height']       = isset($settings['thumbnail_height'])    ? $settings_folder.$settings['thumbnail_height'] : $config['thumbnail_height'];
 
-$config['thumbnail_max_filesize'] = isset($settings['thumbnail_max_filesize'])    ? $settings['thumbnail_max_filesize'] : $config['thumbnail_max_filesize'];
+$config['thumbnail_max_filesize'] = isset($settings['thumbnail_max_filesize'])  ? $settings['thumbnail_max_filesize'] : $config['thumbnail_max_filesize'];
+$config['display_max_filesize']   = isset($settings['display_max_filesize'])    ? $settings['display_max_filesize']   : $config['display_max_filesize'];
 
 $config['text_rendering'] 				= isset($settings['text_rendering'])    	? $settings['text_rendering'] : $config['text_rendering'];
 $config['listing_mode'] 					= isset($settings['listing_mode'])    		? $settings['listing_mode'] : $config['listing_mode'];
