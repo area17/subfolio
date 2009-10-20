@@ -1,3 +1,4 @@
 engine/application/logs/*
 engine/info/disabled.php
 .DS_Store
+.htaccess

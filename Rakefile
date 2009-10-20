@@ -12,6 +12,7 @@ Rake::PackageTask.new('subfolio', version) do |pkg|
     '.htaccess', 'htaccess']
 
   pkg.package_files.exclude('.gitignore')
+  pkg.package_files.exclude('.htaccess')
   pkg.package_files.exclude('engine/application/logs/*')
   pkg.package_files.exclude('engine/install/demo/*')
   pkg.package_files.exclude('config/settings/settings.yml')
