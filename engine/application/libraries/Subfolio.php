@@ -152,7 +152,22 @@ class SubfolioTheme extends Subfolio {
   }
 
   public static function get_site_name() {
-    return Kohana::config('filebrowser.site_name');
+    $site_name_display = Kohana::config('filebrowser.site_name');
+    $logo = Kohana::config('filebrowser.site_logo_url');
+    $logo = view::get_option('site_logo_url', $logo);
+    if ($logo <> "") {
+    	$width = Kohana::config('filebrowser.site_logo_width');
+    	$width = view::get_option('site_logo_width', $width);
+    	
+  		$height = Kohana::config('filebrowser.site_logo_height');
+    	$height = view::get_option('site_logo_height', $height);
+  		
+  		if ($width <> '') { $width = " width='$width' "; }
+  		if ($height <> '') { $height = " height='$height' "; }
+      $site_name_display = "<img $width $height src='$logo' />";
+    }
+    
+    return $site_name_display;
   }
   
   public static function get_view_url() {
