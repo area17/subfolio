@@ -42,7 +42,7 @@ class format extends format_Core {
         $filename = substr($name, 0, (-1 * strlen($extension)-1));
       }
     }
-    return $filename;
+    return htmlentities($filename);
   }
 
 	public static function get_rendered_text($text) {

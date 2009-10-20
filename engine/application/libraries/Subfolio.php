@@ -99,7 +99,7 @@ class Subfolio {
 
     if ($data == "filename") {
       if (Subfolio::$filebrowser->file <> '') {
-        return Subfolio::$template->content->file->name;
+        return htmlentities(Subfolio::$template->content->file->name);
     	} else {
   	  	$ff = new FileFolder(basename(Subfolio::$template->content->folder), Subfolio::$template->content->folder, 'folder', "folder", array());
         return format::filename($ff->get_display_name());
@@ -186,11 +186,11 @@ class SubfolioTheme extends Subfolio {
   }
 
   public static function get_page_title() {
-    return isset(Subfolio::$template->page_title) ? Subfolio::$template->page_title : "";
+    return isset(Subfolio::$template->page_title) ? htmlentities(Subfolio::$template->page_title) : "";
   }
 
   public static function get_site_title() {
-    return isset(Subfolio::$template->site_title) ? Subfolio::$template->site_title : "";
+    return isset(Subfolio::$template->site_title) ? htmlentities(Subfolio::$template->site_title) : "";
   }
 
   public static function get_site_name() {
