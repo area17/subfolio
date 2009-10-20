@@ -68,7 +68,7 @@ class Subfolio {
     	$new = false;
     	$updated = false;
 
-      if (isset($template->content->file->stats)) {
+      if (isset(Subfolio::$template->content->file->stats['mtime'])) {
       	$new_updated_start = Subfolio::$filebrowser->get_updated_since_time();
         if (Subfolio::$template->content->file->stats['mtime'] > $new_updated_start) {
             $updated = true;
@@ -108,7 +108,7 @@ class Subfolio {
 
     if ($data == "lastmodified") {
       if (Subfolio::$filebrowser->file <> '') {
-        if (isset($template->content->file->stats)) {
+        if (isset(Subfolio::$template->content->file->stats)) {
           return format::filedate(Subfolio::$template->content->file->stats['mtime']);
         } else {
           return "-";
@@ -119,7 +119,7 @@ class Subfolio {
     }
 
     if ($data == "size") {
-      if (isset($template->content->file->stats)) {
+      if (isset(Subfolio::$template->content->file->stats['size'])) {
         return format::filesize(Subfolio::$template->content->file->stats['size']) ? format::filesize(Subfolio::$template->content->file->stats['size']) : "—";
       } else {
         return "-";
