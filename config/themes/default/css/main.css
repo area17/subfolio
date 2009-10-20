@@ -276,21 +276,19 @@ background: url(../images/system/parent.png) no-repeat 3px 12px;
 
 #footer a, #footer span { padding-left: 5px; padding-right: 5px; }
 #footer span { color:#666; }
-#footer .footer_sep {
-display: inline-block;	
+#footer .updated_since_sep {
+display: inline-block;
 width: 5px;
 text-indent: -2000px;
 background: url(../images/system/dot.png) no-repeat 0 19px;
 padding-left: 0;
 padding-right: 0;
 }
-
-#footer a#footer-home{
-padding-left: 0;
+#footer a#footer-home, #footer span.copyright {
 padding-right: 10px;
 border-right: 1px solid #e0e0e0;
 }
-
+#footer :first-child { padding-left: 0; }
 
 /* @end */
 
