@@ -1,5 +1,5 @@
 <?php if (!SubfolioTheme::get_mobile_viewport() && SubfolioTheme::get_option('display_header', true)) { ?>
-	<div id="header">
+	<div id="header" class="<?php if (isset($_COOKIE['header'])) echo htmlentities($_COOKIE['header']); ?>">
 		<h1 id="logo"><a href='/' ><?php echo SubfolioTheme::get_site_name(); ?></a></h1>	
 	</div>
 <?php } ?>
