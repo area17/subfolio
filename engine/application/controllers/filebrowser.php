@@ -98,11 +98,11 @@ class Filebrowser_Controller extends Website_Controller {
         header('Expires: '.$gmt_mtime);
         header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
         header('Pragma: private');
-        header('Content-Length: ' . filesize(urldecode($file)));
+        header('Content-Length: ' . filesize($file));
         ob_end_clean();
         //readfile($file);
 
-        $fp = fopen(urldecode($file), "rb");
+        $fp = fopen($file, "rb");
         while (!feof($fp)){
           print(@fread($fp, 4096));
           flush();

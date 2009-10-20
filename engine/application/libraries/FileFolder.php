@@ -140,7 +140,7 @@ class FileFolder {
     } else {
       
       $thumbnail = "-thumbnails/".$this->name;
-      $url = "/directory/".$this->parent."/-thumbnails/".urlencode($this->name);
+      $url = "/directory/".$this->parent."/-thumbnails/".Filebrowser::double_encode_specialcharacters(urlencode($this->name));
   
       if (!file_exists("-thumbnails")) mkdir("-thumbnails", 0755, true);
   

@@ -429,7 +429,7 @@ class SubfolioFiles extends Subfolio {
   			if ($file->has_custom_thumbnail()) { 
   			  
   			  $image['class'] = "gallery_thumbnail custom";
-  			  $image['link'] = Subfolio::$filebrowser->get_link(urlencode($file->name));
+  			  $image['link'] = Subfolio::$filebrowser->get_link(Filebrowser::double_encode_specialcharacters($file->name));
   			  $image['filename'] = $file->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions);
   			  $image['url'] = $image_source;
   			  
@@ -437,7 +437,7 @@ class SubfolioFiles extends Subfolio {
       	} else { 
   			// Genrerated or not thumbnails -----------------------------------------------------------------------------
   			  $image['class'] = "gallery_thumbnail";
-  			  $image['link'] = Subfolio::$filebrowser->get_link(urlencode($file->name));
+  			  $image['link'] = Subfolio::$filebrowser->get_link(Filebrowser::double_encode_specialcharacters($file->name));
   			  $image['filename'] = $file->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions);
   			  $image['url'] = $image_source;
   			}

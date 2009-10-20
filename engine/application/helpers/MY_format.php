@@ -65,7 +65,7 @@ class format extends format_Core {
       if ($ret != "") {
         $ret .= "/";
       }
-      $ret .= "".urlencode($part);
+      $ret .= "".Filebrowser::double_encode_specialcharacters(urlencode($part));
     }
     
     return $ret;
