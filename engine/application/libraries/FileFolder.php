@@ -62,8 +62,8 @@ class FileFolder {
 
   public function needs_thumbnail() {
     $needs = true;
-    $thumbnail_width = Kohana::config('filebrowser.thumbnail_width');
-    $thumbnail_height = Kohana::config('filebrowser.thumbnail_height');
+    $thumbnail_width = SubfolioTheme::get_option('thumbnail_width', Kohana::config('filebrowser.thumbnail_width'));
+    $thumbnail_height = SubfolioTheme::get_option('thumbnail_height', Kohana::config('filebrowser.thumbnail_height'));
 		$info = @getimagesize($this->name);
     if ($info[1] <= $thumbnail_height) {
       $needs = false;
@@ -155,8 +155,8 @@ class FileFolder {
         if ($stats['size'] > ($max_size * 1024 * 1024)) {
           return '';
         } else {
-          $thumbnail_width = Kohana::config('filebrowser.thumbnail_width');
-          $thumbnail_height = Kohana::config('filebrowser.thumbnail_height');
+          $thumbnail_width = SubfolioTheme::get_option('thumbnail_width', Kohana::config('filebrowser.thumbnail_width'));
+          $thumbnail_height = SubfolioTheme::get_option('thumbnail_height', Kohana::config('filebrowser.thumbnail_height'));
 
       		$info = @getimagesize($this->name);
       		if (isset($info[1])) {
