@@ -2,7 +2,7 @@
 
 	<?php echo SubfolioTheme::subfolio_link(); ?> <!-- Users can remove that line -->
 
-	<!-- <span class='copyright'>Content ©2009 YourCompanyName — All rights reserved</span> -->
+	<!-- <span class='copyright'>Content &copy; 2009 YourCompanyName &ndash; All rights reserved</span> -->
 
 	<?php if (SubfolioTheme::get_option('display_updated_since')) { ?>
 		<span><?php echo SubfolioLanguage::get_text('updated_since'); ?></span>
