@@ -21,6 +21,8 @@ var isIphone = false;
 
 var offsetMac = 0;
 
+var collapse_header_label = 'collapse header'
+var expand_header_label = 'expand header'
 
 /* What to do when DOM is ready
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
@@ -126,16 +128,16 @@ function setUpClasses() {
 function bindHeaderEvents() {
 	if ($('#showHideSwitch')[0]) {
 		$('#showHideSwitch').click(function(e) {
-			if ($(this).html() == 'expand header') {
+			if ($(this).html() == expand_header_label) {
 				$(this).addClass('hideSwitch');
 				$(this).removeClass('showSwitch');
-				$(this).html('collapse header');
+				$(this).html(collapse_header_label);
 				$('#header').show();
 				createCookie('header', 'showSwitch');
 			} else {
 				$(this).addClass('showSwitch');
 				$(this).removeClass('hideSwitch');
-				$(this).html("expand header");
+				$(this).html(expand_header_label);
 				$('#header').hide();
 				createCookie('header', 'hideSwitch');
 			}

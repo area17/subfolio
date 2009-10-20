@@ -16,6 +16,15 @@
 	<?php if (SubfolioTheme::get_mobile_viewport()) { ?>
 		<link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/iphone.css" type="text/css" rel="stylesheet" >
 	<?php }	?>
+
+	<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/common.js"></script>
+	<?php if (SubfolioTheme::get_mobile_viewport()) { ?>
+		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/main-iphone.js"></script>
+	<?php }	else { ?>
+		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/jquery-1.3.2.min.js"></script>
+		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/jquery.scrollTo-min.js"></script>
+		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/main.js"></script>
+	<?php }	?>
 </head>
 <body>
 	<div id="container">
@@ -39,13 +48,5 @@
 		</div>
 		<?php include("footer.inc.php") ?>
 	</div>
-	<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/common.js"></script>
-	<?php if (SubfolioTheme::get_mobile_viewport()) { ?>
-		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/main-iphone.js"></script>
-	<?php }	else { ?>
-		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/jquery-1.3.2.min.js"></script>
-		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/jquery.scrollTo-min.js"></script>
-		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/main.js"></script>
-	<?php }	?>
 </body>
 </html>

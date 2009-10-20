@@ -272,7 +272,7 @@ class SubfolioTheme extends Subfolio {
     if (isset($_COOKIE['header'])) {
         if ($_COOKIE['header'] == "hideSwitch") {
             $showHide = "hideSwitch";
-            $showHideLabel = "".Kohana::lang('filebrowser.expandheader');;
+            $showHideLabel = "".SubfolioLanguage::get_text('expandheader');
         }
     }
     $link = "<a id='showHideSwitch' href='#'>".$showHideLabel."</a>";

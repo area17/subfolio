@@ -25,12 +25,10 @@
 
   <?php if (!SubfolioTheme::get_mobile_viewport()) { ?>
 	  <ul id="tools">
-
 			<?php if (SubfolioUser::is_logged_in()) { ?>
 				<li><?php echo Subfolio::link_to(SubfolioLanguage::get_text('logout'),'/logout') ?></li>
 			<?php } ?>
-						
-			
+
 			<?php if (SubfolioTheme::get_option('display_send_page')) { 
         $subject = "Link from " . $_SERVER["SERVER_NAME"];
         $body = Subfolio::current_url();
@@ -41,11 +39,10 @@
 			<?php if (SubfolioTheme::get_option('display_tiny_url')) {
   			echo SubfolioTheme::get_tiny_url(SubfolioLanguage::get_text('generatetinyurl'), 'li');
 			} ?>
-				
+
 			<?php if (SubfolioTheme::get_option('display_collapse_header') && SubfolioTheme::get_option('display_header', true)) {
   			echo SubfolioTheme::get_collapse_header_button('li');
 			} ?>
-
 	  </ul>
   <?php } ?>
 </div>
@@ -53,3 +50,10 @@
 <?php if (SubfolioTheme::get_option('display_navigation')) { ?>
   <?php require("prev_next.inc.php") ?>
 <?php } ?>
+
+<script>
+$(document).ready(function(){
+  expand_header_label = "<?php echo SubfolioLanguage::get_text('expandheader'); ?>";
+  collapse_header_label = "<?php echo SubfolioLanguage::get_text('collapseheader'); ?>";
+});
+</script>
