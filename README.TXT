@@ -1,7 +1,7 @@
 This file was last edited on thursday, 13rd of september 2009.
 
-Subfolio version: [Version]
-Release date: [Date]
+Subfolio version: 0.9 (beta)
+Release date: October 2009
 
 ***
 ABOUT SUBFOLIO
@@ -52,4 +52,4 @@ You can view the EULA at:
 ***
 Please respect our efforts and do not distribute Subfolio.
 
-© 2009 Subfolio by AREA 17. All rights reserved. 
+(c) 2009 Subfolio by AREA 17. All rights reserved. 
