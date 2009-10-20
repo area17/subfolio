@@ -405,6 +405,11 @@ class SubfolioFiles extends Subfolio {
   public function gallery_images()
   {
     $display_filenames = view::get_option('display_file_names_in_gallery', true);
+
+    $replace_dash_space = view::get_option('replace_dash_space', true);  
+    $replace_underscore_space = view::get_option('replace_underscore_space', true);
+    $display_file_extensions = view::get_option('display_file_extensions', true);
+
     $files = Subfolio::$filebrowser->get_file_list("img");
 
     $gallery = array();
@@ -425,7 +430,7 @@ class SubfolioFiles extends Subfolio {
   			  
   			  $image['class'] = "gallery_thumbnail custom";
   			  $image['link'] = Subfolio::$filebrowser->get_link(urlencode($file->name));
-  			  $image['filename'] = htmlentities($file->name);
+  			  $image['filename'] = $file->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions);
   			  $image['url'] = $image_source;
   			  
   			// Custom thumbnails -----------------------------------------------------------------------------
@@ -433,7 +438,7 @@ class SubfolioFiles extends Subfolio {
   			// Genrerated or not thumbnails -----------------------------------------------------------------------------
   			  $image['class'] = "gallery_thumbnail";
   			  $image['link'] = Subfolio::$filebrowser->get_link(urlencode($file->name));
-  			  $image['filename'] = htmlentities($file->name);
+  			  $image['filename'] = $file->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions);
   			  $image['url'] = $image_source;
   			}
   			$gallery[] = $image;
