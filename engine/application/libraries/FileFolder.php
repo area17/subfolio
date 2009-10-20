@@ -125,7 +125,7 @@ class FileFolder {
   }
 
   public function get_url() {
-    $url = "/directory/".$this->parent."/".$this->name;
+    $url = "/directory/".$this->parent."/".Filebrowser::double_encode_specialcharacters(urlencode($this->name));
     return $url;
   }
   

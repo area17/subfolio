@@ -91,7 +91,7 @@ class Filebrowser_Controller extends Website_Controller {
           header('Content-Type: application/octet-stream');
         } else {
           header('Content-Description: File Transfer');
-          header('Content-Type: ' . mime_content_type($file));
+          header('Content-Type: ' . self::mime_content_type($file));
         }
 
         header('Content-Transfer-Encoding: binary');
@@ -200,83 +200,76 @@ class Filebrowser_Controller extends Website_Controller {
       $this->template->content = $content;
     }
   }
-}
 
+  private static function mime_content_type($filename) {
+      $mime_types = array(
 
+          'log' => 'text/plain',
+          'txt' => 'text/plain',
+          'htm' => 'text/html',
+          'html' => 'text/html',
+          'php' => 'text/html',
+          'css' => 'text/css',
+          'js' => 'application/javascript',
+          'json' => 'application/json',
+          'xml' => 'application/xml',
+          'swf' => 'application/x-shockwave-flash',
+          'flv' => 'video/x-flv',
 
-if(!function_exists('mime_content_type')) {
+          // images
+          'png' => 'image/png',
+          'jpe' => 'image/jpeg',
+          'jpeg' => 'image/jpeg',
+          'jpg' => 'image/jpeg',
+          'gif' => 'image/gif',
+          'bmp' => 'image/bmp',
+          'ico' => 'image/vnd.microsoft.icon',
+          //'tiff' => 'image/tiff',
+          //'tif' => 'image/tiff',
+          'svg' => 'image/svg+xml',
+          'svgz' => 'image/svg+xml',
 
-    function mime_content_type($filename) {
+          // archives
+          'zip' => 'application/zip',
+          'rar' => 'application/x-rar-compressed',
+          'exe' => 'application/x-msdownload',
+          'msi' => 'application/x-msdownload',
+          'cab' => 'application/vnd.ms-cab-compressed',
 
-        $mime_types = array(
+          // audio/video
+          'mp3' => 'audio/mpeg',
+          'qt' => 'video/quicktime',
+          'mov' => 'video/quicktime',
 
-            'log' => 'text/plain',
-            'txt' => 'text/plain',
-            'htm' => 'text/html',
-            'html' => 'text/html',
-            'php' => 'text/html',
-            'css' => 'text/css',
-            'js' => 'application/javascript',
-            'json' => 'application/json',
-            'xml' => 'application/xml',
-            'swf' => 'application/x-shockwave-flash',
-            'flv' => 'video/x-flv',
+          // adobe
+          'pdf' => 'application/pdf',
+          'psd' => 'image/vnd.adobe.photoshop',
+          'ai' => 'application/postscript',
+          'eps' => 'application/postscript',
+          'ps' => 'application/postscript',
 
-            // images
-            'png' => 'image/png',
-            'jpe' => 'image/jpeg',
-            'jpeg' => 'image/jpeg',
-            'jpg' => 'image/jpeg',
-            'gif' => 'image/gif',
-            'bmp' => 'image/bmp',
-            'ico' => 'image/vnd.microsoft.icon',
-            //'tiff' => 'image/tiff',
-            //'tif' => 'image/tiff',
-            'svg' => 'image/svg+xml',
-            'svgz' => 'image/svg+xml',
+          // ms office
+          'doc' => 'application/msword',
+          'rtf' => 'application/rtf',
+          'xls' => 'application/vnd.ms-excel',
+          'ppt' => 'application/vnd.ms-powerpoint',
 
-            // archives
-            'zip' => 'application/zip',
-            'rar' => 'application/x-rar-compressed',
-            'exe' => 'application/x-msdownload',
-            'msi' => 'application/x-msdownload',
-            'cab' => 'application/vnd.ms-cab-compressed',
+          // open office
+          'odt' => 'application/vnd.oasis.opendocument.text',
+          'ods' => 'application/vnd.oasis.opendocument.spreadsheet',
+      );
 
-            // audio/video
-            'mp3' => 'audio/mpeg',
-            'qt' => 'video/quicktime',
-            'mov' => 'video/quicktime',
+      $ext = strtolower(array_pop(explode('.',$filename)));
+      if (array_key_exists($ext, $mime_types)) {
+          return $mime_types[$ext];
+      } elseif (function_exists('finfo_open')) {
+          $finfo = finfo_open(FILEINFO_MIME);
+          $mimetype = finfo_file($finfo, $filename);
+          finfo_close($finfo);
+          return $mimetype;
+      } else {
+          return 'application/octet-stream';
+      }
+  }
 
-            // adobe
-            'pdf' => 'application/pdf',
-            'psd' => 'image/vnd.adobe.photoshop',
-            'ai' => 'application/postscript',
-            'eps' => 'application/postscript',
-            'ps' => 'application/postscript',
-
-            // ms office
-            'doc' => 'application/msword',
-            'rtf' => 'application/rtf',
-            'xls' => 'application/vnd.ms-excel',
-            'ppt' => 'application/vnd.ms-powerpoint',
-
-            // open office
-            'odt' => 'application/vnd.oasis.opendocument.text',
-            'ods' => 'application/vnd.oasis.opendocument.spreadsheet',
-        );
-
-        $ext = strtolower(array_pop(explode('.',$filename)));
-        if (array_key_exists($ext, $mime_types)) {
-            return $mime_types[$ext];
-        }
-        elseif (function_exists('finfo_open')) {
-            $finfo = finfo_open(FILEINFO_MIME);
-            $mimetype = finfo_file($finfo, $filename);
-            finfo_close($finfo);
-            return $mimetype;
-        }
-        else {
-            return 'application/octet-stream';
-        }
-    }
 }
