@@ -52,7 +52,13 @@ class Subfolio {
     }
   
     if ($data == "icon") {
-    	$file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$filebrowser->file);
+      
+      if (Subfolio::$filebrowser->file <> '') {
+      	$file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$filebrowser->file);
+    	} else {
+      	$file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$filebrowser->folder);
+    	}
+
     	$icon_file = "";
     	$icon_file = Subfolio::$filekind->get_icon_by_file($file_kind);
       return view::get_view_url()."/images/icons/grid/".$icon_file.".png";
@@ -60,16 +66,20 @@ class Subfolio {
 
     if ($data == "tag") {
     	$new = false;
-    	$new_updated_start = Subfolio::$filebrowser->get_updated_since_time();
-      
     	$updated = false;
-      if (Subfolio::$template->content->file->stats['mtime'] > $new_updated_start) {
-          $updated = true;
-      }
-      if ($new) {
-        return "new";
-      } else if ($updated) {
-        return "updated";
+
+      if (isset($template->content->file->stats)) {
+      	$new_updated_start = Subfolio::$filebrowser->get_updated_since_time();
+        if (Subfolio::$template->content->file->stats['mtime'] > $new_updated_start) {
+            $updated = true;
+        }
+        if ($new) {
+          return "new";
+        } else if ($updated) {
+          return "updated";
+        } else {
+          return "";
+        }
       } else {
         return "";
       }
@@ -80,32 +90,64 @@ class Subfolio {
     }
 
     if ($data == "link") {
-      return Subfolio::$filebrowser->get_file_url();
+      if (Subfolio::$filebrowser->file <> '') {
+        return Subfolio::$filebrowser->get_file_url();
+      } else {
+        	return "/directory/".Subfolio::$template->content->folder."/index.html";
+      }
     }
 
     if ($data == "filename") {
-      return Subfolio::$template->content->file->name;
+      if (Subfolio::$filebrowser->file <> '') {
+        return Subfolio::$template->content->file->name;
+    	} else {
+  	  	$ff = new FileFolder(basename(Subfolio::$template->content->folder), Subfolio::$template->content->folder, 'folder', "folder", array());
+        return format::filename($ff->get_display_name());
+      }
     }
 
     if ($data == "lastmodified") {
-      return format::filedate(Subfolio::$template->content->file->stats['mtime']);
+      if (Subfolio::$filebrowser->file <> '') {
+        if (isset($template->content->file->stats)) {
+          return format::filedate(Subfolio::$template->content->file->stats['mtime']);
+        } else {
+          return "-";
+        }
+      }  else {
+        return "-";
+      }
     }
 
     if ($data == "size") {
-      return format::filesize(Subfolio::$template->content->file->stats['size']) ? format::filesize(Subfolio::$template->content->file->stats['size']) : "—";
+      if (isset($template->content->file->stats)) {
+        return format::filesize(Subfolio::$template->content->file->stats['size']) ? format::filesize(Subfolio::$template->content->file->stats['size']) : "—";
+      } else {
+        return "-";
+      }
     }
 
     if ($data == "rawsize") {
-      return Subfolio::$template->content->file->stats['size'];
+      if (Subfolio::$filebrowser->file <> '') {
+        return Subfolio::$template->content->file->stats['size'];
+      } else {
+        return 0;
+      }
     }
 
     if ($data == "comment") {
-      return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'comment') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'comment') : '';
+      if (Subfolio::$filebrowser->file <> '') {
+        return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'comment') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'comment') : '';
+      } else {
+        return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->folder, 'comment') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->folder, 'comment') : '';
+      }
     }
 
     if ($data == "kind") {
-    	$file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$filebrowser->file);
-    	//$kind = isset($file_kind['kind']) ? $file_kind['kind'] : '';
+      if (Subfolio::$filebrowser->file <> '') {
+      	$file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$filebrowser->file);
+    	} else {
+      	$file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$filebrowser->folder);
+    	}
     	return isset($file_kind['display']) ? $file_kind['display'] : '—';
   	}
 
