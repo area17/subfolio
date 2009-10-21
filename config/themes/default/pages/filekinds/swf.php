@@ -1,5 +1,6 @@
 <EMBED 
   src='<?php echo Subfolio::current_file('url') ?>' 
+  autoplay=<?php echo Subfolio::current_file('autoplay') ?>
   quality=high 
   width='<?php echo Subfolio::current_file('width') ?>' 
   height='<?php echo Subfolio::current_file('height') ?>' 
