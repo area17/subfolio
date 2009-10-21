@@ -4,7 +4,7 @@
 		<?php echo SubfolioFiles::parent_link(SubfolioLanguage::get_text('parent_directory')); ?>
   </span>
 	<span class="prev_next">		
-		<?php echo SubfolioFiles::previous_link_or_span(SubfolioLanguage::get_text('previous'), SubfolioLanguage::get_text('previous_directory'), SubfolioLanguage::get_text('previous'), 'faded'); ?><?php echo SubfolioFiles::next_link_or_span(SubfolioLanguage::get_text('next'), SubfolioLanguage::get_text('next_directory'), SubfolioLanguage::get_text('previous'), 'faded'); ?>
+		<?php echo SubfolioFiles::previous_link_or_span(SubfolioLanguage::get_text('previous'), SubfolioLanguage::get_text('previous_directory'), 'previous', 'faded'); ?><?php echo SubfolioFiles::next_link_or_span(SubfolioLanguage::get_text('next'), SubfolioLanguage::get_text('next_directory'), 'next', 'faded'); ?>
 	</span>
 </div>
 <?php } ?>
