@@ -164,6 +164,14 @@ class Subfolio {
       }
     }
 
+    if ($data == "autoplay") {
+      if (Subfolio::$filebrowser->file <> '') {
+        return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'autoplay') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'autoplay') : '';
+      } else {
+        return "";
+      }
+    }
+
     if ($data == "kind") {
       if (Subfolio::$filebrowser->file <> '') {
       	$file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$filebrowser->file);
