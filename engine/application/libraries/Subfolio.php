@@ -646,12 +646,14 @@ class SubfolioFiles extends Subfolio {
         $icon = view::get_view_url()."/images/icons/".$listing_mode."/".$icon_file.".png";        
   
     	  switch ($kind) {
+    	    /***** NOT LINKING TO SITE, LINK TO PERMALINK PAGE INSTEAD
     			case "site" :
     			  		$url = "/directory".Subfolio::$filebrowser->get_link($folder->name)."/index.html";
     			  		$target = "_blank";
     		        $display = format::filename($folder->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions), false);
     		        break;
-    
+          */
+          
     			case "pages" :
       			  	$url = "/directory".Subfolio::$filebrowser->get_link($folder->name);
       			  	break;
