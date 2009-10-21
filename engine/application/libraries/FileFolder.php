@@ -65,10 +65,11 @@ class FileFolder {
     $thumbnail_width = SubfolioTheme::get_option('thumbnail_width', Kohana::config('filebrowser.thumbnail_width'));
     $thumbnail_height = SubfolioTheme::get_option('thumbnail_height', Kohana::config('filebrowser.thumbnail_height'));
 		$info = @getimagesize($this->name);
+
     if ($info[1] <= $thumbnail_height) {
       $needs = false;
     }
-    
+
     return $needs;
   }
 

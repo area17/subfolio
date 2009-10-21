@@ -360,6 +360,22 @@ class Filebrowser {
     return $folders;
   }
 
+  public function file_or_folder_count($include_hidden=FALSE) {
+    $count = 0;
+
+    $names = $this->sub_glob("*");
+    foreach ($names as $filename) {
+      if ($this->is_hidden($filename)) {
+        if ($include_hidden) {
+          $count ++;
+        }
+      } else {
+        $count ++;
+      }
+    }
+    return $count;
+  }
+
   public function get_folder_list($pattern='*'){
     $folders = array();
     $names = $this->sub_glob("*");

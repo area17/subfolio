@@ -504,6 +504,12 @@ class SubfolioFiles extends Subfolio {
     return $gallery;
   }
 
+  public function is_empty_folder()
+  {
+    $is_empty = !((boolean) Subfolio::$filebrowser->file_or_folder_count(TRUE));
+    return $is_empty;
+  }
+
   public function have_files()
   {
     $folders = Subfolio::$filebrowser->get_folder_list();
@@ -516,10 +522,29 @@ class SubfolioFiles extends Subfolio {
     if (sizeof($folders) > 0) {
       $haveFiles= true;
     } else {
-      if (sizeof($files)) {
-        $haveFiles = true;
+      foreach ($files as $file) {
+        $file_kind = Subfolio::$filekind->get_kind_by_file($file->name);
+
+        if (isset($file_kind['kind'])) {
+          $kind = $file_kind['kind'];
+        } else {
+          $kind = "";
+        }
+
+        if ($kind == "img") {
+          if ($file->needs_thumbnail()) {
+            if ($file->get_thumbnail_url() == '') {
+              $haveFiles = true;
+              break;
+            }
+          }
+        } else {
+          $haveFiles = true;
+          break;
+        }
       }
     }
+
     return $haveFiles;
   }
 

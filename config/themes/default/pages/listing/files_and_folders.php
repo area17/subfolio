@@ -50,7 +50,8 @@
 	</div><!-- listing -->
 
 <?php else : ?>
-	
-	<p><?php SubfolioLanguage::get_text('emptydirectory') ?></p>
-	
+  <?php if (SubfolioFiles::is_empty_folder()) : ?>
+  	<p><?php echo SubfolioLanguage::get_text('emptyfolder') ?></p>
+  <?php endif; ?>	
+
 <?php endif; ?>

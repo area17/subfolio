@@ -22,6 +22,8 @@ date: date
 kind: kind
 comment: comment
 
+emptyfolder: This folder is empty
+
 # Access control
 
 accessdenied: Access Denied
