@@ -127,7 +127,7 @@ class Subfolio {
     }
 
     if ($data == "rawsize") {
-      if (Subfolio::$filebrowser->file <> '') {
+      if (isset(Subfolio::$template->content->file->stats['size'])) {
         return Subfolio::$template->content->file->stats['size'];
       } else {
         return 0;
