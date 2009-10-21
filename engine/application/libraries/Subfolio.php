@@ -441,7 +441,7 @@ class SubfolioFiles extends Subfolio {
 	    }
       
       $item['link'] = $feature_link;
-      $item['image_file'] = $feature['image'];
+      $item['image_file'] = "/directory/".Subfolio::$filebrowser->get_folder()."/".$feature['image'];
       $item['title'] = $feature['title'];
       $item['description'] = $feature['description'];
       
@@ -520,7 +520,11 @@ class SubfolioFiles extends Subfolio {
     
     $haveFiles = false;
     if (sizeof($folders) > 0) {
-      $haveFiles= true;
+      foreach ($folders as $folder) {
+        if (!Subfolio::$filebrowser->is_feature($folder->name)) {
+          $haveFiles = true;
+        }
+      }
     } else {
       foreach ($files as $file) {
         $file_kind = Subfolio::$filekind->get_kind_by_file($file->name);
