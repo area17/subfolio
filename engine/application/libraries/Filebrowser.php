@@ -861,10 +861,13 @@ class Filebrowser {
     if (!$hidden) {
       $info_ext = Kohana::config('filebrowser.info_extension') ?  Kohana::config('filebrowser.info_extension') : ".info" ;
       $ftr_ext = Kohana::config('filebrowser.feature_extension') ?  Kohana::config('filebrowser.feature_extension') : ".ftr" ;
+      $cut_ext = Kohana::config('filebrowser.shortcut_extension') ?  Kohana::config('filebrowser.shortcut_extension') : ".cut" ;
 
       if (substr($filename, (-1 * strlen($info_ext))) == $info_ext) {
         $hidden = true;
       } else if (substr($filename, (-1 * strlen($ftr_ext))) == $ftr_ext) {
+        $hidden = true;
+      } else if (substr($filename, (-1 * strlen($ftr_ext))) == $cut_ext) {
         $hidden = true;
       }
     }
