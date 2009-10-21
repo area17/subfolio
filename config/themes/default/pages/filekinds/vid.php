@@ -1,6 +1,6 @@
 <EMBED 
   src='<?php echo Subfolio::current_file('url') ?>' 
-  autoplay=<?php echo $autoplay ?>
+  autoplay=<?php echo Subfolio::current_file('autoplay') ?>
   controller='true' 
   pluginspage='http://public.apple.com/quicktime/' 
   width='<?php echo Subfolio::current_file('width') ?>' 
@@ -10,4 +10,4 @@
   pluginspage='http://public.apple.com/quicktime/'>
 </EMBED>
 
-<?php if (SubfolioTheme::get_option('display_info')) { require("_hideable_download_box.php") } ?>
+<?php if (SubfolioTheme::get_option('display_info')) { require("_hideable_download_box.php"); } ?>
