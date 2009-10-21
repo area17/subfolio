@@ -1,6 +1,6 @@
 <div id="footer">
 
-	<?php echo SubfolioTheme::subfolio_link(); ?> <!-- Users can remove that line -->
+	<?php echo SubfolioTheme::subfolio_link(); ?>
 
 	<!-- <span class='copyright'>Content &copy; 2009 YourCompanyName &ndash; All rights reserved</span> -->
 
