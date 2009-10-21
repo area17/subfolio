@@ -42,12 +42,12 @@ class Subfolio {
   public static function current_file($data)
   {
     if ($data == "width") {
-      list($width, $height, $type, $attr) = getimagesize(Subfolio::$filebrowser->fullfolderpath."/".Subfolio::$template->content->file->name);
+      list($width, $height, $type, $attr) = @getimagesize(Subfolio::$filebrowser->fullfolderpath."/".Subfolio::$template->content->file->name);
       return $width;
     }
 
     if ($data == "height") {
-      list($width, $height, $type, $attr) = getimagesize(Subfolio::$filebrowser->fullfolderpath."/".Subfolio::$template->content->file->name);
+      list($width, $height, $type, $attr) = @getimagesize(Subfolio::$filebrowser->fullfolderpath."/".Subfolio::$template->content->file->name);
       return $height;
     }
   
@@ -108,7 +108,7 @@ class Subfolio {
 
     if ($data == "lastmodified") {
       if (Subfolio::$filebrowser->file <> '') {
-        if (isset(Subfolio::$template->content->file->stats)) {
+        if (isset(Subfolio::$template->content->file->stats['mtime'])) {
           return format::filedate(Subfolio::$template->content->file->stats['mtime']);
         } else {
           return "-";
