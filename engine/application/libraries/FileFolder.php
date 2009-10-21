@@ -137,11 +137,11 @@ class FileFolder {
 
   public function get_thumbnail_url() {
     if ($this->has_custom_thumbnail()) {
-      return "/directory/".$this->parent."/-thumbnails-custom/".$this->name;
+      return "/directory/".format::urlencode_parts($this->parent)."/-thumbnails-custom/".Filebrowser::double_encode_specialcharacters(urlencode($this->name));
     } else {
       
       $thumbnail = "-thumbnails/".$this->name;
-      $url = "/directory/".$this->parent."/-thumbnails/".Filebrowser::double_encode_specialcharacters(urlencode($this->name));
+      $url = "/directory/".format::urlencode_parts($this->parent)."/-thumbnails/".Filebrowser::double_encode_specialcharacters(urlencode($this->name));
   
       if (!file_exists("-thumbnails")) mkdir("-thumbnails", 0755, true);
   
