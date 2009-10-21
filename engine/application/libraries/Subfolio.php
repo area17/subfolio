@@ -42,13 +42,35 @@ class Subfolio {
   public static function current_file($data)
   {
     if ($data == "width") {
-      list($width, $height, $type, $attr) = @getimagesize(Subfolio::$filebrowser->fullfolderpath."/".Subfolio::$template->content->file->name);
-      return $width;
+      $file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$template->content->file->name);
+      if (isset($file_kind['kind'])) {
+        $kind = $file_kind['kind'];
+      } else {
+        $kind = "";
+      }
+
+      if ($kind == "img") {
+        list($width, $height, $type, $attr) = @getimagesize(Subfolio::$filebrowser->fullfolderpath."/".Subfolio::$template->content->file->name);
+        return $width;
+      } else {
+        return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'width') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'width') : '640';
+      }
     }
 
     if ($data == "height") {
-      list($width, $height, $type, $attr) = @getimagesize(Subfolio::$filebrowser->fullfolderpath."/".Subfolio::$template->content->file->name);
-      return $height;
+      $file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$template->content->file->name);
+      if (isset($file_kind['kind'])) {
+        $kind = $file_kind['kind'];
+      } else {
+        $kind = "";
+      }
+
+      if ($kind == "img") {
+        list($width, $height, $type, $attr) = @getimagesize(Subfolio::$filebrowser->fullfolderpath."/".Subfolio::$template->content->file->name);
+        return $height;
+      } else {
+        return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'height') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'height') : '480';
+      }
     }
   
     if ($data == "icon") {
