@@ -26,9 +26,9 @@ class FileKind {
 	}
 
   public function get_icon_by_file($kind) {
-    $icon_file = "i_gen";
+    $icon_file = "gen";
     if ($kind) {
-			$icon_file = "i_" . $kind['icon'];
+			$icon_file = "" . $kind['icon'];
     }
     return $icon_file;
   }

@@ -26,7 +26,7 @@ if (sizeof($inline) > 0) {
 							$listing_mode = 'grid';
 						} ?>
 						<!-- <span class="icon_download blank"></span> -->
-						<img src='<?php echo view::get_view_url() ?>/images/icons/<?php echo $listing_mode; ?>/i_cut.png' width='18' height='17' class='download_arrow' />
+						<img src='<?php echo view::get_view_url() ?>/images/icons/<?php echo $listing_mode; ?>/cut.png' width='18' height='17' class='download_arrow' />
 					</span>
 					<span class="filename"><?php echo format::filename($name, false) ?></span>
 				</a>

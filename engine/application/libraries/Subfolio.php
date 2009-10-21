@@ -577,7 +577,7 @@ class SubfolioFiles extends Subfolio {
         $target = "";
         $folder_kind = Subfolio::$filekind->get_kind_by_file($folder->name);
         $kind = isset($folder_kind['kind']) ? $folder_kind['kind'] : '';
-        $icon_file = "i_dir";
+        $icon_file = "dir";
     
         $kind_display = isset($folder_kind['display']) ? $folder_kind['display'] : '';
         $url = "";
@@ -778,7 +778,7 @@ class SubfolioFiles extends Subfolio {
         $link = Subfolio::$filebrowser->get_item_property($item->name, 'directory');
       }
       $name = Subfolio::$filebrowser->get_item_property($item->name, 'name');
-      $url = view::get_view_url() ."/images/icons/".$listing_mode."/i_cut.png";
+      $url = view::get_view_url() ."/images/icons/".$listing_mode."/cut.png";
       $width = "18";
       $height = "18";
       

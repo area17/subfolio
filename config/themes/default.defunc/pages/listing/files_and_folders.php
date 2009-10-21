@@ -66,7 +66,7 @@ foreach ($folders as $folder):
     $target = "";
     $folder_kind = $this->filekind->get_kind_by_file($folder->name);
     $kind = isset($folder_kind['kind']) ? $folder_kind['kind'] : '';
-    $icon_file = "i_dir";
+    $icon_file = "dir";
 
     $kind_display = isset($folder_kind['display']) ? $folder_kind['display'] : '';
     $url = "";
