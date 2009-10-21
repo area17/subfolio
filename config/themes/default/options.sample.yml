@@ -29,5 +29,4 @@ display_tiny_url: false                # show/hide the make tiny url button
 display_updated_since: true            # show/hide the update information footer
 
 # THUMBNAIL SETTINGS
-thumbnail_width: 320
 thumbnail_height: 240
