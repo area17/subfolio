@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=480" />
 	<?php }	?>
 	<title><?php echo SubfolioTheme::get_page_title(); ?> — <?php echo SubfolioTheme::get_site_title(); ?></title>
-	<link rel="icon" href="<?php echo SubfolioTheme::get_page_title(); ?>/favicon.ico" type="image/x-con" />
-	<link rel="shortcut icon" href="<?php echo SubfolioTheme::get_view_url(); ?>/favicon.ico" type="image/x-con" />
+	<link rel="icon" href="<?php echo SubfolioTheme::get_view_url(); ?>/favicon.ico" type="image/vnd.microsoft.icon"  />
+	<link rel="shortcut icon" href="<?php echo SubfolioTheme::get_view_url(); ?>/favicon.ico" type="image/vnd.microsoft.icon"  />
 	
 	<link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/main.css" type="text/css" rel="stylesheet" >
 	<!--<link href="<?php echo SubfolioTheme::get_view_url(); "/css/".SubfolioTheme::get_listing_mode(); ?>.css" type="text/css" rel="stylesheet" >-->
