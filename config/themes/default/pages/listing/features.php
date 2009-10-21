@@ -8,7 +8,7 @@
 			    	<img src="<?php echo $feature['image_file'] ?>">
 			      <div class="info">
 			        <h2><?php echo $feature['title'] ?></h2>
-			        <?php echo $feature['description'] ?>
+			        <p><?php echo $feature['description'] ?></p>
 			      </div>
 				  </a>
 		    </li>
