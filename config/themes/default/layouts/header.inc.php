@@ -11,7 +11,7 @@
 			<?php if (SubfolioUser::is_logged_in()) { ?>
 				<span><?php echo SubfolioUser::current_user_name(); echo " "; echo SubfolioLanguage::get_text('browsing'); ?></span>
 	    <?php } ?>
-			<span><?php echo SubfolioLanguage::get_text('indexof'); ?></span> <a href="/"><?php echo Kohana::config('filebrowser.site_domain'); ?></a>
+			<span><?php echo SubfolioLanguage::get_text('indexof'); ?></span> <a href="/"><?php echo Subfolio::get_setting('site_domain'); ?></a>
 			<?php foreach (SubfolioTheme::get_breadcrumb() as $crumb) { ?>
         <span class='slash'>&nbsp;/&nbsp;</span>
         <?php if ($crumb['url'] <> '') { ?>
