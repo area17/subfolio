@@ -1,4 +1,5 @@
-# YAML NOTE: Spacing and capitalization is very important
+# YAML NOTE: Indentation, spacing and text case are super important.
+# This file must be encoded as Unicode (UTF-8) for it to work properly.
 
 # User must exist in the user.yml file before they can be added to a group
 # Create unlimited groups, add unlimited users to a group

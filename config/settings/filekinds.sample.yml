@@ -1,4 +1,6 @@
-# ****************************************
+# YAML NOTE: Indentation, spacing and text case are super important.
+# This file must be encoded as Unicode (UTF-8) for it to work properly.
+
 # IMAGE FILE KINDS
 
 img:
@@ -71,8 +73,6 @@ ase:
   instructions:>
     To read Swatch files, you need <a href='http://www.adobe.com/products/creativesuite/' target='_blank'>Adobe Creative Suite</a> or similar.
 
-
-# ****************************************
 # AUDIO/VIDEO FILE KINDS
 
 snd:
@@ -117,8 +117,6 @@ ae:
   instructions:>
     To read After Effect files, you need <a href='http://www.adobe.com/products/aftereffects/' target='_blank'>Adobe After Effects</a>.
 
-
-# ****************************************
 # DOCUMENT FILE KINDS
 
 pdf:
@@ -203,8 +201,6 @@ merlin:
   instructions:>
     To read Merlin files, you need <a href='http://projectwizards.net/' target='_blank'>Merlin</a>.
 
-
-# ****************************************
 # PACKAGES AND FONTS
 
 zip:
@@ -235,8 +231,6 @@ suit:
   instructions:>
     To open Font Suitcase, you need a Mac.
 
-
-# ****************************************
 # WEB FILE KINDS
 
 html:
@@ -279,8 +273,6 @@ dir:
   icon: dir
   display: Folder
 
-
-# ****************************************
 # ENHANCER FILE KINDS
 
 cut:

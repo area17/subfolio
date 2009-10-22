@@ -1,4 +1,5 @@
-# YAML NOTE: Spacing and capitalization is very important
+# YAML NOTE: Indentation, spacing and text case are super important.
+# This file must be encoded as Unicode (UTF-8) for it to work properly.
 
 # To change your logo and other interface elements, go to /config/themes/default/options.yml
 
@@ -23,7 +24,6 @@ properties_file: -properties       # name of the Enhancer file containing folder
 
 # CONTENT SETTINGS
 
-text_rendering: textile            # markup language used to render inline text files: Textile or HTML
+text_rendering: textile            # markup language used to render inline text: Textile, Markup or HTML
 thumbnail_max_filesize: 5          # file size cap (in MB) before a thumbnail will not be generated
-display_max_filesize: 5            # file size cap for inline display
-// 
+
