@@ -72,7 +72,7 @@ background-color: white;
 /* ------------------------------------------------------------- 
 	STANDARD PARAGRAPH
 -------------------------------------------------------------- */
-.standard_paragraph { max-width: 750px; }
+.standard_paragraph { max-width: 650px; }
 .standard_paragraph b, .standard_paragraph strong, .standard_paragraph em, .standard_paragraph i, .standard_paragraph li  { font-size: 100%; }
 .standard_paragraph h1, .standard_paragraph h2 {
 color: #333;
