@@ -15,6 +15,10 @@ We strongly recommend that you read the "version release notes" and documentatio
 ***
 CHANGE LOG
 
+Subfolio Version: 0.9
+[THEME]       IE and General UI updates
+
+
 Subfolio Version: 0.9.rc6
 [ENGINE]     File kinds update
 [GENERAL]    Misc bug fixes
