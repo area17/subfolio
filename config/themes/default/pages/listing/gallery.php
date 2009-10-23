@@ -6,7 +6,7 @@
 			
         <li>
           <a href="<?php echo $image['link']; ?>">
-  					<div class="<?php echo $image['class'] ?>" style="width:<?php echo $image['width']."px"; ?>">
+  					<div class="<?php echo $image['class'] ?>" style="width:<?php echo $image['width']."px"; ?>; height:<?php echo $image['container_height']."px"; ?>">
   						<img width="<?php echo $image['width']."px" ?>" height="<?php echo $image['height']."px" ?>" src="<?php echo $image['url'] ?>" />
   					</div>
   					<?php if (SubfolioTheme::get_option('display_file_names_in_gallery')) { ?>

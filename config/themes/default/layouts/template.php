@@ -26,10 +26,6 @@
 		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/main.js"></script>
 	<?php }	?>
 	
-	<style>
-	  #gallery ul li a div.gallery_thumbnail { height:<?php echo SubfolioTheme::get_option('thumbnail_height'); ?>px; }
-  </style>
-	
 </head>
 <body>
 	<div id="container">
