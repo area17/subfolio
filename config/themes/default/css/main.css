@@ -806,7 +806,7 @@ margin:15px 0;
 }
 
 /* Sets styles only for direct childs of #content (i.e gallery, features, listing). IE6 doesn't get it */
-#content > div, #content > img {
+#content > * {
 margin:0 0 15px;
 }
 
