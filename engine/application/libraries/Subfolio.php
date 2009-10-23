@@ -513,6 +513,7 @@ class SubfolioFiles extends Subfolio {
         $image = array();  
         $image['width'] = $width;
         $image['height'] = $height;
+				$image['container_width'] = $width;
   			if ($file->has_custom_thumbnail()) { 
   			  
   			  $image['class'] = "gallery_thumbnail custom";
