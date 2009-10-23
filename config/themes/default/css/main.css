@@ -641,13 +641,9 @@ padding:0;
 }
 
 /* Spacing & Alignment */
-#lock form input.field {
-margin:15px 0 0;
-}
+#lock form input.field { margin:15px 0 0; }
 
-#lock form .checkbox {
-margin:10px 0 15px;
-}
+#lock form .checkbox { margin:10px 0 15px; }
 
 #lock form .login_field {
 text-align:right;
