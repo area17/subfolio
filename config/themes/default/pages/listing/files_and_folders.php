@@ -4,7 +4,7 @@
 		
 		<ul class="<?php echo SubfolioTheme::get_listing_mode() ?>">
 			
-			<?php if (SubfolioTheme::get_option('display_file_listing_header')) { ?>
+			<?php if (!SubfolioTheme::get_mobile_viewport() && SubfolioTheme::get_option('display_file_listing_header')) { ?>
 				<li class="listing-header">
 					<span class="icon">
 						<img src="<?php echo SubfolioTheme::get_view_url() ?>/images/system/no_icon.png" width='18' height='17' border='0' />
@@ -29,7 +29,7 @@
   					<?php if ($item['restricted']) { ?>
   						<span class="<?php if ($item['have_access']) { echo "unlocked"; } else { echo "locked"; } ?>"><!-- --></span>
   					<?php	} ?>
-						<span class="icon">
+						<span class="icon" style='background-image:url(<?php echo $item['icon_grid'] ?>)'>
 						<?php if (SubfolioTheme::get_listing_mode()=='list') : ?>
 							<img src='<?php echo $item['icon'] ?>' width='18' height='17' />
 						<?php else : ?>

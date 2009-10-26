@@ -19,7 +19,7 @@ body  {
 /* Resetting FONTS for all modules when needed
 -------------------------------------------------------------- */
 #breadcrumbtools *, #navigation *, #footer *, #features *, #listing *, #related * {
-	font-size: 18px !important;
+	font-size: 22px !important;
 }
 
 #breadcrumbtools a, #breadcrumbtools span, #footer a, #navigation a, #navigation .prev_next span, #footer a, #footer span {
@@ -68,6 +68,7 @@ body > #container > #container-inner > #content > #related > *:not(.list) {
 		overflow: hidden !important;
 		margin: 0 !important;
 		border-top: 1px solid #E0E0E0;
+		background-color: #f5f5f5;
 	}
 	
 	.list > li:last-child {
@@ -98,10 +99,13 @@ body > #container > #container-inner > #content > #related > *:not(.list) {
 		
 	.list .icon {
 		width: 43px;
+		background-repeat: no-repeat;
+		height: 32px;
 	}
-	
+	.list .icon img { display: none; }
 	.list .filename {
-		font-weight: bold;
+		font-weight: normal;
+		width: 420px;
 	}
 	
 	.list .size, .list .date, .list .kind, .list .comment {
@@ -115,5 +119,6 @@ body > #container > #container-inner > #content > #related > *:not(.list) {
 	}
 
 	.list .locked, .list .unlocked {
-		left: 17px;
+		top: 10px;
+		left: 4px;
 	}
