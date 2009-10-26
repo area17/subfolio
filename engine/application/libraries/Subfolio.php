@@ -817,7 +817,8 @@ class SubfolioFiles extends Subfolio {
         $link = Subfolio::$filebrowser->get_item_property($item->name, 'directory');
       }
       $name = Subfolio::$filebrowser->get_item_property($item->name, 'name');
-      $url = view::get_view_url() ."/images/icons/".$listing_mode."/cut.png";
+      $icon = view::get_view_url() ."/images/icons/".$listing_mode."/cut.png";
+			$icon_grid = view::get_view_url() ."/images/icons/grid/cut.png";
       $width = "18";
       $height = "18";
       
@@ -825,7 +826,8 @@ class SubfolioFiles extends Subfolio {
       $rel['link'] = $link;
       $rel['filename'] = $name;
 
-      $rel['url']    = $url;
+      $rel['icon']    = $icon;
+			$rel['icon_grid']    = $icon_grid;
       $rel['width']  = $width;
       $rel['height'] = $height;
       
