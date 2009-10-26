@@ -29,7 +29,7 @@
   					<?php if ($item['restricted']) { ?>
   						<span class="<?php if ($item['have_access']) { echo "unlocked"; } else { echo "locked"; } ?>"><!-- --></span>
   					<?php	} ?>
-						<span class="icon" style='background-image:url(<?php echo $item['icon_grid'] ?>)'>
+						<span class="icon" <?php if (SubfolioTheme::get_mobile_viewport()) { echo "style='background-image:url(".$item['icon_grid'].")'"; } ?>>
 						<?php if (SubfolioTheme::get_listing_mode()=='list') : ?>
 							<img src='<?php echo $item['icon'] ?>' width='18' height='17' />
 						<?php else : ?>
