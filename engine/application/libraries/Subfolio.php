@@ -654,7 +654,8 @@ class SubfolioFiles extends Subfolio {
 					$listing_mode = 'grid';
 				}
 		
-        $icon = view::get_view_url()."/images/icons/".$listing_mode."/".$icon_file.".png";        
+        $icon = view::get_view_url()."/images/icons/".$listing_mode."/".$icon_file.".png";
+				$icon_grid = view::get_view_url()."/images/icons/grid/".$icon_file.".png";        
   
     	  switch ($kind) {
     	    /***** NOT LINKING TO SITE, LINK TO PERMALINK PAGE INSTEAD
@@ -686,6 +687,7 @@ class SubfolioFiles extends Subfolio {
         $item['target'] = $target;
         $item['url'] = $url;
         $item['icon'] = $icon;
+				$item['icon_grid'] = $icon_grid;
         $item['filename'] = $display;
         $item['size'] = "&mdash";
         $item['date'] = format::filedate($folder->stats['mtime']);
@@ -739,6 +741,7 @@ class SubfolioFiles extends Subfolio {
       	  }
       	
       	  $icon = view::get_view_url()."/images/icons/".$listing_mode."/".$icon_file.".png";
+					$icon_grid = view::get_view_url()."/images/icons/grid/".$icon_file.".png";
     
           $target = "";
           $url = "";
@@ -774,6 +777,7 @@ class SubfolioFiles extends Subfolio {
         $item['target'] = $target;
         $item['url'] = $url;
         $item['icon'] = $icon;
+				$item['icon_grid'] = $icon_grid;
         $item['filename'] = $display;
         $item['size'] = format::filesize($file->stats['size']);
         $item['date'] = format::filedate($file->stats['mtime']);
