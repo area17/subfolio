@@ -16,7 +16,7 @@
 	<?php if (SubfolioTheme::get_mobile_viewport()) { ?>
 		<link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/iphone.css" type="text/css" rel="stylesheet" >
 	<?php }	?>
-<link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/iphone.css" type="text/css" rel="stylesheet" >
+
 	<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/common.js"></script>
 	<?php if (SubfolioTheme::get_mobile_viewport()) { ?>
 		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/main-iphone.js"></script>

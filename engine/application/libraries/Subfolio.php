@@ -248,9 +248,10 @@ class SubfolioTheme extends Subfolio {
   
   public static function get_listing_mode(){
   	$listing_mode = Kohana::config('filebrowser.listing_mode');
-  	$listing_mode = view::get_option('listing_mode', $listing_mode);
-  	$listing_mode = Subfolio::$filebrowser->get_folder_property('listing_mode', $listing_mode); 
-  	
+		if (!SubfolioTheme::get_mobile_viewport()) {
+			$listing_mode = view::get_option('listing_mode', $listing_mode);
+	  	$listing_mode = Subfolio::$filebrowser->get_folder_property('listing_mode', $listing_mode);
+		}
   	return $listing_mode;
   }
   
@@ -865,7 +866,7 @@ class SubfolioFiles extends Subfolio {
           $link = str_replace('%2F', '/', $link);
   				return "<a id='$link_id' href='$link'>$name</a>";
   			} else {
-  				return "<span class='".$class."'>".$name."</span>";
+  				return "<span id='$link_id' class='".$class."'>".$name."</span>";
   			}
   	  } else { 
   	    $folder  = basename(Subfolio::$filebrowser->get_folder());
@@ -878,7 +879,7 @@ class SubfolioFiles extends Subfolio {
   
   				return "<a id='$link_id' href='$link'>$directory_name</a>";
   			} else {
-  				return "<span class='".$class."'>".$directory_name."</span>";
+  				return "<span id='$link_id' class='".$class."'>".$directory_name."</span>";
   			}
   	  }
     }
@@ -897,7 +898,7 @@ class SubfolioFiles extends Subfolio {
           $link = str_replace('%2F', '/', $link);
   				return "<a id='$link_id' href='$link'>$name</a>";
   			} else {
-  				return "<span class='".$class."'>".$name."</span>";
+  				return "<span id='$link_id' class='".$class."'>".$name."</span>";
   			}
   	  } else { 
   	    $folder  = basename(Subfolio::$filebrowser->get_folder());
@@ -910,7 +911,7 @@ class SubfolioFiles extends Subfolio {
   
   				return "<a id='$link_id' href='$link'>$directory_name</a>";
   			} else {
-  				return "<span class='".$class."'>".$directory_name."</span>";
+  				return "<span id='$link_id' class='".$class."'>".$directory_name."</span>";
   			}
   	  }
 	  }
