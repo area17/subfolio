@@ -1,0 +1,3 @@
+target: _blank
+url: http://support.subfolio.com
+comment: For help, discussions and documentation

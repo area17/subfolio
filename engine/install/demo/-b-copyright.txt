@@ -1,0 +1,7 @@
+<small>Subfolio is a licensed product created by AREA 17, an interactive agency in New York City and Paris, France. You must purchase a license to install Subfolio. One license is good for one domain only (eg. yourdomain.com). Feel free to install on as many sub-domains as you'd like (eg. private.yourdomain.com).</small>
+
+<small>You can view the End User License Agreement at: http://www.subfolio.com/eula</small>
+
+<small>Please respect our efforts and do not distribute Subfolio.</small>
+
+<small>(c) 2009 Subfolio by AREA 17. All rights reserved.</small>

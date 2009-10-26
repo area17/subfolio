@@ -1,1 +1,0 @@
-Subfolio will automatically create a thumbnail for all image files. To customize your thumbnail, just create it, name it the same filename and upload it to the folder "-thumbnail_custom" (if it doesn't exist, you can create it).
