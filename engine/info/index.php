@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-		<title>Subfolio Info</title>	
+		<title>Subfolio System Information</title>	
 
 		<link href="css/info.css" type="text/css" rel="stylesheet" >
 		
@@ -33,7 +33,7 @@
 				<td class="label" colspan="4"><h2>Server Requirements:</h2></td>
 			</tr>
 			<tr>
-				<th class="label">Apache Version</th>
+				<th class="label">Apache version</th>
 				<?php if (version_compare(apacheversion(), '2.0', '>=')): ?>
 					<td class="sign pass">Pass</td>
 					<td class="version"><?php echo apacheversion() ?></td>
@@ -46,7 +46,7 @@
 			</tr>
 			
 			<tr>
-				<th class="label">PHP Version</th>
+				<th class="label">PHP version</th>
 				<?php if (version_compare(PHP_VERSION, '5.2', '>=')): ?>
 					<td class="sign pass">Pass</td>
 					<td class="version"><?php echo PHP_VERSION ?></td>
@@ -59,7 +59,7 @@
 			</tr>
 				
 			<tr>
-				<th class="label">GD Enabled</th>
+				<th class="label">GD enabled</th>
 				<?php if (extension_loaded('gd')): ?>
 					<td class="sign pass">Pass</td>
 					<td class="version"><?php echo gdversion() ?></td>
@@ -72,7 +72,7 @@
 			</tr>
 				
 			<tr>
-				<th class="label">SPL Enabled</th>
+				<th class="label">SPL enabled</th>
 				<?php if (function_exists('spl_autoload_register')): ?>
 					<td class="sign pass">Pass</td>
 					<td class="version"></td>
@@ -106,7 +106,7 @@
 			</tr>
 
 			<tr>
-				<th class="label">Mod Rewrite</th>
+				<th class="label">Mod rewrite</th>
 				<?php $have_module = apache_is_module_loaded('mod_rewrite'); ?>
 				<?php if ($have_module) { ?>
 					<td class="sign pass">Pass</td>
@@ -158,7 +158,7 @@
 			</tr>
 
 			<tr>
-				<th class="label">File Kinds file</th>
+				<th class="label">File kinds file</th>
 				<?php if (file_exists('../../config/settings/filekinds.yml')): ?>
 					<td class="sign pass">Pass</td>
 					<td class="version">found</td>
@@ -189,7 +189,7 @@
 
 		<table cellspacing="0">
 			<tr>
-				<td class="label" colspan="4"><h2>Users &amp; groups:</h2></td>
+				<td class="label" colspan="4"><h2>Users &amp; Groups:</h2></td>
 			</tr>
 			<tr>
 				<th class="label">Users file</th>
@@ -216,7 +216,6 @@
 					<td class="instructions exclam">Duplicate the <i>groups.sample.yml</i> file and rename it to <i>groups.yml</i></td>
 				<?php endif ?>
 			</tr>
-												
 		</table>
 		
 
