@@ -17,6 +17,7 @@ CHANGE LOG
 
 Subfolio Version: 0.9.1
 [ENGINE]      Ticket #362: Fix for problem with URL for featured folder in the root directory
+[ENGINE]      Ticket #342: Removed version from footer branding
 
 Subfolio Version: 0.9
 [THEME]       IE and General UI updates
