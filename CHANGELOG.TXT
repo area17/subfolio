@@ -15,6 +15,9 @@ We strongly recommend that you read the "version release notes" and documentatio
 ***
 CHANGE LOG
 
+Subfolio Version: 0.9.1
+[ENGINE]      Ticket #362: Fix for problem with URL for featured folder in the root directory
+
 Subfolio Version: 0.9
 [THEME]       IE and General UI updates
 
