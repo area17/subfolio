@@ -1,7 +1,7 @@
 require 'rake/packagetask'
 
 # read engine version to be used for packaging.
-version = File.read('engine/VERSION.txt')
+version = File.read('engine/VERSION.TXT')
 
 # Generate .zip files from the codebase using the version.
 Rake::PackageTask.new('subfolio', version) do |pkg|

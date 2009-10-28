@@ -15,7 +15,7 @@
 		<hr/ >
 		
 		<?php
-			$version = file_get_contents('../VERSION.txt');
+			$version = file_get_contents('../VERSION.TXT');
 		?>
 		<table cellspacing="0">
 			<tr>
