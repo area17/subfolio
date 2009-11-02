@@ -223,6 +223,10 @@ class SubfolioTheme extends Subfolio {
     return isset(Subfolio::$template->site_title) ? htmlentities(Subfolio::$template->site_title) : "";
   }
 
+  public static function get_site_copyright() {
+    return Kohana::config('filebrowser.site_copyright', null);  
+  }
+
   public static function get_site_name() {
     $site_name_display = Kohana::config('filebrowser.site_name');
     $logo = Kohana::config('filebrowser.site_logo_url');

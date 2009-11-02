@@ -7,6 +7,7 @@
 
 site_name: Subfolio Portable       # appears in the header and HTML title of the page
 site_domain: www.subfolio.com      # appears in the breadcrumb navigation
+site_copyright: "Content &copy; 2009 YourCompanyName – All rights reserved"
 
 theme: default                     # name of the active theme
 directory: directory               # location of your content

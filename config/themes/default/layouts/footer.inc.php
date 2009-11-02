@@ -2,7 +2,10 @@
 
 	<?php echo SubfolioTheme::subfolio_link(); ?>
 
-	<!-- <span class='copyright'>Content &copy; 2009 YourCompanyName &ndash; All rights reserved</span> -->
+	<?php $copyright = SubfolioTheme::get_site_copyright(); 
+	if ($copyright <> '') { ?>
+	<span class='copyright'>Content &copy; 2009 YourCompanyName &ndash; All rights reserved</span>
+	<?php } ?>
 
 	<?php if (!SubfolioTheme::get_mobile_viewport() && SubfolioTheme::get_option('display_updated_since')) { ?>
 		<span><?php echo SubfolioLanguage::get_text('updated_since'); ?></span>
