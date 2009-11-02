@@ -16,7 +16,8 @@ We strongly recommend that you read the "version release notes" and documentatio
 CHANGE LOG
 
 Subfolio Version: 0.9.1
-[ENGINE]      Ticket #337: Manage favicon via settings.yml
+[ENGINE]      Ticket #349: Manage site meta description via settings.yml
+[ENGINE]      Ticket #337: Manage favicon via options.yml
 [ENGINE]      Ticket #324: Manage site copyright via settings.yml
 [ENGINE]      Ticket #362: Fix for problem with URL for featured folder in the root directory
 [ENGINE]      Ticket #342: Removed version from footer branding

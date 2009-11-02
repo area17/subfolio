@@ -7,6 +7,7 @@ $settings_folder = $site_folder.'config/settings/';
 
 $config['site_name'] = 'Subfolio Portable';
 $config['site_copyright'] = '';
+$config['site_meta_description'] = '';
 $config['site_logo_url'] = '';
 $config['site_domain'] = 'www.subfolio.com';
 $config['theme'] = 'default';
@@ -55,7 +56,8 @@ $config['site_domain']            = isset($settings['site_domain'])         ? $s
 $config['site_logo_width']        = isset($settings['site_logo_width'])     ? $settings['site_logo_width'] : $config['site_logo_width'];
 $config['site_logo_height']       = isset($settings['site_logo_height'])    ? $settings['site_logo_height'] : $config['site_logo_height'];
 
-$config['site_copyright']         = isset($settings['site_copyright'])      ? $settings['site_copyright'] : $config['site_copyright'];
+$config['site_copyright']         = isset($settings['site_copyright'])      	? $settings['site_copyright'] : $config['site_copyright'];
+$config['site_meta_description']  = isset($settings['site_meta_description']) ? $settings['site_meta_description'] : $config['site_meta_description'];
 
 $config['theme']                  = isset($settings['theme'])               ? $settings['theme'] : $config['theme'];
 

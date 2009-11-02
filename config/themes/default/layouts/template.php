@@ -5,6 +5,12 @@
 	<?php if (SubfolioTheme::get_mobile_viewport()) { ?>
 		<meta name="viewport" content="width=480" />
 	<?php }	?>
+
+	<?php $meta_description = SubfolioTheme::get_site_meta_description();
+	if ($meta_description <> '') { ?>
+		<meta name="description" content="<?php echo $meta_description ?>" />
+	<?php } ?>
+
 	<title><?php echo SubfolioTheme::get_page_title(); ?> — <?php echo SubfolioTheme::get_site_title(); ?></title>
 
 	<?php $favicon = SubfolioTheme::get_site_favicon_url();
