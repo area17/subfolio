@@ -227,6 +227,10 @@ class SubfolioTheme extends Subfolio {
     return Kohana::config('filebrowser.site_copyright', null);  
   }
 
+  public static function get_site_favicon_url() {
+    	return view::get_option('site_favicon_url');
+  }
+
   public static function get_site_name() {
     $site_name_display = Kohana::config('filebrowser.site_name');
     $logo = Kohana::config('filebrowser.site_logo_url');
