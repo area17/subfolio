@@ -10,4 +10,4 @@
   pluginspage='http://public.apple.com/quicktime/'>
 </EMBED>
 
-<?php if (SubfolioTheme::get_option('display_info')) { require("_hideable_download_box.php") } ?>
+<?php if (SubfolioTheme::get_option('display_info')) { require("_hideable_download_box.php"); } ?>
