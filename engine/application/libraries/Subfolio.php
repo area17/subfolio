@@ -410,12 +410,11 @@ class SubfolioFiles extends Subfolio {
     }
 
     foreach ($inline as $item) {
-      list($width, $height, $type, $attr) = getimagesize(Subfolio::$filebrowser->fullfolderpath."/".$item->name);
-      
+      list($width, $height, $type, $attr) = @getimagesize(Subfolio::$filebrowser->fullfolderpath."/".$item->name);      
       $list_item = array();
-      $list_item['url'] = "/directory/".Subfolio::$filebrowser->get_folder()."/".$item->name;
-      $list_item['width'] = "";
-      $list_item['height'] = "";
+      $list_item['url'] = "/directory".Subfolio::$filebrowser->get_link($item->name);
+      $list_item['width'] = $width;
+      $list_item['height'] = $height;
       
       $list[] = $list_item;
     }
