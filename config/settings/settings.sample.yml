@@ -30,3 +30,5 @@ properties_file: -properties       # name of the Enhancer file containing folder
 text_rendering: textile            # markup language used to render inline text: Textile, Markup or HTML
 thumbnail_max_filesize: 5          # file size cap (in MB) before a thumbnail will not be generated
 
+# GOOGLE ANALYTICS
+# google_analytics_code: "UA-XXXXXX-X"

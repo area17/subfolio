@@ -38,6 +38,8 @@ $config['groups_yaml_file'] = $users_folder."groups.yml";
 $config['filekinds_yaml_file']  = $settings_folder."filekinds.yml";
 $config['language_yaml_file']   = $settings_folder."language.yml";
 
+$config['google_analytics_code']   = "";
+
 //Load settings from yaml file
 $settings_file  = $settings_folder."settings.yml";
 $config['settings_yaml_file']  = $settings_folder."settings.yml";
@@ -83,3 +85,5 @@ $config['listing_mode'] 					= isset($settings['listing_mode'])    		? $settings
 
 $config['filekinds_yaml_file']    = isset($settings['filekinds_yaml_file']) ? $settings_folder.$settings['filekinds_yaml_file'] : $config['filekinds_yaml_file'];
 $config['language_yaml_file']     = isset($settings['language_yaml_file'])  ? $settings_folder.$settings['language_yaml_file']  : $config['language_yaml_file'];
+
+$config['google_analytics_code']  = isset($settings['google_analytics_code'])   ? $settings['google_analytics_code'] : $config['google_analytics_code'];
