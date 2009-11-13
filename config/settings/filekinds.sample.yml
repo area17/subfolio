@@ -83,7 +83,7 @@ snd:
     To listen to Audio files, you need Apple QuickTime, Windows Media Player or similar.
 
 vid:
-  extensions: [avi, mov, mp4, mpg, mpeg, wmv]
+  extensions: [avi, mov, mp4, mpg, mpeg, wmv, flv]
   icon: vid
   display: Movie File
   instructions:>
