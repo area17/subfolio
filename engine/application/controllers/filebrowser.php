@@ -145,9 +145,9 @@ class Filebrowser_Controller extends Website_Controller {
       if ($this->access->check_access($this->auth->get_user())) {
         $is_folder = false;
         $single = $this->filebrowser->is_file();
+        $folder = $this->filebrowser->get_folder();
 
         if (!$single) {
-          $folder = $this->filebrowser->get_folder();
           $fkind = $this->filekind->get_kind_by_file($folder);
           $kind = isset($fkind['kind']) ? $fkind['kind'] : '';
           if ($kind == "site") {
@@ -177,8 +177,15 @@ class Filebrowser_Controller extends Website_Controller {
             $content = View::factory('pages/filekinds/default');
             $content->file = $file;
           }
-          $this->template->page_title = $file->name;
-          $this->template->page_title = FileFolder::fix_display_name($file->name, $replace_dash_space, $replace_underscore_space, $display_file_extensions);
+          
+          if ($folder <> '.') {
+            $title_path = $folder."/".$file->name;
+          } else {
+            $title_path = $file->name;
+          }
+          
+          $this->template->page_title = FileFolder::make_title_display($title_path, $replace_dash_space, $replace_underscore_space, $display_file_extensions);
+          
           $this->template->content = $content;
         } else {
 
@@ -189,7 +196,8 @@ class Filebrowser_Controller extends Website_Controller {
 
           if ($folder <> "") {
             $this->template->page_title = $folder;
-            $this->template->page_title = FileFolder::fix_display_name($folder, $replace_dash_space, $replace_underscore_space, $display_file_extensions);
+            $this->template->page_title = FileFolder::make_title_display($folder, $replace_dash_space, $replace_underscore_space, $display_file_extensions);
+          
           }
         }
       } else {

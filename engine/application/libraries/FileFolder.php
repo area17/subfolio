@@ -203,6 +203,37 @@ class FileFolder {
     return $display;
   }
 
+  public static function make_title_display($value='', $replace_dashes=true, $replace_underscores=true, $display_extension=true) {
+    $display = "";
+    $list = array_reverse(explode("/", $value));
+    $first = true;
+    foreach ($list as $item) {
+      if (!$first) {
+        $display .= " / ";
+      }
+
+      $display .= $item;
+      $first = false;
+    }
+
+    if ($replace_dashes) {
+      $display = str_replace("-", " ", $display);
+    }
+    
+    if ($replace_underscores) {
+      $display = str_replace("_", " ", $display);
+    }
+    
+    if (!$display_extension) {
+      $path_parts = pathinfo($value);
+      if (isset($path_parts['extension'])) {
+        $display = substr($display, 0, (-1 * (1+strlen($path_parts['extension']))));
+      }
+    }
+    
+    return $display;
+  }
+
 	// COMPARES TWO DATES
   public function listingDateCmpAsc($a, $b) {
     if ($a->stats['mtime'] == $b->stats['mtime']) {
