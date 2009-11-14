@@ -16,6 +16,10 @@ We strongly recommend that you read the "version release notes" and documentatio
 CHANGE LOG
 
 Subfolio Version: 0.9.1
+[ENGINE]      Ticket #380: SEO Change for page heading
+[ENGINE]      Ticket #350: HTML TItle Changes
+[ENGINE]      Ticket #358: Allow adding of Google Analytics via settings.yml
+[ENGINE]      Ticket #371: Inline image display with special characters
 [ENGINE]      Ticket #349: Manage site meta description via settings.yml
 [ENGINE]      Ticket #337: Manage favicon via options.yml
 [ENGINE]      Ticket #324: Manage site copyright via settings.yml
