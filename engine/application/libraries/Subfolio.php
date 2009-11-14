@@ -236,7 +236,8 @@ class SubfolioTheme extends Subfolio {
   }
 
   public static function get_site_name() {
-    $site_name_display = Kohana::config('filebrowser.site_name');
+    $site_name = Kohana::config('filebrowser.site_name');;
+    $site_name_display = $site_name;
     $logo = Kohana::config('filebrowser.site_logo_url');
     $logo = view::get_option('site_logo_url', $logo);
     if ($logo <> "") {
@@ -248,7 +249,7 @@ class SubfolioTheme extends Subfolio {
   		
   		if ($width <> '') { $width = " width='$width' "; }
   		if ($height <> '') { $height = " height='$height' "; }
-      $site_name_display = "<img $width $height src='$logo' />";
+      $site_name_display = "<span>$site_name</span><img $width $height src='$logo' />";
     }
     
     return $site_name_display;
