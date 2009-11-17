@@ -249,7 +249,7 @@ class SubfolioTheme extends Subfolio {
   		
   		if ($width <> '') { $width = " width='$width' "; }
   		if ($height <> '') { $height = " height='$height' "; }
-      $site_name_display = "<span>$site_name</span><img $width $height src='$logo' alt='$site_name' />";
+      $site_name_display = "<img $width $height src='$logo' alt='$site_name' />";
     }
     
     return $site_name_display;
