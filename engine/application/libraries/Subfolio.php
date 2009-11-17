@@ -216,11 +216,11 @@ class SubfolioTheme extends Subfolio {
   }
 
   public static function get_page_title() {
-    return isset(Subfolio::$template->page_title) ? htmlentities(Subfolio::$template->page_title) : "";
+    return isset(Subfolio::$template->page_title) ? Subfolio::$template->page_title : "";
   }
 
   public static function get_site_title() {
-    return isset(Subfolio::$template->site_title) ? htmlentities(Subfolio::$template->site_title) : "";
+    return isset(Subfolio::$template->site_title) ? Subfolio::$template->site_title : "";
   }
 
   public static function get_site_copyright() {
