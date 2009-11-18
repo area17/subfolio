@@ -489,9 +489,12 @@ class SubfolioFiles extends Subfolio {
       
       $item['link'] = $feature_link;
       $item['image_file'] = "/directory/".Subfolio::$filebrowser->get_folder()."/".$feature['image'];
+			list($width, $height, $type, $attr) = @getimagesize(Subfolio::$filebrowser->fullfolderpath."/".$feature['image']);   
+			$item['image_width'] = $width;
+      $item['image_height'] = $height;
       $item['title'] = $feature['title'];
       $item['description'] = $feature['description'];
-      
+
       $list[] = $item;
     }
     return $list;
