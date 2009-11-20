@@ -7,9 +7,11 @@
 			<?php foreach ( SubfolioFiles::related() as $item) : ?>
 				<li>
 					<a href='<?php echo $item['link'] ?>'>
-						<span class="icon" <?php if (SubfolioTheme::get_mobile_viewport()) { echo "style='background-image:url(".$item['icon_grid'].")'"; } ?>>
-							<img src="<?php echo $item['icon'] ?>" width="<?php $item['width'] ?>" height="<?php $item['height'] ?>" />
-						</span>
+						<?php if (SubfolioTheme::get_option('display_icons')) { ?>
+							<span class="icon" <?php if (SubfolioTheme::get_mobile_viewport()) { echo "style='background-image:url(".$item['icon_grid'].")'"; } ?>>
+								<img src="<?php echo $item['icon'] ?>" width="<?php $item['width'] ?>" height="<?php $item['height'] ?>" />
+							</span>
+						<?php } ?>
 						<span class="filename"><?php echo $item['filename'] ?></span>
 					</a>
 				</li>
