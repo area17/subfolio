@@ -5,11 +5,11 @@ h2. Quick Start
 
 h3. Things you most likely want to do...
 
-h4. Define the name and URL
+h4. Give it a name
 
-* Go to: /config/settings/settings.yml and do your thing.
-* Name is used in the page header and the HTML title
-* URL is used in the "breadcrumb" navigation
+* Go to: /config/settings/settings.yml and do your thing
+* Here you should also add your URL, site meta data and optionally a copyright
+* You can add your Google Analytics code here too
 
 h4. Add your logo
 
@@ -24,9 +24,9 @@ h4. Or use a text-only logo
 * Example: # site_logo_url: /config/themes/default/images/logos/logo.png
 * The name (described above) will be used
 
-h4. Remove these demo files
+h4. Remove these welcome files
 
-* First download these demo files locally so that you can reference them later
+* First download these welcome files locally if you want to reference them later
 * Then remove them before you deploy your Subfolio
 
 h3. And a few fast tips...

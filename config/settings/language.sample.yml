@@ -1,65 +1,66 @@
 # YAML NOTE: Indentation, spacing and text case are super important.
+# This file must be encoded as Unicode (UTF-8) for it to work properly.
 
-# Navigation 
+# NAVIGATION
 
-browsing: browsing
-indexof: index of
-sendpage: send page
-generatetinyurl: generate tiny url
-collapseheader: collapse header
-expandheader: expand header
-parent_directory: Parent Directory
-previous_directory: Previous Directory
-next_directory: Next Directory
-previous: Previous
-next: Next
-seealso: "See also: "
+browsing: "browsing"
+indexof: "index of"
+sendpage: "send page"
+generatetinyurl: "generate tiny url"
+collapseheader: "collapse header"
+expandheader: "expand header"
+parent_directory: "Parent Directory"
+previous_directory: "Previous Directory"
+next_directory: "Next Directory"
+previous: "Previous"
+next: "Next"
+seealso: "See also:"
 
-# Listing
+# LISTING
 
-filename: filename
-size: size
-date: date
-kind: kind
-comment: comment
+filename: "filename"
+size: "size"
+date: "date"
+kind: "kind"
+comment: "comment"
 
-emptyfolder: This folder is empty
+emptyfolder: "This folder is empty"
 
-# Access control
+# ACCESS CONTROL
 
-accessdenied: Access Denied
-loginasadifferentuser: Log in as a different user
-youdonthaveaccesstothisdirectory: You don't have access to this directory.
+accessdenied: "Access Denied"
+loginasadifferentuser: "Log in as a different user"
+youdonthaveaccesstothisdirectory: "You don't have access to this directory."
 
-# 404 Error
+# 404 ERROR
 
-notfound: The item that you are looking for was not found.
-check_url_go_back: Please check the url or go to the %s for a file listing.
+notfound: "The item that you are looking for was not found."
+check_url_go_back: "Please check the url or go to the %s for a file listing."
 
-# Login (if applicable)
+# LOGIN (if applicable)
 
-username: Username
-password: Password
-authenticationrequired: Authentication required
-enter_user_password: Enter your username and password
-remember_my_login: Remember my login
-submit: Submit
-invalid_user_password: Invalid username or password.
-error: Error
-logout: logout
-login_complete: Login complete
-logout_complete: Logout complete
-login_failed: Login Failed
+username: "Username"
+password: "Password"
+authenticationrequired: "Authentication required"
+enter_user_password: "Enter your username and password"
+remember_my_login: "Remember my login"
+submit: "Submit"
+invalid_user_password: "Invalid username or password."
+error: "Error"
+logout: "logout"
+login_complete: "Login complete"
+logout_complete: "Logout complete"
+login_failed: "Login Failed"
 
-# Footer
+# FOOTER
 
 updated_since: "Updated since:"
-last_week: last week
-last_month: last month
-my_last_visit: my last visit
+last_week: "last week"
+last_month: "last month"
+my_last_visit: "my last visit"
 
-# Detail page
+# DETAIL PAGE
 
-lastmodified: last modified
+lastmodified: "last modified"
 instructions: "Instructions:"
-downloadfile: Download file
+downloadfile: "Download file"

@@ -5,11 +5,16 @@
 
 # GLOBAL SETTINGS
 
-site_name: Subfolio Portable       # appears in the header and HTML title of the page
+site_name: Subfolio                # appears in the header and HTML title of the page
 site_domain: www.subfolio.com      # appears in the breadcrumb navigation
-site_copyright: "Content &copy; 2009 YourCompanyName – All rights reserved"
+# site_copyright: "© 2009 Subfolio — All rights reserved" 
+                                   # change "Subfolio" to your company name and remove "#" to display
 
 site_meta_description: "Subfolio provides an elegant, practical and customizable web interface to your file system."
+                                   # change to your meta description for search engine indexing
+
+# google_analytics_code: "UA-XXXXXX-X" 
+                                   # remove "#" to display
 
 theme: default                     # name of the active theme
 directory: directory               # location of your content
@@ -29,6 +34,3 @@ properties_file: -properties       # name of the Enhancer file containing folder
 
 text_rendering: textile            # markup language used to render inline text: Textile, Markup or HTML
 thumbnail_max_filesize: 5          # file size cap (in MB) before a thumbnail will not be generated
-
-# GOOGLE ANALYTICS
-# google_analytics_code: "UA-XXXXXX-X"
