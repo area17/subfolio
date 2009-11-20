@@ -30,10 +30,10 @@
 	<!-- All right. Let's overwrite with some inline styles -->
 	<?php
 		// Values from the settings
-		$background_color = 'white';
+		$background_color = 'black';
 		$background_hover_color = '#f5f5f5';
-		$border_color = '#eee';  // If you remove the border, remove the margin-top of #content
-		$line_color = '#eee';
+		$border_color = 'transparent';  // If you remove the border, remove the margin-top of #content
+		$line_color = '#ddd';
 		$text_strong_color = '#1a1a1a';
 		$text_color = '#333';
 		$text_light_color = '#666';
