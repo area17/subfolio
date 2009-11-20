@@ -4,7 +4,7 @@
 # LOGO
 
 site_logo_url: /config/themes/default/images/logos/logo.png
-site_logo_width: 256                   # in pixels
+site_logo_width: 53                    # in pixels
 site_logo_height: 53                   # in pixels
 
 site_favicon_url: /config/themes/default/images/favicon.ico
