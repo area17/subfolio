@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -30,7 +30,7 @@
 	<!-- All right. Let's overwrite with some inline styles -->
 	<?php
 		// Values from the settings
-		$background_color = 'black';
+		$background_color = 'white';
 		$background_hover_color = '#f5f5f5';
 		$border_color = 'transparent';  // If you remove the border, remove the margin-top of #content
 		$line_color = '#ddd';
