@@ -982,7 +982,7 @@ class SubfolioFiles extends Subfolio {
     if ($ff <> '') {
     	$parent_link = urlencode(dirname($ff));
       $parent_link = str_replace('%2F', '/', $parent_link);
-      return html::anchor($parent_link, $name);
+      return html::anchor($parent_link, $name, array('id' => 'parent'));
     }
     return NULL;
   }

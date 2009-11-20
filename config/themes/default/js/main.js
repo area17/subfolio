@@ -241,12 +241,14 @@ function keyPress () {
 			// user pressed "left" arrow
 			case 37:
 				if ($('#previous')[0]) {
-					var previous = $('#previous');
-					var previous_url = previous.attr("href");
-					if (previous_url) {
-						previous.addClass('hover').fadeTo(250, 1, function() {
-							window.location = previous_url;
-						});
+			    if (!e.altKey) {
+  					var previous = $('#previous');
+  					var previous_url = previous.attr("href");
+  					if (previous_url) {
+  						previous.addClass('hover').fadeTo(250, 1, function() {
+  							window.location = previous_url;
+  						});
+  					}
 					}
 				}
 			break;				
@@ -256,14 +258,28 @@ function keyPress () {
 			// user pressed "right" arrow
 			case 39: 
 				if ($('#next')[0]) {
-					var next = $('#next');
-					var next_url = next.attr("href");
-					if (next_url) {
-						next.addClass('hover').fadeTo(250, 1, function() {
-							window.location = next_url;
-						});
+			    if (!e.altKey) {
+  					var next = $('#next');
+  					var next_url = next.attr("href");
+  					if (next_url) {
+  						next.addClass('hover').fadeTo(250, 1, function() {
+  							window.location = next_url;
+  						});
+  					}
 					}
 				} 
+			break;
+      // user pressed "up" arrow
+			case 38: 
+			    if (e.altKey) {
+  					var parent_dir = $('#parent');
+  					var parent_dir_url = parent_dir.attr("href");
+  					if (parent_dir_url) {
+  						parent_dir.addClass('hover').fadeTo(250, 1, function() {
+  							window.location = parent_dir_url;
+  						});
+  					}
+					}
 			break;
 		}
 	});
