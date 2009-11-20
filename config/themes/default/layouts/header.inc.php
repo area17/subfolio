@@ -11,7 +11,10 @@
 			<?php if (SubfolioUser::is_logged_in()) { ?>
 				<span><?php echo SubfolioUser::current_user_name(); echo " "; echo SubfolioLanguage::get_text('browsing'); ?></span>
 	    <?php } ?>
-			<span><?php echo SubfolioLanguage::get_text('indexof'); ?></span>&nbsp;&nbsp;<a href="/"><?php echo Subfolio::get_setting('site_domain'); ?></a>
+			<?php if (SubfolioLanguage::get_text('indexof')<>'') { ?>
+				<span><?php echo SubfolioLanguage::get_text('indexof'); ?></span>&nbsp;&nbsp;
+			<?php } ?>
+			<a href="/"><?php echo Subfolio::get_setting('site_domain'); ?></a>
 			<?php foreach (SubfolioTheme::get_breadcrumb() as $crumb) { ?>
         <span class='slash'>&nbsp;/&nbsp;</span>
         <?php if ($crumb['url'] <> '') { ?>
