@@ -781,7 +781,7 @@ position: relative;
 /* -------------------------------------------------------------- 
 MODULE SPACING
 -------------------------------------------------------------- */
-#content { /*margin: 15px 0;*/ } /* << If you remove the lines, remove the padding */
+#content { margin: 15px 0; } /* << If you remove the lines, remove the padding */
 
 /* Sets styles only for direct childs of #content (i.e gallery, features, listing). IE6 doesn't get it */
 #content > * { margin: 0 0 15px; }

@@ -2,6 +2,12 @@
 
 	<div class="login_header"><b><?php echo SubfolioLanguage::get_text('authenticationrequired');?></b></div>
 
+	<?php if ($login_failed) { ?>
+		<div class="login_feedback">
+			<b><?php echo SubfolioLanguage::get_text('error');?></b>: <?php echo SubfolioLanguage::get_text('invalid_user_password'); ?>
+		</div>
+	<?php } ?>
+	
 	<form action="/login" method="post" name="protection">
 	
 		<input type="hidden" name="login" value="login">
@@ -28,15 +34,4 @@
 		
 	</form>
 
-</div>
-
-<div class="login_info">	
-	<?php if ($login_failed) { ?>
-		<span class="error">
-			<img src='<?php echo SubfolioTheme::get_view_url() ?>/images/system/authentification_exclam.gif' width='59' height='59' border='0' />
-		</span>
-		<span class="text">
-			<b><?php echo SubfolioLanguage::get_text('error');?>: <?php echo SubfolioLanguage::get_text('invalid_user_password'); ?></b>
-		</span>
-	<?php } ?>
 </div>
