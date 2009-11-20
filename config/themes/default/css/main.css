@@ -464,7 +464,7 @@ background-color: #eee;
 .list .icon { width: 25px; height: 17px; position: relative; }
 .list .filename { width: 200px; position: relative; }
 
-.list .filename:before { content: '— '; } /* << If you remove the icons and want to show the link s*/
+.list .filename:before { /*content: '— ';*/ } /* << If you remove the icons and want to show the link s*/
 .list .first .filename:before { content: ''; }
 
 .list .size { width: 65px;}
