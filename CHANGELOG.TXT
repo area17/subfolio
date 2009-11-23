@@ -15,6 +15,9 @@ We strongly recommend that you read the "version release notes" and documentatio
 ***
 CHANGE LOG
 
+Subfolio Version: 0.9.2
+[ENGINE]      Ticket #391: Error in title truncation, when show extentions disabled
+
 Subfolio Version: 0.9.1
 [ENGINE]      Ticket #380: SEO Change for page heading
 [ENGINE]      Ticket #350: HTML TItle Changes
