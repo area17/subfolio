@@ -212,7 +212,17 @@ class FileFolder {
         $display .= " / ";
       }
 
-      $display .= $item;
+	    if (!$display_extension) {
+	      $path_parts = pathinfo($item);
+	      if (isset($path_parts['extension'])) {
+	        $display .= substr($item, 0, (-1 * (1+strlen($path_parts['extension']))));
+	      } else {
+  	      $display .= $item;
+	      }
+	    } else {
+	      $display .= $item;
+	    }
+
       $first = false;
     }
 
@@ -222,13 +232,6 @@ class FileFolder {
     
     if ($replace_underscores) {
       $display = str_replace("_", " ", $display);
-    }
-    
-    if (!$display_extension) {
-      $path_parts = pathinfo($value);
-      if (isset($path_parts['extension'])) {
-        $display = substr($display, 0, (-1 * (1+strlen($path_parts['extension']))));
-      }
     }
     
     return $display;
