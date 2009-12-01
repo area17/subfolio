@@ -74,16 +74,25 @@ class Subfolio {
     }
   
     if ($data == "icon") {
-      
       if (Subfolio::$filebrowser->file <> '') {
       	$file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$filebrowser->file);
     	} else {
       	$file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$filebrowser->folder);
     	}
-
     	$icon_file = "";
     	$icon_file = Subfolio::$filekind->get_icon_by_file($file_kind);
       return view::get_view_url()."/images/icons/grid/".$icon_file.".png";
+    }
+
+    if ($data == "icon_name") {
+      if (Subfolio::$filebrowser->file <> '') {
+      	$file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$filebrowser->file);
+    	} else {
+      	$file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$filebrowser->folder);
+    	}
+    	$icon_name = "";
+    	$icon_name = Subfolio::$filekind->get_icon_by_file($file_kind);
+      return $icon_name;
     }
 
     if ($data == "tag") {
