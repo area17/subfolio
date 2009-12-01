@@ -800,6 +800,7 @@ class SubfolioFiles extends Subfolio {
         $item = array();
         $item['target'] = $target;
         $item['url'] = $url;
+				$item['icon_name'] = $icon_file;
         $item['icon'] = $icon;
 				$item['icon_grid'] = $icon_grid;
         $item['filename'] = $display;
@@ -890,6 +891,7 @@ class SubfolioFiles extends Subfolio {
         $item = array();
         $item['target'] = $target;
         $item['url'] = $url;
+				$item['icon_name'] = $icon_file;
         $item['icon'] = $icon;
 				$item['icon_grid'] = $icon_grid;
         $item['filename'] = $display;
@@ -1058,8 +1060,8 @@ class SubfolioFiles extends Subfolio {
       $rel['link'] = $link;
       $rel['filename'] = $name;
 
-      $rel['icon']    = $icon;
-			$rel['icon_grid']    = $icon_grid;
+      $rel['icon'] = $icon;
+			$rel['icon_grid'] = $icon_grid;
       $rel['width']  = $width;
       $rel['height'] = $height;
       
