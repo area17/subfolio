@@ -1,0 +1,10 @@
+background_color:         'black'
+background_hover_color:   '#111'
+border_color:             'transparent'   # If you remove the border, remove the margin-top of #content
+line_color:               '#ddd'
+text_strong_color:        '#1a1a1a'
+text_color:               '#aaa'
+text_light_color:         '#555'
+text_dimmed_color:        '#444'
+link_color:               '#bbb'
+flash_color:              'red'

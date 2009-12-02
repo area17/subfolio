@@ -6,6 +6,7 @@
  */
 class View extends View_Core {
   protected static $options = null;  
+  protected static $colors  = null;  
   
   public function set_filename($name, $type = NULL) {    
     $theme = Kohana::config('filebrowser.theme');
@@ -46,6 +47,17 @@ class View extends View_Core {
     return $default;
   }
 
+  public function get_color($name, $default=null)
+  {
+    self::load_options();
+    if (self::$colors != null) {
+      if (isset(self::$colors[$name])) {
+        return self::$colors[$name];
+      }
+    }
+    return $default;
+  }
+
   public static function load_options()
   {
     if (self::$options == null) {
@@ -54,6 +66,16 @@ class View extends View_Core {
       if ($options_file) {
 			  $array = Spyc::YAMLLoad($options_file);
 			  self::$options = $array;
+
+        if (isset($array['color_palette'])) {       
+          $colors_file = Kohana::find_file('views/../../../config/themes/'.$theme.'/colors/', $array['color_palette'], false, 'yml');
+          if ($colors_file) {
+    			  $colors_array = Spyc::YAMLLoad($colors_file);
+    			  self::$colors = $colors_array;
+          } else {
+    			  self::$colors = array();
+          }
+        }
       } else {
         self::$options = array();
       }

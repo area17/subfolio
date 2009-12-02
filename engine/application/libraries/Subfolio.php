@@ -232,7 +232,11 @@ class SubfolioTheme extends Subfolio {
   }
 
   public static function get_site_favicon_url() {
-    	return view::get_option('site_favicon_url');
+    return view::get_option('site_favicon_url');
+  }
+
+  public static function get_color_palette_name() {
+    return view::get_option('color_palette');
   }
 
   public static function get_site_name() {
@@ -341,6 +345,13 @@ class SubfolioTheme extends Subfolio {
   public static function get_option($option_name, $default_value=null)
   {
     return view::get_option($option_name, $default_value);
+  }
+
+  // ------------------------------------------------------
+  // COLOR RELATED FUNCTIONS
+  // ------------------------------------------------------
+  public function get_color($color_name, $default_value=NULL) {
+    return view::get_color($color_name, $default_value);
   }
 }
 

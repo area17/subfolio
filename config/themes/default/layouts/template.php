@@ -30,16 +30,16 @@
 	<!-- All right. Let's overwrite with some inline styles -->
 	<?php
 		// Values from the settings
-		$background_color = 'white';
-		$background_hover_color = '#f5f5f5';
-		$border_color = 'transparent';  // If you remove the border, remove the margin-top of #content
-		$line_color = '#ddd';
-		$text_strong_color = '#1a1a1a';
-		$text_color = '#333';
-		$text_light_color = '#666';
-		$text_dimmed_color = '#999';
-		$link_color = '#1a1a1a';
-		$flash_color = 'red';
+		$background_color       = SubfolioTheme::get_color('background_color'       , 'white');
+		$background_hover_color = SubfolioTheme::get_color('background_hover_color' , '#f5f5f5');
+		$border_color           = SubfolioTheme::get_color('border_color'           , "'transparent'");
+		$line_color             = SubfolioTheme::get_color('line_color'             , '#ddd');
+		$text_strong_color      = SubfolioTheme::get_color('text_strong_color'      , '#1a1a1a');
+		$text_color             = SubfolioTheme::get_color('text_color'             , '#333');
+		$text_light_color       = SubfolioTheme::get_color('text_light_color'       , '#666');
+		$text_dimmed_color      = SubfolioTheme::get_color('text_dimmed_color'      , '#999');
+		$link_color             = SubfolioTheme::get_color('link_color'             , '#1a1a1a');
+		$flash_color            = SubfolioTheme::get_color('flash_color'            , 'red');
 	?>
 	<style type="text/css" media="screen">
 	
