@@ -40,3 +40,5 @@ display_navigation: true               # show/hide page-to-page navigation
 
 display_file_listing_header: true      # show/hide column headers in list view
 display_updated_since: true            # show/hide the update information footer
+
+color_palette: default                 # name of the color palette to use
