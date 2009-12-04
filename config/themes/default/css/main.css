@@ -600,7 +600,6 @@ background: url("../images/icons/grid/lock.png") no-repeat top left;
 #lock {
 overflow: hidden;
 width: 325px;
-float: left;
 }
 
 /* Form */
