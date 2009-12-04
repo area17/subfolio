@@ -1193,8 +1193,13 @@ class SubfolioFiles extends Subfolio {
         $cache_stats = stat($cache_file_name);
         if (mktime() > ($cache + $cache_stats['mtime'])) {
           $use_cache = FALSE;
+        } else {
         }
+      } else {
+        $use_cache = FALSE;
       }
+    } else {
+      $use_cache = FALSE;
     }
     
     if ($use_cache == FALSE) {
