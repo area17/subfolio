@@ -20,3 +20,11 @@
 	</div><!-- gallery -->
 
 <?php endif ?>
+
+<?php if (SubfolioFiles::have_inline_rss('bottom')) : ?>
+
+	<?php foreach (SubfolioFiles::inline_rss('bottom') as $rss) :
+	  require("_inline_rss.php");
+	endforeach; ?>
+
+<?php endif ?>

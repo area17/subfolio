@@ -485,7 +485,7 @@ class Filebrowser {
     if ($property == null) {
       $fkind = $this->filekind->get_kind_by_file($filename);
       $kind = isset($fkind['kind']) ? $fkind['kind'] : '';
-      if ($kind == "cut" || $kind == "pop" || $kind == "net" || $kind == "link") {
+      if ($kind == "rss" || $kind == "cut" || $kind == "pop" || $kind == "net" || $kind == "link") {
         $array = Spyc::YAMLLoad($filename);
         if (isset($array[$propertyname])) {
           $property = $array[$propertyname];

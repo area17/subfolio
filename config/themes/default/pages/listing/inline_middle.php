@@ -18,3 +18,12 @@
 	</div><!-- gallery -->
 
 <?php endif ?>
+
+
+<?php if (SubfolioFiles::have_inline_rss('middle')) : ?>
+
+	<?php foreach (SubfolioFiles::inline_rss('middle') as $rss) : 
+	  require("_inline_rss.php");
+	endforeach; ?>
+
+<?php endif ?>

@@ -181,6 +181,30 @@ class Subfolio {
     	return isset($file_kind['display']) ? $file_kind['display'] : '—';
   	}
 
+    if ($data == "feedurl") {
+      if (Subfolio::$filebrowser->file <> '') {
+        return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'feedurl') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'feedurl') : '';
+    	} else {
+      	return '';
+    	}
+  	}
+
+    if ($data == "count") {
+      if (Subfolio::$filebrowser->file <> '') {
+        return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'count') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'count') : '';
+    	} else {
+      	return '';
+    	}
+  	}
+
+    if ($data == "cache") {
+      if (Subfolio::$filebrowser->file <> '') {
+        return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'cache') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'cache') : 3600;
+    	} else {
+      	return 3600;
+    	}
+  	}
+
     if ($data == "instructions") {
     	$file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$filebrowser->file);
     	return isset($file_kind['instructions']) ? $file_kind['instructions'] : '';
@@ -472,6 +496,65 @@ class SubfolioFiles extends Subfolio {
     }
     return $list;
   }
+
+  public function have_inline_rss($type)
+  {
+    $have = false;
+    if ($type == "top") {
+      $inline = Subfolio::$filebrowser->get_file_list("rss", "-t-", true);
+      if (sizeof($inline) > 0) {
+        $have = true;
+      }
+    } else if ($type == "middle") {
+      $inline = Subfolio::$filebrowser->get_file_list("rss", "-m-", true);
+      if (sizeof($inline) > 0) {
+        $have = true;
+      }
+    } else if ($type == "bottom") {
+      $inline = Subfolio::$filebrowser->get_file_list("rss", "-b-", true);
+      if (sizeof($inline) > 0) {
+        $have = true;
+      }
+    }
+
+    return $have;
+  }
+
+  public function inline_rss($type)
+  {
+    $list = array();
+    if ($type == "top") {
+      $inline = Subfolio::$filebrowser->get_file_list("rss", "-t-", true);
+    } else if ($type == "middle") {
+      $inline = Subfolio::$filebrowser->get_file_list("rss", "-m-", true);
+    } else if ($type == "bottom") {
+      $inline = Subfolio::$filebrowser->get_file_list("rss", "-b-", true);
+    }
+
+    foreach ($inline as $item) {
+    	$rss = Spyc::YAMLLoad($item->name);
+      $list_item = array();
+      if (isset($rss['feedurl'])) {
+        $list_item['feedurl'] = $rss['feedurl'];
+        $list_item['filename'] = $item->name;
+
+        if (isset($rss['count'])) {
+          $list_item['count'] = (integer) $rss['count'];
+        } else {
+          $list_item['count'] = 10;
+        }
+        if (isset($rss['cache'])) {
+          $list_item['cache'] = (integer) $rss['cache'];
+        } else {
+          $list_item['cache'] = 3600;
+        }
+      }
+      
+      $list[] = $list_item;
+    }
+    return $list;
+  }
+
 
   public function have_features()
   {
@@ -1095,6 +1178,47 @@ class SubfolioFiles extends Subfolio {
     }
 
     return $ls;
+  }
+
+  public static function fetch_rss($url, $quantity=10, $cache_name=NULL, $cache=3600) {
+    $items = array();
+    $cache_file_name = NULL;
+    $cache_stats = NULL;
+    $use_cache = TRUE;
+
+    if ($cache_name != NULL && $cache != NULL) {
+      $cache_file_name = "-".$cache_name.".cache";
+
+      if (file_exists($cache_file_name)) {
+        $cache_stats = stat($cache_file_name);
+        if (mktime() > ($cache + $cache_stats['mtime'])) {
+          $use_cache = FALSE;
+        }
+      }
+    }
+    
+    if ($use_cache == FALSE) {
+      $items = feed::parse($url, $quantity);
+      $sitems = array();
+      if ($cache_file_name != NULL)  {
+
+        // can't cache simplexml directly must be converted to string
+        foreach($items as $array) {
+          $narray = array();
+          foreach ($array as $key => $value) {
+            $narray[$key] = (string) $value;
+          }
+          $sitems[] = $narray;
+        } 
+
+        file_put_contents($cache_file_name,  serialize($sitems));
+      }
+    } else {
+      $data = file_get_contents($cache_file_name);
+      $items = unserialize($data);
+    }
+        
+    return $items;
   }
 
 }

@@ -16,3 +16,12 @@
 	</div><!-- inline top text -->
 
 <?php endif ?>
+
+
+<?php if (SubfolioFiles::have_inline_rss('top')) : ?>
+
+	<?php foreach (SubfolioFiles::inline_rss('top') as $rss) : 
+	  require("_inline_rss.php");
+	endforeach; ?>
+
+<?php endif ?>
