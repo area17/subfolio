@@ -65,6 +65,8 @@
 		body, #lock .login_header, #footer a, #features ul li a .info p, #features ul li a .info p, .standard_paragraph a,
 		#breadcrumb
 		{ color : <?php echo $text_color ?>; }
+		#lock .login_header
+		{ background: <?php echo $text_color ?> }
 		
 		/* TEXT_STRONG */
 		.standard_paragraph h1, .standard_paragraph h3, .standard_paragraph h4, .standard_paragraph h5,
