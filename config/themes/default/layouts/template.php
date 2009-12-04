@@ -39,6 +39,7 @@
 		$text_light_color       = SubfolioTheme::get_color('text_light_color'       , '#666');
 		$text_dimmed_color      = SubfolioTheme::get_color('text_dimmed_color'      , '#999');
 		$link_color             = SubfolioTheme::get_color('link_color'             , '#1a1a1a');
+		$link_hover_color       = SubfolioTheme::get_color('link_hover_color'       , '#000000');
 		$flash_color            = SubfolioTheme::get_color('flash_color'            , 'red');
 	?>
 	<style type="text/css" media="screen">
@@ -56,13 +57,20 @@
 		{ background-color:<?php echo $background_hover_color ?>; }
 		
 		/* LINKS (must stay before the text colors) */ 
-		a, a:link, a:hover, a:active, a:visited, .filename, #navigation a.hover
+		a, a:link, a:visited, .filename
 		{ color : <?php echo $link_color ?>; }
-		#gallery ul li a:hover, #gallery ul li a:hover p, #gallery ul li.hover, .subButton input:hover
+		.subButton input
 		{ background: <?php echo $link_color ?>; }
+
+		/* LINKS 	HOVER */ 
+		a:hover, a:active, a:hover .filename, #tools li a:hover, #navigation a:hover, #navigation a.hover,
+		#breadcrumbtools a:hover, #footer a:hover
+		{ color : <?php echo $link_hover_color ?>; }
+		.subButton input:hover, #gallery ul li a:hover, #gallery ul li a:hover p, #gallery ul li.hover
+		{ background: <?php echo $link_hover_color ?>; }
 		
 		/* TEXT */
-		body, #lock .login_header, #footer a, #features ul li a .info p, #features ul li a .info p, .standard_paragraph a,
+		body, #footer a, #features ul li a .info p, #features ul li a .info p, .standard_paragraph a,
 		#breadcrumb
 		{ color : <?php echo $text_color ?>; }
 		#lock .login_header
@@ -76,7 +84,7 @@
 		/* TEXT_LIGHT */
 		.standard_paragraph h2, .standard_paragraph p small, .standard_paragraph p small a, #footer, .listing-header, .list li a
 		{ color: <?php echo $text_light_color ?>; }
-		#notice, .subButton input
+		#notice
 		{ background-color: <?php echo $text_light_color ?>; }
 		
 		/* TEXT_DIMMED */
