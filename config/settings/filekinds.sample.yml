@@ -299,3 +299,8 @@ site:
   extensions: [site]
   icon: site
   display: Mini Site
+
+rss:
+  extensions: [rss]
+  icon: site
+  display: RSS Feed
