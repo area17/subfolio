@@ -9,7 +9,7 @@
 <div class="rss">
 <?php foreach ($items as $item): ?>
   <div class="item">
-    <h2><a href="<?php echo $item['link'] ?>"><?php echo $item['title'] ?></a</h2>
+    <h2><a href="<?php echo $item['link'] ?>"><?php echo $item['title'] ?></a></h2>
     <p><?php echo $item['description'] ?></p>
   </div>
 <?php endforeach ?>
