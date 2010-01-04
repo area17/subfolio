@@ -4,25 +4,25 @@ main.css
 * Subfolio by AREA 17
 
 -------------------------------------------------------------- */
-html, 			body, 
-div,			span, 
-object, 		iframe, 
+html, body, 
+div, span, 
+object, iframe, 
 h1, h2, h3, h4, h5, h6, 
-p, 				blockquote, 
-pre, 			a, 
-abbr, 			acronym, 
-address, 		code, 
-del, 			dfn, 
-em, 			img, 
-q, 				dl, 
-dt, 			dd, 
-ol, 			ul, 
-li, 			fieldset, 
-form, 			label, 
-legend, 		table, 
-caption, 		tbody, 
-tfoot, 			thead, 
-tr, 			th, td { 
+p, blockquote, 
+pre, a, 
+abbr, acronym, 
+address, code, 
+del, dfn, 
+em, img, 
+q, dl, 
+dt, dd, 
+ol, ul, 
+li, fieldset, 
+form, label, 
+legend, table, 
+caption, tbody, 
+tfoot, thead, 
+tr, th, td { 
 margin : 0; 
 padding : 0; 
 border : 0; 
@@ -33,7 +33,7 @@ font-family : inherit;
 vertical-align : baseline; 
 }
 
-/* Body ---------------------------------------------------- */
+/* Body ---------------------------------------------------------------- */
 body  {
 background-color:#FFF; /* << background_color */
 background-repeat:repeat-x;
@@ -48,15 +48,14 @@ font-weight: normal;
 color: inherit;
 }
 
-/* Lists -------------------------------------------------------------- */
+/* Lists --------------------------------------------------------------- */
 ul { list-style-type: none; }
 
 
 /* @group Global layout */
-/* ------------------------------------------------------------- 
+/* --------------------------------------------------------------------- 
 	POSITIONING WITH FOOTER AT BOTTOM
--------------------------------------------------------------- */
-
+------------------------------------------------------------------------ */
 html { height: 100%; }
 body { height: 100%; margin: 0 15px 0; }
 #container{ position: relative; min-height: 100%; }
@@ -66,31 +65,49 @@ position: absolute !important;
 bottom: 0 !important;
 overflow: hidden;
 }
-
 /* @end */
 
 /* @group Standard Paragraph */
 /* ------------------------------------------------------------- 
 	STANDARD PARAGRAPH
 -------------------------------------------------------------- */
-.standard_paragraph { max-width: 650px; color: inherit; }
+.standard_paragraph {
+color: inherit;
+font: 13px/15px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+max-width: 970px;
+}
+.standard_paragraph p { max-width: 700px; }
+.standard_paragraph .columns2 {
+-moz-column-count: 2;
+-moz-column-gap: 20px;
+-webkit-column-count: 2;
+-webkit-column-gap: 20px;
+column-count: 2;
+column-gap: 20px;
+}
+.standard_paragraph .columns3 {
+-moz-column-count: 3;
+-moz-column-gap: 20px;
+-webkit-column-count: 3;
+-webkit-column-gap: 20px;
+column-count: 3;
+column-gap: 20px;
+}
+ 
 .standard_paragraph b, .standard_paragraph strong, .standard_paragraph em, .standard_paragraph i, .standard_paragraph li  { font-size: 100%; }
-
 .standard_paragraph h1, .standard_paragraph h2, .standard_paragraph h3,
 .standard_paragraph h4, .standard_paragraph h5 {
 	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 }
-
 .standard_paragraph h1, .standard_paragraph h3,
 .standard_paragraph h4, .standard_paragraph h5,
 .standard_paragraph strong, .standard_paragraph em, .standard_paragraph b
-{ color: #1a1a1a; } /* << text_strong_color */
-
+{ color: #1a1a1a; }
 .standard_paragraph h1, .standard_paragraph h2 {
 font-size: 36px;
 line-height: 35px;
 }
-.standard_paragraph h2 { color: #666666; margin-bottom: 10px; }
+.standard_paragraph h2 { color: #666666; margin-bottom: 20px; }
 .standard_paragraph h3 {
 font-size: 24px;
 line-height: 30px;
@@ -106,11 +123,12 @@ margin-bottom: 10px;
 .standard_paragraph h5 {
 font-family: "Arial Rounded MT Bold";
 margin-top: 10px;
+font-size: inherit;
 }
 .standard_paragraph p {
-line-height: 15px;
 margin-bottom: 10px;
 color: inherit;
+font: inherit;
 }
 .standard_paragraph p b, .standard_paragraph p strong  {
 font-weight: bold;
@@ -126,14 +144,12 @@ color: #666; /* << text_light_color */
 display: block;
 margin: 15px 0;
 }
-.standard_paragraph li {
-margin-bottom: 5px;
-margin-top: 5px;
-color: inherit;
-}
+.standard_paragraph ul { font: inherit; color: inherit; }
 .standard_paragraph ul li {
 /*list-style-image: url(../images/system/dot.png);*/
-
+margin-bottom: 5px;
+margin-top: 5px;
+font: inherit;
 margin-left: 20px;
 color: inherit;
 list-style-type: disc;
@@ -147,6 +163,7 @@ border: 1px solid #e0e0e0;
 margin: 10px 0 15px 9px;
 overflow: auto;
 color: inherit;
+font: inherit;
 }
 .standard_paragraph blockquote p { }
 	
@@ -169,7 +186,6 @@ padding:9px 0 0 5px;
 border-top: 1px solid #e0e0e0;
 }
 .standard_paragraph table tr:last-child td { border-bottom: 1px solid #e0e0e0;}
-
 .standard_paragraph a, .standard_paragraph a:link, .standard_paragraph a:visited { text-decoration: underline; }
 
 /* @end */
@@ -187,14 +203,12 @@ b, strong { font-family: "Arial Rounded MT Bold"; color: #1a1a1a; }
 
 /* @end */
 
-
 /* @group Links */
 /* -------------------------------------------------------------- 
    LINKS
 -------------------------------------------------------------- */
 a, a:link,a:visited { color: #1a1a1a; text-decoration: none; outline: none; } /* << link_color */
 a:hover { color: inherit; }
-
 
 /* LINKS FOR GALLERY, FEATURES MODULES */
 #gallery a, #features a, #lock a { text-decoration: none; }
@@ -230,6 +244,7 @@ background: url(../images/system/close24.png) no-repeat 10px 10px;
 /* LOGO */
 #logo { padding-top: 15px; }
 #logo a { font-size: 300%; }
+#logo a:hover { background-color: inherit; }
 
 /* BREADCRUMBTOOLS, NAVIGATION, FOOTER: Common */
 #breadcrumbtools, #footer, #navigation { overflow: hidden; width: 100%; }
@@ -239,7 +254,7 @@ background: url(../images/system/close24.png) no-repeat 10px 10px;
 display: inline-block;
 padding: 14px 0 0 0;
 height: 25px; /* 25+14 = 39*/
-color: inherit;
+/*color: inherit;*/
 }
 
 /* BREADCRUMBTOOLS */
@@ -267,16 +282,15 @@ span.parent_dir, span.prev_next { display:block; float:left; }
 span.parent_dir { width:35%; }
 
 #navigation .parent_dir a {
+background: url(../images/system/parent.png) no-repeat 3px 12px; /*Remove this and the left-padding for no arrow*/
 padding-left: 25px;
 padding-right: 10px;
-background: url(../images/system/parent.png) no-repeat 3px 12px;
 }
 #navigation .parent_dir a:hover { background-position: 3px -38px; }
-
-#breadcrumbtools a:hover, #footer a:hover, #navigation a:hover, #navigation a.hover { background-color: #eee; }
-
 #navigation span.prev_next a, #navigation span.prev_next .faded { padding-left:15px; padding-right:15px; }
 #navigation span.prev_next .first, #navigation span.prev_next *:first-child { border-right: 1px solid #e0e0e0; }
+
+#breadcrumbtools a:hover, #footer a:hover, #navigation a:hover, #navigation a.hover {  }
 
 /* FOOTER */
 #footer { border-top:1px solid #e0e0e0; }
@@ -299,7 +313,7 @@ border-right: 1px solid #e0e0e0;
 display: block;
 width: 59px;
 height: 59px;
-	background: url(../images/system/big_exclam8.png) no-repeat;
+background: url(../images/system/big_exclam8.png) no-repeat;
 }
 
 .big_exclam, .big_lock {
@@ -336,42 +350,31 @@ margin: 0;
 padding: 0;
 overflow: hidden;
 }
-
 #gallery ul li {
 float: left;
 overflow: hidden;
 }
-
 #gallery ul li a {
 float: left;
 margin: 0 1px 1px 0;
 padding: 1px;
--moz-border-radius: 1px;
--webkit-border-radius: 1px;
 background-color: #f5f5f5;
 }
 #gallery ul li a p { color: inherit; }
-
 #gallery ul li a div.gallery_thumbnail {
 height:240px;
 position: relative;
-_margin-bottom: 0 !important;
 background-color: white;
 }
-
 #gallery ul li a div.custom { height: auto; }
- 
 #gallery ul li a img { border:none; overflow:hidden; }
-
-#gallery ul li a:hover, #gallery ul li a:hover p, #gallery ul li.hover {
+#gallery ul li a:hover p {
 cursor: pointer;
-background: #1a1a1a;
 color: #fff;
 }
-
 #gallery ul li a p {
 margin: 0;
-padding: 9px 5px 5px 7px;
+padding: 9px 5px 10px 9px;
 }
 
 /* @end */
@@ -389,27 +392,24 @@ margin: 0;
 padding: 0;
 overflow: hidden;
 }
-
 #features ul li { float: left; }
-
 #features ul li a {
 display: block;
 overflow: hidden;
-padding: 0;
+padding: 10px;
 _display: inline-block;
-margin-right: 15px;
-margin-bottom: 15px;
+margin-right: 5px;
+margin-bottom: 5px;
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+height: 230px;
 }
-
 #features ul li a img { display: block; }
-
 #features ul li a > .info { display: inline-block; }
-
 #features ul li a .info {
 padding: 0;
 text-align: left;
 }
-
 #features ul li a .info h2 {
 color: inherit;
 font-weight: 700;
@@ -417,15 +417,12 @@ text-transform: none;
 margin: 0;
 padding: 9px 0 5px;
 }
-
 #features ul li a .info p {
 margin: 0;
 padding: 0 10px 15px 0;
 color: #333;
 }
-
 #features ul li a:hover { background-color: #f5f5f5; }
-
 
 /* @end */
 
@@ -599,7 +596,8 @@ background: url("../images/icons/grid/lock.png") no-repeat top left;
 /* Form Container */
 #lock {
 overflow: hidden;
-width: 325px;
+width: 360px;
+/*float: left;*/
 }
 
 /* Form */
@@ -686,11 +684,11 @@ background-color: #666;
 /* @end */
 
 /* @group Download */
+
 #download_box {
 width: 220px; 
 padding-top: 10px; 
 }
-
 #download_box .updated {
 position: absolute;
 display: block;
@@ -702,7 +700,7 @@ top: 0;
 left: 25px;
 }
 
-#download_box #filename {
+#download_box .filename {
 clear: both;
 padding-top: 9px;
 margin-bottom: 2px;
@@ -773,9 +771,7 @@ width: 220px;
 position: relative;
 }
 
-
 /* @end */
-
 
 /* -------------------------------------------------------------- 
 MODULE SPACING
@@ -783,7 +779,7 @@ MODULE SPACING
 #content { margin: 15px 0; } /* << If you remove the lines, remove the padding */
 
 /* Sets styles only for direct childs of #content (i.e gallery, features, listing). IE6 doesn't get it */
-#content > * { margin: 0 0 15px; }
+#content > * { margin: 0 0 10px; }
 
 /* IE6 Workaround to set styles only for direct childs of #content */
 /*#content div {
@@ -806,6 +802,12 @@ overflow: hidden;
 padding: 0;
 margin: 0 2px 2px 0;
 float: left;
+}
+
+#inline_top_text,
+#inline_middle_text,
+#inline_bottom_text {
+margin-bottom: 10px;
 }
 
 #file_listing { padding: 5px 0 10px; }
