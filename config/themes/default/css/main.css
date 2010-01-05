@@ -700,7 +700,7 @@ top: 0;
 left: 25px;
 }
 
-#download_box .filename {
+#download_box #filename {
 clear: both;
 padding-top: 9px;
 margin-bottom: 2px;
