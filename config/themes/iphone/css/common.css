@@ -1,0 +1,138 @@
+/* -------------------------------------------------------------- 
+common.css
+sustainable a17 stylesheet
+by Arnaud&Nobleskine from AREA 17
+
+Version date: 4 Nov 2009
+Version 0.1 Alpha
+-------------------------------------------------------------- */
+
+/* ====== Reset (Eric Meyer's Reset Reloaded — http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/ ) ====== */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}:focus{outline:0;}body{line-height:1;color:black;background:white;}ol,ul{list-style:none;}table{border-collapse:separate;border-spacing:0;}caption,th,td{text-align:left;font-weight:normal;}blockquote:before,blockquote:after,q:before,q:after{content:"";}blockquote,q{quotes:"" "";}
+
+/* ====== html5 turned on====== */
+section, article, aside, hgroup, header, footer, nav, dialog, figure, video, audio, sources, embed, mark, progress, meter, time, ruby, rt, rp, canvas, command, details, datalist, keygen, output { display: block;}
+
+/* **************** CONTENT OBJECTS ***************** */
+
+/* ====== Default spacing ====== */
+h1, h2, h3, h4, h5, h6 {}
+ul, ol, dl { overflow: hidden; }
+p, blockquote {}
+img {}
+pre {}
+
+/* ====== Elements ====== */
+img { display: block; }
+em { font-style: italic;}
+strong { font-weight: bold;}
+hr {}
+code {}
+
+/* ====== Links ====== */
+a { color: #333; text-decoration: none; }
+a:hover { text-decoration: none; }
+a:visited {}
+/* The following removes the dotted lines in FFX */
+a:active { outline: none;}
+a:focus { -moz-outline-style: none;}
+
+/* ====== Standard Paragraph (studio.area17.com) ======*/
+.standard_paragraph { padding: 14px 10px 10px; background-color: white; }
+
+.standard_paragraph b, .standard_paragraph strong, .standard_paragraph em, .standard_paragraph i, .standard_paragraph li  { font-size: 100%; }
+.standard_paragraph h1, .standard_paragraph h2 {
+color: #333;
+font-size: 28px !important;
+line-height: 30px;
+text-shadow: none;
+text-align: left;
+}
+.standard_paragraph strong, .standard_paragraph em, .standard_paragraph b { color: #1a1a1a; }
+.standard_paragraph h2 { color: #666666; margin-bottom: 10px; }
+.standard_paragraph h3 {
+font-size: 24px;
+line-height: 30px;
+color: #1a1a1a;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+.standard_paragraph h4 {
+font-size: 18px;
+line-height: 30px;
+color: #1a1a1a;
+margin-top: 15px;
+margin-bottom: 10px;
+}
+.standard_paragraph h5 {
+font-family: "Arial Rounded MT Bold";
+color: #1a1a1a;
+margin-top: 10px;
+}
+.standard_paragraph p {
+font-size: 16px;
+line-height: 20px;
+color: #333;
+margin-bottom: 10px;
+}
+.standard_paragraph p b, .standard_paragraph p strong  {
+color: #1A1A1A;
+font-weight: bold;
+font-family: "Arial Rounded MT Bold";
+}
+.standard_paragraph p small, .standard_paragraph p small a {
+color: #666;
+font: italic 11px/15px Georgia, "Times New Roman", Times, serif;
+}
+.standard_paragraph p small a:hover { color:#DD0000; }
+.standard_paragraph p img {
+display: block;
+margin: 15px 0;
+}
+.standard_paragraph li {
+color: #333;
+margin-bottom: 5px;
+margin-top: 5px;
+}
+.standard_paragraph ul li {
+color: #333;
+list-style-image: url(../images/system/dot7.png);
+margin-left: 18px;
+/*list-style-type: disc;
+list-style-position: outside;*/
+}
+.standard_paragraph ol li { margin-left: 21px; }
+
+.standard_paragraph blockquote {
+display: block;
+padding: 14px 10px 5px 10px;
+border: 1px solid #e0e0e0;
+margin: 10px 0 15px 9px;
+color: #333;
+overflow: auto;
+}
+.standard_paragraph blockquote p { }
+	
+.standard_paragraph code {
+display: block;
+padding: 14px 10px 10px 10px;
+border: 1px solid #e0e0e0;
+font: 11px Monaco, mono, "Courier New", Courier;
+margin: 10px 0;
+background-color: #f5f5f5;
+color: #1a1a1a;
+overflow: auto;
+}
+.standard_paragraph table {
+padding: 10px 0;
+}
+.standard_paragraph table td { color: #1a1a1a; }
+.standard_paragraph table td {
+padding:9px 0 0 5px;
+border-top: 1px solid #e0e0e0;
+}
+.standard_paragraph table tr:last-child td { border-bottom: 1px solid #e0e0e0;}
+
+.standard_paragraph a, .standard_paragraph a:link, .standard_paragraph a:visited { text-decoration: underline; }
+
+/* @end */

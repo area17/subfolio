@@ -923,7 +923,7 @@ class SubfolioFiles extends Subfolio {
 
   public function have_files_and_folders()
   {
-    return have_files();
+    return self::have_files();
   }
 
   public function files_and_folders()
@@ -1098,6 +1098,19 @@ class SubfolioFiles extends Subfolio {
   public function previous_link_or_span($name, $directory_name, $link_id, $class) {
     $ff = Subfolio::$filebrowser->get_path();
     if ($ff <> '') {
+      /*
+	    $file = Subfolio::$filebrowser->get_file();
+	    $files = Subfolio::$filebrowser->get_parent_file_folder_list();
+	    $files = Subfolio::$filebrowser->prev_next_sort($files);
+			$prev = Subfolio::$filebrowser->get_prev($files, $file->name);
+			if ($prev <> "") {
+      	$link = urlencode($prev->name);
+        $link = str_replace('%2F', '/', $link);
+				return "<a id='$link_id' href='$link'>$name</a>";
+			} else {
+				return "<span id='$link_id' class='".$class."'>".$name."</span>";
+			}
+			*/
   		if(Subfolio::$filebrowser->is_file()) {
   	    $file = Subfolio::$filebrowser->get_file();
   	    $files = Subfolio::$filebrowser->get_parent_file_list();

@@ -133,7 +133,8 @@ final class Kohana {
 
 			// Set default timezone, due to increased validation of date settings
 			// which cause massive amounts of E_NOTICEs to be generated in PHP 5.2+
-			date_default_timezone_set(empty($timezone) ? date_default_timezone_get() : $timezone);
+			$timezone = empty($timezone) ? @date_default_timezone_get() : $timezone;
+			date_default_timezone_set($timezone);
 		}
 
 		// Restore error reporting
