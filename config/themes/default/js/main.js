@@ -129,17 +129,17 @@ function bindHeaderEvents() {
 	if ($('#showHideSwitch')[0]) {
 		$('#showHideSwitch').click(function(e) {
 			if ($(this).html() == expand_header_label) {
-				$(this).addClass('hideSwitch');
-				$(this).removeClass('showSwitch');
+				$(this).addClass('hide');
+				$(this).removeClass('show');
 				$(this).html(collapse_header_label);
 				$('#header').show();
-				createCookie('header', 'showSwitch');
+				createCookie('header', 'show');
 			} else {
-				$(this).addClass('showSwitch');
-				$(this).removeClass('hideSwitch');
+				$(this).addClass('show');
+				$(this).removeClass('hide');
 				$(this).html(expand_header_label);
 				$('#header').hide();
-				createCookie('header', 'hideSwitch');
+				createCookie('header', 'hide');
 			}
 		});
 	}
