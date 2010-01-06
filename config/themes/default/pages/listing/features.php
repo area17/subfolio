@@ -6,10 +6,12 @@
 		    <li>
 				  <a href="<?php echo $feature['link'] ?>" style="width: <?php echo $feature['image_width'] ?>px">
 			    	<img src="<?php echo $feature['image_file'] ?>" width="<?php echo $feature['image_width'] ?>px" height="<?php echo $feature['image_height'] ?>px">
+						<?php if (($feature['title'] <> '') || ($feature['description'] <> '')) { ?>
 			      <div class="info">
-			        <h2><?php echo $feature['title'] ?></h2>
-			        <p><?php echo $feature['description'] ?></p>
+			        <?php if ($feature['title'] <> '') { ?><h2><?php echo $feature['title'] ?></h2><?php } ?>
+			        <?php if ($feature['description'] <> '') { ?><p><?php echo $feature['description'] ?></p><?php } ?>
 			      </div>
+			      <?php } ?>
 				  </a>
 		    </li>
 			<?php endforeach; ?>
