@@ -16,6 +16,7 @@ We strongly recommend that you read the "version release notes" and documentatio
 CHANGE LOG
 
 Subfolio Version: 0.9.2
+[ENGINE|THEME]  Ticket #386: Display copyright
 [ENGINE|THEME]  iPhone Theme Option
 [ENGINE|THEME]  RSS Feed Display
 [ENGINE]        Ticket #391: Error in title truncation, when show extentions disabled

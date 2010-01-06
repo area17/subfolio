@@ -257,7 +257,13 @@ class SubfolioTheme extends Subfolio {
   }
 
   public static function get_site_copyright() {
-    return Kohana::config('filebrowser.site_copyright', null);  
+    $show = true;
+    $show = (BOOLEAN) view::get_option('display_copyright', true);
+    if ($show) {
+      return Kohana::config('filebrowser.site_copyright', NULL);
+    } else {
+      return NULL;
+    }
   }
 
   public static function get_site_meta_description() {
