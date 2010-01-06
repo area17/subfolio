@@ -783,9 +783,9 @@ class SubfolioFiles extends Subfolio {
 					$listing_mode = 'grid';
 				}
 
-        $icon_folder  = view::get_option('icon_folder',  $listing_mode);
+        $icon_set  = view::get_option('icon_set',  $listing_mode);
 		
-        $icon = view::get_view_url()."/images/icons/".$icon_folder."/".$icon_file.".png";
+        $icon = view::get_view_url()."/images/icons/".$icon_set."/".$icon_file.".png";
 				$icon_grid = view::get_view_url()."/images/icons/grid/".$icon_file.".png";        
   
     	  switch ($kind) {
@@ -991,9 +991,9 @@ class SubfolioFiles extends Subfolio {
       		  $listing_mode = 'grid';
       	  }
       	
-          $icon_folder  = view::get_option('icon_folder',  $listing_mode);
+          $icon_set  = view::get_option('icon_set',  $listing_mode);
       
-          $icon = view::get_view_url()."/images/icons/".$icon_folder."/".$icon_file.".png";
+          $icon = view::get_view_url()."/images/icons/".$icon_set."/".$icon_file.".png";
 					$icon_grid = view::get_view_url()."/images/icons/grid/".$icon_file.".png";
     
           $target = "";
