@@ -9,7 +9,7 @@
 <ul class="rss">
 <?php foreach ($items as $item): ?>
   <li class="standard_paragraph item">
-    <a href="<?php echo $item['link'] ?>"><h4><?php echo $item['title'] ?></h4></a>
+    <h4><?php echo $item['title'] ?></h4>
     <p><?php echo $item['description'] ?></p>
     <p><a href="<?php echo $item['link'] ?>">Read more</a></p>
   </li>
