@@ -11,7 +11,7 @@
 		<meta name="description" content="<?php echo $meta_description ?>" />
 	<?php } ?>
 
-	<title><?php echo SubfolioTheme::get_page_title(); ?> — <?php echo SubfolioTheme::get_site_title(); ?></title>
+	<title><?php if (SubfolioTheme::get_page_title() <> '') { echo SubfolioTheme::get_page_title() . " &mdash; "; } ?> <?php echo SubfolioTheme::get_site_title(); ?></title>
 
 	<?php $favicon = SubfolioTheme::get_site_favicon_url();
 	if ($favicon <> '') { ?>

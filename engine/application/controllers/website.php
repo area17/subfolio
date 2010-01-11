@@ -22,6 +22,6 @@ class Website_Controller extends Template_Controller {
     Subfolio::set_filekind($this->filekind);
     
  		$this->template->site_title = Kohana::config('filebrowser.site_name');
- 		$this->template->page_title = "Home";
+ 		$this->template->page_title = "";
  	}
 }
