@@ -457,6 +457,7 @@ background-color: #eee;
 }
 .list li.listing-header { margin: 0 0 5px; }
 .list li span { display: block; float: left; }
+.list li span.caps { display: inline; float: none; }
 .list li span strong { color: inherit; }
 .list .icon { width: 25px; height: 17px; position: relative; }
 .list .filename { width: 200px; position: relative; }
