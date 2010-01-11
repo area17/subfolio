@@ -1112,24 +1112,13 @@ class SubfolioFiles extends Subfolio {
   public function previous_link_or_span($name, $directory_name, $link_id, $class) {
     $ff = Subfolio::$filebrowser->get_path();
     if ($ff <> '') {
-      /*
-	    $file = Subfolio::$filebrowser->get_file();
-	    $files = Subfolio::$filebrowser->get_parent_file_folder_list();
-	    $files = Subfolio::$filebrowser->prev_next_sort($files);
-			$prev = Subfolio::$filebrowser->get_prev($files, $file->name);
-			if ($prev <> "") {
-      	$link = urlencode($prev->name);
-        $link = str_replace('%2F', '/', $link);
-				return "<a id='$link_id' href='$link'>$name</a>";
-			} else {
-				return "<span id='$link_id' class='".$class."'>".$name."</span>";
-			}
-			*/
   		if(Subfolio::$filebrowser->is_file()) {
   	    $file = Subfolio::$filebrowser->get_file();
-  	    $files = Subfolio::$filebrowser->get_parent_file_list();
-  	    $files = Subfolio::$filebrowser->prev_next_sort($files);
-  			$prev = Subfolio::$filebrowser->get_prev($files, $file->name);
+
+        $items = Subfolio::$filebrowser->get_parent_file_folder_list(null, false);
+        $items = Subfolio::$filebrowser->sort($items);
+        
+  			$prev = Subfolio::$filebrowser->get_prev($items, $file->name);
   			if ($prev <> "") {
         	$link = urlencode($prev->name);
           $link = str_replace('%2F', '/', $link);
@@ -1139,8 +1128,10 @@ class SubfolioFiles extends Subfolio {
   			}
   	  } else { 
   	    $folder  = basename(Subfolio::$filebrowser->get_folder());
-  	    $folders = Subfolio::$filebrowser->get_parent_folder_list();
-  			$prev    = Subfolio::$filebrowser->get_prev($folders, $folder);
+
+        $items = Subfolio::$filebrowser->get_parent_file_folder_list(null, true);
+        $items = Subfolio::$filebrowser->sort($items);
+  			$prev    = Subfolio::$filebrowser->get_prev($items, $folder);
   
   			if ($prev <> "") {
         	$link = urlencode($prev->name);
@@ -1159,9 +1150,11 @@ class SubfolioFiles extends Subfolio {
     if ($ff <> '') {
   		if(Subfolio::$filebrowser->is_file()) {
   	    $file = Subfolio::$filebrowser->get_file();
-  	    $files = Subfolio::$filebrowser->get_parent_file_list();
-  	    $files = Subfolio::$filebrowser->prev_next_sort($files);
-  			$next = Subfolio::$filebrowser->get_next($files, $file->name);
+
+        $items = Subfolio::$filebrowser->get_parent_file_folder_list(null, false);
+        $items = Subfolio::$filebrowser->sort($items);
+
+  			$next = Subfolio::$filebrowser->get_next($items, $file->name);
   			if ($next <> "") {
         	$link = urlencode($next->name);
           $link = str_replace('%2F', '/', $link);
@@ -1171,8 +1164,10 @@ class SubfolioFiles extends Subfolio {
   			}
   	  } else { 
   	    $folder  = basename(Subfolio::$filebrowser->get_folder());
-  	    $folders = Subfolio::$filebrowser->get_parent_folder_list();
-  			$next = Subfolio::$filebrowser->get_next($folders, $folder);
+
+        $items = Subfolio::$filebrowser->get_parent_file_folder_list(null, true);
+        $items = Subfolio::$filebrowser->sort($items);
+  			$next = Subfolio::$filebrowser->get_next($items, $folder);
   
   			if ($next <> "") {
         	$link = urlencode($next->name);
