@@ -889,13 +889,13 @@ class SubfolioFiles extends Subfolio {
     	        $style    = Subfolio::$filebrowser->get_item_property($file->name, 'style')    ? Subfolio::$filebrowser->get_item_property($file->name, 'style') : 'POPSCROLL';
     
     	        $url = "javascript:pop('$url','$name',$width,$height,'$style');";
-    				  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions), false);
+    				  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
     	        break;
     
       			case "link" :
     	        $url = Subfolio::$filebrowser->get_item_property($file->name, 'url')    ? Subfolio::$filebrowser->get_item_property($file->name, 'url') : '';
     	        $target = Subfolio::$filebrowser->get_item_property($file->name, 'target')    ? Subfolio::$filebrowser->get_item_property($file->name, 'target') : '_blank';
-      			  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions), false);
+      			  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRIE), false);
       			  break;
     
       			default:
@@ -1014,13 +1014,13 @@ class SubfolioFiles extends Subfolio {
     	        $style    = Subfolio::$filebrowser->get_item_property($file->name, 'style')    ? Subfolio::$filebrowser->get_item_property($file->name, 'style') : 'POPSCROLL';
     
     	        $url = "javascript:pop('$url','$name',$width,$height,'$style');";
-    				  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions), false);
+    				  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
     	        break;
     
       			case "link" :
     	        $url = Subfolio::$filebrowser->get_item_property($file->name, 'url')    ? Subfolio::$filebrowser->get_item_property($file->name, 'url') : '';
     	        $target = Subfolio::$filebrowser->get_item_property($file->name, 'target')    ? Subfolio::$filebrowser->get_item_property($file->name, 'target') : '_blank';
-      			  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions), false);
+      			  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
       			  break;
     
       			default:
