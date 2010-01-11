@@ -985,7 +985,11 @@ class SubfolioFiles extends Subfolio {
     
           $icon_file = Subfolio::$filekind->get_icon_by_file($file_kind);
     	  	$listing_mode = Subfolio::$filebrowser->get_folder_property('listing_mode', $listing_mode);
-          
+
+          if ($icon_file == "gen" && $file->type == "folder") {
+            $icon_file = "dir";
+          }
+
        	  // to be confirmed
       	  if (strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) {
       		  $listing_mode = 'grid';
