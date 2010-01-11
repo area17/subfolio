@@ -6,11 +6,12 @@
 
   $items = SubfolioFiles::fetch_rss($url, $count, $filename, $cache);
 ?>  
-<div class="rss">
+<ul class="rss">
 <?php foreach ($items as $item): ?>
-  <div class="item">
-    <h2><a href="<?php echo $item['link'] ?>"><?php echo $item['title'] ?></a</h2>
+  <li class="standard_paragraph item">
+    <a href="<?php echo $item['link'] ?>"><h2><?php echo $item['title'] ?></h2></a>
     <p><?php echo $item['description'] ?></p>
-  </div>
+    <p><a href="<?php echo $item['link'] ?>">Read more</a></p>
+  </li>
 <?php endforeach ?>
-</div>
+</ul>
