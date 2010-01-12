@@ -169,7 +169,7 @@ class Subfolio {
       if (Subfolio::$filebrowser->file <> '') {
         return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'comment') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'comment') : '-';
       } else {
-        return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->folder, 'comment') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->folder, 'comment') : '-';
+        return Subfolio::$filebrowser->get_folder_property('comment') ? Subfolio::$filebrowser->get_folder_property('comment') : '-';
       }
     }
 
