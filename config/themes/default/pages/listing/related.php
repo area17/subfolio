@@ -8,6 +8,9 @@
 				<li>
 					<a href='<?php echo $item['link'] ?>'>
 						<?php if (SubfolioTheme::get_option('display_icons')) { ?>
+  						<?php if ($item['restricted']) {  ?>
+						  <span class="<?php if ($item['have_access']) { echo "unlocked"; } else { echo "locked"; } ?>"><!-- --></span>
+						  <?php } ?>
 							<span class="icon" <?php if (SubfolioTheme::get_mobile_viewport()) { echo "style='background-image:url(".$item['icon_grid'].")'"; } ?>>
 								<img src="<?php echo $item['icon'] ?>" width="<?php $item['width'] ?>" height="<?php $item['height'] ?>" />
 							</span>

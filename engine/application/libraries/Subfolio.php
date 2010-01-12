@@ -1067,11 +1067,29 @@ class SubfolioFiles extends Subfolio {
     $listing_mode = view::get_option('listing_mode', $listing_mode);
     
     $list = Subfolio::$filebrowser->get_file_list("cut", null, true);
-    
+
+    $restricted = false;    
     foreach ($list as $item) {
       $link = Subfolio::$filebrowser->get_item_property($item->name, 'url');
       if ($link == "") {
         $link = Subfolio::$filebrowser->get_item_property($item->name, 'directory');
+
+        $folder = new FileFolder($link, Subfolio::$filebrowser->get_folder(), 'folder', '', NULL);
+        if ($folder->contains_access_file()) {
+         	$restricted = true;
+        	if ($folder->have_access($this->auth->get_user())) {
+          	$have_access = true;
+        	} else {
+          	$have_access = false;
+        	}
+        } else {
+        	if ($folder->have_access($this->auth->get_user())) {
+          	$have_access = true;
+        	} else {
+          	$have_access = false;
+	         	$restricted = true;
+        	}
+        }
       }
       $name = Subfolio::$filebrowser->get_item_property($item->name, 'name');
       $icon = view::get_view_url() ."/images/icons/".$listing_mode."/cut.png";
@@ -1087,6 +1105,13 @@ class SubfolioFiles extends Subfolio {
 			$rel['icon_grid'] = $icon_grid;
       $rel['width']  = $width;
       $rel['height'] = $height;
+
+      if ($restricted) {
+        $rel['restricted'] = true;
+        $rel['have_access'] = $have_access;
+      } else {
+        $rel['restricted'] = false;
+      }
       
       $related[] = $rel;
     }
