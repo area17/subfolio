@@ -1074,7 +1074,16 @@ class SubfolioFiles extends Subfolio {
       if ($link == "") {
         $link = Subfolio::$filebrowser->get_item_property($item->name, 'directory');
 
-        $folder = new FileFolder($link, Subfolio::$filebrowser->get_folder(), 'folder', '', NULL);
+        $parent = Subfolio::$filebrowser->get_folder();
+        $folder_name = $link;
+
+        if (substr($folder_name, 0, 1)  == "/") {
+          $pos = strrpos($link, "/");
+          $parent = substr($link, 1, strlen($link) - ($pos-1));
+          $folder_name = substr($link, $pos+1, strlen($link) - ($pos-1));
+        }
+
+        $folder = new FileFolder($folder_name, $parent, 'folder', '', NULL);
         if ($folder->contains_access_file()) {
          	$restricted = true;
         	if ($folder->have_access($this->auth->get_user())) {
