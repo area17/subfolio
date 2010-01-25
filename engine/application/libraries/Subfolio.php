@@ -1155,7 +1155,7 @@ class SubfolioFiles extends Subfolio {
         
   			$prev = Subfolio::$filebrowser->get_prev($items, $file->name);
   			if ($prev <> "") {
-        	$link = urlencode($prev->name);
+        	$link = Filebrowser::double_encode_specialcharacters(urlencode($prev->name));
           $link = str_replace('%2F', '/', $link);
   				return "<a id='$link_id' href='$link'>$name</a>";
   			} else {
@@ -1169,7 +1169,7 @@ class SubfolioFiles extends Subfolio {
   			$prev    = Subfolio::$filebrowser->get_prev($items, $folder);
   
   			if ($prev <> "") {
-        	$link = urlencode($prev->name);
+        	$link = Filebrowser::double_encode_specialcharacters(urlencode($prev->name));
           $link = str_replace('%2F', '/', $link);
   
   				return "<a id='$link_id' href='$link'>$directory_name</a>";
@@ -1191,7 +1191,7 @@ class SubfolioFiles extends Subfolio {
 
   			$next = Subfolio::$filebrowser->get_next($items, $file->name);
   			if ($next <> "") {
-        	$link = urlencode($next->name);
+        	$link = Filebrowser::double_encode_specialcharacters(urlencode($next->name));
           $link = str_replace('%2F', '/', $link);
   				return "<a id='$link_id' href='$link'>$name</a>";
   			} else {
@@ -1205,7 +1205,7 @@ class SubfolioFiles extends Subfolio {
   			$next = Subfolio::$filebrowser->get_next($items, $folder);
   
   			if ($next <> "") {
-        	$link = urlencode($next->name);
+        	$link = Filebrowser::double_encode_specialcharacters(urlencode($next->name));
           $link = str_replace('%2F', '/', $link);
   
   				return "<a id='$link_id' href='$link'>$directory_name</a>";
