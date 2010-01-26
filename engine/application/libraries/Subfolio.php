@@ -685,9 +685,12 @@ class SubfolioFiles extends Subfolio {
       foreach ($folders as $folder) {
         if (!Subfolio::$filebrowser->is_feature($folder->name)) {
           $haveFiles = true;
+          break;
         }
       }
-    } else {
+    } 
+    
+    if (!$haveFiles) {
       foreach ($files as $file) {
         $file_kind = Subfolio::$filekind->get_kind_by_file($file->name);
 
@@ -958,6 +961,7 @@ class SubfolioFiles extends Subfolio {
       $new = false;
       $updated = false;
 
+      if (!Subfolio::$filebrowser->is_feature($file->name)) {
       if (!$file->has_thumbnail()) {
           $file_kind = Subfolio::$filekind->get_kind_by_file($file->name);
           
@@ -1047,7 +1051,7 @@ class SubfolioFiles extends Subfolio {
         $list[] = $item;
 
         }
-
+      }
     }
     
     return $list;

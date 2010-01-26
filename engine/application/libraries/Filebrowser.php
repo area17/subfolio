@@ -474,6 +474,10 @@ class Filebrowser {
           $is_feature = true;
           break;
         }
+        if (isset($feature['file']) && $feature['file'] == $foldername) {
+          $is_feature = true;
+          break;
+        }
       }
     }
 
@@ -484,6 +488,10 @@ class Filebrowser {
         foreach ($file_features as $file_feature) {
           $feature = Spyc::YAMLLoad($file_feature->name);
           if (isset($feature['folder']) && $feature['folder'] == $foldername) {
+            $is_feature = true;
+            break;
+          }
+          if (isset($feature['file']) && $feature['file'] == $foldername) {
             $is_feature = true;
             break;
           }
