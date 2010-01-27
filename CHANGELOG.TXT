@@ -16,6 +16,7 @@ We strongly recommend that you read the "version release notes" and documentatio
 CHANGE LOG
 
 Subfolio Version: 0.9.2
+[ENGINE]        Header collapse cookie fix
 [ENGINE|THEME]  Ability to feature any file
 [ENGINE|THEME]  Ticket #386: Display copyright
 [ENGINE|THEME]  iPhone Theme Option
@@ -24,7 +25,7 @@ Subfolio Version: 0.9.2
 
 Subfolio Version: 0.9.1
 [ENGINE]      Ticket #380: SEO Change for page heading
-[ENGINE]      Ticket #350: HTML TItle Changes
+[ENGINE]      Ticket #350: HTML Title Changes
 [ENGINE]      Ticket #358: Allow adding of Google Analytics via settings.yml
 [ENGINE]      Ticket #371: Inline image display with special characters
 [ENGINE]      Ticket #349: Manage site meta description via settings.yml
