@@ -692,6 +692,8 @@ class SubfolioFiles extends Subfolio {
     
     if (!$haveFiles) {
       foreach ($files as $file) {
+
+        if (!Subfolio::$filebrowser->is_feature($file->name)) {
         $file_kind = Subfolio::$filekind->get_kind_by_file($file->name);
 
         if (isset($file_kind['kind'])) {
@@ -711,6 +713,7 @@ class SubfolioFiles extends Subfolio {
           $haveFiles = true;
           break;
         }
+      }
       }
     }
 

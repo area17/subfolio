@@ -402,13 +402,13 @@ margin-right: 5px;
 margin-bottom: 5px;
 -moz-border-radius:4px;
 -webkit-border-radius:4px;
-height: 230px;
 }
 #features ul li a img { display: block; }
 #features ul li a > .info { display: inline-block; }
 #features ul li a .info {
 padding: 0;
 text-align: left;
+height: 130px;
 }
 #features ul li a .info h2 {
 color: inherit;
