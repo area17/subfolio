@@ -357,7 +357,7 @@ class SubfolioTheme extends Subfolio {
   public static function get_collapse_header_button($wrap=""){
     $showHideLabel = "".SubfolioLanguage::get_text('collapseheader');
     if (isset($_COOKIE['header'])) {
-        if ($_COOKIE['header'] == "hideSwitch") {
+        if ($_COOKIE['header'] == "hide") {
             $showHide = "hideSwitch";
             $showHideLabel = "".SubfolioLanguage::get_text('expandheader');
         }

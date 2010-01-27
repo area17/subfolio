@@ -134,12 +134,14 @@ function bindHeaderEvents() {
 				$(this).html(collapse_header_label);
 				$('#header').show();
 				createCookie('header', 'show');
+				return false;
 			} else {
 				$(this).addClass('show');
 				$(this).removeClass('hide');
 				$(this).html(expand_header_label);
 				$('#header').hide();
 				createCookie('header', 'hide');
+				return false;
 			}
 		});
 	}
