@@ -594,6 +594,12 @@ class SubfolioFiles extends Subfolio {
         } else {
   	      $feature_link = "/".Subfolio::$filebrowser->get_folder()."/".$feature['folder'];
 	      }
+	    } else if (isset($feature['file'])) {
+        if (Subfolio::$filebrowser->get_folder() == '') {
+  	      $feature_link = "/".$feature['file'];
+        } else {
+  	      $feature_link = "/".Subfolio::$filebrowser->get_folder()."/".$feature['file'];
+	      }
 	    }
       
       $item['link'] = $feature_link;
