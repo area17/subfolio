@@ -973,6 +973,23 @@ class SubfolioFiles extends Subfolio {
           } else {
             $kind = "";
           }
+
+          if ($file->contains_access_file()) {
+            $restricted = true;
+            if ($file->have_access($this->auth->get_user())) {
+              $have_access = true;
+            } else {
+              $have_access = false;
+            }
+          } else {
+            if ($file->have_access($this->auth->get_user())) {
+              $have_access = true;
+            } else {
+              $have_access = false;
+              $restricted = true;
+            }
+          }
+
     
           if ($kind == "img" && !$file->needs_thumbnail()) {
             // don't show listing for image smaller than thumbnail;
