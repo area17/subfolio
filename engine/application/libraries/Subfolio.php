@@ -603,10 +603,12 @@ class SubfolioFiles extends Subfolio {
 	    }
       
       $item['link'] = $feature_link;
-      $item['image_file'] = "/directory/".Subfolio::$filebrowser->get_folder()."/".$feature['image'];
-			list($width, $height, $type, $attr) = @getimagesize(Subfolio::$filebrowser->fullfolderpath."/".$feature['image']);   
-			$item['image_width'] = $width;
-      $item['image_height'] = $height;
+      if (isset($feature['image'])) {
+        $item['image_file'] = "/directory/".Subfolio::$filebrowser->get_folder()."/".$feature['image'];
+  			list($width, $height, $type, $attr) = @getimagesize(Subfolio::$filebrowser->fullfolderpath."/".$feature['image']);   
+  			$item['image_width'] = $width;
+        $item['image_height'] = $height;
+      }
       $item['title'] = isset($feature['title']) ? $feature['title'] : "";
       $item['description'] = isset($feature['description']) ? $feature['description'] : "";
 

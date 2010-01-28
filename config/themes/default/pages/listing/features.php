@@ -4,8 +4,10 @@
 	  <ul>
 			<?php foreach ( SubfolioFiles::features() as $feature) : ?>
 		    <li>
-				  <a href="<?php echo $feature['link'] ?>" style="width: <?php echo $feature['image_width'] ?>px">
+				  <a href="<?php echo $feature['link'] ?>" <?php if (isset($feature['image_width'])) { ?> style="width: <?php echo $feature['image_width'] ?>px" <?php } ?>>
+				    <?php if (isset($feature['image_file'])) { ?>
 			    	<img src="<?php echo $feature['image_file'] ?>" width="<?php echo $feature['image_width'] ?>px" height="<?php echo $feature['image_height'] ?>px">
+			    	<?php } ?>
 						<?php if (($feature['title'] <> '') || ($feature['description'] <> '')) { ?>
 			      <div class="info">
 			        <?php if ($feature['title'] <> '') { ?><h2><?php echo $feature['title'] ?></h2><?php } ?>
