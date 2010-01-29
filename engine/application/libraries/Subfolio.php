@@ -909,7 +909,7 @@ class SubfolioFiles extends Subfolio {
       			case "link" :
     	        $url = Subfolio::$filebrowser->get_item_property($file->name, 'url')    ? Subfolio::$filebrowser->get_item_property($file->name, 'url') : '';
     	        $target = Subfolio::$filebrowser->get_item_property($file->name, 'target')    ? Subfolio::$filebrowser->get_item_property($file->name, 'target') : '_blank';
-      			  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRIE), false);
+      			  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
       			  break;
     
       			default:
