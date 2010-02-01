@@ -136,6 +136,7 @@ font-family: "Arial Rounded MT Bold";
 color: inherit;
 }
 .standard_paragraph p em, .standard_paragraph p i  {
+font-family: inherit;
 font-style: italic;
 color: inherit;
 }
