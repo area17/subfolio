@@ -22,7 +22,7 @@ display_file_names_in_gallery: true    # show/hide file names under thumbnails
 display_info: true                     # show/hide the info icon on file detail page
 listing_mode: list                     # default view for folders and files: list or grid
 display_icons: false                   # show/hide the icons
-# icon_set: custom                  # use a custom icon set
+# icon_set: custom                     # use a custom icon set. Default is list and grid. You can also switch to list1 (1 bit) and list24 (with alpha)
 
 display_size: false                    # listing column : show/hide the size column
 display_date: false                    # listing column : show/hide the date column
