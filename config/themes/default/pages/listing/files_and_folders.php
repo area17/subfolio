@@ -29,7 +29,7 @@
 				</li>
 			<?php } ?>
 			
-			<?php foreach ( SubfolioFiles::files() as $item) : ?>
+			<?php foreach ( SubfolioFiles::files_and_folders() as $item) : ?>
 				<li>
 					<a target="<?php echo $item['target'] ?>" href="<?php echo $item['url'] ?>">
 						
