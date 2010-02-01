@@ -135,6 +135,10 @@ font-weight: bold;
 font-family: "Arial Rounded MT Bold";
 color: inherit;
 }
+.standard_paragraph p em, .standard_paragraph p i  {
+font-style: italic;
+color: inherit;
+}
 .standard_paragraph p small, .standard_paragraph p small a {
 font: italic 11px/15px Georgia, "Times New Roman", Times, serif;
 color: #666; /* << text_light_color */
