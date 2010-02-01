@@ -792,8 +792,8 @@ _margin: 0;
 #inline_top_image,
 #inline_middle_image,
 #inline_bottom_image {
-width: 100%;
-overflow: hidden;
+/*width: 100%;
+overflow: hidden;*/ /*<< Use if you want to crop the image instead of showing the horizontal scrollbar */
 }
 
 #inline_top_image img,

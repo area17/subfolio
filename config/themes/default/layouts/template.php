@@ -165,6 +165,7 @@
 			<div id="content">
 				<?php if (isset($content)) echo $content; ?>
 			</div>
+			<div class="clear"></div>
 		</div>
 		<?php include("footer.inc.php") ?>
 	</div>
