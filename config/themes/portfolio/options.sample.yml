@@ -1,0 +1,47 @@
+# YAML NOTE: Indentation, spacing and text case are super important.
+# This file must be encoded as Unicode (UTF-8) for it to work properly.
+
+# LOGO
+
+site_logo_url: /config/themes/default/images/logos/logo.png
+site_logo_width: 53                    # in pixels
+site_logo_height: 53                   # in pixels
+
+site_favicon_url: /config/themes/default/images/favicon.ico
+
+# FILE DISPLAY RULES
+
+thumbnail_height: 240                  # in pixels
+
+replace_underscore_space: true         # replace underscore in filename with space
+replace_dash_space: true               # replace dash in filename with space
+
+display_file_extensions: true          # show/hide file extensions
+display_file_names_in_gallery: true    # show/hide file names under thumbnails
+
+display_info: true                     # show/hide the info icon on file detail page
+listing_mode: list                     # default view for folders and files: list or grid
+display_icons: false                   # show/hide the icons
+# icon_set: custom                  # use a custom icon set
+
+display_size: false                    # listing column : show/hide the size column
+display_date: false                    # listing column : show/hide the date column
+display_kind: false                    # listing column : show/hide the kind column
+display_comment: false                 # listing column : show/hide the comment column
+
+# INTERFACE ELEMENTS
+
+display_header: true                   # show/hide top of page (logo area)
+display_collapse_header: true          # show/hide the collapse header button
+display_send_page: true                # show/hide the send page button
+display_tiny_url: false                # show/hide the make tiny url button
+
+display_breadcrumb: true               # show/hide breadcrumb navigation
+display_navigation: true               # show/hide page-to-page navigation
+
+display_file_listing_header: true      # show/hide column headers in list view
+display_updated_since: true            # show/hide the update information footer
+
+display_copyright: true                # show/hide your personalized copyright footer
+
+color_palette: default                 # name of the color palette to use
