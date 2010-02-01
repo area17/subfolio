@@ -558,7 +558,6 @@ height: 11px;
 z-index: 99;
 background: url("../images/system/updated_grid24.png") no-repeat top left;
 }
-
 .grid li .icon { height: 60px; position: relative; }
 .grid li .no_icon { height: 45px; position: relative; }
 .grid li .icon img {
