@@ -11,7 +11,9 @@
 							<img src="<?php echo SubfolioTheme::get_view_url() ?>/images/system/no_icon.png" width='18' height='17' border='0' />
 						</span>
 					<?php } ?>
-					<span class="filename"><a href="?sort=filename"><?php echo SubfolioLanguage::get_text('filename'); ?></a></span>
+					<?php if (SubfolioTheme::get_option('display_name')) { ?>
+					  <span class="filename"><a href="?sort=filename"><?php echo SubfolioLanguage::get_text('filename'); ?></a></span>
+					<?php } ?>
 					<?php if (SubfolioTheme::get_option('display_size')) { ?>
 						<span class="size"><a href="?sort=size"><?php echo SubfolioLanguage::get_text('size'); ?></a></span>
 					<?php } ?>
@@ -54,7 +56,7 @@
 						<?php endif; ?>
 						
 						<!-- FILENAME -->
-						<span class="filename"><?php echo $item['filename'] ?></span>
+						<?php if (SubfolioTheme::get_option('display_name')) { ?><span class="filename"><?php echo $item['filename'] ?></span><?php } ?>
 						
 						<!-- OTHER COLUMNS -->
 						<?php if (SubfolioTheme::get_option('display_size')) { ?><span class="size"><?php echo $item['size'] ?></span><?php } ?>
