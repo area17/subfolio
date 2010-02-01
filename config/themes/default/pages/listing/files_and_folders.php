@@ -49,6 +49,8 @@
 								<img src='<?php echo $item['icon'] ?>' width='32' height='32' />
 							<?php endif; ?>
 							</span>
+						<?php else : ?>
+						  <span class="no_icon"></span>
 						<?php endif; ?>
 						
 						<!-- FILENAME -->
