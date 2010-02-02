@@ -1,7 +1,7 @@
 <?php if (SubfolioFiles::have_files()) : ?>
 	<div id="listing">
 		<ul>
-			<?php foreach ( SubfolioFiles::files_and_folders() as $item) : ?>
+			<?php foreach ( SubfolioFiles::files() as $item) : ?>
 				<li class="icon icon_<?php echo $item['icon_name'] ?>">
 					<a target="<?php echo $item['target'] ?>" href="<?php echo $item['url'] ?>">
 						<?php if ($item['restricted']) { ?>
