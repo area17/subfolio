@@ -10,7 +10,7 @@ $width = Subfolio::current_file('width');
 		
 		<!-- File preview -->
 		<div class="file_preview" style='max-width:<?php echo $width ?>px;'>
-			<a href="<?php echo Subfolio::current_file('link') ?>">
+			<a id="file_preview" href="<?php echo Subfolio::current_file('link') ?>">
 				<img src="<?php echo Subfolio::current_file('url') ?>" alt="" />
 			</a>
 		</div>
