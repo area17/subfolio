@@ -198,6 +198,15 @@ class FileFolder {
       if (isset($path_parts['extension'])) {
         $display = substr($display, 0, (-1 * (1+strlen($path_parts['extension']))));
       }
+    } else {
+      $path_parts = pathinfo($value);
+      // certain files we alays hide extention
+      if (isset($path_parts['extension'])) {
+        $lst = array("site", "rss");
+        if (in_array($path_parts['extension'], $lst)) {
+          $display = substr($display, 0, (-1 * (1+strlen($path_parts['extension']))));
+        }
+      }
     }
     
     return $display;

@@ -933,7 +933,7 @@ class Filebrowser {
         $hidden = true;
       } else if (substr($filename, (-1 * strlen($ftr_ext))) == $ftr_ext) {
         $hidden = true;
-      } else if (substr($filename, (-1 * strlen($ftr_ext))) == $cut_ext) {
+      } else if (substr($filename, (-1 * strlen($cut_ext))) == $cut_ext) {
         $hidden = true;
       }
     }
