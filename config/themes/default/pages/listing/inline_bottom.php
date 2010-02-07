@@ -16,6 +16,7 @@
 			<?php foreach ( SubfolioFiles::inline_images('bottom') as $image) : ?>
 				<img width='<?php echo $image['width'] ?>' height='<?php echo $image['height'] ?>' src='<?php echo $image['url'] ?>' />
 			<?php endforeach; ?>
+			<div class="clear"><!-- --></div>
 	</div><!-- gallery -->
 
 <?php endif ?>

@@ -17,6 +17,7 @@
 			<?php foreach ( SubfolioFiles::inline_texts('bottom') as $text) : ?>
 				<?php echo $text['body'] ?>
 			<?php endforeach; ?>
+			<div class="clear"><!-- --></div>
 	</div><!-- gallery -->
 
 <?php endif ?>

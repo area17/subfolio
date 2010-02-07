@@ -15,6 +15,7 @@
 			<?php foreach ( SubfolioFiles::inline_texts('middle') as $text) : ?>
 				<?php echo $text['body'] ?>
 			<?php endforeach; ?>
+			<div class="clear"><!-- --></div>
 	</div><!-- gallery -->
 
 <?php endif ?>
