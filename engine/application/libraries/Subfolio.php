@@ -797,10 +797,11 @@ class SubfolioFiles extends Subfolio {
 					$listing_mode = 'grid';
 				}
 
-        $icon_set  = view::get_option('icon_set',  $listing_mode);
+        $icon_set  = view::get_option('icon_set_list',  "list");
+        $icon_set_grid  = view::get_option('icon_set',  "grid");
 		
         $icon = view::get_view_url()."/images/icons/".$icon_set."/".$icon_file.".png";
-				$icon_grid = view::get_view_url()."/images/icons/grid/".$icon_file.".png";        
+				$icon_grid = view::get_view_url()."/images/icons/".$icon_set_grid."/".$icon_file.".png";        
   
     	  switch ($kind) {
     	    /***** NOT LINKING TO SITE, LINK TO PERMALINK PAGE INSTEAD
@@ -886,8 +887,11 @@ class SubfolioFiles extends Subfolio {
       		  $listing_mode = 'grid';
       	  }
       	
-      	  $icon = view::get_view_url()."/images/icons/".$listing_mode."/".$icon_file.".png";
-					$icon_grid = view::get_view_url()."/images/icons/grid/".$icon_file.".png";
+          $icon_set  = view::get_option('icon_set',  "list");
+          $icon_set_grid  = view::get_option('icon_set',  "grid");
+      
+          $icon = view::get_view_url()."/images/icons/".$icon_set."/".$icon_file.".png";
+          $icon_grid = view::get_view_url()."/images/icons/".$icon_set_grid."/".$icon_file.".png";        
     
           $target = "";
           $url = "";
@@ -1027,10 +1031,11 @@ class SubfolioFiles extends Subfolio {
       		  $listing_mode = 'grid';
       	  }
       	
-          $icon_set  = view::get_option('icon_set',  $listing_mode);
-      
+          $icon_set  = view::get_option('icon_set_list',  "list");
+          $icon_set_grid  = view::get_option('icon_set_grid',  "grid");
+                
           $icon = view::get_view_url()."/images/icons/".$icon_set."/".$icon_file.".png";
-					$icon_grid = view::get_view_url()."/images/icons/grid/".$icon_file.".png";
+          $icon_grid = view::get_view_url()."/images/icons/".$icon_set_grid."/".$icon_file.".png";        
     
           $target = "";
           $url = "";

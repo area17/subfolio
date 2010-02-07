@@ -48,7 +48,7 @@
 							<?php if (SubfolioTheme::get_listing_mode()=='list') : ?>
 								<img src='<?php echo $item['icon'] ?>' width='18' height='17' />
 							<?php else : ?>
-								<img src='<?php echo $item['icon'] ?>' width='32' height='32' />
+								<img src='<?php echo $item['icon_grid'] ?>' width='32' height='32' />
 							<?php endif; ?>
 							</span>
 						<?php else : ?>
