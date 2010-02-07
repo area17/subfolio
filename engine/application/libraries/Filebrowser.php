@@ -414,10 +414,14 @@ class Filebrowser {
     return $folders;
   }
 
-  public function file_or_folder_count($include_hidden=FALSE) {
+  public function file_or_folder_count($include_hidden=FALSE, $folder=NULL) {
     $count = 0;
 
-    $names = $this->sub_glob("*");
+    if ($folder) {
+      $names = $this->sub_glob($folder."/*");
+    } else {
+      $names = $this->sub_glob("*");
+    }
     foreach ($names as $filename) {
       if ($this->is_hidden($filename)) {
         if ($include_hidden) {
@@ -944,6 +948,7 @@ class Filebrowser {
     $path=implode('/',$split);
 
     if ($path == "") $path = ".";
+    if (is_dir($path)){
     if (($dir=opendir($path))!==false) {
       $glob=array();
       while(($file=readdir($dir))!==false) {
@@ -963,9 +968,9 @@ class Filebrowser {
       closedir($dir);
       if (!($flags&GLOB_NOSORT)) sort($glob);
       return $glob;
-    } else {
-        return false;
+    }
     }   
+    return array();
   }
 
   function sub_fnmatch($pattern, $string) {

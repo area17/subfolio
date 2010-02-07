@@ -975,9 +975,13 @@ class SubfolioFiles extends Subfolio {
       $have_access = false;
       $new = false;
       $updated = false;
+      $empty = false;
 
       if (!Subfolio::$filebrowser->is_feature($file->name)) {
-      if (!$file->has_thumbnail()) {
+        if (!$file->has_thumbnail()) {
+          
+          $empty = !((boolean) Subfolio::$filebrowser->file_or_folder_count(true, $file->name));
+          
           $file_kind = Subfolio::$filekind->get_kind_by_file($file->name);
           
           if (isset($file_kind['kind'])) {
@@ -1066,22 +1070,22 @@ class SubfolioFiles extends Subfolio {
               break;  			
     	    }
 
-
-        $item = array();
-        $item['target'] = $target;
-        $item['url'] = $url;
-        $item['icon'] = $icon;
-				$item['icon_grid'] = $icon_grid;
-        $item['filename'] = $display;
-        $item['size'] = format::filesize($file->stats['size']);
-        $item['date'] = format::filedate($file->stats['mtime']);
-        $item['kind'] = $kind_display;
-        $item['comment'] = format::get_rendered_text(Subfolio::$filebrowser->get_item_property($file->name, 'comment'));
-        $item['restricted'] = $restricted;
-        $item['have_access'] = $have_access;
-        $item['new'] = $new;
-        $item['updated'] = $updated;
-        $list[] = $item;
+          $item = array();
+          $item['empty'] = $empty;
+          $item['target'] = $target;
+          $item['url'] = $url;
+          $item['icon'] = $icon;
+  				$item['icon_grid'] = $icon_grid;
+          $item['filename'] = $display;
+          $item['size'] = format::filesize($file->stats['size']);
+          $item['date'] = format::filedate($file->stats['mtime']);
+          $item['kind'] = $kind_display;
+          $item['comment'] = format::get_rendered_text(Subfolio::$filebrowser->get_item_property($file->name, 'comment'));
+          $item['restricted'] = $restricted;
+          $item['have_access'] = $have_access;
+          $item['new'] = $new;
+          $item['updated'] = $updated;
+          $list[] = $item;
 
         }
       }
