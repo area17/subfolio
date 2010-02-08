@@ -980,7 +980,11 @@ class SubfolioFiles extends Subfolio {
       if (!Subfolio::$filebrowser->is_feature($file->name)) {
         if (!$file->has_thumbnail()) {
           
-          $empty = !((boolean) Subfolio::$filebrowser->file_or_folder_count(true, $file->name));
+          if ($file->is_file()) {
+            $empty = false;
+          } else {
+            $empty = !((boolean) Subfolio::$filebrowser->file_or_folder_count(true, $file->name));
+          }
           
           $file_kind = Subfolio::$filekind->get_kind_by_file($file->name);
           

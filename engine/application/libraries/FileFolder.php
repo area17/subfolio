@@ -18,6 +18,10 @@ class FileFolder {
     $this->stats    = $stats;
   }
 
+  public function is_file() {
+    return !(is_dir($this->name));
+  }
+
   public function get_display_name($replace_dashes=true, $replace_underscores=true, $display_extension=true) {
     $display = $this->fix_display_name($this->name, $replace_dashes, $replace_underscores, $display_extension);
     return htmlentities($display);

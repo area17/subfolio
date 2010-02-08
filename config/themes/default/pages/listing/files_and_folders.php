@@ -30,7 +30,7 @@
 			<?php } ?>
 			
 			<?php foreach ( SubfolioFiles::files_and_folders() as $item) : ?>
-				<li>
+				<li class="<?php echo  ($item['empty'] == true) ? 'empty' : ''; ?>">
 					<a target="<?php echo $item['target'] ?>" href="<?php echo $item['url'] ?>">
 						
 						<!-- ICON -->
