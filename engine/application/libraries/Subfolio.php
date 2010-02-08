@@ -377,6 +377,22 @@ class SubfolioTheme extends Subfolio {
     return $link;
   }
 
+  public static function get_locked_icon_url($mode='list') {
+    return self::get_theme_icon($mode, "lock");
+  }
+
+  public static function get_unlocked_icon_url($mode='list') {
+    return self::get_theme_icon($mode, "unlocked");
+  }
+
+  public static function get_updated_icon_url($mode='list') {
+    return self::get_theme_icon($mode, "updated");
+  }
+
+  public static function get_new_icon_url($mode='list') {
+    return self::get_theme_icon($mode, "new");
+  }
+
   // ------------------------------------------------------
   // THEME RELATED FUNCTIONS
   // ------------------------------------------------------
@@ -392,6 +408,19 @@ class SubfolioTheme extends Subfolio {
   public function get_color($color_name, $default_value=NULL) {
     return view::get_color($color_name, $default_value);
   }
+  
+  private function get_theme_icon($mode, $icon_file)
+  {
+    if ($mode == "grid") {
+      $icon_set  = view::get_option('icon_set_grid',  "grid");
+    } else {
+      $icon_set  = view::get_option('icon_set_list',  "list");
+    }
+
+    $icon = view::get_view_url()."/images/icons/".$icon_set."/".$icon_file.".png";
+    return $icon;
+  }
+
 }
 
 class SubfolioUser extends Subfolio {
@@ -798,7 +827,7 @@ class SubfolioFiles extends Subfolio {
 				}
 
         $icon_set  = view::get_option('icon_set_list',  "list");
-        $icon_set_grid  = view::get_option('icon_set',  "grid");
+        $icon_set_grid  = view::get_option('icon_set_grid',  "grid");
 		
         $icon = view::get_view_url()."/images/icons/".$icon_set."/".$icon_file.".png";
 				$icon_grid = view::get_view_url()."/images/icons/".$icon_set_grid."/".$icon_file.".png";        
@@ -887,8 +916,8 @@ class SubfolioFiles extends Subfolio {
       		  $listing_mode = 'grid';
       	  }
       	
-          $icon_set  = view::get_option('icon_set',  "list");
-          $icon_set_grid  = view::get_option('icon_set',  "grid");
+          $icon_set  = view::get_option('icon_set_list',  "list");
+          $icon_set_grid  = view::get_option('icon_set_grid',  "grid");
       
           $icon = view::get_view_url()."/images/icons/".$icon_set."/".$icon_file.".png";
           $icon_grid = view::get_view_url()."/images/icons/".$icon_set_grid."/".$icon_file.".png";        

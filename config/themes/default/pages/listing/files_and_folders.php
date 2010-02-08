@@ -36,7 +36,7 @@
 						<!-- ICON -->
 						<?php if (SubfolioTheme::get_option('display_icons')) : ?>
 							<?php if ($item['updated']) { ?>
-	  			      		<span class="updated"><!-- --></span>
+  			      		<span class="updated"><!-- --></span>
 	  					<?php } ?>
 	  					<?php if ($item['new']) { ?>
 	  			      	<span class="new"><!-- --></span>
