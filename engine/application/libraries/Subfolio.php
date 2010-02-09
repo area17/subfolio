@@ -983,6 +983,7 @@ class SubfolioFiles extends Subfolio {
 
   public function files_and_folders()
   {
+    $hide_locked = self::get_setting('hide_locked_folders');
     $listing_mode = SubfolioTheme::get_listing_mode();
     $replace_dash_space = view::get_option('replace_dash_space', true);  
     $replace_underscore_space = view::get_option('replace_underscore_space', true);
@@ -998,6 +999,8 @@ class SubfolioFiles extends Subfolio {
 
     $new_updated_start = Subfolio::$filebrowser->get_updated_since_time();
     $list = array();
+
+    $current_user = $this->auth->get_user();
 
     foreach ($items as $file) {
       $restricted = false;
@@ -1023,15 +1026,23 @@ class SubfolioFiles extends Subfolio {
             $kind = "";
           }
 
+          $include = false;
+          if (!$current_user) {
+            $include = true;
+          }
+          
+
           if ($file->contains_access_file()) {
             $restricted = true;
-            if ($file->have_access($this->auth->get_user())) {
+            if ($file->have_access($current_user)) {
+              $include = true;
               $have_access = true;
             } else {
               $have_access = false;
             }
           } else {
-            if ($file->have_access($this->auth->get_user())) {
+            if ($file->have_access($current_user)) {
+              $include = true;
               $have_access = true;
             } else {
               $have_access = false;
@@ -1039,87 +1050,90 @@ class SubfolioFiles extends Subfolio {
             }
           }
 
-    
-          if ($kind == "img" && !$file->needs_thumbnail()) {
-            // don't show listing for image smaller than thumbnail;
-            continue;
-          }
-          $kind_display = isset($file_kind['display']) ? $file_kind['display'] : '';
-          
-          $icon_file = "";
-          $new = false;
-          $updated = false;
-    				
-          if (false && $file->stats['ctime'] > $new_updated_start) {
-              $new = true;
-          } else if ($file->stats['mtime'] > $new_updated_start) {
-              $updated = true;
-          }
-    
-          $icon_file = Subfolio::$filekind->get_icon_by_file($file_kind);
-    	  	$listing_mode = Subfolio::$filebrowser->get_folder_property('listing_mode', $listing_mode);
-
-          if ($icon_file == "gen" && $file->type == "folder") {
-            $icon_file = "dir";
+          if (!$hide_locked) {
+            $include = true;
           }
 
-       	  // to be confirmed
-      	  if (strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) {
-      		  $listing_mode = 'grid';
-      	  }
-      	
-          $icon_set  = view::get_option('icon_set_list',  "list");
-          $icon_set_grid  = view::get_option('icon_set_grid',  "grid");
-                
-          $icon = view::get_view_url()."/images/icons/".$icon_set."/".$icon_file.".png";
-          $icon_grid = view::get_view_url()."/images/icons/".$icon_set_grid."/".$icon_file.".png";        
-    
-          $target = "";
-          $url = "";
-          $display = "";
-    
-    		  switch ($kind) {
-    
-      			case "pop" :
-    	        $width    = Subfolio::$filebrowser->get_item_property($file->name, 'width')    ? Subfolio::$filebrowser->get_item_property($file->name, 'width') : 800;
-    	        $height   = Subfolio::$filebrowser->get_item_property($file->name, 'height')   ? Subfolio::$filebrowser->get_item_property($file->name, 'height') : 600;
-    	        $url      = Subfolio::$filebrowser->get_item_property($file->name, 'url')      ? Subfolio::$filebrowser->get_item_property($file->name, 'url') : 'http://www.subfolio.com';
-    	        $name     = Subfolio::$filebrowser->get_item_property($file->name, 'name')     ? Subfolio::$filebrowser->get_item_property($file->name, 'name') : 'POPUP';
-    	        $style    = Subfolio::$filebrowser->get_item_property($file->name, 'style')    ? Subfolio::$filebrowser->get_item_property($file->name, 'style') : 'POPSCROLL';
-    
-    	        $url = "javascript:pop('$url','$name',$width,$height,'$style');";
-    				  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
-    	        break;
-    
-      			case "link" :
-    	        $url = Subfolio::$filebrowser->get_item_property($file->name, 'url')    ? Subfolio::$filebrowser->get_item_property($file->name, 'url') : '';
-    	        $target = Subfolio::$filebrowser->get_item_property($file->name, 'target')    ? Subfolio::$filebrowser->get_item_property($file->name, 'target') : '_blank';
-      			  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
-      			  break;
-    
-      			default:
-      			  $url = Subfolio::$filebrowser->get_link($file->name);
-      			  $display = $file->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions);
-              break;  			
-    	    }
-
-          $item = array();
-          $item['empty'] = $empty;
-          $item['target'] = $target;
-          $item['url'] = $url;
-          $item['icon'] = $icon;
-  				$item['icon_grid'] = $icon_grid;
-          $item['filename'] = $display;
-          $item['size'] = format::filesize($file->stats['size']);
-          $item['date'] = format::filedate($file->stats['mtime']);
-          $item['kind'] = $kind_display;
-          $item['comment'] = format::get_rendered_text(Subfolio::$filebrowser->get_item_property($file->name, 'comment'));
-          $item['restricted'] = $restricted;
-          $item['have_access'] = $have_access;
-          $item['new'] = $new;
-          $item['updated'] = $updated;
-          $list[] = $item;
-
+          if ($include) {
+            if ($kind == "img" && !$file->needs_thumbnail()) {
+              // don't show listing for image smaller than thumbnail;
+              continue;
+            }
+            $kind_display = isset($file_kind['display']) ? $file_kind['display'] : '';
+            
+            $icon_file = "";
+            $new = false;
+            $updated = false;
+      				
+            if (false && $file->stats['ctime'] > $new_updated_start) {
+                $new = true;
+            } else if ($file->stats['mtime'] > $new_updated_start) {
+                $updated = true;
+            }
+      
+            $icon_file = Subfolio::$filekind->get_icon_by_file($file_kind);
+      	  	$listing_mode = Subfolio::$filebrowser->get_folder_property('listing_mode', $listing_mode);
+  
+            if ($icon_file == "gen" && $file->type == "folder") {
+              $icon_file = "dir";
+            }
+  
+         	  // to be confirmed
+        	  if (strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) {
+        		  $listing_mode = 'grid';
+        	  }
+        	
+            $icon_set  = view::get_option('icon_set_list',  "list");
+            $icon_set_grid  = view::get_option('icon_set_grid',  "grid");
+                  
+            $icon = view::get_view_url()."/images/icons/".$icon_set."/".$icon_file.".png";
+            $icon_grid = view::get_view_url()."/images/icons/".$icon_set_grid."/".$icon_file.".png";        
+      
+            $target = "";
+            $url = "";
+            $display = "";
+      
+      		  switch ($kind) {
+        			case "pop" :
+      	        $width    = Subfolio::$filebrowser->get_item_property($file->name, 'width')    ? Subfolio::$filebrowser->get_item_property($file->name, 'width') : 800;
+      	        $height   = Subfolio::$filebrowser->get_item_property($file->name, 'height')   ? Subfolio::$filebrowser->get_item_property($file->name, 'height') : 600;
+      	        $url      = Subfolio::$filebrowser->get_item_property($file->name, 'url')      ? Subfolio::$filebrowser->get_item_property($file->name, 'url') : 'http://www.subfolio.com';
+      	        $name     = Subfolio::$filebrowser->get_item_property($file->name, 'name')     ? Subfolio::$filebrowser->get_item_property($file->name, 'name') : 'POPUP';
+      	        $style    = Subfolio::$filebrowser->get_item_property($file->name, 'style')    ? Subfolio::$filebrowser->get_item_property($file->name, 'style') : 'POPSCROLL';
+      
+      	        $url = "javascript:pop('$url','$name',$width,$height,'$style');";
+      				  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
+      	        break;
+      
+        			case "link" :
+      	        $url = Subfolio::$filebrowser->get_item_property($file->name, 'url')    ? Subfolio::$filebrowser->get_item_property($file->name, 'url') : '';
+        	        $target = Subfolio::$filebrowser->get_item_property($file->name, 'target')    ? Subfolio::$filebrowser->get_item_property($file->name, 'target') : '_blank';
+          			  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
+          			  break;
+        
+          			default:
+          			  $url = Subfolio::$filebrowser->get_link($file->name);
+          			  $display = $file->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions);
+                  break;  			
+      	    }
+  
+            $item = array();
+            $item['empty'] = $empty;
+            $item['target'] = $target;
+            $item['url'] = $url;
+            $item['icon'] = $icon;
+    				$item['icon_grid'] = $icon_grid;
+            $item['filename'] = $display;
+            $item['size'] = format::filesize($file->stats['size']);
+            $item['date'] = format::filedate($file->stats['mtime']);
+            $item['kind'] = $kind_display;
+            $item['comment'] = format::get_rendered_text(Subfolio::$filebrowser->get_item_property($file->name, 'comment'));
+            $item['restricted'] = $restricted;
+            $item['have_access'] = $have_access;
+            $item['new'] = $new;
+            $item['updated'] = $updated;
+            $list[] = $item;
+          }
         }
       }
     }
