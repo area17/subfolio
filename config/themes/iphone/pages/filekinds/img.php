@@ -9,10 +9,8 @@ $width = Subfolio::current_file('width');
 	<?php if ($size < ($max_size * 1024 * 1024)) { ?>
 		
 		<!-- File preview -->
-		<div class="file_preview" style='max-width:<?php echo $width ?>px;'>
-			<a id="file_preview" href="<?php echo Subfolio::current_file('link') ?>">
-				<img src="<?php echo Subfolio::current_file('url') ?>" alt="" />
-			</a>
+		<div class="file_preview">
+			<img src="<?php echo Subfolio::current_file('url') ?>" alt="" />
 		</div>
 		<!-- Information -->
 		<?php if (SubfolioTheme::get_option('display_info')) { require("_download_box.php"); } ?>

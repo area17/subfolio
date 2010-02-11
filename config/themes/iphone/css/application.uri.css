@@ -16,6 +16,8 @@ body {
 	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAACCAMAAACjQTZSAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAlQTFRFxc3VzNPZxs3TbuQ8CQAAABNJREFUeNpiYAACJkZGBigNEGAAAEIACZQcVUUAAAAASUVORK5CYII=);
 	overflow-x: hidden;
 }
+body.popping { overflow-x: auto;}
+
 
 /* ====== Headings ====== */
 /* if additional headings are needed they should be created via additional classes, never via location dependant styling */
@@ -43,6 +45,7 @@ h6 {}
 
 /* ====== Container ====== */
 #container { overflow: hidden; }
+body.popping #container { overflow: auto;}
 
 /* ====== Header ====== */
 header {
@@ -52,6 +55,9 @@ header {
 	position: relative;
 	white-space: nowrap;
 	overflow: hidden;
+}
+body.popping header, body.popping nav, body.popping .file_meta, body.popping .btn {
+	display: none;
 }
 
 	header #logout, header #home {
@@ -100,7 +106,6 @@ nav {
 	-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25); 
 	overflow: hidden;
 }
-
 	nav .parent_dir { float: left; }
 
 	nav .parent_dir a {
@@ -355,7 +360,13 @@ nav {
 		background-color: white;
 		width: 100%;
 	}
-
+	
+	body.popping .file_preview img {
+		width: auto;
+		-webkit-transform: scale(1);
+		-webkit-animation-duration: 1ms;
+	}
+	
 	/* file preview zone */
 	.file_meta {
 		font-size: 15px;
@@ -402,4 +413,13 @@ nav {
 }
 .file_txt .file_meta, .file_img .file_meta {
 	background-color: #eee;
+}
+
+.tooltip {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: yellow;
+	padding: 6px;
+	font-weight: bold;
 }

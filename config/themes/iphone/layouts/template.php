@@ -7,7 +7,7 @@
 	if ($meta_description <> '') { ?>
 		<meta name="description" content="<?php echo $meta_description ?>" />
 	<?php } ?>
-	<meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1.0" />
+	<meta name="viewport" content="width=device-width,user-scalable=yes,minimum-scale=1.0" />
 	<link rel="apple-touch-icon" href="<?php echo SubfolioTheme::get_view_url(); ?>/images/apple-touch-icon.png"/>
 	<link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/common.css" type="text/css" rel="stylesheet" >
 	<link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/application.uri.css" type="text/css" rel="stylesheet" >
