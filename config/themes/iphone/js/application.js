@@ -81,7 +81,7 @@ function addSwipeListener(el, listener) {
     var time;
     var tapThreshold = 1000;
     var imageFullWidth;
-
+    
     function cancelTouch() {
         el.removeEventListener('touchmove', onTouchMove);
         el.removeEventListener('touchend', onTouchEnd);
@@ -116,6 +116,7 @@ function addSwipeListener(el, listener) {
             });
             cancelTouch();
         } else {
+			
 			// no movement so it's gotta be a tap
 			// let's detect double tap
 			if (!time) {
@@ -133,7 +134,7 @@ function addSwipeListener(el, listener) {
     function onTouchStart(e) {
         cancelTouch();
         if (e.touches.length == 1) {
-            startX = e.touches[0].pageX;
+			startX = e.touches[0].pageX;
             startY = e.touches[0].pageY;
             el.addEventListener('touchmove', onTouchMove, false);
             el.addEventListener('touchend', onTouchEnd, false);
@@ -143,6 +144,7 @@ function addSwipeListener(el, listener) {
     function onDoubleTap(e) {
 		var _img = $('.file_preview').children('img');
 		if ($('body').hasClass('popping')) {
+			$('html,body').animate({scrollTop: 0}, 800);
 			$('body').removeClass('popping');
 			isPopped = false;
 			$('body').width(320);
@@ -161,7 +163,25 @@ function addSwipeListener(el, listener) {
 			
 		}
     }
+
+	function startgesture(e) {
+		//console.log('start : ' + e.scale);
+		cancelTouch();
+	}
+	
+	function gesturechange(e) {
+		//console.log('change : ' + e.scale);
+		cancelTouch();
+	}
+	
+	function endgesture(e) {
+		//console.log('end : ' + e.scale);
+		cancelTouch();
+	}
     el.addEventListener('touchstart', onTouchStart, false);
+    document.addEventListener("gesturestart", startgesture, false);
+	document.addEventListener("gesturechange", gesturechange, false);
+	document.addEventListener("gestureend", endgesture, false);
 }
 
 
