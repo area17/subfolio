@@ -545,7 +545,10 @@ class Textile
 		$find = $this->btag;
 		$tre = join('|', $find);
 
+		$matches = array();
     if (is_string($text)) {
+			preg_match_all('#<pre><code>(.*?)</code></pre>#s', $text, $matches);
+			$text = preg_replace("#<pre><code>.*?</code></pre>#s", "~~codeblock~~", $text);
 	  	$text = explode("\n\n", $text);
     } else {
     }
@@ -603,7 +606,13 @@ class Textile
 			}
 		}
 		if ($ext) $out[count($out)-1] .= $c1;
-		return join("\n\n", $out);
+		$t =  join("\n\n", $out);
+		
+		foreach ($matches[0] as $code) {
+		    $t = preg_replace('#~~codeblock~~#', $code, $t, 1);
+		}
+
+		return $t;
 	}
 
 
