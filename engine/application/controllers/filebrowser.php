@@ -1,8 +1,12 @@
 ﻿<?php defined('SYSPATH') or die('No direct script access.');
 class Filebrowser_Controller extends Website_Controller {
 
-  public function hash($password) {
-    print $this->auth->hash($password);
+  public function hash($password=null) {
+    if ($password == null) {
+      print "Password Hash: Coming soon!";
+    } else {
+      print $this->auth->hash($password);
+    }
     exit();
   }
 
