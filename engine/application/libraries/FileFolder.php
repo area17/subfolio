@@ -206,7 +206,7 @@ class FileFolder {
       $path_parts = pathinfo($value);
       // certain files we alays hide extention
       if (isset($path_parts['extension'])) {
-        $lst = array("site", "rss");
+        $lst = array("slide", "site", "rss");
         if (in_array($path_parts['extension'], $lst)) {
           $display = substr($display, 0, (-1 * (1+strlen($path_parts['extension']))));
         }

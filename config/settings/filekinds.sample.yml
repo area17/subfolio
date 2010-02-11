@@ -284,7 +284,7 @@ ftr:
   extensions: [ftr]
   icon: ftr
   display: Feature
-  
+
 pop:
   extensions: [pop]
   icon: pop
@@ -299,6 +299,11 @@ site:
   extensions: [site]
   icon: site
   display: Mini Site
+
+slide:
+  extensions: [slide]
+  icon: site
+  display: Slideshow
 
 rss:
   extensions: [rss]

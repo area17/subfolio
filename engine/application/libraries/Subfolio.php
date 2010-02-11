@@ -1092,8 +1092,22 @@ class SubfolioFiles extends Subfolio {
             $target = "";
             $url = "";
             $display = "";
-      
+    
       		  switch ($kind) {
+
+              case "slide" :
+
+                $slide_files  = Subfolio::$filebrowser->get_file_list(null, $file->name."/");
+                $slide_files  = Subfolio::$filebrowser->sort($slide_files);
+
+                if (sizeof($slide_files) == 0) {
+                  $url          = Subfolio::$filebrowser->get_link($file->name);
+                } else {
+                  $url          = Subfolio::$filebrowser->get_link($slide_files[0]->name);
+                }
+                $display      = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions), false);
+                break;
+
         			case "pop" :
       	        $width    = Subfolio::$filebrowser->get_item_property($file->name, 'width')    ? Subfolio::$filebrowser->get_item_property($file->name, 'width') : 800;
       	        $height   = Subfolio::$filebrowser->get_item_property($file->name, 'height')   ? Subfolio::$filebrowser->get_item_property($file->name, 'height') : 600;
