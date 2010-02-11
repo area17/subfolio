@@ -153,6 +153,15 @@ class Filebrowser_Controller extends Website_Controller {
           if ($kind == "site") {
             $single = true;
             $is_folder = true;
+          } else if ($kind == "slide") {
+            $slide_files  = $this->filebrowser->get_file_list();
+            $slide_files  = $this->filebrowser->sort($slide_files);
+
+            if (sizeof($slide_files) > 0) {
+              $url          = Subfolio::$filebrowser->get_link($slide_files[0]->name);
+              url::redirect($url);
+              exit();
+            }
           }
         }
 
