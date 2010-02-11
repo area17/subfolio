@@ -31,7 +31,7 @@ function runOnDOMready() {
         addSwipeListener(document.body, function (e) {
             direction = e.direction;
             bounce();
-            updateLocation();
+            //updateLocation();
         });
     }
 
@@ -77,6 +77,7 @@ function updateLocation() {
 function addSwipeListener(el, listener) {
     var startX;
     var dx;
+    var dy;
     var direction;
     var time;
     var tapThreshold = 1000;
@@ -89,6 +90,7 @@ function addSwipeListener(el, listener) {
         startY = null;
         direction = null;
         dx = 0;
+		dy = 0;
     }
 
     function onTouchMove(e) {
@@ -96,7 +98,7 @@ function addSwipeListener(el, listener) {
             cancelTouch();
         } else {
             dx = e.touches[0].pageX - startX;
-            var dy = e.touches[0].pageY - startY;
+            dy = e.touches[0].pageY - startY;
 
             if (direction == null) {
                 direction = dx;
@@ -116,18 +118,21 @@ function addSwipeListener(el, listener) {
             });
             cancelTouch();
         } else {
-			
 			// no movement so it's gotta be a tap
-			// let's detect double tap
-			if (!time) {
-                time = new Date().getTime();
-            } else {
-                if (new Date().getTime() - time < tapThreshold) {
-                   	cancelTouch();
-					onDoubleTap(e);
-                }
-                time = null;
-            }
+			// let's detect double tap but only if there hasn't been a movement
+			if ((Math.abs(dx) == 0) && (Math.abs(dy) == 0) && (direction == null)) {
+				if (!time) {
+	                time = new Date().getTime();
+	            } else {
+	                if (new Date().getTime() - time < tapThreshold) {
+	                   	//console.log('double tap, dx=' + Math.abs(dx) + ' , dy= ' + Math.abs(dy) + ' , direction= ' + direction);
+						cancelTouch();
+						onDoubleTap(e);
+	                }
+	                time = null;
+	            }
+			}
+
         }
     }
 
@@ -144,12 +149,14 @@ function addSwipeListener(el, listener) {
     function onDoubleTap(e) {
 		var _img = $('.file_preview').children('img');
 		if ($('body').hasClass('popping')) {
+			console.log('popping out');
 			$('html,body').animate({scrollTop: 0}, 800);
 			$('body').removeClass('popping');
 			isPopped = false;
 			$('body').width(320);
 			$('.tooltip').hide();
 		} else {
+			console.log('popping in');
 			$('body').addClass('popping');
 			isPopped = true;
 			if (!imageFullWidth) imageFullWidth = _img.width();
