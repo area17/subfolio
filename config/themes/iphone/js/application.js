@@ -31,7 +31,7 @@ function runOnDOMready() {
         addSwipeListener(document.body, function (e) {
             direction = e.direction;
             bounce();
-            //updateLocation();
+            updateLocation();
         });
     }
 
@@ -82,6 +82,9 @@ function addSwipeListener(el, listener) {
     var time;
     var tapThreshold = 1000;
     var imageFullWidth;
+	var currentBodyWidth;
+	
+
     
     function cancelTouch() {
         el.removeEventListener('touchmove', onTouchMove);
@@ -149,18 +152,39 @@ function addSwipeListener(el, listener) {
     function onDoubleTap(e) {
 		var _img = $('.file_preview').children('img');
 		if ($('body').hasClass('popping')) {
-			console.log('popping out');
-			$('html,body').animate({scrollTop: 0}, 800);
+			console.log('popping out ' + scale);
+			
+			// enable scaling
+			document.getElementById("viewport").setAttribute('content','width=device-width,user-scalable=1,initial-scale=1.0, minimum-scale=1.0, maximum-scale = 10');
+			
+			// turn on normal mode
 			$('body').removeClass('popping');
 			isPopped = false;
-			$('body').width(320);
+			$('body').width(currentBodyWidth);
+			
+			// turn off 100% mode indicator
 			$('.tooltip').hide();
+			
+			// scroll back to top
+			$('html,body').animate({scrollTop: 0}, 800);
 		} else {
 			console.log('popping in');
+			
+			// disable scaling
+			document.getElementById("viewport").setAttribute('content','width=device-width,user-scalable=1,initial-scale=1.0, minimum-scale=1.0, maximum-scale = 1');
+			// save current width
+			currentBodyWidth = $('body').width();
+			
+			// turn on 100% mode
 			$('body').addClass('popping');
 			isPopped = true;
 			if (!imageFullWidth) imageFullWidth = _img.width();
 			$('body').width(imageFullWidth);
+			
+			// scroll back to top
+			$('html,body').animate({scrollTop: 0}, 800);
+			
+			// turn on 100% mode indicator
 			if (($('tooltip')[0])) {
 				$('tooltip').show();
 			} else {
@@ -173,22 +197,26 @@ function addSwipeListener(el, listener) {
 
 	function startgesture(e) {
 		//console.log('start : ' + e.scale);
+		scale.start = e.scale;
+		scale.startAbs = scale.end;
 		cancelTouch();
 	}
 	
 	function gesturechange(e) {
 		//console.log('change : ' + e.scale);
+		scale.change = e.scale;
 		cancelTouch();
 	}
 	
 	function endgesture(e) {
-		//console.log('end : ' + e.scale);
+		scale.end = e.scale;
+		scale.coeff = scale.end - scale.start;
 		cancelTouch();
+		console.log('scale.start: ' + scale.start + ', scale.end: ' + scale.end + ', scale.coeff: ' + scale.coeff );
 	}
+	
     el.addEventListener('touchstart', onTouchStart, false);
-    document.addEventListener("gesturestart", startgesture, false);
-	document.addEventListener("gesturechange", gesturechange, false);
-	document.addEventListener("gestureend", endgesture, false);
+
 }
 
 
