@@ -128,6 +128,14 @@ class Subfolio {
       }
     }
 
+    if ($data == "target") {
+      if (Subfolio::$filebrowser->file <> '') {
+        return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'target') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'target') : '';
+      } else {
+        return Subfolio::$filebrowser->get_folder_property('target') ? Subfolio::$filebrowser->get_folder_property('target') : '';
+      }
+    }
+
     if ($data == "filename") {
       if (Subfolio::$filebrowser->file <> '') {
         return htmlentities(Subfolio::$template->content->file->name);
