@@ -152,7 +152,7 @@ function addSwipeListener(el, listener) {
     function onDoubleTap(e) {
 		var _img = $('.file_preview').children('img');
 		if ($('body').hasClass('popping')) {
-			console.log('popping out ' + scale);
+			console.log('popping out ');
 			
 			// enable scaling
 			document.getElementById("viewport").setAttribute('content','width=device-width,user-scalable=1,initial-scale=1.0, minimum-scale=1.0, maximum-scale = 10');
@@ -168,7 +168,7 @@ function addSwipeListener(el, listener) {
 			// scroll back to top
 			$('html,body').animate({scrollTop: 0}, 800);
 		} else {
-			console.log('popping in');
+			console.log('popping in : ' + _img.width() + ' ' + _img.outerWidth());
 			
 			// disable scaling
 			document.getElementById("viewport").setAttribute('content','width=device-width,user-scalable=1,initial-scale=1.0, minimum-scale=1.0, maximum-scale = 1');
@@ -215,7 +215,25 @@ function addSwipeListener(el, listener) {
 		console.log('scale.start: ' + scale.start + ', scale.end: ' + scale.end + ', scale.coeff: ' + scale.coeff );
 	}
 	
+	function updateOrientation() {
+		switch(window.orientation) {
+			case 0: //Portrait 
+				$('html').addClass('portrait');
+				break;
+			case -90 : // landscape
+				$('html').addClass('landscape');
+				break;
+			case 90 : // landscape 
+				$('html').addClass('landscape');
+				break;
+			case 180 : // portrait
+				$('html').addClass('portrait');
+				break;
+		}
+	}
+	
     el.addEventListener('touchstart', onTouchStart, false);
+    el.addEventListener('orientationchange', updateOrientation, false);
 
 }
 
