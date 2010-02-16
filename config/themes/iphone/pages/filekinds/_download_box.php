@@ -15,8 +15,15 @@
 	<?php }?>
 	
 	<!-- Image -->
-	<?php if (Subfolio::current_file('icon_name')=='img') { ?> 
-		<span href="<?php echo Subfolio::current_file('link') ?>" class="btn btn_download"><?php echo SubfolioLanguage::get_text('viewimage') ?></span>
-	<?php }?>
+	<?php if (Subfolio::current_file('icon_name')=='img') { 
+		$width = Subfolio::current_file('width');
+		$height = Subfolio::current_file('height');
+		if (($width * $height) < ($max_size * 1024 * 1024)) { 
+	?>
+		<span class="btn btn_download"><?php echo SubfolioLanguage::get_text('viewimage') ?></span>
+		
+	<?php } else { ?>
+		<a href="<?php echo Subfolio::current_file('link') ?>" class="btn btn_download"><?php echo SubfolioLanguage::get_text('viewimage') ?></a>
+	<?php } } ?>
 	
 </div>

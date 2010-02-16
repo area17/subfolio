@@ -24,6 +24,7 @@ $config['site_logo_height'] = 53;
 
 $config['display_max_filesize'] = 5;    // In Megabytes
 $config['thumbnail_max_filesize'] = 1;    // In Megabytes
+$config['display_max_filesize_iphone'] = 3;    // In Megabytes
 
 $config['hide_locked_folders'] = false;
 

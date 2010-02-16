@@ -1,12 +1,13 @@
 <?php
-$max_size = Subfolio::get_setting('display_max_filesize');
+$max_size = Subfolio::get_setting('display_max_filesize_iphone');
 $size = Subfolio::current_file('rawsize');
 $width = Subfolio::current_file('width');
+$height = Subfolio::current_file('height');
 ?>
 
 <div class="file file_img">
 
-	<?php if ($size < ($max_size * 1024 * 1024)) { ?>
+	<?php if (($width * $height) < ($max_size * 1024 * 1024)) { ?>
 		
 		<!-- File preview -->
 		<div class="file_preview">
@@ -17,6 +18,7 @@ $width = Subfolio::current_file('width');
 			
 	<?php
  	} else {
+		echo "The image exceeds iPhone limits (copy to be determined)";
 		require("_download_box.php");
 	} ?>
 	

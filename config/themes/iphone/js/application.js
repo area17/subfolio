@@ -37,11 +37,12 @@ function runOnDOMready() {
         });
     }
 
-	$('.btn_download').click(function(e) {
-		e.preventDefault();
-		setTimeout(fullSize, 800);
-	})
-
+	if ($('.file_preview')[0]) {
+		$('.btn_download').click(function(e) {
+			e.preventDefault();
+			setTimeout(fullSize, 800);
+		})
+	}
 }
 
 /* Run when Page is loaded
@@ -114,7 +115,7 @@ function fullSize() {
 		$('body').width(imageFullWidth);
 		
 		// scroll back to top
-		$('html,body').animate({scrollTop: 0}, 800);
+		window.scrollTo(0, 1);
 		
 		// turn on 100% mode indicator
 		if (($('tooltip')[0])) {
