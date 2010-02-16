@@ -3,6 +3,8 @@ var threshold = {
     x: 120,
     y: 15
 }
+var imageFullWidth;
+var currentBodyWidth;
 
 /* What to do when DOM is ready
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
@@ -34,6 +36,11 @@ function runOnDOMready() {
             updateLocation();
         });
     }
+
+	$('.btn_download').click(function(e) {
+		e.preventDefault();
+		setTimeout(fullSize, 800);
+	})
 
 }
 
@@ -74,6 +81,52 @@ function updateLocation() {
     }
 }
 
+function fullSize() {
+	var _img = $('.file_preview').children('img');
+	if ($('body').hasClass('popping')) {
+		console.log('popping out ');
+		
+		// enable scaling
+		document.getElementById("viewport").setAttribute('content','width=device-width,user-scalable=1,initial-scale=1.0, minimum-scale=1.0, maximum-scale = 10');
+		
+		// turn on normal mode
+		$('body').removeClass('popping');
+		isPopped = false;
+		$('body').width(currentBodyWidth);
+		
+		// turn off 100% mode indicator
+		$('.tooltip').hide();
+		
+		// scroll back to top
+		$('html,body').animate({scrollTop: 0}, 800);
+	} else {
+		console.log('popping in : ' + _img.width() + ' ' + _img.outerWidth());
+		
+		// disable scaling
+		document.getElementById("viewport").setAttribute('content','width=device-width,user-scalable=1,initial-scale=1.0, minimum-scale=1.0, maximum-scale = 1');
+		// save current width
+		currentBodyWidth = $('body').width();
+		
+		// turn on 100% mode
+		$('body').addClass('popping');
+		isPopped = true;
+		if (!imageFullWidth) imageFullWidth = _img.width();
+		$('body').width(imageFullWidth);
+		
+		// scroll back to top
+		$('html,body').animate({scrollTop: 0}, 800);
+		
+		// turn on 100% mode indicator
+		if (($('tooltip')[0])) {
+			$('tooltip').show();
+		} else {
+			var info = '<span class="tooltip">Full Size</span>';
+			$('body').append(info);
+		}
+		
+	}
+}
+
 function addSwipeListener(el, listener) {
     var startX;
     var dx;
@@ -81,9 +134,6 @@ function addSwipeListener(el, listener) {
     var direction;
     var time;
     var tapThreshold = 1000;
-    var imageFullWidth;
-	var currentBodyWidth;
-	
 
     
     function cancelTouch() {
@@ -123,19 +173,18 @@ function addSwipeListener(el, listener) {
         } else {
 			// no movement so it's gotta be a tap
 			// let's detect double tap but only if there hasn't been a movement
-			if ((Math.abs(dx) == 0) && (Math.abs(dy) == 0) && (direction == null)) {
+			if ($('body').hasClass('popping') && (Math.abs(dx) == 0) && (Math.abs(dy) == 0) && (direction == null)) {
 				if (!time) {
 	                time = new Date().getTime();
 	            } else {
 	                if (new Date().getTime() - time < tapThreshold) {
 	                   	//console.log('double tap, dx=' + Math.abs(dx) + ' , dy= ' + Math.abs(dy) + ' , direction= ' + direction);
 						cancelTouch();
-						onDoubleTap(e);
+						fullSize();
 	                }
 	                time = null;
 	            }
 			}
-
         }
     }
 
@@ -146,54 +195,59 @@ function addSwipeListener(el, listener) {
             startY = e.touches[0].pageY;
             el.addEventListener('touchmove', onTouchMove, false);
             el.addEventListener('touchend', onTouchEnd, false);
+			if (e.touches[0].target.className == "file_meta") {
+				isFileMeta = true;
+			} else {
+				isFileMeta = false;
+			}
         }
     }
 
-    function onDoubleTap(e) {
-		var _img = $('.file_preview').children('img');
-		if ($('body').hasClass('popping')) {
-			console.log('popping out ');
-			
-			// enable scaling
-			document.getElementById("viewport").setAttribute('content','width=device-width,user-scalable=1,initial-scale=1.0, minimum-scale=1.0, maximum-scale = 10');
-			
-			// turn on normal mode
-			$('body').removeClass('popping');
-			isPopped = false;
-			$('body').width(currentBodyWidth);
-			
-			// turn off 100% mode indicator
-			$('.tooltip').hide();
-			
-			// scroll back to top
-			$('html,body').animate({scrollTop: 0}, 800);
-		} else {
-			console.log('popping in : ' + _img.width() + ' ' + _img.outerWidth());
-			
-			// disable scaling
-			document.getElementById("viewport").setAttribute('content','width=device-width,user-scalable=1,initial-scale=1.0, minimum-scale=1.0, maximum-scale = 1');
-			// save current width
-			currentBodyWidth = $('body').width();
-			
-			// turn on 100% mode
-			$('body').addClass('popping');
-			isPopped = true;
-			if (!imageFullWidth) imageFullWidth = _img.width();
-			$('body').width(imageFullWidth);
-			
-			// scroll back to top
-			$('html,body').animate({scrollTop: 0}, 800);
-			
-			// turn on 100% mode indicator
-			if (($('tooltip')[0])) {
-				$('tooltip').show();
-			} else {
-				var info = '<span class="tooltip">Full Size</span>';
-				$('body').append(info);
-			}
-			
-		}
-    }
+		//     function fullSize() {
+		// var _img = $('.file_preview').children('img');
+		// if ($('body').hasClass('popping')) {
+		// 	console.log('popping out ');
+		// 	
+		// 	// enable scaling
+		// 	document.getElementById("viewport").setAttribute('content','width=device-width,user-scalable=1,initial-scale=1.0, minimum-scale=1.0, maximum-scale = 10');
+		// 	
+		// 	// turn on normal mode
+		// 	$('body').removeClass('popping');
+		// 	isPopped = false;
+		// 	$('body').width(currentBodyWidth);
+		// 	
+		// 	// turn off 100% mode indicator
+		// 	$('.tooltip').hide();
+		// 	
+		// 	// scroll back to top
+		// 	$('html,body').animate({scrollTop: 0}, 800);
+		// } else {
+		// 	console.log('popping in : ' + _img.width() + ' ' + _img.outerWidth());
+		// 	
+		// 	// disable scaling
+		// 	document.getElementById("viewport").setAttribute('content','width=device-width,user-scalable=1,initial-scale=1.0, minimum-scale=1.0, maximum-scale = 1');
+		// 	// save current width
+		// 	currentBodyWidth = $('body').width();
+		// 	
+		// 	// turn on 100% mode
+		// 	$('body').addClass('popping');
+		// 	isPopped = true;
+		// 	if (!imageFullWidth) imageFullWidth = _img.width();
+		// 	$('body').width(imageFullWidth);
+		// 	
+		// 	// scroll back to top
+		// 	$('html,body').animate({scrollTop: 0}, 800);
+		// 	
+		// 	// turn on 100% mode indicator
+		// 	if (($('tooltip')[0])) {
+		// 		$('tooltip').show();
+		// 	} else {
+		// 		var info = '<span class="tooltip">Full Size</span>';
+		// 		$('body').append(info);
+		// 	}
+		// 	
+		// }
+		//     }
 
 	function startgesture(e) {
 		//console.log('start : ' + e.scale);
@@ -233,7 +287,7 @@ function addSwipeListener(el, listener) {
 	}
 	
     el.addEventListener('touchstart', onTouchStart, false);
-    el.addEventListener('orientationchange', updateOrientation, false);
+    //el.addEventListener('orientationchange', updateOrientation, false);
 
 }
 

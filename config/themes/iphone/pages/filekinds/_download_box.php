@@ -16,7 +16,7 @@
 	
 	<!-- Image -->
 	<?php if (Subfolio::current_file('icon_name')=='img') { ?> 
-		<a href="<?php echo Subfolio::current_file('link') ?>" class="btn btn_download"><?php echo SubfolioLanguage::get_text('view_image') ?></a>
+		<span href="<?php echo Subfolio::current_file('link') ?>" class="btn btn_download"><?php echo SubfolioLanguage::get_text('viewimage') ?></span>
 	<?php }?>
 	
 </div>
