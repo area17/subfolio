@@ -464,7 +464,7 @@ background-color: #eee;
 .list li span.caps { display: inline; float: none; }
 .list li span strong { color: inherit; }
 .list .icon { width: 25px; height: 17px; position: relative; }
-.list .filename { width: 200px; position: relative; }
+.list .filename { width: 220px; position: relative; padding-right: 20px !important; }
 
 .list .filename:before { /*content: '— ';*/ } /* << If you remove the icons and want to show the link s*/
 .list .first .filename:before { content: ''; }
