@@ -11,7 +11,7 @@ $height = Subfolio::current_file('height');
 		
 		<!-- File preview -->
 		<div class="file_preview">
-			<a href="<?php echo Subfolio::current_file('url') ?>"><img src="<?php echo Subfolio::current_file('url') ?>" alt="" /></a>
+			<img src="<?php echo Subfolio::current_file('url') ?>" alt="" />
 		</div>
 		<!-- Information -->
 		<?php if (SubfolioTheme::get_option('display_info')) { require("_download_box.php"); } ?>
