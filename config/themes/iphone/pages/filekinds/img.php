@@ -11,14 +11,13 @@ $height = Subfolio::current_file('height');
 		
 		<!-- File preview -->
 		<div class="file_preview">
-			<img src="<?php echo Subfolio::current_file('url') ?>" alt="" />
+			<a href="<?php echo Subfolio::current_file('url') ?>"><img src="<?php echo Subfolio::current_file('url') ?>" alt="" /></a>
 		</div>
 		<!-- Information -->
 		<?php if (SubfolioTheme::get_option('display_info')) { require("_download_box.php"); } ?>
 			
 	<?php
  	} else {
-		echo "The image exceeds iPhone limits (copy to be determined)";
 		require("_download_box.php");
 	} ?>
 	
