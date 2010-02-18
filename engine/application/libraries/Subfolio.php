@@ -1262,6 +1262,7 @@ class SubfolioFiles extends Subfolio {
 
         $items = Subfolio::$filebrowser->get_parent_file_folder_list(null, false);
         $items = Subfolio::$filebrowser->sort($items);
+        $items = Subfolio::$filebrowser->prev_next_sort($items);
         
   			$prev = Subfolio::$filebrowser->get_prev($items, $file->name);
   			if ($prev <> "") {
@@ -1276,6 +1277,7 @@ class SubfolioFiles extends Subfolio {
 
         $items = Subfolio::$filebrowser->get_parent_file_folder_list(null, true);
         $items = Subfolio::$filebrowser->sort($items);
+        $items = Subfolio::$filebrowser->prev_next_sort($items);
   			$prev    = Subfolio::$filebrowser->get_prev($items, $folder);
   
   			if ($prev <> "") {
@@ -1298,6 +1300,7 @@ class SubfolioFiles extends Subfolio {
 
         $items = Subfolio::$filebrowser->get_parent_file_folder_list(null, false);
         $items = Subfolio::$filebrowser->sort($items);
+        $items = Subfolio::$filebrowser->prev_next_sort($items);
 
   			$next = Subfolio::$filebrowser->get_next($items, $file->name);
   			if ($next <> "") {
@@ -1312,6 +1315,7 @@ class SubfolioFiles extends Subfolio {
 
         $items = Subfolio::$filebrowser->get_parent_file_folder_list(null, true);
         $items = Subfolio::$filebrowser->sort($items);
+        $items = Subfolio::$filebrowser->prev_next_sort($items);
   			$next = Subfolio::$filebrowser->get_next($items, $folder);
   
   			if ($next <> "") {

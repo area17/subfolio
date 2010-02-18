@@ -222,17 +222,23 @@ class Filebrowser {
   public function prev_next_sort($list) {
     $gallery = array();
     $other = array();
-
+  
     foreach ($list as $item) {
-      if ($item->kind == 'Image') {
+      if ($item->kind == "img") {
         $gallery[] = $item;
       } else {
         $other[] = $item;
       }
     }
 
-    $newlist = array_merge($gallery, $other);
-    return $newlist;
+    $items = array();
+    foreach ($gallery as $item) {
+      $items[] = $item;
+    }    
+    foreach ($other as $item) {
+      $items[] = $item;
+    }    
+    return $items;
   }
 
   public function get_next($list, $name) {
