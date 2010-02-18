@@ -929,8 +929,6 @@ class Filebrowser {
       }
     }
 
-    if ($filename == "")
-
     if (!$hidden) {
       $info_ext = Kohana::config('filebrowser.info_extension') ?  Kohana::config('filebrowser.info_extension') : ".info" ;
       $ftr_ext = Kohana::config('filebrowser.feature_extension') ?  Kohana::config('filebrowser.feature_extension') : ".ftr" ;
