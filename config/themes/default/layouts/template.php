@@ -23,10 +23,6 @@
 	<!--<link href="<?php echo SubfolioTheme::get_view_url(); "/css/".SubfolioTheme::get_listing_mode(); ?>.css" type="text/css" rel="stylesheet" >-->
 	<!--[if IE 6]><link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/ie6.css" type="text/css" rel="stylesheet" ><![endif]-->
 	
-	<?php if (SubfolioTheme::get_mobile_viewport()) { ?>
-		<link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/iphone.css" type="text/css" rel="stylesheet" >
-	<?php }	?>
-
 	<!-- All right. Let's overwrite with some inline styles -->
 	<?php
 		// Main Colors -----------------------------------------------------------------------------------------------------
@@ -137,13 +133,9 @@
 	</style>
 	
 	<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/common.js"></script>
-	<?php if (SubfolioTheme::get_mobile_viewport()) { ?>
-		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/main-iphone.js"></script>
-	<?php }	else { ?>
-		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/jquery-1.3.2.min.js"></script>
-		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/jquery.scrollTo-min.js"></script>
-		<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/main.js"></script>
-	<?php }	?>
+	<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/jquery-1.3.2.min.js"></script>
+	<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/jquery.scrollTo-min.js"></script>
+	<script language="javascript" type="text/javascript" src="<?php echo SubfolioTheme::get_view_url(); ?>/js/main.js"></script>
 
 </head>
 <body>
