@@ -934,6 +934,12 @@ class SubfolioFiles extends Subfolio {
           $url = "";
           $display = "";
     
+          if (strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) {
+            if ($kind == "pop") {
+              $kind = "link";
+            }
+          }
+
     		  switch ($kind) {
     
       			case "pop" :
