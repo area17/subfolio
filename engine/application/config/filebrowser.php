@@ -11,7 +11,7 @@ $config['site_meta_description'] = '';
 $config['site_logo_url'] = '';
 $config['site_domain'] = 'www.subfolio.com';
 $config['theme'] = 'default';
-$config['mobile_theme'] = 'iphone';
+$config['mobile_theme'] = 'mobile';
 $config['directory'] = $site_folder.'directory';
 $config['access_file']     = '-access';
 $config['properties_file'] = '-properties';
@@ -24,7 +24,7 @@ $config['site_logo_height'] = 53;
 
 $config['display_max_filesize'] = 5;    // In Megabytes
 $config['thumbnail_max_filesize'] = 1;    // In Megabytes
-$config['display_max_filesize_iphone'] = 3;    // In Megabytes
+$config['display_max_filesize_mobile'] = 3;    // In Megabytes
 
 $config['hide_locked_folders'] = false;
 
@@ -67,7 +67,7 @@ $config['site_meta_description']  = isset($settings['site_meta_description']) ? 
 
 $config['theme']                  = isset($settings['theme'])               ? $settings['theme'] : $config['theme'];
 if (strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) {
-  $config['theme']                  = isset($settings['iphone_theme'])               ? $settings['iphone_theme'] : $config['theme'];
+  $config['theme']                  = isset($settings['mobile_theme'])               ? $settings['mobile_theme'] : $config['theme'];
 }
 
 $config['directory']              = isset($settings['directory'])          	? $site_folder.$settings['directory'] : $config['directory'];

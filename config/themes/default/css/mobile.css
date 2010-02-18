@@ -1,6 +1,6 @@
 /* -------------------------------------------------------------- 
 
-iphone.css (based on main.css)
+mobile.css (based on main.css)
 * Subfolio by AREA 17
 
 -------------------------------------------------------------- */
@@ -62,7 +62,7 @@ body > #container > #container-inner > #content > #related > *:not(.list) {
 }
 
 
-/*iPhone previous / next navigation
+/*mobile previous / next navigation
 -------------------------------------------------------------- */
 
 span.parent_dir { width:90px; }
@@ -70,7 +70,7 @@ span.parent_dir { width:90px; }
 	text-indent: -9000px;
 	width: 90px;
 	height: 70px;
-	background: url(../images/iphone/parent.png) no-repeat 30px 20px;
+	background: url(../images/mobile/parent.png) no-repeat 30px 20px;
 	padding: 0;
 	border-right: 1px solid #e0e0e0;
 }
@@ -80,18 +80,18 @@ span.parent_dir { width:90px; }
 	text-indent: -9000px;
 	height: 70px;
 	width: 70px;
-	background: url(../images/iphone/next.png) no-repeat 20px 20px;
+	background: url(../images/mobile/next.png) no-repeat 20px 20px;
 	padding: 0;
 	border-right: 1px solid #e0e0e0;
 }
-#navigation #previous { background-image: url(../images/iphone/previous.png); }
-#navigation #next { background-image: url(../images/iphone/next.png); }
+#navigation #previous { background-image: url(../images/mobile/previous.png); }
+#navigation #next { background-image: url(../images/mobile/next.png); }
 #navigation span.prev_next .faded {
 	opacity: .2;
 }
 
 
-/* iPhone LIST VIEW for LISTING module
+/* mobile LIST VIEW for LISTING module
 -------------------------------------------------------------- */
 .list {
 	min-width: 200px !important; 
@@ -125,7 +125,7 @@ span.parent_dir { width:90px; }
 		-moz-background-clip: border !important;
 		-moz-background-inline-policy: continuous !important;
 		-moz-background-origin: padding !important;
-		background: transparent url(../images/system/iphone/listArrow.png) no-repeat scroll right center !important;
+		background: transparent url(../images/system/mobile/listArrow.png) no-repeat scroll right center !important;
 	}
 		
 	.list > li:not(.listing-header) span {

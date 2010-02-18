@@ -17,7 +17,7 @@ site_meta_description: "Subfolio provides an elegant, practical and customizable
                                    # remove "#" to display
 
 theme: default                     # name of the active theme
-iphone_theme: iphone               # name of the active iphone theme
+mobile_theme: mobile               # name of the active mobile theme
 directory: directory               # location of your content
 
 hide_locked_folders: false         # hide folders a logged in user does not have access to

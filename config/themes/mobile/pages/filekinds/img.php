@@ -1,5 +1,5 @@
 <?php
-$max_size = Subfolio::get_setting('display_max_filesize_iphone');
+$max_size = Subfolio::get_setting('display_max_filesize_mobile');
 $size = Subfolio::current_file('rawsize');
 $width = Subfolio::current_file('width');
 $height = Subfolio::current_file('height');

@@ -1,6 +1,6 @@
 /* -------------------------------------------------------------- 
 
-main-iphone.js (light javascript for Subfolio on iPhone)
+main-mobile.js (light javascript for Subfolio on mobile)
 * Subfolio by AREA 17
 
 -------------------------------------------------------------- */
