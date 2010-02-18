@@ -363,17 +363,27 @@ class Filebrowser {
   public function get_file_list($kind=null, $prefix=null, $hidden=false){
     $files = array();
 
+    $trim = false;
     $name = "*";
     if ($prefix != null) {
       $name = $prefix."*";
+
+      $pos = strpos($prefix, '/');
+      if ($pos !== false) {
+        $trim = true;
+      }
     }
 
     $names = $this->sub_glob($name);
     if ($names) {
       foreach ($names as $filename) {
         if (!is_dir($filename)) {
-  
-          if ($hidden || !$this->is_hidden($filename)) {
+          $tfilename = $filename;
+          if ($trim) {
+            $tfilename = substr($filename, strlen($prefix));
+          }
+            
+          if ($hidden || !$this->is_hidden($tfilename)) {
             $include = false;
   
             if ($kind != null) {
@@ -919,16 +929,7 @@ class Filebrowser {
       }
     }
 
-    if (!$hidden) {
-      $pos = strpos($filename, '.');
-      if ($pos === false) {
-        $hidden = false;
-      } else {
-        if ($pos == 0) {
-          $hidden = true;
-        }
-      }
-    }
+    if ($filename == "")
 
     if (!$hidden) {
       $info_ext = Kohana::config('filebrowser.info_extension') ?  Kohana::config('filebrowser.info_extension') : ".info" ;
