@@ -302,7 +302,7 @@ site:
 
 slide:
   extensions: [slide]
-  icon: site
+  icon: txt
   display: Slideshow
 
 rss:
