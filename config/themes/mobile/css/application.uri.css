@@ -394,16 +394,19 @@ nav {
 			margin: 0 0 10px;
 		}
 	
-		.file_meta dt, .file_meta dd {
-			height: 30px;
-			line-height: 32px;
+		.file_meta dt { 
+			clear: left;
+			display: block;
+			float: left; 
+			line-height: 20px;
+			padding: 6px 0 0;
 		}
-	
-		.file_meta dt { float: left; }
 	
 		.file_meta dd {
 			border-bottom: 1px solid #E0E0E0;
-			padding: 0 0 0 110px;
+			display: block;
+			line-height: 20px;
+			padding: 6px 0 4px 110px;
 		}
 		
 		.file_meta > h1 + p { border-top: 1px solid #E0E0E0; padding-top: 12px; }
