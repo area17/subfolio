@@ -547,8 +547,8 @@ class Textile
 
 		$matches = array();
     if (is_string($text)) {
-			preg_match_all('#<pre>(.*)<code>(.*?)</code>(.*)</pre>#s', $text, $matches);
-			$text = preg_replace("#<pre>(.*)<code>.*?</code>(.*)</pre>#s", "~~codeblock~~", $text);
+			preg_match_all('#<pre>(.*)<code>(.*?)</code>(.*)</pre>#', $text, $matches);
+			$text = preg_replace("#<pre>(.*)<code>.*?</code>(.*)</pre>#", "~~codeblock~~", $text);
 	  	$text = explode("\n\n", $text);
     } else {
     }
