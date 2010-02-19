@@ -144,9 +144,7 @@ nav {
 /* ====== Inline content ====== */
 
 #inline_top_text, #inline_middle_text, #inline_bottom_text {
-	margin-bottom: 1px;
 	background-color: white;
-	-webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.50); 
 }
 
 #inline_top_image, #inline_middle_image, #inline_bottom_image {

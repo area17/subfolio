@@ -11,12 +11,19 @@
 	
 	<!-- PDF -->
 	<?php if (Subfolio::current_file('icon_name')=='pdf') { ?> 
-		<a href="<?php echo Subfolio::current_file('link') ?>?download=true" class="btn btn_download"><?php echo SubfolioLanguage::get_text('downloadfile') ?></a>
+		<a href="<?php echo Subfolio::current_file('link') ?>?download=true" class="btn btn_download"><?php echo SubfolioLanguage::get_text('viewfile') ?></a>
 	<?php }?>
 	
 	<!-- Image -->
-	<?php if (Subfolio::current_file('icon_name')=='img') { ?>
-		<a href="<?php echo Subfolio::current_file('link') ?>" class="btn btn_download"><?php echo SubfolioLanguage::get_text('viewimage') ?></a>
-	<?php } ?>
+	<?php if (Subfolio::current_file('icon_name')=='img') { 
+		$max_size = Subfolio::get_setting('display_max_filesize_mobile');
+		$width = Subfolio::current_file('width');
+		$height = Subfolio::current_file('height');
+		if (($width * $height) > ($max_size * 1024 * 1024)) { ?>
+			<a href="<?php echo Subfolio::current_file('link') ?>" class="btn btn_download"><?php echo SubfolioLanguage::get_text('viewfile') ?></a>
+	<?php 
+		}
+	} 
+	?>
 	
 </div>
