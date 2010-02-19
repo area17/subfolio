@@ -1,26 +1,38 @@
-# Main colors
-back:                 'white'
-main_link:            '#1a1a1a'
-main_link_hover:      '#1a1a1a'
-main_link_back_hover: '#f5f5f5'
-line:                 '#e0e0e0'
-text_strong:          '#1a1a1a'
-text:                 '#333'
-text_light:           '#666'
-text_dimmed:          '#999'
-flash:                'red'
-# Optional colors
-#border:               'transparent'
-#gallery_link:         '#1a1a1a'
-#gallery_link_hover:   '#1a1a1a'
-#gallery_back:         'white'
-#gallery_back_hover:   '#f5f5f5'
-#feature_link:          '#1a1a1a'
-#feature_link_hover:    '#1a1a1a'
-feature_text_hover:   '#999'
-#feature_back:          'white'
-#feature_back_hover:    '#f5f5f5'
-#sub_link:             '#999'
-#sub_link_hover:       '#1c7ad5'
-#sub_link_back_hover:  '#222'
-#back_shift:           '#202020'
+# YAML NOTE: Indentation, spacing and text case are super important.
+# This file must be encoded as Unicode (UTF-8) for it to work properly.
+
+# You can change your color palette in the theme options.yml file.
+# You may need to change your icon set to 24bit alpha if using dark background. 
+# Change icons in theme options.yml file.
+
+### Main colors
+### These colors affect elements listed in optional colors if not activated
+
+back:                   'white'
+main_link:              '#1a1a1a'
+main_link_hover:        '#1a1a1a'
+main_link_back_hover:   '#f5f5f5'
+line:                   '#e0e0e0'
+text_strong:            '#1a1a1a'
+text:                   '#333'
+text_light:             '#666'
+text_dimmed:            '#999'
+flash:                  'red'
+
+### Optional colors
+### Remove "#" to activate optional color and override defaults
+
+# border:               'transparent'
+# gallery_link:         '#1a1a1a'
+# gallery_link_hover:   '#1a1a1a'
+# gallery_back:         'white'
+# gallery_back_hover:   '#f5f5f5'
+# feature_link:         '#1a1a1a'
+# feature_link_hover:   '#1a1a1a'
+feature_text_hover:     '#999'
+# feature_back:         'white'
+# feature_back_hover:   '#f5f5f5'
+# sub_link:             '#999'
+# sub_link_hover:       '#1c7ad5'
+# sub_link_back_hover:  '#222'
+# back_shift:           '#202020'

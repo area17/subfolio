@@ -3,37 +3,59 @@
 
 # To change your logo and other interface elements, go to /config/themes/default/options.yml
 
-# GLOBAL SETTINGS
+### YOUR SITE NAME
+### Appears in the header and HTML title of the page
 
-site_name: Subfolio                # appears in the header and HTML title of the page
-site_domain: www.subfolio.com      # appears in the breadcrumb navigation
-# site_copyright: "© 2009 Subfolio — All rights reserved" 
-                                   # change "Subfolio" to your company name and remove "#" to display
+site_name: Subfolio 
+
+### YOUR DOMAIN
+### Appears in the breadcrumb navigation
+
+site_domain: www.subfolio.com
+
+### YOUR COPYRIGHT
+### You must turn it on in your theme options to display
+
+site_copyright: "&copy; 2010 Subfolio — All rights reserved" 
+
+### YOUR WEBSITE META DESCRIPTION
+### For search engines
 
 site_meta_description: "Subfolio provides an elegant, practical and customizable web interface to your file system."
-                                   # change to your meta description for search engine indexing
+
+### YOUR GOOGLE ANALYTICS CODE
+### Remove "#" to activate
 
 # google_analytics_code: "UA-XXXXXX-X" 
-                                   # remove "#" to display
 
-theme: default                     # name of the active theme
-mobile_theme: mobile               # name of the active mobile theme
-directory: directory               # location of your content
+### YOUR ACTIVE THEME / CONTENT LOCATION
+### To inactivate iphone theme, add "#" before iphone line
 
-hide_locked_folders: false         # hide folders a logged in user does not have access to
+theme: default
+iphone_theme: iphone
+directory: directory
 
-# YAML FILE NAMES
+### HIDE LOCKED FOLDERS
+### Will hide any folders user doesn't have access to
 
-users_yaml_file: users.yml         # name of YAML file for users
-groups_yaml_file: groups.yml       # name of YAML file for groups
+hide_locked_folders: false
 
-filekinds_yaml_file: filekinds.yml # name of YAML file for file kinds
-language_yaml_file: language.yml   # name of YAML file for interface language
+### YOUR MARK-UP LANGUAGE (Textile, Markup or HTML)
+### For styling text in enhancer files
 
-access_file: -access               # name of the Enhancer file containing folder permissions
-properties_file: -properties       # name of the Enhancer file containing folder properties
+text_rendering: textile
 
-# CONTENT SETTINGS
+### YOUR FILE SIZE CAP - (in MB)
+### Thumbnails will not be generated for files larger than cap
 
-text_rendering: textile            # markup language used to render inline text: Textile, Markup or HTML
-thumbnail_max_filesize: 5          # file size cap (in MB) before a thumbnail will not be generated
+thumbnail_max_filesize: 5
+
+### YOUR YAML FILE NAMES
+### No changes needed, unless you don't like our naming conventions
+
+users_yaml_file: users.yml
+groups_yaml_file: groups.yml
+filekinds_yaml_file: filekinds.yml
+language_yaml_file: language.yml
+access_file: -access
+properties_file: -properties

@@ -20,6 +20,7 @@ Rake::PackageTask.new('subfolio', version) do |pkg|
   pkg.package_files.exclude('config/settings/filekinds.yml')
   pkg.package_files.exclude('config/users/users.yml')
   pkg.package_files.exclude('config/users/groups.yml')
+  pkg.package_files.exclude('config/themes/portfolio/*')
   pkg.package_files.exclude('config/themes/default/options.yml')
   pkg.package_files.exclude('config/themes/mobile/options.yml')
   pkg.package_files.exclude('engine/info/checker.php')

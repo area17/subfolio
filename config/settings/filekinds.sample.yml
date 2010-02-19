@@ -1,7 +1,8 @@
 # YAML NOTE: Indentation, spacing and text case are super important.
+# This file# YAML NOTE: Indentation, spacing and text case are super important.
 # This file must be encoded as Unicode (UTF-8) for it to work properly.
 
-# IMAGE FILE KINDS
+### IMAGE FILE KINDS
 
 img:
   extensions: [gif, png, jpg]
@@ -73,7 +74,7 @@ ase:
   instructions:>
     To read Swatch files, you need <a href='http://www.adobe.com/products/creativesuite/' target='_blank'>Adobe Creative Suite</a> or similar.
 
-# AUDIO/VIDEO FILE KINDS
+### AUDIO/VIDEO FILE KINDS
 
 snd:
   extensions: [mp3, wav]
@@ -117,7 +118,7 @@ ae:
   instructions:>
     To read After Effect files, you need <a href='http://www.adobe.com/products/aftereffects/' target='_blank'>Adobe After Effects</a>.
 
-# DOCUMENT FILE KINDS
+### DOCUMENT FILE KINDS
 
 pdf:
   extensions: [pdf]
@@ -125,11 +126,6 @@ pdf:
   display: PDF Document
   instructions:>
     To read PDF documents, You need the free <a href='http://get.adobe.com/reader/' target='_blank'>Adobe Acrobat Reader</a> or similar.
-    # <br/>For mac firefox users, you can find the plugin <a href='https://addons.mozilla.org/en-US/firefox/addon/7518' target='_blank'>here</a>.
-  # width: 100%
-  # height: 90%
-
-# If you turn on the capability to view PDF's within Subfolio, uncomment the width, height and Firefox instructions.
 
 doc:
   extensions: [doc, docx]
@@ -192,7 +188,7 @@ rtf:
   icon: txt
   display: Rich Text File
   instructions:>
-    To read FTF files, you need any standard text editor.
+    To read RTF files, you need any standard text editor.
     
 merlin:
   extensions: [merlin, merlin2]
@@ -201,7 +197,7 @@ merlin:
   instructions:>
     To read Merlin files, you need <a href='http://projectwizards.net/' target='_blank'>Merlin</a>.
 
-# PACKAGES AND FONTS
+### PACKAGES AND FONTS
 
 zip:
   extensions: [zip, str, tar, gz]
@@ -215,7 +211,7 @@ dmg:
   icon: dmg
   display: DMG Installer
   instructions:>
-    DMG installers are disc images for Mac used for the installation of applications
+    DMG installers are disc images for Mac used for the installation of applications.
 
 fnt:
   extensions: [fnt, ttf, bmap, afm]
@@ -231,7 +227,7 @@ suit:
   instructions:>
     To open Font Suitcase, you need a Mac.
 
-# WEB FILE KINDS
+### WEB FILE KINDS
 
 html:
   extensions: [htm, html, rhtml]
@@ -273,7 +269,7 @@ dir:
   icon: dir
   display: Folder
 
-# ENHANCER FILE KINDS
+### ENHANCER FILE KINDS
 
 cut:
   extensions: [cut]
@@ -302,10 +298,10 @@ site:
 
 slide:
   extensions: [slide]
-  icon: txt
+  icon: site
   display: Slideshow
 
 rss:
   extensions: [rss]
-  icon: site
+  icon: txt
   display: RSS Feed
