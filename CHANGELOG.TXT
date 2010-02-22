@@ -1,139 +1,108 @@
 ***
-INSTALLATION
+SUBFOLIO BETA 0.9.2
 
-To install Subfolio, we recommend that you read the installation documentation at:
+* Manage color palettes
+* Mobile theme for iPhone and Android
+* Ability to automatically hide locked folders
+* Ability to change icon set via options.yml
+* Added 1bit and 24bit alpha icons
+* Folder dimmed when empty
+* Enhancer: add dynamic content via RSS feed
+* Enhancer: turn a folder into a slideshow
+* Enhancer: display improvements to feature enhancer
+* Enhancer: ability to feature any file
+* General theme enhancements
+* General listing enhancements
+* General navigation enhancements
+* Bug fix: displaying .wav files
+* Bug fix: collapse header cookie fix
+* Bug fix: title truncation fix (when display_file_extensions: false)
 
-	http://support.subfolio.com
+## Affected files (for upgrading users only):
+
+* /engine/ — (required) replace the entire engine folder
+* /config/themes/default/ — (required) replace the entire default theme folder
+* /config/themes/mobile/ - (optional) add for iPhone/Android-specific display
+* /config/themes/default/options.yml — (optional) update to take advantage of new options
+* /config/settings/settings.yml — (optional) update to take advantage of new settings
+* /config/settings/filekinds.yml — (optional) update to take advantage of file kind changes
+* /.htaccess - (required) replace existing file with new file
+
+NOTE: If you have questions about upgrading or would like to know the exact files affected in this release, please ask in our discussions at http://support.subfolio.com/discussions.
+
 
 ***
-UPGRADING
+SUBFOLIO BETA 0.9.1
 
-We strongly recommend that you read the "version release notes" and documentation on upgrades before you begin any upgrade, especially if you have customized your engine or a theme. 
+* Add Google Analytics code via settings.yml
+* Manage site meta description (for SEO) via settings.yml
+* Manage favicon via options.yml
+* Manage site copyright via settings.yml
+* Slight modifications to the HTML titles (for SEO)
+* Switched icons from 24bit to 8bit
+* Inline image display with special characters
+* Bug fix: ability to use a featured folder enhancers in the root
+* Bug fix: ability to use special characters in file names of inline images
+* Bug fix: ability to use a string within a password
 
-	http://support.subfolio.com
+Affected files (for upgrading users only):
+
+* /engine/ — (required) replace the entire engine folder
+* /config/themes/default/ — (optional) minor changes to global template and icons
+* /config/themes/default/options.yml — (optional) additional option for site favicon url
+* /config/settings/language.yml — (optional) formatting change only, nothing important
+* /config/settings/settings.yml — (optional) additional settings for content copyright, site meta description and Google Analytics
+
+NOTE: If you have questions about upgrading or would like to know the exact files affected in this release, please ask in our discussions at http://support.subfolio.com/discussions.
 
 ***
-CHANGE LOG
+SUBFOLIO BETA 0.9
 
-Subfolio Version: 0.9.2
-[ENGINE]        Header collapse cookie fix
-[ENGINE|THEME]  Ability to feature any file
-[ENGINE|THEME]  Ticket #386: Display copyright
-[ENGINE|THEME]  iPhone Theme Option
-[ENGINE|THEME]  RSS Feed Display
-[ENGINE]        Ticket #391: Error in title truncation, when show extentions disabled
+* General UI update
+* Improved IE support
+* File kinds update
+* Misc bug fixes
+* Improvements for foreign/special characters support
+* Display Max Filesize for images added
+* Added more options for language file
+* Custom thumbnail filesize support
+* Security system update
+* Theme API updates/changes
+* Added Markdown as a formatting option
 
-Subfolio Version: 0.9.1
-[ENGINE]      Ticket #380: SEO Change for page heading
-[ENGINE]      Ticket #350: HTML Title Changes
-[ENGINE]      Ticket #358: Allow adding of Google Analytics via settings.yml
-[ENGINE]      Ticket #371: Inline image display with special characters
-[ENGINE]      Ticket #349: Manage site meta description via settings.yml
-[ENGINE]      Ticket #337: Manage favicon via options.yml
-[ENGINE]      Ticket #324: Manage site copyright via settings.yml
-[ENGINE]      Ticket #362: Fix for problem with URL for featured folder in the root directory
-[ENGINE]      Ticket #342: Removed version from footer branding
+***
+SUBFOLIO ALPHA (PRE-RELEASE)
 
-Subfolio Version: 0.9
-[THEME]       IE and General UI updates
-
-
-Subfolio Version: 0.9.rc6
-[ENGINE]     File kinds update
-[GENERAL]    Misc bug fixes
-
-Subfolio Version: 0.9.rc5
-[ENGINE]     Foreign/Special characters update
-[GENERAL]    General fixes and updated
-
-Subfolio Version: 0.9.rc4
-[ENGINE]     Display Max Filesize for images added
-[LANGUAGE]   Added more options for language file
-[GENERAL]    Custom thumbnail filesize support
-
-
-Subfolio Version: 0.9.rc3
-[ENGINE]     Security system update
-[LANGUAGE]   More missing words added
-[GENERAL]    Support for special characters improved
-
-
-Subfolio Version: 0.9.rc2
-[GENERAL]    Finialized new API
-[LANGUAGE]   Added additional words for localizations
-[GENERAL]    Added Markdown as a formatting option
-
-
-Subfolio Version: 1.0.rc1.api
-[GENERAL]    Introduced APIs for easier theme development
-
-
-Subfolio Version: 1.0.rc1.1
-[THEME]			Updated file download boxes
-[GENERAL]		Updated documentation and sample configuration files
-
-
-Subfolio Version: 1.0.rc1
-[THEME]			Updated keyboard controls and sorting issue
-[ENGINE]		Fix for download issue with Safari
-
-
-Subfolio Version: 0.9.20090830
-[THEME]			Additional option for hiding file listing headings
-[ENGINE]		Fix for foreign characters in filename, Added some missed language translations
-
-
-Subfolio Version: 0.9.20090830
-[THEME]			Additional option for hiding file listing headings
-[ENGINE]		Fix for foreign characters in filename, Added some missed language translations
-
-Subfolio Version: 0.9.20090823
-[THEME]			General theme updates
-
-Subfolio Version: 0.9.20090813
-[THEME]			General update IE6 and IPhone capatability
-[ENGINE]		Fix for foreign characters
-
-Subfolio Version: 0.9.20090718
-
-[THEME]			Fix for large icon display in grid vie
-[CONFIG]		Removed logo setting from sample settings file
-[DIRECTORY]	Add intro text file 
-[ENGINE]		Properly handle users who are delete while activeon the website
-
-Subfolio Version: 0.9.20090706
-
-[THEME]     Moved display options from setting to new options.yml file 
-            and added showcase mode options
-[ENGINE]    Updated for new theme options.yml file
-
-Subfolio Version: 0.9.20090628
-
-[THEME]     Removed PDF embedding
-[ENGINE]    Fix for poorly formatted yml being passed into Textile
-[ENGINE]    Made sorting case insenstive, and fix for by Kind sorting
-
-Subfolio Version: 0.9.20090625
-
-[THEME]     Icon sizing fixed
-[ENGINE]    Fix for sorting by kind
-
-Subfolio Version: 0.9.20090623.b
-
-[HTACCESS,
-ENGINE,
-THEME]      Force download of files from detail page
-[THEME]     Trying a different way to embeded PDF files into the detail pages
-
-Subfolio Version: 0.9.20090623
-
-[ENGINE]    Upgraded routing from Kohana 2.3.4 Trunk
-[THEMES]    Continued development of Grid view enabled theme
-[THEMES]    Can specify the default listing mode in the settings.yml file
-[THEMES]    Can specify the listing mode in the -properties file for each folder
-
+* Introduced APIs for easier theme development
+* Updated file download boxes
+* Updated documentation and sample configuration files
+* Updated keyboard controls and sorting issue
+* Additional option for hiding file listing headings
+* Added missed language translations
+* General theme updates
+* IE6 and iPhone capatability
+* Removed logo setting from sample settings file
+* Can specify the default listing mode in the settings.yml file
+* Can specify the listing mode in the -properties file for each folder
+* Add intro text file
+* Properly handle users who are delete while active on the website
+* Moved display options from setting to new options.yml file 
+* Added showcase mode options
+* Updated for new theme options.yml file
+* Removed PDF embedding
+* Made sorting case insensitive
+* Force download of files from detail page
+* Upgraded routing from Kohana 2.3.4 Trunk
+* Continued development of Grid view enabled theme
+* Bug Fix: for poorly formatted yml being passed into Textile
+* Bug fix for by kind sorting
+* Bug Fix: Safari for download issue
+* Bug Fix: for foreign characters in text files
+* Bug Fix: for foreign characters in filename
+* Bug Fix: for large icon display in grid view
+* Bug fix: icon sizing
 
 ***
 Please respect our efforts and do not distribute Subfolio.
 
-© 2009 Subfolio by AREA 17. All rights reserved. 
+© 2009 Subfolio by AREA 17. All rights reserved.
