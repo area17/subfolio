@@ -40,9 +40,10 @@ task :copyfiles do
   cp "config/users/users.sample.yml", "pkg/subfolio-#{version}/config/users/users.yml", :verbose => true
   cp "config/users/groups.sample.yml", "pkg/subfolio-#{version}/config/users/groups.yml", :verbose => true
 
-  cp "engine/install/demo/-t-welcome.txt", "pkg/subfolio-#{version}/directory/-t-welcome.txt", :verbose => true
   cp "engine/install/demo/-b-copyright.txt", "pkg/subfolio-#{version}/directory/-b-copyright.txt", :verbose => true
-  cp "engine/install/demo/Quick_start.txt", "pkg/subfolio-#{version}/directory/Quick_start.txt", :verbose => true
+  cp "engine/install/demo/-t-welcome.txt", "pkg/subfolio-#{version}/directory/-t-welcome.txt", :verbose => true
+  cp "engine/install/demo/follow_us_on_twitter.link", "pkg/subfolio-#{version}/directory/follow_us_on_twitter.link", :verbose => true
+  cp "engine/install/demo/QUICK-START.TXT", "pkg/subfolio-#{version}/directory/QUICK-START.TXT", :verbose => true
   cp "engine/install/demo/support.subfolio.com.link", "pkg/subfolio-#{version}/directory/support.subfolio.com.link", :verbose => true
   
   rm "pkg/subfolio-#{version}.tgz"
