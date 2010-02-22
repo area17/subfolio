@@ -28,6 +28,12 @@ thumbnail_height: 240
 
 display_file_names_in_gallery: true
 
+### HIDE LOCKED FOLDERS
+### Will hide any folders user doesn't have access to
+
+hide_locked_folders: false
+
+
 ### FILE NAME OPTIONS (true/false)
 ### For making file names prettier in the interface
 

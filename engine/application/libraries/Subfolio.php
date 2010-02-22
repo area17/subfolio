@@ -1003,7 +1003,7 @@ class SubfolioFiles extends Subfolio {
 
   public function files_and_folders()
   {
-    $hide_locked = self::get_setting('hide_locked_folders');
+    $hide_locked = view::get_option('hide_locked_folders', false);
     $listing_mode = SubfolioTheme::get_listing_mode();
     $replace_dash_space = view::get_option('replace_dash_space', true);  
     $replace_underscore_space = view::get_option('replace_underscore_space', true);

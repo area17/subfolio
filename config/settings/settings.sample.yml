@@ -35,11 +35,6 @@ theme: default
 iphone_theme: iphone
 directory: directory
 
-### HIDE LOCKED FOLDERS
-### Will hide any folders user doesn't have access to
-
-hide_locked_folders: false
-
 ### YOUR MARK-UP LANGUAGE (Textile, Markup or HTML)
 ### For styling text in enhancer files
 

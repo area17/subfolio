@@ -26,8 +26,6 @@ $config['display_max_filesize'] = 5;    // In Megabytes
 $config['thumbnail_max_filesize'] = 1;    // In Megabytes
 $config['display_max_filesize_mobile'] = 3;    // In Megabytes
 
-$config['hide_locked_folders'] = false;
-
 $config['text_rendering'] = "none";    // none|textile|markdown
 $config['listing_mode'] = "list";    // list|grid
 
@@ -86,8 +84,6 @@ $config['thumbnail_height']       = isset($settings['thumbnail_height'])    ? $s
 
 $config['thumbnail_max_filesize'] = isset($settings['thumbnail_max_filesize'])  ? $settings['thumbnail_max_filesize'] : $config['thumbnail_max_filesize'];
 $config['display_max_filesize']   = isset($settings['display_max_filesize'])    ? $settings['display_max_filesize']   : $config['display_max_filesize'];
-
-$config['hide_locked_folders']    = isset($settings['hide_locked_folders']) ? $settings['hide_locked_folders'] : $config['hide_locked_folders'];
 
 $config['text_rendering'] 				= isset($settings['text_rendering'])    	? $settings['text_rendering'] : $config['text_rendering'];
 $config['listing_mode'] 					= isset($settings['listing_mode'])    		? $settings['listing_mode'] : $config['listing_mode'];
