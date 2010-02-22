@@ -471,6 +471,7 @@ class Filebrowser {
   public function get_link($name) {
     if ($this->folder == "") {
       $link = "/".urlencode($name);
+      $link = str_replace('%2F', '/', $link);
       $link = Filebrowser::double_encode_specialcharacters($link);
     } else {
       $link = "/".urlencode($this->folder)."/".urlencode($name);
