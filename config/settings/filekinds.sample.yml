@@ -298,7 +298,7 @@ site:
 
 slide:
   extensions: [slide]
-  icon: slide
+  icon: slid
   display: Slideshow
 
 rss:
