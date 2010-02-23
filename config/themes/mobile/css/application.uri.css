@@ -151,6 +151,11 @@ nav {
 	background-color: #FFF;
 }
 
+#inline_top_image img, #inline_middle_image img, #inline_bottom_image img {
+	width: 100%;
+	height: auto;
+}
+
 /* ====== Listing ====== */
 
 #listing {

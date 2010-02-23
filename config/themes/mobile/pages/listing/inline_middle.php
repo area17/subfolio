@@ -12,7 +12,7 @@
 
 	<div id="inline_middle_image" >
 			<?php foreach ( SubfolioFiles::inline_images('middle') as $image) : ?>
-				<img width='<?php echo $image['width'] ?>' height='<?php echo $image['height'] ?>' src='<?php echo $image['url'] ?>' />
+				<img width='100%' height='auto' src='<?php echo $image['url'] ?>' />
 			<?php endforeach; ?>
 	</div><!-- gallery -->
 
