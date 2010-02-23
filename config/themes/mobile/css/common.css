@@ -44,11 +44,12 @@ a:focus { -moz-outline-style: none;}
 .standard_paragraph h1, .standard_paragraph h2 {
 color: #333;
 font-size: 28px !important;
-line-height: 30px;
+line-height: 30px !important;
 text-shadow: none;
 text-align: left;
 }
 .standard_paragraph strong, .standard_paragraph em, .standard_paragraph b { color: #1a1a1a; }
+.standard_paragraph h1 { margin-bottom: 10px;}
 .standard_paragraph h2 { color: #666666; margin-bottom: 10px; }
 .standard_paragraph h3 {
 font-size: 24px;
