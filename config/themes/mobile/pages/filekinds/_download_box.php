@@ -24,6 +24,12 @@
 	<?php 
 		}
 	} 
+	
 	?>
+	
+	<!-- Minisite -->
+	<?php if (Subfolio::current_file('icon_name')=='site') { ?> 
+		<a href="<?php echo Subfolio::current_file('link') ?>" class="btn btn_download"><?php echo SubfolioLanguage::get_text('viewsite') ?></a>
+	<?php }?>
 	
 </div>
