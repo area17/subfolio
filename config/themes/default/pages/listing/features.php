@@ -2,9 +2,18 @@
 
 	<div id="features">
 	  <ul>
-			<?php foreach ( SubfolioFiles::features() as $feature) : ?>
+			<?php foreach ( SubfolioFiles::features() as $feature) : 
+				$style = 'style="';
+				if (isset($feature['width'])) {
+					$style .= ' width: '.$feature['width'] .'px; ';
+				}
+				if (isset($feature['height'])) {
+					$style .= ' height: '.$feature['height'] .'px; ';
+				}
+				$style .= '"';
+				?>
 		    <li>
-				  <a href="<?php echo $feature['link'] ?>" <?php if (isset($feature['image_width'])) { ?> style="width: <?php echo $feature['image_width'] ?>px" <?php } ?>>
+				  <a href="<?php echo $feature['link'] ?>" <?php echo $style ?>>
 				    <?php if (isset($feature['image_file'])) { ?>
 			    	<img src="<?php echo $feature['image_file'] ?>" width="<?php echo $feature['image_width'] ?>px" height="<?php echo $feature['image_height'] ?>px">
 			    	<?php } ?>

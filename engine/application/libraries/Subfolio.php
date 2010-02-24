@@ -645,7 +645,12 @@ class SubfolioFiles extends Subfolio {
   			list($width, $height, $type, $attr) = @getimagesize(Subfolio::$filebrowser->fullfolderpath."/".$feature['image']);   
   			$item['image_width'] = $width;
         $item['image_height'] = $height;
+      } else {
+        $item['image_width'] = isset($feature['width']) ? $feature['width'] : NULL;
+        $item['image_height'] = isset($feature['height']) ? $feature['height'] : NULL;
       }
+      $item['width'] = isset($feature['width']) ? $feature['width'] : NULL;
+      $item['height'] = isset($feature['height']) ? $feature['height'] : NULL;
       $item['title'] = isset($feature['title']) ? $feature['title'] : "";
       $item['description'] = isset($feature['description']) ? $feature['description'] : "";
 
