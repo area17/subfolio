@@ -1266,6 +1266,10 @@ class SubfolioFiles extends Subfolio {
     if ($ff <> '') {
     	$parent_link = urlencode(dirname($ff));
       $parent_link = str_replace('%2F', '/', $parent_link);
+      // ## HACK FOR SLIDE
+      if (substr($parent_link, -6) == ".slide") {
+        $parent_link = substr($parent_link, 0, stripos($parent_link, '/'));
+      }
       return html::anchor($parent_link, $name, array('id' => 'parent'));
     }
     return NULL;
