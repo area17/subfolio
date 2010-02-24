@@ -1,0 +1,64 @@
+/* -------------------------------------------------------------- 
+icons.css
+subiphone a17 stylesheet
+by Arnaud&Nobleskine from AREA 17
+
+Version date: 24 Fev 2009
+Version 0.1 Alpha
+-------------------------------------------------------------- */
+
+/* ====== icons (folder, files, zip...) ====== */
+.icon {
+	display: block;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+    .icon_ae       { background-image: url(../images/icons/grid/ae.png); }
+	.icon_ai       { background-image: url(../images/icons/grid/ai.png); }
+	.icon_ase      { background-image: url(../images/icons/grid/ase.png); }
+	.icon_cut      { background-image: url(../images/icons/grid/cut.png); }
+	.icon_dir      { background-image: url(../images/icons/grid/dir.png); }
+	.icon_dmg      { background-image: url(../images/icons/grid/dmg.png); }
+	.icon_doc      { background-image: url(../images/icons/grid/doc.png); }
+	.icon_eps      { background-image: url(../images/icons/grid/eps.png); }
+	.icon_fla      { background-image: url(../images/icons/grid/fla.png); }
+	.icon_fnt      { background-image: url(../images/icons/grid/fnt.png); }
+	.icon_gen      { background-image: url(../images/icons/grid/gen.png); }
+	.icon_html     { background-image: url(../images/icons/grid/html.png); }
+	.icon_img      { background-image: url(../images/icons/grid/img.png); }
+	.icon_indd     { background-image: url(../images/icons/grid/indd.png); }
+	.icon_key      { background-image: url(../images/icons/grid/key.png); }
+	.icon_merlin   { background-image: url(../images/icons/grid/merlin.png); }
+	.icon_net      { background-image: url(../images/icons/grid/net.png); }
+	.icon_numbers  { background-image: url(../images/icons/grid/numbers.png); }
+	.icon_pages    { background-image: url(../images/icons/grid/pages.png); }
+	.icon_pdf      { background-image: url(../images/icons/grid/pdf.png); }
+	.icon_pop      { background-image: url(../images/icons/grid/pop.png); }
+	.icon_ppt      { background-image: url(../images/icons/grid/ppt.png); }
+	.icon_psd      { background-image: url(../images/icons/grid/psd.png); }
+	.icon_site     { background-image: url(../images/icons/grid/site.png); }
+	.icon_slide    { background-image: url(../images/icons/grid/slide.png); }
+	.icon_snd      { background-image: url(../images/icons/grid/snd.png); }
+	.icon_sql      { background-image: url(../images/icons/grid/sql.png); }
+	.icon_swf      { background-image: url(../images/icons/grid/swf.png); }
+	.icon_txt      { background-image: url(../images/icons/grid/txt.png); }
+	.icon_vid      { background-image: url(../images/icons/grid/vid.png); }
+	.icon_xls      { background-image: url(../images/icons/grid/xls.png); }
+	.icon_zip      { background-image: url(../images/icons/grid/zip.png); }
+
+	
+/* ====== buttons ====== */
+.btn {
+	color: #3b3c3d;
+	display: inline-block;
+	background-color: #cecece;
+	border: 1px solid #9fa2a5;
+	height: 33px;
+	line-height: 33px;
+	padding: 0 42px;
+	margin: 4px 0 20px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
