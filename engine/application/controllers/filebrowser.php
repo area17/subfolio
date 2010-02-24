@@ -3,9 +3,10 @@ class Filebrowser_Controller extends Website_Controller {
 
   public function hash($password=null) {
     if ($password == null) {
-      print "To create a hashed (encrypted) password, enter your password into the URL above (eg. http://www.yoursite.com/hash/yourpassword) and after refresh, the page will display the hashed version of it.";
+      print '<strong>Hashed passwords</strong>: To create a hashed (encrypted) password, enter your password into the URL above (eg. http://www.yoursite.com/hash/yourpassword) and after refresh, the page will display the hashed version of it.';
     } else {
-      print $this->auth->hash($password);
+      print "<strong>Your hashed password</strong>: ".$this->auth->hash($password)."";
+      print "<br /><br />In the user information within the users.yml file, replace the 'password:' option with 'hashed_password:' and add your hashed password from above.";
     }
     exit();
   }
