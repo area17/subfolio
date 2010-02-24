@@ -833,6 +833,8 @@ class SubfolioFiles extends Subfolio {
 
         if ($kind == "site") {
         	$folder_kind = $this->filekind->get_kind_by_extension("site");
+        } else if ($kind == "slide") {
+          $folder_kind = $this->filekind->get_kind_by_extension("slide");
         } else {
         	$folder_kind = $this->filekind->get_kind_by_extension("dir");
         }
