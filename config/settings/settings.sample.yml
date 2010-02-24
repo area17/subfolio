@@ -1,4 +1,4 @@
-# YAML NOTE: Indentation, spacing and text case are super important.
+## YAML NOTE: Indentation, spacing and text case are super important.
 # This file must be encoded as Unicode (UTF-8) for it to work properly.
 
 # To change your logo and other interface elements, go to /config/themes/default/options.yml
@@ -32,7 +32,7 @@ site_meta_description: "Subfolio provides an elegant, practical and customizable
 ### To inactivate iphone theme, add "#" before iphone line
 
 theme: default
-iphone_theme: iphone
+mobile_theme: mobile
 directory: directory
 
 ### YOUR MARK-UP LANGUAGE (Textile, Markup or HTML)
@@ -40,8 +40,8 @@ directory: directory
 
 text_rendering: textile
 
-### YOUR FILE SIZE CAP - (in MB)
-### Thumbnails will not be generated for files larger than cap
+### YOUR THUMBNAIL FILE SIZE CAP (in MB)
+### Thumbnails will not be generated for image files larger than cap
 
 thumbnail_max_filesize: 5
 

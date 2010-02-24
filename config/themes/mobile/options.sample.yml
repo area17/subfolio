@@ -7,25 +7,3 @@
 replace_underscore_space: true
 replace_dash_space: true
 display_file_extensions: true
-
-### ICON SET
-### list = default, list1 = 1bit, list24 = 24bit transparent background
-
-icon_set_list: list
-
-### SHOW/HIDE COLUMNS LISTING (true/false)
-### For listing view only
-
-display_icons: true
-display_name: true
-
-### SHOW/HIDE YOUR COPYRIGHT
-### First customize it in your settings.yml file
-
-display_copyright: true
-
-### SHOW/HIDE INFO BOX (true/false)
-### At the bottom of the detail page
-
-display_info: true
-

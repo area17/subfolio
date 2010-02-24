@@ -1,4 +1,5 @@
 # YAML NOTE: Indentation, spacing and text case are super important.
+# This file# YAML NOTE: Indentation, spacing and text case are super important.
 # This file must be encoded as Unicode (UTF-8) for it to work properly.
 
 ### LOGO (width and height in pixels)
@@ -23,16 +24,15 @@ color_palette: default
 
 thumbnail_height: 240
 
-### SHOW/HIDE FILE NAMES IN GALLERY  (true/false)
-### Will display file name under the thumbnails
-
-display_file_names_in_gallery: true
-
 ### HIDE LOCKED FOLDERS
 ### Will hide any folders user doesn't have access to
 
 hide_locked_folders: false
 
+### SHOW/HIDE FILE NAMES IN GALLERY  (true/false)
+### Will display file name under the thumbnails
+
+display_file_names_in_gallery: true
 
 ### FILE NAME OPTIONS (true/false)
 ### For making file names prettier in the interface
