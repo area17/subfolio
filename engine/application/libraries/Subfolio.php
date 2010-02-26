@@ -1259,8 +1259,17 @@ class SubfolioFiles extends Subfolio {
         }
       }
       $name = Subfolio::$filebrowser->get_item_property($item->name, 'name');
-      $icon = view::get_view_url() ."/images/icons/".$listing_mode."/cut.png";
-			$icon_grid = view::get_view_url() ."/images/icons/grid/cut.png";
+      $file_kind = Subfolio::$filekind->get_kind_by_file($item->name);
+
+      $icon_file = "";
+      $icon_file = Subfolio::$filekind->get_icon_by_file($file_kind);
+
+      $icon_set  = view::get_option('icon_set_list',  "list");
+      $icon_set_grid  = view::get_option('icon_set_grid',  "grid");
+  
+      $icon = view::get_view_url()."/images/icons/".$icon_set."/".$icon_file.".png";
+      $icon_grid = view::get_view_url()."/images/icons/".$icon_set_grid."/".$icon_file.".png";        
+
       $width = "18";
       $height = "18";
       
