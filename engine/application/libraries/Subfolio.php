@@ -149,7 +149,8 @@ class Subfolio {
       if (Subfolio::$filebrowser->file <> '') {
         return htmlentities(Subfolio::$template->content->file->name);
     	} else {
-  	  	$ff = new FileFolder(basename(Subfolio::$template->content->folder), Subfolio::$template->content->folder, 'folder', "folder", array());
+        $base = basename(Subfolio::$filebrowser->folder);
+  	  	$ff = new FileFolder($base, $base, 'folder', "folder", array());
         return format::filename($ff->get_display_name());
       }
     }

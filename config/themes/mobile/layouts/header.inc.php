@@ -17,7 +17,7 @@
 	<?php if (SubfolioFiles::is_root()) { ?>
 		<h1 class="h1_home"><?php echo SubfolioTheme::get_site_title(); ?></h1>
 	<?php } else { ?>
-		<h1 class="h1"><?php echo SubfolioTheme::get_page_title(); ?></h1> 
+		<h1 class="h1"><?php echo Subfolio::current_file('filename'); ?></h1> 
 	<?php } ?>
 </header>
 
