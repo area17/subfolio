@@ -1169,10 +1169,16 @@ class SubfolioFiles extends Subfolio {
       	        break;
       
         			case "link" :
-      	        $url = Subfolio::$filebrowser->get_item_property($file->name, 'url')    ? Subfolio::$filebrowser->get_item_property($file->name, 'url') : '';
+        	        $url = Subfolio::$filebrowser->get_item_property($file->name, 'url')    ? Subfolio::$filebrowser->get_item_property($file->name, 'url') : '';
         	        $target = Subfolio::$filebrowser->get_item_property($file->name, 'target')    ? Subfolio::$filebrowser->get_item_property($file->name, 'target') : '_blank';
           			  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
+
+                  if ($url == '') {
+                    $url= "http://".substr($file->name, 0, strrpos($file->name, "."));
+                  }
+
           			  break;
+
         
           			default:
           			  $url = Subfolio::$filebrowser->get_link($file->name);
