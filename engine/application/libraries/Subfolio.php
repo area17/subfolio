@@ -742,16 +742,20 @@ class SubfolioFiles extends Subfolio {
     
     $haveFiles = false;
     if (sizeof($folders) > 0) {
-      foreach ($folders as $folder) {
-      	if ($folder->have_access($this->auth->get_user())) {
-          $have_access = true;
-      	} else {
-          $have_access = false;
-      	}
-
-        if ($have_access && !Subfolio::$filebrowser->is_feature($folder->name)) {
-          $haveFiles = true;
-          break;
+      if (!$this->auth->get_user()) { // user is not logged in so must display
+        $haveFiles = true;
+      } else {
+        foreach ($folders as $folder) {
+        	if ($folder->have_access($this->auth->get_user())) {
+            $have_access = true;
+        	} else {
+            $have_access = false;
+        	}
+  
+          if ($have_access && !Subfolio::$filebrowser->is_feature($folder->name)) {
+            $haveFiles = true;
+            break;
+          }
         }
       }
     } 
