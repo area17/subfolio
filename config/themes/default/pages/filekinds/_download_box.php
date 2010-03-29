@@ -1,6 +1,6 @@
 <div id="download_box">
 		
-	<a id="clickable-zone" href="<?php echo Subfolio::current_file('link') ?>?download=true" target="<?php echo Subfolio::current_file('target') ?>">
+	<a target="_blank" id="clickable-zone" href="<?php echo Subfolio::current_file('link') ?>" target="<?php echo Subfolio::current_file('target') ?>">
 		<!-- ?download=true would be provided by the CurrentFile() method -->
 		<!-- By adding an option for target, we can use this box for more kinds... (links for example) -->
 		
