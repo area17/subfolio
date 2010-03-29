@@ -139,9 +139,9 @@ class Subfolio {
 
     if ($data == "target") {
       if (Subfolio::$filebrowser->file <> '') {
-        return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'target') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'target') : '';
+        return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'target') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'target') : 'blank';
       } else {
-        return Subfolio::$filebrowser->get_folder_property('target') ? Subfolio::$filebrowser->get_folder_property('target') : '';
+        return Subfolio::$filebrowser->get_folder_property('target') ? Subfolio::$filebrowser->get_folder_property('target') : 'blank';
       }
     }
 
