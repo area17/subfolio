@@ -1274,9 +1274,6 @@ class SubfolioFiles extends Subfolio {
   
       $icon = view::get_view_url()."/images/icons/".$icon_set."/".$icon_file.".png";
       $icon_grid = view::get_view_url()."/images/icons/".$icon_set_grid."/".$icon_file.".png";        
-
-      $width = "18";
-      $height = "18";
       
       $rel = array();
       $rel['link'] = $link;
@@ -1284,8 +1281,6 @@ class SubfolioFiles extends Subfolio {
 
       $rel['icon'] = $icon;
 			$rel['icon_grid'] = $icon_grid;
-      $rel['width']  = $width;
-      $rel['height'] = $height;
 
       if ($restricted) {
         $rel['restricted'] = true;

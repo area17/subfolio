@@ -12,7 +12,13 @@
 						  <span class="<?php if ($item['have_access']) { echo "unlocked"; } else { echo "locked"; } ?>"><!-- --></span>
 						  <?php } ?>
 							<span class="icon" <?php if (SubfolioTheme::get_mobile_viewport()) { echo "style='background-image:url(".$item['icon_grid'].")'"; } ?>>
-								<img src="<?php echo $item['icon'] ?>" width="<?php $item['width'] ?>" height="<?php $item['height'] ?>" />
+
+							<?php if (SubfolioTheme::get_listing_mode()=='list') : ?>
+								<img src='<?php echo $item['icon'] ?>' width='18' height='17' />
+							<?php else : ?>
+								<img src='<?php echo $item['icon_grid'] ?>' width='32' height='32' />
+							<?php endif; ?>
+
 							</span>
 						<?php } ?>
 						<span class="filename"><?php echo $item['filename'] ?></span>
