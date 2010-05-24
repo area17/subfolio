@@ -73,7 +73,7 @@ class Image_GD_Driver extends Image_Driver {
 		$this->image = $image;
 
 		// Create the GD image resource
-		$this->tmp_image = $create($image['file']);
+		$this->tmp_image = @$create($image['file']);
 
 		// Get the quality setting from the actions
 		$quality = arr::remove('quality', $actions);
@@ -196,6 +196,9 @@ class Image_GD_Driver extends Image_Driver {
 
 	public function resize($properties)
 	{
+    if (!$this->tmp_image) {
+      return;
+    }
 		// Get the current width and height
 		$width = imagesx($this->tmp_image);
 		$height = imagesy($this->tmp_image);
