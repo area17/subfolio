@@ -13,8 +13,10 @@
 						<div class="crop">
 							<img src="<?php echo $feature['image_file'] ?>" alt="" style='left:<?php echo -$offset_y ?>px' />
 						</div>
-						<span class='filename'><?php echo $feature['title'] ?></span>
-						<span class='comment'><?php echo $feature['description'] ?></span>
+						<?php if (($feature['title'] <> '') || ($feature['description'] <> '')) { ?>
+			        <?php if ($feature['title'] <> '') { ?><span><?php echo $feature['title'] ?></span><?php } ?>
+			        <?php if ($feature['description'] <> '') { ?><span><?php echo $feature['description'] ?></span><?php } ?>
+						<?php } ?>
 					</a>
 				</li>
 			<?php endforeach; ?>
