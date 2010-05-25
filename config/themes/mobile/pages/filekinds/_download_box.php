@@ -9,8 +9,8 @@
 		<dt><?php echo SubfolioLanguage::get_text('size') ?></dt><dd><?php echo Subfolio::current_file('size') ?></dd>
 	</dl>
 	
-	<!-- PDF -->
-	<?php if (Subfolio::current_file('icon_name')=='pdf') { ?> 
+	<!-- PDF/VID -->
+	<?php if (Subfolio::current_file('icon_name')=='pdf' || Subfolio::current_file('icon_name')=='vid') { ?> 
 		<a href="<?php echo Subfolio::current_file('link') ?>?download=true" class="btn btn_download"><?php echo SubfolioLanguage::get_text('viewfile') ?></a>
 	<?php }?>
 	
