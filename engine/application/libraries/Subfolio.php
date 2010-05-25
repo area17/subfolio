@@ -457,6 +457,14 @@ class SubfolioUser extends Subfolio {
       return NULL;
     }
   }
+
+  public static function current_user_fullname() {
+    if (Subfolio::$auth->logged_in()) {
+      return Subfolio::$auth->get_user()->fullname;
+    } else {
+      return NULL;
+    }
+  }
 }
 
 class SubfolioLanguage extends Subfolio {

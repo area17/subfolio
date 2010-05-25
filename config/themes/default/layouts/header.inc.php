@@ -9,7 +9,7 @@
 	<?php if (SubfolioTheme::get_option('display_breadcrumb', true)) { ?>
 	  <div id="breadcrumb">
 			<?php if (SubfolioUser::is_logged_in()) { ?>
-				<span><?php echo SubfolioUser::current_user_name(); echo " "; echo SubfolioLanguage::get_text('browsing'); ?></span>
+				<span><?php echo SubfolioUser::current_user_fullname(); echo " "; echo SubfolioLanguage::get_text('browsing'); ?></span>
 	    <?php } ?>
 			<?php if (SubfolioLanguage::get_text('indexof')<>'') { ?>
 				<span><?php echo SubfolioLanguage::get_text('indexof'); ?></span>&nbsp;&nbsp;
