@@ -367,10 +367,9 @@ overflow: hidden;
 }
 #gallery ul li {
 float: left;
-overflow: hidden;
 }
 #gallery ul li a {
-float: left;
+display: block;
 margin: 0 1px 1px 0;
 padding: 1px;
 background-color: #f5f5f5;
