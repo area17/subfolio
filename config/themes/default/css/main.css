@@ -470,6 +470,7 @@ background-color: #eee;
 }
 .list li.listing-header { margin: 0 0 5px; }
 .list li span { display: block; float: left; }
+.isIphone .list li span { background-image: none !important;}
 .list li span.caps { display: inline; float: none; }
 .list li span strong { color: inherit; }
 .list .icon { width: 25px; height: 17px; position: relative; }
