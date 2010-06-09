@@ -12,6 +12,7 @@
 	<link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/common.css" type="text/css" rel="stylesheet" >
 	<link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/application.uri.css" type="text/css" rel="stylesheet" >
 	<link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/icons.uri.css" type="text/css" rel="stylesheet" >
+	<script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/html5.js"></script> 
 </head>
 <body>
 	<div id="container">	
