@@ -20,8 +20,8 @@ function runOnDOMready() {
 	if ($('.prev_next')[0]) {
 		addSwipeListener(document.body, function(e) { 
 			direction = e.direction;
-			bounce();
-			updateLocation();
+			//bounce();
+			//updateLocation();
 		});
 	}
 }
