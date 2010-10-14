@@ -368,6 +368,10 @@ nav {
 	.file_preview p a {
 		display: inline;
 	}
+	
+	.file_preview .standard_paragraph a {
+		-webkit-box-shadow: none !important
+	}
 		
 	.file_preview img {
 		background-color: white;
