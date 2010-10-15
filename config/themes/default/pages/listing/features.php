@@ -15,7 +15,7 @@
 		    <li>
 				  <a href="<?php echo $feature['link'] ?>" <?php echo $style ?>>
 				    <?php if (isset($feature['image_file'])) { ?>
-			    	<img src="<?php echo $feature['image_file'] ?>" width="<?php echo $feature['image_width'] ?>px" height="<?php echo $feature['image_height'] ?>px">
+			    	<img src="<?php echo $feature['image_file'] ?>" width="<?php echo $feature['image_width'] ?>" height="<?php echo $feature['image_height'] ?>">
 			    	<?php } ?>
 						<?php if (($feature['title'] <> '') || ($feature['description'] <> '')) { ?>
 			      <div class="info">
