@@ -89,7 +89,7 @@
 		/* FEATURES */
 		#features ul li a { color : <?php echo $feature_link_color ?>; background-color:<?php echo $feature_back_color ?>; }
 		#features ul li a:hover h2 { color : <?php echo $feature_link_hover_color ?>; }
-		#features ul li a:hover { background-color:<?php echo $feature_back_hover_color ?>; }
+		#features ul li a:hover { background-color:<?php echo $feature_back_hover_color ?>; border-color:<?php echo $feature_back_hover_color ?>; }
 		#features ul li a:hover .info p { color : <?php echo $feature_text_hover_color ?>; }
 		
 		/* LINKS 	HOVER */ 
@@ -133,7 +133,7 @@
 	</style>
 	
 	<script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/common.js"></script>
-	<script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/jquery-1.3.2.min.js"></script>
+	<script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/jquery-1.4.2.min.js"></script>
 	<script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/jquery.scrollTo-min.js"></script>
 	<script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/main.js"></script>
 

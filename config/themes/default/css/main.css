@@ -57,7 +57,8 @@ margin: 0 0 10px;
 padding: 0;
 color: #F00;
 background-color: #E0E0E0;
-border: 0;
+border: 0 none;
+border-color: #E0E0E0;
 }
 
 
@@ -100,6 +101,14 @@ column-gap: 20px;
 -webkit-column-count: 3;
 -webkit-column-gap: 20px;
 column-count: 3;
+column-gap: 20px;
+}
+.standard_paragraph .columns4 {
+-moz-column-count: 4;
+-moz-column-gap: 20px;
+-webkit-column-count: 4;
+-webkit-column-gap: 20px;
+column-count: 4;
 column-gap: 20px;
 }
  
@@ -416,6 +425,9 @@ margin-right: 5px;
 margin-bottom: 5px;
 -moz-border-radius:4px;
 -webkit-border-radius:4px;
+border-radius:4px;
+padding: 0;
+border: 10px solid transparent;
 }
 #features ul li a img { display: block; }
 #features ul li a > .info { display: inline-block; }
@@ -846,3 +858,24 @@ margin-bottom: 10px;
 .hide { display: none; }
 .clear { clear: both; }
 .floater { float: left; }
+.visible { visibility: visible}
+.invisible { visibility: hidden}
+
+/* -------------------------------------------------------------- 
+MASONRY in the mix
+-------------------------------------------------------------- */
+#features, #gallery {
+	opacity: 0;
+	-webkit-transition: opacity 0.5s linear;
+}
+
+.mason_wrapper {
+	display: block !important;
+}
+.mason_wrapper .masoned a {
+	margin: 0 !important
+}
+#features .masoned a {
+	padding: 0;
+	border: 10px solid #F5F5F5;
+}
