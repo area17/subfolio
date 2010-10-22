@@ -13,6 +13,9 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 /* ====== html5 turned on====== */
 section, article, aside, hgroup, header, footer, nav, dialog, figure, video, audio, sources, embed, mark, progress, meter, time, ruby, rt, rp, canvas, command, details, datalist, keygen, output { display: block;}
 
+/*  Removes ios tap highlighting j.mp/webkit-tap-highlight-color */
+html { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+
 /* **************** CONTENT OBJECTS ***************** */
 
 /* ====== Default spacing ====== */

@@ -33,6 +33,9 @@ font-family : inherit;
 vertical-align : baseline; 
 }
 
+/*  Removes ios tap highlighting j.mp/webkit-tap-highlight-color */
+html { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+
 /* Body ---------------------------------------------------------------- */
 body  {
 background-color:#FFF; /* << background_color */
@@ -868,12 +871,8 @@ MASONRY in the mix
 	opacity: 0;
 	-webkit-transition: opacity 0.5s linear;
 }
-
 .mason_wrapper {
 	display: block !important;
-}
-.mason_wrapper .masoned a {
-/*	margin: 0 !important*/
 }
 #features .masoned a {
 	padding: 0;
