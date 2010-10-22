@@ -873,7 +873,7 @@ MASONRY in the mix
 	display: block !important;
 }
 .mason_wrapper .masoned a {
-	margin: 0 !important
+/*	margin: 0 !important*/
 }
 #features .masoned a {
 	padding: 0;
