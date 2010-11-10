@@ -24,6 +24,11 @@ var offsetMac = 0;
 var collapse_header_label = 'collapse header';
 var expand_header_label = 'expand header';
 
+var useMasonry = true,
+	masonry_options = {
+		columnWidth: 5
+	};
+
 /* What to do when DOM is ready
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 $(document).ready(function(){
@@ -285,5 +290,31 @@ function keyPress () {
 					}
 			break;
 		}
+	});
+}
+
+/* Applies jQuery Masonry to gallery and featues
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+function mason() {
+	/* elems where to apply masonry */
+	var elems = ['features', 'gallery'];
+
+	// TO DO : if columnWidth set by user, overide the default masonry_options
+
+	$.each(elems, function() {
+		var el = $('#' + this);
+		/* if masonry is used, 
+			- force display:block on the container by adding mason_wrapper class 
+			- apply Masonry
+			- masoned elements appear once Masonry is done 
+		   otherwise just make the elements appear 
+		*/
+		if (useMasonry)
+			el.
+				addClass('mason_wrapper')
+				.children('ul').masonry(masonry_options, function() {
+					el.css('opacity', 1);
+				});
+		else el.css('opacity', 1);
 	});
 }

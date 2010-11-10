@@ -1,0 +1,40 @@
+# YAML NOTE: Indentation, spacing and text case are super important.
+# This file must be encoded as Unicode (UTF-8) for it to work properly.
+
+# You can change your color palette in the theme options.yml file.
+# Change your icon set to 24bit alpha if using dark background. 
+# Change icons in theme options.yml file.
+
+# RECOMMENDATION: This color palette works well with 1bit icons also. 
+
+### Main colors
+### These colors affect elements listed in optional colors if not activated
+
+back:                   '#0a0a0a'
+main_link:              '#999'
+main_link_hover:        '#1c7ad5'
+main_link_back_hover:   '#111'
+line:                   '#111'
+text_strong:            '#1a1a1a'
+text:                   '#777'
+text_light:             '#555'
+text_dimmed:            '#222'
+flash:                  'red'
+
+### Optional colors
+### Remove "#" to activate optional color and override defaults
+
+# border:               'transparent'
+# gallery_link:         '#000000'
+gallery_link_hover:     '#0a0a0a'
+gallery_back:           '#111'
+gallery_back_hover:     '#1c7ad5'
+# feature_link:         '#000000'
+# feature_link_hover:   '#000000'
+feature_text_hover:     '#0a0a0a'
+# feature_back:         '0000000'
+# feature_back_hover:   '#000000'
+sub_link:               '#555'
+sub_link_hover:         '#bbb'
+# sub_link_back_hover:  '#000000'
+back_shift:             '#111'

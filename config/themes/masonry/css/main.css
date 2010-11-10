@@ -863,3 +863,18 @@ margin-bottom: 10px;
 .floater { float: left; }
 .visible { visibility: visible}
 .invisible { visibility: hidden}
+
+/* -------------------------------------------------------------- 
+MASONRY in the mix
+-------------------------------------------------------------- */
+#features, #gallery {
+	opacity: 0;
+	-webkit-transition: opacity 0.5s linear;
+}
+.mason_wrapper {
+	display: block !important;
+}
+#features .masoned a {
+	padding: 0;
+	border: 10px solid #F5F5F5;
+}

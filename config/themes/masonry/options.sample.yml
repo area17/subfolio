@@ -1,0 +1,89 @@
+# YAML NOTE: Indentation, spacing and text case are super important.
+# This file# YAML NOTE: Indentation, spacing and text case are super important.
+# This file must be encoded as Unicode (UTF-8) for it to work properly.
+
+### LOGO (width and height in pixels)
+### To inactivate logo and display "your site name" instead, add "#" before each line
+
+site_logo_url: /config/themes/default/images/logos/logo.png
+site_logo_width: 53
+site_logo_height: 53
+
+### FAVICON
+### To inactivate, add "#" before line
+
+site_favicon_url: /config/themes/default/images/favicon.ico
+
+### COLOR PALETTE
+### Create a custom color palettes here: /config/themes/default/colors/
+
+color_palette: default
+
+### THUMBNAIL HEIGHT (in pixels)
+### Width will be proportional 
+
+thumbnail_height: 240
+
+### HIDE LOCKED FOLDERS
+### Will hide any folders user doesn't have access to
+
+hide_locked_folders: false
+
+### SHOW/HIDE FILE NAMES IN GALLERY  (true/false)
+### Will display file name under the thumbnails
+
+display_file_names_in_gallery: true
+
+### FILE NAME OPTIONS (true/false)
+### For making file names prettier in the interface
+
+replace_underscore_space: true
+replace_dash_space: true
+display_file_extensions: true
+
+### FILE LISTING VIEW (list/grid)
+### Grid view displays larger icon and name only
+
+listing_mode: list
+
+### ICON SET FOR LIST VIEW
+### list = default, list1 = 1bit, list24 = 24bit transparent background
+
+icon_set_list: list
+
+### ICON SET FOR GRID
+### grid = default, grid1 = 1bit, grid24 = 24bit transparent background
+
+icon_set_grid: grid
+
+### SHOW/HIDE COLUMNS LISTING (true/false)
+### For listing view only
+
+display_icons: true
+display_name: true
+display_size: true
+display_date: true
+display_kind: true
+display_comment: true
+
+### SHOW/HIDE INTERFACE ELEMENTS (true/false)
+### Make sure you leave a way for your users to navigate
+
+display_header: true
+display_collapse_header: true
+display_send_page: true
+display_tiny_url: false
+display_breadcrumb: true
+display_navigation: true
+display_file_listing_header: true
+display_updated_since: true
+
+### SHOW/HIDE YOUR COPYRIGHT
+### First customize it in your settings.yml file
+
+display_copyright: true
+
+### SHOW/HIDE INFO BOX (true/false)
+### At the bottom of the detail page
+
+display_info: true
