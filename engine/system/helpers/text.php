@@ -252,15 +252,20 @@ class text_Core {
 	 * @param   string   text to auto link
 	 * @return  string
 	 */
-	public static function auto_link_urls($text)
+	public static function auto_link_urls($text, $target=NULL)
 	{
+		$options = array();
+		if ($target !== NULL) {
+		  $options = array('target' => $target);
+		}
+
 		// Finds all http/https/ftp/ftps links that are not part of an existing html anchor
 		if (preg_match_all('~\b(?<!href="|">)(?:ht|f)tps?://\S+(?:/|\b)~i', $text, $matches))
 		{
 			foreach ($matches[0] as $match)
 			{
 				// Replace each link with an anchor
-				$text = str_replace($match, html::anchor($match), $text);
+				$text = str_replace($match, html::anchor($match, $match, $options), $text);
 			}
 		}
 
@@ -270,7 +275,7 @@ class text_Core {
 			foreach ($matches[0] as $match)
 			{
 				// Replace each link with an anchor
-				$text = str_replace($match, html::anchor('http://'.$match, $match), $text);
+				$text = str_replace($match, html::anchor('http://'.$match, $match, $options), $text);
 			}
 		}
 
