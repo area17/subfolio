@@ -35,7 +35,7 @@ theme: default
 mobile_theme: mobile
 directory: directory
 
-### YOUR MARK-UP LANGUAGE (Textile, Markup or HTML)
+### YOUR MARK-UP LANGUAGE (Textile, Markdown or HTML)
 ### For styling text in enhancer files
 
 text_rendering: textile
