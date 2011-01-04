@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<?php $meta_description = SubfolioTheme::get_site_meta_description();
 	if ($meta_description <> '') { ?>
-		<meta name="description" content="<?php echo $meta_description ?>" />
+	<meta name="description" content="<?php echo $meta_description ?>" />
 	<?php } ?>
 	<meta id="viewport" name="viewport" content="width=device-width,user-scalable=1,initial-scale=1.0, minimum-scale=1.0" />
 	<link rel="apple-touch-icon" href="<?php echo SubfolioTheme::get_view_url(); ?>/images/apple-touch-icon.png"/>
@@ -21,5 +21,6 @@
 			<?php if (isset($content)) echo $content; ?>
 		</div>
 	</div>
+	<script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/application.js"></script> 
 </body>
 </html>
