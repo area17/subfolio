@@ -44,7 +44,6 @@ function runOnDOMready() {
 	gallery(); // runs first to speed vertical/horizontal alignement rendering if needed. 
 	setUpClasses();
 	keyPress();
-	mason(); // runs jQuery Masonry on gallery and features if active
 }
 
 /* Browser Detect
