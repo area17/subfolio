@@ -679,9 +679,24 @@ class SubfolioFiles extends Subfolio {
 
   public function have_gallery_images()
   {
-    $files   = Subfolio::$filebrowser->get_file_list("img");
+    // quick check
+    $files = Subfolio::$filebrowser->get_file_list("img");
     if (sizeof($files) > 0) { 
       return true;
+    } else {
+      // now check if any of the remaining files/folders have a custom thumbnail
+      $folders = Subfolio::$filebrowser->get_folder_list();
+      foreach ($folders as $folder) {
+        if ($folder->has_thumbnail()) {
+          return true;
+        }
+      }
+      $files  = Subfolio::$filebrowser->get_file_list();
+      foreach ($files as $file) {
+        if ($file->has_thumbnail()) {
+          return true;
+        }
+      }
     }
     return false;
   }
@@ -694,14 +709,27 @@ class SubfolioFiles extends Subfolio {
     $replace_underscore_space = view::get_option('replace_underscore_space', true);
     $display_file_extensions = view::get_option('display_file_extensions', true);
 
-    $files = Subfolio::$filebrowser->get_file_list("img");
+    $folders = Subfolio::$filebrowser->get_folder_list();
+    $files  = Subfolio::$filebrowser->get_file_list();
+    $folders = Subfolio::$filebrowser->sort($folders);
+    $files  = Subfolio::$filebrowser->sort($files);
+
+    $complete_list = array_merge($folders,$files);
 
     $gallery = array();
-    foreach ($files as $file) { 
-  		if ($file->needs_thumbnail()) { 
-  		  $image_source = $file->get_thumbnail_url(); 
-  		} else { 
-    		$image_source = $file->get_url(); 
+    foreach ($complete_list as $file) { 
+      if (!$file->has_thumbnail()) {
+        continue;
+      } 
+      
+      if ($file->has_thumbnail()) {
+    		  $image_source = $file->get_thumbnail_url(); 
+      } else {     
+    		if ($file->needs_thumbnail()) { 
+    		  $image_source = $file->get_thumbnail_url(); 
+    		} else { 
+      		$image_source = $file->get_url(); 
+      	}
     	}
 
       list ($width, $height) = $file->get_gallery_width_height();
@@ -750,10 +778,8 @@ class SubfolioFiles extends Subfolio {
     
     $haveFiles = false;
     if (sizeof($folders) > 0) {
-      if (!$this->auth->get_user()) { // user is not logged in so must display
-        $haveFiles = true;
-      } else {
-        foreach ($folders as $folder) {
+      foreach ($folders as $folder) {
+        if (!$folder->has_thumbnail()) {
         	if ($folder->have_access($this->auth->get_user())) {
             $have_access = true;
         	} else {
@@ -766,7 +792,7 @@ class SubfolioFiles extends Subfolio {
           }
         }
       }
-    } 
+    }
     
     if (!$haveFiles) {
       foreach ($files as $file) {

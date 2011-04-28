@@ -9,6 +9,8 @@ class FileFolder {
   var $stats;
 
   var $access = null;
+
+  static $image_extensions = array('png', 'jpg', 'gif');
   
   public function __construct($name, $parent, $type, $kind, $stats) {
     $this->name     = $name;
@@ -88,22 +90,21 @@ class FileFolder {
   }
 
   public function has_thumbnail($check_needs=false) {
-    $custom_thumbnail = "-thumbnails-custom/".$this->name;
-    if (file_exists($custom_thumbnail)) {
+    if ($this->has_custom_thumbnail()) {
       return true;
+    }
+    
+    $thumbnail = "-thumbnails/".$this->name;
+    if (file_exists($thumbnail)) {
+      // check the age of the thumbnail, if it was generated before the file modified, return false;
+     $thumbnail_stats = stat($thumbnail);
+     if ($thumbnail_stats['mtime'] > $this->stats['mtime']) {
+       return true;
+     } else {
+       return false;
+     }
     } else {
-      $thumbnail = "-thumbnails/".$this->name;
-      if (file_exists($thumbnail)) {
-        // check the age of the thumbnail, if it was generated before the file modified, return false;
-       $thumbnail_stats = stat($thumbnail);
-       if ($thumbnail_stats['mtime'] > $this->stats['mtime']) {
-         return true;
-       } else {
-         return false;
-       }
-      } else {
-        return false;
-      }
+      return false;
     }
     return false;
   }
@@ -115,7 +116,7 @@ class FileFolder {
 
     $filename = null;
     if ($this->has_custom_thumbnail()) {
-      $filename = "-thumbnails-custom/".$this->name;
+      $filename = "-thumbnails-custom/".$this->get_custom_thumbnail_file_name();
     } else if ($this->has_thumbnail()) {
       $filename = "-thumbnails/".$this->name;
     } else {
@@ -136,12 +137,29 @@ class FileFolder {
   
 	public function has_custom_thumbnail() {
 		$custom_thumbnail = "-thumbnails-custom/".$this->name;
-		return (file_exists($custom_thumbnail));
+	
+    foreach (self::$image_extensions as $extension) {
+      if (file_exists($custom_thumbnail.".".$extension)) {
+        return true;
+      }
+    }
+		return false;
+	}
+
+	public function get_custom_thumbnail_file_name() {
+		$custom_thumbnail = "-thumbnails-custom/".$this->name;
+	
+    foreach (self::$image_extensions as $extension) {
+      if (file_exists($custom_thumbnail.".".$extension)) {
+        return $this->name.".".$extension;
+      }
+    }
+		return false;
 	}
 
   public function get_thumbnail_url() {
     if ($this->has_custom_thumbnail()) {
-      return "/directory/".format::urlencode_parts($this->parent)."/-thumbnails-custom/".Filebrowser::double_encode_specialcharacters(urlencode($this->name));
+      return "/directory/".format::urlencode_parts($this->parent)."/-thumbnails-custom/".Filebrowser::double_encode_specialcharacters($this->get_custom_thumbnail_file_name());
     } else {
       
       $thumbnail = "-thumbnails/".$this->name;
