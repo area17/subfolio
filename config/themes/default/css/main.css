@@ -576,6 +576,12 @@ overflow: hidden; /* Crop the text if too long */
 .grid li span.comment { color: #aaa; }
 .grid li span.comment strong { color: inherit; }
 .grid .size, .grid .date, .grid .kind { display: none !important; }
+.grid .empty {
+   filter:alpha(opacity=50);
+   -moz-opacity:0.5;
+   -khtml-opacity: 0.5;
+   opacity: 0.5;
+}
 
 /* -------------------------------------------------------------- 
    MODULES: CONTENT / LISTING ICONS
