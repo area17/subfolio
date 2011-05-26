@@ -26,28 +26,26 @@
 	  </div>
   <?php } ?>
 
-  <?php if (!SubfolioTheme::get_mobile_viewport()) { ?>
-	  <ul id="tools">
-			<?php if (SubfolioUser::is_logged_in()) { ?>
-				<li><?php echo Subfolio::link_to(SubfolioLanguage::get_text('logout'),'/logout') ?></li>
-			<?php } ?>
+  <ul id="tools">
+		<?php if (SubfolioUser::is_logged_in()) { ?>
+			<li><?php echo Subfolio::link_to(SubfolioLanguage::get_text('logout'),'/logout') ?></li>
+		<?php } ?>
 
-			<?php if (SubfolioTheme::get_option('display_send_page')) { 
-        $subject = "Link from " . $_SERVER["SERVER_NAME"];
-        $body = Subfolio::current_url();
-			  ?>
-				<li><?php echo Subfolio::mail_to(SubfolioLanguage::get_text('sendpage'), '', $subject, $body) ?></li>
-			<?php } ?>
+		<?php if (SubfolioTheme::get_option('display_send_page')) { 
+      $subject = "Link from " . $_SERVER["SERVER_NAME"];
+      $body = Subfolio::current_url();
+		  ?>
+			<li><?php echo Subfolio::mail_to(SubfolioLanguage::get_text('sendpage'), '', $subject, $body) ?></li>
+		<?php } ?>
 
-			<?php if (SubfolioTheme::get_option('display_tiny_url')) {
-  			echo SubfolioTheme::get_tiny_url(SubfolioLanguage::get_text('generatetinyurl'), 'li');
-			} ?>
+		<?php if (SubfolioTheme::get_option('display_tiny_url')) {
+			echo SubfolioTheme::get_tiny_url(SubfolioLanguage::get_text('generatetinyurl'), 'li');
+		} ?>
 
-			<?php if (SubfolioTheme::get_option('display_collapse_header') && SubfolioTheme::get_option('display_header', true)) {
-  			echo SubfolioTheme::get_collapse_header_button('li');
-			} ?>
-	  </ul>
-  <?php } ?>
+		<?php if (SubfolioTheme::get_option('display_collapse_header') && SubfolioTheme::get_option('display_header', true)) {
+			echo SubfolioTheme::get_collapse_header_button('li');
+		} ?>
+  </ul>
 </div>
  
 <?php if (SubfolioTheme::get_option('display_navigation')) { ?>
