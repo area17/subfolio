@@ -3,6 +3,8 @@
 
 # To change your logo and other interface elements, go to /config/themes/default/options.yml
 
+site_root: /
+
 ### YOUR SITE NAME
 ### Appears in the header and HTML title of the page
 

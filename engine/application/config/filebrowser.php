@@ -54,6 +54,7 @@ $settings = Spyc::YAMLLoad($settings_file);
 
 //rint_r($settings);
 
+$config['site_root']              = isset($settings['site_root'])           ? $settings['site_root'] : $config['site_root'];
 $config['site_name']              = isset($settings['site_name'])           ? $settings['site_name'] : $config['site_name'];
 $config['site_logo_url']          = isset($settings['site_logo_url'])       ? $settings['site_logo_url'] : $config['site_logo_url'];
 $config['site_domain']            = isset($settings['site_domain'])         ? $settings['site_domain'] : $config['site_domain'];

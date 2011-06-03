@@ -158,12 +158,13 @@ class FileFolder {
 	}
 
   public function get_thumbnail_url() {
+    $root = SubfolioTheme::get_site_root();
     if ($this->has_custom_thumbnail()) {
-      return "/directory/".format::urlencode_parts($this->parent)."/-thumbnails-custom/".Filebrowser::double_encode_specialcharacters($this->get_custom_thumbnail_file_name());
+      return $root."directory/".format::urlencode_parts($this->parent)."/-thumbnails-custom/".Filebrowser::double_encode_specialcharacters($this->get_custom_thumbnail_file_name());
     } else {
       
       $thumbnail = "-thumbnails/".$this->name;
-      $url = "/directory/".format::urlencode_parts($this->parent)."/-thumbnails/".Filebrowser::double_encode_specialcharacters(urlencode($this->name));
+      $url = $root."directory/".format::urlencode_parts($this->parent)."/-thumbnails/".Filebrowser::double_encode_specialcharacters(urlencode($this->name));
   
       if (!file_exists("-thumbnails")) mkdir("-thumbnails", 0755, true);
   

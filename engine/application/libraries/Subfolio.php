@@ -41,6 +41,7 @@ class Subfolio {
 
   public static function current_file($data)
   {
+    $root = Kohana::config('filebrowser.site_root');
     if ($data == "width") {
       $file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$template->content->file->name);
       if (isset($file_kind['kind'])) {
@@ -133,7 +134,7 @@ class Subfolio {
       if (Subfolio::$filebrowser->file <> '') {
         return Subfolio::$filebrowser->get_file_url();
       } else {
-        	return "/directory/".Subfolio::$template->content->folder."/index.html";
+        	return $root."directory/".Subfolio::$template->content->folder."/index.html";
       }
     }
 
@@ -296,18 +297,31 @@ class SubfolioTheme extends Subfolio {
     return view::get_option('color_palette');
   }
 
+  public static function get_site_root() {
+    $site_root = Kohana::config('filebrowser.site_root');
+    if ($site_root == NULL) {
+      return "/";
+    } else {
+      return $site_root;
+    }
+  }
+
   public static function get_site_name() {
     $site_name = Kohana::config('filebrowser.site_name');;
     $site_name_display = $site_name;
     $logo = Kohana::config('filebrowser.site_logo_url');
     $logo = view::get_option('site_logo_url', $logo);
     if ($logo <> "") {
+
     	$width = Kohana::config('filebrowser.site_logo_width');
     	$width = view::get_option('site_logo_width', $width);
     	
   		$height = Kohana::config('filebrowser.site_logo_height');
     	$height = view::get_option('site_logo_height', $height);
-  		
+  
+      $root = Kohana::config('filebrowser.site_root');
+	    $logo = $root.$logo;
+		
   		if ($width <> '') { $width = " width='$width' "; }
   		if ($height <> '') { $height = " height='$height' "; }
       $site_name_display = "<img $width $height src='$logo' alt='$site_name' />";
@@ -338,6 +352,8 @@ class SubfolioTheme extends Subfolio {
   }
 
   public static function get_breadcrumb() {
+    $root = Kohana::config('filebrowser.site_root');
+
     $replace_dash_space = view::get_option('replace_dash_space', true);
     $replace_underscore_space = view::get_option('replace_underscore_space', true);
     $display_file_extensions = view::get_option('display_file_extensions', true);
@@ -348,7 +364,7 @@ class SubfolioTheme extends Subfolio {
     $parts = explode( "/", $ff);
     $count = 1;
     if ($ff <> "" && sizeof($parts) > 0) { 
-      $path = "/";
+      $path = $root;
       foreach ($parts as $key => $value) {
         $crumb = array();
         $crumb['name'] = htmlentities(FileFolder::fix_display_name($value, $replace_dash_space, $replace_underscore_space, $display_file_extensions));
@@ -506,6 +522,7 @@ class SubfolioFiles extends Subfolio {
 
   public function inline_images($type)
   {
+    $root = SubfolioTheme::get_site_root();
     $list = array();
     if ($type == "top") {
       $inline = Subfolio::$filebrowser->get_file_list("img", "-t-", true);
@@ -518,7 +535,8 @@ class SubfolioFiles extends Subfolio {
     foreach ($inline as $item) {
       list($width, $height, $type, $attr) = @getimagesize(Subfolio::$filebrowser->fullfolderpath."/".$item->name);      
       $list_item = array();
-      $list_item['url'] = "/directory".Subfolio::$filebrowser->get_link($item->name);
+      $list_item['url'] = Subfolio::$filebrowser->get_link($item->name, TRUE);
+      
       $list_item['width'] = $width;
       $list_item['height'] = $height;
       
@@ -634,6 +652,7 @@ class SubfolioFiles extends Subfolio {
 
   public function features()
   {
+    $root = Kohana::config('filebrowser.site_root');
     $list = array();
     $file_features = Subfolio::$filebrowser->get_file_list("ftr", null, true);
     foreach ($file_features as $file_feature) {
@@ -659,7 +678,7 @@ class SubfolioFiles extends Subfolio {
       
       $item['link'] = $feature_link;
       if (isset($feature['image'])) {
-        $item['image_file'] = "/directory/".Subfolio::$filebrowser->get_folder()."/".$feature['image'];
+        $item['image_file'] = $root."directory/".Subfolio::$filebrowser->get_folder()."/".$feature['image'];
   			list($width, $height, $type, $attr) = @getimagesize(Subfolio::$filebrowser->fullfolderpath."/".$feature['image']);   
   			$item['image_width'] = $width;
         $item['image_height'] = $height;
@@ -826,6 +845,7 @@ class SubfolioFiles extends Subfolio {
 
   public function files()
   {
+    $root = Kohana::config('filebrowser.site_root');
     $listing_mode = SubfolioTheme::get_listing_mode();
     $replace_dash_space = view::get_option('replace_dash_space', true);  
     $replace_underscore_space = view::get_option('replace_underscore_space', true);
@@ -904,7 +924,7 @@ class SubfolioFiles extends Subfolio {
     	  switch ($kind) {
     	    /***** NOT LINKING TO SITE, LINK TO PERMALINK PAGE INSTEAD
     			case "site" :
-    			  		$url = "/directory".Subfolio::$filebrowser->get_link($folder->name)."/index.html";
+    			  		$url = $root."directory".Subfolio::$filebrowser->get_link($folder->name)."/index.html";
     			  		$target = "_blank";
     		        $display = format::filename($folder->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions), false);
     		        break;
@@ -924,15 +944,15 @@ class SubfolioFiles extends Subfolio {
             break;
           
     			case "pages" :
-      			  	$url = "/directory".Subfolio::$filebrowser->get_link($folder->name);
+      			  	$url = $root."directory".Subfolio::$filebrowser->get_link($folder->name);
       			  	break;
     
     			case "numbers" :
-      			  	$url = "/directory".Subfolio::$filebrowser->get_link($folder->name);
+      			  	$url = $root."directory".Subfolio::$filebrowser->get_link($folder->name);
       			  	break;
     
     			case "key" :
-    						$url = "/directory".Subfolio::$filebrowser->get_link($folder->name);
+    						$url = $root."directory".Subfolio::$filebrowser->get_link($folder->name);
     						break;
             
     			default:
@@ -1335,6 +1355,7 @@ class SubfolioFiles extends Subfolio {
   }
 
   public function parent_link($name) {
+    $root = Kohana::config('filebrowser.site_root');
     $ff = Subfolio::$filebrowser->get_path();
     if ($ff <> '') {
     	$parent_link = urlencode(dirname($ff));
@@ -1343,6 +1364,7 @@ class SubfolioFiles extends Subfolio {
       if (substr($parent_link, -6) == ".slide") {
         $parent_link = substr($parent_link, 0, stripos($parent_link, '/'));
       }
+      $parent_link = $root.$parent_link;
       return html::anchor($parent_link, $name, array('id' => 'parent'));
     }
     return NULL;

@@ -8,7 +8,7 @@
 <div id="lock">
 	
 	<!-- Form -->
-	<form action="/login" method="post" name="protection">
+	<form action="<?php print SubfolioTheme::get_site_root(); ?>login" method="post" name="protection">
 		<input type="hidden" name="login" value="login">
 
 		<!-- Username -->

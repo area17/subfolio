@@ -1,6 +1,6 @@
 <?php if (!SubfolioTheme::get_mobile_viewport() && SubfolioTheme::get_option('display_header', true)) { ?>
 	<div id="header" class="<?php if (isset($_COOKIE['header'])) echo htmlentities($_COOKIE['header']); ?>">
-		<h1 id="logo"><a href='/' ><?php echo SubfolioTheme::get_site_name(); ?></a></h1>	
+		<h1 id="logo"><a href='<?php print Kohana::config('filebrowser.site_root'); ?>' ><?php echo SubfolioTheme::get_site_name(); ?></a></h1>	
 	</div>
 <?php } ?>
 
@@ -14,7 +14,7 @@
 			<?php if (SubfolioLanguage::get_text('indexof')<>'') { ?>
 				<span><?php echo SubfolioLanguage::get_text('indexof'); ?></span>&nbsp;&nbsp;
 			<?php } ?>
-			<a href="/"><?php echo Subfolio::get_setting('site_domain'); ?></a>
+			<a href="<?php print Kohana::config('filebrowser.site_root'); ?>"><?php echo Subfolio::get_setting('site_domain'); ?></a>
 			<?php foreach (SubfolioTheme::get_breadcrumb() as $crumb) { ?>
         <span class='slash'>&nbsp;/&nbsp;</span>
         <?php if ($crumb['url'] <> '') { ?>

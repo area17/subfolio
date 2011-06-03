@@ -4,12 +4,12 @@
 	<?php if (SubfolioFiles::is_root()) { ?>
 		<span id='left'></span>
 	<?php } else { ?>
-		<a href='/' id='home'>Some</a>
+		<a href='<?php print Kohana::config('filebrowser.site_root'); ?>' id='home'>Some</a>
 	<?php } ?>
 		
 	<!-- Logout or right mask -->
 	<?php if (SubfolioUser::is_logged_in()) { ?>
-		<a href='/logout' id='logout'>Logout</a>
+		<a href='<?php print Kohana::config('filebrowser.site_root'); ?>logout' id='logout'>Logout</a>
 	<?php } else { ?>
 		<span id='right'></span>
 	<?php } ?>

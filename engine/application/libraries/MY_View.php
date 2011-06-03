@@ -32,8 +32,9 @@ class View extends View_Core {
   }
 
   public function get_view_url() {
+    $root = SubfolioTheme::get_site_root();
     $theme = Kohana::config('filebrowser.theme');
-    return "/config/themes/".$theme;
+    return $root."config/themes/".$theme;
   }
   
   public static function get_option($name, $default=null)
