@@ -15,10 +15,10 @@
         <a href="<?php print SubfolioTheme::get_site_root(); ?>-cms/users/edit/<?php print $name; ?>"><?php print $name; ?></a>
       </td>
       <td>
-        <?php print $user['fullname'] ?>
+        <?php if (isset($user['fullname'])) print $user['fullname'] ?>
       </td>
       <td>
-        <?php if ($user['admin']) print "Yes" ?>
+        <?php if (isset($user['admin']) && $user['admin']) print "Yes" ?>
       </td>
       <td>
         <a href="<?php print SubfolioTheme::get_site_root(); ?>-cms/users/edit/<?php print $name; ?>">edit</a> &bull;
