@@ -20,7 +20,7 @@
         <?php if ($user['admin']) print "Yes" ?>
       <td>
         <a href="<?php print SubfolioTheme::get_site_root(); ?>-cms/users/edit/<?php print $name; ?>">edit</a> &bull;
-        <a onclick="javascript:return confirm('are you sure?');" href="<?php print SubfolioTheme::get_site_root(); ?>-cms/users/delete/<?php print $name; ?>">delete</a>
+        <a onclick="javascript:return confirm('Are you sure?');" href="<?php print SubfolioTheme::get_site_root(); ?>-cms/users/delete/<?php print $name; ?>">delete</a>
       </td>
     </li>
     <?php }

@@ -39,12 +39,26 @@ class Auth {
     $this->users[$name] = $user;
   }
 
-  public function add_group($name, $group) {
-    $this->groups[$name] = $groups;
+  public function add_group($name, $data) {
+    $this->groups[$name] = $data;
+  }
+
+  public function delete_user($name) {
+    if (isset($this->users[$name])) {
+      unset($this->users[$name]);
+      return TRUE;
+    }
+  }
+
+  public function delete_group($name) {
+    if (isset($this->groups[$name])) {
+      unset($this->groups[$name]);
+      return TRUE;
+    }
   }
 
   public function save_users() {
-    Spyc::YAMLSave($this->users, Kohana::config('filebrowser.users_yaml_file'));
+      Spyc::YAMLSave($this->users, Kohana::config('filebrowser.users_yaml_file'));
   }
 
   public function save_groups() {
@@ -54,6 +68,19 @@ class Auth {
   public function users() {
     // sorted by the order in the yaml
     return $this->users;
+  }
+
+  public function groups() {
+    // sorted by the order in the yaml
+    return $this->groups;
+  }
+
+  public function get_user_by_name($username) {
+    if (isset($this->users[$username])) {
+      return $this->users[$username];
+    } 
+
+    return NULL;
   }
 
   public function is_user($username) {
@@ -86,6 +113,33 @@ class Auth {
     
     return false;
 	}
+
+  public function add_user_to_group($username, $groupname) {
+    if (isset($this->groups[$groupname])) {
+      if (!in_array($username, $this->groups[$groupname])) {
+        $this->groups[$groupname][] = $username;
+        return TRUE;
+      }
+    }
+    
+    return FALSE;
+  }
+
+  public function remove_user_from_group($username, $groupname) {
+    if (isset($this->groups[$groupname])) {
+      if (in_array($username, $this->groups[$groupname])) {
+
+        foreach($this->groups[$groupname] as $idx => $name) {
+          if ($name == $username) {
+            unset($this->groups[$groupname][$idx]);
+          }
+        }
+        return TRUE;
+      }
+    }
+    
+    return FALSE;
+  }
 	
   public function logged_in() {
     // Get the user from the session

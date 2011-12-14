@@ -125,15 +125,23 @@ class Spyc {
     $files = glob($path.".*");
     $max = Spyc::max_filenumber($files);
     $max = $max + 1;
-    // copy the current file to a new backup
-    copy($path, $path.".".$max);
 
-    $min_keep = $max - $keep;
+    // increment the current version
+    foreach (array_reverse($files) as $file) {
+      $num = Spyc::get_number_from_filename($file);
+      $newfile = substr_replace($file, $num+1, strlen($path)+1);
+      rename($file, $newfile);
+    }
+
+    // copy the current file to a new backup
+    copy($path, $path.".1");
+
     // remove the older backups
+    $files = glob($path.".*");
     foreach ($files as $file) {
       $num = Spyc::get_number_from_filename($file);
-      if ($num <= $min_keep) {
-        rm($file);
+      if ($num > $keep) {
+        unlink($file);
       }
     }
     // save the file
