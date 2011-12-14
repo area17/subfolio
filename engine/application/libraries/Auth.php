@@ -57,7 +57,6 @@ class Auth {
   }
 
   public function is_user($username) {
-    print_r($this->users);
     if (isset($this->users[$username])) {
       return TRUE;
     } 
