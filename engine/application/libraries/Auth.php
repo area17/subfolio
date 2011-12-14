@@ -35,6 +35,36 @@ class Auth {
     return $instance;
 	}
   
+  public function add_user($name, $user) {
+    $this->users[$name] = $user;
+  }
+
+  public function add_group($name, $group) {
+    $this->groups[$name] = $groups;
+  }
+
+  public function save_users() {
+    Spyc::YAMLSave($this->users, Kohana::config('filebrowser.users_yaml_file'));
+  }
+
+  public function save_groups() {
+    Spyc::YAMLSave($this->groups, Kohana::config('filebrowser.groups_yaml_file'));
+  }
+
+  public function users() {
+    // sorted by the order in the yaml
+    return $this->users;
+  }
+
+  public function is_user($username) {
+    print_r($this->users);
+    if (isset($this->users[$username])) {
+      return TRUE;
+    } 
+
+    return FALSE;
+  }
+
 	public function user_group_list($user) {
 	  $groups = array();
 	  if (is_array($this->groups)) {

@@ -118,6 +118,56 @@ class Spyc {
     return $this->__load($file);
   }
 
+  public static function YAMLSave($array, $path, $keep=10) {
+    $yml = Spyc::YAMLDump($array);
+
+    // get the highest number for the current backup
+    $files = glob($path.".*");
+    $max = Spyc::max_filenumber($files);
+    $max = $max + 1;
+    // copy the current file to a new backup
+    copy($path, $path.".".$max);
+
+    $min_keep = $max - $keep;
+    // remove the older backups
+    foreach ($files as $file) {
+      $num = Spyc::get_number_from_filename($file);
+      if ($num <= $min_keep) {
+        rm($file);
+      }
+    }
+    // save the file
+    file_put_contents($path, $yml);
+  }
+
+  public static function max_filenumber($files) {
+    $max = 0;
+
+    foreach ($files as $file) {
+      $num = Spyc::get_number_from_filename($file);
+      if ($num) {
+        $max = max($num, $max);
+      }
+    }
+
+    return $max;
+  }
+
+  public static function get_number_from_filename($file) {
+    $number = 0;
+    $pos = strripos($file, ".");
+    if ($pos === false) {
+      // NO DOT
+    } else {
+      $n = substr($file, $pos+1);
+      if (is_numeric($n)) {
+        $number = $n;
+      }
+    }
+
+    return $number;
+  }
+
   /**
      * Load YAML into a PHP array statically
      *
