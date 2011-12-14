@@ -1,5 +1,6 @@
 <div class="standard_paragraph">
   <h2>Users List</h2>
+  <?php if ($users) { ?>
   <table width="100%;">
   <thead>
     <th>Name</th>
@@ -27,5 +28,8 @@
     <?php }
   ?>
   </table>
+  <?php } else { ?>
+    <p>No users?  How is that possible?!?</p>
+  <?php }  ?>
 </div>
 <p><a href="<?php print SubfolioTheme::get_site_root(); ?>-cms/users/add">Add new user</a></p>

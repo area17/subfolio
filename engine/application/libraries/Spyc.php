@@ -134,7 +134,7 @@ class Spyc {
     }
 
     // copy the current file to a new backup
-    copy($path, $path.".1");
+    if (file_exists($path)) copy($path, $path.".1");
 
     // remove the older backups
     $files = glob($path.".*");

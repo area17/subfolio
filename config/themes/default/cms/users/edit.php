@@ -53,6 +53,7 @@
 
     <hr />
 
+    <?php if ($groups) { ?>
     <h4>Groups</h4>
 
     <ul>
@@ -66,5 +67,5 @@
       </li>
     <?php } ?>
     </ul>
-
+    <?php } ?>
   </div>
