@@ -83,8 +83,24 @@ class Auth {
     return NULL;
   }
 
+  public function get_group_by_name($groupname) {
+    if (isset($this->groups[$groupname])) {
+      return $this->groups[$groupname];
+    } 
+    return NULL;
+  }
+
   public function is_user($username) {
     if (isset($this->users[$username])) {
+      return TRUE;
+    } 
+
+    return FALSE;
+  }
+
+
+  public function is_group($groupname) {
+    if (isset($this->groups[$groupname])) {
       return TRUE;
     } 
 
