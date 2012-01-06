@@ -305,6 +305,7 @@ height: 25px; /* 25+14 = 39*/
 
 /* BREADCRUMBTOOLS */
 #breadcrumbtools, #navigation { border-bottom:1px solid #e0e0e0; }
+#breadcrumbtools, #breadcrumbtools *, #navigation, #navigation * { white-space: nowrap; }
 #breadcrumbtools .slash { } /*<-- here you can replace the slash with a graphic*/
 
 /* BREADCRUMBTOOLS: Breadcrumb */
