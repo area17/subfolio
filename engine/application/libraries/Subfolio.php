@@ -689,7 +689,7 @@ class SubfolioFiles extends Subfolio {
       $item['width'] = isset($feature['width']) ? $feature['width'] : NULL;
       $item['height'] = isset($feature['height']) ? $feature['height'] : NULL;
       $item['title'] = isset($feature['title']) ? $feature['title'] : "";
-      $item['target'] = isset($feature['target']) ? $feature['target'] : "";
+      $item['target'] = isset($feature['target']) ? $feature['target'] : NULL;
       $item['description'] = isset($feature['description']) ? $feature['description'] : "";
 
       $list[] = $item;
