@@ -11,9 +11,14 @@
 					$style .= ' height: '.$feature['height'] .'px; ';
 				}
 				$style .= '"';
+
+				$target = "";
+				if (isset($feature['target']) && $feature['target'] !== NULL) {
+					$target = 'target="'.$feature['target'].'"';
+				}
 				?>
 		    <li>
-				  <a href="<?php echo $feature['link'] ?>" <?php echo $style ?>>
+				  <a <?php echo $target ?> href="<?php echo $feature['link'] ?>" <?php echo $style ?>>
 				    <?php if (isset($feature['image_file'])) { ?>
 			    	<img src="<?php echo $feature['image_file'] ?>" width="<?php echo $feature['image_width'] ?>" height="<?php echo $feature['image_height'] ?>">
 			    	<?php } ?>
