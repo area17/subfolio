@@ -49,11 +49,9 @@ class format extends format_Core {
     $style = Kohana::config('filebrowser.text_rendering');
     if ($style == "textile") {
 			$textile = new Textile();
-			//return $textile->TextileThis(text::auto_link_urls($text, '_blank'));
-			return $textile->TextileThis($text);
+			return $textile->TextileThis(text::auto_link_urls($text, '_blank'));
     } else if ($style == "markdown") {
-			//return Markdown(text::auto_link_urls($text, '_blank'));
-			return Markdown($text);
+			return Markdown(text::auto_link_urls($text, '_blank'));
     } else {
     	return $text;
     }

@@ -468,18 +468,13 @@ class Filebrowser {
     return $folders;
   }
 
-  public function get_link($name, $directory=false) {
-    $root = SubfolioTheme::get_site_root();
-    if ($directory) {
-      $root .= "directory/";
-    }
-    
+  public function get_link($name) {
     if ($this->folder == "") {
-      $link = $root.urlencode($name);
+      $link = "/".urlencode($name);
       $link = str_replace('%2F', '/', $link);
       $link = Filebrowser::double_encode_specialcharacters($link);
     } else {
-      $link = $root.urlencode($this->folder)."/".urlencode($name);
+      $link = "/".urlencode($this->folder)."/".urlencode($name);
       // unencode '/'
       $link = str_replace('%2F', '/', $link);
       $link = Filebrowser::double_encode_specialcharacters($link);
@@ -488,8 +483,7 @@ class Filebrowser {
   }
 
   public function get_file_url() {
-    $root = SubfolioTheme::get_site_root();
-    return $root."directory/".format::urlencode_parts($this->filepath);
+    return "/directory/".format::urlencode_parts($this->filepath);
   }
 
   public function is_feature($foldername) {

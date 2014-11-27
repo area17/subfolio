@@ -62,6 +62,12 @@ error_reporting(E_ALL & ~E_STRICT);
 ini_set('display_errors', TRUE);
 
 /**
+ * Manual memory limit - generating thumbnails for images with huge dimensions requires a lot of
+ * memory. — Denis 06/19/14
+ */
+ini_set('memory_limit', '2048M');
+
+/**
  * If you rename all of your .php files to a different extension, set the new
  * extension here. This option can left to .php, even if this file has a
  * different extension.

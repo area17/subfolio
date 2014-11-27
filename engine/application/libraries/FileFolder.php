@@ -9,8 +9,6 @@ class FileFolder {
   var $stats;
 
   var $access = null;
-
-  static $image_extensions = array('png', 'jpg', 'gif');
   
   public function __construct($name, $parent, $type, $kind, $stats) {
     $this->name     = $name;
@@ -90,21 +88,22 @@ class FileFolder {
   }
 
   public function has_thumbnail($check_needs=false) {
-    if ($this->has_custom_thumbnail()) {
+    $custom_thumbnail = "-thumbnails-custom/".$this->name;
+    if (file_exists($custom_thumbnail)) {
       return true;
-    }
-    
-    $thumbnail = "-thumbnails/".$this->name;
-    if (file_exists($thumbnail)) {
-      // check the age of the thumbnail, if it was generated before the file modified, return false;
-     $thumbnail_stats = stat($thumbnail);
-     if ($thumbnail_stats['mtime'] > $this->stats['mtime']) {
-       return true;
-     } else {
-       return false;
-     }
     } else {
-      return false;
+      $thumbnail = "-thumbnails/".$this->name;
+      if (file_exists($thumbnail)) {
+        // check the age of the thumbnail, if it was generated before the file modified, return false;
+       $thumbnail_stats = stat($thumbnail);
+       if ($thumbnail_stats['mtime'] > $this->stats['mtime']) {
+         return true;
+       } else {
+         return false;
+       }
+      } else {
+        return false;
+      }
     }
     return false;
   }
@@ -116,7 +115,7 @@ class FileFolder {
 
     $filename = null;
     if ($this->has_custom_thumbnail()) {
-      $filename = "-thumbnails-custom/".$this->get_custom_thumbnail_file_name();
+      $filename = "-thumbnails-custom/".$this->name;
     } else if ($this->has_thumbnail()) {
       $filename = "-thumbnails/".$this->name;
     } else {
@@ -137,34 +136,16 @@ class FileFolder {
   
 	public function has_custom_thumbnail() {
 		$custom_thumbnail = "-thumbnails-custom/".$this->name;
-	
-    foreach (self::$image_extensions as $extension) {
-      if (file_exists($custom_thumbnail.".".$extension)) {
-        return true;
-      }
-    }
-		return false;
-	}
-
-	public function get_custom_thumbnail_file_name() {
-		$custom_thumbnail = "-thumbnails-custom/".$this->name;
-	
-    foreach (self::$image_extensions as $extension) {
-      if (file_exists($custom_thumbnail.".".$extension)) {
-        return $this->name.".".$extension;
-      }
-    }
-		return false;
+		return (file_exists($custom_thumbnail));
 	}
 
   public function get_thumbnail_url() {
-    $root = SubfolioTheme::get_site_root();
     if ($this->has_custom_thumbnail()) {
-      return $root."directory/".format::urlencode_parts($this->parent)."/-thumbnails-custom/".Filebrowser::double_encode_specialcharacters($this->get_custom_thumbnail_file_name());
+      return "/directory/".format::urlencode_parts($this->parent)."/-thumbnails-custom/".Filebrowser::double_encode_specialcharacters(urlencode($this->name));
     } else {
       
       $thumbnail = "-thumbnails/".$this->name;
-      $url = $root."directory/".format::urlencode_parts($this->parent)."/-thumbnails/".Filebrowser::double_encode_specialcharacters(urlencode($this->name));
+      $url = "/directory/".format::urlencode_parts($this->parent)."/-thumbnails/".Filebrowser::double_encode_specialcharacters(urlencode($this->name));
   
       if (!file_exists("-thumbnails")) mkdir("-thumbnails", 0755, true);
   
