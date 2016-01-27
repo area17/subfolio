@@ -243,7 +243,7 @@ span.parent_dir { width: 35%; }
 
 #gallery ul { list-style: none; margin: 0; padding: 0 1px 1px 0; overflow: hidden; }
 #gallery ul li { float: left; }
-#gallery ul li a { display: block; margin: 0 -1px -1px 0; padding: 30px; border-width: 1px; background: white; }
+#gallery ul li a { display: block; margin: 0 -1px -1px 0; padding: 20px; border-width: 1px; background: white; }
 #gallery ul li a p { color: inherit; }
 #gallery ul li a div.gallery_thumbnail { height: 240px; position: relative; background-color: white; }
 #gallery ul li a div.custom { height: auto; }
