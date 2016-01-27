@@ -294,7 +294,7 @@ padding-left: 25px; */ padding-right: 10px; }
 .list span.caps { display: inline; float: none; }
 .list span strong { color: inherit; }
 .list .list__cell--icon { width: 25px; position: relative; }
-.list .list__cell--filename { min-width: 220px; width: 20%; position: relative; padding-right: 20px !important; }
+.list .list__cell--filename { width: 20%; position: relative; padding-right: 20px !important; }
 .list .list__cell--filename:before { /*content: '— ';*/ }
 .list .list__cell--size { min-width: 65px; }
 .list .list__cell--date { min-width: 90px; }
