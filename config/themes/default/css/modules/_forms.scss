@@ -1,0 +1,94 @@
+/* @group Forms */
+
+/* --------------------------------------------------------------
+   FORMS
+-------------------------------------------------------------- */
+
+/* Form Container */
+#lock {
+overflow: hidden;
+width: 360px;
+/*float: left;*/
+}
+
+/* Form */
+#lock form {
+border: 1px solid $color-border;
+overflow:hidden;
+padding-top: 5px;
+}
+
+/* Form header */
+#lock .login_header {
+padding: 19px 0 10px 10px;
+background-color: #1A1A1A;
+}
+#lock .login_header b { color:#FFF; }
+
+
+/* Form feedback */
+#lock .login_feedback {
+padding: 19px 0 10px 10px;
+background-color: red;
+color:#FFF;
+}
+#lock .login_feedback b { color: inherit; }
+
+/* Fields */
+#lock form input.field {
+width: 203px;
+padding: 5px;
+font: 12px Arial, Helvetica, sans-serif;
+border: 1px solid $color-border;
+color: inherit;
+background-color: white;
+}
+
+/* Checkbox */
+#lock form .checkbox {
+overflow: hidden;
+line-height: 14px;
+}
+
+#lock form .checkbox input {
+float: left;
+margin: 0 5px 0 0;
+padding: 0;
+}
+
+/* Spacing & Alignment */
+#lock form input.field { margin: 15px 0 0; }
+
+#lock form .checkbox { margin: 10px 0 15px; }
+
+#lock form .login_field {
+text-align: right;
+padding-right: 15px;
+}
+#lock form label { margin-right: 5px; }
+#lock form .checkbox { margin-left: 95px; }
+
+/* Submit button */
+.subButton {
+width: 100%;
+border-top: 1px solid $color-border;
+overflow: hidden;
+}
+
+.subButton input {
+float: right;
+width: 140px;
+display: block;
+color: #FFF;
+-moz-border-radius: 2px;
+-webkit-border-radius: 2px;
+margin: 10px;
+padding: 14px 0 6px 7px;
+border: 0 none;
+cursor: pointer;
+text-align: left;
+background-color: #666;
+}
+.subButton input:hover { background-color:#1A1A1A; }
+
+/* @end */

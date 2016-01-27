@@ -1,0 +1,18 @@
+/* ERRORS */
+.big_exclam {
+display: block;
+width: 59px;
+height: 59px;
+background: url(../images/system/big_exclam8.png) no-repeat;
+}
+
+.big_exclam, .big_lock {
+display: block;
+width: 59px;
+height: 59px;
+text-indent: -5000em;
+}
+.big_exclam { background: url(../images/system/big_exclam24.png) no-repeat; }
+.big_lock { background: url(../images/system/big_lock24.png) no-repeat; }
+
+/* @end */

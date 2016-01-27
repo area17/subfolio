@@ -53,7 +53,8 @@ version_compare(PHP_VERSION, '5.2', '<') and exit('Kohana requires PHP 5.2 or ne
  * Set the error reporting level. Unless you have a special need, E_ALL is a
  * good level for error reporting.
  */
-error_reporting(E_ALL & ~E_STRICT);
+/* error_reporting(E_ALL & ~E_STRICT); */
+error_reporting(E_NOTICE);
 
 /**
  * Turning off display_errors will effectively disable Kohana error display

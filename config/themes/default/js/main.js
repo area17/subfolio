@@ -1,4 +1,4 @@
-/* -------------------------------------------------------------- 
+/* --------------------------------------------------------------
 
 main.js
 * Subfolio by AREA 17
@@ -33,15 +33,9 @@ $(document).ready(function(){
 /* Run when DOM is ready
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function runOnDOMready() {
-	
-	/* Setting border for 1st child of the breadcrumb */
-	if ($('#navigation')[0]) {
-		$('#navigation').find('span.prev_next').find(":nth-child(1)").addClass("first");
-	}
-	
 	browserDectect();
 	bindInfoboxEvents(); // event handlers for the info box toggle
-	gallery(); // runs first to speed vertical/horizontal alignement rendering if needed. 
+	gallery(); // runs first to speed vertical/horizontal alignement rendering if needed.
 	setUpClasses();
 	keyPress();
 }
@@ -57,32 +51,32 @@ function browserDectect() {
 		var bVersion = parseFloat(dataString.substring(index+browser.length+1));
 		return bVersion.toString().split(".")[0];
 	}
-	
+
 	// are we on a Mac ?
 	if (navigator.appVersion.indexOf("Mac")!=-1) {
 		isMac = true;
 		$('body').addClass("isMac");
-	} 
-	
+	}
+
 	// Safari versioning
 	isSafari =  jQuery.browser.safari;
-	if (isSafari) {	
+	if (isSafari) {
 		$('body').addClass("isSafari");
-		version = searchVersion("Version") || + "";	
+		version = searchVersion("Version") || + "";
 		$('body').addClass("isSafari"+version);
 		isSafari3 = (version == 3) ? true : false;
 		isSafari4 = (version == 4) ? true : false;
 	}
-		
+
 	// IE versioning
 	isIE = jQuery.browser.msie;
-	if (isIE) {	
+	if (isIE) {
 		version = searchVersion("MSIE") || "";
 		isIE6 = (version == 6) ? true : false;
 		isIE7 = (version == 7) ? true : false;
 		isIE8 = (version == 8) ? true : false;
 	}
-	
+
 	// Mozilla versioning
 	isMozilla = jQuery.browser.mozilla;
 	if (isMozilla) {
@@ -90,13 +84,13 @@ function browserDectect() {
 		version = searchVersion("Firefox") || "";
 		$('body').addClass("isMozilla"+version);
 	}
-	
+
 	// Opera versioning
 	isOpera = jQuery.browser.opera;
 	if (isOpera) {
 		$('body').addClass("isOpera");
 	}
-	
+
 	// iPhone
 	if (navigator.userAgent.indexOf("iPhone") != -1) {
 		isIphone = true;
@@ -108,17 +102,11 @@ function browserDectect() {
 /* Setting classes to handle cross browser dom parsing
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function setUpClasses() {
-	
+
 	if ($('#content')[0]) {
-		
-		/* Setting margin for all direct children of #content. This is a duplicate of a CSS rule but IE can't handle it so we put it here */
-		$('#content > div').css("marginBottom", "15px");
-		
-		$('li:nth-child(even)').addClass("even");	
-		$('li:first-child').addClass("first");
-		$('li:last-child').addClass("last");
+		$('li:nth-child(even)').addClass("even");
 	}
-	
+
 	bindHeaderEvents();
 
 }
@@ -174,27 +162,27 @@ function createCookie(name, value) {
    - Handling image hover/click for IE6/7
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function gallery() {
-	
+
 	if ($('#gallery')[0]) {
-		
+
 		// Setting the context to optimize the each function
 		var _context = $('#gallery').find('ul').find('li');
 		var _galthumb = _context.find('a').find('.gallery_thumbnail');
-		
+
 		_galthumb.each(function() {
-			
+
 			if ($(this).hasClass("custom")) {
-				
+
 				// =TODO fix the bug in IE6/7
-				
+
 			} else {
-				
+
 				_img = $(this).find('img');
 				var wImg = _img.width();
 				var hImg = _img.height();
 				var wP = $(this).parent().find("p").outerWidth();
 				var hP = $(this).outerHeight();
-			
+
 				// If the image width is smaller than its container's then we align it horizontally
 				if (wImg < wP) {
 					// Setting the right width (based on the widest between the img and the filename)
@@ -204,18 +192,18 @@ function gallery() {
 					_img.css("left", "50%");
 					_img.css("marginLeft", "-" + m + "px");
 				}
-			
+
 				// If the image height is smaller than its container's then we align it vertically
 				if (hImg < hP) {
 					var m = hImg / 2;
 					_img.css("position", "absolute");
 					_img.css("top", "50%");
-					_img.css("marginTop", "-" + m + "px");			
+					_img.css("marginTop", "-" + m + "px");
 				}
 			}
-			
+
 		});
-		
+
 		if (isIE6 || isIE7) {
 			$('#gallery').find('ul').find('li').click(function(e) {
 				e.preventDefault();
@@ -230,15 +218,15 @@ function gallery() {
 				$(this).removeClass("hover");
 			});
 		}
-		
+
 	}
 }
 
 /* Register keypress events on the whole document when navigation exists
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function keyPress () {
-		
-	$(document).keydown(function(e) {	
+
+	$(document).keydown(function(e) {
 		switch(e.keyCode) {
 			// user pressed "left" arrow
 			case 37:
@@ -253,12 +241,12 @@ function keyPress () {
   					}
 					}
 				}
-			break;				
+			break;
 			// user pressed "top" arrow
 			case 84: $('html,body').animate({scrollTop: 0}, 250);
 			break;
 			// user pressed "right" arrow
-			case 39: 
+			case 39:
 				if ($('#next')[0]) {
 			    if (!e.altKey) {
   					var next = $('#next');
@@ -269,10 +257,10 @@ function keyPress () {
   						});
   					}
 					}
-				} 
+				}
 			break;
       // user pressed "up" arrow
-			case 38: 
+			case 38:
 			    if (e.altKey) {
   					var parent_dir = $('#parent');
   					var parent_dir_url = parent_dir.attr("href");

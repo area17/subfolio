@@ -1,0 +1,41 @@
+/* ---------- Grid system must be simple ---------- */
+
+$gutter:30px;
+$gutter-mobile:20px;
+$half-gutter:15px;
+$half-gutter-mobile:10px;
+$col_number:12;
+$max_width:990px + $gutter;
+
+@mixin col($size: 1) {
+  $single_col: 100% / $col_number;
+  $percent: $size * $single_col;
+  width:calc(#{$percent} - #{$gutter});
+
+  @include breakpoint(small) {
+    width:calc(#{$percent} - #{$gutter-mobile});
+  }
+}
+
+@mixin inner-col($size: 1, $no_gutter: false) {
+  $single_col: 100% / $col_number;
+  $percent: $size * $single_col;
+
+  @if $no_gutter == false {
+
+    width:calc(#{$percent} - #{$half-gutter});
+    @include breakpoint(small) {
+      width:calc(#{$percent} - #{$half-gutter-mobile});
+    }
+
+  } @else {
+
+    width:calc(#{$size} * #{$single_col});
+    @include breakpoint(small) {
+      width:calc(#{$size} * #{$single_col});
+    }
+
+  }
+}
+
+/* ---------- End – Grid system ---------- */

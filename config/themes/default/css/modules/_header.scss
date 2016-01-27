@@ -1,0 +1,143 @@
+$height_bar: 70px;
+$top_spacing: 25px;
+
+#notice {
+  overflow: hidden;
+  width: 100%;
+  background-color: #666; /* << text_light_color */
+
+  &.error { background-color: #d11226; }
+
+  p {
+    padding: 44px 0 0 10px;
+    background: url(../images/system/icon_exclam24.png) no-repeat 10px 10px;
+  }
+}
+
+#notice {
+  p, p b {
+    color: white;
+  }
+
+  #close {
+    float: right;
+    display: block;
+    height: 69px;
+    width: 36px;
+    text-indent: -5000px;
+    background: url(../images/system/close24.png) no-repeat 10px 10px;
+  }
+
+  #close:hover {
+    background-position: 10px -140px;
+  }
+}
+
+
+
+/* LOGO */
+#logo {
+  padding-top: $gutter;
+
+  a {
+    font-size: 300%;
+    &:hover { background-color: inherit; }
+  }
+
+}
+
+/* BREADCRUMBTOOLS, NAVIGATION, FOOTER: Common */
+#breadcrumbtools,
+#footer,
+#navigation {
+  overflow: hidden;
+  width: 100%;
+}
+#breadcrumbtools {
+  min-height: 15px;
+}/*<-- when no tools, keep a space under the logo*/
+
+
+#breadcrumbtools a,
+#breadcrumbtools span,
+#footer a,
+#navigation a,
+#navigation .prev_next span,
+#footer a,
+#footer span {
+  display: inline-block;
+  padding: $top_spacing 0 0 0;
+  height: $height_bar; /* 25+14 = 39*/
+  /*color: inherit;*/
+}
+
+/* BREADCRUMBTOOLS */
+#breadcrumbtools,
+#navigation {
+  border-bottom:1px solid $color-border;
+}
+#breadcrumbtools,
+#breadcrumbtools *,
+#navigation,
+#navigation * {
+  white-space: nowrap;
+}
+#breadcrumbtools .slash { } /*<-- here you can replace the slash with a graphic*/
+
+/* BREADCRUMBTOOLS: Breadcrumb */
+#breadcrumb { float: left; }
+
+/* BREADCRUMBTOOLS: Tools */
+#tools {
+  float: right;
+  overflow: hidden;
+}
+#tools {
+  li {
+    float: left;
+  }
+
+  li a {
+    display: inline-block;
+    padding: $top_spacing 10px 0 10px;
+    height: $height_bar;
+    border-left: 1px solid $color-border;
+  }
+
+  li:last-child a {
+    padding-right: 0;
+  }
+}
+
+
+/* NAVIGATION */
+div#navigation {
+  overflow:hidden;
+}
+span.parent_dir,
+span.prev_next {
+  display:block;
+  float:left;
+}
+
+span.prev_next {
+  float:right;
+}
+
+span.parent_dir {
+  width:35%;
+}
+
+#navigation .parent_dir a {
+  background: url(../images/system/parent.png) no-repeat 3px 12px; /*Remove this and the left-padding for no arrow*/
+  padding-left: 25px;
+  padding-right: 10px;
+}
+/*#navigation .parent_dir a:hover { background-position: 3px -38px; }*/ /*<< Uncomment if you want your arrow to change color on hover. Default is blue. Change image sprite with photoshop for other color*/
+#navigation span.prev_next a, #navigation span.prev_next .faded { padding-left:15px; padding-right:15px; }
+#navigation span.prev_next *:first-child { border-right: 1px solid $color-border; }
+
+#breadcrumbtools a:hover,
+#footer a:hover,
+#navigation a:hover,
+#navigation a.hover {  }

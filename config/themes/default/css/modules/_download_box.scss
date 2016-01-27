@@ -1,0 +1,63 @@
+/* @group Download */
+#download_box {
+width: 220px;
+padding-top: 10px;
+}
+#download_box .updated {
+position: absolute;
+display: block;
+width: 11px;
+height: 11px;
+z-index: 99;
+background:url("../images/system/updated_grid24.png") no-repeat top left;
+top: 0;
+left: 25px;
+}
+
+#download_box #filename {
+clear: both;
+padding-top: 9px;
+margin-bottom: 2px;
+width: 220px;
+overflow: hidden;
+color: inherit;
+}
+
+#download_box #clickable-zone { display: block; position: relative; }
+
+#download_box {
+  dl {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    border-top-width: 1px;
+    margin-top: 15px;
+    margin-bottom: 9px;
+  }
+  dt {
+    float: left;
+    padding-top: 4px;
+  }
+  dd {
+    display: block;
+    padding-top: 4px;
+    padding-left: 85px;
+    padding-bottom: 1px;
+    border-bottom-width: 1px;
+  }
+}
+#download_box #instructions {
+padding: 0 0 10px 0;
+border-bottom: 1px solid $color-border;
+margin-bottom: 9px;
+}
+#download_box #instructions a { text-decoration: underline; }
+#download_box #download {
+display: block;
+padding-bottom: 15px;
+padding-top: 5px;
+}
+#download_box #download.with_arrow {
+padding-left: 10px;
+background: url(../images/system/download_xl.png) no-repeat 0 2px;
+}

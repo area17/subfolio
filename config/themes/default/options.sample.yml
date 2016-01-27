@@ -19,7 +19,7 @@ site_favicon_url: /config/themes/default/images/favicon.ico
 color_palette: default
 
 ### THUMBNAIL HEIGHT (in pixels)
-### Width will be proportional 
+### Width will be proportional
 
 thumbnail_height: 240
 

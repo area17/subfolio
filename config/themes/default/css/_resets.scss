@@ -1,0 +1,39 @@
+html, body,
+div, span,
+object, iframe,
+h1, h2, h3, h4, h5, h6,
+p, blockquote,
+pre, a,
+abbr, acronym,
+address, code,
+del, dfn,
+em, img,
+q, dl,
+dt, dd,
+ol, ul,
+li, fieldset,
+form, label,
+legend, table,
+caption, tbody,
+tfoot, thead,
+tr, th, td {
+margin : 0;
+padding : 0;
+border : 0;
+font-weight : inherit;
+font-style : inherit;
+font-size : 100%;
+font-family : inherit;
+vertical-align : baseline;
+}
+
+/*  Removes ios tap highlighting j.mp/webkit-tap-highlight-color */
+html { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+
+/* Body ---------------------------------------------------------------- */
+body  {
+background-color:#FFF; /* << background_color */
+background-repeat:repeat-x;
+color: #333; /* << text_color */
+border-color: red; /* << border_color */
+}

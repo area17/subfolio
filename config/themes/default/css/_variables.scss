@@ -1,0 +1,15 @@
+$path_img: 'img/';
+
+$breakpoints: (
+  large: "(min-width: 1020px)",
+  medium: "(max-width: 1019px) and (min-width: 640px)",
+  medium-and-down: "(max-width: 1019px)",
+  small: "(max-width: 639px)"
+);
+
+
+/* z-index wars */
+$z-index__mobilenav: 9999999;
+$z-index__header: 9999999;
+$z-index__secondaryheader:999999;
+$z-index__root:0;
