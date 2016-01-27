@@ -129,8 +129,8 @@ span.parent_dir {
 }
 
 #navigation .parent_dir a {
-  background: url(../images/system/parent.png) no-repeat 3px 12px; /*Remove this and the left-padding for no arrow*/
-  padding-left: 25px;
+  /*background: url(../images/system/parent.png) no-repeat 3px 12px;
+  padding-left: 25px; */
   padding-right: 10px;
 }
 /*#navigation .parent_dir a:hover { background-position: 3px -38px; }*/ /*<< Uncomment if you want your arrow to change color on hover. Default is blue. Change image sprite with photoshop for other color*/
