@@ -1,12 +1,12 @@
 <footer id="footer">
 
   <div class="copyright">
-  <?php echo SubfolioTheme::subfolio_link(); ?>
+    <?php echo SubfolioTheme::subfolio_link(); ?>
 
-  <?php $copyright = SubfolioTheme::get_site_copyright();
-  if ($copyright <> '') { ?>
-  <div class='copyright__text'><?php echo $copyright ?></span>
-  <?php } ?>
+    <?php $copyright = SubfolioTheme::get_site_copyright();
+    if ($copyright <> '') { ?>
+    <span class='copyright__text'><?php echo $copyright ?></span>
+    <?php } ?>
   </div>
 
   <?php if (!SubfolioTheme::get_mobile_viewport() && SubfolioTheme::get_option('display_updated_since')) { ?>
