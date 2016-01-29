@@ -2,7 +2,7 @@
 # This file must be encoded as Unicode (UTF-8) for it to work properly.
 
 # You can change your color palette in the theme options.yml file.
-# You may need to change your icon set to 24bit alpha if using dark background. 
+# You may need to change your icon set to 24bit alpha if using dark background.
 # Change icons in theme options.yml file.
 
 ### Main colors
@@ -10,13 +10,13 @@
 
 back:                   'white'
 main_link:              '#1a1a1a'
-main_link_hover:        '#1a1a1a'
+main_link_hover:        '#808080'
 main_link_back_hover:   '#f5f5f5'
-line:                   '#e0e0e0'
+line:                   '#e5e5e5'
 text_strong:            '#1a1a1a'
 text:                   '#333'
-text_light:             '#666'
-text_dimmed:            '#999'
+text_light:             '#808080'
+text_dimmed:            '#CCC'
 flash:                  'red'
 
 ### Optional colors

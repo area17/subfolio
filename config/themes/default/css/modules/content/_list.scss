@@ -4,13 +4,20 @@
    MODULES: CONTENT / LISTING LIST VIEW
 -------------------------------------------------------------- */
 
-$height_list: 60px;
+$height_list: 50px;
+
+#listing {
+  width: 100%;
+  overflow: hidden;
+}
 
 .list {
   width: 100%;
   min-width: 510px; /* We set the min-width of the listing to match the kind column */
   position: relative;
   display:table;
+  border-bottom-width:1px;
+  border-bottom-color:$color-border-light;
 
   li,
   .list__row {
@@ -21,10 +28,12 @@ $height_list: 60px;
 
   .list__cell {
     border-top-width:1px;
+    border-top-color:$color-border-light;
     height: $height_list;
     line-height:$height_list;
     display:table-cell;
     padding-right:20px;
+    overflow:hidden;
     @include ellipsis();
   }
 
@@ -47,6 +56,10 @@ $height_list: 60px;
     background-color: #eee;
   }
 
+  a.list__row--empty {
+    cursor:default;
+  }
+
   li.listing-header {
     margin: 0;
   }
@@ -63,8 +76,13 @@ $height_list: 60px;
     color: inherit;
   }
   .list__cell--icon {
-    width: 25px;
+    width: 1px;
     position: relative;
+    vertical-align: middle;
+
+    img {
+      display:block;
+    }
   }
   .list__cell--filename {
     width:20%;
@@ -89,11 +107,26 @@ $height_list: 60px;
     top: 0;
   }
 
-  .list__cell--empty {
-    filter:alpha(opacity=50);
-    -moz-opacity:0.5;
-    -khtml-opacity: 0.5;
-    opacity: 0.5;
+  @include breakpoint(medium-and-down) {
+    .list__cell--kind,
+    .list__cell--comment,
+    .list__header .list__cell--kind,
+    .list__header .list__cell--comment {
+      display: none;
+    }
+  }
+
+  @include breakpoint(small) {
+    .list__cell--size,
+    .list__cell--date,
+    .list__header .list__cell--size,
+    .list__header .list__cell--date {
+      display: none;
+    }
+
+    .list__cell--filename {
+      width:95%;
+    }
   }
 }
 
@@ -123,7 +156,7 @@ $height_list: 60px;
 
 .list .locked, .list .unlocked {
   position: absolute;
-  top: 5px;
+  top: 50%;
   left: 3px;
   display: block;
   width: 12px;

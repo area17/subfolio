@@ -57,12 +57,15 @@ $top_spacing: 25px;
   min-height: 15px;
 }/*<-- when no tools, keep a space under the logo*/
 
+.breadcrumbtools__inner {
+  width:100%;
+  overflow:hidden;
+}
 
-#breadcrumbtools a,
-#breadcrumbtools span,
+.breadcrumbtools__inner a,
+.breadcrumbtools__inner span,
 #footer a,
 #navigation a,
-#navigation .prev_next span,
 #footer a,
 #footer span {
   display: inline-block;
@@ -114,14 +117,9 @@ $top_spacing: 25px;
 div#navigation {
   overflow:hidden;
 }
-span.parent_dir,
-span.prev_next {
+span.parent_dir {
   display:block;
   float:left;
-}
-
-span.prev_next {
-  float:right;
 }
 
 span.parent_dir {
@@ -134,10 +132,47 @@ span.parent_dir {
   padding-right: 10px;
 }
 /*#navigation .parent_dir a:hover { background-position: 3px -38px; }*/ /*<< Uncomment if you want your arrow to change color on hover. Default is blue. Change image sprite with photoshop for other color*/
-#navigation span.prev_next a, #navigation span.prev_next .faded { padding-left:15px; padding-right:15px; }
-#navigation span.prev_next *:first-child { border-right: 1px solid $color-border; }
+#navigation span.prev_next {
+  display:block;
+  height:$height_bar;
+  float:right;
+
+  @include breakpoint(small) {
+    display:none;
+  }
+
+  * {
+    margin:20px 0;
+    padding:0 15px;
+    display:inline-block;
+    height:$height_bar - 20px - 20px;
+    line-height:$height_bar - 20px - 20px;
+  }
+
+  *:first-child {
+    border-right: 1px solid $color-border;
+    padding-left:0;
+  }
+
+  *:last-child {
+    padding-right:0;
+  }
+}
 
 #breadcrumbtools a:hover,
 #footer a:hover,
 #navigation a:hover,
 #navigation a.hover {  }
+
+#breadcrumbtools {
+  .collapseheader {
+    display:block;
+    text-align:center;
+    margin-top:-20px;
+  }
+
+  a.collapseheader__link {
+    display:block;
+  }
+}
+

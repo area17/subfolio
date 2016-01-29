@@ -140,3 +140,8 @@
     clear: both;
   }
 }
+
+@function percent($size, $master : 1000px) {
+  @if $size == 0 { @return 0 }
+  @return $size / $master * 100%;
+}

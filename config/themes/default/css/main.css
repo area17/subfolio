@@ -37,12 +37,12 @@ body, h1, h2, h3, h4, h5, h6, h7, p, blockquote, pre, a, abbr, acronym, address,
 /* ---------- Grid system must be simple ---------- */
 /* ---------- End – Grid system ---------- */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ core */
-body * { border-color: #e0e0e0; border-style: solid; border-width: 0; box-sizing: border-box; }
+body * { border-color: #e5e5e5; border-style: solid; border-width: 0; box-sizing: border-box; }
 
 /* Lists --------------------------------------------------------------- */
 ul { list-style-type: none; }
 
-hr { height: 1px; margin: 0 0 10px; padding: 0; color: #F00; background-color: #e0e0e0; border: 0 none; border-color: #e0e0e0; }
+hr { height: 1px; margin: 0 0 10px; padding: 0; color: #F00; background-color: #e5e5e5; border: 0 none; border-color: #e5e5e5; }
 
 /* @group Global layout */
 /* ---------------------------------------------------------------------
@@ -105,17 +105,17 @@ body { height: 100%; margin: 0 30px; }
 
 .standard_paragraph ol li { margin-left: 21px; }
 
-.standard_paragraph blockquote { display: block; padding: 14px 10px 5px 10px; border: 1px solid #e0e0e0; margin: 10px 0 15px 9px; overflow: auto; color: inherit; font: inherit; }
+.standard_paragraph blockquote { display: block; padding: 14px 10px 5px 10px; border: 1px solid #e5e5e5; margin: 10px 0 15px 9px; overflow: auto; color: inherit; font: inherit; }
 
-.standard_paragraph code { display: block; padding: 14px 10px 10px 10px; font: 11px Monaco, mono, "Courier New", Courier; margin: 10px 0; overflow: auto; border: 1px solid #e0e0e0; background-color: #f5f5f5; color: inherit; }
+.standard_paragraph code { display: block; padding: 14px 10px 10px 10px; font: 11px Monaco, mono, "Courier New", Courier; margin: 10px 0; overflow: auto; border: 1px solid #e5e5e5; background-color: #f5f5f5; color: inherit; }
 
 .standard_paragraph table { padding: 10px 0; }
 
 .standard_paragraph table td { color: inherit; }
 
-.standard_paragraph table td { padding: 9px 0 0 5px; border-top: 1px solid #e0e0e0; }
+.standard_paragraph table td { padding: 9px 0 0 5px; border-top: 1px solid #e5e5e5; }
 
-.standard_paragraph table tr:last-child td { border-bottom: 1px solid #e0e0e0; }
+.standard_paragraph table tr:last-child td { border-bottom: 1px solid #e5e5e5; }
 
 .standard_paragraph a, .standard_paragraph a:link, .standard_paragraph a:visited { text-decoration: underline; }
 
@@ -174,10 +174,12 @@ ul.group a { color: #666; }
 #breadcrumbtools { min-height: 15px; }
 
 /*<-- when no tools, keep a space under the logo*/
-#breadcrumbtools a, #breadcrumbtools span, #footer a, #navigation a, #navigation .prev_next span, #footer a, #footer span { display: inline-block; padding: 25px 0 0 0; height: 70px; /* 25+14 = 39*/ /*color: inherit;*/ }
+.breadcrumbtools__inner { width: 100%; overflow: hidden; }
+
+.breadcrumbtools__inner a, .breadcrumbtools__inner span, #footer a, #navigation a, #footer a, #footer span { display: inline-block; padding: 25px 0 0 0; height: 70px; /* 25+14 = 39*/ /*color: inherit;*/ }
 
 /* BREADCRUMBTOOLS */
-#breadcrumbtools, #navigation { border-bottom: 1px solid #e0e0e0; }
+#breadcrumbtools, #navigation { border-bottom: 1px solid #e5e5e5; }
 
 #breadcrumbtools, #breadcrumbtools *, #navigation, #navigation * { white-space: nowrap; }
 
@@ -189,15 +191,13 @@ ul.group a { color: #666; }
 #tools { float: right; overflow: hidden; }
 
 #tools li { float: left; }
-#tools li a { display: inline-block; padding: 25px 10px 0 10px; height: 70px; border-left: 1px solid #e0e0e0; }
+#tools li a { display: inline-block; padding: 25px 10px 0 10px; height: 70px; border-left: 1px solid #e5e5e5; }
 #tools li:last-child a { padding-right: 0; }
 
 /* NAVIGATION */
 div#navigation { overflow: hidden; }
 
-span.parent_dir, span.prev_next { display: block; float: left; }
-
-span.prev_next { float: right; }
+span.parent_dir { display: block; float: left; }
 
 span.parent_dir { width: 35%; }
 
@@ -206,15 +206,21 @@ padding-left: 25px; */ padding-right: 10px; }
 
 /*#navigation .parent_dir a:hover { background-position: 3px -38px; }*/
 /*<< Uncomment if you want your arrow to change color on hover. Default is blue. Change image sprite with photoshop for other color*/
-#navigation span.prev_next a, #navigation span.prev_next .faded { padding-left: 15px; padding-right: 15px; }
+#navigation span.prev_next { display: block; height: 70px; float: right; }
+@media (max-width: 639px) { #navigation span.prev_next { display: none; } }
+#navigation span.prev_next * { margin: 20px 0; padding: 0 15px; display: inline-block; height: 30px; line-height: 30px; }
+#navigation span.prev_next *:first-child { border-right: 1px solid #e5e5e5; padding-left: 0; }
+#navigation span.prev_next *:last-child { padding-right: 0; }
 
-#navigation span.prev_next *:first-child { border-right: 1px solid #e0e0e0; }
+#breadcrumbtools .collapseheader { display: block; text-align: center; margin-top: -20px; }
+#breadcrumbtools a.collapseheader__link { display: block; }
 
 /* FOOTER */
-#footer { border-top: 1px solid #e0e0e0; width: 100%; overflow: hidden; }
+#footer { border-top: 1px solid #e5e5e5; width: 100%; overflow: hidden; }
 #footer a, #footer span { padding-left: 5px; padding-right: 5px; }
 #footer .copyright { float: left; }
 #footer .updatedsince { float: right; }
+@media (max-width: 1019px) { #footer .updatedsince { display: none; } }
 
 #footer .updatedsince__sep { display: inline-block; width: 5px; padding-left: 0; padding-right: 0; }
 #footer a#footer-home, #footer span.copyright__text { padding-right: 10px; }
@@ -280,12 +286,15 @@ padding-left: 25px; */ padding-right: 10px; }
 /* @group List */
 /* -------------------------------------------------------------- MODULES: CONTENT / LISTING LIST VIEW
 -------------------------------------------------------------- */
-.list { width: 100%; min-width: 510px; /* We set the min-width of the listing to match the kind column */ position: relative; display: table; }
+#listing { width: 100%; overflow: hidden; }
+
+.list { width: 100%; min-width: 510px; /* We set the min-width of the listing to match the kind column */ position: relative; display: table; border-bottom-width: 1px; border-bottom-color: #f2f2f2; }
 .list li, .list .list__row { overflow: hidden; /* clears the left float applied on li span elements - all browsers except IE6 and below */ margin: 0; display: table-row; }
-.list .list__cell { border-top-width: 1px; height: 60px; line-height: 60px; display: table-cell; padding-right: 20px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.list .list__cell { border-top-width: 1px; border-top-color: #f2f2f2; height: 50px; line-height: 50px; display: table-cell; padding-right: 20px; overflow: hidden; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .list .list__header .list__cell { border-top-width: 0; display: table-cell; }
 .list li a { display: block; overflow: hidden; width: 100%; position: relative; color: inherit; }
 .list li a:hover { cursor: pointer; -moz-border-radius: 2px; -webkit-border-radius: 2px; background-color: #eee; }
+.list a.list__row--empty { cursor: default; }
 .list li.listing-header { margin: 0; }
 
 .isIphone .list li span { background-image: none !important; }
@@ -293,14 +302,17 @@ padding-left: 25px; */ padding-right: 10px; }
 .list { /* << If you remove the icons and want to show the link s*/ }
 .list span.caps { display: inline; float: none; }
 .list span strong { color: inherit; }
-.list .list__cell--icon { width: 25px; position: relative; }
+.list .list__cell--icon { width: 1px; position: relative; vertical-align: middle; }
+.list .list__cell--icon img { display: block; }
 .list .list__cell--filename { width: 20%; position: relative; padding-right: 20px !important; }
 .list .list__cell--filename:before { /*content: '— ';*/ }
 .list .list__cell--size { min-width: 65px; }
 .list .list__cell--date { min-width: 90px; }
 .list .list__cell--kind { min-width: 130px; }
 .list .list__cell--comment { /*position: absolute;*/ /* turning it absolute so that it sticks inline, preventing it to float on browser resizing */ /*left: 510px;*/ /* setting its left equals the sum of the widths of previous columns */ top: 0; }
-.list .list__cell--empty { filter: alpha(opacity=50); -moz-opacity: 0.5; -khtml-opacity: 0.5; opacity: 0.5; }
+@media (max-width: 1019px) { .list .list__cell--kind, .list .list__cell--comment, .list .list__header .list__cell--kind, .list .list__header .list__cell--comment { display: none; } }
+@media (max-width: 639px) { .list .list__cell--size, .list .list__cell--date, .list .list__header .list__cell--size, .list .list__header .list__cell--date { display: none; }
+  .list .list__cell--filename { width: 95%; } }
 
 /* -------------------------------------------------------------- MODULES: CONTENT / LISTING ICONS
 -------------------------------------------------------------- */
@@ -310,7 +322,7 @@ padding-left: 25px; */ padding-right: 10px; }
 
 .list .new { background: url("../images/system/new.png") no-repeat top left; }
 
-.list .locked, .list .unlocked { position: absolute; top: 5px; left: 3px; display: block; width: 12px; height: 8px; z-index: 98; background: url("../images/icons/list/lock.png") no-repeat top left; }
+.list .locked, .list .unlocked { position: absolute; top: 50%; left: 3px; display: block; width: 12px; height: 8px; z-index: 98; background: url("../images/icons/list/lock.png") no-repeat top left; }
 
 .list .locked { background-position: top; }
 
@@ -369,15 +381,13 @@ padding-left: 25px; */ padding-right: 10px; }
 /* -------------------------------------------------------------- FORMS
 -------------------------------------------------------------- */
 /* Form Container */
-#lock { overflow: hidden; width: 360px; /*float: left;*/ }
-
-/* Form */
-#lock form { border: 1px solid #e0e0e0; overflow: hidden; padding-top: 5px; }
+#content #lock { overflow: hidden; width: 360px; margin: 0 auto; /*float: left;*/ /* Form */ }
+#content #lock form { overflow: hidden; padding-top: 5px; }
 
 /* Form header */
-#lock .login_header { padding: 19px 0 10px 10px; background-color: #1A1A1A; }
+#lock .login_header * { color: #1A1A1A; font-size: 3em; }
 
-#lock .login_header b { color: #FFF; }
+#lock .login_header h2 { color: #999; }
 
 /* Form feedback */
 #lock .login_feedback { padding: 19px 0 10px 10px; background-color: red; color: #FFF; }
@@ -385,7 +395,7 @@ padding-left: 25px; */ padding-right: 10px; }
 #lock .login_feedback b { color: inherit; }
 
 /* Fields */
-#lock form input.field { width: 203px; padding: 5px; font: 12px Arial, Helvetica, sans-serif; border: 1px solid #e0e0e0; color: inherit; background-color: white; }
+#lock form input.field { width: 100%; padding: 0 20px; font-size: 1em; color: inherit; background-color: #e5e5e5; border-radius: 2px; height: 55px; line-height: 55px; }
 
 /* Checkbox */
 #lock form .checkbox { overflow: hidden; line-height: 14px; }
@@ -393,42 +403,37 @@ padding-left: 25px; */ padding-right: 10px; }
 #lock form .checkbox input { float: left; margin: 0 5px 0 0; padding: 0; }
 
 /* Spacing & Alignment */
-#lock form input.field { margin: 15px 0 0; }
+#lock form input.field { margin: 20px 0 0 0; }
 
-#lock form .checkbox { margin: 10px 0 15px; }
-
-#lock form .login_field { text-align: right; padding-right: 15px; }
-
-#lock form label { margin-right: 5px; }
-
-#lock form .checkbox { margin-left: 95px; }
+#lock form .checkbox { margin: 10px 0 15px; margin-left: 95px; }
 
 /* Submit button */
-.subButton { width: 100%; border-top: 1px solid #e0e0e0; overflow: hidden; }
+.subButton { width: 100%; overflow: hidden; }
 
-.subButton input { float: right; width: 140px; display: block; color: #FFF; -moz-border-radius: 2px; -webkit-border-radius: 2px; margin: 10px; padding: 14px 0 6px 7px; border: 0 none; cursor: pointer; text-align: left; background-color: #666; }
+.subButton input { width: 100%; display: block; color: #FFF; border-radius: 2px; margin: 20px 0 0 0; padding: 0; cursor: pointer; text-align: center; background-color: #FFF; height: 53px; line-height: 53px; border-width: 1px; }
 
 .subButton input:hover { background-color: #1A1A1A; }
 
 /* @end */
 /* @group Download */
-#download_box { width: 220px; padding-top: 10px; }
+#download_box { max-width: 350px; padding-top: 10px; }
 
 #download_box .updated { position: absolute; display: block; width: 11px; height: 11px; z-index: 99; background: url("../images/system/updated_grid24.png") no-repeat top left; top: 0; left: 25px; }
 
-#download_box #filename { clear: both; padding-top: 9px; margin-bottom: 2px; width: 220px; overflow: hidden; color: inherit; }
+#download_box #filename { clear: both; padding-top: 18px; margin-bottom: 2px; width: 220px; overflow: hidden; color: inherit; }
 
 #download_box #clickable-zone { display: block; position: relative; }
 
-#download_box dl { display: block; width: 100%; overflow: hidden; border-top-width: 1px; margin-top: 15px; margin-bottom: 9px; }
-#download_box dt { float: left; padding-top: 4px; }
-#download_box dd { display: block; padding-top: 4px; padding-left: 85px; padding-bottom: 1px; border-bottom-width: 1px; }
+#download_box dl { display: block; width: 100%; overflow: hidden; border-top-width: 1px; margin-top: 35px; margin-bottom: 15px; }
+#download_box dt { float: left; padding-top: 15px; }
+#download_box dd { display: block; padding-top: 15px; padding-left: 42.85714%; padding-bottom: 15px; border-bottom-width: 1px; }
+#download_box dd:last-child { border-bottom-width: 0; }
 
-#download_box #instructions { padding: 0 0 10px 0; border-bottom: 1px solid #e0e0e0; margin-bottom: 9px; }
+#download_box #instructions { padding: 15px 0 10px 0; border-top-width: 1px; margin-bottom: 35px; margin-top: -15px; }
 
 #download_box #instructions a { text-decoration: underline; }
 
-#download_box #download { display: block; padding-bottom: 15px; padding-top: 5px; }
+#download_box #download { display: block; padding-bottom: 16px; padding-top: 17px; border-width: 1px; text-align: center; border-radius: 2px; }
 
 #download_box #download.with_arrow { padding-left: 10px; background: url(../images/system/download_xl.png) no-repeat 0 2px; }
 
@@ -441,7 +446,7 @@ padding-left: 25px; */ padding-right: 10px; }
 
 #info-button.on:hover { background-position: 0 -100px; }
 
-#info-box { border: 1px solid #dedede; padding: 9px 10px 5px 10px; max-width: 300px; position: relative; }
+#info-box { border: 1px solid #dedede; padding: 29px; max-width: 350px; position: relative; }
 
 /* @end */
 /* --------------------------------------------------------------

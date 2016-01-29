@@ -20,20 +20,19 @@
 	<?php } ?>
 
 	<link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/main.css" type="text/css" rel="stylesheet" >
-	<!--<link href="<?php echo SubfolioTheme::get_view_url(); "/css/".SubfolioTheme::get_listing_mode(); ?>.css" type="text/css" rel="stylesheet" >-->
 
 	<!-- All right. Let's overwrite with some inline styles -->
 	<?php
 		// Main Colors -----------------------------------------------------------------------------------------------------
 		$back_color                   = SubfolioTheme::get_color('back'                   , 'white');
 		$main_link_color              = SubfolioTheme::get_color('main_link'              , '#1a1a1a');
-		$main_link_hover_color        = SubfolioTheme::get_color('main_link_hover'        , '#000000');
+		$main_link_hover_color        = SubfolioTheme::get_color('main_link_hover'        , '#999');
     $main_link_back_color         = SubfolioTheme::get_color('main_link_back_color'   , '#ffffff');
-		$main_link_back_hover_color   = SubfolioTheme::get_color('main_link_back_hover'   , '#f5f5f5');
+		$main_link_back_hover_color   = SubfolioTheme::get_color('main_link_back_hover'   , '#ffffff');
 		$flash_color                  = SubfolioTheme::get_color('flash'                  , 'red');
 		$text_strong_color            = SubfolioTheme::get_color('text_strong'            , '#1a1a1a');
 		$text_color                   = SubfolioTheme::get_color('text'                   , '#333');
-		$text_light_color             = SubfolioTheme::get_color('text_light'             , '#666');
+		$text_light_color             = SubfolioTheme::get_color('text_light'             , '#808080');
 		$text_dimmed_color            = SubfolioTheme::get_color('text_dimmed'            , '#999');
 		$line_color                   = SubfolioTheme::get_color('line'                   , '#ddd');
 
@@ -57,29 +56,33 @@
 	<style type="text/css" media="screen">
 
 		/* BACKGROUND */
-		body, #gallery ul li a div.gallery_thumbnail, #lock form input.field
+		body, #gallery ul li a div.gallery_thumbnail
 		{ background-color:<?php echo $back_color ?>; }
-		#lock .login_header b, .subButton input
-		{ color: <?php echo $back_color ?>; }
+		.subButton input {
+      background: <?php echo $back_color ?>;
+      color: <?php echo $sub_link_color ?>;
+      border-color: <?php echo $sub_link_color ?>;
+    }
+    .subButton input:hover {
+      color: <?php echo $sub_link_hover_color ?>;
+      border-color: <?php echo $sub_link_hover_color ?>;
+    }
 
 		/* BACKGROUND_SHIFT */
 		.standard_paragraph code { background-color:<?php echo $back_shift_color ?>; }
 
 		/* LINKS (must stay before the text colors) */
-		.filename { color : <?php echo $main_link_color ?> !important; }
-		.list li a:hover, .grid li a:hover
+		.list__cell--filename { color : <?php echo $main_link_color ?>; }
+		.list a:hover, .grid li a:hover
 		{ background-color:<?php echo $main_link_back_hover_color ?>; }
 
 		/* SUB LINKS (must stay before the text colors) */
 		a, a:link, a:visited
 		{ color : <?php echo $sub_link_color ?>; }
-		.subButton input
-		{ background: <?php echo $sub_link_color ?>; }
+
 		a:hover { color : <?php echo $sub_link_hover_color ?>; }
 		#breadcrumb a:hover, #tools a:hover, #navigation a:hover, #footer a:hover, #navigation a.hover
-		{ color : <?php echo $sub_link_hover_color ?>; background-color : <?php echo $sub_link_back_hover_color ?>; }
-		.subButton input:hover
-		{ background: <?php echo $sub_link_hover_color ?>; }
+		{ color : <?php echo $sub_link_hover_color ?>; }
 
 		/* GALLERY */
 		#gallery ul li a { color : <?php echo $gallery_link_color ?>; background-color:<?php echo $gallery_back_color ?>; }
@@ -98,8 +101,6 @@
 		/* TEXT */
 		.standard_paragraph h1, .standard_paragraph h3, #features ul li a .info p, .standard_paragraph, .standard_paragraph p, #lock form input.field
 		{ color : <?php echo $text_color ?>; }
-		#lock .login_header
-		{ background: <?php echo $text_color ?> }
 
 		/* TEXT_STRONG */
 		.standard_paragraph h4, .standard_paragraph h5,
@@ -107,8 +108,10 @@
 		{ color: <?php echo $text_strong_color ?>; }
 
 		/* TEXT_LIGHT */
-		body, #breadcrumb, .standard_paragraph h2, .standard_paragraph p small, .standard_paragraph p small a, #footer, .listing-header, .list li a
-		{ color: <?php echo $text_light_color ?>; }
+		body, #breadcrumb, .standard_paragraph h2, .standard_paragraph p small, .standard_paragraph p small a, #footer, .listing-header, .list__cell { color: <?php echo $text_light_color ?>; }
+    a .list__cell--filename { color: <?php echo $text_strong_color ?>; }
+    a.list__row--empty span, a.list__row--empty .list__cell--filename { color: <?php echo $text_dimmed_color ?>; }
+
 		#notice
 		{ background-color: <?php echo $text_light_color ?>; }
 

@@ -203,22 +203,6 @@ function gallery() {
 			}
 
 		});
-
-		if (isIE6 || isIE7) {
-			$('#gallery').find('ul').find('li').click(function(e) {
-				e.preventDefault();
-				var href = $(this).find("a").attr("href");
-				if (href != "#" && href != "" && href != undefined) {
-					window.location = href;
-				}
-			});
-			$('#gallery').find('ul').find('li').hover(function(){
-				$(this).addClass("hover");
-			}, function() {
-				$(this).removeClass("hover");
-			});
-		}
-
 	}
 }
 

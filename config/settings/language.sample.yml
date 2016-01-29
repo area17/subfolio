@@ -18,11 +18,11 @@ seealso: "See also:"
 
 # LISTING
 
-filename: "filename"
-size: "size"
-date: "date"
-kind: "kind"
-comment: "comment"
+filename: "Filename"
+size: "Size"
+date: "Date"
+kind: "Kind"
+comment: "Comment"
 
 emptyfolder: "This folder is empty"
 
@@ -41,7 +41,8 @@ check_url_go_back: "Please check the url or go to the %s for a file listing."
 
 username: "Username"
 password: "Password"
-authenticationrequired: "Authentication required"
+authenticationrequired_title: "Hello."
+authenticationrequired_subtitle: "Please login."
 enter_user_password: "Enter your username and password"
 remember_my_login: "Remember my login"
 submit: "Submit"

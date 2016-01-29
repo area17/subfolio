@@ -14,6 +14,10 @@
 
   .updatedsince {
     float:right;
+
+    @include breakpoint(medium-and-down) {
+      display:none;
+    }
   }
 }
 

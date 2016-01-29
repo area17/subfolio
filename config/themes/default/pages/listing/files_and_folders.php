@@ -30,7 +30,7 @@
       <?php } ?>
 
       <?php foreach ( SubfolioFiles::files_and_folders() as $item) : ?>
-        <a class="list__row <?php echo  ($item['empty'] == true) ? 'empty' : ''; ?>" target="<?php echo $item['target'] ?>" href="<?php echo $item['url'] ?>">
+        <a class="list__row <?php echo  ($item['empty'] == true) ? 'list__row--empty' : ''; ?>" target="<?php echo $item['target'] ?>" href="<?php echo $item['url'] ?>">
 
           <!-- ICON -->
           <?php if (SubfolioTheme::get_option('display_icons')) : ?>
