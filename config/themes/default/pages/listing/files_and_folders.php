@@ -18,6 +18,7 @@
             <span class="list__cell list__cell--size"><a href="?sort=size"><?php echo SubfolioLanguage::get_text('size'); ?></a></span>
           <?php } ?>
           <?php if (SubfolioTheme::get_option('display_date')) { ?>
+            <span class="list__cell list__cell--updated"></span>
             <span class="list__cell list__cell--date"><a href="?sort=date"><?php echo SubfolioLanguage::get_text('date'); ?></a></span>
           <?php } ?>
           <?php if (SubfolioTheme::get_option('display_kind')) { ?>
@@ -35,10 +36,6 @@
           <!-- ICON -->
           <?php if (SubfolioTheme::get_option('display_icons')) : ?>
             <span class="list__cell list__cell--icon" <?php if (SubfolioTheme::get_mobile_viewport()) { echo "style='background-image:url(".$item['icon_grid'].")'"; } ?>>
-
-              <?php if ($item['updated']) { ?>
-                  <span class="updated"><!-- --></span>
-              <?php } ?>
               <?php if ($item['new']) { ?>
                   <span class="new"><!-- --></span>
               <?php } ?>
@@ -61,7 +58,13 @@
 
           <!-- OTHER COLUMNS -->
           <?php if (SubfolioTheme::get_option('display_size')) { ?><span class="list__cell list__cell--size"><?php echo $item['size'] ?></span><?php } ?>
-          <?php if (SubfolioTheme::get_option('display_date')) { ?><span class="list__cell list__cell--date"><?php echo $item['date'] ?></span><?php } ?>
+
+          <?php if (SubfolioTheme::get_option('display_date')) { ?>
+            <span class="list__cell list__cell--updated">
+              <span class="updated <?php if($item['updated']) { echo "updated--new"; } ?>"></span>
+            </span>
+            <span class="list__cell list__cell--date"><?php echo $item['date'] ?></span>
+          <?php } ?>
           <?php if (SubfolioTheme::get_option('display_kind')) { ?><span class="list__cell list__cell--kind"><?php echo $item['kind'] ?></span><?php } ?>
           <?php if (SubfolioTheme::get_option('display_comment')) { ?><span class="list__cell list__cell--comment"><?php echo $item['comment'] ?></span><?php } ?>
 

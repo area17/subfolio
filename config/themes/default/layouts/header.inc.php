@@ -1,10 +1,11 @@
+<header class="header">
 <?php if (!SubfolioTheme::get_mobile_viewport() && SubfolioTheme::get_option('display_header', true)) { ?>
-  <div id="header" class="<?php if (isset($_COOKIE['header'])) echo htmlentities($_COOKIE['header']); ?>">
+  <div id="header" class="header__logo <?php if (isset($_COOKIE['header'])) echo htmlentities($_COOKIE['header']); ?>">
     <h1 id="logo"><a href='<?php print Kohana::config('filebrowser.site_root'); ?>' ><?php echo SubfolioTheme::get_site_name(); ?></a></h1>
   </div>
 <?php } ?>
 
-<div id="breadcrumbtools">
+<div class="header__breadcrumb" id="breadcrumbtools">
   <div class="breadcrumbtools__inner">
   <?php if (SubfolioTheme::get_option('display_breadcrumb', true)) { ?>
     <div id="breadcrumb">
@@ -44,9 +45,6 @@
     } ?>
   </ul>
   </div>
-  <?php if (SubfolioTheme::get_option('display_collapse_header') && SubfolioTheme::get_option('display_header', true)) {
-    echo SubfolioTheme::get_collapse_header_button('div');
-  } ?>
 </div>
 
 
@@ -60,3 +58,8 @@ $(document).ready(function(){
   collapse_header_label = "<?php echo SubfolioLanguage::get_text('collapseheader'); ?>";
 });
 </script>
+
+  <?php if (SubfolioTheme::get_option('display_collapse_header') && SubfolioTheme::get_option('display_header', true)) {
+    echo SubfolioTheme::get_collapse_header_button('div');
+  } ?>
+</header>

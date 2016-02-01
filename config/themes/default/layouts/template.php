@@ -1,64 +1,63 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<?php if (SubfolioTheme::get_mobile_viewport()) { ?>
-		<meta name="viewport" content="width=480" />
-	<?php }	?>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#000000">
 
-	<?php $meta_description = SubfolioTheme::get_site_meta_description();
-	if ($meta_description <> '') { ?>
-		<meta name="description" content="<?php echo $meta_description ?>" />
-	<?php } ?>
+  <?php $meta_description = SubfolioTheme::get_site_meta_description();
+  if ($meta_description <> '') { ?>
+    <meta name="description" content="<?php echo $meta_description ?>" />
+  <?php } ?>
 
-	<title><?php if (SubfolioTheme::get_page_title() <> '') { echo SubfolioTheme::get_page_title() . " &mdash; "; } ?> <?php echo SubfolioTheme::get_site_title(); ?></title>
+  <title><?php if (SubfolioTheme::get_page_title() <> '') { echo SubfolioTheme::get_page_title() . " &mdash; "; } ?> <?php echo SubfolioTheme::get_site_title(); ?></title>
 
-	<?php $favicon = SubfolioTheme::get_site_favicon_url();
-	if ($favicon <> '') { ?>
-	<link rel="icon" href="<?php echo $favicon ?>" type="image/vnd.microsoft.icon"  />
-	<link rel="shortcut icon" href="<?php echo $favicon ?>" type="image/vnd.microsoft.icon"  />
-	<?php } ?>
+  <?php $favicon = SubfolioTheme::get_site_favicon_url();
+  if ($favicon <> '') { ?>
+  <link rel="icon" href="<?php echo $favicon ?>" type="image/vnd.microsoft.icon"  />
+  <link rel="shortcut icon" href="<?php echo $favicon ?>" type="image/vnd.microsoft.icon"  />
+  <?php } ?>
 
-	<link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/main.css" type="text/css" rel="stylesheet" >
+  <link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/main.css" type="text/css" rel="stylesheet" >
 
-	<!-- All right. Let's overwrite with some inline styles -->
-	<?php
-		// Main Colors -----------------------------------------------------------------------------------------------------
-		$back_color                   = SubfolioTheme::get_color('back'                   , 'white');
-		$main_link_color              = SubfolioTheme::get_color('main_link'              , '#1a1a1a');
-		$main_link_hover_color        = SubfolioTheme::get_color('main_link_hover'        , '#999');
+  <!-- All right. Let's overwrite with some inline styles -->
+  <?php
+    // Main Colors -----------------------------------------------------------------------------------------------------
+    $back_color                   = SubfolioTheme::get_color('back'                   , 'white');
+    $main_link_color              = SubfolioTheme::get_color('main_link'              , '#1a1a1a');
+    $main_link_hover_color        = SubfolioTheme::get_color('main_link_hover'        , '#999');
     $main_link_back_color         = SubfolioTheme::get_color('main_link_back_color'   , '#ffffff');
-		$main_link_back_hover_color   = SubfolioTheme::get_color('main_link_back_hover'   , '#ffffff');
-		$flash_color                  = SubfolioTheme::get_color('flash'                  , 'red');
-		$text_strong_color            = SubfolioTheme::get_color('text_strong'            , '#1a1a1a');
-		$text_color                   = SubfolioTheme::get_color('text'                   , '#333');
-		$text_light_color             = SubfolioTheme::get_color('text_light'             , '#808080');
-		$text_dimmed_color            = SubfolioTheme::get_color('text_dimmed'            , '#999');
-		$line_color                   = SubfolioTheme::get_color('line'                   , '#ddd');
+    $main_link_back_hover_color   = SubfolioTheme::get_color('main_link_back_hover'   , '#ffffff');
+    $flash_color                  = SubfolioTheme::get_color('flash'                  , 'red');
+    $text_strong_color            = SubfolioTheme::get_color('text_strong'            , '#1a1a1a');
+    $text_color                   = SubfolioTheme::get_color('text'                   , '#333');
+    $text_light_color             = SubfolioTheme::get_color('text_light'             , '#808080');
+    $text_dimmed_color            = SubfolioTheme::get_color('text_dimmed'            , '#999');
+    $line_color                   = SubfolioTheme::get_color('line'                   , '#ddd');
 
-		// Optional --------------------------------------------------------------------------------------------------------
-		$border_color           			= SubfolioTheme::get_color('border'                 , $line_color);
-		$gallery_link_color						= SubfolioTheme::get_color('gallery_link'           , $main_link_color);
-		$gallery_link_hover_color			= SubfolioTheme::get_color('gallery_link_hover'     , $main_link_hover_color);
-		$gallery_back_color						= SubfolioTheme::get_color('gallery_back'           , $main_link_back_color);
-		$gallery_back_hover_color			= SubfolioTheme::get_color('gallery_back_hover'     , $main_link_back_hover_color);
-		$feature_link_color						= SubfolioTheme::get_color('feature_link'           , $main_link_color);
-		$feature_link_hover_color			= SubfolioTheme::get_color('feature_link_hover'     , $back_color);
-		$feature_text_hover_color			= SubfolioTheme::get_color('feature_text_hover'     , $text_color);
-		$feature_back_color						= SubfolioTheme::get_color('feature_back'           , $main_link_back_hover_color);
-		$feature_back_hover_color			= SubfolioTheme::get_color('feature_back_hover'     , $main_link_hover_color);
-		$sub_link_color        				= SubfolioTheme::get_color('sub_link'               , $text_color);
-		$sub_link_hover_color  				= SubfolioTheme::get_color('sub_link_hover'         , $main_link_hover_color);
-		$sub_link_back_hover_color 		= SubfolioTheme::get_color('sub_link_back_hover'    , $main_link_back_hover_color);
-		$back_shift_color        			= SubfolioTheme::get_color('back_shift'             , $main_link_back_hover_color);
+    // Optional --------------------------------------------------------------------------------------------------------
+    $border_color           			= SubfolioTheme::get_color('border'                 , $line_color);
+    $gallery_link_color						= SubfolioTheme::get_color('gallery_link'           , $main_link_color);
+    $gallery_link_hover_color			= SubfolioTheme::get_color('gallery_link_hover'     , $main_link_hover_color);
+    $gallery_back_color						= SubfolioTheme::get_color('gallery_back'           , $main_link_back_color);
+    $gallery_back_hover_color			= SubfolioTheme::get_color('gallery_back_hover'     , $main_link_back_hover_color);
+    $feature_link_color						= SubfolioTheme::get_color('feature_link'           , $main_link_color);
+    $feature_link_hover_color			= SubfolioTheme::get_color('feature_link_hover'     , $back_color);
+    $feature_text_hover_color			= SubfolioTheme::get_color('feature_text_hover'     , $text_color);
+    $feature_back_color						= SubfolioTheme::get_color('feature_back'           , $main_link_back_hover_color);
+    $feature_back_hover_color			= SubfolioTheme::get_color('feature_back_hover'     , $main_link_hover_color);
+    $sub_link_color        				= SubfolioTheme::get_color('sub_link'               , $text_color);
+    $sub_link_hover_color  				= SubfolioTheme::get_color('sub_link_hover'         , $main_link_hover_color);
+    $sub_link_back_hover_color 		= SubfolioTheme::get_color('sub_link_back_hover'    , $main_link_back_hover_color);
+    $back_shift_color        			= SubfolioTheme::get_color('back_shift'             , $main_link_back_hover_color);
 
-	?>
-	<style type="text/css" media="screen">
+  ?>
+  <style type="text/css" media="screen">
 
-		/* BACKGROUND */
-		body, #gallery ul li a div.gallery_thumbnail
-		{ background-color:<?php echo $back_color ?>; }
-		.subButton input {
+    /* BACKGROUND */
+    body, #gallery ul li a div.gallery_thumbnail
+    { background-color:<?php echo $back_color ?>; }
+    .subButton input {
       background: <?php echo $back_color ?>;
       color: <?php echo $sub_link_color ?>;
       border-color: <?php echo $sub_link_color ?>;
@@ -142,28 +141,27 @@
 
 </head>
 <body>
-	<div id="container">
-		<?php if (SubfolioTheme::get_notice('flash')) { ?>
-			<div id="notice">
-				<a href="javascript:hideFlash('notice');" id="close">Close</a>
-				<p><b><?php echo SubfolioTheme::get_notice('flash'); ?></b></p>
-			</div>
-		<?php } ?>
-		<?php if (SubfolioTheme::get_notice('error')) { ?>
-			<div id="notice" class="error">
-				<a href="javascript:hideFlash('notice');" id="close">Close</a>
-				<p><b><?php echo SubfolioTheme::get_notice('error'); ?></b></p>
-			</div>
-		<?php } ?>
-		<div id="container-inner">
-			<?php include("header.inc.php") ?>
-			<div id="content">
-				<?php if (isset($content)) echo $content; ?>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<?php include("footer.inc.php") ?>
-	</div>
+  <div id="container">
+    <?php if (SubfolioTheme::get_notice('flash')) { ?>
+      <div id="notice">
+        <a href="javascript:hideFlash('notice');" id="close">Close</a>
+        <p><b><?php echo SubfolioTheme::get_notice('flash'); ?></b></p>
+      </div>
+    <?php } ?>
+    <?php if (SubfolioTheme::get_notice('error')) { ?>
+      <div id="notice" class="error">
+        <a href="javascript:hideFlash('notice');" id="close">Close</a>
+        <p><b><?php echo SubfolioTheme::get_notice('error'); ?></b></p>
+      </div>
+    <?php } ?>
+    <div id="container-inner">
+      <?php include("header.inc.php") ?>
+      <div id="content">
+        <?php if (isset($content)) echo $content; ?>
+      </div>
+    </div>
+    <?php include("footer.inc.php") ?>
+  </div>
 
   <?php $ga_code = Subfolio::get_setting('google_analytics_code');
   if ($ga_code <> '') { ?>

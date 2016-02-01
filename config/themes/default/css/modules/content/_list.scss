@@ -95,6 +95,10 @@ $height_list: 50px;
   .list__cell--size {
     min-width: 65px;
   }
+  .list__cell--updated {
+    width:8px;
+    height:8px;
+  }
   .list__cell--date {
     min-width: 90px;
   }
@@ -118,8 +122,10 @@ $height_list: 50px;
 
   @include breakpoint(small) {
     .list__cell--size,
+    .list__cell--updated,
     .list__cell--date,
     .list__header .list__cell--size,
+    .list__header .list__cell--updated,
     .list__header .list__cell--date {
       display: none;
     }
@@ -139,16 +145,17 @@ $height_list: 50px;
 -------------------------------------------------------------- */
 * html .list .icon .icon_download { position:absolute; }
 
-.list .updated, .list .new {
-  position:absolute;
-  top: 50%;
-  left: 12px;
-  line-height:1em;
-  display: block;
-  width: 9px;
-  height: 9px;
-  z-index: 99;
-  background: url("../images/system/updated24.png") no-repeat top left;
+.list .updated {
+  background:$color-text-tertiary;
+  border-radius:50%;
+  display:block;
+  width:8px;
+  height:8px;
+  vertical-align:middle;
+
+  &.updated--new {
+    background:$color-new;
+  }
 }
 .list .new {
   background: url("../images/system/new.png") no-repeat top left;

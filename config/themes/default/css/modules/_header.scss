@@ -1,6 +1,18 @@
 $height_bar: 70px;
 $top_spacing: 25px;
 
+.header {
+  border-bottom-width:1px;
+}
+
+.header__logo,
+.header__breadcrumb,
+.header__navigation {
+  overflow:hidden;
+  padding:0 $gutter;
+}
+
+
 #notice {
   overflow: hidden;
   width: 100%;
@@ -47,20 +59,15 @@ $top_spacing: 25px;
 }
 
 /* BREADCRUMBTOOLS, NAVIGATION, FOOTER: Common */
-#breadcrumbtools,
+.header__breadcrumb,
 #footer,
 #navigation {
   overflow: hidden;
   width: 100%;
 }
-#breadcrumbtools {
-  min-height: 15px;
+.header__breadcrumb {
+  min-height: $gutter;
 }/*<-- when no tools, keep a space under the logo*/
-
-.breadcrumbtools__inner {
-  width:100%;
-  overflow:hidden;
-}
 
 .breadcrumbtools__inner a,
 .breadcrumbtools__inner span,
@@ -75,17 +82,13 @@ $top_spacing: 25px;
 }
 
 /* BREADCRUMBTOOLS */
-#breadcrumbtools,
-#navigation {
-  border-bottom:1px solid $color-border;
-}
-#breadcrumbtools,
-#breadcrumbtools *,
+.header__breadcrumb,
+.header__breadcrumb *,
 #navigation,
 #navigation * {
   white-space: nowrap;
 }
-#breadcrumbtools .slash { } /*<-- here you can replace the slash with a graphic*/
+.header__breadcrumb .slash { } /*<-- here you can replace the slash with a graphic*/
 
 /* BREADCRUMBTOOLS: Breadcrumb */
 #breadcrumb { float: left; }
@@ -159,17 +162,15 @@ span.parent_dir {
   }
 }
 
-#breadcrumbtools a:hover,
+.header__breadcrumb a:hover,
 #footer a:hover,
 #navigation a:hover,
 #navigation a.hover {  }
 
-#breadcrumbtools {
-  .collapseheader {
-    display:block;
-    text-align:center;
-    margin-top:-20px;
-  }
+.collapseheader {
+  display:block;
+  text-align:center;
+  margin-top:-20px;
 
   a.collapseheader__link {
     display:block;

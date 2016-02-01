@@ -1,5 +1,5 @@
 <?php if (!SubfolioFiles::is_root()) { ?>
-<div id="navigation">
+<div class="header__navigation" id="navigation">
 	<span class="parent_dir">
 		<?php echo SubfolioFiles::parent_link("&uarr; &nbsp; ".SubfolioLanguage::get_text('parent_directory')); ?>
   </span>

@@ -65,7 +65,7 @@ html {
 }
 body {
   height: 100%;
-  margin: 0 $gutter;
+  margin:0;
 }
 #container{
   position: relative;
@@ -164,7 +164,10 @@ ul.group {
 /* --------------------------------------------------------------
 MODULE SPACING
 -------------------------------------------------------------- */
-#content { margin: 15px 0; } /* << If you remove the lines, remove the padding */
+#content {
+  margin: 15px $gutter;
+  @include clearfix();
+} /* << If you remove the lines, remove the padding */
 
 /* Sets styles only for direct childs of #content (i.e gallery, features, listing) */
 #content > * { margin: 0 0 $gutter; }

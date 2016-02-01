@@ -50,7 +50,7 @@ hr { height: 1px; margin: 0 0 10px; padding: 0; color: #F00; background-color: #
 ------------------------------------------------------------------------ */
 html { height: 100%; }
 
-body { height: 100%; margin: 0 30px; }
+body { height: 100%; margin: 0; }
 
 #container { position: relative; min-height: 100%; }
 
@@ -155,6 +155,10 @@ ul.group a { color: #666; }
 /* @group Global modules */
 /* -------------------------------------------------------------- MODULES: FLASH, HEADER, LOGO, BREADCRUMBTOOLS, NAVIGATION, FOOTER
 -------------------------------------------------------------- */
+.header { border-bottom-width: 1px; }
+
+.header__logo, .header__breadcrumb, .header__navigation { overflow: hidden; padding: 0 30px; }
+
 #notice { overflow: hidden; width: 100%; background-color: #666; /* << text_light_color */ }
 #notice.error { background-color: #d11226; }
 #notice p { padding: 44px 0 0 10px; background: url(../images/system/icon_exclam24.png) no-repeat 10px 10px; }
@@ -169,19 +173,15 @@ ul.group a { color: #666; }
 #logo a:hover { background-color: inherit; }
 
 /* BREADCRUMBTOOLS, NAVIGATION, FOOTER: Common */
-#breadcrumbtools, #footer, #navigation { overflow: hidden; width: 100%; }
+.header__breadcrumb, #footer, #navigation { overflow: hidden; width: 100%; }
 
-#breadcrumbtools { min-height: 15px; }
+.header__breadcrumb { min-height: 30px; }
 
 /*<-- when no tools, keep a space under the logo*/
-.breadcrumbtools__inner { width: 100%; overflow: hidden; }
-
 .breadcrumbtools__inner a, .breadcrumbtools__inner span, #footer a, #navigation a, #footer a, #footer span { display: inline-block; padding: 25px 0 0 0; height: 70px; /* 25+14 = 39*/ /*color: inherit;*/ }
 
 /* BREADCRUMBTOOLS */
-#breadcrumbtools, #navigation { border-bottom: 1px solid #e5e5e5; }
-
-#breadcrumbtools, #breadcrumbtools *, #navigation, #navigation * { white-space: nowrap; }
+.header__breadcrumb, .header__breadcrumb *, #navigation, #navigation * { white-space: nowrap; }
 
 /*<-- here you can replace the slash with a graphic*/
 /* BREADCRUMBTOOLS: Breadcrumb */
@@ -212,20 +212,20 @@ padding-left: 25px; */ padding-right: 10px; }
 #navigation span.prev_next *:first-child { border-right: 1px solid #e5e5e5; padding-left: 0; }
 #navigation span.prev_next *:last-child { padding-right: 0; }
 
-#breadcrumbtools .collapseheader { display: block; text-align: center; margin-top: -20px; }
-#breadcrumbtools a.collapseheader__link { display: block; }
+.collapseheader { display: block; text-align: center; margin-top: -20px; }
+.collapseheader a.collapseheader__link { display: block; }
 
 /* FOOTER */
-#footer { border-top: 1px solid #e5e5e5; width: 100%; overflow: hidden; }
-#footer a, #footer span { padding-left: 5px; padding-right: 5px; }
-#footer .copyright { float: left; }
-#footer .updatedsince { float: right; }
-@media (max-width: 1019px) { #footer .updatedsince { display: none; } }
+.footer { border-top: 1px solid #e5e5e5; overflow: hidden; padding: 0 30px; }
+.footer a, .footer span { padding-left: 5px; padding-right: 5px; }
+.footer .copyright { float: left; }
+.footer .updatedsince { float: right; }
+@media (max-width: 1019px) { .footer .updatedsince { display: none; } }
 
-#footer .updatedsince__sep { display: inline-block; width: 5px; padding-left: 0; padding-right: 0; }
-#footer a#footer-home, #footer span.copyright__text { padding-right: 10px; }
+.footer .updatedsince__sep { display: inline-block; width: 5px; padding-left: 0; padding-right: 0; }
+.footer a.footer-home, .footer span.copyright__text { padding-right: 10px; }
 
-#footer *:first-child { padding-left: 0; }
+.footer *:first-child { padding-left: 0; }
 
 /* ERRORS */
 .big_exclam { display: block; width: 59px; height: 59px; background: url(../images/system/big_exclam8.png) no-repeat; }
@@ -307,18 +307,20 @@ padding-left: 25px; */ padding-right: 10px; }
 .list .list__cell--filename { width: 20%; position: relative; padding-right: 20px !important; }
 .list .list__cell--filename:before { /*content: '— ';*/ }
 .list .list__cell--size { min-width: 65px; }
+.list .list__cell--updated { width: 8px; height: 8px; }
 .list .list__cell--date { min-width: 90px; }
 .list .list__cell--kind { min-width: 130px; }
 .list .list__cell--comment { /*position: absolute;*/ /* turning it absolute so that it sticks inline, preventing it to float on browser resizing */ /*left: 510px;*/ /* setting its left equals the sum of the widths of previous columns */ top: 0; }
 @media (max-width: 1019px) { .list .list__cell--kind, .list .list__cell--comment, .list .list__header .list__cell--kind, .list .list__header .list__cell--comment { display: none; } }
-@media (max-width: 639px) { .list .list__cell--size, .list .list__cell--date, .list .list__header .list__cell--size, .list .list__header .list__cell--date { display: none; }
+@media (max-width: 639px) { .list .list__cell--size, .list .list__cell--updated, .list .list__cell--date, .list .list__header .list__cell--size, .list .list__header .list__cell--updated, .list .list__header .list__cell--date { display: none; }
   .list .list__cell--filename { width: 95%; } }
 
 /* -------------------------------------------------------------- MODULES: CONTENT / LISTING ICONS
 -------------------------------------------------------------- */
 * html .list .icon .icon_download { position: absolute; }
 
-.list .updated, .list .new { position: absolute; top: 50%; left: 12px; line-height: 1em; display: block; width: 9px; height: 9px; z-index: 99; background: url("../images/system/updated24.png") no-repeat top left; }
+.list .updated { background: #CBCBCB; border-radius: 50%; display: block; width: 8px; height: 8px; vertical-align: middle; }
+.list .updated.updated--new { background: #44BCF9; }
 
 .list .new { background: url("../images/system/new.png") no-repeat top left; }
 
@@ -452,7 +454,8 @@ padding-left: 25px; */ padding-right: 10px; }
 /* --------------------------------------------------------------
 MODULE SPACING
 -------------------------------------------------------------- */
-#content { margin: 15px 0; }
+#content { margin: 15px 30px; }
+#content:after { content: ""; display: table; clear: both; }
 
 /* << If you remove the lines, remove the padding */
 /* Sets styles only for direct childs of #content (i.e gallery, features, listing) */

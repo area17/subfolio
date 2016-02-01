@@ -1,8 +1,8 @@
 /* FOOTER */
-#footer {
+.footer {
   border-top:1px solid $color-border;
-  width:100%;
   overflow:hidden;
+  padding:0 $gutter;
 
   a, span {
     padding-left: 5px; padding-right: 5px;
@@ -21,7 +21,7 @@
   }
 }
 
-#footer {
+.footer {
   .updatedsince__sep {
     display: inline-block;
     width: 5px;
@@ -29,10 +29,10 @@
     padding-right: 0;
   }
 
-  a#footer-home, span.copyright__text {
+  a.footer-home, span.copyright__text {
     padding-right: 10px;
   }
 }
-#footer *:first-child {
+.footer *:first-child {
   padding-left: 0;
 }

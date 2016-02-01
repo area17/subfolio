@@ -1,4 +1,4 @@
-<footer id="footer">
+<footer class="footer" id="footer">
 
   <div class="copyright">
     <?php echo SubfolioTheme::subfolio_link(); ?>
