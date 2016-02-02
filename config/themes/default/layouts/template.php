@@ -57,103 +57,82 @@
     /* BACKGROUND */
     body, #gallery ul li a div.gallery_thumbnail
     { background-color:<?php echo $back_color ?>; }
-    .subButton input {
-      background: <?php echo $back_color ?>;
-      color: <?php echo $sub_link_color ?>;
-      border-color: <?php echo $sub_link_color ?>;
-    }
-    .subButton input:hover {
-      color: <?php echo $sub_link_hover_color ?>;
-      border-color: <?php echo $sub_link_hover_color ?>;
-    }
 
-		/* BACKGROUND_SHIFT */
-		.standard_paragraph code { background-color:<?php echo $back_shift_color ?>; }
+    /* BACKGROUND_SHIFT */
+    .standard_paragraph code { background-color:<?php echo $back_shift_color ?>; }
 
-		/* LINKS (must stay before the text colors) */
-		.list__cell--filename { color : <?php echo $main_link_color ?>; }
-		.list a:hover, .grid li a:hover
-		{ background-color:<?php echo $main_link_back_hover_color ?>; }
+    /* LINKS (must stay before the text colors) */
+    .list__cell--filename { color : <?php echo $main_link_color ?>; }
+    .list a:hover, .grid li a:hover
+    { background-color:<?php echo $main_link_back_hover_color ?>; }
 
-		/* SUB LINKS (must stay before the text colors) */
-		a, a:link, a:visited
-		{ color : <?php echo $sub_link_color ?>; }
+    /* SUB LINKS (must stay before the text colors) */
+    a, a:link, a:visited
+    { color : <?php echo $sub_link_color ?>; }
 
-		a:hover { color : <?php echo $sub_link_hover_color ?>; }
-		#breadcrumb a:hover, #tools a:hover, #navigation a:hover, #footer a:hover, #navigation a.hover
-		{ color : <?php echo $sub_link_hover_color ?>; }
+    a:hover { color : <?php echo $sub_link_hover_color ?>; }
+    #breadcrumb a:hover, #tools a:hover, #navigation a:hover, #footer a:hover, #navigation a.hover
+    { color : <?php echo $sub_link_hover_color ?>; }
 
-		/* GALLERY */
-		#gallery ul li a { color : <?php echo $gallery_link_color ?>; background-color:<?php echo $gallery_back_color ?>; }
-		#gallery ul li a:hover p { color : <?php echo $gallery_link_hover_color ?>; }
-		#gallery ul li a:hover { background-color:<?php echo $gallery_back_hover_color ?>; }
+    /* GALLERY */
+    #gallery ul li a { color : <?php echo $gallery_link_color ?>; background-color:<?php echo $gallery_back_color ?>; }
+    #gallery ul li a:hover p { color : <?php echo $gallery_link_hover_color ?>; }
+    #gallery ul li a:hover { background-color:<?php echo $gallery_back_hover_color ?>; }
 
-		/* FEATURES */
-		#features ul li a { color : <?php echo $feature_link_color ?>; background-color:<?php echo $feature_back_color ?>; }
-		#features ul li a:hover h2 { color : <?php echo $feature_link_hover_color ?>; }
-		#features ul li a:hover { background-color:<?php echo $feature_back_hover_color ?>; border-color:<?php echo $feature_back_hover_color ?>; }
-		#features ul li a:hover .info p { color : <?php echo $feature_text_hover_color ?>; }
+    /* FEATURES */
+    #features ul li a { color : <?php echo $feature_link_color ?>; background-color:<?php echo $feature_back_color ?>; }
+    #features ul li a:hover h2 { color : <?php echo $feature_link_hover_color ?>; }
+    #features ul li a:hover { background-color:<?php echo $feature_back_hover_color ?>; border-color:<?php echo $feature_back_hover_color ?>; }
+    #features ul li a:hover .info p { color : <?php echo $feature_text_hover_color ?>; }
 
-		/* LINKS 	HOVER */
-		a:hover .filename { color : <?php echo $main_link_hover_color ?> !important; }
+    /* LINKS 	HOVER */
+    a:hover .filename { color : <?php echo $main_link_hover_color ?> !important; }
 
-		/* TEXT */
-		.standard_paragraph h1, .standard_paragraph h3, #features ul li a .info p, .standard_paragraph, .standard_paragraph p, #lock form input.field
-		{ color : <?php echo $text_color ?>; }
+    /* TEXT */
+    .standard_paragraph h1, .standard_paragraph h3, #features ul li a .info p, .standard_paragraph, .standard_paragraph p, #lock form input.field
+    { color : <?php echo $text_color ?>; }
 
-		/* TEXT_STRONG */
-		.standard_paragraph h4, .standard_paragraph h5,
-		.standard_paragraph strong, .standard_paragraph em, .standard_paragraph b, b, strong
-		{ color: <?php echo $text_strong_color ?>; }
+    /* TEXT_STRONG */
+    .standard_paragraph h4, .standard_paragraph h5,
+    .standard_paragraph strong, .standard_paragraph em, .standard_paragraph b, b, strong
+    { color: <?php echo $text_strong_color ?>; }
 
-		/* TEXT_LIGHT */
-		body, #breadcrumb, .standard_paragraph h2, .standard_paragraph p small, .standard_paragraph p small a, #footer, .listing-header, .list__cell { color: <?php echo $text_light_color ?>; }
+    /* TEXT_LIGHT */
+    body, #breadcrumb, .standard_paragraph h2, .standard_paragraph p small, .standard_paragraph p small a, #footer, .listing-header, .list__cell { color: <?php echo $text_light_color ?>; }
     a .list__cell--filename { color: <?php echo $text_strong_color ?>; }
     a.list__row--empty span, a.list__row--empty .list__cell--filename { color: <?php echo $text_dimmed_color ?>; }
 
-		#notice
-		{ background-color: <?php echo $text_light_color ?>; }
+    #notice
+    { background-color: <?php echo $text_light_color ?>; }
 
-		/* TEXT_DIMMED */
-		#navigation .prev_next .faded, .grid li span.comment
-		{ color: <?php echo $text_dimmed_color ?>; }
+    /* TEXT_DIMMED */
+    #navigation .prev_next .faded, .grid li span.comment
+    { color: <?php echo $text_dimmed_color ?>; }
 
-		/* FLASH */
-		.error { color: <?php echo $flash_color ?>; }
-		#notice.error, #lock .login_feedback { background-color: <?php echo $flash_color ?>; }
+    /* FLASH */
+    .error { color: <?php echo $flash_color ?>; }
+    #notice.error, #lock .login_feedback { background-color: <?php echo $flash_color ?>; }
 
-		/* BORDERS < these are the navigation borders */
-		#breadcrumbtools, #navigation, #tools li a, #navigation span.prev_next .first, #navigation span.prev_next *:first-child,
-		#footer, #footer a#footer-home, #footer span.copyright
-		{ border-color: <?php echo $border_color ?>; }
+    /* BORDERS < these are the navigation borders */
+    #breadcrumbtools, #navigation, #tools li a, #navigation span.prev_next .first, #navigation span.prev_next *:first-child,
+    #footer, #footer a#footer-home, #footer span.copyright
+    { border-color: <?php echo $border_color ?>; }
 
-		/* LINES < these are the mandatory lines */
-		.standard_paragraph code, .standard_paragraph blockquote, .standard_paragraph table td, .standard_paragraph table tr:last-child td,
-		#download_box dl, #download_box dd , #download_box #instructions, #info-box, #lock form, #lock form input.field, .subButton
-		{ border-color: <?php echo $line_color ?>; }
+    /* LINES < these are the mandatory lines */
+    .standard_paragraph code, .standard_paragraph blockquote, .standard_paragraph table td, .standard_paragraph table tr:last-child td,
+    #download_box dl, #download_box dd , #download_box #instructions, #info-box, #lock form, #lock form input.field, .subButton
+    { border-color: <?php echo $line_color ?>; }
 
-	</style>
+  </style>
 
-	<script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/common.js"></script>
-	<script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/jquery-1.4.2.min.js"></script>
-	<script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/jquery.scrollTo-min.js"></script>
-	<script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/main.js"></script>
+  <script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/common.js"></script>
+  <script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/jquery-1.4.2.min.js"></script>
+  <script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/jquery.scrollTo-min.js"></script>
+  <script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/main.js"></script>
 
 </head>
 <body>
   <div id="container">
-    <?php if (SubfolioTheme::get_notice('flash')) { ?>
-      <div id="notice">
-        <a href="javascript:hideFlash('notice');" id="close">Close</a>
-        <p><b><?php echo SubfolioTheme::get_notice('flash'); ?></b></p>
-      </div>
-    <?php } ?>
-    <?php if (SubfolioTheme::get_notice('error')) { ?>
-      <div id="notice" class="error">
-        <a href="javascript:hideFlash('notice');" id="close">Close</a>
-        <p><b><?php echo SubfolioTheme::get_notice('error'); ?></b></p>
-      </div>
-    <?php } ?>
     <div id="container-inner">
       <?php include("header.inc.php") ?>
       <div id="content">
@@ -162,6 +141,17 @@
     </div>
     <?php include("footer.inc.php") ?>
   </div>
+
+  <?php if (SubfolioTheme::get_notice('flash')) { ?>
+    <div id="notice">
+      <p><?php echo SubfolioTheme::get_notice('flash'); ?></p>
+    </div>
+  <?php } ?>
+  <?php if (SubfolioTheme::get_notice('error')) { ?>
+    <div id="notice" class="error">
+      <p><?php echo SubfolioTheme::get_notice('error'); ?></p>
+    </div>
+  <?php } ?>
 
   <?php $ga_code = Subfolio::get_setting('google_analytics_code');
   if ($ga_code <> '') { ?>

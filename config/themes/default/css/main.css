@@ -56,7 +56,7 @@ body { height: 100%; margin: 0; }
 
 #container-inner { padding-bottom: 70px; }
 
-#footer { position: absolute !important; bottom: 0 !important; overflow: hidden; }
+.footer { position: absolute !important; bottom: 0 !important; overflow: hidden; }
 
 /* @end */
 /* ------------------------------------------------------------- STANDARD PARAGRAPH
@@ -141,7 +141,7 @@ a, a:link, a:visited { color: #1a1a1a; text-decoration: none; outline: none; }
 a:hover { color: inherit; }
 
 /* LINKS FOR GALLERY, FEATURES MODULES */
-#gallery a, #features a, #lock a { text-decoration: none; }
+#gallery a, #features a, .loginform a { text-decoration: none; }
 
 /* @end */
 /* @group cms */
@@ -155,68 +155,51 @@ ul.group a { color: #666; }
 /* @group Global modules */
 /* -------------------------------------------------------------- MODULES: FLASH, HEADER, LOGO, BREADCRUMBTOOLS, NAVIGATION, FOOTER
 -------------------------------------------------------------- */
+#notice, #content #notice { overflow: hidden; position: fixed; width: 100%; bottom: 0; left: 0; color: #1A1A1A; background-color: #FFFF0E; /* << text_light_color */ margin: 0; z-index: 9999; animation: hide_notice 0.6s ease-out 3s forwards; }
+#notice p, #content #notice p { padding: 30px; text-align: center; }
+#notice.error, #content #notice.error { background-color: #d11226; color: #FFF; }
+
+@keyframes hide_notice { 0% { transform: translateY(0%); }
+  100% { transform: translateY(101%); } }
 .header { border-bottom-width: 1px; }
 
-.header__logo, .header__breadcrumb, .header__navigation { overflow: hidden; padding: 0 30px; }
+.header__logo, .header__breadcrumb { overflow: hidden; padding: 0 30px; }
 
-#notice { overflow: hidden; width: 100%; background-color: #666; /* << text_light_color */ }
-#notice.error { background-color: #d11226; }
-#notice p { padding: 44px 0 0 10px; background: url(../images/system/icon_exclam24.png) no-repeat 10px 10px; }
-
-#notice p, #notice p b { color: white; }
-#notice #close { float: right; display: block; height: 69px; width: 36px; text-indent: -5000px; background: url(../images/system/close24.png) no-repeat 10px 10px; }
-#notice #close:hover { background-position: 10px -140px; }
+.header__logout { position: absolute; right: 30px; top: 25px; }
 
 /* LOGO */
 #logo { padding-top: 30px; }
 #logo a { font-size: 300%; }
 #logo a:hover { background-color: inherit; }
 
-/* BREADCRUMBTOOLS, NAVIGATION, FOOTER: Common */
-.header__breadcrumb, #footer, #navigation { overflow: hidden; width: 100%; }
+/* BREADCRUMBTOOLS, FOOTER: Common */
+.header__breadcrumb, .footer { overflow: hidden; width: 100%; }
 
 .header__breadcrumb { min-height: 30px; }
 
 /*<-- when no tools, keep a space under the logo*/
-.breadcrumbtools__inner a, .breadcrumbtools__inner span, #footer a, #navigation a, #footer a, #footer span { display: inline-block; padding: 25px 0 0 0; height: 70px; /* 25+14 = 39*/ /*color: inherit;*/ }
+#breadcrumb a, #breadcrumb span, .footer a, .footer a, .footer span { display: inline-block; padding: 25px 0 0 0; height: 70px; /* 25+14 = 39*/ /*color: inherit;*/ }
 
 /* BREADCRUMBTOOLS */
-.header__breadcrumb, .header__breadcrumb *, #navigation, #navigation * { white-space: nowrap; }
+.header__breadcrumb, .header__breadcrumb * { white-space: nowrap; }
 
 /*<-- here you can replace the slash with a graphic*/
 /* BREADCRUMBTOOLS: Breadcrumb */
 #breadcrumb { float: left; }
 
-/* BREADCRUMBTOOLS: Tools */
-#tools { float: right; overflow: hidden; }
-
-#tools li { float: left; }
-#tools li a { display: inline-block; padding: 25px 10px 0 10px; height: 70px; border-left: 1px solid #e5e5e5; }
-#tools li:last-child a { padding-right: 0; }
-
 /* NAVIGATION */
-div#navigation { overflow: hidden; }
+.header__navigation { display: block; height: 70px; float: right; }
+@media (max-width: 639px) { .header__navigation { display: none; } }
+.header__navigation * { margin: 20px 0; padding: 0 15px; display: inline-block; height: 30px; line-height: 30px; }
+.header__navigation *:first-child { border-right: 1px solid #e5e5e5; padding-left: 0; }
+.header__navigation *:last-child { padding-right: 0; }
 
-span.parent_dir { display: block; float: left; }
-
-span.parent_dir { width: 35%; }
-
-#navigation .parent_dir a { /*background: url(../images/system/parent.png) no-repeat 3px 12px;
-padding-left: 25px; */ padding-right: 10px; }
-
-/*#navigation .parent_dir a:hover { background-position: 3px -38px; }*/
-/*<< Uncomment if you want your arrow to change color on hover. Default is blue. Change image sprite with photoshop for other color*/
-#navigation span.prev_next { display: block; height: 70px; float: right; }
-@media (max-width: 639px) { #navigation span.prev_next { display: none; } }
-#navigation span.prev_next * { margin: 20px 0; padding: 0 15px; display: inline-block; height: 30px; line-height: 30px; }
-#navigation span.prev_next *:first-child { border-right: 1px solid #e5e5e5; padding-left: 0; }
-#navigation span.prev_next *:last-child { padding-right: 0; }
-
-.collapseheader { display: block; text-align: center; margin-top: -20px; }
-.collapseheader a.collapseheader__link { display: block; }
+.collapseheader { display: block; text-align: center; margin-top: -20px; position: relative; height: 20px; }
+.collapseheader a.collapseheader__link { display: block; font: 0/0 a; color: transparent; height: 20px; width: 100%; }
+.collapseheader a.collapseheader__link:after { content: ""; width: 30px; height: 5px; background: #e5e5e5; border-radius: 2px; position: absolute; top: 50%; left: 50%; margin-left: -15px; margin-top: -3px; }
 
 /* FOOTER */
-.footer { border-top: 1px solid #e5e5e5; overflow: hidden; padding: 0 30px; }
+.footer { overflow: hidden; padding: 0 30px; }
 .footer a, .footer span { padding-left: 5px; padding-right: 5px; }
 .footer .copyright { float: left; }
 .footer .updatedsince { float: right; }
@@ -252,7 +235,7 @@ padding-left: 25px; */ padding-right: 10px; }
 #gallery ul li { float: left; }
 #gallery ul li a { display: block; margin: 0 -1px -1px 0; padding: 20px; border-width: 1px; background: white; }
 #gallery ul li a p { color: inherit; }
-#gallery ul li a div.gallery_thumbnail { height: 240px; position: relative; background-color: white; }
+#gallery ul li a div.gallery_thumbnail { min-height: 240px; position: relative; background-color: white; }
 #gallery ul li a div.custom { height: auto; }
 #gallery ul li a img { border: none; overflow: hidden; }
 #gallery ul li a:hover p { cursor: pointer; color: #fff; }
@@ -383,38 +366,44 @@ padding-left: 25px; */ padding-right: 10px; }
 /* -------------------------------------------------------------- FORMS
 -------------------------------------------------------------- */
 /* Form Container */
-#content #lock { overflow: hidden; width: 360px; margin: 0 auto; /*float: left;*/ /* Form */ }
-#content #lock form { overflow: hidden; padding-top: 5px; }
+.loginform { overflow: hidden; position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; z-index: 1; }
 
+.loginform__container { text-align: center; display: table; vertical-align: middle; height: 100%; width: 100%; }
+
+.login__error { animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; transform: translate3d(0, 0, 0); backface-visibility: hidden; perspective: 1000px; }
+
+@keyframes shake { 10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); } }
 /* Form header */
-#lock .login_header * { color: #1A1A1A; font-size: 3em; }
+.login__header * { color: #1A1A1A; font-size: 3em; }
+.login__header h2 { color: #999; }
 
-#lock .login_header h2 { color: #999; }
+.loginform__inner { display: table-cell; vertical-align: middle; width: 100%; /* Form */ }
+.loginform__inner .loginform__form { overflow: hidden; text-align: left; width: 360px; margin-left: auto; margin-right: auto; }
 
 /* Form feedback */
-#lock .login_feedback { padding: 19px 0 10px 10px; background-color: red; color: #FFF; }
+.loginform .login_feedback { padding: 19px 0 10px 10px; background-color: red; color: #FFF; }
 
-#lock .login_feedback b { color: inherit; }
+.loginform .login_feedback b { color: inherit; }
 
 /* Fields */
-#lock form input.field { width: 100%; padding: 0 20px; font-size: 1em; color: inherit; background-color: #e5e5e5; border-radius: 2px; height: 55px; line-height: 55px; }
+.loginform form input.field { width: 100%; padding: 0 20px; font-size: 1em; color: inherit; background-color: #e5e5e5; border-radius: 2px; height: 55px; line-height: 55px; }
 
 /* Checkbox */
-#lock form .checkbox { overflow: hidden; line-height: 14px; }
-
-#lock form .checkbox input { float: left; margin: 0 5px 0 0; padding: 0; }
+.loginform form .checkbox { overflow: hidden; line-height: 14px; }
+.loginform form .checkbox input { float: left; margin: 0 5px 0 0; padding: 0; }
 
 /* Spacing & Alignment */
-#lock form input.field { margin: 20px 0 0 0; }
+.loginform form input.field { margin: 20px 0 0 0; }
 
-#lock form .checkbox { margin: 10px 0 15px; margin-left: 95px; }
+.loginform form .checkbox { margin: 10px 0 15px; margin-left: 95px; }
 
 /* Submit button */
 .subButton { width: 100%; overflow: hidden; }
-
-.subButton input { width: 100%; display: block; color: #FFF; border-radius: 2px; margin: 20px 0 0 0; padding: 0; cursor: pointer; text-align: center; background-color: #FFF; height: 53px; line-height: 53px; border-width: 1px; }
-
-.subButton input:hover { background-color: #1A1A1A; }
+.subButton input { width: 100%; display: block; color: #1A1A1A; border-radius: 2px; margin: 20px 0 0 0; padding: 0; cursor: pointer; text-align: center; background-color: #FFF; height: 53px; line-height: 53px; border-width: 1px; border-color: #1A1A1A; }
+.subButton input:hover { background-color: #1A1A1A; color: #FFF; }
 
 /* @end */
 /* @group Download */

@@ -74,7 +74,7 @@ body {
 #container-inner{
   padding-bottom: 70px;
 }
-#footer {
+.footer {
   position: absolute !important;
   bottom: 0 !important;
   overflow: hidden;
@@ -105,7 +105,7 @@ a, a:link,a:visited { color: #1a1a1a; text-decoration: none; outline: none; } /*
 a:hover { color: inherit; }
 
 /* LINKS FOR GALLERY, FEATURES MODULES */
-#gallery a, #features a, #lock a { text-decoration: none; }
+#gallery a, #features a, .loginform a { text-decoration: none; }
 
 /* @end */
 
@@ -136,6 +136,7 @@ ul.group {
    MODULES: FLASH, HEADER, LOGO, BREADCRUMBTOOLS, NAVIGATION, FOOTER
 -------------------------------------------------------------- */
 
+@import "modules/notice";
 @import "modules/header";
 @import "modules/footer";
 @import "modules/errors";

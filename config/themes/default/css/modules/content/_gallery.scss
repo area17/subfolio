@@ -27,14 +27,17 @@ $inner_padding:20px;
       p { color: inherit; }
 
       div.gallery_thumbnail {
-        height:240px;
+        min-height:240px;
         position: relative;
         background-color: white;
       }
 
       div.custom { height: auto; }
 
-      img { border:none; overflow:hidden; }
+      img {
+        border:none;
+        overflow:hidden;
+      }
     }
 
     a:hover p {

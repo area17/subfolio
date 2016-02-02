@@ -35,7 +35,7 @@
 
           <!-- ICON -->
           <?php if (SubfolioTheme::get_option('display_icons')) : ?>
-            <span class="list__cell list__cell--icon" <?php if (SubfolioTheme::get_mobile_viewport()) { echo "style='background-image:url(".$item['icon_grid'].")'"; } ?>>
+            <span class="list__cell list__cell--icon">
               <?php if ($item['new']) { ?>
                   <span class="new"><!-- --></span>
               <?php } ?>

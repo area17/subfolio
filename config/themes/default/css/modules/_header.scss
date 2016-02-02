@@ -6,46 +6,16 @@ $top_spacing: 25px;
 }
 
 .header__logo,
-.header__breadcrumb,
-.header__navigation {
+.header__breadcrumb {
   overflow:hidden;
   padding:0 $gutter;
 }
 
-
-#notice {
-  overflow: hidden;
-  width: 100%;
-  background-color: #666; /* << text_light_color */
-
-  &.error { background-color: #d11226; }
-
-  p {
-    padding: 44px 0 0 10px;
-    background: url(../images/system/icon_exclam24.png) no-repeat 10px 10px;
-  }
+.header__logout {
+  position:absolute;
+  right:$gutter;
+  top:$gutter - 5px;
 }
-
-#notice {
-  p, p b {
-    color: white;
-  }
-
-  #close {
-    float: right;
-    display: block;
-    height: 69px;
-    width: 36px;
-    text-indent: -5000px;
-    background: url(../images/system/close24.png) no-repeat 10px 10px;
-  }
-
-  #close:hover {
-    background-position: 10px -140px;
-  }
-}
-
-
 
 /* LOGO */
 #logo {
@@ -58,10 +28,9 @@ $top_spacing: 25px;
 
 }
 
-/* BREADCRUMBTOOLS, NAVIGATION, FOOTER: Common */
+/* BREADCRUMBTOOLS, FOOTER: Common */
 .header__breadcrumb,
-#footer,
-#navigation {
+.footer {
   overflow: hidden;
   width: 100%;
 }
@@ -69,12 +38,11 @@ $top_spacing: 25px;
   min-height: $gutter;
 }/*<-- when no tools, keep a space under the logo*/
 
-.breadcrumbtools__inner a,
-.breadcrumbtools__inner span,
-#footer a,
-#navigation a,
-#footer a,
-#footer span {
+#breadcrumb a,
+#breadcrumb span,
+.footer a,
+.footer a,
+.footer span {
   display: inline-block;
   padding: $top_spacing 0 0 0;
   height: $height_bar; /* 25+14 = 39*/
@@ -83,9 +51,7 @@ $top_spacing: 25px;
 
 /* BREADCRUMBTOOLS */
 .header__breadcrumb,
-.header__breadcrumb *,
-#navigation,
-#navigation * {
+.header__breadcrumb * {
   white-space: nowrap;
 }
 .header__breadcrumb .slash { } /*<-- here you can replace the slash with a graphic*/
@@ -93,49 +59,9 @@ $top_spacing: 25px;
 /* BREADCRUMBTOOLS: Breadcrumb */
 #breadcrumb { float: left; }
 
-/* BREADCRUMBTOOLS: Tools */
-#tools {
-  float: right;
-  overflow: hidden;
-}
-#tools {
-  li {
-    float: left;
-  }
-
-  li a {
-    display: inline-block;
-    padding: $top_spacing 10px 0 10px;
-    height: $height_bar;
-    border-left: 1px solid $color-border;
-  }
-
-  li:last-child a {
-    padding-right: 0;
-  }
-}
-
 
 /* NAVIGATION */
-div#navigation {
-  overflow:hidden;
-}
-span.parent_dir {
-  display:block;
-  float:left;
-}
-
-span.parent_dir {
-  width:35%;
-}
-
-#navigation .parent_dir a {
-  /*background: url(../images/system/parent.png) no-repeat 3px 12px;
-  padding-left: 25px; */
-  padding-right: 10px;
-}
-/*#navigation .parent_dir a:hover { background-position: 3px -38px; }*/ /*<< Uncomment if you want your arrow to change color on hover. Default is blue. Change image sprite with photoshop for other color*/
-#navigation span.prev_next {
+.header__navigation {
   display:block;
   height:$height_bar;
   float:right;
@@ -163,17 +89,36 @@ span.parent_dir {
 }
 
 .header__breadcrumb a:hover,
-#footer a:hover,
-#navigation a:hover,
-#navigation a.hover {  }
+.footer a:hover,
+.header__navigation a:hover,
+.header__navigation a.hover {  }
 
 .collapseheader {
   display:block;
   text-align:center;
   margin-top:-20px;
+  position:relative;
+  height:20px;
 
   a.collapseheader__link {
     display:block;
+    font:0/0 a;
+    color:transparent;
+    height:20px;
+    width:100%;
+
+    &:after {
+      content: "";
+      width:30px;
+      height:5px;
+      background:$color-border;
+      border-radius:2px;
+      position:absolute;
+      top:50%;
+      left:50%;
+      margin-left:-15px;
+      margin-top:-3px;
+    }
   }
 }
 

@@ -27,17 +27,17 @@ var expand_header_label = 'expand header';
 /* What to do when DOM is ready
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 $(document).ready(function(){
-	runOnDOMready();
+  runOnDOMready();
 });
 
 /* Run when DOM is ready
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function runOnDOMready() {
-	browserDectect();
-	bindInfoboxEvents(); // event handlers for the info box toggle
-	gallery(); // runs first to speed vertical/horizontal alignement rendering if needed.
-	setUpClasses();
-	keyPress();
+  browserDectect();
+  bindInfoboxEvents(); // event handlers for the info box toggle
+  // gallery(); // runs first to speed vertical/horizontal alignement rendering if needed.
+  bindHeaderEvents();
+  keyPress();
 }
 
 /* Browser Detect
@@ -99,35 +99,26 @@ function browserDectect() {
 
 }
 
-/* Setting classes to handle cross browser dom parsing
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
-function setUpClasses() {
-
-	if ($('#content')[0]) {
-		$('li:nth-child(even)').addClass("even");
-	}
-
-	bindHeaderEvents();
-
-}
-
 /* Show/Hide the header + cookie
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function bindHeaderEvents() {
-	if ($('#showHideSwitch')[0]) {
-		$('#showHideSwitch').click(function(e) {
+  var $homeSwitch = $('#showHideSwitch');
+  var $header = $('#header');
+
+	if ($homeSwitch[0]) {
+		$homeSwitch.click(function(e) {
 			if ($(this).html() == expand_header_label) {
 				$(this).addClass('hide');
 				$(this).removeClass('show');
 				$(this).html(collapse_header_label);
-				$('#header').show();
+				$header.show();
 				createCookie('header', 'show');
 				return false;
 			} else {
 				$(this).addClass('show');
 				$(this).removeClass('hide');
 				$(this).html(expand_header_label);
-				$('#header').hide();
+				$header.hide();
 				createCookie('header', 'hide');
 				return false;
 			}
@@ -138,23 +129,23 @@ function bindHeaderEvents() {
 /* Show/Hide the info box
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function bindInfoboxEvents() {
-	if ($('#info-button')){
-		$('#info-button').click(function(el){
-			$('#info-box').toggle();
-			$('#info-button').toggleClass('on')
-			$.scrollTo('#footer');
-			return false;
-		});
-	}
+  if ($('#info-button')){
+    $('#info-button').click(function(el){
+      $('#info-box').toggle();
+      $('#info-button').toggleClass('on')
+      $.scrollTo('#footer');
+      return false;
+    });
+  }
 }
 
 /* Cookies functions
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function createCookie(name, value) {
-	var today = new Date();
-	today.setTime(today.getTime()+(24*60*60*1000*365));
-	var expires = "; expires=" + today.toGMTString();
-	document.cookie = name+"=" + value + expires+"; path=/";
+  var today = new Date();
+  today.setTime(today.getTime()+(24*60*60*1000*365));
+  var expires = "; expires=" + today.toGMTString();
+  document.cookie = name+"=" + value + expires+"; path=/";
 }
 
 /* Gallery Module
@@ -210,51 +201,51 @@ function gallery() {
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function keyPress () {
 
-	$(document).keydown(function(e) {
-		switch(e.keyCode) {
-			// user pressed "left" arrow
-			case 37:
-				if ($('#previous')[0]) {
-			    if (!e.altKey) {
-  					var previous = $('#previous');
-  					var previous_url = previous.attr("href");
-  					if (previous_url) {
-  						previous.addClass('hover').fadeTo(250, 1, function() {
-  							window.location = previous_url;
-  						});
-  					}
-					}
-				}
-			break;
-			// user pressed "top" arrow
-			case 84: $('html,body').animate({scrollTop: 0}, 250);
-			break;
-			// user pressed "right" arrow
-			case 39:
-				if ($('#next')[0]) {
-			    if (!e.altKey) {
-  					var next = $('#next');
-  					var next_url = next.attr("href");
-  					if (next_url) {
-  						next.addClass('hover').fadeTo(250, 1, function() {
-  							window.location = next_url;
-  						});
-  					}
-					}
-				}
-			break;
+  $(document).keydown(function(e) {
+    switch(e.keyCode) {
+      // user pressed "left" arrow
+      case 37:
+        if ($('#previous')[0]) {
+          if (!e.altKey) {
+            var previous = $('#previous');
+            var previous_url = previous.attr("href");
+            if (previous_url) {
+              previous.addClass('hover').fadeTo(250, 1, function() {
+                window.location = previous_url;
+              });
+            }
+          }
+        }
+      break;
+      // user pressed "top" arrow
+      case 84: $('html,body').animate({scrollTop: 0}, 250);
+      break;
+      // user pressed "right" arrow
+      case 39:
+        if ($('#next')[0]) {
+          if (!e.altKey) {
+            var next = $('#next');
+            var next_url = next.attr("href");
+            if (next_url) {
+              next.addClass('hover').fadeTo(250, 1, function() {
+                window.location = next_url;
+              });
+            }
+          }
+        }
+      break;
       // user pressed "up" arrow
-			case 38:
-			    if (e.altKey) {
-  					var parent_dir = $('#parent');
-  					var parent_dir_url = parent_dir.attr("href");
-  					if (parent_dir_url) {
-  						parent_dir.addClass('hover').fadeTo(250, 1, function() {
-  							window.location = parent_dir_url;
-  						});
-  					}
-					}
-			break;
-		}
-	});
+      case 38:
+          if (e.altKey) {
+            var parent_dir = $('#parent');
+            var parent_dir_url = parent_dir.attr("href");
+            if (parent_dir_url) {
+              parent_dir.addClass('hover').fadeTo(250, 1, function() {
+                window.location = parent_dir_url;
+              });
+            }
+          }
+      break;
+    }
+  });
 }

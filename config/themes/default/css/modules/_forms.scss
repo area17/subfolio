@@ -5,41 +5,91 @@
 -------------------------------------------------------------- */
 
 /* Form Container */
-#content #lock {
+.loginform {
   overflow: hidden;
-  width: 360px;
-  margin:0 auto;
-  /*float: left;*/
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
+  z-index:$z-index__form;
+}
 
-  /* Form */
-  form {
-    overflow:hidden;
-    padding-top: 5px;
+.loginform__container {
+  text-align:center;
+  display:table;
+  vertical-align:middle;
+  height:100%;
+  width:100%;
+}
+
+.login__error {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
   }
 }
 
 /* Form header */
-#lock .login_header * {
-  color:$color-text;
-  font-size:3em;
+.login__header {
+  * {
+    color:$color-text;
+    font-size:3em;
+  }
+
+  h2 {
+    color:$color-text-secondary;
+  }
 }
-#lock .login_header h2 {
-  color:$color-text-secondary;
+
+.loginform__inner {
+  display:table-cell;
+  vertical-align:middle;
+  width:100%;
+
+  /* Form */
+  .loginform__form {
+    overflow:hidden;
+    text-align:left;
+    width: 360px;
+    margin-left:auto;
+    margin-right:auto;
+  }
 }
 
 
 /* Form feedback */
-#lock .login_feedback {
+.loginform .login_feedback {
   padding: 19px 0 10px 10px;
   background-color: red;
   color:#FFF;
 }
-#lock .login_feedback b {
+.loginform .login_feedback b {
   color: inherit;
 }
 
 /* Fields */
-#lock form input.field {
+.loginform form input.field {
   width: 100%;
   padding:0 20px;
   font-size:1em;
@@ -51,23 +101,23 @@
 }
 
 /* Checkbox */
-#lock form .checkbox {
+.loginform form .checkbox {
   overflow: hidden;
   line-height: 14px;
-}
 
-#lock form .checkbox input {
-  float: left;
-  margin: 0 5px 0 0;
-  padding: 0;
+  input {
+    float: left;
+    margin: 0 5px 0 0;
+    padding: 0;
+  }
 }
 
 /* Spacing & Alignment */
-#lock form input.field {
+.loginform form input.field {
   margin: 20px 0 0 0;
 }
 
-#lock form .checkbox {
+.loginform form .checkbox {
   margin: 10px 0 15px;
   margin-left: 95px;
 }
@@ -76,24 +126,27 @@
 .subButton {
   width: 100%;
   overflow: hidden;
-}
 
-.subButton input {
-  width: 100%;
-  display: block;
-  color: #FFF;
-  border-radius: 2px;
-  margin: 20px 0 0 0;
-  padding: 0;
-  cursor: pointer;
-  text-align: center;
-  background-color: #FFF;
-  height:53px;
-  line-height:53px;
-  border-width:1px;
-}
-.subButton input:hover {
-  background-color:#1A1A1A;
+  input {
+    width: 100%;
+    display: block;
+    color: $color-text;
+    border-radius: 2px;
+    margin: 20px 0 0 0;
+    padding: 0;
+    cursor: pointer;
+    text-align: center;
+    background-color: $color-bg;
+    height:53px;
+    line-height:53px;
+    border-width:1px;
+    border-color:$color-text;
+
+    &:hover {
+      background-color:$color-text;
+      color:$color-bg;
+    }
+  }
 }
 
 /* @end */
