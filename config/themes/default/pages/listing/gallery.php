@@ -7,7 +7,9 @@
         <li>
           <a href="<?php echo $image['link']; ?>">
             <div class="<?php echo $image['class'] ?>" style="max-height:<?php echo $image['container_height']."px"; ?>" >
-              <img width="<?php echo $image['width'] ?>" height="<?php echo $image['height'] ?>" src="<?php echo $image['url'] ?>" style="max-height:<?php echo $image['container_height']."px"; ?>" /> <!-- style="width:<?php echo $image['container_width']."px"; ?>; height:<?php echo $image['container_height']."px"; ?>" -->
+              <div class="gallery__inner">
+              <img width="<?php echo $image['width'] ?>" height="<?php echo $image['height'] ?>" src="<?php echo $image['url'] ?>" style="max-height:<?php echo $image['container_height']."px"; ?>" />
+              </div>
             </div>
             <?php if (SubfolioTheme::get_option('display_file_names_in_gallery')) { ?>
               <p><?php echo $image['filename'] ?></p>

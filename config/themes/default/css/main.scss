@@ -173,26 +173,33 @@ MODULE SPACING
 /* Sets styles only for direct childs of #content (i.e gallery, features, listing) */
 #content > * { margin: 0 0 $gutter; }
 
-#inline_top_image,
-#inline_middle_image,
-#inline_bottom_image {
-/*width: 100%;
-overflow: hidden;*/ /*<< Use if you want to crop the image instead of showing the horizontal scrollbar */
+#content {
+  #inline_top_image,
+  #inline_middle_image,
+  #inline_bottom_image {
+    /*width: 100%;
+    overflow: hidden;*/ /*<< Use if you want to crop the image instead of showing the horizontal scrollbar */
+    margin-bottom:0
+  }
+
+  #inline_top_image img,
+  #inline_middle_image img,
+  #inline_bottom_image img {
+  padding: 0;
+  margin: 0 $gutter $gutter 0;
+  float: left;
+  display:block;
+  height:auto;
+  max-width: 100%
+  }
+
+  #inline_top_text,
+  #inline_middle_text,
+  #inline_bottom_text {
+  margin-bottom: 10px;
+  }
 }
 
-#inline_top_image img,
-#inline_middle_image img,
-#inline_bottom_image img {
-padding: 0;
-margin: 0 2px 2px 0;
-float: left;
-}
-
-#inline_top_text,
-#inline_middle_text,
-#inline_bottom_text {
-margin-bottom: 10px;
-}
 
 #file_listing { padding: 5px 0 10px; }
 

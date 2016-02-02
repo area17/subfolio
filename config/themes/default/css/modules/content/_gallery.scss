@@ -14,6 +14,7 @@ $inner_padding:20px;
     padding: 0 1px 1px 0;
     overflow: hidden;
   }
+
   ul li {
     float: left;
 
@@ -28,8 +29,13 @@ $inner_padding:20px;
 
       div.gallery_thumbnail {
         min-height:240px;
-        position: relative;
+        display:table;
         background-color: white;
+      }
+
+      div.gallery__inner {
+        display:table-cell;
+        vertical-align:middle;
       }
 
       div.custom { height: auto; }
@@ -37,6 +43,9 @@ $inner_padding:20px;
       img {
         border:none;
         overflow:hidden;
+        display:block;
+        max-width:100%;
+        height:auto;
       }
     }
 
