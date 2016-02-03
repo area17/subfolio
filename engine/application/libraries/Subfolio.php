@@ -87,8 +87,8 @@ class Subfolio {
       $icon_set  = view::get_option('icon_set_list',  "list");
       $icon_set_grid  = view::get_option('icon_set_grid',  "grid");
 
-      $icon = view::get_view_url()."/images/icons/".$icon_set."/".$icon_file.".png";
-      $icon_grid = view::get_view_url()."/images/icons/".$icon_set_grid."/".$icon_file.".png";
+      $icon = $icon_set."_".$icon_file;
+      $icon_grid = $icon_set_grid."_".$icon_file;
 
       return $icon_grid;
     }
@@ -873,8 +873,8 @@ class SubfolioFiles extends Subfolio {
         $icon_set  = view::get_option('icon_set_list',  "list");
         $icon_set_grid  = view::get_option('icon_set_grid',  "grid");
 
-        $icon = view::get_view_url()."/images/icons/".$icon_set."/".$icon_file.".png";
-				$icon_grid = view::get_view_url()."/images/icons/".$icon_set_grid."/".$icon_file.".png";
+        $icon = $icon_set."_".$icon_file;
+				$icon_grid = $icon_set_grid."_".$icon_file;
 
     	  switch ($kind) {
     	    /***** NOT LINKING TO SITE, LINK TO PERMALINK PAGE INSTEAD
@@ -976,8 +976,8 @@ class SubfolioFiles extends Subfolio {
           $icon_set  = view::get_option('icon_set_list',  "list");
           $icon_set_grid  = view::get_option('icon_set_grid',  "grid");
 
-          $icon = view::get_view_url()."/images/icons/".$icon_set."/".$icon_file.".png";
-          $icon_grid = view::get_view_url()."/images/icons/".$icon_set_grid."/".$icon_file.".png";
+          $icon = $icon_set."_".$icon_file;
+          $icon_grid = $icon_set_grid."_".$icon_file;
 
           $target = "";
           $url = "";
@@ -1149,8 +1149,8 @@ class SubfolioFiles extends Subfolio {
             $icon_set  = view::get_option('icon_set_list',  "list");
             $icon_set_grid  = view::get_option('icon_set_grid',  "grid");
 
-            $icon = view::get_view_url()."/images/icons/".$icon_set."/".$icon_file.".png";
-            $icon_grid = view::get_view_url()."/images/icons/".$icon_set_grid."/".$icon_file.".png";
+            $icon = $icon_set."_".$icon_file;
+            $icon_grid = $icon_set_grid."_".$icon_file;
 
             $target = "";
             $url = "";
@@ -1281,8 +1281,8 @@ class SubfolioFiles extends Subfolio {
       $icon_set  = view::get_option('icon_set_list',  "list");
       $icon_set_grid  = view::get_option('icon_set_grid',  "grid");
 
-      $icon = view::get_view_url()."/images/icons/".$icon_set."/".$icon_file.".png";
-      $icon_grid = view::get_view_url()."/images/icons/".$icon_set_grid."/".$icon_file.".png";
+      $icon = $icon_set."_".$icon_file;
+      $icon_grid = $icon_set_grid."_".$icon_file;
 
       $rel = array();
       $rel['link'] = $link;

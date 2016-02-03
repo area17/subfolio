@@ -1,2 +1,10 @@
+# General Files
 options.yml
-css/.sass-cache
+.sass-cache
+.DS_Store
+node_modules
+
+# Generated Files
+npm-debug.log
+grunt/img/_icons.scss
+grunt/img/icons.html

@@ -8,7 +8,7 @@
         <div class="list__row list__header">
           <?php if (SubfolioTheme::get_option('display_icons')) { ?>
             <span class="list__cell list__cell--icon">
-              <img src="<?php echo SubfolioTheme::get_view_url() ?>/images/system/no_icon.png" width='18' height='17' border='0' />
+              —
             </span>
           <?php } ?>
           <?php if (SubfolioTheme::get_option('display_name')) { ?>
@@ -31,23 +31,17 @@
       <?php } ?>
 
       <?php foreach ( SubfolioFiles::files_and_folders() as $item) : ?>
-        <a class="list__row <?php echo  ($item['empty'] == true) ? 'list__row--empty' : ''; ?>" target="<?php echo $item['target'] ?>" href="<?php echo $item['url'] ?>">
+        <a class="list__row list__body <?php echo  ($item['empty'] == true) ? 'list__row--empty' : ''; ?>" target="<?php echo $item['target'] ?>" href="<?php echo $item['url'] ?>">
 
           <!-- ICON -->
           <?php if (SubfolioTheme::get_option('display_icons')) : ?>
             <span class="list__cell list__cell--icon">
-              <?php if ($item['new']) { ?>
-                  <span class="new"><!-- --></span>
-              <?php } ?>
+              <?php $type = SubfolioTheme::get_listing_mode()=='list' ? $item['icon'] : $item['icon_grid']; ?>
               <?php if ($item['restricted']) { ?>
-                <span class="<?php if ($item['have_access']) { echo "unlocked"; } else { echo "locked"; } ?>"><!-- --></span>
+                <i class="icon icon__<?php echo $type ?>_<?php if ($item['have_access']) { echo "shared"; } else { echo "protected"; } ?>"></i>
+              <?php } else { ?>
+                <i class='icon icon__<?php echo $type ?>'></i>
               <?php } ?>
-
-            <?php if (SubfolioTheme::get_listing_mode()=='list') : ?>
-              <img src='<?php echo $item['icon'] ?>' width='18' height='17' />
-            <?php else : ?>
-              <img src='<?php echo $item['icon_grid'] ?>' width='32' height='32' />
-            <?php endif; ?>
             </span>
           <?php else : ?>
             <span class="list__cell list__cell--no_icon"></span>
@@ -61,7 +55,11 @@
 
           <?php if (SubfolioTheme::get_option('display_date')) { ?>
             <span class="list__cell list__cell--updated">
+              <?php if ($item['new']) { ?>
+              <span class="updated updated--new"></span>
+              <?php } else { ?>
               <span class="updated <?php if($item['updated']) { echo "updated--new"; } ?>"></span>
+              <?php } ?>
             </span>
             <span class="list__cell list__cell--date"><?php echo $item['date'] ?></span>
           <?php } ?>

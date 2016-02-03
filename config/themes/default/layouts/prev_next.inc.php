@@ -1,5 +1,5 @@
 <?php if (!SubfolioFiles::is_root()) { ?>
 <div class="header__navigation">
-    <?php echo SubfolioFiles::previous_link_or_span("&larr; &nbsp; ".SubfolioLanguage::get_text('previous'), "&larr; &nbsp; ".SubfolioLanguage::get_text('previous'), 'previous', 'faded'); ?><?php echo SubfolioFiles::next_link_or_span(SubfolioLanguage::get_text('next')." &nbsp; &rarr;", SubfolioLanguage::get_text('next')." &nbsp; &rarr;", 'next', 'faded'); ?>
+    <?php echo SubfolioFiles::previous_link_or_span("<i class='icon icon__arrow_left'>&larr;</i>", "<i class='icon icon__arrow_left'>&larr;</i>", 'previous', 'faded'); ?><?php echo SubfolioFiles::next_link_or_span("<i class='icon icon__arrow_right'>&rarr;</i>", "<i class='icon icon__arrow_right'>&rarr;</i>", 'next', 'faded'); ?>
 </div>
 <?php } ?>

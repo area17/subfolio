@@ -1,0 +1,22 @@
+.icon {
+  @if $include_icons == false {
+    font:0/0 a;
+    color:transparent;
+    display: inline-block;
+    min-width: 16px;
+    min-height: 16px;
+    vertical-align: middle;
+    background-position: 50%;
+    background-color: transparent;
+    border: 0 none;
+  }
+}
+
+a.icon {
+  cursor: pointer;
+}
+
+/* loops the _icons object to make the icons */
+@each $icon, $icon_obj in $icons {
+  @include icon-type($icon);
+}

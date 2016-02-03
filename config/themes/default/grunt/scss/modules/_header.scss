@@ -1,0 +1,185 @@
+$height_bar: 70px;
+$top_spacing: 25px;
+
+.header {
+  border-bottom-width:1px;
+  color:$color-text-secondary;
+}
+
+.header__logo,
+.header__breadcrumb {
+  overflow:hidden;
+  padding:0 $gutter;
+
+  @include breakpoint(small) {
+    padding:0 $gutter-mobile;
+  }
+}
+
+.header__logout {
+  float:right;
+  margin-top:$gutter - 5px;
+
+  a {
+    color:$color-text-secondary;
+
+    &:hover {
+      color:$color-text;
+    }
+  }
+
+  @include breakpoint(small) {
+    display:none;
+  }
+}
+
+/* LOGO */
+@include breakpoint(small) {
+  .header__logo.show {
+    display:none;
+  }
+}
+
+.header__logo {
+  overflow:hidden;
+
+  #logo {
+    float:left;
+    padding-top: $gutter;
+
+    a:hover { background-color: inherit; }
+
+    a, img {
+      display:block;
+    }
+  }
+}
+
+
+/* header__breadcrumb, FOOTER: Common */
+.header__breadcrumb,
+.footer {
+  overflow: hidden;
+  width: 100%;
+}
+
+.breadcrumb, .footer {
+  a, span {
+    display: inline-block;
+    padding: $top_spacing 0 0 0;
+    height: $height_bar;
+  }
+}
+
+/* header__breadcrumb */
+.header__breadcrumb,
+.header__breadcrumb * {
+  white-space: nowrap;
+}
+.header__breadcrumb .slash { } /*<-- here you can replace the slash with a graphic*/
+
+
+
+/* breadcrumb */
+.breadcrumb {
+  float: left;
+
+  @include breakpoint(medium-and-down) {
+    .breadcrumb__index,
+    .breadcrumb__root,
+    .breadcrumb__folder,
+    .breadcrumb__slash {
+      display:none;
+    }
+  }
+
+}
+
+
+
+/* header__navigation */
+.header__navigation {
+  display:block;
+  height:$height_bar;
+  float:right;
+
+  a, span {
+    margin:20px 0;
+    padding:0 25px;
+    display:inline-block;
+    height:$height_bar - 20px - 20px;
+    line-height:$height_bar - 20px - 20px;
+
+    &:first-child {
+      border-right: 1px solid $color-border;
+      padding-left:0;
+    }
+
+    &:last-child {
+      padding-right:0;
+    }
+  }
+
+  a i {
+    opacity:0.33;
+  }
+
+  span i {
+    opacity:0.15;
+  }
+
+  a:hover i,
+  a.hover i {
+    opacity:1;
+  }
+}
+
+.collapseheader {
+  display:block;
+  text-align:center;
+  margin-top:-20px;
+  position:relative;
+  height:20px;
+
+  @include breakpoint(small) {
+    display:none;
+  }
+
+  a.collapseheader__link {
+    display:block;
+    font:0/0 a;
+    color:transparent;
+    height:20px;
+    width:100%;
+
+    &:after {
+      content: "";
+      width:30px;
+      height:5px;
+      background:#D8D8D8;
+      border-radius:2px;
+      position:absolute;
+      top:50%;
+      left:50%;
+      margin-left:-15px;
+      margin-top:-3px;
+    }
+
+    &:hover {
+      &:after {
+        background:$color-text;
+      }
+    }
+  }
+}
+
+.breadcrumb__current {
+  i {
+    display:none;
+
+    @include breakpoint(medium-and-down) {
+      display:inline-block;
+      opacity:0.33;
+    }
+  }
+}

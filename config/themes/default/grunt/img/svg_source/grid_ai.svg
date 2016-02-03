@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="45px" height="61px" viewBox="0 0 45 61" enable-background="new 0 0 45 61" xml:space="preserve">
+<defs>
+	<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="45" height="61">
+		<feFlood  style="flood-color:white;flood-opacity:1" result="back"/>
+		<feBlend  in="SourceGraphic" in2="back" mode="normal"/>
+	</filter>
+</defs>
+<mask maskUnits="userSpaceOnUse" x="0" y="0" width="45" height="61" id="SVGID_1_">
+	<g filter="url(#Adobe_OpacityMaskFilter)">
+		<polyline points="29,0 45,0 45,16 		"/>
+	</g>
+</mask>
+<g mask="url(#SVGID_1_)">
+	<path fill="#FFFFFF" d="M2.5,60.5c-1.103,0-2-0.897-2-2v-56c0-1.103,0.897-2,2-2h40c1.103,0,2,0.897,2,2v56c0,1.103-0.897,2-2,2
+		H2.5z"/>
+	<path fill="#CCCCCC" d="M42.5,1C43.327,1,44,1.673,44,2.5v56c0,0.827-0.673,1.5-1.5,1.5h-40C1.673,60,1,59.327,1,58.5v-56
+		C1,1.673,1.673,1,2.5,1H42.5 M42.5,0h-40C1.125,0,0,1.125,0,2.5v56C0,59.875,1.125,61,2.5,61h40c1.375,0,2.5-1.125,2.5-2.5v-56
+		C45,1.125,43.875,0,42.5,0L42.5,0z"/>
+</g>
+<g>
+	<polygon fill="#FFFFFF" points="32.103,15.5 30.281,14.719 29.5,12.897 29.5,1.207 43.793,15.5 	"/>
+	<path fill="#CCCCCC" d="M30,2.414L42.586,15H32.205l-1.544-0.662L30,12.795V2.414 M29,0v13l0.9,2.1L32,16h13L29,0L29,0z"/>
+</g>
+<rect fill="none" width="45" height="61"/>
+</svg>

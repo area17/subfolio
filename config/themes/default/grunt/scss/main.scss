@@ -1,0 +1,239 @@
+/*
+
+  Main CSS is the ONE!
+  * Subfolio by AREA 17
+
+  STYLE START HERE
+  Run me using grunt comand
+*/
+
+$include_icons: false; // see icons.scss!
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ resets */
+
+@import 'resets';
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ colors */
+
+@import 'colors';
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ mixins */
+
+@import 'mixins';
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ variables */
+
+@import 'variables';
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ typography */
+
+@import 'typography';
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ grid */
+
+@import 'grid';
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ icons image-map */
+
+@import '../img/icons';
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ icon classes */
+
+@import 'modules/icons';
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ core */
+
+body {
+  * {
+    border-color: $color-border;
+    border-style: solid;
+    border-width: 0;
+    box-sizing: border-box;
+  }
+}
+
+/* Lists --------------------------------------------------------------- */
+ul { list-style-type: none; }
+
+hr {
+height: 1px;
+margin: 0 0 10px;
+padding: 0;
+color: #F00;
+background-color: $color-border;
+border: 0 none;
+border-color: $color-border;
+}
+
+
+/* @group Global layout */
+/* ---------------------------------------------------------------------
+	POSITIONING WITH FOOTER AT BOTTOM
+------------------------------------------------------------------------ */
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  margin:0;
+}
+#container{
+  position: relative;
+  min-height: 100%;
+}
+#container-inner{
+  padding-bottom: 70px;
+}
+.footer {
+  position: absolute !important;
+  bottom: 0 !important;
+  overflow: hidden;
+}
+/* @end */
+
+@import "modules/paragraph";
+
+
+/* @group Text */
+/* --------------------------------------------------------------
+   SIMPLE TEXT
+-------------------------------------------------------------- */
+
+.error { color: #FF0000; } /* << flash_color */
+.faded { color: #BBB; } /* << text_dimmed_color */
+
+/* This is to use the Arial rounded bold and easily change it for Windows */
+b, strong { font-family: "Arial Rounded MT Bold"; color: #1a1a1a; }
+
+/* @end */
+
+/* @group Links */
+/* --------------------------------------------------------------
+   LINKS
+-------------------------------------------------------------- */
+a, a:link,a:visited { color: #1a1a1a; text-decoration: none; outline: none; } /* << link_color */
+a:hover { color: inherit; }
+
+/* LINKS FOR GALLERY, FEATURES MODULES */
+#gallery a, #features a, .loginform a { text-decoration: none; }
+
+/* @end */
+
+
+/* @group cms */
+/* --------------------------------------------------------------
+   CMS SPECIFICS
+-------------------------------------------------------------- */
+
+ul.group {
+  margin-bottom: 60px;
+
+  b {
+    font-weight: bold;
+  }
+
+  a {
+    color: #666;
+  }
+}
+
+/* @end */
+
+
+/* @group Global modules */
+
+/* --------------------------------------------------------------
+   MODULES: FLASH, HEADER, LOGO, BREADCRUMBTOOLS, NAVIGATION, FOOTER
+-------------------------------------------------------------- */
+
+@import "modules/notice";
+@import "modules/header";
+@import "modules/footer";
+@import "modules/errors";
+
+
+/* @group Content */
+/* --------------------------------------------------------------
+   MODULES: CONTENT
+-------------------------------------------------------------- */
+#content {
+/*max-width: 900px;*/ /*If you want to limit the width of your page ...*/
+}
+
+/* @end */
+
+@import "modules/content/gallery";
+@import "modules/content/features";
+@import "modules/content/list";
+@import "modules/content/grid";
+@import "modules/related";
+@import "modules/forms";
+@import "modules/download_box";
+@import "modules/permalink";
+
+
+/* --------------------------------------------------------------
+MODULE SPACING
+-------------------------------------------------------------- */
+#content {
+  margin: 15px $gutter;
+  @include clearfix();
+
+  @include breakpoint(small) {
+    margin: 15px $gutter-mobile;
+  }
+}
+
+/* Sets styles only for direct childs of #content (i.e gallery, features, listing) */
+#content > * {
+  margin-bottom: $gutter;
+
+  @include breakpoint(small) {
+    margin-bottom: $gutter-mobile;
+  }
+}
+
+#content {
+  #inline_top_image,
+  #inline_middle_image,
+  #inline_bottom_image {
+    /*width: 100%;
+    overflow: hidden;*/ /*<< Use if you want to crop the image instead of showing the horizontal scrollbar */
+    margin-bottom:0
+  }
+
+  #inline_top_image img,
+  #inline_middle_image img,
+  #inline_bottom_image img {
+  padding: 0;
+  margin: 0 $gutter $gutter 0;
+  float: left;
+  display:block;
+  height:auto;
+  max-width: 100%
+  }
+
+  #inline_top_text,
+  #inline_middle_text,
+  #inline_bottom_text {
+  margin-bottom: 10px;
+  }
+}
+
+
+#file_listing { padding: 5px 0 10px; }
+
+#document { padding: 0px 0 5px; }
+
+#description { padding: 5px 0 0; }
+
+.text_block { margin-bottom: 30px; }
+
+/* ------------- FLOAT AND CLEAR MISC ------------------------------------- */
+
+.show { display: block; }
+.hide { display: none; }
+.clear { clear: both; }
+.floater { float: left; }
+.visible { visibility: visible}
+.invisible { visibility: hidden}

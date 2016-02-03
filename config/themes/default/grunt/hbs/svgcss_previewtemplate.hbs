@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" href="/css/icons.css">
+  <title>Icons</title>
+</head>
+<style>
+  body {
+    background: #333;
+  }
+</style>
+<body>
+{{#each icons}}{{#with this}}<span class="icon icon__{{name}}">{{name}}</span>
+{{/with}}{{/each}}
+</body>
+</html>

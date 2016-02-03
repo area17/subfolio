@@ -1,0 +1,7 @@
+$icons: (
+  {{#each icons}}
+    {{#with this}}
+      {{name}}: ( datauri:'{{datauri}}', width:{{width}}, height:{{height}} ),
+    {{/with}}
+  {{/each}}
+);

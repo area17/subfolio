@@ -1,0 +1,36 @@
+# Main grunt tasks
+init:
+  description: 'Compiles everything for the first time.'
+  tasks:
+    - 'icons'
+    - 'assets_dev'
+
+default:
+  description: 'Compiles assets and watches file directory for changes.'
+  tasks:
+    - 'assets_dev'
+    - 'watch'
+
+dev:
+  description: 'Compiles assets and icons without compression for development.'
+  tasks:
+    - 'clean:all'
+    - 'icons'
+    - 'assets_dev'
+
+# Sub tasks
+icons:
+  description: 'Creates icons and fallback pngs.'
+  tasks:
+    - 'svgmin:all'
+    - 'svgcss:all'
+    - 'svg2png:all'
+    - 'clean:svg_tidy'
+    - 'sass:dev'
+
+assets_dev:
+  description: 'Compiles assets without compression'
+  tasks:
+    - 'sass:dev'
+    - 'uglify:dev'
+    - 'postcss:all'
