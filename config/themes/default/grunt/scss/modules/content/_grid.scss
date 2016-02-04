@@ -4,83 +4,79 @@
    MODULES: CONTENT / LISTING GRID VIEW
 -------------------------------------------------------------- */
 
-.grid { display: inline-block; }
-.grid .listing-header { display: none; }
-.grid li {
-  float:left;
-  width: 179px;
-  height: 104px;
-  text-align: center;
-  overflow: hidden;
-  margin: 0 1px 1px 0 !important;
+.grid {
+  width:100%;
+  overflow:hidden;
 
-  a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    position: relative;
+  .grid__row {
+    display:block;
+    text-align:center;
+    float:left;
+    width:16.666667%;
+    padding:$half-gutter;
+
+    @include breakpoint(large) {
+      width:20%;
+    }
+
+    @include breakpoint(medium) {
+      width:25%;
+    }
+
+    @include breakpoint(small) {
+      width:50%;
+    }
   }
 
-  a:hover {
-    background-color: #f5f5f5;
-    cursor: pointer;
+  .list__cell {
+    display:block;
   }
 
-  span {
-    display: block;
+  a.grid__row:hover {
+    background-color:$color-hover;
   }
 
-  span.filename {
-    max-height: 1.2em;
-    overflow: hidden; /* Crop the text if too long */
+  .list__cell--icon {
+    min-height:68.5px;
+    padding-bottom:$half-gutter/2;
+
+    i {
+      display:block;
+      width:100%;
+      height:61px;
+      background-position:50% 50%;
+    }
+  }
+
+  .list__cell--size,
+  .list__cell--date,
+  .list__cell--kind,
+  .list__cell--updated {
+    display: none !important;
+  }
+
+  a.list__row--empty,
+  a.list__row--empty * {
+    cursor:default;
+    color:$color-text-tertiary;
+
+    &:hover {
+      background-color:$color-bg;
+    }
   }
 }
 
-.grid li span.comment { color: #aaa; }
-.grid li span.comment strong { color: inherit; }
-.grid .size, .grid .date, .grid .kind { display: none !important; }
-.grid .empty {
-   filter:alpha(opacity=50);
-   -moz-opacity:0.5;
-   -khtml-opacity: 0.5;
-   opacity: 0.5;
-}
+.grid .updated {
+  background:$color-text-tertiary;
+  border-radius:50%;
+  display:block;
+  width:8px;
+  height:8px;
+  vertical-align:middle;
 
-/* --------------------------------------------------------------
-   MODULES: CONTENT / GRID ICONS
--------------------------------------------------------------- */
-
-.grid .updated, .grid .new {
-position:absolute;
-top: 23px;
-left: 98px;
-display: block;
-width: 11px;
-height: 11px;
-z-index: 99;
-background: url("../images/system/updated_grid24.png") no-repeat top left;
+  &.updated--new {
+    background:$color-new;
+  }
 }
-.grid li .icon { height: 60px; position: relative; }
-.grid li .no_icon { height: 45px; position: relative; }
-.grid li .icon img {
-position: absolute;
-top: 20px;
-left: 73px;
-}
-.grid .locked, .grid .unlocked {
-position:absolute;
-float: left;
-top: 28px;
-left: 75px;
-display: block;
-width: 28px;
-height: 20px;
-z-index: 98;
-background: url("../images/icons/grid/lock.png") no-repeat top left;
-}
-.grid .locked { background-position: top; }
-.grid .unlocked { background-position: 0 -50px; }
 
 /* @end */

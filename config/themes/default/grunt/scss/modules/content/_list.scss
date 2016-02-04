@@ -31,48 +31,48 @@ $height_list: 50px;
   display:table;
   border-bottom-width:1px;
   border-bottom-color:$color-border-light;
-}
 
-.list__row {
-  overflow: hidden;
-  margin: 0;
-  display:table-row;
-  color:$color-text-secondary;
-  position:relative;
-
-  &:after {
-    display: block;
-    content: '';
-    position:absolute;
-    border-top-width:1px;
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-  }
-}
-
-a.list__row {
-  color:$color-text-secondary;
-}
-
-.list__cell {
-  border-top-width:1px;
-  border-top-color:$color-border-light;
-  height: $height_list;
-  line-height:$height_list;
-  display:table-cell;
-  padding-right:20px;
-  overflow:hidden;
-  @include ellipsis();
-}
-
-.list__header .list__cell {
-  border-top-width:0;
-  display:table-cell;
-
-  a {
+  .list__row {
+    overflow: hidden;
+    margin: 0;
+    display:table-row;
     color:$color-text-secondary;
+    position:relative;
+
+    &:after {
+      display: block;
+      content: '';
+      position:absolute;
+      border-top-width:1px;
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+    }
+  }
+
+  a.list__row {
+    color:$color-text-secondary;
+  }
+
+  .list__cell {
+    border-top-width:1px;
+    border-top-color:$color-border-light;
+    height: $height_list;
+    line-height:$height_list;
+    display:table-cell;
+    padding-right:20px;
+    overflow:hidden;
+    @include ellipsis();
+  }
+
+  .list__header .list__cell {
+    border-top-width:0;
+    display:table-cell;
+
+    a {
+      color:$color-text-secondary;
+    }
   }
 }
 
@@ -187,21 +187,4 @@ a.list__row {
     background:$color-new;
   }
 }
-.list .new {
-  background: url("../images/system/new.png") no-repeat top left;
-}
-
-.list .locked, .list .unlocked {
-  position: absolute;
-  top: 50%;
-  left: 3px;
-  display: block;
-  width: 12px;
-  height: 8px;
-  z-index: 98;
-  background: url("../images/icons/list/lock.png") no-repeat top left;
-}
-.list .locked { background-position: top; }
-.list .unlocked { background-position: 0 -50px; }
-
   /* @end */

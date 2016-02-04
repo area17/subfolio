@@ -4,7 +4,7 @@
 
     <div class="<?php echo SubfolioTheme::get_listing_mode() ?>">
 
-      <?php if (!SubfolioTheme::get_mobile_viewport() && SubfolioTheme::get_option('display_file_listing_header')) { ?>
+      <?php if (SubfolioTheme::get_option('display_file_listing_header') && SubfolioTheme::get_listing_mode()=='list') { ?>
         <div class="list__row list__header">
           <?php if (SubfolioTheme::get_option('display_icons')) { ?>
             <span class="list__cell list__cell--icon">
@@ -31,7 +31,7 @@
       <?php } ?>
 
       <?php foreach ( SubfolioFiles::files_and_folders() as $item) : ?>
-        <a class="list__row list__body <?php echo  ($item['empty'] == true) ? 'list__row--empty' : ''; ?>" target="<?php echo $item['target'] ?>" href="<?php echo $item['url'] ?>">
+        <a class="<?php echo SubfolioTheme::get_listing_mode() ?>__row <?php echo SubfolioTheme::get_listing_mode() ?>__body <?php echo  ($item['empty'] == true) ? 'list__row--empty' : ''; ?>" target="<?php echo $item['target'] ?>" href="<?php echo $item['url'] ?>">
 
           <!-- ICON -->
           <?php if (SubfolioTheme::get_option('display_icons')) : ?>

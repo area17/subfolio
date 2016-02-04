@@ -71,6 +71,11 @@
   border-color:$color-text;
   text-align:center;
   border-radius:2px;
+
+  &:hover {
+    background:$color-text;
+    color:$color-bg;
+  }
 }
 #download_box #download.with_arrow {
   padding-left: 10px;

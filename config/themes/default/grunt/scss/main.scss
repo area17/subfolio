@@ -182,18 +182,22 @@ MODULE SPACING
   @include breakpoint(small) {
     margin: 15px $gutter-mobile;
   }
-}
 
-/* Sets styles only for direct childs of #content (i.e gallery, features, listing) */
-#content > * {
-  margin-bottom: $gutter;
+  /* Sets styles only for direct childs of #content (i.e gallery, features, listing) */
+  > * {
+    margin-bottom: $gutter;
 
-  @include breakpoint(small) {
-    margin-bottom: $gutter-mobile;
+    @include breakpoint(small) {
+      margin-bottom: $gutter-mobile;
+    }
   }
-}
 
-#content {
+  > img {
+    display:block;
+    height:auto;
+    max-width:100%;
+  }
+
   #inline_top_image,
   #inline_middle_image,
   #inline_bottom_image {
