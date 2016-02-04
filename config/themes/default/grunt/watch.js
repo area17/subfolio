@@ -5,7 +5,7 @@ module.exports = {
     options: {livereload: true}
   },
   scripts: {
-    files: ["grunt/js/*.js"],
+    files: ["grunt/js/*.js", "grunt/js/behaviors/*.js", "grunt/js/helpers/*.js"],
     tasks: ["newer:uglify:dev", "notify:js"],
     options: {livereload: true}
   },

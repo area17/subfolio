@@ -50,6 +50,29 @@ body {
     border-width: 0;
     box-sizing: border-box;
   }
+
+  &:after {
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    width: 1px;
+    height: 1px;
+    margin: -1px 0 0 -1px;
+    position: absolute;
+    left: -1px;
+    top: -1px;
+  }
+}
+
+@each $name, $point in $breakpoints {
+  @include breakpoint('#{$name}') {
+    head {
+      font-family: '#{$name}';
+    }
+    body:after {
+      content: '#{$name}';
+    }
+  }
 }
 
 /* Lists --------------------------------------------------------------- */
@@ -176,11 +199,11 @@ ul.group {
 MODULE SPACING
 -------------------------------------------------------------- */
 #content {
-  margin: 15px $gutter;
+  margin: $gutter;
   @include clearfix();
 
   @include breakpoint(small) {
-    margin: 15px $gutter-mobile;
+    margin: $gutter-mobile;
   }
 
   /* Sets styles only for direct childs of #content (i.e gallery, features, listing) */
@@ -193,9 +216,11 @@ MODULE SPACING
   }
 
   > img {
-    display:block;
-    height:auto;
-    max-width:100%;
+    @include breakpoint(medium-and-down) {
+      display:block;
+      height:auto;
+      max-width:100%;
+    }
   }
 
   #inline_top_image,

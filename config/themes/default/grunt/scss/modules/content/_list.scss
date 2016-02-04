@@ -25,7 +25,9 @@ $height_list: 50px;
   }
 }
 
-.list {
+.list--list,
+.list--column,
+.list--masonry {
   width: 100%;
   position: relative;
   display:table;
@@ -74,9 +76,7 @@ $height_list: 50px;
       color:$color-text-secondary;
     }
   }
-}
 
-.list {
   a .list__cell--filename {
     color:$color-text;
   }
@@ -94,9 +94,7 @@ $height_list: 50px;
       background-color:$color-bg;
     }
   }
-}
 
-.list {
   span.caps {
     display: inline;
     float: none;
@@ -173,18 +171,27 @@ $height_list: 50px;
 /* --------------------------------------------------------------
    MODULES: CONTENT / LISTING ICONS
 -------------------------------------------------------------- */
-* html .list .icon .icon_download { position:absolute; }
+* html {
+  .list--list,
+  .list--column {
+    .icon .icon_download { position:absolute; }
+  }
+}
 
-.list .updated {
-  background:$color-text-tertiary;
-  border-radius:50%;
-  display:block;
-  width:8px;
-  height:8px;
-  vertical-align:middle;
+.list--list,
+.list--column,
+.list--masonry {
+  .updated {
+    background:$color-text-tertiary;
+    border-radius:50%;
+    display:block;
+    width:8px;
+    height:8px;
+    vertical-align:middle;
 
-  &.updated--new {
-    background:$color-new;
+    &.updated--new {
+      background:$color-new;
+    }
   }
 }
   /* @end */

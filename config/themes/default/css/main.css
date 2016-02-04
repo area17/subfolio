@@ -317,6 +317,53 @@ body * {
   border-width: 0;
   box-sizing: border-box; }
 
+body:after {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  width: 1px;
+  height: 1px;
+  margin: -1px 0 0 -1px;
+  position: absolute;
+  left: -1px;
+  top: -1px; }
+
+@media (min-width: 1281px) {
+  head {
+    font-family: "xlarge"; }
+  body:after {
+    content: "xlarge"; } }
+
+@media (max-width: 1280px) and (min-width: 800px) {
+  head {
+    font-family: "large"; }
+  body:after {
+    content: "large"; } }
+
+@media (max-width: 1279px) {
+  head {
+    font-family: "large-and-down"; }
+  body:after {
+    content: "large-and-down"; } }
+
+@media (max-width: 799px) and (min-width: 640px) {
+  head {
+    font-family: "medium"; }
+  body:after {
+    content: "medium"; } }
+
+@media (max-width: 799px) {
+  head {
+    font-family: "medium-and-down"; }
+  body:after {
+    content: "medium-and-down"; } }
+
+@media (max-width: 639px) {
+  head {
+    font-family: "small"; }
+  body:after {
+    content: "small"; } }
+
 /* Lists --------------------------------------------------------------- */
 ul {
   list-style-type: none; }
@@ -631,6 +678,9 @@ ul.group {
   height: 70px; }
 
 /* header__breadcrumb */
+.header__breadcrumb {
+  min-height: 70px; }
+
 .header__breadcrumb,
 .header__breadcrumb * {
   white-space: nowrap; }
@@ -705,6 +755,9 @@ ul.group {
     .breadcrumb__current i {
       display: inline-block;
       opacity: 0.33; } }
+
+.header__dropdown {
+  display: none; }
 
 /* FOOTER */
 .footer {
@@ -789,50 +842,88 @@ ul.group {
 /* --------------------------------------------------------------
    MODULES: CONTENT / GALLERY
 -------------------------------------------------------------- */
-#gallery {
+.gallery {
   display: inline-block;
   position: relative; }
 
-#gallery ul {
+.gallery ul {
   list-style: none;
   margin: 0;
   padding: 0 1px 1px 0;
   overflow: hidden; }
 
-#gallery ul li {
+.gallery ul li {
   float: left; }
-  #gallery ul li a {
+  .gallery ul li a {
     display: block;
     margin: 0 -1px -1px 0;
     padding: 20px;
     border-width: 1px;
     background: white; }
-    #gallery ul li a p {
+    .gallery ul li a p {
       color: inherit; }
-    #gallery ul li a div.gallery_thumbnail {
+    .gallery ul li a div.gallery_thumbnail {
       min-height: 240px;
       display: table;
       background-color: white; }
-    #gallery ul li a div.gallery__inner {
+    .gallery ul li a div.gallery__inner {
       display: table-cell;
       vertical-align: middle; }
-    #gallery ul li a div.custom {
+    .gallery ul li a div.custom {
       height: auto; }
-    #gallery ul li a img {
+    .gallery ul li a img {
       border: none;
       overflow: hidden;
       display: block;
       max-width: 100%;
       height: auto; }
-  #gallery ul li a:hover {
+  .gallery ul li a:hover {
     background-color: #F6F6F6; }
-  #gallery ul li a p {
+  .gallery ul li a p {
     text-align: center;
     margin: 0;
     padding: 10px 0 0;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; }
+
+.gallery--column ul li {
+  width: 20%; }
+  @media (max-width: 1280px) and (min-width: 800px) {
+    .gallery--column ul li {
+      width: 25%; } }
+  @media (max-width: 799px) and (min-width: 640px) {
+    .gallery--column ul li {
+      width: 33.333%; } }
+  @media (max-width: 639px) {
+    .gallery--column ul li {
+      width: 100%; } }
+  .gallery--column ul li div.gallery_thumbnail {
+    width: 100%; }
+    .gallery--column ul li div.gallery_thumbnail img {
+      margin-left: auto;
+      margin-right: auto; }
+
+.gallery--masonry {
+  display: block;
+  padding: 0 1px 1px 0;
+  overflow: hidden; }
+  .gallery--masonry ul li a div.gallery_thumbnail {
+    display: block;
+    min-height: 0; }
+  .gallery--masonry ul li a div.gallery__inner {
+    display: block; }
+  .gallery--masonry ul.masoned {
+    opacity: 0;
+    display: block; }
+    .gallery--masonry ul.masoned.masoned__finished {
+      opacity: 1; }
+  .gallery--masonry ul.masoned li {
+    display: block; }
+    .gallery--masonry ul.masoned li a div.gallery_thumbnail img {
+      width: 100%; }
+  .gallery--masonry ul.masoned__canceled li a div.gallery_thumbnail {
+    width: auto !important; }
 
 /* @end */
 /* @group Features */
@@ -907,19 +998,26 @@ ul.group {
       #listing .list__row .list__cell--filename {
         padding-right: 20px; } }
 
-.list {
+.list--list,
+.list--column,
+.list--masonry {
   width: 100%;
   position: relative;
   display: table;
   border-bottom-width: 1px;
-  border-bottom-color: #F1F1F1; }
-  .list .list__row {
+  border-bottom-color: #F1F1F1;
+  /* << If you remove the icons and want to show the link s*/ }
+  .list--list .list__row,
+  .list--column .list__row,
+  .list--masonry .list__row {
     overflow: hidden;
     margin: 0;
     display: table-row;
     color: #7F7F7F;
     position: relative; }
-    .list .list__row:after {
+    .list--list .list__row:after,
+    .list--column .list__row:after,
+    .list--masonry .list__row:after {
       display: block;
       content: '';
       position: absolute;
@@ -928,9 +1026,13 @@ ul.group {
       top: 0;
       left: 0;
       right: 0; }
-  .list a.list__row {
+  .list--list a.list__row,
+  .list--column a.list__row,
+  .list--masonry a.list__row {
     color: #7F7F7F; }
-  .list .list__cell {
+  .list--list .list__cell,
+  .list--column .list__cell,
+  .list--masonry .list__cell {
     border-top-width: 1px;
     border-top-color: #F1F1F1;
     height: 50px;
@@ -941,92 +1043,151 @@ ul.group {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; }
-  .list .list__header .list__cell {
+  .list--list .list__header .list__cell,
+  .list--column .list__header .list__cell,
+  .list--masonry .list__header .list__cell {
     border-top-width: 0;
     display: table-cell; }
-    .list .list__header .list__cell a {
+    .list--list .list__header .list__cell a,
+    .list--column .list__header .list__cell a,
+    .list--masonry .list__header .list__cell a {
       color: #7F7F7F; }
-
-.list a .list__cell--filename {
-  color: #191919; }
-
-.list a.list__body:hover {
-  background-color: #F6F6F6; }
-
-.list a.list__row--empty,
-.list a.list__row--empty * {
-  cursor: default;
-  color: #B1B1B1; }
-  .list a.list__row--empty:hover,
-  .list a.list__row--empty *:hover {
-    background-color: #FFF; }
-
-.list {
-  /* << If you remove the icons and want to show the link s*/ }
-  .list span.caps {
+  .list--list a .list__cell--filename,
+  .list--column a .list__cell--filename,
+  .list--masonry a .list__cell--filename {
+    color: #191919; }
+  .list--list a.list__body:hover,
+  .list--column a.list__body:hover,
+  .list--masonry a.list__body:hover {
+    background-color: #F6F6F6; }
+  .list--list a.list__row--empty,
+  .list--list a.list__row--empty *,
+  .list--column a.list__row--empty,
+  .list--column a.list__row--empty *,
+  .list--masonry a.list__row--empty,
+  .list--masonry a.list__row--empty * {
+    cursor: default;
+    color: #B1B1B1; }
+    .list--list a.list__row--empty:hover,
+    .list--list a.list__row--empty *:hover,
+    .list--column a.list__row--empty:hover,
+    .list--column a.list__row--empty *:hover,
+    .list--masonry a.list__row--empty:hover,
+    .list--masonry a.list__row--empty *:hover {
+      background-color: #FFF; }
+  .list--list span.caps,
+  .list--column span.caps,
+  .list--masonry span.caps {
     display: inline;
     float: none; }
-  .list span strong {
+  .list--list span strong,
+  .list--column span strong,
+  .list--masonry span strong {
     color: inherit; }
-  .list .list__cell--icon {
+  .list--list .list__cell--icon,
+  .list--column .list__cell--icon,
+  .list--masonry .list__cell--icon {
     width: 1px;
     position: relative;
     vertical-align: middle;
     padding-left: 5px; }
-    .list .list__cell--icon img {
+    .list--list .list__cell--icon img,
+    .list--column .list__cell--icon img,
+    .list--masonry .list__cell--icon img {
       display: block; }
-  .list .list__cell--filename {
+  .list--list .list__cell--filename,
+  .list--column .list__cell--filename,
+  .list--masonry .list__cell--filename {
     width: 20%;
     position: relative;
     padding-right: 20px !important; }
-  .list .list__cell--filename:before {
+  .list--list .list__cell--filename:before,
+  .list--column .list__cell--filename:before,
+  .list--masonry .list__cell--filename:before {
     /*content: '— ';*/ }
-  .list .list__cell--size {
+  .list--list .list__cell--size,
+  .list--column .list__cell--size,
+  .list--masonry .list__cell--size {
     min-width: 65px; }
-  .list .list__cell--updated {
+  .list--list .list__cell--updated,
+  .list--column .list__cell--updated,
+  .list--masonry .list__cell--updated {
     width: 8px;
     height: 8px; }
-  .list .list__cell--date {
+  .list--list .list__cell--date,
+  .list--column .list__cell--date,
+  .list--masonry .list__cell--date {
     min-width: 90px; }
-  .list .list__cell--kind {
+  .list--list .list__cell--kind,
+  .list--column .list__cell--kind,
+  .list--masonry .list__cell--kind {
     min-width: 130px; }
-  .list .list__cell--comment {
+  .list--list .list__cell--comment,
+  .list--column .list__cell--comment,
+  .list--masonry .list__cell--comment {
     /*position: absolute;*/
     /* turning it absolute so that it sticks inline, preventing it to float on browser resizing */
     /*left: 510px;*/
     /* setting its left equals the sum of the widths of previous columns */
     top: 0; }
   @media (max-width: 799px) {
-    .list .list__cell--kind,
-    .list .list__cell--comment,
-    .list .list__header .list__cell--kind,
-    .list .list__header .list__cell--comment {
+    .list--list .list__cell--kind,
+    .list--list .list__cell--comment,
+    .list--list .list__header .list__cell--kind,
+    .list--list .list__header .list__cell--comment,
+    .list--column .list__cell--kind,
+    .list--column .list__cell--comment,
+    .list--column .list__header .list__cell--kind,
+    .list--column .list__header .list__cell--comment,
+    .list--masonry .list__cell--kind,
+    .list--masonry .list__cell--comment,
+    .list--masonry .list__header .list__cell--kind,
+    .list--masonry .list__header .list__cell--comment {
       display: none; } }
   @media (max-width: 639px) {
-    .list .list__cell--size,
-    .list .list__cell--updated,
-    .list .list__cell--date,
-    .list .list__header .list__cell--size,
-    .list .list__header .list__cell--updated,
-    .list .list__header .list__cell--date {
+    .list--list .list__cell--size,
+    .list--list .list__cell--updated,
+    .list--list .list__cell--date,
+    .list--list .list__header .list__cell--size,
+    .list--list .list__header .list__cell--updated,
+    .list--list .list__header .list__cell--date,
+    .list--column .list__cell--size,
+    .list--column .list__cell--updated,
+    .list--column .list__cell--date,
+    .list--column .list__header .list__cell--size,
+    .list--column .list__header .list__cell--updated,
+    .list--column .list__header .list__cell--date,
+    .list--masonry .list__cell--size,
+    .list--masonry .list__cell--updated,
+    .list--masonry .list__cell--date,
+    .list--masonry .list__header .list__cell--size,
+    .list--masonry .list__header .list__cell--updated,
+    .list--masonry .list__header .list__cell--date {
       display: none; }
-    .list .list__cell--filename {
+    .list--list .list__cell--filename,
+    .list--column .list__cell--filename,
+    .list--masonry .list__cell--filename {
       width: 95%; } }
 
 /* --------------------------------------------------------------
    MODULES: CONTENT / LISTING ICONS
 -------------------------------------------------------------- */
-* html .list .icon .icon_download {
+* html .list--list .icon .icon_download,
+* html .list--column .icon .icon_download {
   position: absolute; }
 
-.list .updated {
+.list--list .updated,
+.list--column .updated,
+.list--masonry .updated {
   background: #B1B1B1;
   border-radius: 50%;
   display: block;
   width: 8px;
   height: 8px;
   vertical-align: middle; }
-  .list .updated.updated--new {
+  .list--list .updated.updated--new,
+  .list--column .updated.updated--new,
+  .list--masonry .updated.updated--new {
     background: #44BCF9; }
 
 /* @end */
@@ -1034,57 +1195,61 @@ ul.group {
 /* --------------------------------------------------------------
    MODULES: CONTENT / LISTING GRID VIEW
 -------------------------------------------------------------- */
-.grid {
+.list--grid {
   width: 100%;
   overflow: hidden; }
-  .grid .grid__row {
+  .list--grid .list__row {
     display: block;
     text-align: center;
     float: left;
     width: 16.666667%;
+    max-width: 200px;
     padding: 15px; }
     @media (max-width: 1280px) and (min-width: 800px) {
-      .grid .grid__row {
+      .list--grid .list__row {
         width: 20%; } }
     @media (max-width: 799px) and (min-width: 640px) {
-      .grid .grid__row {
+      .list--grid .list__row {
         width: 25%; } }
     @media (max-width: 639px) {
-      .grid .grid__row {
-        width: 50%; } }
-  .grid .list__cell {
+      .list--grid .list__row {
+        width: 50%;
+        max-width: 500px; } }
+  .list--grid .list__cell {
     display: block; }
-  .grid a.grid__row:hover {
+  .list--grid a.list__row:hover {
     background-color: #F6F6F6; }
-  .grid .list__cell--icon {
+  .list--grid .list__cell--icon {
     min-height: 68.5px;
     padding-bottom: 7.5px; }
-    .grid .list__cell--icon i {
+    .list--grid .list__cell--icon i {
       display: block;
       width: 100%;
       height: 61px;
       background-position: 50% 50%; }
-  .grid .list__cell--size,
-  .grid .list__cell--date,
-  .grid .list__cell--kind,
-  .grid .list__cell--updated {
+  .list--grid .list__cell--size,
+  .list--grid .list__cell--date,
+  .list--grid .list__cell--kind,
+  .list--grid .list__cell--updated {
     display: none !important; }
-  .grid a.list__row--empty,
-  .grid a.list__row--empty * {
+  .list--grid a.list__row--empty,
+  .list--grid a.list__row--empty * {
     cursor: default;
     color: #B1B1B1; }
-    .grid a.list__row--empty:hover,
-    .grid a.list__row--empty *:hover {
+    .list--grid a.list__row--empty:hover,
+    .list--grid a.list__row--empty *:hover {
       background-color: #FFF; }
 
-.grid .updated {
+#listing .grid .updated,
+#listing .column .updated {
   background: #B1B1B1;
   border-radius: 50%;
   display: block;
   width: 8px;
   height: 8px;
   vertical-align: middle; }
-  .grid .updated.updated--new {
+  #listing .grid .updated.updated--new,
+  #listing .column .updated.updated--new {
     background: #44BCF9; }
 
 /* @end */
@@ -1316,7 +1481,7 @@ ul.group {
 MODULE SPACING
 -------------------------------------------------------------- */
 #content {
-  margin: 15px 30px;
+  margin: 30px;
   /* Sets styles only for direct childs of #content (i.e gallery, features, listing) */ }
   #content:after {
     content: "";
@@ -1324,16 +1489,17 @@ MODULE SPACING
     clear: both; }
   @media (max-width: 639px) {
     #content {
-      margin: 15px 20px; } }
+      margin: 20px; } }
   #content > * {
     margin-bottom: 30px; }
     @media (max-width: 639px) {
       #content > * {
         margin-bottom: 20px; } }
-  #content > img {
-    display: block;
-    height: auto;
-    max-width: 100%; }
+  @media (max-width: 799px) {
+    #content > img {
+      display: block;
+      height: auto;
+      max-width: 100%; } }
   #content #inline_top_image,
   #content #inline_middle_image,
   #content #inline_bottom_image {

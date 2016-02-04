@@ -2,7 +2,7 @@
 
   <div id="listing">
 
-    <div class="<?php echo SubfolioTheme::get_listing_mode() ?>">
+    <div class="list list--<?php echo SubfolioTheme::get_listing_mode() ?>">
 
       <?php if (SubfolioTheme::get_option('display_file_listing_header') && SubfolioTheme::get_listing_mode()=='list') { ?>
         <div class="list__row list__header">
@@ -31,12 +31,12 @@
       <?php } ?>
 
       <?php foreach ( SubfolioFiles::files_and_folders() as $item) : ?>
-        <a class="<?php echo SubfolioTheme::get_listing_mode() ?>__row <?php echo SubfolioTheme::get_listing_mode() ?>__body <?php echo  ($item['empty'] == true) ? 'list__row--empty' : ''; ?>" target="<?php echo $item['target'] ?>" href="<?php echo $item['url'] ?>">
+        <a class="list__row list__body <?php echo  ($item['empty'] == true) ? 'list__row--empty' : ''; ?>" target="<?php echo $item['target'] ?>" href="<?php echo $item['url'] ?>">
 
           <!-- ICON -->
           <?php if (SubfolioTheme::get_option('display_icons')) : ?>
             <span class="list__cell list__cell--icon">
-              <?php $type = SubfolioTheme::get_listing_mode()=='list' ? $item['icon'] : $item['icon_grid']; ?>
+              <?php $type = SubfolioTheme::get_listing_mode()=='grid' ? $item['icon_grid'] : $item['icon']; ?>
               <?php if ($item['restricted']) { ?>
                 <i class="icon icon__<?php echo $type ?>_<?php if ($item['have_access']) { echo "shared"; } else { echo "protected"; } ?>"></i>
               <?php } else { ?>

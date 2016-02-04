@@ -26,6 +26,16 @@
           <?php }  ?>
         <?php } ?>
       </div>
+      <script type="text/template" data-behavior="additional_content" data-breakpoint="medium-and-down">
+        <div class="header__dropdown">
+          <a class="breadcrumb__root" href="<?php print Kohana::config('filebrowser.site_root'); ?>"><?php echo Subfolio::get_setting('site_domain'); ?></a>
+          <?php foreach (SubfolioTheme::get_breadcrumb() as $crumb) { ?>
+            <?php if ($crumb['url'] <> '') { ?>
+            <a class="breadcrumb__folder" href="<?php echo $crumb['url'] ?>"><?php echo $crumb['name'] ?></a>
+            <?php } ?>
+          <?php } ?>
+        </div>
+      </script>
     <?php } ?>
 
 
@@ -33,13 +43,6 @@
       <?php require("prev_next.inc.php") ?>
     <?php } ?>
   </div>
-
-<script>
-$(document).ready(function(){
-  expand_header_label = "<?php echo SubfolioLanguage::get_text('expandheader'); ?>";
-  collapse_header_label = "<?php echo SubfolioLanguage::get_text('collapseheader'); ?>";
-});
-</script>
 
   <?php if (SubfolioTheme::get_option('display_collapse_header') && SubfolioTheme::get_option('display_header', true)) {
     echo SubfolioTheme::get_collapse_header_button('div');

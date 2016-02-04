@@ -380,7 +380,7 @@ class SubfolioTheme extends Subfolio {
             $showHideLabel = "".SubfolioLanguage::get_text('expandheader');
         }
     }
-    $link = "<a id='showHideSwitch' class='collapseheader__link' href='#'>".$showHideLabel."</a>";
+    $link = "<a id='showHideSwitch' class='collapseheader__link' data-behavior='switch_header' href='#'>".$showHideLabel."</a>";
     if ($wrap <> '') {
       $link = "<$wrap class='collapseheader'>".$link."</$wrap>";
     }

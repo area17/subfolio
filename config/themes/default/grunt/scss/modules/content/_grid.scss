@@ -4,15 +4,16 @@
    MODULES: CONTENT / LISTING GRID VIEW
 -------------------------------------------------------------- */
 
-.grid {
+.list--grid {
   width:100%;
   overflow:hidden;
 
-  .grid__row {
+  .list__row {
     display:block;
     text-align:center;
     float:left;
     width:16.666667%;
+    max-width:200px;
     padding:$half-gutter;
 
     @include breakpoint(large) {
@@ -25,6 +26,7 @@
 
     @include breakpoint(small) {
       width:50%;
+      max-width:500px;
     }
   }
 
@@ -32,7 +34,7 @@
     display:block;
   }
 
-  a.grid__row:hover {
+  a.list__row:hover {
     background-color:$color-hover;
   }
 
@@ -66,17 +68,21 @@
   }
 }
 
-.grid .updated {
-  background:$color-text-tertiary;
-  border-radius:50%;
-  display:block;
-  width:8px;
-  height:8px;
-  vertical-align:middle;
+#listing {
+  .grid .updated,
+  .column .updated {
+    background:$color-text-tertiary;
+    border-radius:50%;
+    display:block;
+    width:8px;
+    height:8px;
+    vertical-align:middle;
 
-  &.updated--new {
-    background:$color-new;
+    &.updated--new {
+      background:$color-new;
+    }
   }
 }
+
 
 /* @end */

@@ -72,6 +72,9 @@ $top_spacing: 25px;
 }
 
 /* header__breadcrumb */
+.header__breadcrumb {
+  min-height:$height_bar;
+}
 .header__breadcrumb,
 .header__breadcrumb * {
   white-space: nowrap;
@@ -182,4 +185,11 @@ $top_spacing: 25px;
       opacity:0.33;
     }
   }
+}
+
+
+.header__dropdown {
+  display:none;
+
+
 }
