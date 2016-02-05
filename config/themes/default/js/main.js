@@ -4733,34 +4733,18 @@ A17.Behaviors.additional_content = function($script) {
 /* Masonry style
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 A17.Behaviors.masonry = function($grid) {
-    function _mediaQueryHandler() {
-        if (A17.media_query_in_use === "small") {
-            _killMasonry();
-        } else {
-            _launchMasonry();
-        }
-    }
-    function _killMasonry() {
-        $grid.masonry("destroy");
-        $grid.addClass("masoned__finished masoned__canceled");
-    }
-    function _launchMasonry() {
-        $grid.masonry({
-            itemSelector: "li",
-            transitionDuration: 0,
-            columnWidth: 1
-        });
-        $grid.on("layoutComplete", function() {
-            $grid.removeClass("masoned__canceled");
-        });
-    }
-    _mediaQueryHandler();
+    $grid.masonry({
+        itemSelector: "li",
+        transitionDuration: 0,
+        columnWidth: "li",
+        percentPosition: true
+    });
+    $grid.on("layoutComplete", function() {
+        $grid.removeClass("masoned__canceled");
+    });
     // layout Masonry after each image loads
     $grid.imagesLoaded().always(function() {
         $grid.masonry("layout").addClass("masoned__finished");
-    });
-    $(document).on("media_query_updated", function() {
-        _mediaQueryHandler();
     });
 };
 
@@ -4795,6 +4779,22 @@ A17.Behaviors.switch_header = function($homeSwitch) {
             A17.Util.create_cookie("header", klass_hide);
             return false;
         }
+    });
+};
+
+/* toggle_dropdown
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+A17.Behaviors.toggle_dropdown = function($el) {
+    var $trigger = $el.find("[data-trigger]"), $target = $el.find("[data-dropdown]"), klass = "header__active";
+    $trigger.on("click", function(e) {
+        if ($target) {
+            $el.toggleClass(klass, !$el.hasClass(klass));
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    });
+    $("body").on("click.close-dropdown", function(e) {
+        if ($target) $("." + klass).removeClass(klass);
     });
 };
 

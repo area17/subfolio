@@ -679,13 +679,14 @@ ul.group {
 
 /* header__breadcrumb */
 .header__breadcrumb {
-  min-height: 70px; }
+  min-height: 70px;
+  position: relative;
+  overflow: visible; }
 
 .header__breadcrumb,
 .header__breadcrumb * {
   white-space: nowrap; }
 
-/*<-- here you can replace the slash with a graphic*/
 /* breadcrumb */
 .breadcrumb {
   float: left; }
@@ -749,15 +750,59 @@ ul.group {
     .collapseheader a.collapseheader__link:hover:after {
       background: #191919; }
 
-.breadcrumb__current i {
-  display: none; }
+.breadcrumb__current {
+  cursor: pointer; }
+  .breadcrumb__current i {
+    display: none; }
+    @media (max-width: 799px) {
+      .breadcrumb__current i {
+        display: inline-block;
+        opacity: 0.33; } }
   @media (max-width: 799px) {
-    .breadcrumb__current i {
-      display: inline-block;
-      opacity: 0.33; } }
+    .breadcrumb__current:hover {
+      color: #191919; }
+      .breadcrumb__current:hover i {
+        opacity: 1; } }
 
 .header__dropdown {
-  display: none; }
+  display: none;
+  position: absolute;
+  top: 65px;
+  left: 30px;
+  border-width: 1px;
+  border-top: 0 none;
+  background: #FFF;
+  z-index: 9998;
+  border-radius: 2px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); }
+  .header__dropdown a {
+    display: block;
+    border-top-width: 1px;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px; }
+  @media (max-width: 639px) {
+    .header__dropdown {
+      left: 0;
+      right: 0;
+      top: 70px; }
+      .header__dropdown a {
+        padding: 0 20px; } }
+
+.header__active .header__dropdown {
+  display: block; }
+  @media (min-width: 1281px) {
+    .header__active .header__dropdown {
+      display: none; } }
+  @media (max-width: 1280px) and (min-width: 800px) {
+    .header__active .header__dropdown {
+      display: none; } }
+
+@media (max-width: 799px) {
+  .header__active .breadcrumb__current {
+    color: #191919; }
+    .header__active .breadcrumb__current i {
+      opacity: 1; } }
 
 /* FOOTER */
 .footer {
@@ -887,6 +932,10 @@ ul.group {
     white-space: nowrap;
     text-overflow: ellipsis; }
 
+.gallery--column ul {
+  margin: 0 auto;
+  max-width: 1500px; }
+
 .gallery--column ul li {
   width: 20%; }
   @media (max-width: 1280px) and (min-width: 800px) {
@@ -906,24 +955,40 @@ ul.group {
 
 .gallery--masonry {
   display: block;
-  padding: 0 1px 1px 0;
+  padding: 0;
   overflow: hidden; }
-  .gallery--masonry ul li a div.gallery_thumbnail {
-    display: block;
-    min-height: 0; }
-  .gallery--masonry ul li a div.gallery__inner {
-    display: block; }
-  .gallery--masonry ul.masoned {
+  .gallery--masonry ul {
     opacity: 0;
-    display: block; }
-    .gallery--masonry ul.masoned.masoned__finished {
-      opacity: 1; }
-  .gallery--masonry ul.masoned li {
-    display: block; }
-    .gallery--masonry ul.masoned li a div.gallery_thumbnail img {
-      width: 100%; }
-  .gallery--masonry ul.masoned__canceled li a div.gallery_thumbnail {
-    width: auto !important; }
+    display: block;
+    width: 100%;
+    overflow: visible;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1500px;
+    padding-left: 1px;
+    padding-top: 1px; }
+  .gallery--masonry ul li {
+    width: calc(20% - 1px); }
+    @media (max-width: 1280px) and (min-width: 800px) {
+      .gallery--masonry ul li {
+        width: calc(25% - 1px); } }
+    @media (max-width: 799px) and (min-width: 640px) {
+      .gallery--masonry ul li {
+        width: calc(33.333% - 1px); } }
+    @media (max-width: 639px) {
+      .gallery--masonry ul li {
+        width: calc(50% - 1px); } }
+    .gallery--masonry ul li a {
+      margin: -1px 0 0 -1px; }
+      .gallery--masonry ul li a div.gallery_thumbnail {
+        display: block;
+        min-height: 0; }
+      .gallery--masonry ul li a img {
+        width: 100%; }
+      .gallery--masonry ul li a div.gallery__inner {
+        display: block; }
+  .gallery--masonry ul.masoned__finished {
+    opacity: 1; }
 
 /* @end */
 /* @group Features */
@@ -1195,10 +1260,10 @@ ul.group {
 /* --------------------------------------------------------------
    MODULES: CONTENT / LISTING GRID VIEW
 -------------------------------------------------------------- */
-.list--grid {
+#listing .list--grid {
   width: 100%;
   overflow: hidden; }
-  .list--grid .list__row {
+  #listing .list--grid .list__row {
     display: block;
     text-align: center;
     float: left;
@@ -1206,39 +1271,43 @@ ul.group {
     max-width: 200px;
     padding: 15px; }
     @media (max-width: 1280px) and (min-width: 800px) {
-      .list--grid .list__row {
+      #listing .list--grid .list__row {
         width: 20%; } }
     @media (max-width: 799px) and (min-width: 640px) {
-      .list--grid .list__row {
+      #listing .list--grid .list__row {
         width: 25%; } }
     @media (max-width: 639px) {
-      .list--grid .list__row {
+      #listing .list--grid .list__row {
         width: 50%;
         max-width: 500px; } }
-  .list--grid .list__cell {
+    #listing .list--grid .list__row .list__cell--icon {
+      padding-left: 0; }
+  #listing .list--grid .list__cell {
     display: block; }
-  .list--grid a.list__row:hover {
+  #listing .list--grid a.list__row:hover {
     background-color: #F6F6F6; }
-  .list--grid .list__cell--icon {
+  #listing .list--grid .list__cell--icon {
     min-height: 68.5px;
     padding-bottom: 7.5px; }
-    .list--grid .list__cell--icon i {
+    #listing .list--grid .list__cell--icon i {
       display: block;
       width: 100%;
       height: 61px;
       background-position: 50% 50%; }
-  .list--grid .list__cell--size,
-  .list--grid .list__cell--date,
-  .list--grid .list__cell--kind,
-  .list--grid .list__cell--updated {
+  #listing .list--grid .list__cell--size,
+  #listing .list--grid .list__cell--date,
+  #listing .list--grid .list__cell--kind,
+  #listing .list--grid .list__cell--updated {
     display: none !important; }
-  .list--grid a.list__row--empty,
-  .list--grid a.list__row--empty * {
+  #listing .list--grid a.list__row--empty,
+  #listing .list--grid a.list__row--empty * {
     cursor: default;
     color: #B1B1B1; }
-    .list--grid a.list__row--empty:hover,
-    .list--grid a.list__row--empty *:hover {
+    #listing .list--grid a.list__row--empty:hover,
+    #listing .list--grid a.list__row--empty *:hover {
       background-color: #FFF; }
+  #listing .list--grid .list__cell--filename {
+    padding-right: 0; }
 
 #listing .grid .updated,
 #listing .column .updated {

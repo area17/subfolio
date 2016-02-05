@@ -10,7 +10,7 @@
     <?php } ?>
   </div>
 
-  <div class="header__breadcrumb">
+  <div class="header__breadcrumb" data-behavior="toggle_dropdown">
     <?php if (SubfolioTheme::get_option('display_breadcrumb', true)) { ?>
       <div class="breadcrumb">
         <?php if (SubfolioLanguage::get_text('indexof')<>'') { ?>
@@ -22,18 +22,19 @@
           <?php if ($crumb['url'] <> '') { ?>
             <a class="breadcrumb__folder" href="<?php echo $crumb['url'] ?>"><?php echo $crumb['name'] ?></a>
           <?php } else { ?>
-            <span class="breadcrumb__current"><?php echo $crumb['name'] ?> <i class="icon icon__dropdown_arrow"></i></span>
+            <span class="breadcrumb__current" data-trigger><?php echo $crumb['name'] ?> <i class="icon icon__dropdown_arrow"></i></span>
           <?php }  ?>
         <?php } ?>
       </div>
-      <script type="text/template" data-behavior="additional_content" data-breakpoint="medium-and-down">
-        <div class="header__dropdown">
-          <a class="breadcrumb__root" href="<?php print Kohana::config('filebrowser.site_root'); ?>"><?php echo Subfolio::get_setting('site_domain'); ?></a>
-          <?php foreach (SubfolioTheme::get_breadcrumb() as $crumb) { ?>
+      <script type="text/template" data-behavior="additional_content" data-breakpoint="medium-and-down,small,medium">
+        <div class="header__dropdown" data-dropdown>
+          <?php foreach (array_reverse(SubfolioTheme::get_breadcrumb()) as $crumb) { ?>
             <?php if ($crumb['url'] <> '') { ?>
             <a class="breadcrumb__folder" href="<?php echo $crumb['url'] ?>"><?php echo $crumb['name'] ?></a>
             <?php } ?>
           <?php } ?>
+
+          <a class="breadcrumb__root" href="<?php print Kohana::config('filebrowser.site_root'); ?>"><?php echo Subfolio::get_setting('site_domain'); ?></a>
         </div>
       </script>
     <?php } ?>
