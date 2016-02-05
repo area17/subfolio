@@ -67,11 +67,14 @@ $inner_padding:20px;
 .gallery--column {
   ul {
     margin:0 auto;
-    max-width:1500px;
   }
 
   ul li {
-    width:20%;
+    width:16.6666667%;
+
+    @include breakpoint(xlarge) {
+      width:20%;
+    }
 
     @include breakpoint(large) {
       width:25%;
@@ -108,13 +111,16 @@ $inner_padding:20px;
     overflow:visible;
     padding:0;
     margin:0 auto;
-    max-width:1500px;
     padding-left:1px;
     padding-top:1px;
   }
 
   ul li {
-    width:calc(20% - 1px);
+    width:calc(16.6666667% - 1px);
+
+    @include breakpoint(xlarge) {
+      width:calc(20% - 1px);
+    }
 
     @include breakpoint(large) {
       width:calc(25% - 1px);

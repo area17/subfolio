@@ -933,11 +933,13 @@ ul.group {
     text-overflow: ellipsis; }
 
 .gallery--column ul {
-  margin: 0 auto;
-  max-width: 1500px; }
+  margin: 0 auto; }
 
 .gallery--column ul li {
-  width: 20%; }
+  width: 16.6666667%; }
+  @media (min-width: 1281px) {
+    .gallery--column ul li {
+      width: 20%; } }
   @media (max-width: 1280px) and (min-width: 800px) {
     .gallery--column ul li {
       width: 25%; } }
@@ -964,11 +966,13 @@ ul.group {
     overflow: visible;
     padding: 0;
     margin: 0 auto;
-    max-width: 1500px;
     padding-left: 1px;
     padding-top: 1px; }
   .gallery--masonry ul li {
-    width: calc(20% - 1px); }
+    width: calc(16.6666667% - 1px); }
+    @media (min-width: 1281px) {
+      .gallery--masonry ul li {
+        width: calc(20% - 1px); } }
     @media (max-width: 1280px) and (min-width: 800px) {
       .gallery--masonry ul li {
         width: calc(25% - 1px); } }
