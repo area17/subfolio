@@ -7,7 +7,7 @@
   padding-top:$gutter;
   padding-bottom:$gutter;
   font-size:18px;
-  line-height:em(30px, 18px);
+  line-height:em(25px, 18px);
 
   @include breakpoint(small) {
     font-size:1em;

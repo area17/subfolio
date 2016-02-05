@@ -410,7 +410,7 @@ body {
   padding-top: 30px;
   padding-bottom: 30px;
   font-size: 18px;
-  line-height: 1.6666666667em; }
+  line-height: 1.3888888889em; }
   @media (max-width: 639px) {
     .standard_paragraph {
       font-size: 1em; } }
@@ -996,55 +996,41 @@ ul.group {
    MODULES: CONTENT / FEATURES
 -------------------------------------------------------------- */
 #features {
-  overflow: hidden;
-  _display: inline-block; }
-
-#features ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   overflow: hidden; }
-
-#features ul li {
-  float: left; }
-
-#features ul li a {
-  display: block;
-  overflow: hidden;
-  padding: 10px;
-  _display: inline-block;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  padding: 0;
-  border: 10px solid transparent; }
-
-#features ul li a img {
-  display: block; }
-
-#features ul li a > .info {
-  display: inline-block; }
-
-#features ul li a .info {
-  padding: 0;
-  text-align: left; }
-
-#features ul li a .info h2 {
-  color: inherit;
-  font-weight: 700;
-  text-transform: none;
-  margin: 0;
-  padding: 9px 0 5px; }
-
-#features ul li a .info p {
-  margin: 0;
-  padding: 0 10px 15px 0;
-  color: #333; }
-
-#features ul li a:hover {
-  background-color: #f5f5f5; }
+  #features ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; }
+  #features li {
+    float: left; }
+  #features li a {
+    display: block;
+    overflow: hidden;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    padding: 10px; }
+  #features li a img {
+    display: block; }
+  #features li a > .info {
+    display: inline-block; }
+  #features li a .info {
+    padding: 0;
+    text-align: left; }
+  #features li a .info h2 {
+    color: inherit;
+    font-size: 2.5333333333em;
+    line-height: 1.1842105263em;
+    text-transform: none;
+    margin: 0;
+    padding: 9px 0 5px; }
+  #features li a .info p {
+    margin: 0;
+    padding: 0 10px 15px 0;
+    color: #7F7F7F; }
+  #features li a:hover {
+    background-color: #F6F6F6; }
 
 /* @end */
 /* @group List */
