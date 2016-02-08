@@ -12,7 +12,7 @@ $max_width:990px + $gutter;
   $percent: $size * $single_col;
   width:calc(#{$percent} - #{$gutter});
 
-  @include breakpoint(small) {
+  @include breakpoint(small-and-down) {
     width:calc(#{$percent} - #{$gutter-mobile});
   }
 }
@@ -24,14 +24,14 @@ $max_width:990px + $gutter;
   @if $no_gutter == false {
 
     width:calc(#{$percent} - #{$half-gutter});
-    @include breakpoint(small) {
+    @include breakpoint(small-and-down) {
       width:calc(#{$percent} - #{$half-gutter-mobile});
     }
 
   } @else {
 
     width:calc(#{$size} * #{$single_col});
-    @include breakpoint(small) {
+    @include breakpoint(small-and-down) {
       width:calc(#{$size} * #{$single_col});
     }
 

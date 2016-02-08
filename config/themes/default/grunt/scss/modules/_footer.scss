@@ -4,7 +4,7 @@
   padding:0 $gutter;
   color:$color-text-secondary;
 
-  @include breakpoint(small) {
+  @include breakpoint(small-and-down) {
     padding:0 $gutter-mobile;
   }
 
@@ -45,13 +45,13 @@
     display:none;
     float:right;
 
-    @include breakpoint(small) {
+    @include breakpoint(small-and-down) {
       display:block;
     }
   }
 
   .copyright__text {
-    @include breakpoint(small) {
+    @include breakpoint(small-and-down) {
       display:none;
     }
   }

@@ -22,11 +22,11 @@
           <?php if ($crumb['url'] <> '') { ?>
             <a class="breadcrumb__folder" href="<?php echo $crumb['url'] ?>"><?php echo $crumb['name'] ?></a>
           <?php } else { ?>
-            <span class="breadcrumb__current" data-trigger><?php echo $crumb['name'] ?> <i class="icon icon__dropdown_arrow"></i></span>
+            <span class="breadcrumb__current" data-trigger><em><?php echo $crumb['name'] ?></em> <i class="icon icon__dropdown_arrow"></i></span>
           <?php }  ?>
         <?php } ?>
       </div>
-      <script type="text/template" data-behavior="additional_content" data-breakpoint="medium-and-down,small,medium">
+      <script type="text/template" data-behavior="additional_content" data-breakpoint="medium-and-down,medium,small,small-and-down,xsmall">
         <div class="header__dropdown" data-dropdown>
           <?php foreach (array_reverse(SubfolioTheme::get_breadcrumb()) as $crumb) { ?>
             <?php if ($crumb['url'] <> '') { ?>

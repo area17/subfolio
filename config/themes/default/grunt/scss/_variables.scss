@@ -6,7 +6,9 @@ $breakpoints: (
   large-and-down: "(max-width: 1279px)",
   medium: "(max-width: 799px) and (min-width: 640px)",
   medium-and-down: "(max-width: 799px)",
-  small: "(max-width: 639px)"
+  small: "(max-width: 639px) and (min-width: 481px)",
+  small-and-down: "(max-width: 639px)",
+  xsmall: "(max-width: 480px)"
 );
 
 

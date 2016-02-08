@@ -10,7 +10,7 @@ $height_list: 50px;
   width: auto;
   overflow: hidden;
 
-  @include breakpoint(small) {
+  @include breakpoint(small-and-down) {
     margin-left:- $gutter-mobile;
     margin-right:- $gutter-mobile;
 
@@ -148,7 +148,7 @@ $height_list: 50px;
     }
   }
 
-  @include breakpoint(small) {
+  @include breakpoint(small-and-down) {
     .list__cell--size,
     .list__cell--updated,
     .list__cell--date,

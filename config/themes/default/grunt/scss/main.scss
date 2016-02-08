@@ -202,7 +202,7 @@ MODULE SPACING
   margin: $gutter;
   @include clearfix();
 
-  @include breakpoint(small) {
+  @include breakpoint(small-and-down) {
     margin: $gutter-mobile;
   }
 
@@ -210,7 +210,7 @@ MODULE SPACING
   > * {
     margin-bottom: $gutter;
 
-    @include breakpoint(small) {
+    @include breakpoint(small-and-down) {
       margin-bottom: $gutter-mobile;
     }
   }
@@ -228,19 +228,18 @@ MODULE SPACING
   #inline_bottom_image {
     /*width: 100%;
     overflow: hidden;*/ /*<< Use if you want to crop the image instead of showing the horizontal scrollbar */
-    margin-bottom:0
+    margin-bottom:0;
+
+    img {
+      padding: 0;
+      margin: 0 $gutter $gutter 0;
+      float: left;
+      display:block;
+      height:auto;
+      max-width: 100%
+    }
   }
 
-  #inline_top_image img,
-  #inline_middle_image img,
-  #inline_bottom_image img {
-  padding: 0;
-  margin: 0 $gutter $gutter 0;
-  float: left;
-  display:block;
-  height:auto;
-  max-width: 100%
-  }
 
   #inline_top_text,
   #inline_middle_text,
@@ -266,3 +265,15 @@ MODULE SPACING
 .floater { float: left; }
 .visible { visibility: visible}
 .invisible { visibility: hidden}
+
+@include breakpoint(small-and-down) {
+  .hide-mobile {
+    display:none;
+  }
+  .show-mobile {
+    display:block;
+  }
+  .show-inline-mobile {
+    display:inline;
+  }
+}

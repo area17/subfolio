@@ -9,7 +9,7 @@
   font-size:18px;
   line-height:em(25px, 18px);
 
-  @include breakpoint(small) {
+  @include breakpoint(small-and-down) {
     font-size:1em;
   }
 
@@ -17,7 +17,7 @@
   h4, h5, p {
     max-width: percent(700px, 1000px);
 
-    @include breakpoint(small) {
+    @include breakpoint(small-and-down) {
       max-width: 100%;
     }
   }

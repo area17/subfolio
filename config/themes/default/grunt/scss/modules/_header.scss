@@ -11,7 +11,7 @@ $top_spacing: 25px;
   overflow:hidden;
   padding:0 $gutter;
 
-  @include breakpoint(small) {
+  @include breakpoint(small-and-down) {
     padding:0 $gutter-mobile;
   }
 }
@@ -28,13 +28,13 @@ $top_spacing: 25px;
     }
   }
 
-  @include breakpoint(small) {
+  @include breakpoint(small-and-down) {
     display:none;
   }
 }
 
 /* LOGO */
-@include breakpoint(small) {
+@include breakpoint(small-and-down) {
   .header__logo.show {
     display:none;
   }
@@ -87,6 +87,8 @@ $top_spacing: 25px;
 /* breadcrumb */
 .breadcrumb {
   float: left;
+  width:calc(100% - 120px);
+  overflow:hidden;
 
   @include breakpoint(medium-and-down) {
     .breadcrumb__index,
@@ -94,6 +96,25 @@ $top_spacing: 25px;
     .breadcrumb__folder,
     .breadcrumb__slash {
       display:none;
+    }
+
+    .breadcrumb__root:last-child {
+      display: inline-block;
+      @include ellipsis();
+    }
+
+    *[data-trigger] {
+      width:100%;
+
+      * {
+        vertical-align:baseline;
+      }
+
+      em {
+        display:inline-block;
+        max-width:calc(100% - 32px);
+        @include ellipsis();
+      }
     }
   }
 
@@ -145,7 +166,7 @@ $top_spacing: 25px;
   position:relative;
   height:20px;
 
-  @include breakpoint(small) {
+  @include breakpoint(small-and-down) {
     display:none;
   }
 
@@ -222,7 +243,7 @@ $top_spacing: 25px;
     padding:0 $half-gutter;
   }
 
-  @include breakpoint(small) {
+  @include breakpoint(small-and-down) {
     left:0;
     right:0;
     top:$height_bar;

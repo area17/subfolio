@@ -358,11 +358,23 @@ body:after {
   body:after {
     content: "medium-and-down"; } }
 
-@media (max-width: 639px) {
+@media (max-width: 639px) and (min-width: 481px) {
   head {
     font-family: "small"; }
   body:after {
     content: "small"; } }
+
+@media (max-width: 639px) {
+  head {
+    font-family: "small-and-down"; }
+  body:after {
+    content: "small-and-down"; } }
+
+@media (max-width: 480px) {
+  head {
+    font-family: "xsmall"; }
+  body:after {
+    content: "xsmall"; } }
 
 /* Lists --------------------------------------------------------------- */
 ul {
@@ -689,13 +701,30 @@ ul.group {
 
 /* breadcrumb */
 .breadcrumb {
-  float: left; }
+  float: left;
+  width: calc(100% - 120px);
+  overflow: hidden; }
   @media (max-width: 799px) {
     .breadcrumb .breadcrumb__index,
     .breadcrumb .breadcrumb__root,
     .breadcrumb .breadcrumb__folder,
     .breadcrumb .breadcrumb__slash {
-      display: none; } }
+      display: none; }
+    .breadcrumb .breadcrumb__root:last-child {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+    .breadcrumb *[data-trigger] {
+      width: 100%; }
+      .breadcrumb *[data-trigger] * {
+        vertical-align: baseline; }
+      .breadcrumb *[data-trigger] em {
+        display: inline-block;
+        max-width: calc(100% - 32px);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis; } }
 
 /* header__navigation */
 .header__navigation {
@@ -905,6 +934,9 @@ ul.group {
     padding: 20px;
     border-width: 1px;
     background: white; }
+    @media (max-width: 639px) {
+      .gallery ul li a {
+        padding: 10px; } }
     .gallery ul li a p {
       color: inherit; }
     .gallery ul li a div.gallery_thumbnail {
@@ -931,6 +963,9 @@ ul.group {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; }
+    @media (max-width: 639px) {
+      .gallery ul li a p {
+        padding-bottom: 5px; } }
 
 .gallery--column ul {
   margin: 0 auto; }
@@ -1566,15 +1601,15 @@ MODULE SPACING
     overflow: hidden;*/
     /*<< Use if you want to crop the image instead of showing the horizontal scrollbar */
     margin-bottom: 0; }
-  #content #inline_top_image img,
-  #content #inline_middle_image img,
-  #content #inline_bottom_image img {
-    padding: 0;
-    margin: 0 30px 30px 0;
-    float: left;
-    display: block;
-    height: auto;
-    max-width: 100%; }
+    #content #inline_top_image img,
+    #content #inline_middle_image img,
+    #content #inline_bottom_image img {
+      padding: 0;
+      margin: 0 30px 30px 0;
+      float: left;
+      display: block;
+      height: auto;
+      max-width: 100%; }
   #content #inline_top_text,
   #content #inline_middle_text,
   #content #inline_bottom_text {
@@ -1610,3 +1645,11 @@ MODULE SPACING
 
 .invisible {
   visibility: hidden; }
+
+@media (max-width: 639px) {
+  .hide-mobile {
+    display: none; }
+  .show-mobile {
+    display: block; }
+  .show-inline-mobile {
+    display: inline; } }

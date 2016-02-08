@@ -4,6 +4,7 @@
 -------------------------------------------------------------- */
 
 $inner_padding:20px;
+$inner_padding_mobile:10px;
 
 .gallery {
   display: inline-block;
@@ -27,6 +28,10 @@ $inner_padding:20px;
       padding: $inner_padding;
       border-width:1px;
       background:white;
+
+      @include breakpoint(small-and-down) {
+        padding: $inner_padding_mobile;
+      }
 
       p { color: inherit; }
 
@@ -60,6 +65,10 @@ $inner_padding:20px;
       margin: 0;
       padding: 10px 0 0;
       @include ellipsis();
+
+      @include breakpoint(small-and-down) {
+        padding-bottom: 5px;
+      }
     }
   }
 }
@@ -84,7 +93,7 @@ $inner_padding:20px;
       width:33.333%;
     }
 
-    @include breakpoint(small) {
+    @include breakpoint(small-and-down) {
       width:100%;
     }
 
@@ -130,7 +139,7 @@ $inner_padding:20px;
       width:calc(33.333% - 1px);
     }
 
-    @include breakpoint(small) {
+    @include breakpoint(small-and-down) {
       width:calc(50% - 1px);
     }
 

@@ -24,7 +24,7 @@
       width:25%;
     }
 
-    @include breakpoint(small) {
+    @include breakpoint(small-and-down) {
       width:50%;
       max-width:500px;
     }
