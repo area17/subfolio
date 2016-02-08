@@ -14,12 +14,12 @@ $inner_padding_mobile:10px;
 .gallery {
   ul {
     list-style: none;
-    margin: 0;
     padding: 0 1px 1px 0;
     overflow: hidden;
+    margin:0 auto;
   }
 
-  ul li {
+  li {
     float: left;
 
     @include breakpoint(xsmall) {
@@ -44,6 +44,7 @@ $inner_padding_mobile:10px;
         min-height:240px;
         display:table;
         background-color: white;
+        width:100%;
       }
 
       div.gallery__inner {
@@ -59,6 +60,8 @@ $inner_padding_mobile:10px;
         display:block;
         max-width:100%;
         height:auto;
+        margin-left:auto;
+        margin-right:auto;
       }
     }
 
@@ -79,11 +82,9 @@ $inner_padding_mobile:10px;
 }
 
 .gallery--column {
-  ul {
-    margin:0 auto;
-  }
+  display:block;
 
-  ul li {
+  li {
     width:16.6666667%;
 
     @include breakpoint(xlarge) {
@@ -100,15 +101,6 @@ $inner_padding_mobile:10px;
 
     @include breakpoint(small-and-down) {
       width:50%;
-    }
-
-    div.gallery_thumbnail {
-      width:100%;
-
-      img {
-        margin-left:auto;
-        margin-right:auto;
-      }
     }
   }
 }
@@ -129,7 +121,7 @@ $inner_padding_mobile:10px;
     padding-top:1px;
   }
 
-  ul li {
+  li {
     width:calc(16.6666667% - 1px);
 
     @include breakpoint(xlarge) {

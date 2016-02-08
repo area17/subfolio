@@ -29,7 +29,8 @@ a.icon {
   &_gen,
   &_img,
   &_pdf,
-  &_zip {
+  &_zip,
+  &_vid {
     @extend .icon__list_doc;
   }
 }
@@ -41,7 +42,8 @@ a.icon {
   &_gen,
   &_img,
   &_pdf,
-  &_zip {
+  &_zip,
+  &_vid {
     @extend .icon__grid_doc;
   }
 }

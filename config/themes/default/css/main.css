@@ -197,7 +197,8 @@ a.icon {
 .icon__grid_gen,
 .icon__grid_img,
 .icon__grid_pdf,
-.icon__grid_zip {
+.icon__grid_zip,
+.icon__grid_vid {
   background-repeat: no-repeat;
   width: 45px;
   height: 61px; }
@@ -208,7 +209,8 @@ a.icon {
   .no-svg .icon__grid_gen,
   .no-svg .icon__grid_img,
   .no-svg .icon__grid_pdf,
-  .no-svg .icon__grid_zip {
+  .no-svg .icon__grid_zip,
+  .no-svg .icon__grid_vid {
     background-image: url("images/fallback/grid_doc.png"); }
 
 
@@ -245,7 +247,8 @@ a.icon {
 .icon__list_gen,
 .icon__list_img,
 .icon__list_pdf,
-.icon__list_zip {
+.icon__list_zip,
+.icon__list_vid {
   background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
@@ -256,7 +259,8 @@ a.icon {
   .no-svg .icon__list_gen,
   .no-svg .icon__list_img,
   .no-svg .icon__list_pdf,
-  .no-svg .icon__list_zip {
+  .no-svg .icon__list_zip,
+  .no-svg .icon__list_vid {
     background-image: url("images/fallback/list_doc.png"); }
 
 
@@ -905,16 +909,16 @@ body.page {
 
 .gallery ul {
   list-style: none;
-  margin: 0;
   padding: 0 1px 1px 0;
-  overflow: hidden; }
+  overflow: hidden;
+  margin: 0 auto; }
 
-.gallery ul li {
+.gallery li {
   float: left; }
   @media (max-width: 480px) {
-    .gallery ul li {
+    .gallery li {
       width: 50%; } }
-  .gallery ul li a {
+  .gallery li a {
     display: block;
     margin: 0 -1px -1px 0;
     padding: 20px;
@@ -922,28 +926,31 @@ body.page {
     border-color: #F1F1F1;
     background: white; }
     @media (max-width: 480px) {
-      .gallery ul li a {
+      .gallery li a {
         padding: 10px; } }
-    .gallery ul li a p {
+    .gallery li a p {
       color: inherit; }
-    .gallery ul li a div.gallery_thumbnail {
+    .gallery li a div.gallery_thumbnail {
       min-height: 240px;
       display: table;
-      background-color: white; }
-    .gallery ul li a div.gallery__inner {
+      background-color: white;
+      width: 100%; }
+    .gallery li a div.gallery__inner {
       display: table-cell;
       vertical-align: middle; }
-    .gallery ul li a div.custom {
+    .gallery li a div.custom {
       height: auto; }
-    .gallery ul li a img {
+    .gallery li a img {
       border: none;
       overflow: hidden;
       display: block;
       max-width: 100%;
-      height: auto; }
-  .gallery ul li a:hover {
+      height: auto;
+      margin-left: auto;
+      margin-right: auto; }
+  .gallery li a:hover {
     background-color: #F6F6F6; }
-  .gallery ul li a p {
+  .gallery li a p {
     text-align: center;
     margin: 0;
     padding: 10px 0 0;
@@ -951,31 +958,25 @@ body.page {
     white-space: nowrap;
     text-overflow: ellipsis; }
     @media (max-width: 639px) {
-      .gallery ul li a p {
+      .gallery li a p {
         padding-bottom: 5px; } }
 
-.gallery--column ul {
-  margin: 0 auto; }
-
-.gallery--column ul li {
-  width: 16.6666667%; }
-  @media (min-width: 1281px) {
-    .gallery--column ul li {
-      width: 20%; } }
-  @media (max-width: 1280px) and (min-width: 800px) {
-    .gallery--column ul li {
-      width: 25%; } }
-  @media (max-width: 799px) and (min-width: 640px) {
-    .gallery--column ul li {
-      width: 33.333%; } }
-  @media (max-width: 639px) {
-    .gallery--column ul li {
-      width: 50%; } }
-  .gallery--column ul li div.gallery_thumbnail {
-    width: 100%; }
-    .gallery--column ul li div.gallery_thumbnail img {
-      margin-left: auto;
-      margin-right: auto; }
+.gallery--column {
+  display: block; }
+  .gallery--column li {
+    width: 16.6666667%; }
+    @media (min-width: 1281px) {
+      .gallery--column li {
+        width: 20%; } }
+    @media (max-width: 1280px) and (min-width: 800px) {
+      .gallery--column li {
+        width: 25%; } }
+    @media (max-width: 799px) and (min-width: 640px) {
+      .gallery--column li {
+        width: 33.333%; } }
+    @media (max-width: 639px) {
+      .gallery--column li {
+        width: 50%; } }
 
 .gallery--masonry {
   display: block;
@@ -990,28 +991,28 @@ body.page {
     margin: 0 auto;
     padding-left: 1px;
     padding-top: 1px; }
-  .gallery--masonry ul li {
+  .gallery--masonry li {
     width: calc(16.6666667% - 1px); }
     @media (min-width: 1281px) {
-      .gallery--masonry ul li {
+      .gallery--masonry li {
         width: calc(20% - 1px); } }
     @media (max-width: 1280px) and (min-width: 800px) {
-      .gallery--masonry ul li {
+      .gallery--masonry li {
         width: calc(25% - 1px); } }
     @media (max-width: 799px) and (min-width: 640px) {
-      .gallery--masonry ul li {
+      .gallery--masonry li {
         width: calc(33.333% - 1px); } }
     @media (max-width: 639px) {
-      .gallery--masonry ul li {
+      .gallery--masonry li {
         width: calc(50% - 1px); } }
-    .gallery--masonry ul li a {
+    .gallery--masonry li a {
       margin: -1px 0 0 -1px; }
-      .gallery--masonry ul li a div.gallery_thumbnail {
+      .gallery--masonry li a div.gallery_thumbnail {
         display: block;
         min-height: 0; }
-      .gallery--masonry ul li a img {
+      .gallery--masonry li a img {
         width: 100%; }
-      .gallery--masonry ul li a div.gallery__inner {
+      .gallery--masonry li a div.gallery__inner {
         display: block; }
   .gallery--masonry ul.masoned__finished {
     opacity: 1; }
