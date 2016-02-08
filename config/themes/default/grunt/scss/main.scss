@@ -124,9 +124,7 @@ body {
 
 .error { color: #FF0000; } /* << flash_color */
 .faded { color: #BBB; } /* << text_dimmed_color */
-
-/* This is to use the Arial rounded bold and easily change it for Windows */
-b, strong { font-family: "Arial Rounded MT Bold"; color: #1a1a1a; }
+b, strong { color: $color-text; }
 
 /* @end */
 
@@ -134,7 +132,7 @@ b, strong { font-family: "Arial Rounded MT Bold"; color: #1a1a1a; }
 /* --------------------------------------------------------------
    LINKS
 -------------------------------------------------------------- */
-a, a:link,a:visited { color: #1a1a1a; text-decoration: none; outline: none; } /* << link_color */
+a, a:link,a:visited { color: $color-text; text-decoration: none; outline: none; } /* << link_color */
 a:hover { color: inherit; }
 
 /* LINKS FOR GALLERY, FEATURES MODULES */

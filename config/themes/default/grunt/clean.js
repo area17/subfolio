@@ -9,7 +9,7 @@ module.exports = {
       "images/fallback"
     ]
   },
-  prod: {
+  staging: {
     src: ['dist']
   }
 };

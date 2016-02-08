@@ -176,19 +176,21 @@ $top_spacing: 25px;
     font:0/0 a;
     color:transparent;
     height:20px;
-    width:100%;
+    width:46px;
+    margin-left:auto;
+    margin-right:auto;
 
     &:after {
       content: "";
-      width:30px;
-      height:5px;
+      width:26px;
+      height:4px;
       background:#D8D8D8;
       border-radius:2px;
       position:absolute;
       top:50%;
       left:50%;
       margin-left:-15px;
-      margin-top:-3px;
+      margin-top:-2px;
     }
 
     &:hover {

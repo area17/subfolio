@@ -1,3 +1,15 @@
+// Full list of files that must be included in JS
+var includes_js = [
+  "grunt/js/common.js",
+  "grunt/js/jquery-1.7.1.min.js",
+  "grunt/js/jquery.scrollTo-min.js",
+  "grunt/js/masonry.pkgd.min.js",
+  "grunt/js/imagesloaded.pkgd.js",
+  "grunt/js/main.js",
+  "grunt/js/behaviors/*.js",
+  "grunt/js/helpers/*.js"
+];
+
 module.exports = {
   dev: {
     options: {
@@ -7,16 +19,18 @@ module.exports = {
       preserveComments: true
     },
     files: {
-      "js/main.js": [
-        "grunt/js/common.js",
-        "grunt/js/jquery-1.7.1.min.js",
-        "grunt/js/jquery.scrollTo-min.js",
-        "grunt/js/masonry.pkgd.min.js",
-        "grunt/js/imagesloaded.pkgd.js",
-        "grunt/js/main.js",
-        "grunt/js/behaviors/*.js",
-        "grunt/js/helpers/*.js"
-      ]
+      "js/main.js": includes_js
+    }
+  },
+  staging: {
+    options: {
+      mangle: false,
+      beautify: false,
+      compress: true,
+      preserveComments: false
+    },
+    files: {
+      "dist/js/main.js": includes_js
     }
   }
 };

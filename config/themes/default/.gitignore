@@ -5,6 +5,7 @@ options.yml
 node_modules
 
 # Generated Files
+dist/
 npm-debug.log
 grunt/img/_icons.scss
 grunt/img/icons.html

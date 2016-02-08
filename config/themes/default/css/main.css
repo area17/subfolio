@@ -585,10 +585,8 @@ body {
   color: #BBB; }
 
 /* << text_dimmed_color */
-/* This is to use the Arial rounded bold and easily change it for Windows */
 b, strong {
-  font-family: "Arial Rounded MT Bold";
-  color: #1a1a1a; }
+  color: #191919; }
 
 /* @end */
 /* @group Links */
@@ -596,7 +594,7 @@ b, strong {
    LINKS
 -------------------------------------------------------------- */
 a, a:link, a:visited {
-  color: #1a1a1a;
+  color: #191919;
   text-decoration: none;
   outline: none; }
 
@@ -779,18 +777,20 @@ ul.group {
     font: 0/0 a;
     color: transparent;
     height: 20px;
-    width: 100%; }
+    width: 46px;
+    margin-left: auto;
+    margin-right: auto; }
     .collapseheader a.collapseheader__link:after {
       content: "";
-      width: 30px;
-      height: 5px;
+      width: 26px;
+      height: 4px;
       background: #D8D8D8;
       border-radius: 2px;
       position: absolute;
       top: 50%;
       left: 50%;
       margin-left: -15px;
-      margin-top: -3px; }
+      margin-top: -2px; }
     .collapseheader a.collapseheader__link:hover:after {
       background: #B1B1B1; }
 
