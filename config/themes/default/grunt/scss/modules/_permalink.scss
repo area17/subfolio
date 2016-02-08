@@ -29,10 +29,6 @@ $inner_padding_mobile:10px;
   padding: $inner_padding;
   max-width: 350px;
   position: relative;
-
-  @include breakpoint(xsmall) {
-    padding: $inner_padding_mobile;
-  }
 }
 
 /* @end */

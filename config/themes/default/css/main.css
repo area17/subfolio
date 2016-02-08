@@ -475,24 +475,24 @@ body {
   @media (max-width: 799px) {
     .standard_paragraph h1, .standard_paragraph h2, .standard_paragraph h3, .standard_paragraph h4 {
       font-size: 2em;
-      line-height: 0.8333333333em; } }
+      line-height: 1.25em; } }
   @media (max-width: 639px) {
     .standard_paragraph h1, .standard_paragraph h2, .standard_paragraph h3, .standard_paragraph h4 {
       font-size: 2.4em;
-      line-height: 0.8333333333em; } }
+      line-height: 1.25em; } }
 
 .standard_paragraph h2 {
   color: #808080;
   margin-bottom: 20px; }
 
 .standard_paragraph h3 {
-  font-size: 2.5333333333em;
-  line-height: 1.1842105263em;
+  font-size: 2em;
+  line-height: 1.25em;
   margin-top: 30px;
   margin-bottom: 10px; }
 
 .standard_paragraph h4 {
-  font-size: 1.3333333333em;
+  font-size: 1.1111111111em;
   margin-top: 15px;
   margin-bottom: 10px; }
 
@@ -679,6 +679,7 @@ ul.group {
 
 /* LOGO */
 @media (max-width: 639px) {
+  .header__logo,
   .header__logo.show {
     display: none; } }
 
@@ -957,6 +958,9 @@ body.page {
 
 .gallery ul li {
   float: left; }
+  @media (max-width: 480px) {
+    .gallery ul li {
+      width: 50%; } }
   .gallery ul li a {
     display: block;
     margin: 0 -1px -1px 0;
@@ -1013,7 +1017,7 @@ body.page {
       width: 33.333%; } }
   @media (max-width: 639px) {
     .gallery--column ul li {
-      width: 100%; } }
+      width: 50%; } }
   .gallery--column ul li div.gallery_thumbnail {
     width: 100%; }
     .gallery--column ul li div.gallery_thumbnail img {
@@ -1630,9 +1634,6 @@ body.page {
   padding: 20px;
   max-width: 350px;
   position: relative; }
-  @media (max-width: 480px) {
-    #info-box {
-      padding: 10px; } }
 
 /* @end */
 /* --------------------------------------------------------------

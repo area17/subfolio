@@ -35,6 +35,7 @@ $top_spacing: 25px;
 
 /* LOGO */
 @include breakpoint(small-and-down) {
+  .header__logo,
   .header__logo.show {
     display:none;
   }

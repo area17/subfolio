@@ -1,5 +1,9 @@
 ***
 
+SUBFOLIO BETA 0.9.9
+
+* Subfolio major update : new default responsive default theme
+
 
 SUBFOLIO BETA 0.9.4
 
@@ -101,7 +105,7 @@ SUBFOLIO ALPHA (PRE-RELEASE)
 * Can specify the listing mode in the -properties file for each folder
 * Add intro text file
 * Properly handle users who are delete while active on the website
-* Moved display options from setting to new options.yml file 
+* Moved display options from setting to new options.yml file
 * Added showcase mode options
 * Updated for new theme options.yml file
 * Removed PDF embedding

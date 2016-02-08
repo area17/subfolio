@@ -22,6 +22,10 @@ $inner_padding_mobile:10px;
   ul li {
     float: left;
 
+    @include breakpoint(xsmall) {
+      width:50%;
+    }
+
     a {
       display: block;
       margin: 0 -1px -1px 0;
@@ -95,7 +99,7 @@ $inner_padding_mobile:10px;
     }
 
     @include breakpoint(small-and-down) {
-      width:100%;
+      width:50%;
     }
 
     div.gallery_thumbnail {

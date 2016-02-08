@@ -65,12 +65,12 @@
 
     @include breakpoint(medium-and-down) {
       font-size: em(36px, 18px);
-      line-height: em(30px, 36px);
+      line-height: em(45px, 36px);
     }
 
     @include breakpoint(small-and-down) {
       font-size: em(36px);
-      line-height: em(30px, 36px);
+      line-height: em(45px, 36px);
     }
   }
 
@@ -80,14 +80,14 @@
   }
 
   h3 {
-    font-size: em(38px);
-    line-height: em(45px, 38px);
+    font-size: em(36px, 18px);
+    line-height: em(45px, 36px);
     margin-top: $gutter;
     margin-bottom: 10px;
   }
 
   h4 {
-    font-size: em(20px);
+    font-size: em(20px, 18px);
     margin-top: $gutter / 2;
     margin-bottom: 10px;
   }
