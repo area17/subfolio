@@ -6,7 +6,7 @@
 		<!-- Icon -->
 		<i class='icon icon__<?php echo Subfolio::current_file('icon') ?>'></i>
 		<!-- Filename / comment -->
-		<p id="filename"><i class="<?php echo Subfolio::current_file('tag') ?>"></i> &nbsp; <?php echo Subfolio::current_file('filename') ?></p>
+		<p id="filename"><i class="tag <?php echo Subfolio::current_file('tag') ?>"></i> &nbsp; <?php echo Subfolio::current_file('filename') ?></p>
 	</a>
 	<dl>
 		<dt><?php echo SubfolioLanguage::get_text('kind') ?></dt><dd><?php echo Subfolio::current_file('kind') ?></dd>

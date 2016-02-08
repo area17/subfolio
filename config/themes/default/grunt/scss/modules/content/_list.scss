@@ -115,28 +115,26 @@ $height_list: 50px;
   .list__cell--filename {
     width:20%;
     position: relative;
-    padding-right: 20px !important;
+    padding-right: 80px !important;
   }
 
   .list__cell--filename:before { /*content: '— ';*/ } /* << If you remove the icons and want to show the link s*/
-
-  .list__cell--size {
-    min-width: 65px;
-  }
   .list__cell--updated {
     width:8px;
     height:8px;
   }
-  .list__cell--date {
-    min-width: 90px;
-  }
-  .list__cell--kind {
-    min-width: 130px;
-  }
+  .list__cell--size,
+  .list__cell--date,
+  .list__cell--kind,
   .list__cell--comment {
-    /*position: absolute;*/ /* turning it absolute so that it sticks inline, preventing it to float on browser resizing */
-    /*left: 510px;*/ /* setting its left equals the sum of the widths of previous columns */
-    top: 0;
+    min-width: 90px;
+
+  }
+
+  .list__cell--size,
+  .list__cell--date,
+  .list__cell--kind {
+    width:20%;
   }
 
   @include breakpoint(medium-and-down) {
@@ -145,6 +143,12 @@ $height_list: 50px;
     .list__header .list__cell--kind,
     .list__header .list__cell--comment {
       display: none;
+    }
+
+    .list__cell--size,
+    .list__cell--date,
+    .list__cell--kind {
+      width:auto;
     }
   }
 

@@ -64,7 +64,8 @@ A17.loadCSS = function(href) {
 
   <script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/main.js"></script>
 </head>
-<body class="<?php if (isset($page_class)) echo $page_class; ?>">
+
+<body class="<?php if (isset($page_class)) echo $page_class; ?> <?php if (isset($_COOKIE['header'])) { if ($_COOKIE['header'] == "header__hide") { echo "header__hide"; } } ?>">
   <div id="container">
     <div id="container-inner">
       <?php include("header.inc.php") ?>

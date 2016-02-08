@@ -3,28 +3,29 @@
   max-width: 350px;
   padding-top: 10px;
   color:$color-text-secondary;
-}
-#download_box .tag {
-  display:inline-block;
-  @include dot();
 
-  &.updated {
-    background:$color-new;
+  .tag {
+    display:inline-block;
+    @include dot();
+
+    &.updated {
+      background:$color-new;
+    }
   }
-}
 
-#download_box #filename {
-  clear: both;
-  padding-top: 18px;
-  margin-bottom: 2px;
-  width: 220px;
-  overflow: hidden;
-  color: inherit;
-}
+  #filename {
+    clear: both;
+    padding-top: 18px;
+    margin-bottom: 2px;
+    width: 220px;
+    overflow: hidden;
+    color: inherit;
+  }
 
-#download_box #clickable-zone {
-  display: block;
-  position: relative;
+  #clickable-zone {
+    display: block;
+    position: relative;
+  }
 }
 
 #download_box {
@@ -53,30 +54,33 @@
     }
   }
 }
-#download_box #instructions {
-  padding: 15px 0 10px 0;
-  border-top-width: 1px;
-  margin-bottom: 35px;
-  margin-top:-15px;
-}
-#download_box #instructions a {
-  text-decoration: underline;
-}
-#download_box #download {
-  display: block;
-  padding-bottom: 16px;
-  padding-top: 17px;
-  border-width: 1px;
-  border-color:$color-text;
-  text-align:center;
-  border-radius:2px;
 
-  &:hover {
-    background:$color-text;
-    color:$color-bg;
+#download_box {
+  #instructions {
+    padding: 15px 0 10px 0;
+    border-top-width: 1px;
+    margin-bottom: 35px;
+    margin-top:-15px;
   }
-}
-#download_box #download.with_arrow {
-  padding-left: 10px;
-  background: url(../images/system/download_xl.png) no-repeat 0 2px;
+  #instructions a {
+    text-decoration: underline;
+  }
+  #download {
+    display: block;
+    padding-bottom: 16px;
+    padding-top: 17px;
+    border-width: 1px;
+    border-color:$color-text;
+    text-align:center;
+    border-radius:2px;
+
+    &:hover {
+      background:$color-text;
+      color:$color-bg;
+    }
+  }
+  #download.with_arrow {
+    padding-left: 10px;
+    background: url(../images/system/download_xl.png) no-repeat 0 2px;
+  }
 }

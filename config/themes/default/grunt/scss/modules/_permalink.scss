@@ -8,13 +8,37 @@ $inner_padding_mobile:10px;
 
 #info-button {
   display: block;
-  width: 15px;
-  height: 15px;
-  text-indent: -2000px;
-  background: url(../images/system/info_button.png) no-repeat;
-  margin-bottom: 10px;
+  width: 26px;
+  height: 26px;
+  line-height:26px;
+  border-radius:50%;
+  text-align:center;
+  font-family:Georgia, serif;
+  font-weight:bold;
+  font-style:italic;
+  border-width:1px;
+  border-color:$color-text-tertiary;
+  color:$color-text-tertiary;
+  margin-bottom:$gutter-mobile;
+/*  background: url(../images/system/info_button.png) no-repeat;
+  margin-bottom: 10px;*/
+
+  &:hover {
+    color:$color-text-secondary;
+    border-color:$color-text-secondary;
+  }
+
+  &.on {
+    color:$color-text-secondary;
+    border-color:$color-text-secondary;
+
+    &:hover {
+      color:$color-text-secondary;
+      border-color:$color-text-secondary;
+    }
+  }
 }
-#info-button:hover {
+/*#info-button:hover {
   background-position: 0 -50px;
 }
 #info-button.on {
@@ -22,7 +46,7 @@ $inner_padding_mobile:10px;
 }
 #info-button.on:hover {
   background-position: 0 -100px;
-}
+}*/
 
 #info-box {
   border: 1px solid #dedede;

@@ -35,8 +35,7 @@ $top_spacing: 25px;
 
 /* LOGO */
 @include breakpoint(small-and-down) {
-  .header__logo,
-  .header__logo.show {
+  .header__logo {
     display:none;
   }
 }
@@ -53,6 +52,17 @@ $top_spacing: 25px;
     a, img {
       display:block;
     }
+  }
+}
+
+.header__logo {
+  max-height: 83px;
+  transition: 0.3s cubic-bezier(0.6, 0.69, 0.14, 1) max-height;
+}
+
+.header__hide {
+  .header__logo {
+    max-height:0 !important;
   }
 }
 
