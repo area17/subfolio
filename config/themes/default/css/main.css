@@ -747,7 +747,19 @@ ul.group {
 .header__breadcrumb {
   min-height: 70px;
   position: relative;
-  overflow: visible; }
+  overflow: visible;
+  background: #FFF; }
+  @media (max-width: 799px) {
+    .header__breadcrumb {
+      position: fixed;
+      top: 0;
+      border-bottom-width: 1px;
+      z-index: 9998;
+      height: 70px; } }
+
+@media (max-width: 799px) {
+  .header {
+    height: 70px; } }
 
 .header__breadcrumb,
 .header__breadcrumb * {
@@ -757,7 +769,8 @@ ul.group {
 .breadcrumb {
   float: left;
   width: calc(100% - 120px);
-  overflow: hidden; }
+  overflow: hidden;
+  height: 70px; }
   @media (max-width: 799px) {
     .breadcrumb .breadcrumb__index,
     .breadcrumb .breadcrumb__root,
@@ -853,7 +866,7 @@ ul.group {
   display: none;
   position: absolute;
   top: 65px;
-  left: 30px;
+  left: 15px;
   border-width: 1px;
   border-top: 0 none;
   background: #FFF;
@@ -865,7 +878,10 @@ ul.group {
     border-top-width: 1px;
     height: 50px;
     line-height: 50px;
-    padding: 0 15px; }
+    padding: 0 50px 0 15px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
   @media (max-width: 639px) {
     .header__dropdown {
       left: 0;

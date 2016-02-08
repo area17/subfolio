@@ -87,7 +87,22 @@ $top_spacing: 25px;
   min-height:$height_bar;
   position:relative;
   overflow:visible;
+  background:$color-bg;
+
+  @include breakpoint(medium-and-down) {
+    position:fixed;
+    top:0;
+    border-bottom-width:1px;
+    z-index:$z-index__dropdown;
+    height:$height_bar;
+  }
 }
+@include breakpoint(medium-and-down) {
+  .header {
+    height:$height_bar;
+  }
+}
+
 .header__breadcrumb,
 .header__breadcrumb * {
   white-space: nowrap;
@@ -100,6 +115,7 @@ $top_spacing: 25px;
   float: left;
   width:calc(100% - 120px);
   overflow:hidden;
+  height:$height_bar;
 
   @include breakpoint(medium-and-down) {
     .breadcrumb__index,
@@ -240,7 +256,7 @@ $top_spacing: 25px;
 
   position:absolute;
   top:$height_bar - 5px;
-  left:$gutter;
+  left:$half-gutter;
   border-width:1px;
   border-top:0 none;
   background:$color-bg;
@@ -253,7 +269,8 @@ $top_spacing: 25px;
     border-top-width:1px;
     height:$height_bar - 20px;
     line-height:$height_bar - 20px;
-    padding:0 $half-gutter;
+    padding:0 50px 0 $half-gutter;
+    @include ellipsis();
   }
 
   @include breakpoint(small-and-down) {
