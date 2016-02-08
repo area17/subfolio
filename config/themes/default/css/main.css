@@ -164,15 +164,6 @@ a.icon {
     background-image: url("images/fallback/dropdown_arrow.png"); }
 
 
-.icon__grid_ai {
-  background-repeat: no-repeat;
-  width: 45px;
-  height: 61px; }
-  .no-svg
-  .icon__grid_ai {
-    background-image: url("images/fallback/grid_ai.png"); }
-
-
 .icon__grid_dir {
   background-repeat: no-repeat;
   width: 55px;
@@ -200,55 +191,31 @@ a.icon {
     background-image: url("images/fallback/grid_dir_shared.png"); }
 
 
-.icon__grid_doc {
+.icon__grid_psd,
+.icon__grid_ai,
+.icon__grid_doc,
+.icon__grid_gen,
+.icon__grid_img,
+.icon__grid_pdf,
+.icon__grid_zip {
   background-repeat: no-repeat;
   width: 45px;
   height: 61px; }
-  .no-svg
-  .icon__grid_doc {
+  
+  .no-svg .icon__grid_psd,
+  .no-svg .icon__grid_ai,
+  .no-svg .icon__grid_doc,
+  .no-svg .icon__grid_gen,
+  .no-svg .icon__grid_img,
+  .no-svg .icon__grid_pdf,
+  .no-svg .icon__grid_zip {
     background-image: url("images/fallback/grid_doc.png"); }
-
-
-.icon__grid_gen {
-  background-repeat: no-repeat;
-  width: 45px;
-  height: 61px; }
-  .no-svg
-  .icon__grid_gen {
-    background-image: url("images/fallback/grid_gen.png"); }
-
-
-.icon__grid_img {
-  background-repeat: no-repeat;
-  width: 45px;
-  height: 61px; }
-  .no-svg
-  .icon__grid_img {
-    background-image: url("images/fallback/grid_img.png"); }
-
-
-.icon__grid_pdf {
-  background-repeat: no-repeat;
-  width: 45px;
-  height: 61px; }
-  .no-svg
-  .icon__grid_pdf {
-    background-image: url("images/fallback/grid_pdf.png"); }
-
-
-.icon__list_ai {
-  background-repeat: no-repeat;
-  width: 20px;
-  height: 26px; }
-  .no-svg
-  .icon__list_ai {
-    background-image: url("images/fallback/list_ai.png"); }
 
 
 .icon__list_dir {
   background-repeat: no-repeat;
-  width: 26px;
-  height: 21px; }
+  width: 20px;
+  height: 26px; }
   .no-svg
   .icon__list_dir {
     background-image: url("images/fallback/list_dir.png"); }
@@ -272,40 +239,25 @@ a.icon {
     background-image: url("images/fallback/list_dir_shared.png"); }
 
 
-.icon__list_doc {
+.icon__list_psd,
+.icon__list_ai,
+.icon__list_doc,
+.icon__list_gen,
+.icon__list_img,
+.icon__list_pdf,
+.icon__list_zip {
   background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
-  .no-svg
-  .icon__list_doc {
+  
+  .no-svg .icon__list_psd,
+  .no-svg .icon__list_ai,
+  .no-svg .icon__list_doc,
+  .no-svg .icon__list_gen,
+  .no-svg .icon__list_img,
+  .no-svg .icon__list_pdf,
+  .no-svg .icon__list_zip {
     background-image: url("images/fallback/list_doc.png"); }
-
-
-.icon__list_gen {
-  background-repeat: no-repeat;
-  width: 20px;
-  height: 26px; }
-  .no-svg
-  .icon__list_gen {
-    background-image: url("images/fallback/list_gen.png"); }
-
-
-.icon__list_img {
-  background-repeat: no-repeat;
-  width: 20px;
-  height: 26px; }
-  .no-svg
-  .icon__list_img {
-    background-image: url("images/fallback/list_img.png"); }
-
-
-.icon__list_pdf {
-  background-repeat: no-repeat;
-  width: 20px;
-  height: 26px; }
-  .no-svg
-  .icon__list_pdf {
-    background-image: url("images/fallback/list_pdf.png"); }
 
 
 .icon__path {
@@ -316,6 +268,7 @@ a.icon {
   .icon__path {
     background-image: url("images/fallback/path.png"); }
 
+/* One icon : many possibilities */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ core */
 body * {
   border-color: #E4E4E4;

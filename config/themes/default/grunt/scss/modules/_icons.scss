@@ -20,3 +20,28 @@ a.icon {
 @each $icon, $icon_obj in $icons {
   @include icon-type($icon);
 }
+
+/* One icon : many possibilities */
+.icon__list {
+  &_psd,
+  &_ai,
+  &_doc,
+  &_gen,
+  &_img,
+  &_pdf,
+  &_zip {
+    @extend .icon__list_doc;
+  }
+}
+
+.icon__grid {
+  &_psd,
+  &_ai,
+  &_doc,
+  &_gen,
+  &_img,
+  &_pdf,
+  &_zip {
+    @extend .icon__grid_doc;
+  }
+}
