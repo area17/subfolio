@@ -23,27 +23,88 @@ a.icon {
 
 /* One icon : many possibilities */
 .icon__list {
-  &_psd,
+  &_ae,
   &_ai,
+  &_ase,
+  &_dmg,
   &_doc,
+  &_eps,
+  &_fla,
+  &_fnt,
   &_gen,
+  &_html,
   &_img,
+  &_indd,
+  &_key,
+  &_lock,
+  &_merlin,
+  &_net,
+  &_numbers,
+  &_pages,
   &_pdf,
-  &_zip,
-  &_vid {
+  &_pop,
+  &_ppt,
+  &_psd,
+  &_site,
+  &_slide,
+  &_snd,
+  &_sql,
+  &_swf,
+  &_txt,
+  &_vid,
+  &_xls,
+  &_zip {
     @extend .icon__list_doc;
   }
 }
 
 .icon__grid {
-  &_psd,
+  &_ae,
   &_ai,
+  &_ase,
+  &_dmg,
   &_doc,
+  &_eps,
+  &_fla,
+  &_fnt,
   &_gen,
+  &_html,
   &_img,
+  &_indd,
+  &_key,
+  &_lock,
+  &_merlin,
+  &_net,
+  &_numbers,
+  &_pages,
   &_pdf,
-  &_zip,
-  &_vid {
+  &_pop,
+  &_ppt,
+  &_psd,
+  &_site,
+  &_slide,
+  &_snd,
+  &_sql,
+  &_swf,
+  &_txt,
+  &_vid,
+  &_xls,
+  &_zip {
     @extend .icon__grid_doc;
   }
 }
+
+.icon__list {
+  &_cut,
+  &_dir {
+    @extend .icon__list_dir;
+  }
+}
+
+.icon__grid {
+  &_cut,
+  &_dir {
+    @extend .icon__grid_dir;
+  }
+}
+

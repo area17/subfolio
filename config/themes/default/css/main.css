@@ -146,15 +146,6 @@ a.icon {
     background-image: url("images/fallback/arrow_right.png"); }
 
 
-.icon__collapse-header {
-  background-repeat: no-repeat;
-  width: 30px;
-  height: 5px; }
-  .no-svg
-  .icon__collapse-header {
-    background-image: url("images/fallback/collapse-header.png"); }
-
-
 .icon__dropdown_arrow {
   background-repeat: no-repeat;
   width: 7px;
@@ -164,12 +155,14 @@ a.icon {
     background-image: url("images/fallback/dropdown_arrow.png"); }
 
 
+.icon__grid_cut,
 .icon__grid_dir {
   background-repeat: no-repeat;
   width: 55px;
   height: 46px; }
-  .no-svg
-  .icon__grid_dir {
+  
+  .no-svg .icon__grid_cut,
+  .no-svg .icon__grid_dir {
     background-image: url("images/fallback/grid_dir.png"); }
 
 
@@ -191,35 +184,83 @@ a.icon {
     background-image: url("images/fallback/grid_dir_shared.png"); }
 
 
-.icon__grid_psd,
+.icon__grid_ae,
 .icon__grid_ai,
+.icon__grid_ase,
+.icon__grid_dmg,
 .icon__grid_doc,
+.icon__grid_eps,
+.icon__grid_fla,
+.icon__grid_fnt,
 .icon__grid_gen,
+.icon__grid_html,
 .icon__grid_img,
+.icon__grid_indd,
+.icon__grid_key,
+.icon__grid_lock,
+.icon__grid_merlin,
+.icon__grid_net,
+.icon__grid_numbers,
+.icon__grid_pages,
 .icon__grid_pdf,
-.icon__grid_zip,
-.icon__grid_vid {
+.icon__grid_pop,
+.icon__grid_ppt,
+.icon__grid_psd,
+.icon__grid_site,
+.icon__grid_slide,
+.icon__grid_snd,
+.icon__grid_sql,
+.icon__grid_swf,
+.icon__grid_txt,
+.icon__grid_vid,
+.icon__grid_xls,
+.icon__grid_zip {
   background-repeat: no-repeat;
   width: 45px;
   height: 61px; }
   
-  .no-svg .icon__grid_psd,
+  .no-svg .icon__grid_ae,
   .no-svg .icon__grid_ai,
+  .no-svg .icon__grid_ase,
+  .no-svg .icon__grid_dmg,
   .no-svg .icon__grid_doc,
+  .no-svg .icon__grid_eps,
+  .no-svg .icon__grid_fla,
+  .no-svg .icon__grid_fnt,
   .no-svg .icon__grid_gen,
+  .no-svg .icon__grid_html,
   .no-svg .icon__grid_img,
+  .no-svg .icon__grid_indd,
+  .no-svg .icon__grid_key,
+  .no-svg .icon__grid_lock,
+  .no-svg .icon__grid_merlin,
+  .no-svg .icon__grid_net,
+  .no-svg .icon__grid_numbers,
+  .no-svg .icon__grid_pages,
   .no-svg .icon__grid_pdf,
-  .no-svg .icon__grid_zip,
-  .no-svg .icon__grid_vid {
+  .no-svg .icon__grid_pop,
+  .no-svg .icon__grid_ppt,
+  .no-svg .icon__grid_psd,
+  .no-svg .icon__grid_site,
+  .no-svg .icon__grid_slide,
+  .no-svg .icon__grid_snd,
+  .no-svg .icon__grid_sql,
+  .no-svg .icon__grid_swf,
+  .no-svg .icon__grid_txt,
+  .no-svg .icon__grid_vid,
+  .no-svg .icon__grid_xls,
+  .no-svg .icon__grid_zip {
     background-image: url("images/fallback/grid_doc.png"); }
 
 
+.icon__list_cut,
 .icon__list_dir {
   background-repeat: no-repeat;
-  width: 20px;
-  height: 26px; }
-  .no-svg
-  .icon__list_dir {
+  width: 26px;
+  height: 21px; }
+  
+  .no-svg .icon__list_cut,
+  .no-svg .icon__list_dir {
     background-image: url("images/fallback/list_dir.png"); }
 
 
@@ -241,36 +282,73 @@ a.icon {
     background-image: url("images/fallback/list_dir_shared.png"); }
 
 
-.icon__list_psd,
+.icon__list_ae,
 .icon__list_ai,
+.icon__list_ase,
+.icon__list_dmg,
 .icon__list_doc,
+.icon__list_eps,
+.icon__list_fla,
+.icon__list_fnt,
 .icon__list_gen,
+.icon__list_html,
 .icon__list_img,
+.icon__list_indd,
+.icon__list_key,
+.icon__list_lock,
+.icon__list_merlin,
+.icon__list_net,
+.icon__list_numbers,
+.icon__list_pages,
 .icon__list_pdf,
-.icon__list_zip,
-.icon__list_vid {
+.icon__list_pop,
+.icon__list_ppt,
+.icon__list_psd,
+.icon__list_site,
+.icon__list_slide,
+.icon__list_snd,
+.icon__list_sql,
+.icon__list_swf,
+.icon__list_txt,
+.icon__list_vid,
+.icon__list_xls,
+.icon__list_zip {
   background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
   
-  .no-svg .icon__list_psd,
+  .no-svg .icon__list_ae,
   .no-svg .icon__list_ai,
+  .no-svg .icon__list_ase,
+  .no-svg .icon__list_dmg,
   .no-svg .icon__list_doc,
+  .no-svg .icon__list_eps,
+  .no-svg .icon__list_fla,
+  .no-svg .icon__list_fnt,
   .no-svg .icon__list_gen,
+  .no-svg .icon__list_html,
   .no-svg .icon__list_img,
+  .no-svg .icon__list_indd,
+  .no-svg .icon__list_key,
+  .no-svg .icon__list_lock,
+  .no-svg .icon__list_merlin,
+  .no-svg .icon__list_net,
+  .no-svg .icon__list_numbers,
+  .no-svg .icon__list_pages,
   .no-svg .icon__list_pdf,
-  .no-svg .icon__list_zip,
-  .no-svg .icon__list_vid {
+  .no-svg .icon__list_pop,
+  .no-svg .icon__list_ppt,
+  .no-svg .icon__list_psd,
+  .no-svg .icon__list_site,
+  .no-svg .icon__list_slide,
+  .no-svg .icon__list_snd,
+  .no-svg .icon__list_sql,
+  .no-svg .icon__list_swf,
+  .no-svg .icon__list_txt,
+  .no-svg .icon__list_vid,
+  .no-svg .icon__list_xls,
+  .no-svg .icon__list_zip {
     background-image: url("images/fallback/list_doc.png"); }
-
-
-.icon__path {
-  background-repeat: no-repeat;
-  width: 23px;
-  height: 14px; }
-  .no-svg
-  .icon__path {
-    background-image: url("images/fallback/path.png"); }
 
 /* One icon : many possibilities */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ core */
@@ -1322,14 +1400,17 @@ body.page {
   #listing .list--grid .list__cell--filename {
     padding-right: 0; }
 
+/*
+  @mixin dot
+*/
 #listing .grid .updated,
 #listing .column .updated {
-  background: #B1B1B1;
-  border-radius: 50%;
   display: block;
+  vertical-align: middle;
+  border-radius: 50%;
   width: 8px;
   height: 8px;
-  vertical-align: middle; }
+  background: #B1B1B1; }
   #listing .grid .updated.updated--new,
   #listing .column .updated.updated--new {
     background: #44BCF9; }
@@ -1497,15 +1578,14 @@ body.page {
   padding-top: 10px;
   color: #7F7F7F; }
 
-#download_box .updated {
-  position: absolute;
-  display: block;
-  width: 11px;
-  height: 11px;
-  z-index: 99;
-  background: url("../images/system/updated_grid24.png") no-repeat top left;
-  top: 0;
-  left: 25px; }
+#download_box .tag {
+  display: inline-block;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  background: #B1B1B1; }
+  #download_box .tag.updated {
+    background: #44BCF9; }
 
 #download_box #filename {
   clear: both;
@@ -1536,7 +1616,8 @@ body.page {
   padding-top: 15px;
   padding-left: 42.8571428571%;
   padding-bottom: 15px;
-  border-bottom-width: 1px; }
+  border-bottom-width: 1px;
+  border-color: #F1F1F1; }
   #download_box dd:last-child {
     border-bottom-width: 0; }
 

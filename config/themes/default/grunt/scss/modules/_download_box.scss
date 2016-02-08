@@ -4,15 +4,13 @@
   padding-top: 10px;
   color:$color-text-secondary;
 }
-#download_box .updated {
-  position: absolute;
-  display: block;
-  width: 11px;
-  height: 11px;
-  z-index: 99;
-  background:url("../images/system/updated_grid24.png") no-repeat top left;
-  top: 0;
-  left: 25px;
+#download_box .tag {
+  display:inline-block;
+  @include dot();
+
+  &.updated {
+    background:$color-new;
+  }
 }
 
 #download_box #filename {
@@ -48,6 +46,7 @@
     padding-left: percent(150px, 350px);
     padding-bottom: 15px;
     border-bottom-width: 1px;
+    border-color:$color-border-light;
 
     &:last-child {
       border-bottom-width: 0;

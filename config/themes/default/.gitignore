@@ -3,6 +3,7 @@ options.yml
 .sass-cache
 .DS_Store
 node_modules
+.ftppass
 
 # Generated Files
 dist/

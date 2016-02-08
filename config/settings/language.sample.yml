@@ -62,8 +62,8 @@ my_last_visit: "my last visit"
 
 # DETAIL PAGE
 
-lastmodified: "last modified"
+lastmodified: "Last Modified"
 instructions: "Instructions:"
-downloadfile: "Download file"
+downloadfile: "Download File"
 viewfile: "View File"
 viewsite: "View Site"

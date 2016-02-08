@@ -76,21 +76,30 @@
   }
 }
 
+/*
+  @mixin dot
+*/
+@mixin dot() {
+  border-radius:50%;
+  width:8px;
+  height:8px;
+  background:$color-text-tertiary;
+}
+
 #listing {
   .grid .updated,
   .column .updated {
-    background:$color-text-tertiary;
-    border-radius:50%;
     display:block;
-    width:8px;
-    height:8px;
     vertical-align:middle;
+    @include dot();
 
     &.updated--new {
       background:$color-new;
     }
   }
 }
+
+
 
 
 /* @end */

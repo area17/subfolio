@@ -28,6 +28,7 @@
     "grunt-svg2png": "^0.2.7",
     "grunt-svgmin": "^2.0.1",
     "load-grunt-config": "^0.17.2",
-    "time-grunt": "^1.2.1"
+    "time-grunt": "^1.2.1",
+    "grunt-sftp-deploy": "^0.2.4"
   }
 }

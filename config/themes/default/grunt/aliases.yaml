@@ -23,6 +23,7 @@ staging:
   tasks:
     - 'icons'
     - 'before_deploy'
+    - 'sftp-deploy:staging'
 
 # Sub tasks
 icons:
