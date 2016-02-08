@@ -27,9 +27,10 @@ $inner_padding_mobile:10px;
       margin: 0 -1px -1px 0;
       padding: $inner_padding;
       border-width:1px;
+      border-color:$color-border-light;
       background:white;
 
-      @include breakpoint(small-and-down) {
+      @include breakpoint(xsmall) {
         padding: $inner_padding_mobile;
       }
 

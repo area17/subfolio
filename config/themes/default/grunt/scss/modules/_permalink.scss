@@ -1,5 +1,9 @@
 /* @group Permalink */
 
+$inner_padding:20px;
+$inner_padding_mobile:10px;
+
+
 #info {}
 
 #info-button {
@@ -22,9 +26,13 @@
 
 #info-box {
   border: 1px solid #dedede;
-  padding: 29px;
+  padding: $inner_padding;
   max-width: 350px;
   position: relative;
+
+  @include breakpoint(xsmall) {
+    padding: $inner_padding_mobile;
+  }
 }
 
 /* @end */

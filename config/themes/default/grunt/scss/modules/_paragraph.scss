@@ -62,6 +62,16 @@
   h1, h2, h3, h4 {
     font-size: em(52px, 18px);
     line-height: em(60px, 52px);
+
+    @include breakpoint(medium-and-down) {
+      font-size: em(36px, 18px);
+      line-height: em(30px, 36px);
+    }
+
+    @include breakpoint(small-and-down) {
+      font-size: em(36px);
+      line-height: em(30px, 36px);
+    }
   }
 
   h2 {

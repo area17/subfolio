@@ -12,7 +12,7 @@ class Filebrowser_Controller extends Website_Controller {
   }
 
   public function login() {
-    // if user is logged in, redirect refering page    
+    // if user is logged in, redirect refering page
 
     $validation = Validation::factory($_POST)
       ->pre_filter('trim', TRUE)
@@ -34,35 +34,39 @@ class Filebrowser_Controller extends Website_Controller {
         $password = $validation->password;
         if ($this->auth->login($username, $password, true)) {
           // Login successful, redirect
-          Session::instance()->set_flash('flash', SubfolioLanguage::get_text('login_complete'));		
+          Session::instance()->set_flash('flash', SubfolioLanguage::get_text('login_complete'));
           url::redirect($return_path);
           exit();
         } else {
           $login->login_failed = true;
-          Session::instance()->set_flash('error', SubfolioLanguage::get_text('login_failed'));		
+          Session::instance()->set_flash('error', SubfolioLanguage::get_text('login_failed'));
         }
       }
     } else {
       $login->login_failed = false;
     }
+
+    $this->template->page_class = "page page--login";
     $this->template->content = $login;
   }
 
   public function logout() {
     $this->auth->logout(true);
     $this->session->create();
-    Session::instance()->set_flash('flash', SubfolioLanguage::get_text('logout_complete'));		
+    Session::instance()->set_flash('flash', SubfolioLanguage::get_text('logout_complete'));
     url::redirect('/');
     exit();
   }
 
   public function denied() {
     $denied = View::factory('pages/denied');
+    $this->template->page_class = "page page--denied";
     $this->template->content = $denied;
   }
 
   public function notfound() {
     $notfound = View::factory('pages/notfound');
+    $this->template->page_class = "page page--notfound";
     $this->template->content = $notfound;
   }
 
@@ -77,7 +81,7 @@ class Filebrowser_Controller extends Website_Controller {
       if (!$this->auth->logged_in()) {
         $this->session->keep_flash();
         $this->session->set('return_path', $path);
-        url::redirect("/login"); 
+        url::redirect("/login");
         exit();
       }
     }
@@ -88,7 +92,7 @@ class Filebrowser_Controller extends Website_Controller {
         // CHECK IF I HAVE ACCESS TO path
         $file = $this->filebrowser->fullfilepath;
 
-        $cache_for = 3600 * 1;	
+        $cache_for = 3600 * 1;
         $gmt_mtime = gmdate('D, d M Y H:i:s', (time() + $cache_for)) . ' GMT';
 
         if (isset($_GET['download'])) {
@@ -113,17 +117,17 @@ class Filebrowser_Controller extends Website_Controller {
           flush();
         }
         fclose($fp);
-        exit;  
+        exit;
       } else {
         // must be a folder
         // $archive = $this->filebrowser->create_archive(true);
         // $folder = basename($this->filebrowser->get_folder());
         // $archive->download($folder.".zip");
-        url::redirect("/denied"); 
+        url::redirect("/denied");
         exit();
       }
     } else {
-      url::redirect("/denied"); 
+      url::redirect("/denied");
       exit();
     }
   }
@@ -142,7 +146,7 @@ class Filebrowser_Controller extends Website_Controller {
         if (!$this->auth->logged_in()) {
           $this->session->set('return_path', $path);
           $this->session->keep_flash();
-          url::redirect("/login"); 
+          url::redirect("/login");
           exit();
         }
       }
@@ -191,15 +195,15 @@ class Filebrowser_Controller extends Website_Controller {
             $content = View::factory('pages/filekinds/default');
             $content->file = $file;
           }
-          
+
           if ($folder <> '.') {
             $title_path = $folder."/".$file->name;
           } else {
             $title_path = $file->name;
           }
-          
+
           $this->template->page_title = FileFolder::make_title_display($title_path, $replace_dash_space, $replace_underscore_space, $display_file_extensions);
-          
+
           $this->template->content = $content;
         } else {
 
@@ -211,7 +215,7 @@ class Filebrowser_Controller extends Website_Controller {
           if ($folder <> "") {
             $this->template->page_title = $folder;
             $this->template->page_title = FileFolder::make_title_display($folder, $replace_dash_space, $replace_underscore_space, $display_file_extensions);
-          
+
           }
         }
       } else {

@@ -192,7 +192,7 @@ $top_spacing: 25px;
 
     &:hover {
       &:after {
-        background:$color-text;
+        background:$color-text-tertiary;
       }
     }
   }
@@ -275,5 +275,29 @@ $top_spacing: 25px;
         opacity:1;
       }
     }
+  }
+}
+
+body.page {
+  height:100%;
+  overflow:hidden;
+
+  #content {
+    margin:0;
+  }
+
+  .header__breadcrumb,
+  .collapseheader {
+    display:none;
+  }
+
+  .header {
+    border:0 none;
+    position:relative;
+    z-index:$z-index__form + 1;
+  }
+
+  .footer__updatedsince {
+    display:none;
   }
 }

@@ -8,5 +8,8 @@ module.exports = {
       "js",
       "images/fallback"
     ]
+  },
+  prod: {
+    src: ['dist']
   }
 };

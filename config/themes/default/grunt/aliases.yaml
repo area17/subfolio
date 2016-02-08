@@ -18,6 +18,13 @@ dev:
     - 'icons'
     - 'assets_dev'
 
+staging:
+  description: 'Compiles assets and icons with compression and deploy on staging servers.'
+  tasks:
+    - 'icons'
+    - 'before_deploy'
+    - 'sftp-deploy:staging'
+
 # Sub tasks
 icons:
   description: 'Creates icons and fallback pngs.'
@@ -33,4 +40,13 @@ assets_dev:
   tasks:
     - 'sass:dev'
     - 'uglify:dev'
+    - 'postcss:all'
+
+before_deploy:
+  description: 'Before deployement actions'
+  tasks:
+    - 'clean:staging'
+    - 'copy:staging'
+    - 'sass:staging'
+    - 'uglify:staging'
     - 'postcss:all'

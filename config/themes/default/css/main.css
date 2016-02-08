@@ -91,6 +91,12 @@ body {
   font-weight: normal;
   font-style: normal; }
 
+@font-face {
+  font-family: "Suisse";
+  src: url("../fonts/SuisseIntl-Medium-WebXL.eot");
+  src: url("../fonts/SuisseIntl-Medium-WebXL.eot?#iefix") format("embedded-opentype"), url("../fonts/SuisseIntl-Medium-WebXL.woff2") format("woff2"), url("../fonts/SuisseIntl-Medium-WebXL.woff") format("woff"), url("../fonts/SuisseIntl-Medium-WebXL.ttf") format("truetype"), url("../fonts/SuisseIntl-Medium-WebXL.svg#suisse_intlmedium") format("svg");
+  font-weight: 700; }
+
 body, h1, h2, h3, h4, h5, h6, h7, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, field, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, .standard_paragraph, .standard_paragraph b, input {
   font-family: "Suisse", Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
   font-size: 15px;
@@ -466,6 +472,14 @@ body {
 .standard_paragraph h1, .standard_paragraph h2, .standard_paragraph h3, .standard_paragraph h4 {
   font-size: 2.8888888889em;
   line-height: 1.1538461538em; }
+  @media (max-width: 799px) {
+    .standard_paragraph h1, .standard_paragraph h2, .standard_paragraph h3, .standard_paragraph h4 {
+      font-size: 2em;
+      line-height: 0.8333333333em; } }
+  @media (max-width: 639px) {
+    .standard_paragraph h1, .standard_paragraph h2, .standard_paragraph h3, .standard_paragraph h4 {
+      font-size: 2.4em;
+      line-height: 0.8333333333em; } }
 
 .standard_paragraph h2 {
   color: #808080;
@@ -777,7 +791,7 @@ ul.group {
       margin-left: -15px;
       margin-top: -3px; }
     .collapseheader a.collapseheader__link:hover:after {
-      background: #191919; }
+      background: #B1B1B1; }
 
 .breadcrumb__current {
   cursor: pointer; }
@@ -832,6 +846,21 @@ ul.group {
     color: #191919; }
     .header__active .breadcrumb__current i {
       opacity: 1; } }
+
+body.page {
+  height: 100%;
+  overflow: hidden; }
+  body.page #content {
+    margin: 0; }
+  body.page .header__breadcrumb,
+  body.page .collapseheader {
+    display: none; }
+  body.page .header {
+    border: 0 none;
+    position: relative;
+    z-index: 2; }
+  body.page .footer__updatedsince {
+    display: none; }
 
 /* FOOTER */
 .footer {
@@ -933,8 +962,9 @@ ul.group {
     margin: 0 -1px -1px 0;
     padding: 20px;
     border-width: 1px;
+    border-color: #F1F1F1;
     background: white; }
-    @media (max-width: 639px) {
+    @media (max-width: 480px) {
       .gallery ul li a {
         padding: 10px; } }
     .gallery ul li a p {
@@ -1376,7 +1406,8 @@ ul.group {
   display: table;
   vertical-align: middle;
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  overflow: hidden; }
 
 .login__error {
   animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
@@ -1397,7 +1428,16 @@ ul.group {
 /* Form header */
 .login__header * {
   color: #191919;
-  font-size: 3em; }
+  font-size: 3.4666666667em;
+  line-height: 1.1538461538em; }
+  @media (max-width: 799px) {
+    .login__header * {
+      font-size: 2.4em;
+      line-height: 0.8333333333em; } }
+  @media (max-width: 639px) {
+    .login__header * {
+      font-size: 2.4em;
+      line-height: 0.8333333333em; } }
 
 .login__header h2 {
   color: #7F7F7F; }
@@ -1407,6 +1447,10 @@ ul.group {
   vertical-align: middle;
   width: 100%;
   /* Form */ }
+  @media (max-width: 639px) {
+    .loginform__inner {
+      vertical-align: top;
+      padding-top: 20px; } }
   .loginform__inner .loginform__form {
     overflow: hidden;
     text-align: left;
@@ -1432,10 +1476,15 @@ ul.group {
     padding: 0 20px;
     font-size: 1em;
     color: inherit;
-    background-color: #E4E4E4;
+    background-color: #F1F1F1;
     border-radius: 2px;
     height: 55px;
-    line-height: 55px; }
+    line-height: 55px;
+    outline: none;
+    -webkit-appearance: none;
+    border: 1px solid #F1F1F1; }
+    .loginform form input.field:focus {
+      border-color: #D9D9D9; }
   .loginform form .checkbox {
     overflow: hidden;
     line-height: 14px; }
@@ -1470,6 +1519,18 @@ ul.group {
     .subButton input:hover {
       background-color: #191919;
       color: #FFF; }
+
+::-webkit-input-placeholder {
+  color: #B1B1B1; }
+
+:-moz-placeholder {
+  color: #B1B1B1; }
+
+::-moz-placeholder {
+  color: #B1B1B1; }
+
+:-ms-input-placeholder {
+  color: #B1B1B1; }
 
 /* @end */
 /* @group Download */
@@ -1566,9 +1627,12 @@ ul.group {
 
 #info-box {
   border: 1px solid #dedede;
-  padding: 29px;
+  padding: 20px;
   max-width: 350px;
   position: relative; }
+  @media (max-width: 480px) {
+    #info-box {
+      padding: 10px; } }
 
 /* @end */
 /* --------------------------------------------------------------

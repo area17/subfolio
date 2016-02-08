@@ -23,6 +23,7 @@
   vertical-align:middle;
   height:100%;
   width:100%;
+  overflow:hidden;
 }
 
 .login__error {
@@ -54,7 +55,19 @@
 .login__header {
   * {
     color:$color-text;
-    font-size:em(45px);
+    font-size: em(52px);
+    line-height: em(60px, 52px);
+
+    @include breakpoint(medium-and-down) {
+      font-size: em(36px);
+      line-height: em(30px, 36px);
+    }
+
+    @include breakpoint(small-and-down) {
+      font-size: em(36px);
+      line-height: em(30px, 36px);
+    }
+
   }
 
   h2 {
@@ -66,6 +79,11 @@
   display:table-cell;
   vertical-align:middle;
   width:100%;
+
+  @include breakpoint(small-and-down) {
+    vertical-align:top;
+    padding-top:20px;
+  }
 
   /* Form */
   .loginform__form {
@@ -95,10 +113,17 @@
     padding:0 20px;
     font-size:1em;
     color: inherit;
-    background-color: $color-border;
+    background-color: $color-border-light;
     border-radius: 2px;
     height:55px;
     line-height:55px;
+    outline: none;
+    -webkit-appearance:none;
+    border: 1px solid $color-border-light;
+
+    &:focus {
+      border-color: #D9D9D9;
+    }
   }
 
   /* Checkbox */
@@ -150,6 +175,19 @@
       color:$color-bg;
     }
   }
+}
+
+::-webkit-input-placeholder {
+    color: $color-text-tertiary;
+}
+:-moz-placeholder {
+    color: $color-text-tertiary;
+}
+::-moz-placeholder {
+    color: $color-text-tertiary;
+}
+:-ms-input-placeholder {
+    color: $color-text-tertiary;
 }
 
 /* @end */
