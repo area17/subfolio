@@ -81,7 +81,8 @@ $height_list: 50px;
     color:$color-text;
   }
 
-  a.list__body:hover {
+  a.list__body:hover,
+  a.list__body.list__row--focused {
     background-color:$color-hover;
   }
 
@@ -90,7 +91,8 @@ $height_list: 50px;
     cursor:default;
     color:$color-text-tertiary;
 
-    &:hover {
+    &:hover,
+    &.list__row--focused {
       background-color:$color-bg;
     }
   }

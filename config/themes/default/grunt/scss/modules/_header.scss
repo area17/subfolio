@@ -205,6 +205,7 @@ $top_spacing: 25px;
     width:46px;
     margin-left:auto;
     margin-right:auto;
+    cursor:n-resize;
 
     &:after {
       content: "";
@@ -226,6 +227,11 @@ $top_spacing: 25px;
     }
   }
 }
+
+.header__hide .collapseheader a.collapseheader__link {
+  cursor:s-resize;
+}
+
 
 .breadcrumb__current {
   cursor:pointer;

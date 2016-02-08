@@ -16,10 +16,10 @@
   #filename {
     clear: both;
     padding-top: 18px;
-    margin-bottom: 2px;
-    width: 220px;
     overflow: hidden;
     color: inherit;
+    width:100%;
+    @include ellipsis();
   }
 
   #clickable-zone {
