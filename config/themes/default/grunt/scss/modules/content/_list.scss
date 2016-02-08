@@ -116,7 +116,13 @@ $height_list: 50px;
     width:20%;
     position: relative;
     padding-right: 80px !important;
+
+    @include breakpoint(small-and-down) {
+      padding-right: 20px !important;
+    }
   }
+
+
 
   .list__cell--filename:before { /*content: '— ';*/ } /* << If you remove the icons and want to show the link s*/
   .list__cell--updated {

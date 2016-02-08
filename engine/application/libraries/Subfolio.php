@@ -185,9 +185,9 @@ class Subfolio {
 
     if ($data == "comment") {
       if (Subfolio::$filebrowser->file <> '') {
-        return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'comment') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'comment') : '–';
+        return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'comment') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'comment') : '—';
       } else {
-        return Subfolio::$filebrowser->get_folder_property('comment') ? Subfolio::$filebrowser->get_folder_property('comment') : '–';
+        return Subfolio::$filebrowser->get_folder_property('comment') ? Subfolio::$filebrowser->get_folder_property('comment') : '—';
       }
     }
 

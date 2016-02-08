@@ -1279,6 +1279,11 @@ body.page {
     width: 20%;
     position: relative;
     padding-right: 80px !important; }
+    @media (max-width: 639px) {
+      .list--list .list__cell--filename,
+      .list--column .list__cell--filename,
+      .list--masonry .list__cell--filename {
+        padding-right: 20px !important; } }
   .list--list .list__cell--filename:before,
   .list--column .list__cell--filename:before,
   .list--masonry .list__cell--filename:before {
@@ -1637,7 +1642,8 @@ body.page {
   overflow: hidden;
   border-top-width: 1px;
   margin-top: 35px;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  border-color: #F1F1F1; }
 
 #download_box dt {
   float: left;
@@ -1657,7 +1663,8 @@ body.page {
   padding: 15px 0 10px 0;
   border-top-width: 1px;
   margin-bottom: 35px;
-  margin-top: -15px; }
+  margin-top: -15px;
+  border-color: #F1F1F1; }
 
 #download_box #instructions a {
   text-decoration: underline; }
