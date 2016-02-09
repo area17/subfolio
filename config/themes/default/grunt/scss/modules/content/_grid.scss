@@ -39,7 +39,8 @@
     display:block;
   }
 
-  a.list__row:hover {
+  a.list__row:hover,
+  a.list__row.focusable--focused {
     background-color:$color-hover;
   }
 
