@@ -64,7 +64,7 @@ $top_spacing: 25px;
   transition: 0.3s cubic-bezier(0.6, 0.69, 0.14, 1) max-height;
 }
 
-.header__hide {
+.page--browser.header__hide {
   .header__logo {
     max-height:0 !important;
   }

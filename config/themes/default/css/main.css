@@ -732,7 +732,7 @@ ul.group {
   max-height: 83px;
   transition: 0.3s cubic-bezier(0.6, 0.69, 0.14, 1) max-height; }
 
-.header__hide .header__logo {
+.page--browser.header__hide .header__logo {
   max-height: 0 !important; }
 
 /* header__breadcrumb, FOOTER: Common */
@@ -1552,9 +1552,17 @@ body.page {
   .loginform__inner .loginform__form {
     overflow: hidden;
     text-align: left;
-    width: 360px;
+    max-width: 420px;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    margin-top: -100px;
+    padding-left: 30px;
+    padding-right: 30px; }
+    @media (max-width: 639px) {
+      .loginform__inner .loginform__form {
+        margin-top: 0;
+        padding-left: 20px;
+        padding-right: 20px; } }
 
 /* Form feedback */
 .loginform .login_feedback {
@@ -1657,6 +1665,10 @@ body.page {
 
 .search__active .search {
   display: block; }
+
+.page .search,
+.page.search__active .search {
+  display: none; }
 
 /* @group Download */
 #download_box {

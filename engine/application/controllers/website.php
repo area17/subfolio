@@ -23,6 +23,6 @@ class Website_Controller extends Template_Controller {
 
  		$this->template->site_title = Kohana::config('filebrowser.site_name');
  		$this->template->page_title = "";
-    $this->template->page_class = "";
+    $this->template->page_class = "page--browser";
  	}
 }

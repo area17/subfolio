@@ -29,3 +29,10 @@
     display:block;
   }
 }
+
+.page,
+.page.search__active {
+  .search {
+    display:none;
+  }
+}

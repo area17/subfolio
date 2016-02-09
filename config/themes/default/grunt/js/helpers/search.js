@@ -23,7 +23,7 @@ A17.Helpers.search = function(event) {
 
   function _show_search() {
     $body.addClass(klass_active);
-    $search_input.focus();
+    if($search.is(':visible')) $search_input.focus();
   }
 
   function _hide_search() {
