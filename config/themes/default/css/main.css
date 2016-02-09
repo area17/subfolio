@@ -1195,8 +1195,7 @@ body.page {
   position: relative;
   display: table;
   border-bottom-width: 1px;
-  border-bottom-color: #F1F1F1;
-  /* << If you remove the icons and want to show the link s*/ }
+  border-bottom-color: #F1F1F1; }
   .list--list .list__row,
   .list--column .list__row,
   .list--masonry .list__row {
@@ -1312,6 +1311,7 @@ body.page {
   .list--list .list__cell--filename,
   .list--column .list__cell--filename,
   .list--masonry .list__cell--filename {
+    width: 20%;
     padding-left: 5px; }
   .list--list .list__cell--filenameicon,
   .list--list .list__cell--filenametext,
@@ -1320,7 +1320,6 @@ body.page {
   .list--masonry .list__cell--filenameicon,
   .list--masonry .list__cell--filenametext {
     display: inline-block;
-    position: relative;
     vertical-align: middle; }
   .list--list .list__cell--filenameicon,
   .list--column .list__cell--filenameicon,
@@ -1333,24 +1332,10 @@ body.page {
   .list--list .list__cell--filenametext,
   .list--column .list__cell--filenametext,
   .list--masonry .list__cell--filenametext {
+    padding-right: 40px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; }
-  .list--list .list__cell--filename,
-  .list--column .list__cell--filename,
-  .list--masonry .list__cell--filename {
-    width: 20%;
-    position: relative;
-    padding-right: 80px !important; }
-    @media (max-width: 639px) {
-      .list--list .list__cell--filename,
-      .list--column .list__cell--filename,
-      .list--masonry .list__cell--filename {
-        padding-right: 20px !important; } }
-  .list--list .list__cell--filename:before,
-  .list--column .list__cell--filename:before,
-  .list--masonry .list__cell--filename:before {
-    /*content: '— ';*/ }
   .list--list .list__cell--updated,
   .list--column .list__cell--updated,
   .list--masonry .list__cell--updated {
@@ -1404,29 +1389,45 @@ body.page {
     .list--masonry .list__cell--kind {
       width: auto; } }
   @media (max-width: 639px) {
-    .list--list .list__cell--size,
-    .list--list .list__cell--updated,
-    .list--list .list__cell--date,
-    .list--list .list__header .list__cell--size,
-    .list--list .list__header .list__cell--updated,
-    .list--list .list__header .list__cell--date,
-    .list--column .list__cell--size,
-    .list--column .list__cell--updated,
-    .list--column .list__cell--date,
-    .list--column .list__header .list__cell--size,
-    .list--column .list__header .list__cell--updated,
-    .list--column .list__header .list__cell--date,
-    .list--masonry .list__cell--size,
-    .list--masonry .list__cell--updated,
-    .list--masonry .list__cell--date,
-    .list--masonry .list__header .list__cell--size,
-    .list--masonry .list__header .list__cell--updated,
-    .list--masonry .list__header .list__cell--date {
-      display: none; }
-    .list--list .list__cell--filename,
-    .list--column .list__cell--filename,
-    .list--masonry .list__cell--filename {
-      width: 100%; } }
+    .list--list,
+    .list--column,
+    .list--masonry {
+      display: block; }
+      .list--list .list__cell--size,
+      .list--list .list__cell--updated,
+      .list--list .list__cell--date,
+      .list--list .list__header .list__cell--size,
+      .list--list .list__header .list__cell--updated,
+      .list--list .list__header .list__cell--date,
+      .list--column .list__cell--size,
+      .list--column .list__cell--updated,
+      .list--column .list__cell--date,
+      .list--column .list__header .list__cell--size,
+      .list--column .list__header .list__cell--updated,
+      .list--column .list__header .list__cell--date,
+      .list--masonry .list__cell--size,
+      .list--masonry .list__cell--updated,
+      .list--masonry .list__cell--date,
+      .list--masonry .list__header .list__cell--size,
+      .list--masonry .list__header .list__cell--updated,
+      .list--masonry .list__header .list__cell--date {
+        display: none; }
+      .list--list .list__cell--filename,
+      .list--column .list__cell--filename,
+      .list--masonry .list__cell--filename {
+        width: 100%; }
+      .list--list .list__row,
+      .list--list .list__cell--filename,
+      .list--column .list__row,
+      .list--column .list__cell--filename,
+      .list--masonry .list__row,
+      .list--masonry .list__cell--filename {
+        display: block; }
+      .list--list .list__cell--filenametext,
+      .list--column .list__cell--filenametext,
+      .list--masonry .list__cell--filenametext {
+        width: calc(100% - 85px);
+        padding-right: 0; } }
 
 /* --------------------------------------------------------------
    MODULES: CONTENT / LISTING ICONS

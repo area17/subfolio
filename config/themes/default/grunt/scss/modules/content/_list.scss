@@ -117,13 +117,13 @@ $height_list: 50px;
   }
 
   .list__cell--filename {
+    width:20%;
     padding-left:5px;
   }
 
   .list__cell--filenameicon,
   .list__cell--filenametext {
     display:inline-block;
-    position: relative;
     vertical-align: middle;
   }
   .list__cell--filenameicon {
@@ -134,21 +134,10 @@ $height_list: 50px;
     }
   }
   .list__cell--filenametext {
+    padding-right: 40px;
     @include ellipsis;
   }
-  .list__cell--filename {
-    width:20%;
-    position: relative;
-    padding-right: 80px !important;
 
-    @include breakpoint(small-and-down) {
-      padding-right: 20px !important;
-    }
-  }
-
-
-
-  .list__cell--filename:before { /*content: '— ';*/ } /* << If you remove the icons and want to show the link s*/
   .list__cell--updated {
     width:8px;
     height:8px;
@@ -158,7 +147,6 @@ $height_list: 50px;
   .list__cell--kind,
   .list__cell--comment {
     min-width: 90px;
-
   }
 
   .list__cell--size,
@@ -183,6 +171,8 @@ $height_list: 50px;
   }
 
   @include breakpoint(small-and-down) {
+    display:block;
+
     .list__cell--size,
     .list__cell--updated,
     .list__cell--date,
@@ -194,6 +184,16 @@ $height_list: 50px;
 
     .list__cell--filename {
       width:100%;
+    }
+
+    .list__row,
+    .list__cell--filename {
+      display:block;
+    }
+
+    .list__cell--filenametext {
+      width: calc(100% - 85px);
+      padding-right: 0;
     }
   }
 }
