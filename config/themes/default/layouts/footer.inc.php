@@ -22,4 +22,9 @@
   <?php } ?>
 </footer>
 
-
+<!-- Display only if search is activated for this account -->
+<div class="search" data-search>
+  <input type="text" data-search-input />
+  <ul></ul>
+  <a href="#" class="close"></a>
+</div>

@@ -4730,6 +4730,13 @@ A17.Behaviors.additional_content = function($script) {
     $(document).on("media_query_updated", _mediaQueryHandler);
 };
 
+A17.Behaviors.hover_list = function($list) {
+    var klass_focused = "list__row--focused";
+    $list.find(".list__body").hover(function() {
+        $("." + klass_focused, $list).removeClass(klass_focused);
+    });
+};
+
 /* Masonry style
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 A17.Behaviors.masonry = function($grid) {
@@ -4890,11 +4897,7 @@ A17.Helpers.keyPress = function() {
             if ($previous.length) {
                 if (!e.altKey) {
                     var previous_url = $previous.attr("href");
-                    if (previous_url) {
-                        $previous.addClass("hover").fadeTo(250, 1, function() {
-                            window.location = previous_url;
-                        });
-                    }
+                    if (previous_url) _triggerHover($previous, previous_url);
                 }
             }
             break;
@@ -4909,17 +4912,7 @@ A17.Helpers.keyPress = function() {
           // user pressed "up" arrow
             case 38:
             if (!e.altKey) {
-                if ($list.length) {
-                    if ($("." + klass_focused).length) {
-                        var $focused_one = $("." + klass_focused);
-                        var $prev_one = $focused_one.prev("." + klass_row);
-                        if ($prev_one.length) $prev_one.addClass(klass_focused);
-                        $focused_one.removeClass(klass_focused);
-                        e.preventDefault();
-                    } else {
-                        $("." + klass_row, $list.first()).last().addClass(klass_focused);
-                    }
-                }
+                if ($list.length) _setFocused("prev", e);
             }
             break;
 
@@ -4932,11 +4925,7 @@ A17.Helpers.keyPress = function() {
                 if ($next.length) {
                     if (!e.altKey) {
                         var next_url = $next.attr("href");
-                        if (next_url) {
-                            $next.addClass("hover").fadeTo(250, 1, function() {
-                                window.location = next_url;
-                            });
-                        }
+                        if (next_url) _triggerHover($next, next_url);
                     }
                 }
             }
@@ -4945,21 +4934,33 @@ A17.Helpers.keyPress = function() {
           // user pressed "down" arrow
             case 40:
             if (!e.altKey) {
-                if ($list.length) {
-                    if ($("." + klass_focused).length) {
-                        var $focused_one = $("." + klass_focused);
-                        var $next_one = $focused_one.next("." + klass_row);
-                        if ($next_one.length) $next_one.addClass(klass_focused);
-                        $focused_one.removeClass(klass_focused);
-                        e.preventDefault();
-                    } else {
-                        $("." + klass_row, $list.first()).first().addClass(klass_focused);
-                    }
-                }
+                if ($list.length) _setFocused("next", e);
             }
             break;
+
+          default:
+            // launch search!
+            A17.Helpers.search(e);
         }
     });
+    // Prev / next arrow
+    function _triggerHover($el, next_url) {
+        $el.addClass("hover").fadeTo(250, 1, function() {
+            window.location = next_url;
+        });
+    }
+    // Set focus state on the list items when using up and down keys
+    function _setFocused(dir, e) {
+        if ($("." + klass_focused).length) {
+            var $focused_one = $("." + klass_focused);
+            if (dir === "next") var $next_one = $focused_one.next("." + klass_row); else var $next_one = $focused_one.prev("." + klass_row);
+            if ($next_one.length) $next_one.addClass(klass_focused);
+            $focused_one.removeClass(klass_focused);
+            e.preventDefault();
+        } else {
+            if (dir === "next") $("." + klass_row, $list.first()).first().addClass(klass_focused); else $("." + klass_row, $list.first()).last().addClass(klass_focused);
+        }
+    }
 };
 
 A17.Helpers.matches = function(el, selector) {
@@ -5004,7 +5005,31 @@ A17.Helpers.resized = function() {
 
 /* Register keypress events on the whole document when search can be triggered
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
-A17.Helpers.search = function() {};
+A17.Helpers.search = function(event) {
+    var $search = $("[data-search]");
+    if ($search.length === 0) return false;
+    var $body = $("body");
+    var $search_input = $("[data-search-input]");
+    var klass_active = "search__active";
+    if (event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode >= 96 && event.keyCode <= 105) {
+        if (!is_active()) _show_search();
+    } else {
+        if (27 == event.keyCode) {
+            if (is_active()) _hide_search();
+        }
+    }
+    function is_active() {
+        return $body.hasClass(klass_active);
+    }
+    function _show_search() {
+        $body.addClass(klass_active);
+        $search_input.focus();
+    }
+    function _hide_search() {
+        $body.removeClass(klass_active);
+        $search_input.val("");
+    }
+};
 
 A17.Helpers.trigger_event = function(type, data, context) {
     var event = document.createEvent("HTMLEvents");

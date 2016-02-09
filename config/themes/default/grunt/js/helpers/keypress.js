@@ -16,11 +16,7 @@ A17.Helpers.keyPress = function() {
         if ($previous.length) {
           if (!e.altKey) {
             var previous_url = $previous.attr("href");
-            if (previous_url) {
-              $previous.addClass('hover').fadeTo(250, 1, function() {
-                window.location = previous_url;
-              });
-            }
+            if(previous_url) _triggerHover($previous, previous_url);
           }
         }
       break;
@@ -32,20 +28,7 @@ A17.Helpers.keyPress = function() {
       case 38:
 
         if(!e.altKey) {
-          if($list.length) {
-            if($('.' + klass_focused).length) {
-              var $focused_one = $('.' + klass_focused);
-              var $prev_one = $focused_one.prev("." + klass_row);
-
-              if($prev_one.length)  $prev_one.addClass(klass_focused);
-              $focused_one.removeClass(klass_focused);
-
-              e.preventDefault();
-
-            } else {
-              $("." + klass_row, $list.first()).last().addClass(klass_focused);
-            }
-          }
+          if($list.length) _setFocused("prev", e);
         }
       break;
       // user pressed "right" arrow
@@ -58,11 +41,7 @@ A17.Helpers.keyPress = function() {
           if ($next.length) {
             if (!e.altKey) {
               var next_url = $next.attr("href");
-              if (next_url) {
-                $next.addClass('hover').fadeTo(250, 1, function() {
-                  window.location = next_url;
-                });
-              }
+              if(next_url) _triggerHover($next, next_url);
             }
           }
         }
@@ -73,22 +52,36 @@ A17.Helpers.keyPress = function() {
       case 40:
 
         if(!e.altKey) {
-          if($list.length) {
-            if($('.' + klass_focused).length) {
-              var $focused_one = $('.' + klass_focused);
-              var $next_one = $focused_one.next("." + klass_row);
-
-              if($next_one.length) $next_one.addClass(klass_focused);
-              $focused_one.removeClass(klass_focused);
-
-              e.preventDefault();
-
-            } else {
-              $("." + klass_row, $list.first()).first().addClass(klass_focused);
-            }
-          }
+          if($list.length) _setFocused("next", e);
         }
       break;
+      default:
+        // launch search!
+        A17.Helpers.search(e);
     }
   });
+
+  // Prev / next arrow
+  function _triggerHover($el, next_url) {
+    $el.addClass('hover').fadeTo(250, 1, function() {
+      window.location = next_url;
+    });
+  }
+
+  // Set focus state on the list items when using up and down keys
+  function _setFocused(dir, e) {
+    if($('.' + klass_focused).length) {
+      var $focused_one = $('.' + klass_focused);
+      if(dir === "next") var $next_one = $focused_one.next("." + klass_row);
+      else var $next_one = $focused_one.prev("." + klass_row);
+
+      if($next_one.length) $next_one.addClass(klass_focused);
+      $focused_one.removeClass(klass_focused);
+
+      e.preventDefault();
+    } else {
+      if(dir === "next") $("." + klass_row, $list.first()).first().addClass(klass_focused);
+      else $("." + klass_row, $list.first()).last().addClass(klass_focused);
+    }
+  }
 }

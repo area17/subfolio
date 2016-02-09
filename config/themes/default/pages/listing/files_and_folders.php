@@ -2,7 +2,7 @@
 
   <div id="listing">
 
-    <div class="list list--<?php echo SubfolioTheme::get_listing_mode() ?>">
+    <div class="list list--<?php echo SubfolioTheme::get_listing_mode() ?>" data-behavior="hover_list">
 
       <?php if (SubfolioTheme::get_option('display_file_listing_header') && SubfolioTheme::get_listing_mode()=='list') { ?>
         <div class="list__row list__header">

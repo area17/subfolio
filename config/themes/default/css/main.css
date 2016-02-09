@@ -1613,7 +1613,8 @@ body.page {
     height: 53px;
     line-height: 53px;
     border-width: 1px;
-    border-color: #191919; }
+    border-color: #191919;
+    -webkit-appearance: none; }
     .subButton input:hover {
       background-color: #191919;
       color: #FFF; }
@@ -1631,6 +1632,31 @@ body.page {
   color: #B1B1B1; }
 
 /* @end */
+.search {
+  position: fixed;
+  background: #FFF;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 100px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  display: none; }
+  .search input {
+    display: block;
+    width: 100%;
+    margin: 0 0 50px;
+    border: 0 none;
+    background: transparent;
+    color: #191919;
+    font: 48px/1 "Suisse", Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
+    -webkit-appearance: none;
+    outline: none; }
+
+.search__active .search {
+  display: block; }
+
 /* @group Download */
 #download_box {
   max-width: 350px;
