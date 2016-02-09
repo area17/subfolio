@@ -23,8 +23,9 @@
 </footer>
 
 <!-- Display only if search is activated for this account -->
+<?php if (SubfolioUser::is_logged_in()) { ?>
 <div class="search" data-search>
-  <input type="text" data-search-input />
-  <ul></ul>
-  <a href="#" class="close"></a>
+  <input type="text" name="query" data-search-input />
+  <a href="#" class="icon icon__close"></a>
 </div>
+<?php } ?>

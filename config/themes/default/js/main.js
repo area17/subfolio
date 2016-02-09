@@ -4732,9 +4732,6 @@ A17.Behaviors.additional_content = function($script) {
 
 A17.Behaviors.hover_list = function($list) {
     var klass_focused = "list__row--focused";
-    $list.find(".list__body").hover(function() {
-        $("." + klass_focused, $list).removeClass(klass_focused);
-    });
 };
 
 /* Masonry style
@@ -4888,65 +4885,77 @@ A17.Helpers.keycodes = {
     backspace: 8
 };
 
-/* Register keypress events on the whole document when navigation exists
+/* Register keypress events on the whole document when navigation/search exists
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 A17.Helpers.keyPress = function() {
+    var $body = $("body");
     var $previous = $("#previous");
     var $next = $("#next");
-    var klass_focused = "list__row--focused";
-    var klass_row = "list__body";
-    var $list = $(".list--list");
+    // focused listing
+    var klass_focused = "focusable--focused";
+    var focusable_row = "focusable";
+    var $list = $("." + focusable_row);
+    var focused_index = -1;
+    var last_focusable = $list.length - 1;
+    // search
+    var $search = $("[data-search]");
+    var $search_input = $("[data-search-input]");
+    var klass_search_active = "search__active";
+    var is_search_active = false;
     $(document).on("keydown", function(e) {
-        switch (e.keyCode) {
-          // user pressed "left" arrow
-            case 37:
-            if ($previous.length) {
-                if (!e.altKey) {
+        // no alt, ctrl or cmd keys pressed
+        if (!e.altKey && !e.ctrlKey && !e.metaKey) {
+            switch (e.keyCode) {
+              // user pressed "left" arrow
+                case 37:
+                if ($previous.length) {
                     var previous_url = $previous.attr("href");
                     if (previous_url) _triggerHover($previous, previous_url);
                 }
-            }
-            break;
+                break;
 
-          // user pressed "top" arrow
-            case 84:
-            $("html,body").animate({
-                scrollTop: 0
-            }, 250);
-            break;
+              // user pressed "top" arrow
+                case 84:
+                $("html,body").animate({
+                    scrollTop: 0
+                }, 250);
+                break;
 
-          // user pressed "up" arrow
-            case 38:
-            if (!e.altKey) {
+              // user pressed "up" arrow
+                case 38:
                 if ($list.length) _setFocused("prev", e);
-            }
-            break;
+                break;
 
-          // user pressed "right" arrow
-            case 39:
-            if ($("." + klass_focused).length) {
-                var next_url = $("." + klass_focused).attr("href");
-                if (next_url) window.location = next_url;
-            } else {
-                if ($next.length) {
-                    if (!e.altKey) {
+              // user pressed "right" arrow
+                case 39:
+                if ($("." + klass_focused).length) {
+                    var next_url = $("." + klass_focused).attr("href");
+                    if (next_url) window.location = next_url;
+                } else {
+                    if ($next.length) {
                         var next_url = $next.attr("href");
                         if (next_url) _triggerHover($next, next_url);
                     }
                 }
-            }
-            break;
+                break;
 
-          // user pressed "down" arrow
-            case 40:
-            if (!e.altKey) {
+              // user pressed "down" arrow
+                case 40:
                 if ($list.length) _setFocused("next", e);
-            }
-            break;
+                break;
 
-          default:
-            // launch search!
-            A17.Helpers.search(e);
+              default:
+                // launch search!
+                if ($search.length) {
+                    if (e.keyCode >= 65 && e.keyCode <= 90 || e.keyCode >= 48 && e.keyCode <= 57 || e.keyCode >= 96 && e.keyCode <= 105) {
+                        if (!is_search_active) _show_search();
+                    } else {
+                        if (27 == e.keyCode) {
+                            if (is_search_active) _hide_search();
+                        }
+                    }
+                }
+            }
         }
     });
     // Prev / next arrow
@@ -4957,15 +4966,30 @@ A17.Helpers.keyPress = function() {
     }
     // Set focus state on the list items when using up and down keys
     function _setFocused(dir, e) {
-        if ($("." + klass_focused).length) {
-            var $focused_one = $("." + klass_focused);
-            if (dir === "next") var $next_one = $focused_one.next("." + klass_row); else var $next_one = $focused_one.prev("." + klass_row);
+        if ($list.filter("." + klass_focused).length) {
+            if (dir === "next") focused_index = Math.min($list.length, focused_index + 1); else {
+                focused_index--;
+                if (focused_index < 0) focused_index = $list.length;
+            }
+            $list.removeClass(klass_focused);
+            var $next_one = $list.eq(focused_index);
             if ($next_one.length) $next_one.addClass(klass_focused);
-            $focused_one.removeClass(klass_focused);
             e.preventDefault();
         } else {
-            if (dir === "next") $("." + klass_row, $list.first()).first().addClass(klass_focused); else $("." + klass_row, $list.first()).last().addClass(klass_focused);
+            if (dir === "next") focused_index = 0; else focused_index = last_focusable;
+            $list.eq(focused_index).addClass(klass_focused);
         }
+    }
+    // search engine
+    function _show_search() {
+        $body.addClass(klass_search_active);
+        if ($search.is(":visible")) $search_input.focus();
+        is_search_active = true;
+    }
+    function _hide_search() {
+        $body.removeClass(klass_search_active);
+        $search_input.val("");
+        is_search_active = false;
     }
 };
 
@@ -5006,34 +5030,6 @@ A17.Helpers.resized = function() {
         A17.media_query_in_use = A17.Helpers.get_media_query_in_use();
         // update the image sizes
         $(document).trigger("media_query_updated");
-    }
-};
-
-/* Register keypress events on the whole document when search can be triggered
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
-A17.Helpers.search = function(event) {
-    var $search = $("[data-search]");
-    if ($search.length === 0) return false;
-    var $body = $("body");
-    var $search_input = $("[data-search-input]");
-    var klass_active = "search__active";
-    if (event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode >= 96 && event.keyCode <= 105) {
-        if (!is_active()) _show_search();
-    } else {
-        if (27 == event.keyCode) {
-            if (is_active()) _hide_search();
-        }
-    }
-    function is_active() {
-        return $body.hasClass(klass_active);
-    }
-    function _show_search() {
-        $body.addClass(klass_active);
-        if ($search.is(":visible")) $search_input.focus();
-    }
-    function _hide_search() {
-        $body.removeClass(klass_active);
-        $search_input.val("");
     }
 };
 

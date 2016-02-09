@@ -158,7 +158,7 @@ class Subfolio {
     if ($data == "lastmodified") {
       if (Subfolio::$filebrowser->file <> '') {
         if (isset(Subfolio::$template->content->file->stats['mtime'])) {
-          return format::filedate(Subfolio::$template->content->file->stats['mtime'], "M d, Y – H:i:s");
+          return format::filedate(Subfolio::$template->content->file->stats['mtime'], "M d, Y – H:i");
         } else {
           return "–";
         }

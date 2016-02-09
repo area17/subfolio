@@ -8,7 +8,7 @@
   <?php } ?>
       <?php foreach ( SubfolioFiles::gallery_images() as $image) : ?>
         <li>
-          <a href="<?php echo $image['link']; ?>">
+          <a href="<?php echo $image['link']; ?>"  class="focusable">
             <div class="<?php echo $image['class'] ?>" style="<?php if(SubfolioTheme::get_listing_mode()!='masonry') { ?>max-height:<?php echo $image['container_height']."px"; ?><?php } ?>" >
               <div class="gallery__inner">
               <img width="<?php echo $image['width'] ?>" height="<?php echo $image['height'] ?>" src="<?php echo $image['url'] ?>" <?php if(SubfolioTheme::get_listing_mode()!='masonry') { ?>style="max-height:<?php echo $image['container_height']."px"; ?>"<?php } ?> />

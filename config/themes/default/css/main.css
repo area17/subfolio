@@ -146,6 +146,15 @@ a.icon {
     background-image: url("images/fallback/arrow_right.png"); }
 
 
+.icon__close {
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px; }
+  .no-svg
+  .icon__close {
+    background-image: url("images/fallback/close.png"); }
+
+
 .icon__dropdown_arrow {
   background-repeat: no-repeat;
   width: 7px;
@@ -955,8 +964,10 @@ body.page {
       color: #191919; }
   .footer .footer__updatedsince {
     float: right;
-    color: #B1B1B1; }
-    .footer .footer__updatedsince a, .footer .footer__updatedsince span:first-child {
+    color: #CCC; }
+    .footer .footer__updatedsince a,
+    .footer .footer__updatedsince span:first-child,
+    .footer .footer__updatedsince .updatedsince__sep {
       color: #999999; }
     .footer .footer__updatedsince a:hover {
       color: #191919; }
@@ -1020,76 +1031,76 @@ body.page {
   display: inline-block;
   position: relative; }
 
-.gallery ul {
-  list-style: none;
-  padding: 0 1px 1px 0;
-  overflow: hidden;
-  margin: 0 auto; }
-
-.gallery li {
-  float: left; }
-  @media (max-width: 480px) {
-    .gallery li {
-      width: 50%; } }
-  .gallery li a {
-    display: block;
-    margin: 0 -1px -1px 0;
-    padding: 20px;
-    border-width: 1px;
-    border-color: #F1F1F1;
-    background: white; }
-    @media (max-width: 480px) {
-      .gallery li a {
-        padding: 10px; } }
-    .gallery li a p {
-      color: inherit; }
-    .gallery li a div.gallery_thumbnail {
-      min-height: 240px;
-      display: table;
-      background-color: white;
-      width: 100%; }
-    .gallery li a div.gallery__inner {
-      display: table-cell;
-      vertical-align: middle; }
-    .gallery li a div.custom {
-      height: auto; }
-    .gallery li a img {
-      border: none;
-      overflow: hidden;
-      display: block;
-      max-width: 100%;
-      height: auto;
-      margin-left: auto;
-      margin-right: auto; }
-  .gallery li a:hover {
-    background-color: #F6F6F6; }
-  .gallery li a p {
-    text-align: center;
-    margin: 0;
-    padding: 10px 0 0;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis; }
-    @media (max-width: 639px) {
-      .gallery li a p {
-        padding-bottom: 5px; } }
-
-.gallery--column {
+.gallery {
   display: block; }
-  .gallery--column li {
-    width: 16.6666667%; }
-    @media (min-width: 1281px) {
-      .gallery--column li {
-        width: 20%; } }
-    @media (max-width: 1280px) and (min-width: 800px) {
-      .gallery--column li {
-        width: 25%; } }
-    @media (max-width: 799px) and (min-width: 640px) {
-      .gallery--column li {
-        width: 33.333%; } }
-    @media (max-width: 639px) {
-      .gallery--column li {
+  .gallery ul {
+    list-style: none;
+    padding: 0 1px 1px 0;
+    overflow: hidden;
+    margin: 0 auto; }
+  .gallery li {
+    float: left; }
+    @media (max-width: 480px) {
+      .gallery li {
         width: 50%; } }
+    .gallery li a {
+      display: block;
+      margin: 0 -1px -1px 0;
+      padding: 20px;
+      border-width: 1px;
+      border-color: #F1F1F1;
+      background: white; }
+      @media (max-width: 480px) {
+        .gallery li a {
+          padding: 10px; } }
+      .gallery li a p {
+        color: inherit; }
+      .gallery li a div.gallery_thumbnail {
+        min-height: 240px;
+        display: table;
+        background-color: white;
+        width: 100%; }
+      .gallery li a div.gallery__inner {
+        display: table-cell;
+        vertical-align: middle; }
+      .gallery li a div.custom {
+        height: auto; }
+      .gallery li a img {
+        border: none;
+        overflow: hidden;
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto; }
+    .gallery li a:hover,
+    .gallery li a.focusable--focused {
+      background-color: #F6F6F6; }
+    .gallery li a p {
+      text-align: center;
+      margin: 0;
+      padding: 10px 0 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+      @media (max-width: 639px) {
+        .gallery li a p {
+          padding-bottom: 5px; } }
+
+.gallery--column li {
+  width: 16.6666667%; }
+  @media (min-width: 1281px) {
+    .gallery--column li {
+      width: 20%; } }
+  @media (max-width: 1280px) and (min-width: 800px) {
+    .gallery--column li {
+      width: 25%; } }
+  @media (max-width: 799px) and (min-width: 640px) {
+    .gallery--column li {
+      width: 33.333%; } }
+  @media (max-width: 639px) {
+    .gallery--column li {
+      width: 50%; } }
 
 .gallery--masonry {
   display: block;
@@ -1254,19 +1265,12 @@ body.page {
   .list--masonry a .list__cell--filename {
     color: #191919; }
   .list--list a.list__body:hover,
-  .list--list a.list__body.list__row--focused,
+  .list--list a.list__body.focusable--focused,
   .list--column a.list__body:hover,
-  .list--column a.list__body.list__row--focused,
+  .list--column a.list__body.focusable--focused,
   .list--masonry a.list__body:hover,
-  .list--masonry a.list__body.list__row--focused {
+  .list--masonry a.list__body.focusable--focused {
     background-color: #F6F6F6; }
-    .list--list a.list__body:hover .list__cell--filename,
-    .list--list a.list__body.list__row--focused .list__cell--filename,
-    .list--column a.list__body:hover .list__cell--filename,
-    .list--column a.list__body.list__row--focused .list__cell--filename,
-    .list--masonry a.list__body:hover .list__cell--filename,
-    .list--masonry a.list__body.list__row--focused .list__cell--filename {
-      color: #999999; }
   .list--list a.list__row--empty,
   .list--list a.list__row--empty *,
   .list--column a.list__row--empty,
@@ -1275,30 +1279,18 @@ body.page {
   .list--masonry a.list__row--empty * {
     cursor: default;
     color: #CCC; }
-    .list--list a.list__row--empty:hover, .list--list a.list__row--empty.list__row--focused,
+    .list--list a.list__row--empty:hover, .list--list a.list__row--empty.focusable--focused,
     .list--list a.list__row--empty *:hover,
-    .list--list a.list__row--empty *.list__row--focused,
+    .list--list a.list__row--empty *.focusable--focused,
     .list--column a.list__row--empty:hover,
-    .list--column a.list__row--empty.list__row--focused,
+    .list--column a.list__row--empty.focusable--focused,
     .list--column a.list__row--empty *:hover,
-    .list--column a.list__row--empty *.list__row--focused,
+    .list--column a.list__row--empty *.focusable--focused,
     .list--masonry a.list__row--empty:hover,
-    .list--masonry a.list__row--empty.list__row--focused,
+    .list--masonry a.list__row--empty.focusable--focused,
     .list--masonry a.list__row--empty *:hover,
-    .list--masonry a.list__row--empty *.list__row--focused {
+    .list--masonry a.list__row--empty *.focusable--focused {
       background-color: #FFF; }
-      .list--list a.list__row--empty:hover .list__cell--filename, .list--list a.list__row--empty.list__row--focused .list__cell--filename,
-      .list--list a.list__row--empty *:hover .list__cell--filename,
-      .list--list a.list__row--empty *.list__row--focused .list__cell--filename,
-      .list--column a.list__row--empty:hover .list__cell--filename,
-      .list--column a.list__row--empty.list__row--focused .list__cell--filename,
-      .list--column a.list__row--empty *:hover .list__cell--filename,
-      .list--column a.list__row--empty *.list__row--focused .list__cell--filename,
-      .list--masonry a.list__row--empty:hover .list__cell--filename,
-      .list--masonry a.list__row--empty.list__row--focused .list__cell--filename,
-      .list--masonry a.list__row--empty *:hover .list__cell--filename,
-      .list--masonry a.list__row--empty *.list__row--focused .list__cell--filename {
-        color: #CCC; }
   .list--list span.caps,
   .list--column span.caps,
   .list--masonry span.caps {
@@ -1311,8 +1303,7 @@ body.page {
   .list--list .list__cell--filename,
   .list--column .list__cell--filename,
   .list--masonry .list__cell--filename {
-    width: 20%;
-    padding-left: 5px; }
+    width: 20%; }
   .list--list .list__cell--filenameicon,
   .list--list .list__cell--filenametext,
   .list--column .list__cell--filenameicon,
@@ -1324,6 +1315,7 @@ body.page {
   .list--list .list__cell--filenameicon,
   .list--column .list__cell--filenameicon,
   .list--masonry .list__cell--filenameicon {
+    padding-left: 10px;
     padding-right: 15px; }
     .list--list .list__cell--filenameicon img,
     .list--column .list__cell--filenameicon img,
@@ -1423,6 +1415,10 @@ body.page {
       .list--masonry .list__row,
       .list--masonry .list__cell--filename {
         display: block; }
+      .list--list .list__cell--filenameicon,
+      .list--column .list__cell--filenameicon,
+      .list--masonry .list__cell--filenameicon {
+        padding-left: 0; }
       .list--list .list__cell--filenametext,
       .list--column .list__cell--filenametext,
       .list--masonry .list__cell--filenametext {
@@ -1439,7 +1435,7 @@ body.page {
 .list--list .updated,
 .list--column .updated,
 .list--masonry .updated {
-  background: #B1B1B1;
+  background: #D8D8D8;
   border-radius: 50%;
   display: block;
   width: 8px;
@@ -1715,6 +1711,14 @@ body.page {
     font: 48px/1 "Suisse", Arial, "Helvetica Neue", Helvetica, Geneva, sans-serif;
     -webkit-appearance: none;
     outline: none; }
+    @media (max-width: 799px) {
+      .search input {
+        font-size: 30px; } }
+  .search .icon__close {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 100000; }
 
 .search__active .search {
   display: block; }

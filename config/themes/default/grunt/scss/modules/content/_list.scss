@@ -86,11 +86,8 @@ $height_list: 50px;
   }
 
   a.list__body:hover,
-  a.list__body.list__row--focused {
+  a.list__body.focusable--focused {
     background-color:$color-hover;
-    .list__cell--filename {
-      color:$color-text-secondary;
-    }
   }
 
   a.list__row--empty,
@@ -99,12 +96,8 @@ $height_list: 50px;
     color:$color-text-empty;
 
     &:hover,
-    &.list__row--focused {
+    &.focusable--focused {
       background-color:$color-bg;
-
-      .list__cell--filename {
-        color:$color-text-empty;
-      }
     }
   }
 
@@ -118,7 +111,6 @@ $height_list: 50px;
 
   .list__cell--filename {
     width:20%;
-    padding-left:5px;
   }
 
   .list__cell--filenameicon,
@@ -127,6 +119,7 @@ $height_list: 50px;
     vertical-align: middle;
   }
   .list__cell--filenameicon {
+    padding-left:10px;
     padding-right:15px;
 
     img {
@@ -191,6 +184,10 @@ $height_list: 50px;
       display:block;
     }
 
+    .list__cell--filenameicon {
+      padding-left:0;
+    }
+
     .list__cell--filenametext {
       width: calc(100% - 85px);
       padding-right: 0;
@@ -216,7 +213,7 @@ $height_list: 50px;
 .list--column,
 .list--masonry {
   .updated {
-    background:$color-text-tertiary;
+    background:#D8D8D8;
     border-radius:50%;
     display:block;
     width:8px;

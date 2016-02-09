@@ -12,6 +12,8 @@ $inner_padding_mobile:10px;
 }
 
 .gallery {
+  display:block;
+
   ul {
     list-style: none;
     padding: 0 1px 1px 0;
@@ -65,9 +67,11 @@ $inner_padding_mobile:10px;
       }
     }
 
-    a:hover {
+    a:hover,
+    a.focusable--focused {
       background-color:$color-hover;
     }
+
     a p {
       text-align:center;
       margin: 0;
@@ -82,8 +86,6 @@ $inner_padding_mobile:10px;
 }
 
 .gallery--column {
-  display:block;
-
   li {
     width:16.6666667%;
 

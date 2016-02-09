@@ -26,7 +26,7 @@
       <?php } ?>
 
       <?php foreach ( SubfolioFiles::files_and_folders() as $item) : ?>
-        <a class="list__row list__body <?php echo  ($item['empty'] == true) ? 'list__row--empty' : ''; ?>" target="<?php echo $item['target'] ?>" href="<?php echo $item['url'] ?>">
+        <a class="list__row list__body <?php echo  ($item['empty'] == true) ? 'list__row--empty' : ''; ?> focusable" target="<?php echo $item['target'] ?>" href="<?php echo $item['url'] ?>">
 
           <!-- FILENAME -->
           <?php if (SubfolioTheme::get_option('display_name')) { ?>

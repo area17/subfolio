@@ -21,6 +21,17 @@
     font: 48px/1 $sans-serif;
     -webkit-appearance:none;
     outline: none;
+
+    @include breakpoint(medium-and-down) {
+      font-size:30px;
+    }
+  }
+
+  .icon__close {
+    position:fixed;
+    top: $gutter;
+    right: $gutter;
+    z-index:$z-index__search + 1;
   }
 }
 

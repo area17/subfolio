@@ -26,9 +26,11 @@
 
   .footer__updatedsince {
     float:right;
-    color:$color-text-tertiary;
+    color:$color-text-empty;
 
-    a, span:first-child {
+    a,
+    span:first-child,
+    .updatedsince__sep {
       color:$color-text-secondary;
     }
 
