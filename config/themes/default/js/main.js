@@ -4755,6 +4755,12 @@ A17.Behaviors.masonry = function($grid) {
     });
 };
 
+/* Search
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+A17.Behaviors.search_field = function($field) {
+    $field.focus();
+};
+
 /* Show/Hide the info box
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 A17.Behaviors.show_info = function($info_bt) {

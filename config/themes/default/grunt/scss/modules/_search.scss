@@ -5,10 +5,11 @@
   top: 0;
   right: 0;
   bottom: 0;
-  padding: 100px;
+  padding: 10%;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   display:none;
+  z-index:$z-index__search;
 
   input {
     display: block;

@@ -10,7 +10,7 @@
         <form action="/login" method="post" name="protection">
           <input type="hidden" name="login" value="login">
           <div class="login_field">
-            <input type="text" value="" id="username" name="username" class="field" tabindex="1" placeholder="<?php echo SubfolioLanguage::get_text('username');?>" />
+            <input type="text" value="" id="username" name="username" class="field" tabindex="1" placeholder="<?php echo SubfolioLanguage::get_text('username');?>" data-behavior="search_field" />
           </div>
           <script type="text/javascript">
             document.getElementById('username').focus();

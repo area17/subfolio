@@ -1639,10 +1639,11 @@ body.page {
   top: 0;
   right: 0;
   bottom: 0;
-  padding: 100px;
+  padding: 10%;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-  display: none; }
+  display: none;
+  z-index: 99999; }
   .search input {
     display: block;
     width: 100%;
