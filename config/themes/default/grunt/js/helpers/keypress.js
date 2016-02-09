@@ -36,9 +36,6 @@ A17.Helpers.keyPress = function() {
             if(previous_url) _triggerHover($previous, previous_url);
           }
         break;
-        // user pressed "top" arrow
-        case 84: $('html,body').animate({scrollTop: 0}, 250);
-        break;
 
         // user pressed "up" arrow
         case 38:
@@ -46,14 +43,9 @@ A17.Helpers.keyPress = function() {
         break;
         // user pressed "right" arrow
         case 39:
-          if($('.' + klass_focused).length) {
-            var next_url = $('.' + klass_focused).attr("href");
-            if (next_url) window.location = next_url;
-          } else {
-            if ($next.length) {
-              var next_url = $next.attr("href");
-              if(next_url) _triggerHover($next, next_url);
-            }
+          if ($next.length) {
+            var next_url = $next.attr("href");
+            if(next_url) _triggerHover($next, next_url);
           }
         break;
         // user pressed "down" arrow
@@ -102,14 +94,14 @@ A17.Helpers.keyPress = function() {
       $list.removeClass(klass_focused);
 
       var $next_one = $list.eq(focused_index);
-      if($next_one.length) $next_one.addClass(klass_focused);
+      if($next_one.length) $next_one.addClass(klass_focused).focus();
 
       e.preventDefault();
     } else {
       if(dir === "next") focused_index = 0;
       else focused_index = last_focusable;
 
-      $list.eq(focused_index).addClass(klass_focused);
+      $list.eq(focused_index).addClass(klass_focused).focus();
     }
   }
 
