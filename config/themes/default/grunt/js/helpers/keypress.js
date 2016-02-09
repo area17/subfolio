@@ -83,7 +83,7 @@ A17.Helpers.keyPress = function() {
   // Set focus state on the list items when using up and down keys
   function _setFocused(dir, e) {
 
-    if($list.filter('.' + klass_focused).length) {
+    if($list.filter(':focus').length) {
 
       if(dir === "next") focused_index = Math.min($list.length, focused_index + 1);
       else {
@@ -91,17 +91,15 @@ A17.Helpers.keyPress = function() {
         if(focused_index < 0) focused_index = $list.length;
       }
 
-      $list.removeClass(klass_focused);
-
       var $next_one = $list.eq(focused_index);
-      if($next_one.length) $next_one.addClass(klass_focused).focus();
+      if($next_one.length) $next_one.focus();
 
       e.preventDefault();
     } else {
       if(dir === "next") focused_index = 0;
       else focused_index = last_focusable;
 
-      $list.eq(focused_index).addClass(klass_focused).focus();
+      $list.eq(focused_index).focus();
     }
   }
 
