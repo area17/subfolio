@@ -8,7 +8,7 @@ A17.Helpers.keyPress = function() {
   var klass_row = "list__body";
   var $list = $('.list--list');
 
-  $(document).keydown(function(e) {
+  $(document).on("keydown", function(e) {
 
     switch(e.keyCode) {
       // user pressed "left" arrow

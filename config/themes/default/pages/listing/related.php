@@ -7,16 +7,12 @@
       <?php foreach ( SubfolioFiles::related() as $item) : ?>
         <a class="list__row" href='<?php echo $item['link'] ?>'>
           <?php if (SubfolioTheme::get_option('display_icons')) { ?>
-            <?php if ($item['restricted']) {  ?>
-            <span class="<?php if ($item['have_access']) { echo "unlocked"; } else { echo "locked"; } ?>"><!-- --></span>
+            <?php $type = SubfolioTheme::get_listing_mode()=='grid' ? $item['icon_grid'] : $item['icon']; ?>
+            <?php if ($item['restricted']) { ?>
+              <i class="icon icon__<?php echo $type ?>_<?php if ($item['have_access']) { echo "shared"; } else { echo "protected"; } ?>"></i>
+            <?php } else { ?>
+              <i class='icon icon__<?php echo $type ?>'></i>
             <?php } ?>
-            <span class="icon" <?php if (SubfolioTheme::get_mobile_viewport()) { echo "style='background-image:url(".$item['icon_grid'].")'"; } ?>>
-
-            <?php if (SubfolioTheme::get_listing_mode()=='list') : ?>
-              <img src='<?php echo $item['icon'] ?>' width='18' height='17' />
-            <?php else : ?>
-              <img src='<?php echo $item['icon_grid'] ?>' width='32' height='32' />
-            <?php endif; ?>
 
             </span>
           <?php } ?>

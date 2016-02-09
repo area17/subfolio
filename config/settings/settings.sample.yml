@@ -8,7 +8,7 @@ site_root: /
 ### YOUR SITE NAME
 ### Appears in the header and HTML title of the page
 
-site_name: Subfolio 
+site_name: Subfolio
 
 ### YOUR DOMAIN
 ### Appears in the breadcrumb navigation
@@ -18,7 +18,7 @@ site_domain: www.subfolio.com
 ### YOUR COPYRIGHT
 ### You must turn it on in your theme options to display
 
-site_copyright: "&copy; 2010 Subfolio — All rights reserved" 
+site_copyright: "&copy; AREA 17"
 
 ### YOUR WEBSITE META DESCRIPTION
 ### For search engines
@@ -28,7 +28,7 @@ site_meta_description: "Subfolio provides an elegant, practical and customizable
 ### YOUR GOOGLE ANALYTICS CODE
 ### Remove "#" to activate
 
-# google_analytics_code: "UA-XXXXXX-X" 
+# google_analytics_code: "UA-XXXXXX-X"
 
 ### YOUR ACTIVE THEME / CONTENT LOCATION
 ### To inactivate iphone theme, add "#" before iphone line

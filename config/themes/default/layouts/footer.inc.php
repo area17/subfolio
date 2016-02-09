@@ -1,8 +1,6 @@
 <footer class="footer" id="footer">
 
   <div class="footer__copyright">
-    <?php echo SubfolioTheme::subfolio_link(); ?>
-
     <?php $copyright = SubfolioTheme::get_site_copyright();
     if ($copyright <> '') { ?>
     <span class='copyright__text'><?php echo $copyright ?></span>
@@ -20,7 +18,7 @@
   <?php } ?>
   </div>
   <?php if (SubfolioUser::is_logged_in()) { ?>
-  <div class="footer__logout"><?php echo Subfolio::link_to(SubfolioLanguage::get_text('logout')." ".SubfolioUser::current_user_fullname(),'/logout'); ?></div>
+  <div class="footer__logout"><?php echo Subfolio::link_to(SubfolioLanguage::get_text('logout'),'/logout'); ?></div>
   <?php } ?>
 </footer>
 

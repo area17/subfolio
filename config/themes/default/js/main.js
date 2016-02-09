@@ -4883,7 +4883,7 @@ A17.Helpers.keyPress = function() {
     var klass_focused = "list__row--focused";
     var klass_row = "list__body";
     var $list = $(".list--list");
-    $(document).keydown(function(e) {
+    $(document).on("keydown", function(e) {
         switch (e.keyCode) {
           // user pressed "left" arrow
             case 37:
@@ -5001,6 +5001,10 @@ A17.Helpers.resized = function() {
         $(document).trigger("media_query_updated");
     }
 };
+
+/* Register keypress events on the whole document when search can be triggered
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+A17.Helpers.search = function() {};
 
 A17.Helpers.trigger_event = function(type, data, context) {
     var event = document.createEvent("HTMLEvents");
