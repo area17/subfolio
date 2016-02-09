@@ -13,26 +13,28 @@
     overflow: hidden;
   }
   li { float: left; }
-  li a {
+  a {
     display: block;
     overflow: hidden;
     margin-right: 5px;
     margin-bottom: 5px;
     border-radius:4px;
     padding: 10px;
+
+    img {
+      display: block;
+    }
+
+    > .info {
+      display: inline-block;
+    }
   }
-  li a img {
-    display: block;
-  }
-  li a > .info {
-    display: inline-block;
-  }
-  li a .info {
-    padding: 0;
-    text-align: left;
-  }
-  li a {
+
+  a {
     .info {
+      padding: 0;
+      text-align: left;
+
       h2 {
         color: inherit;
         font-size: em(30px);

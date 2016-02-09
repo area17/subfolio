@@ -1144,32 +1144,32 @@ body.page {
     overflow: hidden; }
   #features li {
     float: left; }
-  #features li a {
+  #features a {
     display: block;
     overflow: hidden;
     margin-right: 5px;
     margin-bottom: 5px;
     border-radius: 4px;
     padding: 10px; }
-  #features li a img {
-    display: block; }
-  #features li a > .info {
-    display: inline-block; }
-  #features li a .info {
+    #features a img {
+      display: block; }
+    #features a > .info {
+      display: inline-block; }
+  #features a .info {
     padding: 0;
     text-align: left; }
-  #features li a .info h2 {
-    color: inherit;
-    font-size: 2em;
-    line-height: 1.2em;
-    text-transform: none;
-    margin: 0;
-    padding: 9px 0 5px; }
-  #features li a .info p {
-    margin: 0;
-    padding: 0 10px 15px 0;
-    color: #999999; }
-  #features li a:hover {
+    #features a .info h2 {
+      color: inherit;
+      font-size: 2em;
+      line-height: 1.2em;
+      text-transform: none;
+      margin: 0;
+      padding: 9px 0 5px; }
+    #features a .info p {
+      margin: 0;
+      padding: 0 10px 15px 0;
+      color: #999999; }
+  #features a:hover {
     background-color: #F6F6F6; }
 
 /* @end */
@@ -1530,6 +1530,9 @@ body.page {
 -------------------------------------------------------------- */
 #related p {
   margin: 0 0 5px; }
+
+#related .list--list a .list__cell--filename {
+  width: 100%; }
 
 /* @end */
 /* @group Forms */

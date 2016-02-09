@@ -5,5 +5,9 @@
 -------------------------------------------------------------- */
 #related {
   p { margin: 0 0 5px; }
+
+  .list--list a .list__cell--filename {
+    width:100%;
+  }
 }
 /* @end */
