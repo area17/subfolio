@@ -86,7 +86,7 @@ $height_list: 50px;
   }
 
   a.list__body:hover,
-  a.list__body.focusable--focused {
+  a.list__body:focus {
     background-color:$color-hover;
   }
 
@@ -96,7 +96,7 @@ $height_list: 50px;
     color:$color-text-empty;
 
     &:hover,
-    &.focusable--focused {
+    &:focus {
       background-color:$color-bg;
     }
   }

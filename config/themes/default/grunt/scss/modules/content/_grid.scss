@@ -40,7 +40,7 @@
   }
 
   a.list__row:hover,
-  a.list__row.focusable--focused {
+  a.list__row:focus {
     background-color:$color-hover;
   }
 
