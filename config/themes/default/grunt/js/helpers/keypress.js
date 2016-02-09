@@ -19,6 +19,10 @@ A17.Helpers.keyPress = function() {
   var klass_search_active = "search__active";
   var is_search_active = false;
 
+  $(document).on("click.remove_focus", function(e) {
+    $("." + klass_focused).removeClass(klass_focused);
+  });
+
   $(document).on("keydown", function(e) {
 
     // no alt, ctrl or cmd keys pressed
@@ -64,6 +68,12 @@ A17.Helpers.keyPress = function() {
             } else {
               if(27 == e.keyCode) {
                 if(is_search_active) _hide_search();
+                else {
+                  var $parent_dir = $(".breadcrumb").find("a").last();
+                  if($parent_dir.length) {
+                    if($parent_dir.attr('href')) _triggerHover($parent_dir, $parent_dir.attr('href'));
+                  }
+                }
               }
             }
           }
