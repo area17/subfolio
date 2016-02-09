@@ -4947,20 +4947,21 @@ A17.Helpers.keyPress = function() {
                 if ($list.length) _setFocused("next", e);
                 break;
 
+              // user pressed "esc" down : Escape from the search or go back to parent directory
+                case 27:
+                if (is_search_active && $search.length) _hide_search(); else {
+                    var $parent_dir = $(".breadcrumb").find("a").last();
+                    if ($parent_dir.length) {
+                        if ($parent_dir.attr("href")) _triggerHover($parent_dir, $parent_dir.attr("href"));
+                    }
+                }
+                break;
+
               default:
-                // launch search!
+                // launch search if exist!
                 if ($search.length) {
                     if (e.keyCode >= 65 && e.keyCode <= 90 || e.keyCode >= 48 && e.keyCode <= 57 || e.keyCode >= 96 && e.keyCode <= 105) {
                         if (!is_search_active) _show_search();
-                    } else {
-                        if (27 == e.keyCode) {
-                            if (is_search_active) _hide_search(); else {
-                                var $parent_dir = $(".breadcrumb").find("a").last();
-                                if ($parent_dir.length) {
-                                    if ($parent_dir.attr("href")) _triggerHover($parent_dir, $parent_dir.attr("href"));
-                                }
-                            }
-                        }
                     }
                 }
             }
