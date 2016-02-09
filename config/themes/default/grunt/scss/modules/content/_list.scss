@@ -15,10 +15,8 @@ $height_list: 50px;
     margin-right:- $gutter-mobile;
 
     .list__row {
-      .list__cell--icon {
-        padding-left:$gutter-mobile;
-      }
       .list__cell--filename {
+        padding-left:$gutter-mobile;
         padding-right:$gutter-mobile;
       }
     }
@@ -40,6 +38,7 @@ $height_list: 50px;
     display:table-row;
     color:$color-text-secondary;
     position:relative;
+    width:100%;
 
     &:after {
       display: block;
@@ -68,6 +67,11 @@ $height_list: 50px;
     @include ellipsis();
   }
 
+  .list__cell--filenametext {
+    @include ellipsis();
+    overflow:hidden;
+  }
+
   .list__header .list__cell {
     border-top-width:0;
     display:table-cell;
@@ -84,16 +88,23 @@ $height_list: 50px;
   a.list__body:hover,
   a.list__body.list__row--focused {
     background-color:$color-hover;
+    .list__cell--filename {
+      color:$color-text-secondary;
+    }
   }
 
   a.list__row--empty,
   a.list__row--empty * {
     cursor:default;
-    color:$color-text-tertiary;
+    color:$color-text-empty;
 
     &:hover,
     &.list__row--focused {
       background-color:$color-bg;
+
+      .list__cell--filename {
+        color:$color-text-empty;
+      }
     }
   }
 
@@ -104,15 +115,26 @@ $height_list: 50px;
   span strong {
     color: inherit;
   }
-  .list__cell--icon {
-    width: 1px;
+
+  .list__cell--filename {
+    padding-left:5px;
+  }
+
+  .list__cell--filenameicon,
+  .list__cell--filenametext {
+    display:inline-block;
     position: relative;
     vertical-align: middle;
-    padding-left:5px;
+  }
+  .list__cell--filenameicon {
+    padding-right:15px;
 
     img {
       display:block;
     }
+  }
+  .list__cell--filenametext {
+    @include ellipsis;
   }
   .list__cell--filename {
     width:20%;
@@ -171,7 +193,7 @@ $height_list: 50px;
     }
 
     .list__cell--filename {
-      width:95%;
+      width:100%;
     }
   }
 }

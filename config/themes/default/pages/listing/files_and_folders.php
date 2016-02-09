@@ -6,11 +6,6 @@
 
       <?php if (SubfolioTheme::get_option('display_file_listing_header') && SubfolioTheme::get_listing_mode()=='list') { ?>
         <div class="list__row list__header">
-          <?php if (SubfolioTheme::get_option('display_icons')) { ?>
-            <span class="list__cell list__cell--icon">
-              —
-            </span>
-          <?php } ?>
           <?php if (SubfolioTheme::get_option('display_name')) { ?>
             <span class="list__cell list__cell--filename"><a href="?sort=filename"><?php echo SubfolioLanguage::get_text('filename'); ?></a></span>
           <?php } ?>
@@ -33,22 +28,27 @@
       <?php foreach ( SubfolioFiles::files_and_folders() as $item) : ?>
         <a class="list__row list__body <?php echo  ($item['empty'] == true) ? 'list__row--empty' : ''; ?>" target="<?php echo $item['target'] ?>" href="<?php echo $item['url'] ?>">
 
-          <!-- ICON -->
-          <?php if (SubfolioTheme::get_option('display_icons')) : ?>
-            <span class="list__cell list__cell--icon">
-              <?php $type = SubfolioTheme::get_listing_mode()=='grid' ? $item['icon_grid'] : $item['icon']; ?>
-              <?php if ($item['restricted']) { ?>
-                <i class="icon icon__<?php echo $type ?>_<?php if ($item['have_access']) { echo "shared"; } else { echo "protected"; } ?>"></i>
-              <?php } else { ?>
-                <i class='icon icon__<?php echo $type ?>'></i>
-              <?php } ?>
-            </span>
-          <?php else : ?>
-            <span class="list__cell list__cell--no_icon"></span>
-          <?php endif; ?>
-
           <!-- FILENAME -->
-          <?php if (SubfolioTheme::get_option('display_name')) { ?><span class="list__cell list__cell--filename"><?php echo $item['filename'] ?></span><?php } ?>
+          <?php if (SubfolioTheme::get_option('display_name')) { ?>
+            <span class="list__cell list__cell--filename">
+
+            <!-- ICON -->
+            <?php if (SubfolioTheme::get_option('display_icons')) : ?>
+              <span class="list__cell--filenameicon">
+                <?php $type = SubfolioTheme::get_listing_mode()=='grid' ? $item['icon_grid'] : $item['icon']; ?>
+                <?php if ($item['restricted']) { ?>
+                  <i class="icon icon__<?php echo $type ?>_<?php if ($item['have_access']) { echo "shared"; } else { echo "protected"; } ?>"></i>
+                <?php } else { ?>
+                  <i class='icon icon__<?php echo $type ?>'></i>
+                <?php } ?>
+              </span>
+            <?php else : ?>
+              <span class="list__cell list__cell--no_icon"></span>
+            <?php endif; ?>
+
+              <span class="list__cell--filenametext"><?php echo $item['filename'] ?></span>
+            </span>
+          <?php } ?>
 
           <!-- OTHER COLUMNS -->
           <?php if (SubfolioTheme::get_option('display_size')) { ?><span class="list__cell list__cell--size"><?php echo $item['size'] ?></span><?php } ?>

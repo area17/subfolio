@@ -5,7 +5,7 @@ $top_spacing: 25px;
   border-bottom-width:1px;
   color:$color-text-secondary;
 
-  @include breakpoint(medium-and-down) {
+  @include breakpoint(small-and-down) {
     border:0 none;
   }
 }
@@ -93,7 +93,7 @@ $top_spacing: 25px;
   overflow:visible;
   background:$color-bg;
 
-  @include breakpoint(medium-and-down) {
+  @include breakpoint(small-and-down) {
     position:fixed;
     top:0;
     border-bottom-width:1px;
@@ -103,9 +103,11 @@ $top_spacing: 25px;
     height:$height_bar;
   }
 }
-@include breakpoint(medium-and-down) {
+@include breakpoint(small-and-down) {
   .header {
     height:$height_bar;
+    overflow: hidden;
+    width:100%;
   }
 }
 
