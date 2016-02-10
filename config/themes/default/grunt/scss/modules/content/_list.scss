@@ -121,14 +121,17 @@ $height_list: 50px;
   .list__cell--filenameicon {
     padding-left:10px;
     padding-right:15px;
-    min-width:26px;
+    min-width:51px;
 
-    img {
-      display:block;
+    i {
       margin-left:auto;
       margin-right:auto;
       position:relative;
       top:-1px;
+    }
+
+    img {
+      display:block;
     }
   }
   .list__cell--filenametext {
