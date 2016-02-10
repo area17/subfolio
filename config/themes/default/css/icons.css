@@ -243,11 +243,18 @@ a.icon {
     background-image: url("images/fallback/list_eps.png"); }
 
 
+.icon__list_fnt {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2226%22%20viewBox%3D%220%200%2020%2026%22%3E%3Cpath%20fill%3D%22%23FFF%22%20d%3D%22M19%207.5V25H1V1h11.5%22%2F%3E%3Cpath%20fill%3D%22%23CCC%22%20d%3D%22M13%200H1C.448%200%200%20.448%200%201v24c0%20.552.448%201%201%201h18c.552%200%201-.448%201-1V7l-7-7zm6%207.5V25H1V1h11.5L19%207.5z%22%2F%3E%3Cpath%20fill%3D%22%23CCC%22%20d%3D%22M12%200v6.857C12%207.487%2012.514%208%2013.143%208H20%22%2F%3E%3Cpath%20fill%3D%22%23FFF%22%20d%3D%22M18.5%207H13V1.5%22%2F%3E%3Cpath%20fill%3D%22%23A6A6A6%22%20d%3D%22M11.09%2010L16%2022h-2.455l-.727-2H7.264l-.81%202H4l4.91-12h2.18zm1%208L10%2013.273%208.09%2018h4z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat; }
+  .no-svg
+  .icon__list_fnt {
+    background-image: url("images/fallback/list_fnt.png"); }
+
+
 .icon__list_gen,
 .icon__list_ae,
 .icon__list_ase,
 .icon__list_fla,
-.icon__list_fnt,
 .icon__list_html,
 .icon__list_img,
 .icon__list_indd,
@@ -270,7 +277,6 @@ a.icon {
   .no-svg .icon__list_ae,
   .no-svg .icon__list_ase,
   .no-svg .icon__list_fla,
-  .no-svg .icon__list_fnt,
   .no-svg .icon__list_html,
   .no-svg .icon__list_img,
   .no-svg .icon__list_indd,
