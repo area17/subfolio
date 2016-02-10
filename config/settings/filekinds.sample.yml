@@ -15,28 +15,28 @@ tiff:
   icon: img
   display: TIFF Image
   instructions:>
-    To read TIFF images, you need <a href='http://www.adobe.com/products/photoshop/' target='_blank'>Adobe Photoshop</a> or similar. 
+    To read TIFF images, you need <a href='http://www.adobe.com/products/photoshop/' target='_blank'>Adobe Photoshop</a> or similar.
 
 eps:
   extensions: [eps, ps]
   icon: eps
   display: Postscript File
   instructions:>
-    To read Postscript files, you need <a href='http://www.adobe.com/products/illustrator/' target='_blank'>Adobe Illustrator</a> or similar. 
+    To read Postscript files, you need <a href='http://www.adobe.com/products/illustrator/' target='_blank'>Adobe Illustrator</a> or similar.
 
 bmp:
   extensions: [bmp]
   icon: img
   display: Bitmap Image
   instructions:>
-    To read Bitmap images, you need <a href='http://www.adobe.com/products/photoshop/' target='_blank'>Adobe Photoshop</a> or similar. 
+    To read Bitmap images, you need <a href='http://www.adobe.com/products/photoshop/' target='_blank'>Adobe Photoshop</a> or similar.
 
 raw:
   extensions: [3fr, arw, srf, sr2, bay, crw, cr2, cap, iiq, eip, dng, erf, fff, mef, mos, mrw, nef, nrw, orf, ptx, pef, pxn, r3d, raf, raw, rw2, rwz, k25, kdc, dcs, drf, x3f]
   icon: img
   display: RAW Image
   instructions:>
-    To read RAW images, you need <a href='http://www.adobe.com/products/photoshop/' target='_blank'>Adobe Photoshop</a> or similar. 
+    To read RAW images, you need <a href='http://www.adobe.com/products/photoshop/' target='_blank'>Adobe Photoshop</a> or similar.
 
 indd:
   extensions: [indd]
@@ -188,7 +188,7 @@ rtf:
   display: Rich Text File
   instructions:>
     To read RTF files, you need any standard text editor.
-    
+
 merlin:
   extensions: [merlin, merlin2]
   icon: merlin
@@ -213,12 +213,12 @@ dmg:
     DMG installers are disc images for Mac used for the installation of applications.
 
 fnt:
-  extensions: [fnt, ttf, bmap, afm]
+  extensions: [fnt, ttf, bmap, afm, otf]
   icon: fnt
   display: Font
   instructions:>
     To open Font packages, you need a font manager application such as FontCreator on a PC or Font Book on a Mac.
-  
+
 suit:
   extensions: [suit]
   icon: fnt
