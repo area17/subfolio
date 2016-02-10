@@ -157,14 +157,15 @@
 }
 
 .standard_paragraph code {
-display: block;
-padding: 14px 10px 10px 10px;
-font: 11px Monaco, mono, "Courier New", Courier;
-margin: 10px 0;
-overflow: auto;
-border: 1px solid $color-border;
-background-color: #f5f5f5;
-color: inherit;
+  display: block;
+  padding: 24px 20px 20px 20px;
+  font: 12px Monaco, mono, "Courier New", Courier;
+  margin: 10px 0;
+  overflow: auto;
+  border: 1px solid $color-border-light;
+  background-color: $color-hover;
+  color: inherit;
+  border-radius:2px;
 }
 .standard_paragraph table {
   padding: 10px 0;

@@ -596,13 +596,14 @@ body {
 
 .standard_paragraph code {
   display: block;
-  padding: 14px 10px 10px 10px;
-  font: 11px Monaco, mono, "Courier New", Courier;
+  padding: 24px 20px 20px 20px;
+  font: 12px Monaco, mono, "Courier New", Courier;
   margin: 10px 0;
   overflow: auto;
-  border: 1px solid #E4E4E4;
-  background-color: #f5f5f5;
-  color: inherit; }
+  border: 1px solid #F1F1F1;
+  background-color: #F6F6F6;
+  color: inherit;
+  border-radius: 2px; }
 
 .standard_paragraph table {
   padding: 10px 0; }
