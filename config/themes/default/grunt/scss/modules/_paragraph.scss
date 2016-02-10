@@ -14,7 +14,10 @@
   }
 
   h1, h2, h3,
-  h4, h5, p {
+  h4, h5, p,
+  blockquote,
+  code,
+  ul, ol {
     max-width: percent(700px, 1000px);
 
     @include breakpoint(small-and-down) {
@@ -56,7 +59,7 @@
   h4, h5,
   strong, em, b
   {
-    color: #1a1a1a;
+    color: $color-text;
   }
 
   h1, h2, h3, h4 {
@@ -79,11 +82,16 @@
     margin-bottom: 20px;
   }
 
-  h3, h4 {
+  h3, h4, blockquote {
     font-size: em(36px, 18px);
     line-height: em(45px, 36px);
     margin-top: $gutter;
     margin-bottom: $half-gutter;
+
+    @include breakpoint(small-and-down) {
+      font-size: em(30px);
+      line-height: em(40px, 30px);
+    }
   }
 
   h5 {
@@ -91,14 +99,19 @@
     font-size: inherit;
   }
 
-  p {
+  p, ul, ol {
     margin-bottom: $half-gutter;
     color: inherit;
     font: inherit;
+
+    a {
+      color: inherit;
+      font: inherit;
+    }
   }
 
   @include breakpoint(small-and-down) {
-    h3, h4, p {
+    h3, h4, p, ul, ol {
       margin-bottom: $half-gutter-mobile;
     }
   }
@@ -129,38 +142,38 @@
 }
 
 
-.standard_paragraph ul {
+.standard_paragraph ul,
+.standard_paragraph ol {
   font: inherit;
   color: inherit;
-  max-width: percent(700px, 1000px);
-
-  margin-bottom: 5px;
-  margin-top: 5px;
-  font: inherit;
   margin-left: 20px;
-  color: inherit;
-  list-style-type: disc;
 }
 
-.standard_paragraph ol li { margin-left: 21px; }
+.standard_paragraph ul {
+
+  list-style-type: disc;
+
+  li {
+    margin-left: 21px;
+  }
+}
 
 .standard_paragraph blockquote {
   display: block;
-  padding: 14px 10px 5px 10px;
-  border: 1px solid $color-border;
-  margin: 10px 0 15px 9px;
+  padding: 24px 20px 20px 20px;
+  border: 1px solid $color-border-light;
+  margin: $gutter 0 $gutter 0;
   overflow: auto;
   color: inherit;
-  font: inherit;
 
-  p { }
+  p { margin:0 }
 }
 
 .standard_paragraph code {
   display: block;
   padding: 24px 20px 20px 20px;
   font: 12px Monaco, mono, "Courier New", Courier;
-  margin: 10px 0;
+  margin: $half-gutter 0;
   overflow: auto;
   border: 1px solid $color-border-light;
   background-color: $color-hover;

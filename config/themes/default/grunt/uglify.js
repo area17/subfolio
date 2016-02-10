@@ -1,7 +1,7 @@
 // Full list of files that must be included in JS
 var includes_js = [
   "grunt/js/common.js",
-  "grunt/js/jquery-1.7.1.min.js",
+  "grunt/js/jquery-1.12.0.min.js",
   "grunt/js/jquery.scrollTo-min.js",
   "grunt/js/masonry.pkgd.min.js",
   "grunt/js/imagesloaded.pkgd.js",

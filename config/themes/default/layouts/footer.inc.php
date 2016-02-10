@@ -24,8 +24,11 @@
 
 <!-- Display only if search is activated for this account -->
 <?php if (SubfolioUser::is_logged_in()) { ?>
-<div class="search" data-search>
-  <input type="text" name="query" data-search-input />
+<div class="search" data-search data-url="endpoint">
+  <form>
+    <input type="text" name="query" data-search-input />
+    <input type="hidden" name="current_folder" value="current_path" />
+  </form>
   <a href="#" class="icon icon__close"></a>
 </div>
 <?php } ?>
