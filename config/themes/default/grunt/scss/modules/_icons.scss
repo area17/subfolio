@@ -21,8 +21,30 @@ a.icon {
   @include icon-type($icon);
 }
 
-/* One icon : many possibilities */
+/* Display default icon for all those kind of files */
 .icon__list {
+  &_ae,
+  &_ase,
+  &_fla,
+  &_fnt,
+  &_html,
+  &_img,
+  &_indd,
+  &_lock,
+  &_merlin,
+  &_net,
+  &_pages,
+  &_pop,
+  &_site,
+  &_slide,
+  &_snd,
+  &_sql,
+  &_swf,
+  &_zip {
+    @extend .icon__list_gen;
+  }
+}
+/*.icon__list {
   &_ae,
   &_ai,
   &_ase,
@@ -56,7 +78,7 @@ a.icon {
   &_zip {
     @extend .icon__list_doc;
   }
-}
+}*/
 
 .icon__grid {
   &_ae,
@@ -90,20 +112,12 @@ a.icon {
   &_vid,
   &_xls,
   &_zip {
-    @extend .icon__grid_doc;
-  }
-}
-
-.icon__list {
-  &_cut,
-  &_dir {
-    @extend .icon__list_dir;
+    @extend .icon__grid_gen;
   }
 }
 
 .icon__grid {
-  &_cut,
-  &_dir {
+  &_cut {
     @extend .icon__grid_dir;
   }
 }
