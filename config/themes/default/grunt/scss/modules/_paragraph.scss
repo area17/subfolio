@@ -79,28 +79,28 @@
     margin-bottom: 20px;
   }
 
-  h3 {
+  h3, h4 {
     font-size: em(36px, 18px);
     line-height: em(45px, 36px);
     margin-top: $gutter;
-    margin-bottom: 10px;
-  }
-
-  h4 {
-    font-size: em(20px, 18px);
-    margin-top: $gutter / 2;
-    margin-bottom: 10px;
+    margin-bottom: $half-gutter;
   }
 
   h5 {
-    margin-top: 10px;
+    margin-top: $gutter;
     font-size: inherit;
   }
 
   p {
-    margin-bottom: 10px;
+    margin-bottom: $half-gutter;
     color: inherit;
     font: inherit;
+  }
+
+  @include breakpoint(small-and-down) {
+    h3, h4, p {
+      margin-bottom: $half-gutter-mobile;
+    }
   }
 }
 

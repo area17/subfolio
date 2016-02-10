@@ -7,9 +7,7 @@ A17.Helpers.keyPress = function() {
   var $next = $('#next');
 
   // focused listing
-  var klass_focused = "focusable--focused";
-  var focusable_row = "focusable";
-  var $list = $('.' + focusable_row);
+  var $list = $('.focusable');
   var focused_index = -1;
   var last_focusable = $list.length - 1;
 
@@ -18,10 +16,6 @@ A17.Helpers.keyPress = function() {
   var $search_input = $('[data-search-input]');
   var klass_search_active = "search__active";
   var is_search_active = false;
-
-  $(document).on("click.remove_focus", function(e) {
-    $("." + klass_focused).removeClass(klass_focused);
-  });
 
   $(document).on("keydown", function(e) {
 

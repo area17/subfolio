@@ -97,7 +97,7 @@ $height_list: 50px;
 
     &:hover,
     &:focus {
-      background-color:$color-bg;
+      background-color:rgba($color-bg, 0.5);
     }
   }
 

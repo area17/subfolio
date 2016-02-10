@@ -529,25 +529,24 @@ body {
   color: #808080;
   margin-bottom: 20px; }
 
-.standard_paragraph h3 {
+.standard_paragraph h3, .standard_paragraph h4 {
   font-size: 2em;
   line-height: 1.25em;
   margin-top: 30px;
-  margin-bottom: 10px; }
-
-.standard_paragraph h4 {
-  font-size: 1.1111111111em;
-  margin-top: 15px;
-  margin-bottom: 10px; }
+  margin-bottom: 15px; }
 
 .standard_paragraph h5 {
-  margin-top: 10px;
+  margin-top: 30px;
   font-size: inherit; }
 
 .standard_paragraph p {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   color: inherit;
   font: inherit; }
+
+@media (max-width: 639px) {
+  .standard_paragraph h3, .standard_paragraph h4, .standard_paragraph p {
+    margin-bottom: 10px; } }
 
 .standard_paragraph p b, .standard_paragraph p strong {
   font-weight: bold;
@@ -786,7 +785,16 @@ ul.group {
   float: left;
   width: calc(100% - 120px);
   overflow: hidden;
-  height: 70px; }
+  height: 70px;
+  position: relative; }
+  .breadcrumb:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 1px;
+    width: 20px;
+    background: linear-gradient(to left, #FFF 0%, rgba(255, 255, 255, 0) 100%); }
   @media (max-width: 799px) {
     .breadcrumb .breadcrumb__index,
     .breadcrumb .breadcrumb__root,
@@ -1290,7 +1298,7 @@ body.page {
     .list--masonry a.list__row--empty:focus,
     .list--masonry a.list__row--empty *:hover,
     .list--masonry a.list__row--empty *:focus {
-      background-color: #FFF; }
+      background-color: rgba(255, 255, 255, 0.5); }
   .list--list span.caps,
   .list--column span.caps,
   .list--masonry span.caps {

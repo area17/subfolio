@@ -124,6 +124,17 @@ $top_spacing: 25px;
   width:calc(100% - 120px);
   overflow:hidden;
   height:$height_bar;
+  position:relative;
+
+  &:after {
+    content:'';
+    position:absolute;
+    right:0;
+    top:0;
+    bottom:1px;
+    width:20px;
+    background: linear-gradient(to left, #{$color-bg} 0%,rgba(255,255,255,0) 100%);
+  }
 
   @include breakpoint(medium-and-down) {
     .breadcrumb__index,
