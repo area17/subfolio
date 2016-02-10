@@ -29,6 +29,6 @@
     <input type="text" name="query" data-search-input />
     <input type="hidden" name="current_folder" value="current_path" />
   </form>
-  <a href="#" class="icon icon__close"></a>
+  <a href="#" class="icon icon__close" data-search-close></a>
 </div>
 <?php } ?>

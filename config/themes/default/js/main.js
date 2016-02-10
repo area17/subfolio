@@ -4662,6 +4662,7 @@ A17.Helpers.keyPress = function() {
     // search
     var $search = $("[data-search]");
     var $search_input = $("[data-search-input]");
+    var $search_close = $("[data-search-close]");
     var klass_search_active = "search__active";
     var search_data = "";
     var is_search_active = false;
@@ -4740,20 +4741,31 @@ A17.Helpers.keyPress = function() {
             $list.eq(focused_index).focus();
         }
     }
-    // search engine
+    // search engine ----
     function _show_search() {
         $body.addClass(klass_search_active);
         if ($search.is(":visible")) $search_input.focus();
         $search_input.on("keyup.keyup_ajax", function(event) {
-            setTimeout(function() {
-                _perform_query();
-            }, 250);
+            _search_delay(250)(_perform_query);
         });
         is_search_active = true;
+        $search_close.on("click", function(e) {
+            e.preventDefault();
+            _hide_search();
+        });
+    }
+    function _search_delay(ms) {
+        var timer = 0;
+        return function(callback) {
+            clearTimeout(timer);
+            timer = setTimeout(callback, ms);
+        };
     }
     function _hide_search() {
         $body.removeClass(klass_search_active);
         $search_input.val("");
+        $search_input.off("keyup.keyup_ajax");
+        $search_close.off("click");
         is_search_active = false;
     }
     function _perform_query() {
