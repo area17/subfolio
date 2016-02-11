@@ -124,8 +124,8 @@ $height_list: 50px;
   }
   .list__cell--filenameicon {
     padding-left:10px;
-    padding-right:15px;
-    min-width:51px;
+    padding-right:10px;
+    min-width:26px + 10px + 10px;
 
     i {
       margin-left:auto;
