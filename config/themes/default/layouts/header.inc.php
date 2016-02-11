@@ -3,7 +3,7 @@
     $logo_height = Kohana::config('filebrowser.site_logo_height');
     $logo_height = view::get_option('site_logo_height', $logo_height);
   ?>
-  <div class="header__logo" <?php if ($logo_height<>'') { ?>data-height="<?php echo ($logo_height + 30)."px"; ?>"  style="<?php echo "max-height:".($logo_height + 30)."px;"; ?>" <?php } ?> >
+  <div class="header__logo" <?php if ($logo_height<>'') { ?>data-height="<?php echo ($logo_height + 30)."px"; ?>" style="<?php if (isset($_COOKIE['header'])) { if ($_COOKIE['header'] == "header__hide") { echo "margin-top:-".($logo_height + 30)."px"; } } ?>" <?php } ?> >
     <?php if (SubfolioUser::is_logged_in()) { ?>
     <div class="header__logout"><?php echo Subfolio::link_to(SubfolioLanguage::get_text('logout')." ".SubfolioUser::current_user_fullname(),'/logout'); ?></div>
     <?php } ?>

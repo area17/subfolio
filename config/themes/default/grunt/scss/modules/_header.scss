@@ -60,14 +60,8 @@ $top_spacing: 25px;
 }
 
 .header__logo {
-  max-height: 83px;
-  transition: 0.3s cubic-bezier(0.6, 0.69, 0.14, 1) max-height;
-}
-
-.page--browser.header__hide {
-  .header__logo {
-    max-height:0 !important;
-  }
+  /*max-height: 83px;*/
+  transition: 0.3s cubic-bezier(0.6, 0.69, 0.14, 1) margin-top;
 }
 
 
@@ -333,7 +327,7 @@ $top_spacing: 25px;
   }
 }
 
-body.page {
+body.page--login {
   height:100%;
   overflow:hidden;
 
@@ -354,5 +348,11 @@ body.page {
 
   .footer__updatedsince {
     display:none;
+  }
+}
+
+.page--browser {
+  .header__logo {
+    margin-top:0;
   }
 }
