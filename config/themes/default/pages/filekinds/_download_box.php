@@ -15,7 +15,7 @@
     <dt><?php echo SubfolioLanguage::get_text('comment') ?></dt><dd><?php echo Subfolio::current_file('comment') ?></dd>
   </dl>
   <p id='instructions'><?php echo Subfolio::current_file('instructions') ?></p>
-  <a id="download" href="<?php echo Subfolio::current_file('link') ?>?download=true" target="<?php echo Subfolio::current_file('target') ?>"><?php echo SubfolioLanguage::get_text('downloadfile') ?></a>
+  <a id="download" href="<?php echo Subfolio::current_file('link') ?>?download=true" target="<?php echo Subfolio::current_file('target') ?>" download><?php echo SubfolioLanguage::get_text('downloadfile') ?></a>
   <!-- Link_name can be open or download. These words taken from the language file... -->
 
 </div>
