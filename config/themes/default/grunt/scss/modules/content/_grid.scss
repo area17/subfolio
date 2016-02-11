@@ -71,6 +71,10 @@
     cursor:default;
     color:$color-text-tertiary;
 
+    .icon {
+      opacity:0.5;
+    }
+
     &:hover {
       background-color:$color-bg;
     }

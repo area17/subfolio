@@ -95,6 +95,10 @@ $height_list: 50px;
     cursor:default;
     color:$color-text-empty;
 
+    .icon {
+      opacity:0.5;
+    }
+
     &:hover,
     &:focus {
       background-color:rgba($color-bg, 0.5);

@@ -1452,6 +1452,13 @@ body.page--login {
   .list--masonry a.list__row--empty * {
     cursor: default;
     color: #CCC; }
+    .list--list a.list__row--empty .icon,
+    .list--list a.list__row--empty * .icon,
+    .list--column a.list__row--empty .icon,
+    .list--column a.list__row--empty * .icon,
+    .list--masonry a.list__row--empty .icon,
+    .list--masonry a.list__row--empty * .icon {
+      opacity: 0.5; }
     .list--list a.list__row--empty:hover, .list--list a.list__row--empty:focus,
     .list--list a.list__row--empty *:hover,
     .list--list a.list__row--empty *:focus,
@@ -1681,6 +1688,9 @@ body.page--login {
   #listing .list--grid a.list__row--empty * {
     cursor: default;
     color: #B1B1B1; }
+    #listing .list--grid a.list__row--empty .icon,
+    #listing .list--grid a.list__row--empty * .icon {
+      opacity: 0.5; }
     #listing .list--grid a.list__row--empty:hover,
     #listing .list--grid a.list__row--empty *:hover {
       background-color: #FFF; }
@@ -1967,6 +1977,7 @@ body.page--login {
   border-color: #F1F1F1; }
 
 #download_box #instructions a {
+  color: inherit;
   text-decoration: underline; }
 
 #download_box #download {
