@@ -1062,7 +1062,9 @@ ul.group {
   background: #FFF;
   z-index: 9998;
   border-radius: 2px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); }
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  background-clip: padding-box; }
   .header__dropdown a {
     display: block;
     border-top-width: 1px;
@@ -1076,7 +1078,9 @@ ul.group {
     .header__dropdown {
       left: 0;
       right: 0;
-      top: 69px; }
+      top: 69px;
+      border-left: 0 none;
+      border-right: 0 none; }
       .header__dropdown a {
         padding: 0 20px; } }
 
