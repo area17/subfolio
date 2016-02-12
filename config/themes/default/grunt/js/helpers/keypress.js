@@ -167,7 +167,7 @@ A17.Helpers.keyPress = function() {
   function _setData(data_arr) {
     // misc requiered params
     data_arr.push({ "name": "start", "value": 0 });
-    data_arr.push({ "name": "rows", "value": 20 });
+    data_arr.push({ "name": "rows", "value": 10 });
     return $.param(data_arr);
   }
 
