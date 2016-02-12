@@ -56,7 +56,7 @@ A17.Helpers.keyPress = function() {
         break;
         // user pressed "esc" down : Escape from the search or go back to parent directory
         case 27:
-          if(is_search_active && $search.length) _hide_search();
+          if(is_search_active && $search.length) _hideSearch();
           else {
             var $parent_dir = $(".breadcrumb").find("a").last();
             if($parent_dir.length) {
@@ -68,7 +68,7 @@ A17.Helpers.keyPress = function() {
           // launch search if exist!
           if($search.length) {
             if(e.keyCode >= 65 && e.keyCode <= 90 || e.keyCode >= 48 && e.keyCode <= 57 || e.keyCode >= 96 && e.keyCode <= 105) {
-              if(!is_search_active) _show_search();
+              if(!is_search_active) _showSearch();
             }
           }
       }
@@ -111,23 +111,32 @@ A17.Helpers.keyPress = function() {
 
 
 
-  function _show_search() {
+  function _showSearch() {
     $body.addClass(klass_search_active);
     if($search.is(':visible')) $search_input.focus();
 
     $search_input.on('keyup.keyup_ajax', function (event) {
-      _search_delay(250)(_perform_query);
+      _searchDelay(250)(_performAutocomplete);
     });
+    _performQuery();
 
     is_search_active = true;
 
     $search_close.on('click', function(e) {
       e.preventDefault();
-      _hide_search();
+      _hideSearch();
+    });
+
+    _updateQueryField();
+  }
+
+  function _updateQueryField() {
+    $search_input.on('keyup.keyup_ajax', function (event) {
+      _searchDelay(250)(_performAutocomplete);
     });
   }
 
-  function _search_delay(ms) {
+  function _searchDelay(ms) {
     var timer = 0;
     return function(callback){
       clearTimeout (timer);
@@ -135,7 +144,7 @@ A17.Helpers.keyPress = function() {
     };
   };
 
-  function _hide_search() {
+  function _hideSearch() {
     $body.removeClass(klass_search_active);
     $search_input.val('');
     $search_input.off('keyup.keyup_ajax');
@@ -144,41 +153,25 @@ A17.Helpers.keyPress = function() {
     is_search_active = false;
   }
 
-  function _perform_query() {
-    if(is_search_loading) return false;
-
+  function _performQuery() {
     var $search_form = $search.find('form');
-    var api_endpoint = $search.data("url");
-    var data_arr = $('input', $search_form).serializeArray();
+    var api_endpoint = $search_form.attr("action");
     var template = $search_template.html();
 
+    $search_form.on('submit', function(e) {
+      e.preventDefault();
 
-    //  "collapsing": {
-    //      "max": 2,
-    //      "mode": "OFF",
-    //      "type": "OPTIMIZED"
-    //  },
-    //  "returnedFields": [
-    //      "url"
-    //  ]
-    //];
+      if(is_search_loading) return false;
 
-    // misc requiered params
-    data_arr.push({ "name": "start", "value": 0 });
-    data_arr.push({ "name": "rows", "value": 10 });
+      var data_arr = $('input', $search_form).serializeArray();
+      var data = _setData(data_arr);
 
-    var data = $.param(data_arr);
-    console.log(data_arr);
-    console.log(data);
-
-    if(search_data != data) {
       is_search_loading = true;
-      search_data = data;
 
       $.ajax({
         url: api_endpoint,
         type: "POST",
-        data: search_data,
+        data: data,
         dataType: 'json'
       }).done(function(response) {
         console.log(response);
@@ -190,7 +183,53 @@ A17.Helpers.keyPress = function() {
             $search_results.append(template);
           });
         }
+      }).always(function() {
+        is_search_loading = false;
+      });
 
+    });
+  }
+
+  function _setData(data_arr) {
+    // misc requiered params
+    data_arr.push({ "name": "start", "value": 0 });
+    data_arr.push({ "name": "rows", "value": 10 });
+
+    console.log(data_arr);
+    console.log($.param(data_arr));
+
+    return $.param(data_arr);
+  }
+
+  function _performAutocomplete() {
+    if(is_search_loading) return false;
+
+    var $search_form = $search.find('form');
+    var api_endpoint = $search.data("autocomplete-url");
+    var data_arr = $('input', $search_form).not($search_input).serializeArray();
+    data_arr.push({ "name": "prefix", "value": $search_input.val() });
+    var data = _setData(data_arr);
+
+    if(search_data != data) {
+      is_search_loading = true;
+      search_data = data;
+
+      $.ajax({
+        url: api_endpoint,
+        type: "GET",
+        data: search_data,
+        dataType: 'json'
+      }).done(function(response) {
+        console.log(response);
+        var terms = response.terms;
+
+        if(terms.length > 0) {
+          $("[data-search-dropdown]").empty();
+
+          terms.each(function(i) {
+            $("[data-search-dropdown]").append("<a href='#'>" + terms[i] + "</a>");
+          });
+        }
 
       }).always(function() {
         is_search_loading = false;
