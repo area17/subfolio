@@ -19,6 +19,7 @@ A17.Helpers.keyPress = function() {
     var $search_close       = $('[data-search-close]');
     var $search_results     = $('[data-search-results]');
     var $search_template    = $('[data-search-template]');
+    var $search_dropdown    = $("[data-search-dropdown]");
     var klass_search_active = "search__active";
     var search_data         = "";
     var is_search_active    = false;
@@ -115,9 +116,7 @@ A17.Helpers.keyPress = function() {
     $body.addClass(klass_search_active);
     if($search.is(':visible')) $search_input.focus();
 
-    $search_input.on('keyup.keyup_ajax', function (event) {
-      _searchDelay(250)(_performAutocomplete);
-    });
+    _bindAutocomplete();
     _performQuery();
 
     is_search_active = true;
@@ -130,9 +129,19 @@ A17.Helpers.keyPress = function() {
     _updateQueryField();
   }
 
-  function _updateQueryField() {
+  function _bindAutocomplete() {
     $search_input.on('keyup.keyup_ajax', function (event) {
       _searchDelay(250)(_performAutocomplete);
+    });
+  }
+
+  function _updateQueryField() {
+    $search_dropdown.on('click', 'a', function (e) {
+      e.preventDefault();
+
+      $search_input.off('keyup.keyup_ajax');
+      $search_input.val($(this).text());
+      _bindAutocomplete();
     });
   }
 
@@ -224,10 +233,10 @@ A17.Helpers.keyPress = function() {
         var terms = response.terms;
 
         if(terms.length > 0) {
-          $("[data-search-dropdown]").empty();
+          $search_dropdown.empty();
 
           terms.each(function(i) {
-            $("[data-search-dropdown]").append("<a href='#'>" + terms[i] + "</a>");
+            $search_dropdown.append("<a href='#'>" + terms[i] + "</a>");
           });
         }
 
