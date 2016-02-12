@@ -29,6 +29,8 @@
 
   form {
     margin-bottom:50px;
+    overflow:hidden;
+    width:100%;
   }
 
   .icon__close {
@@ -81,7 +83,7 @@
   }
 
   a {
-    display:inline;
+    display:inline-block;
     padding:0 5px;
     text-decoration:underline;
   }

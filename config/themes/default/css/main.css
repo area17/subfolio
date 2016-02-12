@@ -1912,7 +1912,9 @@ body.page--login {
       .search input {
         font-size: 30px; } }
   .search form {
-    margin-bottom: 50px; }
+    margin-bottom: 50px;
+    overflow: hidden;
+    width: 100%; }
   .search .icon__close {
     position: fixed;
     top: 30px;
@@ -1948,7 +1950,7 @@ body.page--login {
   .search__dropdown:before {
     content: 'Try these popular keywords : '; }
   .search__dropdown a {
-    display: inline;
+    display: inline-block;
     padding: 0 5px;
     text-decoration: underline; }
 

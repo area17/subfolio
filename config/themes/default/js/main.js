@@ -4790,7 +4790,7 @@ A17.Helpers.keyPress = function() {
             var data_arr = $("input", $search_form).serializeArray();
             var data = _setData(data_arr);
             is_search_loading = true;
-            $search_dropdown.empty();
+            $search_dropdown.empty().addClass("invisible");
             var response = {
                 successful: true,
                 documents: [ {
@@ -5101,9 +5101,12 @@ A17.Helpers.keyPress = function() {
             $search_dropdown.empty();
             var terms = response.terms;
             if (terms.length > 0) {
+                $search_dropdown.removeClass("invisible");
                 $.each(terms, function(i) {
                     $search_dropdown.append("<a href='#'>" + terms[i] + "</a>");
                 });
+            } else {
+                $search_dropdown.addClass("invisible");
             }
             //}).always(function() {
             is_search_loading = false;

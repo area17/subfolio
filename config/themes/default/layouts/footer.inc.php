@@ -23,9 +23,9 @@
 </footer>
 
 <!-- Display only if search is activated for this account -->
-<?php #if (SubfolioUser::is_logged_in()) { ?> <!-- http://studio.area17.com/search/services/rest/index/studio_file_index/autocompletion/autofilename -->
-<div class="search" data-search data-autocomplete-url="http://subfolio_api.area17.com/json/autocomplete.json">
-  <form action="http://subfolio_api.area17.com/json/search.json"> <!-- http://studio.area17.com/search/services/rest/index/studio_file_index/search/field/search -->
+<?php #if (SubfolioUser::is_logged_in()) { ?>
+<div class="search" data-search data-autocomplete-url="http://studio.area17.com/search/services/rest/index/studio_file_index/autocompletion/autofilename">
+  <form action="http://studio.area17.com/search/services/rest/index/studio_file_index/search/field/search">
     <input type="text" name="query" data-search-input />
     <div class="search__dropdown" data-search-dropdown >
 
