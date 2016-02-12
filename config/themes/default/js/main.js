@@ -4949,7 +4949,7 @@ A17.Helpers.keyPress = function() {
         });
         data_arr.push({
             name: "rows",
-            value: 10
+            value: 20
         });
         return $.param(data_arr);
     }
