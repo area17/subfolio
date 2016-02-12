@@ -38,6 +38,10 @@
     top: $gutter;
     right: $gutter;
     z-index:$z-index__search + 1;
+
+    &:hover {
+      opacity:0.5;
+    }
   }
 
   .listing {

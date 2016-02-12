@@ -1920,6 +1920,8 @@ body.page--login {
     top: 30px;
     right: 30px;
     z-index: 100000; }
+    .search .icon__close:hover {
+      opacity: 0.5; }
   .search .listing {
     background: #FFF; }
 
