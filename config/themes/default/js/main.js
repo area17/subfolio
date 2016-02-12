@@ -4664,12 +4664,16 @@ A17.Helpers.keyPress = function() {
     var last_focusable = $list.length - 1;
     // search
     var $search = $("[data-search]");
-    var $search_input = $("[data-search-input]");
-    var $search_close = $("[data-search-close]");
-    var klass_search_active = "search__active";
-    var search_data = "";
-    var is_search_active = false;
-    var is_search_loading = false;
+    if ($search.length) {
+        var $search_input = $("[data-search-input]");
+        var $search_close = $("[data-search-close]");
+        var $search_results = $("[data-search-results]");
+        var $search_template = $("[data-search-template]");
+        var klass_search_active = "search__active";
+        var search_data = "";
+        var is_search_active = false;
+        var is_search_loading = false;
+    }
     $(document).on("keydown", function(e) {
         // no alt, ctrl or cmd keys pressed
         if (!e.altKey && !e.ctrlKey && !e.metaKey) {
@@ -4775,16 +4779,47 @@ A17.Helpers.keyPress = function() {
         if (is_search_loading) return false;
         var $search_form = $search.find("form");
         var api_endpoint = $search.data("url");
-        var data = $("input", $search_form).serialize();
+        var data_arr = $("input", $search_form).serializeArray();
+        var template = $search_template.html();
+        //  "collapsing": {
+        //      "max": 2,
+        //      "mode": "OFF",
+        //      "type": "OPTIMIZED"
+        //  },
+        //  "returnedFields": [
+        //      "url"
+        //  ]
+        //];
+        // misc requiered params
+        data_arr.push({
+            name: "start",
+            value: 0
+        });
+        data_arr.push({
+            name: "rows",
+            value: 10
+        });
+        var data = $.param(data_arr);
+        console.log(data_arr);
+        console.log(data);
         if (search_data != data) {
             is_search_loading = true;
             search_data = data;
             $.ajax({
                 url: api_endpoint,
-                type: "GET",
+                type: "POST",
                 data: search_data,
                 dataType: "json"
-            }).done(function(response) {}).always(function() {
+            }).done(function(response) {
+                console.log(response);
+                $search_results.empty();
+                // display response here
+                if (response.documents.length > 0) {
+                    response.documents.each(function() {
+                        $search_results.append(template);
+                    });
+                }
+            }).always(function() {
                 is_search_loading = false;
             });
         }

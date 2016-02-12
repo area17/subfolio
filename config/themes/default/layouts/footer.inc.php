@@ -23,12 +23,22 @@
 </footer>
 
 <!-- Display only if search is activated for this account -->
-<?php if (SubfolioUser::is_logged_in()) { ?>
-<div class="search" data-search data-url="endpoint">
+<?php #if (SubfolioUser::is_logged_in()) { ?>
+<div class="search" data-search data-url="http://studio.area17.com/search/services/rest/index/studio_file_index/search/field/search" data-autocomplete-url="http://studio.area17.com/search/services/rest/index/studio_file_index/autocompletion/autofilename">
   <form>
     <input type="text" name="query" data-search-input />
-    <input type="hidden" name="current_folder" value="current_path" />
+    <input type="hidden" name="login" value="searchadmin" />
+    <input type="hidden" name="key" value="93dde3c46cdeba7c3a200ee18e8375fc" />
   </form>
+  <div data-search-results >
+
+  </div>
   <a href="#" class="icon icon__close" data-search-close></a>
 </div>
-<?php } ?>
+
+<script type="text/template" data-search-template>
+<article>
+  Result!
+</article>
+</script>
+<?php #} ?>
