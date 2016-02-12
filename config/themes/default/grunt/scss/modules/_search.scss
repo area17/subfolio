@@ -28,7 +28,7 @@
   }
 
   form {
-    margin-bottom:50px;
+    margin-bottom:$half-gutter;
     overflow:hidden;
     width:100%;
   }
@@ -86,5 +86,9 @@
     display:inline-block;
     padding:0 5px;
     text-decoration:underline;
+
+    &:focus {
+      color:$color-text-secondary;
+    }
   }
 }

@@ -4397,6 +4397,163 @@ function factory(window, EvEmitter) {
     return ImagesLoaded;
 });
 
+/*!
+  SerializeJSON jQuery plugin.
+  https://github.com/marioizquierdo/jquery.serializeJSON
+  version 2.7.2 (Dec, 2015)
+
+  Copyright (c) 2012, 2015 Mario Izquierdo
+  Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
+  and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
+*/
+!function(e) {
+    if ("function" == typeof define && define.amd) define([ "jquery" ], e); else if ("object" == typeof exports) {
+        var n = require("jquery");
+        module.exports = e(n);
+    } else e(window.jQuery || window.Zepto || window.$);
+}(function(e) {
+    "use strict";
+    e.fn.serializeJSON = function(n) {
+        var r, t, a, i, s, u, o, l, p, c, d;
+        return r = e.serializeJSON, t = this, a = r.setupOpts(n), i = t.serializeArray(), 
+        r.readCheckboxUncheckedValues(i, a, t), s = {}, e.each(i, function(e, n) {
+            u = n.name, o = n.value, l = r.extractTypeAndNameWithNoType(u), p = l.nameWithNoType, 
+            c = l.type, c || (c = r.tryToFindTypeFromDataAttr(u, t)), r.validateType(u, c, a), 
+            "skip" !== c && (d = r.splitInputNameIntoKeysArray(p), o = r.parseValue(o, u, c, a), 
+            r.deepSet(s, d, o, a));
+        }), s;
+    }, e.serializeJSON = {
+        defaultOptions: {
+            checkboxUncheckedValue: void 0,
+            parseNumbers: !1,
+            parseBooleans: !1,
+            parseNulls: !1,
+            parseAll: !1,
+            parseWithFunction: null,
+            customTypes: {},
+            defaultTypes: {
+                string: function(e) {
+                    return String(e);
+                },
+                number: function(e) {
+                    return Number(e);
+                },
+                "boolean": function(e) {
+                    var n = [ "false", "null", "undefined", "", "0" ];
+                    return -1 === n.indexOf(e);
+                },
+                "null": function(e) {
+                    var n = [ "false", "null", "undefined", "", "0" ];
+                    return -1 === n.indexOf(e) ? e : null;
+                },
+                array: function(e) {
+                    return JSON.parse(e);
+                },
+                object: function(e) {
+                    return JSON.parse(e);
+                },
+                auto: function(n) {
+                    return e.serializeJSON.parseValue(n, null, null, {
+                        parseNumbers: !0,
+                        parseBooleans: !0,
+                        parseNulls: !0
+                    });
+                },
+                skip: null
+            },
+            useIntKeysAsArrayIndex: !1
+        },
+        setupOpts: function(n) {
+            var r, t, a, i, s, u;
+            u = e.serializeJSON, null == n && (n = {}), a = u.defaultOptions || {}, t = [ "checkboxUncheckedValue", "parseNumbers", "parseBooleans", "parseNulls", "parseAll", "parseWithFunction", "customTypes", "defaultTypes", "useIntKeysAsArrayIndex" ];
+            for (r in n) if (-1 === t.indexOf(r)) throw new Error("serializeJSON ERROR: invalid option '" + r + "'. Please use one of " + t.join(", "));
+            return i = function(e) {
+                return n[e] !== !1 && "" !== n[e] && (n[e] || a[e]);
+            }, s = i("parseAll"), {
+                checkboxUncheckedValue: i("checkboxUncheckedValue"),
+                parseNumbers: s || i("parseNumbers"),
+                parseBooleans: s || i("parseBooleans"),
+                parseNulls: s || i("parseNulls"),
+                parseWithFunction: i("parseWithFunction"),
+                typeFunctions: e.extend({}, i("defaultTypes"), i("customTypes")),
+                useIntKeysAsArrayIndex: i("useIntKeysAsArrayIndex")
+            };
+        },
+        parseValue: function(n, r, t, a) {
+            var i, s;
+            return i = e.serializeJSON, s = n, a.typeFunctions && t && a.typeFunctions[t] ? s = a.typeFunctions[t](n) : a.parseNumbers && i.isNumeric(n) ? s = Number(n) : !a.parseBooleans || "true" !== n && "false" !== n ? a.parseNulls && "null" == n && (s = null) : s = "true" === n, 
+            a.parseWithFunction && !t && (s = a.parseWithFunction(s, r)), s;
+        },
+        isObject: function(e) {
+            return e === Object(e);
+        },
+        isUndefined: function(e) {
+            return void 0 === e;
+        },
+        isValidArrayIndex: function(e) {
+            return /^[0-9]+$/.test(String(e));
+        },
+        isNumeric: function(e) {
+            return e - parseFloat(e) >= 0;
+        },
+        optionKeys: function(e) {
+            if (Object.keys) return Object.keys(e);
+            var n, r = [];
+            for (n in e) r.push(n);
+            return r;
+        },
+        readCheckboxUncheckedValues: function(n, r, t) {
+            var a, i, s, u, o;
+            null == r && (r = {}), o = e.serializeJSON, a = "input[type=checkbox][name]:not(:checked):not([disabled])", 
+            i = t.find(a).add(t.filter(a)), i.each(function(t, a) {
+                s = e(a), u = s.attr("data-unchecked-value"), u ? n.push({
+                    name: a.name,
+                    value: u
+                }) : o.isUndefined(r.checkboxUncheckedValue) || n.push({
+                    name: a.name,
+                    value: r.checkboxUncheckedValue
+                });
+            });
+        },
+        extractTypeAndNameWithNoType: function(e) {
+            var n;
+            return (n = e.match(/(.*):([^:]+)$/)) ? {
+                nameWithNoType: n[1],
+                type: n[2]
+            } : {
+                nameWithNoType: e,
+                type: null
+            };
+        },
+        tryToFindTypeFromDataAttr: function(e, n) {
+            var r, t, a, i;
+            return r = e.replace(/(:|\.|\[|\]|\s)/g, "\\$1"), t = '[name="' + r + '"]', a = n.find(t).add(n.filter(t)), 
+            i = a.attr("data-value-type"), i || null;
+        },
+        validateType: function(n, r, t) {
+            var a, i;
+            if (i = e.serializeJSON, a = i.optionKeys(t ? t.typeFunctions : i.defaultOptions.defaultTypes), 
+            r && -1 === a.indexOf(r)) throw new Error("serializeJSON ERROR: Invalid type " + r + " found in input name '" + n + "', please use one of " + a.join(", "));
+            return !0;
+        },
+        splitInputNameIntoKeysArray: function(n) {
+            var r, t;
+            return t = e.serializeJSON, r = n.split("["), r = e.map(r, function(e) {
+                return e.replace(/\]/g, "");
+            }), "" === r[0] && r.shift(), r;
+        },
+        deepSet: function(n, r, t, a) {
+            var i, s, u, o, l, p;
+            if (null == a && (a = {}), p = e.serializeJSON, p.isUndefined(n)) throw new Error("ArgumentError: param 'o' expected to be an object or array, found undefined");
+            if (!r || 0 === r.length) throw new Error("ArgumentError: param 'keys' expected to be an array with least one element");
+            i = r[0], 1 === r.length ? "" === i ? n.push(t) : n[i] = t : (s = r[1], "" === i && (o = n.length - 1, 
+            l = n[o], i = p.isObject(l) && (p.isUndefined(l[s]) || r.length > 2) ? o : o + 1), 
+            "" === s ? (p.isUndefined(n[i]) || !e.isArray(n[i])) && (n[i] = []) : a.useIntKeysAsArrayIndex && p.isValidArrayIndex(s) ? (p.isUndefined(n[i]) || !e.isArray(n[i])) && (n[i] = []) : (p.isUndefined(n[i]) || !p.isObject(n[i])) && (n[i] = {}), 
+            u = r.slice(1), p.deepSet(n[i], u, t, a));
+        }
+    };
+});
+
 /* --------------------------------------------------------------
 
 main.js
@@ -4658,6 +4815,7 @@ A17.Helpers.keyPress = function() {
     var $body = $("body");
     var $previous = $("#previous");
     var $next = $("#next");
+    var is_search_active = false;
     // focused listing
     var $list = $(".focusable");
     var focused_index = -1;
@@ -4670,28 +4828,31 @@ A17.Helpers.keyPress = function() {
             switch (e.keyCode) {
               // user pressed "left" arrow
                 case 37:
-                if ($previous.length) {
-                    var previous_url = $previous.attr("href");
-                    if (previous_url) _triggerHover($previous, previous_url);
-                }
+                if (is_search_active) return false;
+                if (!$previous.length) return false;
+                var previous_url = $previous.attr("href");
+                if (previous_url) _triggerHover($previous, previous_url);
                 break;
 
               // user pressed "up" arrow
                 case 38:
+                if (is_search_active) return false;
                 if ($list.length) _setFocused("prev", e);
                 break;
 
               // user pressed "right" arrow
                 case 39:
-                if ($next.length) {
-                    var next_url = $next.attr("href");
-                    if (next_url) _triggerHover($next, next_url);
-                }
+                if (is_search_active) return false;
+                if (!$next.length) return false;
+                var next_url = $next.attr("href");
+                if (next_url) _triggerHover($next, next_url);
                 break;
 
               // user pressed "down" arrow
                 case 40:
-                if ($list.length) _setFocused("next", e);
+                if (is_search_active) return false;
+                if (!$list.length) return false;
+                _setFocused("next", e);
                 break;
 
               // user pressed "esc" down : Escape from the search or go back to parent directory
@@ -4742,7 +4903,7 @@ A17.Helpers.keyPress = function() {
     if ($search.length) {
         // DOM
         var $search_input = $("[data-search-input]"), $search_close = $("[data-search-close]"), $search_results = $("[data-search-results]"), $search_template = $("[data-search-template]"), $search_form = $search.find("form"), $search_dropdown = $("[data-search-dropdown]");
-        var klass_search_active = "search__active", search_data = "", is_search_active = false, is_search_loading = false;
+        var klass_search_active = "search__active", search_data = "", is_search_loading = false;
     }
     function _showSearch() {
         $body.addClass(klass_search_active);
@@ -4781,288 +4942,6 @@ A17.Helpers.keyPress = function() {
         $search_close.off("click");
         is_search_active = false;
     }
-    function _performQuery() {
-        var api_endpoint = $search_form.attr("action");
-        var template = $search_template.html();
-        $search_form.on("submit", function(e) {
-            e.preventDefault();
-            if (is_search_loading) return false;
-            var data_arr = $("input", $search_form).serializeArray();
-            var data = _setData(data_arr);
-            is_search_loading = true;
-            $search_dropdown.empty().addClass("invisible");
-            var response = {
-                successful: true,
-                documents: [ {
-                    fields: [ {
-                        fieldName: "fileType",
-                        values: [ "directory" ]
-                    }, {
-                        fieldName: "fileSize",
-                        values: [ ">00000000000000004096" ]
-                    }, {
-                        fieldName: "fileName",
-                        values: [ "longchamp" ]
-                    }, {
-                        fieldName: "directory",
-                        values: [ "file:/var/www/studio.area17.com/directory/" ]
-                    }, {
-                        fieldName: "fileSystemDate",
-                        values: [ "20160209153313000" ]
-                    } ],
-                    snippets: [ {
-                        fieldName: "content",
-                        highlighted: false
-                    } ]
-                }, {
-                    pos: 1,
-                    fields: [ {
-                        fieldName: "fileType",
-                        values: [ "directory" ]
-                    }, {
-                        fieldName: "fileSize",
-                        values: [ ">00000000000000004096" ]
-                    }, {
-                        fieldName: "fileName",
-                        values: [ "00 longchamp" ]
-                    }, {
-                        fieldName: "directory",
-                        values: [ "file:/var/www/studio.area17.com/directory/a17_internal/02_strategy/00_new_bus_temp/minyanville/" ]
-                    }, {
-                        fieldName: "fileSystemDate",
-                        values: [ "20080927071901000" ]
-                    } ],
-                    snippets: [ {
-                        fieldName: "content",
-                        highlighted: false
-                    } ]
-                }, {
-                    pos: 2,
-                    fields: [ {
-                        fieldName: "fileType",
-                        values: [ "directory" ]
-                    }, {
-                        fieldName: "fileSize",
-                        values: [ ">00000000000000004096" ]
-                    }, {
-                        fieldName: "fileName",
-                        values: [ "longchamp_tumblr_08" ]
-                    }, {
-                        fieldName: "directory",
-                        values: [ "file:/var/www/studio.area17.com/directory/longchamp/02_tumblr/03_development/working_files/" ]
-                    }, {
-                        fieldName: "fileSystemDate",
-                        values: [ "20160128184039000" ]
-                    } ],
-                    snippets: [ {
-                        fieldName: "content",
-                        highlighted: false
-                    } ]
-                }, {
-                    pos: 3,
-                    fields: [ {
-                        fieldName: "fileType",
-                        values: [ "directory" ]
-                    }, {
-                        fieldName: "fileSize",
-                        values: [ ">00000000000000004096" ]
-                    }, {
-                        fieldName: "fileName",
-                        values: [ "longchamp_tumblr_09" ]
-                    }, {
-                        fieldName: "directory",
-                        values: [ "file:/var/www/studio.area17.com/directory/longchamp/02_tumblr/03_development/working_files/" ]
-                    }, {
-                        fieldName: "fileSystemDate",
-                        values: [ "20160208185526000" ]
-                    } ],
-                    snippets: [ {
-                        fieldName: "content",
-                        highlighted: false
-                    } ]
-                }, {
-                    pos: 4,
-                    fields: [ {
-                        fieldName: "fileType",
-                        values: [ "directory" ]
-                    }, {
-                        fieldName: "fileSize",
-                        values: [ ">00000000000000004096" ]
-                    }, {
-                        fieldName: "fileName",
-                        values: [ "longchamp_tumblr_07" ]
-                    }, {
-                        fieldName: "directory",
-                        values: [ "file:/var/www/studio.area17.com/directory/longchamp/02_tumblr/03_development/working_files/" ]
-                    }, {
-                        fieldName: "fileSystemDate",
-                        values: [ "20160125165350000" ]
-                    } ],
-                    snippets: [ {
-                        fieldName: "content",
-                        highlighted: false
-                    } ]
-                }, {
-                    pos: 5,
-                    fields: [ {
-                        fieldName: "fileType",
-                        values: [ "directory" ]
-                    }, {
-                        fieldName: "fileSize",
-                        values: [ ">00000000000000004096" ]
-                    }, {
-                        fieldName: "fileName",
-                        values: [ "05_Longchamp_Mag Folder" ]
-                    }, {
-                        fieldName: "directory",
-                        values: [ "file:/var/www/studio.area17.com/directory/longchamp/03_magazine/00_internal/00_source/" ]
-                    }, {
-                        fieldName: "fileSystemDate",
-                        values: [ "20160210034551000" ]
-                    } ],
-                    snippets: [ {
-                        fieldName: "content",
-                        highlighted: false
-                    } ]
-                }, {
-                    pos: 6,
-                    fields: [ {
-                        fieldName: "fileType",
-                        values: [ "directory" ]
-                    }, {
-                        fieldName: "fileSize",
-                        values: [ ">00000000000000004096" ]
-                    }, {
-                        fieldName: "fileName",
-                        values: [ "03_Longchamp_Mag Folder" ]
-                    }, {
-                        fieldName: "directory",
-                        values: [ "file:/var/www/studio.area17.com/directory/longchamp/03_magazine/00_internal/06/" ]
-                    }, {
-                        fieldName: "fileSystemDate",
-                        values: [ "20160202131335000" ]
-                    } ],
-                    snippets: [ {
-                        fieldName: "content",
-                        highlighted: false
-                    } ]
-                }, {
-                    pos: 7,
-                    fields: [ {
-                        fieldName: "fileType",
-                        values: [ "directory" ]
-                    }, {
-                        fieldName: "fileSize",
-                        values: [ ">00000000000000004096" ]
-                    }, {
-                        fieldName: "fileName",
-                        values: [ "longchamp_brand_pres_06" ]
-                    }, {
-                        fieldName: "directory",
-                        values: [ "file:/var/www/studio.area17.com/directory/longchamp/04_presentation/00_internal/" ]
-                    }, {
-                        fieldName: "fileSystemDate",
-                        values: [ "20160205175534000" ]
-                    } ],
-                    snippets: [ {
-                        fieldName: "content",
-                        highlighted: false
-                    } ]
-                }, {
-                    pos: 8,
-                    fields: [ {
-                        fieldName: "fileType",
-                        values: [ "directory" ]
-                    }, {
-                        fieldName: "fileSize",
-                        values: [ ">00000000000000004096" ]
-                    }, {
-                        fieldName: "fileName",
-                        values: [ "longchamp_brand_pres_07 Folder" ]
-                    }, {
-                        fieldName: "directory",
-                        values: [ "file:/var/www/studio.area17.com/directory/longchamp/04_presentation/00_internal/" ]
-                    }, {
-                        fieldName: "fileSystemDate",
-                        values: [ "20160210144307000" ]
-                    } ],
-                    snippets: [ {
-                        fieldName: "content",
-                        highlighted: false
-                    } ]
-                }, {
-                    pos: 9,
-                    fields: [ {
-                        fieldName: "fileType",
-                        values: [ "file" ]
-                    }, {
-                        fieldName: "fileSize",
-                        values: [ ">00000000000000295161" ]
-                    }, {
-                        fieldName: "fileName",
-                        values: [ "PRO_LCP-AN_Site_v01_d01.pdf" ]
-                    }, {
-                        fieldName: "directory",
-                        values: [ "file:/var/www/studio.area17.com/directory/00_archive/01_pitch/LCP-AN/03_Proposition/" ]
-                    }, {
-                        fieldName: "fileSystemDate",
-                        values: [ "20140617192033000" ]
-                    } ],
-                    snippets: [ {
-                        fieldName: "content",
-                        values: [ "Hennessy, Valrhona, <b>Longchamp</b>, Louis XIII, i>TELE, Citroën, Ligue contre le cancer, Newsring). ...Il développe en PHP/...MYSQL/HTML/CSS/JS et conceptualise les applications en ERM....AREA 17 —..." ],
-                        highlighted: true
-                    } ]
-                } ],
-                query: '(+content:longchamp) content:"longchamp"~2 (+fileName:longchamp^10.0) fileName:"longchamp"~2^10.0',
-                rows: 10,
-                numFound: 254,
-                time: 1
-            };
-            // $.ajax({
-            //   url: api_endpoint,
-            //   type: "POST",
-            //   data: data,
-            //   dataType: 'json'
-            // }).done(function(response) {
-            $search_results.empty();
-            // display response here
-            var documents = response.documents;
-            console.log(documents);
-            if (documents.length > 0) {
-                $.each(documents, function() {
-                    var document = this;
-                    template_item = template;
-                    $.each(document.fields, function() {
-                        var field = this;
-                        var value = "–";
-                        if (field.values) {
-                            var value = field.values[0].replace("file:/var/www/", "http://").replace("/directory", "");
-                            // dir of file
-                            if (field.fieldName == "fileType") {
-                                value = field.values[0] == "directory" ? "dir" : "gen";
-                            }
-                            // date
-                            if (field.fieldName == "fileSystemDate") {
-                                var date = new Date(field.values[0].substring(0, 4), field.values[0].substring(4, 6), field.values[0].substring(6, 8));
-                                value = date.toLocaleString("en-US", {
-                                    weekday: "long",
-                                    year: "numeric",
-                                    month: "long",
-                                    day: "numeric"
-                                });
-                            }
-                        }
-                        var re = new RegExp("{{" + field.fieldName + "}}", "g");
-                        template_item = template_item.replace(re, value);
-                    });
-                    $search_results.append(template_item);
-                });
-            }
-            // }).always(function() {
-            is_search_loading = false;
-        });
-    }
     function _setData(data_arr) {
         // misc requiered params
         data_arr.push({
@@ -5074,6 +4953,71 @@ A17.Helpers.keyPress = function() {
             value: 10
         });
         return $.param(data_arr);
+    }
+    function _buildResults(document) {
+        var template = $search_template.html();
+        var template_item = template;
+        $.each(document.fields, function() {
+            var field = this;
+            var value = "–";
+            if (field.values) {
+                var value = field.values[0].replace("file:/var/www/", "http://").replace("/directory", "");
+                // dir of file
+                if (field.fieldName == "fileType") {
+                    value = field.values[0] == "directory" ? "dir" : "gen";
+                }
+                // date
+                if (field.fieldName == "fileSystemDate") {
+                    var date = new Date(field.values[0].substring(0, 4), field.values[0].substring(4, 6), field.values[0].substring(6, 8));
+                    value = date.toLocaleString("en-US", {
+                        weekday: "long",
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric"
+                    });
+                }
+            }
+            var re = new RegExp("{{" + field.fieldName + "}}", "g");
+            template_item = template_item.replace(re, value);
+        });
+        return template_item;
+    }
+    function _performQuery() {
+        var api_endpoint = $search_form.attr("action");
+        $search_form.on("submit", function(e) {
+            e.preventDefault();
+            if (is_search_loading) return false;
+            var data_arr = $("input", $search_form).not("[data-json-based]").serializeArray();
+            var data_json = $("input", $search_form).not("[data-get-based]").serializeJSON();
+            is_search_loading = true;
+            $search_dropdown.empty().addClass("invisible");
+            console.log(data_json);
+            $.ajax({
+                url: api_endpoint + "?" + $.param(data_arr),
+                type: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                data: JSON.stringify(data_json),
+                dataType: "json",
+                processData: false
+            }).done(function(response) {
+                $search_results.empty();
+                if (response.documents) {
+                    // display response here
+                    var documents = response.documents;
+                    if (documents.length > 0) {
+                        $.each(documents, function() {
+                            var document = this;
+                            var template_item = _buildResults(document);
+                            $search_results.append(template_item);
+                        });
+                    }
+                }
+            }).always(function() {
+                is_search_loading = false;
+            });
+        });
     }
     function _performAutocomplete() {
         if (is_search_loading) return false;
@@ -5088,28 +5032,29 @@ A17.Helpers.keyPress = function() {
         if (search_data != data) {
             is_search_loading = true;
             search_data = data;
-            //$.ajax({
-            //  url: api_endpoint,
-            //  type: "GET",
-            //  data: search_data,
-            //  dataType: 'json'
-            //}).done(function(response) {
-            var response = {
-                successful: true,
-                terms: [ "Hello", "Hello Monday.webloc", "hello.erb", "hello.pdf", "hellonwheels.jpg" ]
-            };
-            $search_dropdown.empty();
-            var terms = response.terms;
-            if (terms.length > 0) {
-                $search_dropdown.removeClass("invisible");
-                $.each(terms, function(i) {
-                    $search_dropdown.append("<a href='#'>" + terms[i] + "</a>");
-                });
-            } else {
-                $search_dropdown.addClass("invisible");
-            }
-            //}).always(function() {
-            is_search_loading = false;
+            $.ajax({
+                url: api_endpoint,
+                type: "GET",
+                data: search_data,
+                dataType: "json"
+            }).done(function(response) {
+                $search_dropdown.empty();
+                if (response.terms) {
+                    var terms = response.terms;
+                    if (terms.length > 0) {
+                        $search_dropdown.removeClass("invisible");
+                        $.each(terms, function(i) {
+                            $search_dropdown.append("<a href='#'>" + terms[i] + "</a>");
+                        });
+                    } else {
+                        $search_dropdown.addClass("invisible");
+                    }
+                } else {
+                    $search_dropdown.addClass("invisible");
+                }
+            }).always(function() {
+                is_search_loading = false;
+            });
         }
     }
 };

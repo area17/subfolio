@@ -22,16 +22,16 @@
   <?php } ?>
 </footer>
 
-<!-- Display only if search is activated for this account -->
-<?php #if (SubfolioUser::is_logged_in()) { ?>
-<div class="search" data-search data-autocomplete-url="http://studio.area17.com/search/services/rest/index/studio_file_index/autocompletion/autofilename">
-  <form action="http://studio.area17.com/search/services/rest/index/studio_file_index/search/field/search">
-    <input type="text" name="query" data-search-input />
-    <div class="search__dropdown" data-search-dropdown >
 
-    </div>
-    <input type="hidden" name="login" value="searchadmin" />
-    <input type="hidden" name="key" value="93dde3c46cdeba7c3a200ee18e8375fc" />
+
+<?php if (SubfolioUser::is_admin()) { ?>
+<!-- Display only if search is activated for this account -->
+<div class="search" data-search data-autocomplete-url="https://studio.area17.com/search/services/rest/index/studio_file_index/autocompletion/autofilename">
+  <form action="https://studio.area17.com/search/services/rest/index/studio_file_index/search/field/search">
+    <input type="text" name="query" data-search-input data-json-based autocomplete="off" />
+    <div class="search__dropdown" data-search-dropdown ></div>
+    <input type="hidden" name="login" value="searchadmin" data-get-based />
+    <input type="hidden" name="key" value="93dde3c46cdeba7c3a200ee18e8375fc" data-get-based />
   </form>
   <div class="listing search__results"  >
   <div class="list list--list" data-search-results></div>
@@ -54,4 +54,4 @@
     <span class="list__cell list__cell--comment"></span>
   </a>
 </script>
-<?php #} ?>
+<?php } ?>

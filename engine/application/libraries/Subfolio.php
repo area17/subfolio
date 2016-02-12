@@ -444,6 +444,15 @@ class SubfolioUser extends Subfolio {
     return Subfolio::$auth->logged_in();
   }
 
+  public static function is_admin()
+  {
+    if (Subfolio::$auth->logged_in()) {
+      return Subfolio::$auth->get_user()->admin;
+    } else {
+      return NULL;
+    }
+  }
+
   public static function current_user_name() {
     if (Subfolio::$auth->logged_in()) {
       return Subfolio::$auth->get_user()->name;

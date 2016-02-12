@@ -1912,7 +1912,7 @@ body.page--login {
       .search input {
         font-size: 30px; } }
   .search form {
-    margin-bottom: 50px;
+    margin-bottom: 15px;
     overflow: hidden;
     width: 100%; }
   .search .icon__close {
@@ -1953,6 +1953,8 @@ body.page--login {
     display: inline-block;
     padding: 0 5px;
     text-decoration: underline; }
+    .search__dropdown a:focus {
+      color: #999999; }
 
 /* @group Download */
 #download_box {

@@ -5,6 +5,7 @@ var includes_js = [
   "grunt/js/jquery.scrollTo-min.js",
   "grunt/js/masonry.pkgd.min.js",
   "grunt/js/imagesloaded.pkgd.js",
+  "grunt/js/jquery.serializejson.min.js",
   "grunt/js/main.js",
   "grunt/js/behaviors/*.js",
   "grunt/js/helpers/*.js"
