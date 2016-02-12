@@ -23,32 +23,28 @@ A17.Helpers.keyPress = function() {
       switch(e.keyCode) {
         // user pressed "left" arrow
         case 37:
-
-          if(is_search_active) return false;
-          if(!$previous.length) return false;
-
-          var previous_url = $previous.attr("href");
-          if(previous_url) _triggerHover($previous, previous_url);
+          if($previous.length && !is_search_active) {
+            var previous_url = $previous.attr("href");
+            if(previous_url) _triggerHover($previous, previous_url);
+          }
         break;
 
         // user pressed "up" arrow
         case 38:
-          if(is_search_active) return false;
-          if($list.length) _setFocused("prev", e);
+          if($list.length && !is_search_active) _setFocused("prev", e);
         break;
         // user pressed "right" arrow
         case 39:
-          if(is_search_active) return false;
-          if(!$next.length) return false;
-
-          var next_url = $next.attr("href");
-          if(next_url) _triggerHover($next, next_url);
+          if($next.length && !is_search_active) {
+            var next_url = $next.attr("href");
+            if(next_url) _triggerHover($next, next_url);
+          }
         break;
         // user pressed "down" arrow
         case 40:
-          if(is_search_active) return false;
-          if(!$list.length) return false;
-          _setFocused("next", e);
+          if($list.length && !is_search_active) {
+            _setFocused("next", e);
+          }
         break;
         // user pressed "esc" down : Escape from the search or go back to parent directory
         case 27:
