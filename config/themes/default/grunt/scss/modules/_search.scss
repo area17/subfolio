@@ -14,7 +14,7 @@
   input {
     display: block;
     width: 100%;
-    margin: 0 0 50px;
+    margin: 0;
     border: 0 none;
     background: transparent;
     color: $color-text;
@@ -27,23 +27,62 @@
     }
   }
 
+  form {
+    margin-bottom:50px;
+  }
+
   .icon__close {
     position:fixed;
     top: $gutter;
     right: $gutter;
     z-index:$z-index__search + 1;
   }
+
+  .listing {
+    background:$color-bg;
+  }
 }
 
 .search__active {
+  height:100%;
+  width:100%;
+  overflow:hidden;
+
+
   .search {
     display:block;
   }
 }
 
+/*.search__results {
+  border-color:$color-border-light;
+
+  article {
+    border-top-width:1px;
+    border-color:$color-border-light;
+    padding:20px 0;
+  }
+}*/
+
 .page,
 .page.search__active {
   .search {
     display:none;
+  }
+}
+
+.search__dropdown {
+  min-height:25px;
+  line-height:25px;
+  color: $color-text-secondary;
+
+  &:before {
+    content:'Try these popular keywords : ';
+  }
+
+  a {
+    display:inline;
+    padding:0 5px;
+    text-decoration:underline;
   }
 }

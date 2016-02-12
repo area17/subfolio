@@ -1,6 +1,6 @@
 <?php if (SubfolioFiles::have_files()) : ?>
 
-  <div id="listing">
+  <div class="listing">
 
     <div class="list list--<?php echo SubfolioTheme::get_listing_mode() ?>" data-behavior="hover_list">
 

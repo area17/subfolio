@@ -23,23 +23,35 @@
 </footer>
 
 <!-- Display only if search is activated for this account -->
-<?php #if (SubfolioUser::is_logged_in()) { ?>
-<div class="search" data-search data-autocomplete-url="http://studio.area17.com/search/services/rest/index/studio_file_index/autocompletion/autofilename">
-  <form action="http://studio.area17.com/search/services/rest/index/studio_file_index/search/field/search">
+<?php #if (SubfolioUser::is_logged_in()) { ?> <!-- http://studio.area17.com/search/services/rest/index/studio_file_index/autocompletion/autofilename -->
+<div class="search" data-search data-autocomplete-url="http://subfolio_api.area17.com/json/autocomplete.json">
+  <form action="http://subfolio_api.area17.com/json/search.json"> <!-- http://studio.area17.com/search/services/rest/index/studio_file_index/search/field/search -->
     <input type="text" name="query" data-search-input />
-    <div class="search__dropdown" data-search-dropdown ></div>
+    <div class="search__dropdown" data-search-dropdown >
+
+    </div>
     <input type="hidden" name="login" value="searchadmin" />
     <input type="hidden" name="key" value="93dde3c46cdeba7c3a200ee18e8375fc" />
   </form>
-  <div data-search-results >
-
+  <div class="listing search__results"  >
+  <div class="list list--list" data-search-results></div>
   </div>
   <a href="#" class="icon icon__close" data-search-close></a>
 </div>
 
 <script type="text/template" data-search-template>
-<article>
-  Result!
-</article>
+  <a class="list__row list__body" href="{{directory}}/{{fileName}}">
+    <span class="list__cell list__cell--filename">
+      <span class="list__cell--filenameicon">
+        <i class='icon icon__list_{{fileType}}'></i>
+      </span>
+      <span class="list__cell--filenametext">
+        {{fileName}}
+      </span>
+    </span>
+    <span class="list__cell list__cell--date">{{fileSystemDate}}</span>
+    <span class="list__cell list__cell--kind"></span>
+    <span class="list__cell list__cell--comment"></span>
+  </a>
 </script>
 <?php #} ?>
