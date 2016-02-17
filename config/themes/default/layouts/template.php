@@ -14,8 +14,8 @@
 
   <?php $favicon = SubfolioTheme::get_site_favicon_url();
   if ($favicon <> '') { ?>
-  <link rel="icon" href="<?php echo $favicon ?>" type="image/vnd.microsoft.icon"  />
-  <link rel="shortcut icon" href="<?php echo $favicon ?>" type="image/vnd.microsoft.icon"  />
+  <link rel="icon" href="<?php echo $favicon ?>?v=2" type="image/vnd.microsoft.icon"  />
+  <link rel="shortcut icon" href="<?php echo $favicon ?>?v=2" type="image/vnd.microsoft.icon"  />
   <?php } ?>
 
   <link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/main.css" type="text/css" rel="stylesheet" >
