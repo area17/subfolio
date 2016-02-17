@@ -82,16 +82,24 @@
     margin-bottom: 20px;
   }
 
-  h3, h4, blockquote {
+  h3 {
     font-size: em(36px, 18px);
     line-height: em(45px, 36px);
-    margin-top: $gutter;
-    margin-bottom: $half-gutter;
 
     @include breakpoint(small-and-down) {
       font-size: em(30px);
       line-height: em(40px, 30px);
     }
+  }
+
+  h3, h4, blockquote {
+    margin-top: $gutter;
+    margin-bottom: $half-gutter;
+  }
+
+  h4, h5 {
+    font-size: em(22px, 18px);
+    line-height: em(30px, 22px);
   }
 
   h5 {
@@ -129,10 +137,9 @@
     color: inherit;
   }
   small, small a {
-    font-size: em(11px, 18px);
-    line-height: em(15px, 11px);
-    font-family: $serif;
-    color: #666; /* << text_light_color */
+    font-size: em(13px, 18px);
+    line-height: em(20px, 13px);
+    color: $color-text-secondary; /* << text_light_color */
   }
   small a:hover { color: inherit; }
   img {

@@ -24,10 +24,6 @@ $inner_padding_mobile:10px;
   li {
     float: left;
 
-    @include breakpoint(xsmall) {
-      width:50%;
-    }
-
     a {
       display: block;
       margin: 0 -1px -1px 0;
@@ -85,7 +81,7 @@ $inner_padding_mobile:10px;
   }
 }
 
-.gallery--column {
+.gallery {
   li {
     width:16.6666667%;
 
@@ -102,6 +98,32 @@ $inner_padding_mobile:10px;
     }
 
     @include breakpoint(small-and-down) {
+      width:50%;
+    }
+  }
+}
+
+.gallery--fit {
+  li {
+    width:auto;
+
+    @include breakpoint(xlarge) {
+      width:auto;
+    }
+
+    @include breakpoint(large) {
+      width:auto;
+    }
+
+    @include breakpoint(medium) {
+      width:auto;
+    }
+
+    @include breakpoint(small-and-down) {
+      width:auto;
+    }
+
+    @include breakpoint(xsmall) {
       width:50%;
     }
   }

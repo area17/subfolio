@@ -35,7 +35,7 @@ youdonthaveaccesstothisdirectory: "You don't have access to this directory."
 # 404 ERROR
 
 notfound: "The item that you are looking for was not found."
-check_url_go_back: "Please check the url or go to the %s for a file listing."
+check_url_go_back: "Please check the URL or go to the %s for a file listing."
 
 # LOGIN (if applicable)
 

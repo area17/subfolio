@@ -63,7 +63,7 @@ display_name: true
 display_size: true
 display_date: true
 display_kind: true
-display_comment: true
+display_comment: false
 
 ### SHOW/HIDE INTERFACE ELEMENTS (true/false)
 ### Make sure you leave a way for your users to navigate

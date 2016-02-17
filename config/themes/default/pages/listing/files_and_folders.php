@@ -4,7 +4,7 @@
 
     <div class="list list--<?php echo SubfolioTheme::get_listing_mode() ?>" data-behavior="hover_list">
 
-      <?php if (SubfolioTheme::get_option('display_file_listing_header') && SubfolioTheme::get_listing_mode()=='list') { ?>
+      <?php if (SubfolioTheme::get_option('display_file_listing_header') && SubfolioTheme::get_listing_mode() != 'grid') { ?>
         <div class="list__row list__header">
           <?php if (SubfolioTheme::get_option('display_name')) { ?>
             <span class="list__cell list__cell--filename"><a href="?sort=filename"><?php echo SubfolioLanguage::get_text('filename'); ?></a></span>
