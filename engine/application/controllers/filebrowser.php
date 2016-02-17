@@ -21,6 +21,11 @@ class Filebrowser_Controller extends Website_Controller {
 
     $return_path = $this->session->get('return_path') ? $this->session->get('return_path') : '/';
 
+    if ($this->auth->logged_in()) {
+      url::redirect($return_path);
+      exit();
+    }
+
     $login = View::factory('pages/login');
     $login->login_failed = false;
 
