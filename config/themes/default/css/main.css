@@ -1003,9 +1003,9 @@ ul.group {
     .header__navigation a:last-child, .header__navigation span:last-child {
       padding-right: 0; }
   .header__navigation a i {
-    opacity: 0.33; }
+    opacity: 0.4; }
   .header__navigation span i {
-    opacity: 0.15; }
+    opacity: 0.1; }
   .header__navigation a:hover i,
   .header__navigation a.hover i {
     opacity: 1; }
