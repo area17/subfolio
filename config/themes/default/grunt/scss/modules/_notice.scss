@@ -12,8 +12,16 @@
   animation: hide_notice 0.4s ease-out 3s forwards;
 
   p {
-    padding: $gutter;
+    display:block;
+    padding: 0 $gutter;
+    height:70px;
+    line-height:70px;
     text-align:center;
+    @include ellipsis();
+
+    @include breakpoint(small-and-down) {
+      padding: 0 $gutter-mobile;
+    }
   }
 
   &.error {

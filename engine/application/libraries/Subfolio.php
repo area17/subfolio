@@ -826,6 +826,7 @@ class SubfolioFiles extends Subfolio {
 
         $target = "";
         $folder_kind = Subfolio::$filekind->get_kind_by_file($folder->name);
+
         $kind = isset($folder_kind['kind']) ? $folder_kind['kind'] : '';
         $icon_file = "dir";
 
@@ -1089,6 +1090,9 @@ class SubfolioFiles extends Subfolio {
           if (isset($file_kind['kind'])) {
             $kind = $file_kind['kind'];
           } else {
+            if(!$file->is_file()) {
+              $file_kind = Subfolio::$filekind->get_kind_by_file(".dir");
+            }
             $kind = "";
           }
 
@@ -1125,6 +1129,7 @@ class SubfolioFiles extends Subfolio {
               // don't show listing for image smaller than thumbnail;
               continue;
             }
+
             $kind_display = isset($file_kind['display']) ? $file_kind['display'] : '';
 
             $icon_file = "";

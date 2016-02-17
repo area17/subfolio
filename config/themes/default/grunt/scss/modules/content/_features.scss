@@ -3,6 +3,10 @@
 /* --------------------------------------------------------------
    MODULES: CONTENT / FEATURES
 -------------------------------------------------------------- */
+
+$inner_padding:20px;
+$inner_padding_mobile:10px;
+
 #features {
   overflow:hidden;
 
@@ -16,13 +20,18 @@
   a {
     display: block;
     overflow: hidden;
-    margin-right: 5px;
-    margin-bottom: 5px;
     border-radius:4px;
-    padding: 10px;
+    padding: $inner_padding;
+
+    @include breakpoint(xsmall) {
+      padding: $inner_padding_mobile;
+    }
 
     img {
       display: block;
+      margin:0 auto;
+      max-width:100%;
+      height:auto;
     }
 
     > .info {
@@ -37,21 +46,42 @@
 
       h2 {
         color: inherit;
-        font-size: em(30px);
-        line-height: em(36px, 30px);
+        font-size: em(22px, 18px);
+        line-height: em(30px, 22px);
         text-transform: none;
         margin: 0;
         padding: 9px 0 5px;
       }
       p {
         margin: 0;
-        padding: 0 10px 15px 0;
         color: $color-text-secondary;
       }
     }
 
     &:hover {
       background-color:$color-hover;
+    }
+  }
+}
+
+#features {
+  li {
+    width:16.6666667%;
+
+    @include breakpoint(xlarge) {
+      width:20%;
+    }
+
+    @include breakpoint(large) {
+      width:25%;
+    }
+
+    @include breakpoint(medium) {
+      width:33.333%;
+    }
+
+    @include breakpoint(small-and-down) {
+      width:50%;
     }
   }
 }

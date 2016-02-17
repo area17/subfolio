@@ -53,21 +53,22 @@
 
 /* Form header */
 .login__header {
+  margin-bottom:30px - 13px;
+
   * {
     color:$color-text;
     font-size: em(52px);
     line-height: em(60px, 52px);
 
-    @include breakpoint(medium-and-down) {
-      font-size: em(36px);
-      line-height: em(30px, 36px);
-    }
+  }
 
-    @include breakpoint(small-and-down) {
-      font-size: em(36px);
-      line-height: em(30px, 36px);
-    }
+  @include breakpoint(medium-and-down) {
+    margin-bottom:30px - 13px - 6px;
 
+    * {
+      font-size: em(38px);
+      line-height: em(45px, 38px);
+    }
   }
 
   h2 {
@@ -79,11 +80,6 @@
   display:table-cell;
   vertical-align:middle;
   width:100%;
-
-  @include breakpoint(small-and-down) {
-    vertical-align:top;
-    padding-top:20px;
-  }
 
   /* Form */
   .loginform__form {
@@ -97,8 +93,7 @@
     padding-right:$gutter;
 
     @include breakpoint(small-and-down) {
-       margin-top: 0;
-       padding-left:$gutter-mobile;
+      padding-left:$gutter-mobile;
       padding-right:$gutter-mobile;
     }
   }
@@ -129,6 +124,11 @@
     outline: none;
     -webkit-appearance:none;
     border: 1px solid $color-border-light;
+
+    @include breakpoint(small-and-down) {
+      height:50px;
+      line-height:50px;
+    }
 
     &:focus {
       border-color: #D9D9D9;
