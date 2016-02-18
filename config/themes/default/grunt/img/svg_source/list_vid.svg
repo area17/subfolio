@@ -2,8 +2,11 @@
 <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="26px" height="26px" viewBox="0 0 26 26" enable-background="new 0 0 26 26" xml:space="preserve">
-<path fill="#CCCCCC" d="M13,1.25c6.479,0,11.75,5.271,11.75,11.75S19.479,24.75,13,24.75C6.521,24.75,1.25,19.479,1.25,13
-	S6.521,1.25,13,1.25 M13,0C5.82,0,0,5.821,0,13c0,7.181,5.82,13,13,13c7.181,0,13-5.819,13-13C26,5.821,20.181,0,13,0L13,0z"/>
-<polygon fill="#A6A6A6" points="11,8.5 18,13 11,17.5 "/>
+	 width="20px" height="26px" viewBox="0 0 20 26" enable-background="new 0 0 20 26" xml:space="preserve">
+<path fill="#FFFFFF" d="M14,0H1C0.448,0,0,0.448,0,1v24c0,0.552,0.448,1,1,1h18c0.552,0,1-0.448,1-1V6L14,0z"/>
+<g>
+	<path fill="#CCCCCC" d="M14,0H1C0.448,0,0,0.448,0,1v24c0,0.552,0.448,1,1,1h18c0.552,0,1-0.448,1-1V6L14,0z M14,1.5L18.5,6H14V1.5
+		z M19,25H1V1h12v5c0,0.55,0.45,1,1,1h5V25z"/>
+	<polygon fill="#CCCCCC" points="8,19 14,15.5 8,12 	"/>
+</g>
 </svg>

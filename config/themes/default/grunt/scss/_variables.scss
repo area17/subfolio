@@ -1,7 +1,10 @@
 $path_img: 'images/';
 
 $breakpoints: (
-  xlarge: "(min-width: 1281px)",
+  xxxlarge: "(min-width: 1800px)",
+  xxlarge: "(max-width: 1799px) and (min-width: 1500px)",
+  xlarge: "(max-width: 1499px) and (min-width: 1281px)",
+  xlarge-and-up: "(min-width: 1281px)",
   large: "(max-width: 1280px) and (min-width: 800px)",
   large-and-down: "(max-width: 1279px)",
   medium: "(max-width: 799px) and (min-width: 640px)",

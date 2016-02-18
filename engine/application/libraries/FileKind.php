@@ -33,6 +33,15 @@ class FileKind {
     return $icon_file;
   }
 
+  public function get_extension_by_file($file) {
+    $extension ="";
+    $path_parts = pathinfo($file);
+    if (isset($path_parts['extension'])) {
+      $extension = $path_parts['extension'];
+    }
+    return $extension;
+  }
+
   public function get_kind_by_file($file) {
     $extension ="";
     $path_parts = pathinfo($file);

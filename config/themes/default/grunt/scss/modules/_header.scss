@@ -312,7 +312,7 @@ $top_spacing: 25px;
   .header__dropdown {
     display:block;
 
-    @include breakpoint(xlarge) {
+    @include breakpoint(xlarge-and-up) {
       display:none;
     }
 

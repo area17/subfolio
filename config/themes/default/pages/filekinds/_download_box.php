@@ -4,7 +4,7 @@
     <!-- ?download=true would be provided by the CurrentFile() method -->
     <!-- By adding an option for target, we can use this box for more kinds... (links for example) -->
     <!-- Icon -->
-    <i class='icon icon__<?php echo Subfolio::current_file('icon') ?>'></i>
+    <i class='icon icon__grid icon__<?php echo Subfolio::current_file('icon') ?>'><span class="icon__extension"><?php echo Subfolio::current_file('extension') ?></span></i>
     <!-- Filename / comment -->
     <p id="filename"><?php if(Subfolio::current_file('tag')<>'') { ?><i class="tag <?php echo Subfolio::current_file('tag') ?>"></i> &nbsp; <?php } ?><?php echo Subfolio::current_file('filename') ?></p>
   </a>

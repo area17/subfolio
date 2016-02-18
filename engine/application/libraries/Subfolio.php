@@ -208,6 +208,12 @@ class Subfolio {
     	return isset($file_kind['display']) ? $file_kind['display'] : '—';
   	}
 
+    if ($data == "extension") {
+      $file_extension = Subfolio::$filekind->get_extension_by_file(Subfolio::$template->content->file->name);
+      if(strlen($file_extension) > 6) $file_extension = substr($file_extension, 0, 3);
+      return isset($file_extension) ? $file_extension : '';
+    }
+
     if ($data == "feedurl") {
       if (Subfolio::$filebrowser->file <> '') {
         return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'feedurl') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'feedurl') : '';

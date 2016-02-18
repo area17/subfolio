@@ -83,7 +83,13 @@ $inner_padding_mobile:10px;
 
 .gallery {
   li {
-    width:16.6666667%;
+    @include breakpoint(xxxlarge) {
+      width:14.2857%;
+    }
+
+    @include breakpoint(xxlarge) {
+      width:16.6666667%;
+    }
 
     @include breakpoint(xlarge) {
       width:20%;

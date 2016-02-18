@@ -3,17 +3,9 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="20px" height="26px" viewBox="0 0 20 26" enable-background="new 0 0 20 26" xml:space="preserve">
-<polygon fill="#FFFFFF" points="19,7.5 19,25 1,25 1,1 12.5,1 "/>
 <g>
-	<path fill="#CCCCCC" d="M13,0H1C0.448,0,0,0.448,0,1v24c0,0.552,0.448,1,1,1h18c0.552,0,1-0.448,1-1V7L13,0z M19,7.5V25H1V1h11.5
-		L19,7.5z"/>
-</g>
-<g>
-	<path fill="#CCCCCC" d="M12,0v6.857C12,7.486,12.514,8,13.143,8H20"/>
-</g>
-<polyline fill="#FFFFFF" points="18.5,7 13,7 13,1.5 "/>
-<g>
-	<path fill="#A6A6A6" d="M11.091,10L16,22h-2.455l-0.727-2H7.264l-0.809,2H4l4.909-12H11.091z M12.091,18l-2.09-4.727L8.091,18
-		H12.091z"/>
+	<path fill="#CCCCCC" d="M14,0H1C0.448,0,0,0.448,0,1v24c0,0.552,0.448,1,1,1h18c0.552,0,1-0.448,1-1V6L14,0z M14,1.5L18.5,6H14V1.5
+		z M19,25H1V1h12v5c0,0.55,0.45,1,1,1h5V25z"/>
+	<path fill="#CCCCCC" d="M9.416,10l-4.5,11h2.25L8,19h5l0.667,2h2.25l-4.5-11H9.416z M8.7,17l1.719-4.5L12.3,17H8.7z"/>
 </g>
 </svg>
