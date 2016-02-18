@@ -4,7 +4,7 @@ $top_spacing: 25px;
 .header {
   border-bottom-width:1px;
   color:$color-text-secondary;
-  overflow:hidden;
+  /*overflow:hidden;*/
 
   @include breakpoint(small-and-down) {
     border:0 none;
