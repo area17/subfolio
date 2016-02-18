@@ -53,7 +53,8 @@
     font-size: 9px;
     line-height: 19px;
     font-style: normal;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    letter-spacing: 1px; }
 
 a.icon {
   cursor: pointer; }
