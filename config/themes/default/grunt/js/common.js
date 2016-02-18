@@ -1,19 +1,3 @@
-/* --------------------------------------------------------------
-
-common.js
-* Subfolio by AREA 17
-
--------------------------------------------------------------- */
-
-/* Remove the focus of the links
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
-function removeFocus () {
-  // Remove links Focus
-  for(i=0;i<document.links.length;i++) {
-    document.links[i].onfocus=function() {if(this.blur)this.blur()};
-  }
-}
-
 /* Open a popup
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 function pop(goPage,nom,windowWidth,windowHeight,style) {

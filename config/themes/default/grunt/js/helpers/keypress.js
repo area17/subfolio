@@ -175,22 +175,24 @@ A17.Helpers.keyPress = function() {
     var template = $search_template.html();
     var template_item = template;
 
+
     $.each(document.fields, function() {
       var field = this;
       var value = "–";
 
       if(field.values) {
+        // Clean result url
         var value = field.values[0].replace("file:/var/www/", "http://").replace("/directory", "");
 
-        // dir of file
+        // Display directory of file
         if(field.fieldName == "fileType") {
           value = field.values[0] == "directory" ? "dir" : "gen";
         }
 
-        // date
+        // Display the date nicely
         if(field.fieldName == "fileSystemDate") {
           var date = new Date(field.values[0].substring(0, 4), field.values[0].substring(4, 6), field.values[0].substring(6, 8));
-          value = date.toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+          value = fecha.format(date, 'MMM DD, YYYY');
         }
       }
 
@@ -216,8 +218,6 @@ A17.Helpers.keyPress = function() {
 
       is_search_loading = true;
       $search_dropdown.empty().addClass('invisible');
-
-      console.log(data_json);
 
       $.ajax({
         url: api_endpoint + "?" + $.param(data_arr),
