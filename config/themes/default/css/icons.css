@@ -31,6 +31,10 @@
   Parameters:
   $point - name of the breakpoint
 */
+/* info button */
+.icon__info:hover {
+  opacity: 0.5; }
+
 /* Some icons must show the extension : https://studio.area17.com/subfolio/2016/99_development/icons/all_icons_2x.png */
 .icon__grid.icon__grid_html, .icon__grid.icon__grid_xls, .icon__grid.icon__grid_numbers, .icon__grid.icon__grid_xls, .icon__grid.icon__grid_psd, .icon__grid.icon__grid_sql, .icon__grid.icon__grid_sql, .icon__grid.icon__grid_doc, .icon__grid.icon__grid_merlin, .icon__grid.icon__grid_pages, .icon__grid.icon__grid_merlin, .icon__grid.icon__grid_pages, .icon__grid.icon__grid_ae, .icon__grid.icon__grid_indd, .icon__grid.icon__grid_fla, .icon__grid.icon__grid_pdf, .icon__grid.icon__grid_fla, .icon__grid.icon__grid_swf, .icon__grid.icon__grid_swf, .icon__grid.icon__grid_ai, .icon__grid.icon__grid_ase, .icon__grid.icon__grid_eps, .icon__grid.icon__grid_ase, .icon__grid.icon__grid_eps, .icon__grid.icon__grid_key, .icon__grid.icon__grid_ppt, .icon__grid.icon__grid_ppt {
   position: relative; }
@@ -326,11 +330,14 @@ a.icon {
     background-image: url("images/fallback/info.png"); }
 
 
-.icon__info_close {
+.icon__info_close,
+.icon__info.on {
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2226%22%20height%3D%2226%22%20viewBox%3D%220%200%2026%2026%22%3E%3Cpath%20fill%3D%22%23CCC%22%20d%3D%22M13%201c6.617%200%2012%205.383%2012%2012s-5.383%2012-12%2012S1%2019.617%201%2013%206.383%201%2013%201m0-1C5.82%200%200%205.82%200%2013s5.82%2013%2013%2013%2013-5.82%2013-13S20.18%200%2013%200z%22%2F%3E%3Cpath%20fill%3D%22%23CCC%22%20d%3D%22M18.424%208.424l-.848-.848L13%2012.152%208.424%207.576l-.848.848L12.152%2013l-4.576%204.576.848.848L13%2013.848l4.576%204.576.848-.848L13.848%2013%22%2F%3E%3C%2Fsvg%3E");
   background-repeat: no-repeat; }
+  
   .no-svg
-  .icon__info_close {
+  .icon__info_close,
+  .no-svg .icon__info.on {
     background-image: url("images/fallback/info_close.png"); }
 
 

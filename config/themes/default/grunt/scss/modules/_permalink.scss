@@ -8,33 +8,7 @@ $inner_padding_mobile:10px;
 
 #info-button {
   display: block;
-  width: 26px;
-  height: 26px;
-  line-height:26px;
-  border-radius:50%;
-  text-align:center;
-  font-family:Georgia, serif;
-  font-weight:bold;
-  font-style:italic;
-  border-width:1px;
-  border-color:$color-text-tertiary;
-  color:$color-text-tertiary;
   margin-bottom:$gutter-mobile;
-
-  &:hover {
-    color:$color-text-secondary;
-    border-color:$color-text-secondary;
-  }
-
-  &.on {
-    color:$color-text-secondary;
-    border-color:$color-text-secondary;
-
-    &:hover {
-      color:$color-text-secondary;
-      border-color:$color-text-secondary;
-    }
-  }
 }
 
 #info-box {

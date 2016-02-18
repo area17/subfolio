@@ -12,6 +12,14 @@
   }
 }
 
+/* info button */
+.icon__info:hover {
+  opacity:0.5;
+}
+.icon__info.on {
+  @extend .icon__info_close;
+}
+
 /* Some icons must show the extension : https://studio.area17.com/subfolio/2016/99_development/icons/all_icons_2x.png */
 .icon__grid.icon__grid {
   &_html,
