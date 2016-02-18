@@ -83,6 +83,8 @@ $inner_padding_mobile:10px;
 
 .gallery {
   li {
+    width:14.2857%;
+
     @include breakpoint(xxxlarge) {
       width:14.2857%;
     }
@@ -112,6 +114,14 @@ $inner_padding_mobile:10px;
 .gallery--fit {
   li {
     width:auto;
+
+    @include breakpoint(xxxlarge) {
+      width:auto;
+    }
+
+    @include breakpoint(xxlarge) {
+      width:auto;
+    }
 
     @include breakpoint(xlarge) {
       width:auto;
@@ -152,7 +162,15 @@ $inner_padding_mobile:10px;
   }
 
   li {
-    width:calc(16.6666667% - 1px);
+    width:calc(14.2857% - 1px);
+
+    @include breakpoint(xxxlarge) {
+      width:calc(14.2857% - 1px);
+    }
+
+    @include breakpoint(xxlarge) {
+      width:calc(16.6666667% - 1px);
+    }
 
     @include breakpoint(xlarge) {
       width:calc(20% - 1px);
