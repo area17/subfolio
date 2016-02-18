@@ -20,7 +20,6 @@ $inner_padding_mobile:10px;
   a {
     display: block;
     overflow: hidden;
-    border-radius:4px;
     padding: $inner_padding;
 
     @include breakpoint(xsmall) {
@@ -44,10 +43,13 @@ $inner_padding_mobile:10px;
       padding: 0;
       text-align: left;
 
+      h2, p {
+        font-size: em(15px, 18px);
+        line-height: em(25px, 15px);
+      }
+
       h2 {
         color: inherit;
-        font-size: em(22px, 18px);
-        line-height: em(30px, 22px);
         text-transform: none;
         margin: 0;
         padding: 9px 0 5px;

@@ -179,6 +179,7 @@
     border-width:1px;
     border-color:$color-text;
     -webkit-appearance:none;
+    outline: none;
 
     &:hover {
       background-color:$color-text;

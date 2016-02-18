@@ -848,7 +848,7 @@ ul.group {
   bottom: 0;
   left: 0;
   color: #191919;
-  background-color: #FF0000;
+  background-color: #FFFF0E;
   /* << text_light_color */
   margin: 0;
   z-index: 9999;
@@ -869,7 +869,7 @@ ul.group {
         padding: 0 20px; } }
   #notice.error,
   #content #notice.error {
-    background-color: #d11226;
+    background-color: #FF0000;
     color: #FFF; }
 
 @keyframes hide_notice {
@@ -1370,7 +1370,6 @@ body.page--login {
   #features a {
     display: block;
     overflow: hidden;
-    border-radius: 4px;
     padding: 20px; }
     @media (max-width: 480px) {
       #features a {
@@ -1385,10 +1384,11 @@ body.page--login {
   #features a .info {
     padding: 0;
     text-align: left; }
+    #features a .info h2, #features a .info p {
+      font-size: 0.8333333333em;
+      line-height: 1.6666666667em; }
     #features a .info h2 {
       color: inherit;
-      font-size: 1.2222222222em;
-      line-height: 1.3636363636em;
       text-transform: none;
       margin: 0;
       padding: 9px 0 5px; }
@@ -1922,7 +1922,8 @@ body.page--login {
     line-height: 53px;
     border-width: 1px;
     border-color: #191919;
-    -webkit-appearance: none; }
+    -webkit-appearance: none;
+    outline: none; }
     .subButton input:hover {
       background-color: #191919;
       color: #FFF; }
