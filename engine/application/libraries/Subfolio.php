@@ -1008,7 +1008,7 @@ class SubfolioFiles extends Subfolio {
     	        $name     = Subfolio::$filebrowser->get_item_property($file->name, 'name')     ? Subfolio::$filebrowser->get_item_property($file->name, 'name') : 'POPUP';
     	        $style    = Subfolio::$filebrowser->get_item_property($file->name, 'style')    ? Subfolio::$filebrowser->get_item_property($file->name, 'style') : 'POPSCROLL';
 
-    	        $url = "javascript:pop('$url','$name',$width,$height,'$style');";
+    	        $url = "javascript:A17.Helpers.pop('$url','$name',$width,$height,'$style');";
     				  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
     	        break;
 
@@ -1192,7 +1192,7 @@ class SubfolioFiles extends Subfolio {
       	        $name     = Subfolio::$filebrowser->get_item_property($file->name, 'name')     ? Subfolio::$filebrowser->get_item_property($file->name, 'name') : 'POPUP';
       	        $style    = Subfolio::$filebrowser->get_item_property($file->name, 'style')    ? Subfolio::$filebrowser->get_item_property($file->name, 'style') : 'POPSCROLL';
 
-      	        $url = "javascript:pop('$url','$name',$width,$height,'$style');";
+      	        $url = "javascript:A17.Helpers.pop('$url','$name',$width,$height,'$style');";
       				  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
       	        break;
 
