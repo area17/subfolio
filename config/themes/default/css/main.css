@@ -347,6 +347,15 @@ a.icon {
     background-image: url("images/fallback/grid_key.png"); }
 
 
+.icon__grid_net {
+  background-repeat: no-repeat;
+  width: 55px;
+  height: 44px; }
+  .no-svg
+  .icon__grid_net {
+    background-image: url("images/fallback/grid_net.png"); }
+
+
 .icon__grid_numbers,
 .icon__grid_xls {
   background-repeat: no-repeat;
@@ -385,6 +394,15 @@ a.icon {
     background-image: url("images/fallback/grid_psd.png"); }
 
 
+.icon__grid_site {
+  background-repeat: no-repeat;
+  width: 55px;
+  height: 44px; }
+  .no-svg
+  .icon__grid_site {
+    background-image: url("images/fallback/grid_site.png"); }
+
+
 .icon__grid_slide {
   background-repeat: no-repeat;
   width: 45px;
@@ -419,6 +437,24 @@ a.icon {
   .no-svg
   .icon__grid_zip {
     background-image: url("images/fallback/grid_zip.png"); }
+
+
+.icon__info {
+  background-repeat: no-repeat;
+  width: 26px;
+  height: 26px; }
+  .no-svg
+  .icon__info {
+    background-image: url("images/fallback/info.png"); }
+
+
+.icon__info_close {
+  background-repeat: no-repeat;
+  width: 26px;
+  height: 26px; }
+  .no-svg
+  .icon__info_close {
+    background-image: url("images/fallback/info_close.png"); }
 
 
 .icon__list_ae {
@@ -567,6 +603,15 @@ a.icon {
     background-image: url("images/fallback/list_key.png"); }
 
 
+.icon__list_net {
+  background-repeat: no-repeat;
+  width: 26px;
+  height: 21px; }
+  .no-svg
+  .icon__list_net {
+    background-image: url("images/fallback/list_net.png"); }
+
+
 .icon__list_numbers,
 .icon__list_xls {
   background-repeat: no-repeat;
@@ -603,6 +648,15 @@ a.icon {
   .icon__list_psd,
   .no-svg .icon__list_sql {
     background-image: url("images/fallback/list_psd.png"); }
+
+
+.icon__list_site {
+  background-repeat: no-repeat;
+  width: 26px;
+  height: 21px; }
+  .no-svg
+  .icon__list_site {
+    background-image: url("images/fallback/list_site.png"); }
 
 
 .icon__list_slide {
@@ -1042,7 +1096,7 @@ ul.group {
 .header {
   border-bottom-width: 1px;
   color: #999999;
-  /*overflow:hidden;*/ }
+  overflow: hidden; }
   @media (max-width: 639px) {
     .header {
       border: 0 none; } }

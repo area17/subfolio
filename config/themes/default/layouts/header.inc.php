@@ -29,17 +29,6 @@
           <?php }  ?>
         <?php } ?>
       </div>
-      <script type="text/template" data-behavior="additional_content" data-breakpoint="medium-and-down,medium,small,small-and-down,xsmall">
-        <div class="header__dropdown" data-dropdown>
-          <?php foreach (array_reverse(SubfolioTheme::get_breadcrumb()) as $crumb) { ?>
-            <?php if ($crumb['url'] <> '') { ?>
-            <a class="breadcrumb__folder" href="<?php echo $crumb['url'] ?>"><?php echo $crumb['name'] ?></a>
-            <?php } ?>
-          <?php } ?>
-
-          <a class="breadcrumb__root" href="<?php print Kohana::config('filebrowser.site_root'); ?>"><?php echo Subfolio::get_setting('site_domain'); ?></a>
-        </div>
-      </script>
     <?php } ?>
 
 
@@ -52,3 +41,17 @@
     echo SubfolioTheme::get_collapse_header_button('div');
   } ?>
 </header>
+
+<?php if (SubfolioTheme::get_option('display_breadcrumb', true)) { ?>
+<script type="text/template" data-behavior="additional_content" data-breakpoint="medium-and-down,medium,small,small-and-down,xsmall">
+  <div class="header__dropdown" data-dropdown>
+    <?php foreach (array_reverse(SubfolioTheme::get_breadcrumb()) as $crumb) { ?>
+      <?php if ($crumb['url'] <> '') { ?>
+      <a class="breadcrumb__folder" href="<?php echo $crumb['url'] ?>"><?php echo $crumb['name'] ?></a>
+      <?php } ?>
+    <?php } ?>
+
+    <a class="breadcrumb__root" href="<?php print Kohana::config('filebrowser.site_root'); ?>"><?php echo Subfolio::get_setting('site_domain'); ?></a>
+  </div>
+</script>
+<?php } ?>
