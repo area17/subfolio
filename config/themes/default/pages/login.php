@@ -12,9 +12,6 @@
           <div class="login_field">
             <input type="text" value="<?php if(isset($_POST['username'])) { echo $_POST['username']; } ?>" id="username" name="username" class="field" tabindex="1" placeholder="<?php echo SubfolioLanguage::get_text('username');?>" data-behavior="search_field" />
           </div>
-          <script type="text/javascript">
-            document.getElementById('username').focus();
-          </script>
           <div class="login_field">
             <input type="password"  value="" id="password" name="password" class="field" tabindex="2" placeholder="<?php echo SubfolioLanguage::get_text('password');?>" />
           </div>

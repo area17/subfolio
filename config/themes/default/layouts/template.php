@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -20,49 +20,48 @@
 
   <link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/main.css" type="text/css" rel="stylesheet" >
   <script>
-var A17 = window.A17 || {};
-A17.svgSupport = document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure", "1.1");
-A17.browserSpec = typeof document.querySelectorAll && "addEventListener" in window && A17.svgSupport ? "html5" : "html4";
-A17.touch = "ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch;
+  var A17 = window.A17 || {};
+  A17.svgSupport = document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure", "1.1");
+  A17.browserSpec = typeof document.querySelectorAll && "addEventListener" in window && A17.svgSupport ? "html5" : "html4";
+  A17.touch = "ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch;
 
-(function() {
-    var doc = document.documentElement;
-    var str = " js " + A17.browserSpec + (A17.touch ? " touch" : " no-touch") + (A17.svgSupport ? " svg" : " no-svg");
-    doc.className = doc.className.replace(/\bno-js\b/, str);
-})();
+  (function() {
+      var doc = document.documentElement;
+      var str = " js " + A17.browserSpec + (A17.touch ? " touch" : " no-touch") + (A17.svgSupport ? " svg" : " no-svg");
+      doc.className = doc.className.replace(/\bno-js\b/, str);
+  })();
 
-A17.loadCSS = function(href) {
-    "use strict";
-    var ss = window.document.createElement("link");
-    var ref = window.document.getElementsByTagName("script")[0];
-    var sheets = window.document.styleSheets;
-    ss.rel = "stylesheet";
-    ss.href = href;
-    ss.media = "only x";
-    ref.parentNode.insertBefore(ss, ref);
-    ss.onloadcssdefined = function(cb) {
-        var defined;
-        for (var i = 0; i < sheets.length; i++) {
-            if (sheets[i].href && sheets[i].href.indexOf(href) > -1) {
-                defined = true;
-            }
-        }
-        if (defined) {
-            cb();
-        } else {
-            setTimeout(function() {
-                ss.onloadcssdefined(cb);
-            });
-        }
-    };
-    ss.onloadcssdefined(function() {
-        ss.media = "all";
-    });
-    return ss;
-};</script>
+  A17.loadCSS = function(href) {
+      "use strict";
+      var ss = window.document.createElement("link");
+      var ref = window.document.getElementsByTagName("script")[0];
+      var sheets = window.document.styleSheets;
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      ref.parentNode.insertBefore(ss, ref);
+      ss.onloadcssdefined = function(cb) {
+          var defined;
+          for (var i = 0; i < sheets.length; i++) {
+              if (sheets[i].href && sheets[i].href.indexOf(href) > -1) {
+                  defined = true;
+              }
+          }
+          if (defined) {
+              cb();
+          } else {
+              setTimeout(function() {
+                  ss.onloadcssdefined(cb);
+              });
+          }
+      };
+      ss.onloadcssdefined(function() {
+          ss.media = "all";
+      });
+      return ss;
+  };
+  </script>
   <script>A17.loadCSS("<?php echo SubfolioTheme::get_view_url(); ?>/css/icons.css");</script>
-
-  <script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/main.js"></script>
 </head>
 
 <body class="<?php if (isset($page_class)) echo $page_class; ?> <?php if (isset($_COOKIE['header'])) { if ($_COOKIE['header'] == "header__hide") { echo "header__hide"; } } ?>">
@@ -100,5 +99,6 @@ A17.loadCSS = function(href) {
       } catch(err) {}</script>
   <?php } ?>
 
+  <script src="<?php echo SubfolioTheme::get_view_url(); ?>/js/main.js"></script>
 </body>
 </html>
