@@ -4903,14 +4903,12 @@ A17.Behaviors.switch_header = function($homeSwitch) {
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 A17.Behaviors.toggle_dropdown = function($el) {
     var $body = $("body");
-    $trigger = $el.find("[data-trigger]"), $target = $body.find("[data-dropdown]"), 
-    klass = "header__active";
+    $trigger = $el.find("[data-trigger]"), klass = "header__active";
     $trigger.on("click", function(e) {
         var $target = $body.find("[data-dropdown]");
         if ($target.length) {
             $body.toggleClass(klass, !$body.hasClass(klass));
-            console.log($(".header").height() - 5);
-            $target.css("top", $(".header").height() - 5 + "px");
+            _repostion();
             e.preventDefault();
             e.stopPropagation();
         }
@@ -4918,6 +4916,11 @@ A17.Behaviors.toggle_dropdown = function($el) {
     $body.on("click.close-dropdown", function(e) {
         $body.removeClass(klass);
     });
+    $(document).on("resized", _repostion);
+    function _repostion() {
+        var $target = $body.find("[data-dropdown]");
+        if ($target.length) $target.css("top", $(".header").height() - 5 + "px");
+    }
 };
 
 A17.Helpers.doc_height = function() {
