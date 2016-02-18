@@ -133,7 +133,7 @@ b, strong { color: $color-text; }
    LINKS
 -------------------------------------------------------------- */
 a, a:link,a:visited { color: $color-text; text-decoration: none; outline: none; } /* << link_color */
-a:hover { color: inherit; }
+a:hover, a:focus { color: inherit; }
 
 /* LINKS FOR GALLERY, FEATURES MODULES */
 #gallery a, #features a, .loginform a { text-decoration: none; }
