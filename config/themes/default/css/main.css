@@ -1617,7 +1617,7 @@ body.page--login {
     padding: 0;
     text-align: left; }
     #features a .info h2, #features a .info p {
-      font-size: 0.8333333333em;
+      font-size: 1em;
       line-height: 1.6666666667em; }
     #features a .info h2 {
       color: inherit;
