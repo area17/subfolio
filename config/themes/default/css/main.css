@@ -1311,6 +1311,9 @@ ul.group {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; }
+  @media (max-width: 799px) {
+    .header__dropdown a:hover {
+      color: #999999; } }
   @media (max-width: 639px) {
     .header__dropdown {
       left: 0;

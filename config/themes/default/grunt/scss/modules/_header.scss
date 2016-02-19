@@ -274,6 +274,12 @@ $top_spacing: 25px;
     @include ellipsis();
   }
 
+  @include breakpoint(medium-and-down) {
+    a:hover {
+      color:$color-text-secondary;
+    }
+  }
+
   @include breakpoint(small-and-down) {
     left:0;
     right:0;
