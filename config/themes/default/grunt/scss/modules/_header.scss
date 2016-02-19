@@ -247,28 +247,7 @@ $top_spacing: 25px;
 }
 
 
-.breadcrumb__current {
-  cursor:pointer;
 
-  i {
-    display:none;
-
-    @include breakpoint(medium-and-down) {
-      display:inline-block;
-      opacity:0.33;
-    }
-  }
-
-  @include breakpoint(medium-and-down) {
-    &:hover {
-      color:$color-text;
-
-      i {
-        opacity:1;
-      }
-    }
-  }
-}
 
 
 .header__dropdown {
@@ -324,10 +303,37 @@ $top_spacing: 25px;
 
   @include breakpoint(medium-and-down) {
     .breadcrumb__current {
-      color:$color-text;
+      color:$color-text-secondary;
 
       i {
-        opacity:1;
+        opacity:0.33;
+      }
+    }
+  }
+}
+
+.breadcrumb__current {
+  cursor:pointer;
+
+  i {
+    display:none;
+  }
+
+  @include breakpoint(medium-and-down) {
+  color:$color-text;
+
+    i {
+      display:inline-block;
+      opacity:1;
+    }
+  }
+
+  @include breakpoint(medium-and-down) {
+    &:hover {
+      color:$color-text-secondary;
+
+      i {
+        opacity:0.33;
       }
     }
   }

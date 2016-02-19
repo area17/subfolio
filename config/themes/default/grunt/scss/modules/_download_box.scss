@@ -1,13 +1,14 @@
 /* @group Download */
-.detailIMG {
-  cursor: zoom-out;
-}
-
-.img__fluid .detailIMG {
+#content > img.detailIMG {
   max-width:100%;
   height:auto;
   display:block;
   cursor: zoom-in;
+}
+
+.img__full #content > img.detailIMG {
+  cursor: zoom-out;
+  max-width: initial;
 }
 
 #download_box {
