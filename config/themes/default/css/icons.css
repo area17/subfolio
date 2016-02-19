@@ -42,7 +42,7 @@
   position: relative; }
   .icon__grid.icon__grid_html .icon__extension, .icon__grid.icon__grid_xls .icon__extension, .icon__grid.icon__grid_numbers .icon__extension, .icon__grid.icon__grid_xls .icon__extension, .icon__grid.icon__grid_psd .icon__extension, .icon__grid.icon__grid_sql .icon__extension, .icon__grid.icon__grid_sql .icon__extension, .icon__grid.icon__grid_doc .icon__extension, .icon__grid.icon__grid_merlin .icon__extension, .icon__grid.icon__grid_pages .icon__extension, .icon__grid.icon__grid_merlin .icon__extension, .icon__grid.icon__grid_pages .icon__extension, .icon__grid.icon__grid_ae .icon__extension, .icon__grid.icon__grid_indd .icon__extension, .icon__grid.icon__grid_fla .icon__extension, .icon__grid.icon__grid_pdf .icon__extension, .icon__grid.icon__grid_fla .icon__extension, .icon__grid.icon__grid_swf .icon__extension, .icon__grid.icon__grid_swf .icon__extension, .icon__grid.icon__grid_ai .icon__extension, .icon__grid.icon__grid_ase .icon__extension, .icon__grid.icon__grid_eps .icon__extension, .icon__grid.icon__grid_ase .icon__extension, .icon__grid.icon__grid_eps .icon__extension, .icon__grid.icon__grid_key .icon__extension, .icon__grid.icon__grid_ppt .icon__extension, .icon__grid.icon__grid_ppt .icon__extension {
     position: absolute;
-    bottom: 1px;
+    bottom: 0;
     left: 1px;
     right: 1px;
     display: block;
@@ -53,7 +53,8 @@
     color: #FFF;
     font-family: Arial, sans-serif;
     font-size: 9px;
-    line-height: 19px;
+    line-height: 22px;
+    height: 22px;
     font-style: normal;
     text-transform: uppercase;
     letter-spacing: 1px; }
