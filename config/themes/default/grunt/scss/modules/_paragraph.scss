@@ -86,8 +86,8 @@
   }
 
   h3 {
-    font-size: em(36px, 15px);
-    line-height: em(45px, 36px);
+    font-size: em(32px, 15px);
+    line-height: em(40px, 32px);
 
     @include breakpoint(small-and-down) {
       font-size: em(30px);
@@ -100,12 +100,14 @@
     margin-bottom: $half-gutter;
   }
 
-  h4, h5 {
+  h4 {
     font-size: em(22px, 15px);
     line-height: em(30px, 22px);
   }
 
   h5 {
+    font-size: em(18px, 15px);
+    line-height: em(25px, 18px);
     margin-top: $gutter;
     font-size: inherit;
   }

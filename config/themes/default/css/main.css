@@ -919,7 +919,7 @@ body {
   margin-top: -30px; }
 
 .standard_paragraph h3 {
-  font-size: 2.4em;
+  font-size: 2.1333333333em;
   line-height: 1.25em; }
   @media (max-width: 639px) {
     .standard_paragraph h3 {
@@ -930,11 +930,13 @@ body {
   margin-top: 30px;
   margin-bottom: 15px; }
 
-.standard_paragraph h4, .standard_paragraph h5 {
+.standard_paragraph h4 {
   font-size: 1.4666666667em;
   line-height: 1.3636363636em; }
 
 .standard_paragraph h5 {
+  font-size: 1.2em;
+  line-height: 1.3888888889em;
   margin-top: 30px;
   font-size: inherit; }
 
