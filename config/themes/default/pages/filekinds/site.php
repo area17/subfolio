@@ -14,5 +14,6 @@
     <dt><?php echo SubfolioLanguage::get_text('size') ?></dt><dd><?php echo Subfolio::current_file('size') ?></dd>
     <dt><?php echo SubfolioLanguage::get_text('comment') ?></dt><dd><?php echo Subfolio::current_file('comment') ?></dd>
   </dl>
+  <a id="download" href="<?php echo Subfolio::current_file('link') ?>"><?php echo SubfolioLanguage::get_text('viewsite') ?></a>
 
 </div>

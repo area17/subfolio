@@ -93,7 +93,6 @@ class Filebrowser_Controller extends Website_Controller {
 
     if ($this->access->check_access($this->auth->get_user())) {
       if ($this->filebrowser->is_file()) {
-
         // CHECK IF I HAVE ACCESS TO path
         $file = $this->filebrowser->fullfilepath;
 
@@ -185,6 +184,7 @@ class Filebrowser_Controller extends Website_Controller {
 
         if ($single) {
           $file = $this->filebrowser->get_file();
+          $this->template->page_class = "page--detail";
 
           if ($is_folder) {
           } else {

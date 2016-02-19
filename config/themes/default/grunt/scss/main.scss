@@ -178,7 +178,7 @@ ul.group {
    MODULES: CONTENT
 -------------------------------------------------------------- */
 #content {
-/*max-width: 900px;*/ /*If you want to limit the width of your page ...*/
+
 }
 
 /* @end */
@@ -197,6 +197,12 @@ ul.group {
 /* --------------------------------------------------------------
 MODULE SPACING
 -------------------------------------------------------------- */
+#content-outer {
+  overflow-y:hidden;
+  overflow-x:scroll;
+  width:100%;
+}
+
 #content {
   margin: $gutter;
   @include clearfix();

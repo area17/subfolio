@@ -64,12 +64,14 @@
   <script>A17.loadCSS("<?php echo SubfolioTheme::get_view_url(); ?>/css/icons.css");</script>
 </head>
 
-<body class="<?php if (isset($page_class)) echo $page_class; ?> <?php if (isset($_COOKIE['header'])) { if ($_COOKIE['header'] == "header__hide") { echo "header__hide"; } } ?>">
+<body class="<?php if (isset($page_class)) echo $page_class; ?> <?php if (isset($_COOKIE['header'])) { if ($_COOKIE['header'] == "header__hide") { echo "header__hide"; } } ?> <?php if (isset($_COOKIE['img'])) { if ($_COOKIE['img'] == "img__fluid") { echo "img__fluid"; } } ?>">
   <div id="container">
     <div id="container-inner">
       <?php include("header.inc.php") ?>
-      <div id="content">
-        <?php if (isset($content)) echo $content; ?>
+      <div id="content-outer">
+        <div id="content">
+          <?php if (isset($content)) echo $content; ?>
+        </div>
       </div>
     </div>
     <?php include("footer.inc.php") ?>

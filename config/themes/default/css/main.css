@@ -1445,10 +1445,6 @@ body.page--login {
 /* --------------------------------------------------------------
    MODULES: CONTENT
 -------------------------------------------------------------- */
-#content {
-  /*max-width: 900px;*/
-  /*If you want to limit the width of your page ...*/ }
-
 /* @end */
 /* @group Gallery */
 /* --------------------------------------------------------------
@@ -2262,6 +2258,15 @@ body.page--login {
       color: #999999; }
 
 /* @group Download */
+.detailIMG {
+  cursor: zoom-out; }
+
+.img__fluid .detailIMG {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  cursor: zoom-in; }
+
 #download_box {
   max-width: 350px;
   padding-top: 10px;
@@ -2355,6 +2360,11 @@ body.page--login {
 /* --------------------------------------------------------------
 MODULE SPACING
 -------------------------------------------------------------- */
+#content-outer {
+  overflow-y: hidden;
+  overflow-x: scroll;
+  width: 100%; }
+
 #content {
   margin: 30px;
   /* Sets styles only for direct childs of #content (i.e gallery, features, listing) */ }
