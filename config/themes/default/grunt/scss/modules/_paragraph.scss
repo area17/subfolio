@@ -6,12 +6,6 @@
   max-width: 1000px;
   padding-top:$gutter;
   padding-bottom:$gutter;
-  font-size:18px;
-  line-height:em(25px, 18px);
-
-  @include breakpoint(small-and-down) {
-    font-size:1em;
-  }
 
   h1, h2, h3,
   h4, h5, p,
@@ -63,11 +57,11 @@
   }
 
   h1, h2, h3, h4 {
-    font-size: em(52px, 18px);
-    line-height: em(60px, 52px);
+    font-size: em(46px, 15px);
+    line-height: em(55px, 46px);
 
     @include breakpoint(medium-and-down) {
-      font-size: em(36px, 18px);
+      font-size: em(36px, 15px);
       line-height: em(45px, 36px);
     }
 
@@ -77,13 +71,22 @@
     }
   }
 
+  h1,
+  h2 {
+    @include font-smoothing();
+    margin-bottom: 30px;
+  }
+
   h2 {
     color: #808080;
-    margin-bottom: 20px;
+  }
+
+  h1 + h2 {
+    margin-top: -30px;
   }
 
   h3 {
-    font-size: em(36px, 18px);
+    font-size: em(36px, 15px);
     line-height: em(45px, 36px);
 
     @include breakpoint(small-and-down) {
@@ -98,7 +101,7 @@
   }
 
   h4, h5 {
-    font-size: em(22px, 18px);
+    font-size: em(22px, 15px);
     line-height: em(30px, 22px);
   }
 
@@ -137,7 +140,7 @@
     color: inherit;
   }
   small, small a {
-    font-size: em(13px, 18px);
+    font-size: em(13px, 15px);
     line-height: em(20px, 13px);
     color: $color-text-secondary; /* << text_light_color */
   }

@@ -76,6 +76,9 @@
     border-color:$color-text;
     text-align:center;
     border-radius:2px;
+    height:53px;
+    line-height:53px;
+    padding:0;
 
     &:hover {
       background:$color-text;
