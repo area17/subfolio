@@ -301,6 +301,7 @@ $top_spacing: 25px;
     top:$height_bar - 1px;
     border-left:0 none;
     border-right:0 none;
+    position:fixed;
 
     a {
       padding:0 $gutter-mobile;

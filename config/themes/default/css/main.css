@@ -1329,7 +1329,8 @@ ul.group {
       right: 0;
       top: 69px;
       border-left: 0 none;
-      border-right: 0 none; }
+      border-right: 0 none;
+      position: fixed; }
       .header__dropdown a {
         padding: 0 20px; } }
 
