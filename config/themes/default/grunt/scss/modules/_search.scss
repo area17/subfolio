@@ -5,7 +5,12 @@
   top: 0;
   right: 0;
   bottom: 0;
-  padding: 10%;
+  padding: $gutter;
+
+  @include breakpoint(small-and-down) {
+    padding: $gutter-mobile;
+  }
+
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   display:none;

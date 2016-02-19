@@ -4936,6 +4936,7 @@ A17.Helpers.keyPress = function() {
         if (is_search_loading) return false;
         var $search_form = $search.find("form");
         var api_endpoint = $search.data("autocomplete-url");
+        if (api_endpoint === "") return false;
         var data_arr = $("input", $search_form).not($search_input).serializeArray();
         data_arr.push({
             name: "prefix",
