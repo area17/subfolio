@@ -23,11 +23,12 @@
 </footer>
 
 
-
-<?php if (SubfolioUser::is_admin()) { ?>
+<?php $search_endpoint = SubfolioTheme::get_option('search_endpoint'); ?>
+<?php $search_autocomplete_endpoint = SubfolioTheme::get_option('search_autocomplete_endpoint'); ?>
+<?php if (SubfolioUser::is_admin() && $search_endpoint) { ?>
 <!-- Display only if search is activated for this account -->
-<div class="search" data-search data-autocomplete-url="https://studio.area17.com/search/services/rest/index/studio_file_index/autocompletion/autofilename">
-  <form action="https://studio.area17.com/search/services/rest/index/studio_file_index/search/field/search">
+<div class="search" data-search data-autocomplete-url="<?php if($search_autocomplete_endpoint) echo $search_autocomplete_endpoint; ?>">
+  <form action="<?php echo $search_endpoint; ?>">
     <input type="text" name="query" data-search-input data-json-based autocomplete="off" />
     <div class="search__dropdown" data-search-dropdown ></div>
     <input type="hidden" name="login" value="searchadmin" data-get-based />
