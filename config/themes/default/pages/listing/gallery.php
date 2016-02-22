@@ -6,7 +6,7 @@
   <?php } else { ?>
     <ul>
   <?php } ?>
-      <?php foreach ( SubfolioFiles::gallery_images() as $image) : ?>
+      <?php foreach ( SubfolioFiles::gallery_images(SubfolioTheme::get_listing_mode()) as $image) : ?>
         <li>
           <a href="<?php echo $image['link']; ?>"  class="focusable">
             <div class="<?php echo $image['class'] ?>" style="<?php if(SubfolioTheme::get_listing_mode()!='masonry') { ?>max-height:<?php echo $image['container_height']."px"; ?><?php } ?>" >

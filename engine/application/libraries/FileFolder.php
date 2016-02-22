@@ -9,7 +9,7 @@ class FileFolder {
   var $stats;
 
   var $access = null;
-  
+
   public function __construct($name, $parent, $type, $kind, $stats) {
     $this->name     = $name;
     $this->parent   = $parent;
@@ -55,12 +55,12 @@ class FileFolder {
 
   public function have_access($user) {
     $have_access = false;
-    
+
     $this->load_access();
     if ($this->access->check_access($user)) {
       $have_access = true;
-    }        
-    
+    }
+
     return $have_access;
   }
 
@@ -121,11 +121,11 @@ class FileFolder {
     } else {
       $filename = $this->name;
     }
-    
+
 		$size = @getimagesize($filename);
 		$width = $size[0];
 		$height= $size[1];
-    
+
     return array($width, $height);
   }
 
@@ -133,27 +133,27 @@ class FileFolder {
     $url = "/directory/".$this->parent."/".Filebrowser::double_encode_specialcharacters(urlencode($this->name));
     return $url;
   }
-  
+
 	public function has_custom_thumbnail() {
 		$custom_thumbnail = "-thumbnails-custom/".$this->name;
 		return (file_exists($custom_thumbnail));
 	}
 
-  public function get_thumbnail_url() {
+  public function get_thumbnail_url($listing_mode='list') {
     if ($this->has_custom_thumbnail()) {
       return "/directory/".format::urlencode_parts($this->parent)."/-thumbnails-custom/".Filebrowser::double_encode_specialcharacters(urlencode($this->name));
     } else {
-      
+
       $thumbnail = "-thumbnails/".$this->name;
       $url = "/directory/".format::urlencode_parts($this->parent)."/-thumbnails/".Filebrowser::double_encode_specialcharacters(urlencode($this->name));
-  
+
       if (!file_exists("-thumbnails")) mkdir("-thumbnails", 0755, true);
-  
+
       $build_thumbnail = false;
       if (!$this->has_thumbnail()) {
         $build_thumbnail = true;
       }
-  
+
       if ($build_thumbnail) {
         $max_size = Kohana::config('filebrowser.thumbnail_max_filesize');
         $stats = stat($this->name);
@@ -169,14 +169,16 @@ class FileFolder {
             } else {
               $this->image = new Image($this->name);
               if ($this->image) {
-                $this->image->resize($thumbnail_width, $thumbnail_height, Image::HEIGHT);            
+                // different thumbnail for masonry layouts
+                if($listing_mode == "masonry") $this->image->resize($thumbnail_width, $thumbnail_height, Image::WIDTH);
+                else $this->image->resize($thumbnail_width, $thumbnail_height, Image::HEIGHT);
                 $this->image->save($thumbnail);
               }
             }
           }
         }
       }
-      
+
       if (file_exists($thumbnail)) {
         $thumbnail_stats = stat($thumbnail);
         return $url."?rnd=".$thumbnail_stats['ctime'];
@@ -192,11 +194,11 @@ class FileFolder {
     if ($replace_dashes) {
       $display = str_replace("-", " ", $display);
     }
-    
+
     if ($replace_underscores) {
       $display = str_replace("_", " ", $display);
     }
-    
+
     if (!$display_extension) {
       $path_parts = pathinfo($value);
       if (isset($path_parts['extension'])) {
@@ -212,7 +214,7 @@ class FileFolder {
         }
       }
     }
-    
+
     return $display;
   }
 
@@ -242,11 +244,11 @@ class FileFolder {
     if ($replace_dashes) {
       $display = str_replace("-", " ", $display);
     }
-    
+
     if ($replace_underscores) {
       $display = str_replace("_", " ", $display);
     }
-    
+
     return $display;
   }
 
@@ -275,7 +277,7 @@ class FileFolder {
   public function listingKindCmpAsc($a, $b) {
     $a_kind = "";
     $b_kind = "";
-    
+
     if ($a->kind) {
       if (is_string($a->kind)) {
         $kind = FileKind::instance()->get_kind_by_extension($a->kind);
@@ -297,7 +299,7 @@ class FileFolder {
         $b_kind = $b->kind['display'];
       }
     }
-    
+
     return strcmp(strtolower($a_kind), strtolower($b_kind));
   }
 
@@ -348,8 +350,8 @@ class FileFolder {
         $b_kind = $b->kind['display'];
       }
     }
-    
+
     return strcmp(strtolower($b_kind), strtolower($a_kind));
-  }  
+  }
 }
 ?>

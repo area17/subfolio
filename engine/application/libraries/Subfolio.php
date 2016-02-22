@@ -696,7 +696,7 @@ class SubfolioFiles extends Subfolio {
     return false;
   }
 
-  public function gallery_images()
+  public function gallery_images($listing_mode='list')
   {
     $display_filenames = view::get_option('display_file_names_in_gallery', true);
 
@@ -709,7 +709,7 @@ class SubfolioFiles extends Subfolio {
     $gallery = array();
     foreach ($files as $file) {
   		if ($file->needs_thumbnail()) {
-  		  $image_source = $file->get_thumbnail_url();
+  		  $image_source = $file->get_thumbnail_url($listing_mode);
   		} else {
     		$image_source = $file->get_url();
     	}

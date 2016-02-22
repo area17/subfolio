@@ -1,6 +1,6 @@
 // Full list of files that must be include into server theme
 var includes_in_prod = [
-  '*', 'fonts/**', 'images/**', 'layouts/**', 'pages/**', 'cms/**', 'color/**'
+  '*', 'fonts/**', 'images/**', 'layouts/**', 'pages/**', 'cms/**', 'colors/**'
 ]
 
 // Full list of files that must be exclude from the server theme

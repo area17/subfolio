@@ -1,4 +1,10 @@
 /* @group Download */
+.page--detail.img__full #content-outer {
+  overflow-y:hidden;
+  overflow-x:scroll;
+  width:100%;
+}
+
 #content > img.detailIMG {
   max-width:100%;
   height:auto;

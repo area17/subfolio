@@ -79,13 +79,13 @@ body {
 ul { list-style-type: none; }
 
 hr {
-height: 1px;
-margin: 0 0 10px;
-padding: 0;
-color: #F00;
-background-color: $color-border;
-border: 0 none;
-border-color: $color-border;
+  height: 1px;
+  margin: 0 0 10px;
+  padding: 0;
+  color: #F00;
+  background-color: $color-border;
+  border: 0 none;
+  border-color: $color-border;
 }
 
 
@@ -100,7 +100,7 @@ body {
   height: 100%;
   margin:0;
 }
-#container{
+#container {
   position: relative;
   min-height: 100%;
 }
@@ -197,11 +197,6 @@ ul.group {
 /* --------------------------------------------------------------
 MODULE SPACING
 -------------------------------------------------------------- */
-#content-outer {
-  overflow-y:hidden;
-  overflow-x:scroll;
-  width:100%;
-}
 
 #content {
   margin: $gutter;

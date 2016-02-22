@@ -1715,6 +1715,7 @@ body.page--login {
         padding-right: 20px; } }
 
 .list--list,
+.list--fit,
 .list--column,
 .list--masonry {
   width: 100%;
@@ -1723,6 +1724,7 @@ body.page--login {
   border-bottom-width: 1px;
   border-bottom-color: #F1F1F1; }
   .list--list .list__row,
+  .list--fit .list__row,
   .list--column .list__row,
   .list--masonry .list__row {
     overflow: hidden;
@@ -1732,6 +1734,7 @@ body.page--login {
     position: relative;
     width: 100%; }
     .list--list .list__row:after,
+    .list--fit .list__row:after,
     .list--column .list__row:after,
     .list--masonry .list__row:after {
       display: block;
@@ -1743,10 +1746,12 @@ body.page--login {
       left: 0;
       right: 0; }
   .list--list a.list__row,
+  .list--fit a.list__row,
   .list--column a.list__row,
   .list--masonry a.list__row {
     color: #999999; }
   .list--list .list__cell,
+  .list--fit .list__cell,
   .list--column .list__cell,
   .list--masonry .list__cell {
     border-top-width: 1px;
@@ -1760,6 +1765,7 @@ body.page--login {
     white-space: nowrap;
     text-overflow: ellipsis; }
   .list--list .list__cell--filenametext,
+  .list--fit .list__cell--filenametext,
   .list--column .list__cell--filenametext,
   .list--masonry .list__cell--filenametext {
     overflow: hidden;
@@ -1767,20 +1773,25 @@ body.page--login {
     text-overflow: ellipsis;
     overflow: hidden; }
   .list--list .list__header .list__cell,
+  .list--fit .list__header .list__cell,
   .list--column .list__header .list__cell,
   .list--masonry .list__header .list__cell {
     border-top-width: 0;
     display: table-cell; }
     .list--list .list__header .list__cell a,
+    .list--fit .list__header .list__cell a,
     .list--column .list__header .list__cell a,
     .list--masonry .list__header .list__cell a {
       color: #999999; }
   .list--list a .list__cell--filename,
+  .list--fit a .list__cell--filename,
   .list--column a .list__cell--filename,
   .list--masonry a .list__cell--filename {
     color: #191919; }
   .list--list a.list__body:hover,
   .list--list a.list__body:focus,
+  .list--fit a.list__body:hover,
+  .list--fit a.list__body:focus,
   .list--column a.list__body:hover,
   .list--column a.list__body:focus,
   .list--masonry a.list__body:hover,
@@ -1788,6 +1799,8 @@ body.page--login {
     background-color: #F6F6F6; }
   .list--list a.list__row--empty,
   .list--list a.list__row--empty *,
+  .list--fit a.list__row--empty,
+  .list--fit a.list__row--empty *,
   .list--column a.list__row--empty,
   .list--column a.list__row--empty *,
   .list--masonry a.list__row--empty,
@@ -1796,6 +1809,8 @@ body.page--login {
     color: #CCC; }
     .list--list a.list__row--empty .icon,
     .list--list a.list__row--empty * .icon,
+    .list--fit a.list__row--empty .icon,
+    .list--fit a.list__row--empty * .icon,
     .list--column a.list__row--empty .icon,
     .list--column a.list__row--empty * .icon,
     .list--masonry a.list__row--empty .icon,
@@ -1804,6 +1819,10 @@ body.page--login {
     .list--list a.list__row--empty:hover, .list--list a.list__row--empty:focus,
     .list--list a.list__row--empty *:hover,
     .list--list a.list__row--empty *:focus,
+    .list--fit a.list__row--empty:hover,
+    .list--fit a.list__row--empty:focus,
+    .list--fit a.list__row--empty *:hover,
+    .list--fit a.list__row--empty *:focus,
     .list--column a.list__row--empty:hover,
     .list--column a.list__row--empty:focus,
     .list--column a.list__row--empty *:hover,
@@ -1814,20 +1833,25 @@ body.page--login {
     .list--masonry a.list__row--empty *:focus {
       background-color: rgba(255, 255, 255, 0.5); }
   .list--list span.caps,
+  .list--fit span.caps,
   .list--column span.caps,
   .list--masonry span.caps {
     display: inline;
     float: none; }
   .list--list span strong,
+  .list--fit span strong,
   .list--column span strong,
   .list--masonry span strong {
     color: inherit; }
   .list--list .list__cell--filename,
+  .list--fit .list__cell--filename,
   .list--column .list__cell--filename,
   .list--masonry .list__cell--filename {
     width: 55%; }
   .list--list .list__cell--filenameicon,
   .list--list .list__cell--filenametext,
+  .list--fit .list__cell--filenameicon,
+  .list--fit .list__cell--filenametext,
   .list--column .list__cell--filenameicon,
   .list--column .list__cell--filenametext,
   .list--masonry .list__cell--filenameicon,
@@ -1835,12 +1859,14 @@ body.page--login {
     display: inline-block;
     vertical-align: middle; }
   .list--list .list__cell--filenameicon,
+  .list--fit .list__cell--filenameicon,
   .list--column .list__cell--filenameicon,
   .list--masonry .list__cell--filenameicon {
     padding-left: 10px;
     padding-right: 10px;
     min-width: 46px; }
     .list--list .list__cell--filenameicon i,
+    .list--fit .list__cell--filenameicon i,
     .list--column .list__cell--filenameicon i,
     .list--masonry .list__cell--filenameicon i {
       margin-left: auto;
@@ -1849,10 +1875,12 @@ body.page--login {
       top: -1px;
       display: block; }
     .list--list .list__cell--filenameicon img,
+    .list--fit .list__cell--filenameicon img,
     .list--column .list__cell--filenameicon img,
     .list--masonry .list__cell--filenameicon img {
       display: block; }
   .list--list .list__cell--filenametext,
+  .list--fit .list__cell--filenametext,
   .list--column .list__cell--filenametext,
   .list--masonry .list__cell--filenametext {
     padding-right: 40px;
@@ -1860,6 +1888,7 @@ body.page--login {
     white-space: nowrap;
     text-overflow: ellipsis; }
   .list--list .list__cell--updated,
+  .list--fit .list__cell--updated,
   .list--column .list__cell--updated,
   .list--masonry .list__cell--updated {
     width: 8px;
@@ -1869,6 +1898,10 @@ body.page--login {
   .list--list .list__cell--date,
   .list--list .list__cell--kind,
   .list--list .list__cell--comment,
+  .list--fit .list__cell--size,
+  .list--fit .list__cell--date,
+  .list--fit .list__cell--kind,
+  .list--fit .list__cell--comment,
   .list--column .list__cell--size,
   .list--column .list__cell--date,
   .list--column .list__cell--kind,
@@ -1881,6 +1914,9 @@ body.page--login {
   .list--list .list__cell--size,
   .list--list .list__cell--date,
   .list--list .list__cell--kind,
+  .list--fit .list__cell--size,
+  .list--fit .list__cell--date,
+  .list--fit .list__cell--kind,
   .list--column .list__cell--size,
   .list--column .list__cell--date,
   .list--column .list__cell--kind,
@@ -1893,6 +1929,10 @@ body.page--login {
     .list--list .list__cell--comment,
     .list--list .list__header .list__cell--kind,
     .list--list .list__header .list__cell--comment,
+    .list--fit .list__cell--kind,
+    .list--fit .list__cell--comment,
+    .list--fit .list__header .list__cell--kind,
+    .list--fit .list__header .list__cell--comment,
     .list--column .list__cell--kind,
     .list--column .list__cell--comment,
     .list--column .list__header .list__cell--kind,
@@ -1905,6 +1945,9 @@ body.page--login {
     .list--list .list__cell--size,
     .list--list .list__cell--date,
     .list--list .list__cell--kind,
+    .list--fit .list__cell--size,
+    .list--fit .list__cell--date,
+    .list--fit .list__cell--kind,
     .list--column .list__cell--size,
     .list--column .list__cell--date,
     .list--column .list__cell--kind,
@@ -1914,6 +1957,7 @@ body.page--login {
       width: auto; } }
   @media (max-width: 639px) {
     .list--list,
+    .list--fit,
     .list--column,
     .list--masonry {
       display: block; }
@@ -1923,6 +1967,12 @@ body.page--login {
       .list--list .list__header .list__cell--size,
       .list--list .list__header .list__cell--updated,
       .list--list .list__header .list__cell--date,
+      .list--fit .list__cell--size,
+      .list--fit .list__cell--updated,
+      .list--fit .list__cell--date,
+      .list--fit .list__header .list__cell--size,
+      .list--fit .list__header .list__cell--updated,
+      .list--fit .list__header .list__cell--date,
       .list--column .list__cell--size,
       .list--column .list__cell--updated,
       .list--column .list__cell--date,
@@ -1937,21 +1987,26 @@ body.page--login {
       .list--masonry .list__header .list__cell--date {
         display: none; }
       .list--list .list__cell--filename,
+      .list--fit .list__cell--filename,
       .list--column .list__cell--filename,
       .list--masonry .list__cell--filename {
         width: 100%; }
       .list--list .list__row,
       .list--list .list__cell--filename,
+      .list--fit .list__row,
+      .list--fit .list__cell--filename,
       .list--column .list__row,
       .list--column .list__cell--filename,
       .list--masonry .list__row,
       .list--masonry .list__cell--filename {
         display: block; }
       .list--list .list__cell--filenameicon,
+      .list--fit .list__cell--filenameicon,
       .list--column .list__cell--filenameicon,
       .list--masonry .list__cell--filenameicon {
         padding-left: 0; }
       .list--list .list__cell--filenametext,
+      .list--fit .list__cell--filenametext,
       .list--column .list__cell--filenametext,
       .list--masonry .list__cell--filenametext {
         width: -webkit-calc(100% - 85px);
@@ -2325,6 +2380,11 @@ body.page--login {
       color: #999999; }
 
 /* @group Download */
+.page--detail.img__full #content-outer {
+  overflow-y: hidden;
+  overflow-x: scroll;
+  width: 100%; }
+
 #content > img.detailIMG {
   max-width: 100%;
   height: auto;
@@ -2430,11 +2490,6 @@ body.page--login {
 /* --------------------------------------------------------------
 MODULE SPACING
 -------------------------------------------------------------- */
-#content-outer {
-  overflow-y: hidden;
-  overflow-x: scroll;
-  width: 100%; }
-
 #content {
   margin: 30px;
   /* Sets styles only for direct childs of #content (i.e gallery, features, listing) */ }
