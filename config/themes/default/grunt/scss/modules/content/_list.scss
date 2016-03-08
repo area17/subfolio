@@ -32,6 +32,7 @@ $height_list: 50px;
   display:table;
   border-bottom-width:1px;
   border-bottom-color:$color-border-light;
+  border-collapse: collapse;
 
   .list__row {
     overflow: hidden;
@@ -40,6 +41,7 @@ $height_list: 50px;
     color:$color-text-secondary;
     position:relative;
     width:100%;
+    border-bottom: 1px solid rgb(241, 241, 241);
 
     &:after {
       display: block;
@@ -58,8 +60,9 @@ $height_list: 50px;
   }
 
   .list__cell {
-    border-top-width:1px;
-    border-top-color:$color-border-light;
+    //border-top-width:1px;
+    //border-top-color:$color-border-light;
+    border: none;
     height: $height_list;
     line-height:$height_list;
     display:table-cell;
@@ -116,6 +119,10 @@ $height_list: 50px;
 
   .list__cell--filename {
     width:55%;
+    // &:last-child {
+    //   width: 100%;
+    //   padding-right: 0;
+    // }
   }
 
   .list__cell--filenameicon,
