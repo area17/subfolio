@@ -65,7 +65,7 @@ class Filebrowser {
     $currentSort = $session->get('sort_order') ? $session->get('sort_order') : $defaultSort;
     $currentSortOrder = $session->get('sort_order_direction') ? $session->get('sort_order_direction') : $defaultSortOrder;
     if (isset($_GET["sort"])) {
-      $sortFunction = $this->mapSortingToFunc($_GET['sort'])
+      $sortFunction = $this->mapSortingToFunc($_GET['sort']);
       $session->set('sort_order', $sortFunction);
       $this->sort_order = $sortFunction;
       if ($currentSort == $sortFunction) {
