@@ -65,6 +65,12 @@ display_date: true
 display_kind: true
 display_comment: false
 
+### DEFAULT LIST SORTING
+# Can be: 'filename', 'size', 'date', 'kind'
+default_sort: filename
+# Can be: 'Asc', 'Desc'
+default_sort_order: Desc
+
 ### SHOW/HIDE INTERFACE ELEMENTS (true/false)
 ### Make sure you leave a way for your users to navigate
 

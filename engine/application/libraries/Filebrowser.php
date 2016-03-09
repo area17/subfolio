@@ -37,7 +37,6 @@ class Filebrowser {
 
     // check and update the updated_since settings
     $this->_updated_since();
-    $this->_sort_order();
   }
 
   public function get_displayed_content() {
@@ -48,13 +47,23 @@ class Filebrowser {
     $this->displayed_content = $displayed;
   }
 
+  private function mapSortingToFunc($sort) {
+    $map = array(
+      'filename' => 'listingNameCmp',
+      'size'     => 'listingSizeCmp',
+      'date'     => 'listingDateCmp',
+      'kind'     => 'listingKindCmp',
+    );
+    return $map[$sort];
+  }
+
   public function _sort_order() {
     $session= Session::instance();
-    $sortFunction = "listingNameCmp";
-
-    $currentSort = $session->get('sort_order');
-    $currentSortOrder = $session->get('sort_order_direction');
-
+    $defaultSort = isset($this->properties['default_sort']) ? $this->mapSortingToFunc($this->properties['default_sort']) : null;
+    $sortFunction = $defaultSort ? $defaultSort : "listingNameCmp";
+    $defaultSortOrder = isset($this->properties['default_sort_order']) ? $this->properties['default_sort_order'] : null;
+    $currentSort = $session->get('sort_order') ? $session->get('sort_order') : $defaultSort;
+    $currentSortOrder = $session->get('sort_order_direction') ? $session->get('sort_order_direction') : $defaultSortOrder;
     if (isset($_GET["sort"])) {
       if ($_GET["sort"] == "filename") {
         $sortFunction = "listingNameCmp";
@@ -186,6 +195,7 @@ class Filebrowser {
 
     $array = Spyc::YAMLLoad($properties_file);
     $this->properties = $array;
+    $this->_sort_order();
   }
 
   public function exists() {
