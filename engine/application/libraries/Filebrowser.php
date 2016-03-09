@@ -54,7 +54,7 @@ class Filebrowser {
       'date'     => 'listingDateCmp',
       'kind'     => 'listingKindCmp',
     );
-    return $map[$sort];
+    return isset($map[$sort]) ? $map[$sort] : null;
   }
 
   public function _sort_order() {
@@ -65,15 +65,7 @@ class Filebrowser {
     $currentSort = $session->get('sort_order') ? $session->get('sort_order') : $defaultSort;
     $currentSortOrder = $session->get('sort_order_direction') ? $session->get('sort_order_direction') : $defaultSortOrder;
     if (isset($_GET["sort"])) {
-      if ($_GET["sort"] == "filename") {
-        $sortFunction = "listingNameCmp";
-      } else if ($_GET["sort"] == "size") {
-        $sortFunction = "listingSizeCmp";
-      } else if ($_GET["sort"] == "date") {
-        $sortFunction = "listingDateCmp";
-      } else if ($_GET["sort"] == "kind") {
-        $sortFunction = "listingKindCmp";
-      }
+      $sortFunction = $this->mapSortingToFunc($_GET['sort'])
       $session->set('sort_order', $sortFunction);
       $this->sort_order = $sortFunction;
       if ($currentSort == $sortFunction) {
