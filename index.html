@@ -1,0 +1,1930 @@
+<!doctype html>
+<html><head>
+        <link href='http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css' rel='stylesheet'>
+        <style>body {margin:1em 2em;} hr.pagebreak {page-break-after: always; border: 7px solid #BBB}</style>
+        <style media='print'>hr.pagebreak {border: 0}</style>
+      </head>
+
+<body>
+
+<div class="container">
+    <div class="intro">
+        <h1>Subfolio</h1>
+        <p class="lead">Subfolio provides an elegant, practical and customizable web interface to your file system. Super fast to set-up and use, you’ll be up and running in minutes. Flexible and feature-rich, you’ll soon be inventing new ways to use it.</p>
+        <div class="row">
+            <p class="col-sm-4">Subfolio is made for creative types to share their work online with speed and elegance – publicly or privately. It’s good for freelancers, studios, agencies, enterprise or even the classroom.</p>
+
+            <p class="col-sm-4">Simply speaking, Subfolio reads your file system and instantly turns the content into a website — folders become sections, files become pages. But that’s just the beginning… feature overview.</p>
+
+            <p class="col-sm-4">Subfolio is a lightweight PHP5 file browser app that installs on your own server. No database or content management needed. And for you geeks out there, it’s extensible too. how it works</p>
+            
+        </div>
+    </div>
+
+<h1><small>Table of contents</small></h1>
+<ul><li>Orientation<ul><li><a href='#orientation-feature-overview'>Feature overview (draft)</a></li><li><a href='#orientation-how-it-works'>How it works (draft)</a></li><li><a href='#orientation-faq'>FAQ (draft)</a></li><li><a href='#orientation-license'>License (EULA) (draft)</a></li></ul><li>Installation<ul><li><a href='#installation-system-requirements'>System requirements </a></li><li><a href='#installation-download-the-application-private-beta'>DOWNLOAD the application (private beta) </a></li><li><a href='#installation-installing'>Installing </a></li><li><a href='#installation-getting-system-information'>Getting system information </a></li><li><a href='#installation-upgrading'>Upgrading </a></li><li><a href='#installation-hosting-considerations'>Hosting considerations (draft)</a></li></ul><li>Basic Usage<ul><li><a href='#basic-usage-sharing-vs-showcasing'>Sharing vs. Showcasing</a></li><li><a href='#basic-usage-basic-setup'>Basic setup (draft)</a></li><li><a href='#basic-usage-about-interface-elements'>About interface elements (draft)</a></li><li><a href='#basic-usage-adding-and-hiding-content'>Adding and hiding content </a></li><li><a href='#basic-usage-file-naming-restrictions'>File naming & restrictions </a></li><li><a href='#basic-usage-generating-thumbnails'>Generating thumbnails </a></li><li><a href='#basic-usage-navigating-viewing-and-downloading'>Navigating, viewing and downloading (draft)</a></li></ul><li>Access Control <ul><li><a href='#access-control-creating-users-and-groups'>Creating users and groups </a></li><li><a href='#access-control-hashing-passwords'>Hashing passwords </a></li><li><a href='#access-control-allowing-or-denying-access'>Allowing or denying access </a></li><li><a href='#access-control-hiding-from-search-engines'>Hiding from search engines </a></li></ul><li>Settings<ul><li><a href='#settings-general-settings'>UPDATED - General settings (including Google Analytics) </a></li><li><a href='#settings-language'>Changing the interface language </a></li><li><a href='#settings-file-kinds'>Managing file kinds </a></li><li><a href='#settings-working-with-yaml'>Working with YAML (draft)</a></li></ul><li>Themes<ul><li><a href='#themes-theme-options'>UPDATED - Theme options (including logo and favicon) </a></li><li><a href='#themes-color-palettes'>NEW - Color Palettes </a></li><li><a href='#themes-switching-theme'>Switching themes </a></li><li><a href='#themes-logo-favicon-copyright'>Adding your logo, favicon and copyright (draft)</a></li><li><a href='#themes-customizing-themes'>UPDATED - Customizing themes </a></li></ul><li>Enhancers<ul><li><a href='#enhancers-intro_to_enhancers'>Intro to enhancers </a></li><li><a href='#enhancers-download-enhancer-demo-files'>DOWNLOAD enhancer demo files </a></li><li><a href='#enhancers-popups-external-links-and-shortcuts'>Popups, external links and shortcuts (DRAFT) (draft)</a></li><li><a href='#enhancers-using-enhancers'>UPDATED - Using enhancers </a></li><li><a href='#enhancers-featuring-content'>Featuring content (DRAFT) (draft)</a></li><li><a href='#enhancers-adding-comment-to-a-file-or-folder-name'>Adding comment to a file or folder name (DRAFT) (draft)</a></li><li><a href='#enhancers-displaying-html-prototypes'>Displaying HTML prototypes (DRAFT) (draft)</a></li><li><a href='#enhancers-specify-video-properties'>Specify video properties (DRAFT) (draft)</a></li><li><a href='#enhancers-using-markup-in-enhancers'>Using markup in enhancers </a></li></ul><li>Misc. Helpers<ul><li><a href='#misc-helpers-markdown-cheat-sheet'>Markdown Cheat Sheet (DRAFT) (draft)</a></li><li><a href='#misc-helpers-recommended-3rd-party-apps'>Recommended 3rd-party apps </a></li><li><a href='#misc-helpers-textile-cheat-sheet'>Textile cheat sheet  (DRAFT) (draft)</a></li></ul><li>Solving Common Problems<ul><li><a href='#solving-common-problems-access-control-not-working'>Access control not working (DRAFT) (draft)</a></li><li><a href='#solving-common-problems-errors-when-uploading-content'>Errors when uploading content (DRAFT) (draft)</a></li><li><a href='#solving-common-problems-errors-when-uploading-thumbnails'>Errors when uploading thumbnails (DRAFT) (draft)</a></li><li><a href='#solving-common-problems-file-kind-not-showing-appropriately'>File kind not showing appropriately (DRAFT) (draft)</a></li><li><a href='#solving-common-problems-setting-or-enhancer-files-is-not-working-properly'>Setting or enhancer files is not working properly (DRAFT) (draft)</a></li><li><a href='#solving-common-problems-thumbnail-errors'>Thumbnail errors (DRAFT) (draft)</a></li></ul><li>Hosting<ul><li><a href='#hosting-hosting-companies-in-use-by-subfolio-users'>Hosting companies in use by Subfolio users (draft)</a></li></ul></ul><hr class='pagebreak'>
+
+<a name='orientation-feature-overview'></a>
+<h1>Orientation - Feature overview</h1>
+<h2>Introduction</h2>
+<p><strong>How it works</strong> &#8212;&nbsp;Reads your file
+system and instantly turns it into a website &#8212; folders become
+sections, files become pages. But that's just the beginning...</p>
+<p><strong>Many uses</strong> &#8212;&nbsp;Can be used as a public
+website, a private client area, a secure document server or just
+some place to put your stuff.</p>
+<p><strong>One-off cost</strong> &#8212; Costs a mere $0
+per-domain license. That includes all features and there is no
+hidden or on-going cost to you.</p>
+<h2>Instant Satisfaction</h2>
+<p><strong>Installs on your server</strong> &#8212;&nbsp;Subfolio
+is not a hosted service, giving you complete control over your
+environment, your data and even the application itself.</p>
+<p><strong>No database required</strong> &#8212;&nbsp;Drop the
+application on your server and it works. No install files, no
+database setup and no content management system either.</p>
+<p><strong>Universal</strong> &#8212;&nbsp;Subfolio uses PHP5 and
+has been optimized to work even within a basic shared hosting
+environment.</p>
+<p><strong>Easy-to-use</strong> &#8212;&nbsp;Drop files and folders
+online using FTP or WebDAV. Organize. Reorganize. Whatever you do,
+Subfolio will follow.</p>
+<p><strong>Instant thumbnails</strong> &#8212;&nbsp;All
+browser-viewable images will automatically get thumbnails. Upload a
+few hundred images and you'll fall in love.</p>
+<p><strong>Keyboard controls</strong> &#8212;&nbsp;Navigate files
+via keyboard arrow keys.</p>
+<p><strong>Mobile</strong> &#8212; Works on iPhone and Android
+devices.</p>
+<p><strong>Retrofit</strong> &#8212;&nbsp;Works with existing file
+structures. Drop the file structure into Subfolio and you are done.
+Your file structure will always remain in tact and as you want
+it.</p>
+<p><strong>Designed for Simplicity</strong>
+&#8212;&nbsp;Streamlined interface allows for versatility and
+focus, including easy to read URL&#8217;s and out-of-the box
+SEO-friendliness.</p>
+<h2>Infinite Possibilities</h2>
+<p><strong>Beyond file browsing</strong>&nbsp;&#8212; Feature or
+hide content, embed text and images, create pop-ups, shortcuts,
+external links, slideshows, RSS embeds and so on.</p>
+<p><strong>Access control</strong> &#8212;&nbsp;Create unlimited
+users and groups, then assign them folder-level access as
+needed.</p>
+<p><strong>International</strong> &#8212;&nbsp;Change the interface
+language, use any language character set and supports
+foreign/special character in file names and urls.</p>
+<p><strong>Themes</strong> &#8212;&nbsp;Switch themes without
+touching your file structure or the application itself. And if you
+know a little CSS, try customizing or creating your own.<br></p>
+<p><strong>Color Palettes</strong> &#8212;&nbsp;Create your own
+color palettes and switch them as often as you'd like.</p>
+<p><strong>Have it your way</strong> &#8212;&nbsp;Configure the
+interface, choose your mark-up preferences, manage your file kind
+settings. We try to assume you know best.</p>
+<p><strong>Developer friendly</strong> &#8212;&nbsp;Lightweight and
+standards-compliant, get full assess to the un-obfuscated code.</p>
+<p><strong>Make some cash</strong> &#8212;&nbsp;Install and
+customize Subfolio for your clients. You'll make an easy buck and
+they'll be thanking you for years to come.</p>
+
+
+<hr class='pagebreak'><a name='orientation-how-it-works'></a>
+<h1>Orientation - How it works</h1>
+
+<p>Subfolio reads your file system and instantly turns it into a
+website &#8212; folders become sections, files become pages. But
+that's just the beginning...</p>
+<h2>The Basics</h2>
+<p><strong>Engine</strong> &#8212;&nbsp;Functionality of Subfolio
+using the Kahona PHP5 framework. You don't need to touch this.</p>
+<p><strong>Directory</strong> &#8212; Default location where you
+put all your content. You can change it in your settings files.
+This folder will remain a clean structure of files and folders.</p>
+<p><strong>Config</strong> &#8212;&nbsp;Configure your interface
+and personal preferences.</p>
+<ul>
+<li>
+<p><strong>Themes</strong>: Interface or "look n feel", themes can
+be switched or customized. Themes also have options to turn on/off
+different interface elements.</p>
+</li>
+<li>
+<p><strong>Users and Groups</strong>: Access control, if needed.
+You can create users and assign them to groups. Then give a user or
+a group access to folders as needed.</p>
+</li>
+<li>
+<p><strong>Settings</strong>: Global settings (eg. name of site,
+preferences, etc.), manage your file kinds (eg. supported files,
+preferences, download instructions, etc.) and change the interface
+language.</p>
+</li>
+</ul>
+<p><strong>Enhancers</strong>: These are little text snippet files
+that live with your files and folders and change their behavior
+(eg. add a comment, customize a thumbnail, embed text, etc.). Some
+enhancers work on their own (eg. add a link to an external website
+or popup, create a shortcut, etc.).</p>
+
+<hr class='pagebreak'><a name='orientation-faq'></a>
+<h1>Orientation - FAQ</h1>
+
+<h2>Who can use Subfolio?</h2>
+<p>Subfolio has been designed so that:</p>
+<ul>
+<li>anyone with FTP or WebDAV access can use it</li>
+<li>anyone with little development experience can set it up</li>
+<li>anyone who codes can really benefit (and even profit) from
+it</li>
+</ul>
+<h3>&#8220;I have no experience at all&#8221;</h3>
+<p>Get your Web-geek friend to set it up for you. You can also find
+someone in the support forums. Or contact us and and we will do it
+for cheap.</p>
+<p><em>You can:</em> uploading content to Subfolio via FTP or
+WebDAV.</p>
+<h3>&#8220;I can't really code, but I can find my way
+around&#8221;</h3>
+<p>Great, this app is for you. You will be able to do most
+everything you need pretty easily.</p>
+<p><em>You also can:</em> install Subfolio, configure Subfolio
+(including themes, access control, file kinds and language) and use
+enhancers.</p>
+<h3>&#8220;I code HTML/CSS&#8221;</h3>
+<p>Even better, you are going to have some fun making it your
+own.</p>
+<p><em>You also can:</em> customize an existing theme and reate a
+new theme (and of course share it with the community).</p>
+<h3>&#8220;Let me at it, I eat all kinds of code for breakfast,
+especially the PHP variety&#8221;</h3>
+<p>Right on, have at it braw. If you do something cool, let us
+know.</p>
+<p><em>You also can:</em> change existing features and add new
+features</p>
+<h3>&#8220;I'm in the business of web design&#8221;</h3>
+<p>Dude, there's money to be made. Many of your clients probably
+could use Subfolio, so offer it to them. You can easily get a few
+hundred bucks just for installing it and lots more for customizing
+a theme or even the functionality.</p>
+
+<h2>Hosting Considerations</h2>
+<h3>&#8220;Does Subfolio have special hosting needs?&#8221;</h3>
+<p>Nope. Subfolio was made to be <em>drop and go</em> as long as
+you have the correct system requirements. Of course each server is
+set-up differently so you might need to see with your system
+administrator to make a slight adjustment.</p>
+<h3>&#8220;Can I use Subfolio on a shared host or do I need a
+dedicated server?&#8221;</h3>
+<p>Yes you can. A dedicated server gives you more control of the
+environment (eg. if you'd like to use special characters in URL's)
+however all Subfolio features should work within a shared hosting
+environment.</p>
+<h3>&#8220;What do I need for storage and bandwidth?&#8221;</h3>
+<p>It really depends on you. From this perspective, Subfolio is no
+different than a normal website. If you are going to use Subfolio
+as a file server, you should consider a dedicated server with lots
+of storage. If you are famous and going to use Subfolio for your
+portfolio website, you should consider a hosting account with high
+bandwidth allowances.</p>
+<h3>&#8220;What if I don't want it for my main website?&#8221;</h3>
+<p>No problem, we recommend setting up a subdomain such as
+studio.example.com. Its clean and purdy.</p>
+
+
+<hr class='pagebreak'>
+<a name='orientation-license'></a>
+<h1>Orientation - License</h1>
+<p>Subfolio is licenced under the AGPL, <a href="https://github.com/area17/subfolio/blob/master/LICENSE.TXT">available here</a></p>
+
+
+
+<hr class='pagebreak'><a name='installation-system-requirements'></a>
+<h1>Installation - System requirements </h1>
+<div>
+    <h2>Server Requirements</h2>
+    <ul>
+    <li>Operating Systems: Linux, Mac OSX, Windows Vista</li>
+    <li>Apache 2+ (may work with 1.3+)</li>
+    <li>PHP 5.2+</li>
+    <li>NO DATABASE NEEDED</li>
+    <li>mod_rewrite module (for clean URLs)</li>
+    <li>GD Library (for auto-thumbnail generation)</li>
+    <li>Server with Unicode support (PCRE UTF-8), if foreign character
+    are needed.</li>
+    </ul>
+    <h2>Browser Compatibility</h2>
+    <ul>
+    <li>Internet explorer : 6 and above</li>
+    <li>Firefox: 3 and above</li>
+    <li>Safari: 3 and above</li>
+    <li>Opera: 9 and above</li>
+    <li>Chrome: 2.0 and above</li>
+    </ul>
+    <h2>Not sure if your server is ready for Subfolio?</h2>
+    <p>No problem, just download <strong><a href=
+    "http://s3.amazonaws.com/entp-tender-production/assets/8497a6f75309892d0e4e4db9c20dbebe2c4942b1/subfolio-compatibility.zip">
+    subfolio-compatibility.zip</a></strong>, unzip and upload the
+    contents to the root of your domain or subdomain. Once uploaded,
+    visit the following URL on your domain:
+    <code>http://www.yourdomain.com/subfolio-compatibility/</code></p>
+    <p><img src=
+    "http://s3.amazonaws.com/entp-tender-production/assets/57767c116f80767fca34744bee7e1da3b0111660/compatibility_normal.png"
+    alt="compatibility.png"></p>
+</div>
+
+
+
+<hr class='pagebreak'>
+<a name='installation-download-the-application-private-beta'></a>
+<h1>Installation - DOWNLOAD the application</h1>
+<div>
+    <h2>DOWNLOAD Subfolio 1.0.0</h2>
+    <p>--&gt; Download the app (latest): <strong><a href="https://github.com/area17/subfolio/archive/master.zip">subfolio-master.zip</a></strong></p>
+    <p>Recommended: To take advantage of Subfolio to the fullest
+    extent, <a href="https://github.com/area17/subfolio-enhancers/archive/master.zip">download the enhancer demo files</a></p>
+</div>
+
+
+
+<hr class='pagebreak'>
+<a name='installation-installing'></a>
+<h1>Installation - Installing </h1>
+<div>
+    <h2>Introduction</h2>
+    <p>Subfolio uses standard text files and folders. There is no
+    installation files, no database setup and it will run on most any
+    shared hosting environment.</p>
+    <h3>Package contents</h3>
+    <ul>
+    <li><code>directory/</code> is where you put all of your
+    content</li>
+    <li><code>config/</code> is the general settings, users &amp;
+    groups and themes</li>
+    <li><code>engine/</code> is something you do not touch (unless you
+    are an experience coder who wants to change the app itself)</li>
+    <li><code>htaccess</code> is a file sends instruction to your
+    Apache server (must be renamed to .htaccess)</li>
+    </ul>
+    <h2>1-minute installation</h2>
+    <ol>
+    <li>Download the most recent version of Subfolio<br></li>
+    <li>Unzip the Subfolio package<br></li>
+    <li>Upload the package content to the ROOT of your domain (or
+    subdomain)<br></li>
+    <li>Rename the file htaccess to .htaccess<br></li>
+    <li>Set all folder and file permissions to
+    <code>755</code><br></li>
+    <li>And you're done. Visit URL and you should see a welcome
+    page.</li>
+    </ol>
+    <h3>Setting file permissions</h3>
+    <p>Whether you are using S/FTP or WebDAV, it is very important to
+    set permissions on upload to <code>755</code> and that it "applies
+    to all enclosed items". If you encounter problems, in some
+    instances, you may have to set it to <code>777</code>.</p>
+    <h3>Enabling PHP5 on your server</h3>
+    <p>Most servers have PHP5 installed, but maybe disabled by default.
+    Depending on your server configuration, you may need to add a line
+    of code to the <code>.htaccess</code> file in order to activate it
+    (eg. <code>SetEnv PHP_VER 5</code>). See your system administrator
+    or hosting provider documentation for further assistance.</p>
+    <h3>Getting system information</h3>
+    <p>To help with troubleshooting, visit the following URL on your
+    domain: <code>yourdomain.com/engine/info</code></p>
+    <h2>Installing within a folder</h2>
+    <p>At this time, you can't install Subfolio within a folder. The
+    entire package content must live at the root of your domain or
+    subdomain.</p>
+    <h2>Uninstalling</h2>
+    <p>Delete or remove it from your server.</p>
+</div>
+
+
+<hr class='pagebreak'>
+<a name='installation-getting-system-information'></a>
+<h1>Installation - Getting system information</h1>
+<div>
+<h2>Introduction</h2>
+<p>To find out your Subfolio version or to help with
+troubleshooting.</p>
+<h2>Getting system information</h2>
+<p>Visit the following URL on your domain:
+<code>yourdomain.com/engine/info</code>.</p>
+<p><img src=
+"http://s3.amazonaws.com/entp-tender-production/assets/22f983f5085a78f8ba29c1c80e3174e3ece8ea6f/System-Info_normal.png"
+alt="System-Info.png"></p>
+<h2>Disable System Information</h2>
+<p>If you wish to disable this page, create a blank file called
+<code>disabled.php</code> and put it here:
+<code>/engine/info/disabled.php</code></p></div><hr class='pagebreak'><a name='installation-upgrading'></a><h1>Installation - Upgrading </h1><div><h2>Introduction</h2>
+<p>Subfolio is built so that updating is as easy as replacing the
+<code>/engine/</code> folder, however sometimes we may tweak the
+default theme or settings files in order to add additional
+features. In most cases, we will make it so that theme or setting
+updates are optional.</p>
+<p>An "upgrade" by definition is a more significant release and
+might affect the way things are done altogether. An upgrade &#8212;
+if needed &#8212; will happen only with major releases.</p>
+<h2>Before you start</h2>
+<ul>
+<li>read the <a href=
+"https://github.com/area17/subfolio/blob/master/CHANGELOG.TXT">release
+notes</a> (so you know what changes were made and what files were
+affected)</li>
+<li>make backups</li>
+</ul>
+<h2>DO NOT UPDATE <code>/directory/</code></h2>
+<ul>
+<li>this is where you keep your files, there will never be an
+update to this folder</li>
+</ul>
+<h2>Updating <code>/engine/</code> (always required)</h2>
+<ul>
+<li>rename the existing to "engine_old" and upload the new in its
+place</li>
+<li>if you've made modifications to the engine, you will need to
+redo or migrate over your changes manually</li>
+</ul>
+<h2>Updating <code>/config/settings/</code> and
+<code>/config/users/</code> (optional)</h2>
+<ul>
+<li>upload and replace the "sample" files only</li>
+<li>compare your files with the new sample files for new settings
+(if applicable, see release notes)</li>
+<li>copy new settings from sample to your files as needed</li>
+</ul>
+<h2>Updating <code>/config/themes/</code> (optional)</h2>
+<ul>
+<li>rename the existing theme to "default_old" and upload the new
+in its place</li>
+<li>If you've only modified the theme options file, copy it over to
+the new theme</li>
+<li>compare with the new <code>options.sample.yml</code> file for
+new options (if applicable, see release notes)</li>
+<li>copy new options from sample to your files as needed</li>
+<li>if you are using a custom theme, you will need to reapply your
+modifications to the new theme</li>
+</ul></div>
+
+
+
+<hr class='pagebreak'>
+<a name='installation-hosting-considerations'></a>
+<h1>Installation - Hosting considerations</h1>
+<div>
+    <h2>&#8220;Does Subfolio have special hosting needs?&#8221;</h2>
+    <p>Nope. Subfolio was made to be <em>drop and go</em> as long as
+    you have the correct system requirements. Of course each server is
+    set-up differently so you might need to see with your system
+    administrator to make a slight adjustment.</p>
+    <h2>&#8220;Can I use Subfolio on a shared host or do I need a
+    dedicated server?&#8221;</h2>
+    <p>Yes you can. A dedicated server gives you more control of the
+    environment (eg. if you'd like to use special characters in URL's)
+    however all Subfolio features should work within a shared hosting
+    environment.</p>
+    <h2>&#8220;What do I need for storage and bandwidth?&#8221;</h2>
+    <p>It really depends on you. From this perspective, Subfolio is no
+    different than a normal website. If you are going to use Subfolio
+    as a file server, you should consider a dedicated server with lots
+    of storage. If you are famous and going to use Subfolio for your
+    portfolio website, you should consider a hosting account with high
+    bandwidth allowances.</p>
+    <h2>&#8220;What if I don't want it for my main website?&#8221;</h2>
+    <p>No problem, we recommend setting up a subdomain such as
+    studio.example.com. Its clean and purdy.</p>
+</div>
+
+
+<hr class='pagebreak'><a name='basic-usage-sharing-vs-showcasing'></a><h1>Basic Usage - Sharing vs. Showcasing </h1><div><h2>Introduction</h2>
+<p>OK, you've just arrived to an existential fork in the road.
+Subfolio can be used in two ways - to share files or to showcase
+your work. What is the difference you ask?</p>
+<h2>Sharing mode</h2>
+<p>Subfolio can be used as a centralized repository to share files
+within a team &#8212; internally, with clients or even in the
+classroom. By default, Subfolio is configured for sharing mode.</p>
+<p><em>You might want to learn more about:</em></p>
+<ul>
+<li>Access control</li>
+</ul>
+<h2>Showcase mode</h2>
+<p>Subfolio can be used as a portfolio website or just some place
+to showcase your stuff. Via theme options and settings, you can
+simply configure Subfolio to be more "website-like". And enhancers
+will take you the distance.</p>
+<p><em>You might want to learn more about:</em></p>
+<ul>
+<li>Theme options</li>
+<li>Language settings</li>
+<li>Enhancers</li>
+</ul></div><hr class='pagebreak'><a name='basic-usage-basic-setup'></a><h1>Basic Usage - Basic setup</h1><div><h2>Introduction</h2>
+<p>There is little-to-nothing you need to know about Subfolio to
+get started with basic usage. Subfolio is made to be extremely
+configurable but only if you want. Here are the basic things that
+most of you will probably want to customize.</p>
+<p><strong>Working with YAML:</strong> Setting files must be
+encoded as <code>Unicode (UTF-8)</code> for them to work properly.
+Setting files use YAML, a human friendly data serialization
+standard stored in plaintext files. Indentation, spacing and text
+case are super important. Learn more at <a href=
+"http://www.yaml.org">yaml.org</a>.</p>
+<h2>Defining the name and url</h2>
+<p>Go to <code>/config/settings/settings.yml</code> and change the
+name of your website and the URL.</p>
+<h2>Adding your logo and favicon</h2>
+<p>Go to <code>/config/themes/default/options.yml</code> and
+replace the Subfolio logo path. Can be a full or relative path.
+Link it from another location or put your logo here:
+<code>config/themes/default/images/logos/</code>.</p>
+<p>You can change the favicon by going here:
+<code>config/themes/default/images/logos/</code> and replacing the
+Subfolio favicon named <code>favicon.png</code> with your custom
+favicon.</p>
+<h2>Switching themes</h2>
+<p>If you are using the default theme, there is nothing to do. But
+if you have another theme you'd like to use, then put it here:
+<code>/config/themes/</code> and then go here:
+<code>/config/settings/settings.yml</code> and change the
+theme.</p>
+<h2>Sharing vs. showcase</h2>
+<p>OK, you've just arrived to an existential fork in the road.
+Subfolio can be used in two ways - to share files or to showcase
+your work. What is the difference you ask?</p>
+<h3>Sharing mode:</h3>
+<p>Subfolio can be used as a centralized repository to share files
+within a team &#8212;&nbsp;internally, with clients or even in the
+classroom. By default, Subfolio is configured for sharing mode.</p>
+<p><em>You might want to learn more about:</em></p>
+<ul>
+<li>Access control</li>
+</ul>
+<h3>Showcase mode:</h3>
+<p>Subfolio can be used as a portfolio website or just some place
+to showcase your stuff. Via theme options and settings, you can
+simply configure Subfolio to be more "website-like". And enhancers
+will take you the distance.</p>
+<p><em>You might want to learn more about:</em></p>
+<ul>
+<li>Theme options</li>
+<li>General and language settings</li>
+<li>Enhancers</li>
+</ul></div>
+
+
+
+<hr class='pagebreak'>
+<a name='basic-usage-about-interface-elements'></a>
+<h1>Basic Usage - About interface elements</h1>
+<div>
+    <p>We&rsquo;ve included a few features within the interface (theme)
+    that hopefully help the user experience.</p>
+    <ul>
+    <li>
+    <p><strong>Collapse header</strong>: conserve window space by
+    removing logo</p>
+    </li>
+    <li>
+    <p><strong>Send page</strong>: email a link to the page</p>
+    </li>
+    <li>
+    <p><strong>Make tiny url</strong>: uses tinyurl.com to generate a
+    short URL</p>
+    </li>
+    <li>
+    <p><strong>Updated since</strong>: option to see content updated
+    since last week, last month or last visit (installs a cookie on
+    users computer)</p>
+    </li>
+    </ul>
+    <blockquote>
+    <p><strong>Working with themes</strong>: Subfolio supports
+    interchangeable themes. This means that you can switch the user
+    experience (eg. look and feel) without touching the engine or your
+    files.</p>
+    <p><strong>Theme options</strong>: Most interface elements can be
+    turned on/off within the theme option file
+    <code>/config/themes/default/options.yml</code></p>
+    </blockquote>
+    <h2>Login and Log out (if applicable)</h2>
+    <p>If a folder is password protected, the user will be prompted to
+    enter their username and password. Once logged in, the user will
+    have access to all folders they have been granted access too
+    &mdash; individually or any group they belong too.</p>
+    <ul>
+    <li>
+    <p><strong>Remember me</strong>: If user would like to stay logged
+    in between visits, they have the option to select "Remember
+    me".</p>
+    </li>
+    <li>
+    <p><strong>Direct linking</strong>: If a file or folder exists
+    within a password-protected folder, user will be prompted to
+    login.</p>
+    </li>
+    <li>
+    <p><strong>Access denied</strong>: If the user tries to click on a
+    folder they do not have access to, they will get an access denied
+    message.</p>
+    </li>
+    </ul>
+    <blockquote>
+    <p><strong>Important note</strong>: A user can see any files and
+    folders that are within a folder they have access too. If you don't
+    want your user to see the other files and folders, then you must
+    give them access only to the folder you wish them to have access
+    too.<br></p>
+    </blockquote>
+    <h2>Clean URLs</h2>
+    <p>Nobody like long and complex web addresses. They are impossible
+    to remember and hard to share. Subfolio URL's directly match the
+    location of the file. So if you or your client knows the file path,
+    you know the URL. And if you are using Subfolio as a public
+    website, this is great for Search Engine Optimization (SEO)
+    too.</p>
+</div>
+
+
+<hr class='pagebreak'><a name='basic-usage-adding-and-hiding-content'></a>
+<h1>Basic Usage - Adding and hiding content</h1>
+<div>
+    <h2>Adding content (pages and sections)</h2>
+    <p>Add your files and folders in the <code>/directory/</code>
+    folder and Subfolio will instantly turn it into a website &#8212;
+    folders become sections, files become pages. You can use any
+    standard file kinds and Subfolio will recognize them automatically.
+    If a file type is not recognized, it will be treated as a generic
+    file kind.</p>
+    <h3>Staying organized</h3>
+    <p>Creating your website structure is just like organizing files
+    and folders on your computer. But don't full victim to
+    folder-structure madness by creating too many folders, it will make
+    your website annoying to navigate. Our rule of thumb is to not
+    create a subfolder unless you have at least 10+ files.</p>
+    <h3>Ordering content</h3>
+    <p>By default, content is ordered alphabetically by filename. Users
+    can click on the column headers to sort by size, date or kind. You
+    can also order content by appending a number (eg. 00, 01, 02, etc.)
+    or date (eg. YY/MM/DD) to the beginning of the filename.</p>
+    <h3>Working with existing file structures</h3>
+    <p>Drop any existing file structure into Subfolio and you are done.
+    Your file structure will remain in tact.</p>
+    <h2>Hiding content</h2>
+    <p>Any file or folder can be hidden by appending a dash
+    <code>-</code> to the beginning of the file or folder name (eg.
+    <code>-folder/</code> or <code>-image.jpg</code>). It will not
+    appear within the navigation, however it will appear through direct
+    URL (eg. example.com/-hidden).</p>
+    <h3>Working in Draft-mode</h3>
+    <p>If you are working on a new section, hide it with a dash. You
+    can still view it via direct URL and when you are ready to go live,
+    simply remove the dash.</p>
+    <h2>Getting content uploaded to your server</h2>
+    <ul>
+    <li>
+    <p><strong>S/FTP</strong> &#8212; You can use your favorite S/FTP
+    app to connect to your server and upload files. Hint: some
+    applications allow you to create local dropboxes or local mirrors
+    in order to quickly upload items.</p>
+    </li>
+    <li>
+    <p><strong>WebDAV</strong> &#8212; If you are a group of
+    individuals, we've found it useful to set up WebDAV. If you don't
+    know what this is, basically it allows you to have your server as a
+    local "drive" on your computer. It's great because its always
+    there, its just like moving files on your computer. See your system
+    administrator.</p>
+    </li>
+    </ul>
+    <h3>Setting file permissions</h3>
+    <p>Whether you are using S/FTP or WebDAV, it is very important to
+    set permissions on upload to allow "Read, Write, Execute" (777)
+    access and that it applies to all enclosed items.</p>
+    <h2>Tips from the trenches</h2>
+    <h3>If using Sufolio as a client studio</h3>
+    <p>Come up with a standard folder-structure that you can duplicate
+    for each client/project.</p>
+    <h3>If many users are adding content</h3>
+    <p>We recommend that you "jail" them into the
+    <code>directory</code> folder and allow access to the
+    <code>engine</code> and <code>config</code> folders only to a
+    select few. See with your system administrator.</p>
+    <h3>Give your local file server an interface</h3>
+    <p>You don't have to use Subfolio over the web. You can install it
+    locally as a "presentation layer" to your existing file server.
+    Just install Subfolio locally and move your existing file structure
+    into Subfolio.</p>
+</div>
+
+
+<hr class='pagebreak'><a name='basic-usage-file-naming-restrictions'></a><h1>Basic Usage - File naming & restrictions </h1>
+<div>
+    <h2>Introduction</h2>
+    <p>You can name your files whatever you want, with a few
+    exceptions. We've strived to make it so that you can work just like
+    you would locally. Unfortunately with the web, there are some
+    limitations. Many of the limitation are ones that you have already
+    learned to live.</p>
+    <h2>Universal characters sets</h2>
+    <p>Subfolio supports all language character sets (Unicode) which
+    will allow you to use Russian, Arabic or Chinese (for example) most
+    anywhere. All settings, enhancer and embedded text files must be
+    encoded as <code>Unicode (UTF-8)</code> for them to work
+    properly.</p>
+    <h2>Using accents and foreign characters without using HTML</h2>
+    <p>As long as your text files are saved as <code>Unicode
+    (UTF-8)</code> and your server configuration supports it, then you
+    don't have to use HTML for accents and special characters.</p>
+    <h2>Using foreign accents in file names</h2>
+    <p>Foreign accents and characters in file names are supported by
+    Subfolio, however they might not be supported by your server. See
+    your system administrator for assistance.</p>
+    <h2>Unsupported special characters in file names</h2>
+    <p>The web just doesn't want <em>you</em> to use certain special
+    characters. We know, its selfish of the web to reserve these rights
+    all for themselves. We've tried to work around this pertinacious
+    behavior so that you can upload your files as they are on your
+    computer. But depending on your server configuration, our
+    workarounds may not work. See your system administrator for
+    assistance.</p>
+    <p><em>To be safe, the following special characters should be
+    avoided:</em></p>
+    <p><code>*</code> <code>'</code> <code>(</code> <code>)</code>
+    <code>;</code> <code>:</code> <code>@</code> <code>&amp;</code>
+    <code>=</code> <code>+</code> <code>$</code> <code>,</code>
+    <code>/</code> <code>?</code> <code>%</code> <code>#</code>
+    <code>[</code> <code>]</code></p>
+    <h2>File extensions</h2>
+    <p>You should use a file extension (eg. .pdf) for all files.
+    Subfolio will work without one, however the file will be
+    unrecognized and won't take advantage of many Subfolio
+    features.</p>
+    <p>File extensions can be customized in the file kinds settings
+    file at <code>/config/settings/filekinds.yml</code>.</p>
+    <h2>Using spaces in filenames</h2>
+    <p>You can use spaces in filenames, however in the URL, the space
+    will be replaced with <code>%20</code>. We recommend using an
+    underscore <code>_</code> instead. Subfolio automatically
+    substitute underscores with an actual space within the website
+    interface.</p>
+    <p>Want to use dashes <code>-</code> instead? Or maybe you'd like
+    to turn this feature off? You can configure many interface
+    behaviors in the theme options
+    <code>/config/themes/default/options.yml</code>.</p>
+    <h2>File naming exceptions</h2>
+    <p><em>Content in the root of the directory CANNOT be
+    named:</em></p>
+    <p><code>login</code> <code>logout</code> <code>notfound</code>
+    <code>denied</code></p>
+    <h2>Naming conventions</h2>
+    <p>Since section and page names are pulled from your files and
+    folder names, coming up with good naming conventions is important.
+    If you are using Subfolio as a client studio, document version
+    naming will be important. We have two basic standards: appending a
+    version (eg. -v01); or by appending a date (eg. YYMMDD).</p>
+</div>
+
+
+
+<hr class='pagebreak'><a name='basic-usage-generating-thumbnails'></a><h1>Basic Usage - Generating thumbnails </h1>
+<div>
+    <h2>Introduction</h2>
+    <p>This is where Subfolio really shines. as it was made for
+    presenting designs and photography.</p>
+    <h2>Auto-generating thumbnails</h2>
+    <ol>
+    <li>Upload your image or photo files (thumbnails are for
+    browser-viewable images only).<br></li>
+    <li>Thumbnails will be auto-generated by visiting the folder via
+    web browser<br></li>
+    <li>Generated thumbnails are automatically stored in a folder named
+    <code>-thumbnails/</code><br></li>
+    <li>To regenerate thumbnails, simply delete the
+    <code>-thumbnails/</code> folder (or a specific thumbnail
+    within)</li>
+    </ol>
+    <h3>Don't make your visitors wait</h3>
+    <p>Since the first visit to a folder with images is the trigger for
+    thumbnail generation &#8212; depending on how many images you are
+    trying to process &#8212; the first visit to that folder is going
+    to seem a bit slower. As part of your upload process, make it a
+    habit to be the first to visit.</p>
+    <h3>Default thumbnail size</h3>
+    <p>Thumbnails are generated by resizing the original images to
+    240px height and a variable width (in order to maintain the aspect
+    ratio). No cropping occurs. You can change the default thumbnail
+    size (height only) here:
+    <code>/config/themes/default/options.yml</code>.</p>
+    <h3>Thumbnails for smaller images</h3>
+    <p>If the image file is smaller than the default thumbnail size,
+    then a thumbnail will not be created. Instead, the original image
+    is displayed vertically aligned in a block the size of a default
+    thumbnail.</p>
+    <h2>Creating custom thumbnails</h2>
+    <ol>
+    <li>Create a folder called <em>-thumbnails-custom</em> within the
+    same folder your images are in.<br></li>
+    <li>Design your custom thumbnails with any size you
+    desire.<br></li>
+    <li>Upload your custom thumbnails to that folder, giving them the
+    same filename as the image it is referencing.</li>
+    </ol>
+    <p>If a <code>-thumbnails-custom</code> folder exists, any
+    thumbnails within will override the <em>-thumbnails</em> folder
+    content.</p>
+    <h2>IMPORTANT: Thumbnail server settings</h2>
+    <p>Thumbnails are generated using something called "GD Library"
+    which is going to use your servers processor to generate the
+    thumbnails. Meaning, if you upload 1,000 20MB images, your server
+    is going to try and process and eventually fail. Each server is
+    different, so you will have to find your servers limits.</p>
+    <p>By default, images larger than 5MB will not get thumbnails. You
+    can change this setting here:
+    <code>/config/settings/settings.yml</code>.</p>
+</div>
+
+
+<hr class='pagebreak'><a name='basic-usage-navigating-viewing-and-downloading'></a><h1>Basic Usage - Navigating, viewing and downloading (draft)</h1>
+<div>
+    <h2>Introduction</h2>
+    <p>Subfolio inherently has a hierarchical structure, which is
+    somewhat "oldschool" in this day of tags and relational
+    content.</p>
+    <h2>Viewing files</h2>
+    <ul>
+    <li>Files and folders are shown in a standard file browser list or
+    grid view</li>
+    <li>List view is sortable by filename, size, date and kind</li>
+    <li>Grid view floats and has bigger icons (you can change to grid
+    view in config/settings.yml file)</li>
+    <li>Browser-viewable images will have thumbnails and will appear
+    above the file listing</li>
+    <li>Browser-viewable file kinds will appear on their detail
+    page</li>
+    <li>Files that are new or updated will get a cute little "updated"
+    icon</li>
+    </ul>
+    <h2>Navigating files</h2>
+    <ul>
+    <li>Clicking on a file or thumbnail will lead to a unique detail
+    page for that file.</li>
+    <li>Navigate from folder-to-folder or file-to-file using
+    previous/next buttons</li>
+    <li>Keyboard shortcut for navigation: left/right arrows. The 'T'
+    key scroll the page to the top.</li>
+    <li>Navigate via the "breadcrumb" file path</li>
+    <li>Go up one level by clicking "Parent Directory"</li>
+    </ul>
+    <h2>Downloading files</h2>
+    <ul>
+    <li>Any file can be downloaded from its detail page by clicking on
+    the <em>download</em> link</li>
+    <li>Browser-viewable file kinds: click the <em>info</em> icon to
+    get the <em>download</em> link</li>
+    <li>Unknown file kind will get a generic icon and be available for
+    download</li>
+    </ul>
+    <h2>Customize the experience</h2>
+    <p>Many of the default behaviors listed above can be configured in
+    the settings files. Also, there are many cool things you can use
+    with Enhancers.</p>
+</div>
+
+
+<hr class='pagebreak'><a name='access-control-creating-users-and-groups'></a><h1>Access Control  - Creating users and groups </h1><div><h2>Introduction</h2>
+<p>You can control access on the folder-level by creating users
+and/or groups and then restricting access to folders.</p>
+<h3>Working with YAML</h3>
+<p>Setting files must be encoded as <code>Unicode (UTF-8)</code>
+for them to work properly. Setting files use YAML, a human friendly
+data serialization standard stored in plaintext files. Indentation,
+spacing and text case are super important. Learn more at <a href=
+"http://www.yaml.org">yaml.org</a>.<br></p>
+<h2>Creating users</h2>
+<h3>File location</h3>
+<p>You can edit your user here:
+<code>/config/users/users.yml</code></p>
+<p>For your reference or to revert to the default settings, there
+is a sample file here:
+<code>/config/settings/users.sample.yml</code></p>
+<h3>Format</h3>
+<p>The user information is stored in the following format:</p>
+<pre>
+<code>username:
+ fullname: Full Name      
+ password: yourpassword
+ admin: true or false</code>
+</pre>
+<p><em>For example:</em></p>
+<pre>
+<code>john:
+ fullname: John Doe
+ password: gr8p4ssw0rd
+ admin: true</code>
+</pre>
+<h3>Options</h3>
+<ul>
+<li><strong>username</strong>: users login name</li>
+<li><strong>fullname</strong>: will display in breadcrumb when user
+is logged in</li>
+<li><strong>password</strong>: unsecured plaintext password (see
+"hashed passwords" for more security)</li>
+<li><strong>admin</strong>: by marking this "true", user will
+automatically have full access</li>
+</ul>
+<h2>Creating groups</h2>
+<p>Users can be assigned to one or more groups in order to simplify
+access control.</p>
+<h3>File location</h3>
+<p>You can edit your user here:
+<code>/config/users/groups.yml</code></p>
+<p>For your reference or to revert to the default settings, there
+is a sample file here:
+<code>/config/settings/groups.sample.yml</code></p>
+<h3>Format</h3>
+<p>The group information is stored in the following format:</p>
+<pre>
+<code>groupname:
+ - username01
+ - username02
+ - etc.</code>
+</pre>
+<p><em>For example:</em></p>
+<pre>
+<code>clients:
+ - apple
+ - google
+ - etc.</code>
+</pre>
+<h3>Options</h3>
+<ul>
+<li><strong>groupname</strong>: name of the group used for access
+control</li>
+<li><strong>username</strong>: must be an existing user</li>
+</ul>
+<h2>Tips from the trenches</h2>
+<h3>Shared folders</h3>
+<p>For us, we have certain files that apply to all clients (eg.
+contact lists, ftp login, etc.). In the root of our studio, we
+create a folder with access to our client group. And then we create
+a shortcut from the client folder to the shared folder. This keeps
+our client folders uncluttered and the client has access to the
+most up-to-date shared documents.</p>
+<h3>Groups are sometimes overkill</h3>
+<p>We really only use 3 groups: <code>clients</code>,
+<code>freelancers</code> and <code>staff</code>. And for clients,
+we rarely create a user for a specific person, but for the entire
+client (eg. if google was a client, we'd just create a user called
+"google" and then add them to the "client" group).</p></div><hr class='pagebreak'><a name='access-control-hashing-passwords'></a><h1>Access Control  - Hashing passwords </h1><div><h2>Introduction</h2>
+<p>Passwords can be encrypted and stored as hashed passwords
+instead of unsecured plaintext passwords.</p>
+<h2>Hashing a password</h2>
+<ol>
+<li>Entering the password here:
+<code>http://www.yoursite.com/hash/yourpassword</code><br></li>
+<li>The page will display the hashed version of the password. Copy
+it.<br></li>
+<li>In the user information within the <code>users.yml</code> file,
+replace the <code>password:</code> option with
+<code>hashed_password:</code><br></li>
+<li>Replace the plaintext password with the hashed version of the
+password</li>
+</ol>
+<p><em>For example:</em></p>
+<pre>
+<code>john:
+ fullname: John Doe
+ hashed_password: 5b0fcd785081fa9422fd7b613b540ada
+ admin: true</code>
+</pre>
+<h2>Retrieving a hashed password</h2>
+<p>You cannot retrieve a hashed password. If the user forgot the
+password, you will need to rehash a new one.</p></div><hr class='pagebreak'><a name='access-control-allowing-or-denying-access'></a><h1>Access Control  - Allowing or denying access </h1><div><h2>Introduction</h2>
+<p>You can allow or deny access to existing users and groups.</p>
+<h3>Working with YAML</h3>
+<p>Setting files must be encoded as <code>Unicode (UTF-8)</code>
+for them to work properly. Setting files use YAML, a human friendly
+data serialization standard stored in plaintext files. Indentation,
+spacing and text case are super important. Learn more at <a href=
+"http://www.yaml.org">yaml.org</a>.</p>
+<h2>Access control for a specific folder</h2>
+<ol>
+<li>Create a plaintext file and name it
+<code>-access</code>.<br></li>
+<li>Put it in the folder you'd like to protect<br></li>
+<li>Add the following code inside it:</li>
+</ol>
+<p><em>Applies to all sub-folders:</em></p>
+<pre>
+<code>allow_users: [username, username, etc]
+allow_groups: [groupname, groupname, etc]
+deny_users: [username, username, etc]
+deny_groups: [groupname, groupname, etc]</code>
+</pre>
+<p><em>Does not apply to sub-folders:</em></p>
+<pre>
+<code>current_folder:
+ allow_users: [username, username, etc]
+ allow_groups: [groupname, groupname, etc]
+ deny_users: [username, username, etc]
+ deny_groups: [groupname, groupname, etc]</code>
+</pre>
+<p><em>For example:</em></p>
+<pre>
+<code>allow_users: [john, jane]
+allow_groups: [staff]
+
+current_folder:
+  allow_users: [clients]</code>
+</pre>
+<p>In this example, John, Jane and anyone who belongs to the group
+"staff" have access to this and all sub-folders. Anyone who belongs
+to the group "clients" only has access to the current folder.</p>
+<h2>Access control for a specific file</h2>
+<p>Unfortunately, this is not possible. Permissions work only on
+the folder-level. That is, if a user/group has access to a folder,
+then they can view/download anything within that folder.</p>
+<h2>Tips from the trenches...</h2>
+<h3>Internal Folders</h3>
+<p>When setting up your folder structures, consider setting up
+different folders for different sets of permissions. For example,
+at AREA 17, we create an <code>internal/</code> folder within each
+client/project folder that denies access to the client. So as we
+are working on something, we post to the internal folder and once
+we are ready to show the client, we move the work out of the
+internal folder.</p>
+<h3>Avoiding Gaffes</h3>
+<p>If a user/group has access to a folder, they can see all the
+content of the folder including folder they do not have access too.
+For example, if you create an internal folder like stated above,
+the client will see that this folder exists, they just can't access
+it. So just name your secured folders prudently.</p>
+<h3>As the expression goes, "measure twice, cut once"</h3>
+<p>Just because a folder have been secured, that doesn't mean it
+has the correct security. Often users in a rush may copy a folder
+structure from one client for another &#8212; forgetting to change
+the <code>-access</code> file. Later you think its secured since
+you see a little lock ... but really the other client has access to
+it and the new one doesn't. Doh!</p></div><hr class='pagebreak'><a name='access-control-hiding-from-search-engines'></a><h1>Access Control  - Hiding from search engines </h1><div><h2>Introduction</h2>
+<p>Many people want to rank high in search engines, but if you are
+just putting together a client studio area, then you don't want it
+scattered on the web, especially showing up in your clients name
+search results.</p>
+<h2>Using a robot text file</h2>
+<ol>
+<li>Create a plaintext file called <code>robot.txt</code><br></li>
+<li>Put it at the root of your domain (the same location as the
+<code>/directory/</code>, <code>/config/</code> and
+<code>/engine/</code> folders)<br></li>
+<li>Add the following code inside it:</li>
+</ol>
+<pre>
+<code># robots.txt for http://www.yourdomain.com/
+User-agent: *
+Disallow: /</code>
+</pre>
+<p>Then, add it to the root of your domain (the same location as
+the <code>directory/</code>, <code>config/</code> and
+<code>engine/</code> folders).</p>
+<h2>About robot text files</h2>
+<p>Learn more at <a href=
+"http://en.wikipedia.org/wiki/Robot.txt">http://en.wikipedia.org/wiki/Robot.txt</a></p></div><hr class='pagebreak'><a name='settings-general-settings'></a><h1>Settings - UPDATED - General settings (including Google Analytics) </h1><div><h2>Introduction</h2>
+<p>General settings are where you edit global options (eg. name of
+site, preferences, etc.).</p>
+<h3>File location</h3>
+<p>You can edit your global options and preferences here:
+<code>/config/settings/settings.yml</code></p>
+<p>For your reference or to revert to the default settings, there
+is a sample file here:
+<code>/config/settings/settings.sample.yml</code></p>
+<h3>Working with YAML</h3>
+<p>Setting files must be encoded as <code>Unicode (UTF-8)</code>
+for them to work properly. Setting files use YAML, a human friendly
+data serialization standard stored in plaintext files. Indentation,
+spacing and text case are super important. Learn more at <a href=
+"http://www.yaml.org">yaml.org</a>.</p>
+<h2>Global Settings</h2>
+<h3>Defining the name and url</h3>
+<p>Name appears in the header and HTML title of the page. The URL
+appears in the breadcrumb navigation.</p>
+<h3>Defining the search engine meta description</h3>
+<p>You may not know this, but a Subfolio is dangerously SEO
+friendly ;) Take control of what search engines display by defining
+your site meta description. Keep it under 195 characters.</p>
+<p>If you are trying to keep things private, read the documentation
+on <a href=
+"http://support.subfolio.com/faqs/access-control/hiding-from-search-engines">
+hiding from search engines</a>.</p>
+<h3>Adding a website content copyright to the footer</h3>
+<ul>
+<li>locate the line <code># site_copyright: "&copy; 2009 Subfolio
+&#8212; All rights reserved"</code></li>
+<li>change "Subfolio" to your legal name</li>
+<li>remove the <code>#</code> from the front of the line and it
+will appear</li>
+</ul>
+<h3>Adding your Google Analytics code</h3>
+<ul>
+<li>locate the line <code># google_analytics_code:
+"UA-XXXXXX-X"</code></li>
+<li>change sample text to your Google Analytics Website Code</li>
+<li>remove the <code>#</code> from the front of the line and it
+will be activated</li>
+<li>please note that Google Analytics may take a bit to verify
+it</li>
+</ul>
+<h2>Content settings</h2>
+<h3>Choosing your markup preference (Textile, Markdown or
+HTML)</h3>
+<p>I like textile, you like markdown and that other guy wants HTML.
+OK, quit your bickering, you can choose your flavor. For use in
+enhancers files (eg. embedding text, file comments, feature text,
+etc.).</p>
+<h3>Setting a max file size for thumbnail generation</h3>
+<p>Depending on your servers PHP settings, auto-generating
+thumbnails for very large images may be problematic. This limit
+allows you to set a cap (we recommend 5MB). You can create custom
+thumbnails for high resolution images instead.</p>
+<h2>Other settings</h2>
+<h3>Defining the active theme</h3>
+<p>You can install and switch themes as often as you'd like, this
+is where you define which is the active theme.</p>
+<h3>Defining the location of your content</h3>
+<p>The default location is /directory/ however you can rename or
+change it all together. If you have multiple file structures, note
+that Subfolio will only protect the file structure specified
+here.</p>
+<h3>Defining the setting file names</h3>
+<p>There is probably little reason you'd want to change the name of
+your settings files, but if you so desire, you can do it
+here.<br></p></div>
+
+
+<hr class='pagebreak'>
+<a name='settings-language'></a><h1>Settings - Changing the interface language </h1>
+<div>
+    <h2>Introduction</h2>
+    <p>Whether for language translation or because you don't like our
+    copyrighting, you can change the interface language within the
+    language setting file.</p>
+    <h3>File location</h3>
+    <p>You can edit your global options and preferences here:
+    <code>/config/settings/language.yml</code></p>
+    <p>For your reference or to revert to the default settings, there
+    is a sample file here:
+    <code>/config/settings/language.sample.yml</code></p>
+    <h3>Working with YAML</h3>
+    <p>Setting files must be encoded as <code>Unicode (UTF-8)</code>
+    for them to work properly. Setting files use YAML, a human friendly
+    data serialization standard stored in plaintext files. Indentation,
+    spacing and text case are super important. Learn more at <a href=
+    "http://www.yaml.org">yaml.org</a>.</p>
+    <h2>Changing the interface language</h2>
+    <h3>Format</h3>
+    <p>The language description are stored in the following format:</p>
+    <pre>
+    <code>term_or_phrase: display text</code>
+    </pre>
+    <p><em>For example (French):</em></p>
+    <pre>
+    <code>download: telecharger</code>
+    </pre>
+    <h3>Options</h3>
+    <p>See <code>language.sample.yml</code> for all options.</p>
+    <h2>Multi-language</h2>
+    <p>At this time, Subfolio doesn't support multiple language files
+    at one time, however it is being considered as a future
+    enhancement.</p>
+    <h2>Tips from the trenches...</h2>
+    <p>If you translate your language file into another language,
+    change the name of the file by appending the two-letter language
+    suffix (eg. <code>language_fr.yml</code>).</p>
+</div>
+
+
+<hr class='pagebreak'><a name='settings-file-kinds'></a><h1>Settings - Managing file kinds </h1><div><h2>Introduction</h2>
+<p>You can manage file kinds in the file kind settings.</p>
+<ul>
+<li>Add new file kinds</li>
+<li>Map multiple extensions to one file kind</li>
+<li>Change the display name or icon</li>
+<li>Add viewing/download instructions</li>
+</ul>
+<h3>File location</h3>
+<p>You can edit your global options and preferences here:
+<code>/config/settings/filekinds.yml</code></p>
+<p>For your reference or to revert to the default settings, there
+is a sample file here:
+<code>/config/settings/filekinds.sample.yml</code></p>
+<h3>Working with YAML</h3>
+<p>Setting files must be encoded as <code>Unicode (UTF-8)</code>
+for them to work properly. Setting files use YAML, a human friendly
+data serialization standard stored in plaintext files. Indentation,
+spacing and text case are super important. Learn more at <a href=
+"http://www.yaml.org">yaml.org</a>.</p>
+<h2>Managing file kinds</h2>
+<h3>Format</h3>
+<p>The file kinds are stored in the following format:</p>
+<pre>
+<code>kind:
+  extensions: [list, them, like, this]
+  icon: kind
+  display: Full Name
+  instructions:&gt;
+    Your instructions here.</code>
+</pre>
+<p><em>For example:</em></p>
+<pre>
+<code>pdf:
+  extensions: [pdf, pdf-x]
+  icon: pdf
+  display: PDF Document
+  instructions:&gt;
+    You must have a PDF viewer to view this file. Download it <a href="http://get.adobe.com/reader/">Adobe Acrobat Reader</a>.</code>
+</pre>
+<h3>Options</h3>
+<ul>
+<li><code>kind</code> &#8212; a unique identifier for the file kind
+you are defining</li>
+<li><code>extensions</code> &#8212;&nbsp;contains a list of file
+extensions variations that should use this file kind</li>
+<li><code>icon</code> &#8212; used to select the image icon that
+will be shown with this file kind*</li>
+<li><code>display</code> &#8212; used to display the full name
+within the file listing</li>
+<li><code>instructions</code> &#8212; used to display download or
+usage instructions on the file detail page</li>
+</ul>
+<p>*Icons live in the theme
+<code>/config/theme/default/images/icons</code>. It is used to
+generate an image name that varies depending on whether the file
+has been recently updates, or the folder access is restricted.</p>
+<h2>Mapping extensions or adding new file kinds</h2>
+<p>If the file kind exists, however you just need it to recognize a
+different form of the extension (eg. jpeg instead of just jpg),
+then simply add the extension to the extension list within the file
+kind.</p>
+<p>If the file kind you want to use does not exist in the list,
+then just create a new one by following the format listed
+above.</p>
+<h2>File kind examples</h2>
+<p>An example of every file kind that Subfolio supports by default.
+Download this package if you want to play around and see how each
+file kind is treated.</p>
+<p><strong>Download file kind examples:</strong> <a href=
+"http://s3.amazonaws.com/entp-tender-production/assets/05c3c036b380a341e9f44f432a094374d3bd8c3b/file_kinds.zip">
+file_kinds.zip</a></p></div>
+
+
+
+<hr class='pagebreak'><a name='settings-working-with-yaml'></a><h1>Settings - Working with YAML</h1><div><h2>Introduction</h2>
+<p>Setting files use YAML, a human friendly data serialization
+standard stored in plaintext files. Learn more at <a href=
+"http://www.yaml.org">yaml.org</a>.</p>
+<h2>Where is it used</h2>
+<p>Subfolio uses a limited subset of YAML for settings, options and
+enhancer files.</p>
+<h2>Commenting within a YAML file</h2>
+<p>All text following a <code>#</code> character is considered a
+comment.</p>
+<h2>Common errors</h2>
+<p>Indentation, spacing and text case are super important. If
+something is not working, most likely its because of an
+indentation, spacing or text case mistake.</p>
+<ul>
+<li>Indentation is important (spaces only, no tabbing)</li>
+<li>Spaces are important (eg. space is different than no
+space)</li>
+<li>Capitalization is important (eg. &#8220;this&#8221; is
+different than &#8220;This&#8221;)</li>
+</ul>
+<h2>Important encoding note</h2>
+<p>YAML files MUST be <code>unicode UTF-8</code> encoded to work
+correctly (eg. no Western-Latin, ISO-8859, etc.).</p></div><hr class='pagebreak'><a name='themes-theme-options'></a><h1>Themes - UPDATED - Theme options (including logo and favicon) </h1><div><h2>Introduction</h2>
+<p>Theme options is where you can configure a theme to your desired
+display preferences.</p>
+<h3>File location</h3>
+<p>The default theme location is here:
+<code>/config/themes/default/options.yml</code></p>
+<p>For your reference or to revert to the default settings, there
+is a sample file here:
+<code>/config/themes/default/options.sample.yml</code></p>
+<h3>Working with YAML</h3>
+<p>Option files must be encoded as <code>Unicode (UTF-8)</code> for
+them to work properly. Option files use YAML, a human friendly data
+serialization standard stored in plaintext files. Indentation,
+spacing and text case are super important. Learn more at <a href=
+"http://www.yaml.org">yaml.org</a>.</p>
+<h2>Adding your logo</h2>
+<p>Replace the Subfolio logo URL path with your logo URL path. Use
+a full path to an external location or a relative path and put your
+logo here: <code>config/themes/default/images/logos/</code>.</p>
+<h2>Adding your favicon</h2>
+<p>Replace the Subfolio favicon URL path with your logo URL path.
+Use a full path to an external location or a relative path and put
+your favicon here:
+<code>config/themes/default/images/logos/</code>.</p>
+<p>Remember that your browser will retain the old favicon until you
+delete it from your browser. See your browser help for instructions
+on how to delete existing favicons or search Google with "removing
+favicon for [yourbrowsername]".</p>
+<h2>NEW - Choosing a color palette</h2>
+<p>You can change or create new color palettes. To learn more, see
+<a href=
+"http://support.subfolio.com/faqs/themes/color-palettes">color
+palettes</a> documentation</p>
+<h2>Choosing your default thumbnail size</h2>
+<p>You can choose the default height and width of your thumbnails.
+You can also customize thumbnails to a specific size using the
+custom thumbnail feature.</p>
+<h2>NEW - Choose whether you want locked folders to be hidden or
+not</h2>
+<p>If you are using access control, you can opt to hide locked
+folders from users who don't have access to them.</p>
+<h2>Choosing your preference for spaces in file names</h2>
+<p>You can use spaces in filenames, however in the URL, the space
+will be replaced with %20. We recommend using an underscore
+<code>_</code> or dash <code>-</code> instead.</p>
+<p>Here, you can choose to automatically substitute underscores or
+dashes with an actual space within the website interface. It makes
+the file listings more readable and is especially useful when using
+Subfolio as a portfolio or public website.</p>
+<h2>Choosing your preference for how file names are displayed</h2>
+<p>Do you want to show extensions or hide them? File names under
+thumbnails or not? Etc. If you are using Subfolio as a client
+studio, then most likely you want to show all this information, but
+if you are using it as a portfolio or public website, you may want
+to keep it simple and hide it all.</p>
+<h2>Choosing your preference for how files are displayed (list or
+grid)</h2>
+<p>Subfolio shows your files by default in a list view. However you
+can change it to a grid view if you'd like. Grid view uses bigger
+icons and displays only the comments (if applicable).</p>
+<h2>NEW - Choose your icon set</h2>
+<p>The default theme comes with three icon sets:</p>
+<ol>
+<li><code>list</code> and <code>grid</code>: 8bit icons that work
+IE6 (default)<br></li>
+<li><code>list1</code> and <code>grid1</code>: 1bit icons that give
+an old school feel<br></li>
+<li><code>list24</code> and <code>grid24</code>: 24bit alpha icons
+that display as we intended (preferred)</li>
+</ol>
+<h2>UPDATED - Choosing your preference for interface elements
+display</h2>
+<p>You can turn on/off any of the interface elements and links in
+the header, footer and file listing, including icons and file names
+themselves.</p>
+<h2>NEW - Showing your copyright</h2>
+<p>In <code>/config/settings/settings.yml</code> you can add a
+copyright. Here you can opt to show it or not.<br></p></div><hr class='pagebreak'><a name='themes-color-palettes'></a><h1>Themes - NEW - Color Palettes </h1><div><h2>Introduction</h2>
+<p>A color palette is a stand-alone yml file that works with a
+theme. It allow you to change all the colors of the theme without
+changing the theme itself.</p>
+<h3>File location (default theme)</h3>
+<p>The default theme comes with two color palettes (default.yml and
+dark.yml).</p>
+<p>The color palette location is here:
+<code>/config/themes/default/colors/</code></p>
+<h2>Choosing a color palette</h2>
+<ol>
+<li>Go to <code>config/themes/default/options.yml</code><br></li>
+<li>Find the color palette option and change (eg. "default" or
+"dark")<br></li>
+<li>You don't need to include the extension ".yml"<br></li>
+<li>Save.</li>
+</ol>
+<h2>Creating a new color palette</h2>
+<ol>
+<li>duplicate another color palette and rename it (eg.
+milkywhite.yml)<br></li>
+<li>Update the main colors (format: '#FF0000')<br></li>
+<li>Main colors will be used for other secondary colors<br></li>
+<li>Use the "optional colors" if you'd like to control
+everything</li>
+</ol>
+<h2>NOTE: Working with icons</h2>
+<p>You may need to change your icon set to 1bit or 24bit alpha if
+using dark background. Or better yet, create your own icon set! You
+can change icon set in
+<code>/config/themes/default/options.yml</code> file.</p></div><hr class='pagebreak'><a name='themes-switching-theme'></a><h1>Themes - Switching themes </h1><div><h2>Introduction</h2>
+<p>A theme is the presentation layer of Subfolio. It is a folder
+that contains all the interface elements (eg. html, css, images,
+etc.) so that you can have full control of the look without
+changing the functionality.</p>
+<h3>File location (default theme)</h3>
+<p>Subfolio is prepackaged with the "default" theme however you can
+install and switch themes as often as you'd like.</p>
+<p>The default theme location is here:
+<code>/config/themes/default/</code></p>
+<h2>Switching themes</h2>
+<ol>
+<li>Download additional themes at subfolio.com or
+support.subfolio.com<br></li>
+<li>Drop them here: <code>/config/themes/</code><br></li>
+<li>Go to: <code>/config/settings/settings.yml</code> and edit
+<code>theme: default</code> to the new theme name<br></li>
+<li>Subfolio will now use the new theme, you can change back at
+anytime</li>
+</ol>
+<h2>NOTE: Before you switch</h2>
+<p>A theme is not dependant on the Subfolio engine, which makes it
+easy to switch themes with ease. However sometimes a specific theme
+may require changes to settings or the usage of enhancers.</p>
+<p><strong>Before you switch themes, it is very important to read
+the theme release notes, and as always, make backups of your
+work.</strong></p></div><hr class='pagebreak'><a name='themes-logo-favicon-copyright'></a><h1>Themes - Adding your logo, favicon and copyright (draft)</h1><div><h2>Introduction</h2>
+<p>You can add your logo, favicon and content copyright in
+Subfolio.</p>
+<h3>Working with YAML</h3>
+<p>Setting files must be encoded as <code>Unicode (UTF-8)</code>
+for them to work properly. Setting files use YAML, a human friendly
+data serialization standard stored in plaintext files. Indentation,
+spacing and text case are super important. Learn more at <a href=
+"http://www.yaml.org">yaml.org</a>.</p>
+<h2>Adding your logo</h2>
+<p>Go to <code>/config/themes/default/options.yml</code> and
+replace the Subfolio logo path. Can be a full or relative path.
+Link it from another location or put your logo here:
+<code>config/themes/default/images/logos/</code>.</p>
+<h2>Adding your favicon</h2>
+<p>You can change the favicon by going here:
+<code>config/themes/default/images/logos/</code> and replacing the
+Subfolio favicon named <code>favicon.png</code> with your custom
+favicon.</p>
+<p>Remember that your browser will retain the old favicon until you
+delete it from your browser. See your browser help for instructions
+on how to delete existing favicons or search Google with "removing
+favicon for [yourbrowsername]".</p>
+<h2>Adding your copyright</h2>
+<ol>
+<li>Go to
+<code>/config/themes/default/layouts/footer.inc.php</code>,<br></li>
+<li>Update the copyright line <code>Content &copy;2009
+YourCompanyName &#8212; All rights reserved</code><br></li>
+<li>Uncomment this line of code (eg. remove the
+<code>&lt;!--</code> and the <code>--&gt;</code>) for it to
+appear</li>
+</ol>
+<p><em>For example:</em></p>
+<p>This:<br>
+<code>&lt;!--&lt;span class='copyright'&gt;Content &copy;2009
+YourCompanyName &#8212; All rights
+reserved&lt;/span&gt;--&gt;</code></p>
+<p>Should become this:<br>
+<code>&lt;span class='copyright'&gt;Content &copy;2009 AREA 17
+&#8212; All rights reserved&lt;/span&gt;</code></p></div><hr class='pagebreak'><a name='themes-customizing-themes'></a><h1>Themes - UPDATED - Customizing themes </h1><div><h2>Introduction</h2>
+<p>We have gone to great lengths to abstract the presentation layer
+of Subfolio from the functional layer in order to allow you (and
+us) to create many different themes for a variety of different
+purposes.</p>
+<p><strong>Default theme:</strong> The default theme was built to
+be simple so that it can act as the base for new themes. Of course
+the default theme can be used as is or with simple color changes.
+But you can go nuts and add navigation, graphics, flashy
+JavaScript, etc.</p>
+<h2>Customizing your theme</h2>
+<ol>
+<li>Duplicate and rename the default theme<br></li>
+<li>Change the css, layout and pages as desired<br></li>
+<li>If you are building a new theme from the ground up, get to know
+the API's<br></li>
+<li>When finished, change your theme name here:
+<code>/config/settings/settings.yml</code></li>
+</ol>
+<h2>Theme location</h2>
+<p>You can find the default theme here:
+<code>/config/themes/default/</code></p>
+<p>We recommend that you do not modify the default theme, even for
+small changes. This way you have a clean reference. Always
+duplicate, rename and change the theme name here:
+<code>/config/settings/settings.yml</code>.</p>
+<h2>Structure</h2>
+<ul>
+<li><code>layout/</code> &#8212;&nbsp;global template including the
+header, footer and previous/next navigation</li>
+<li><code>pages/</code> &#8212;&nbsp;specific pages, including the
+listing and file kind modified behaviors</li>
+<li><code>pages/listing/</code> &#8212; specific pieces of the
+listing including features, files/folders, thumbnail gallery,
+inline text/images and related content</li>
+<li><code>pages/filekinds/</code> &#8212; this is where we modify
+the default behavior of a specific file kind</li>
+<li><code>images/</code> &#8212; logos, icons and system graphics.
+If you other types of graphics, create a new folder</li>
+<li><code>css/</code> &#8212; the CSS silly</li>
+<li><code>javascript/</code> &#8212; javascript files, Subfolio
+uses jquery</li>
+<li><code>colors/</code> &#8212; location of color palettes</li>
+<li><code>options.yml</code> &#8212; file with all the options for
+the theme</li>
+</ul>
+<h2>Options</h2>
+<p>One of the idea behind Subfolio is that you are not forced into
+one way of doing things. When working on a new theme, we recommend
+considering as many of the standard options as possible.</p>
+<h2>Subfolio API</h2>
+<p>The Subfolio API is made up of 5 classes:</p>
+<h3>Subfolio</h3>
+<p>The Subfolio class can be used to discover information about the
+Application level settings. It is also used by the other classes,
+to access global settings.</p>
+<p><em>Functions:</em></p>
+<ul>
+<li><code>public static function link_to($text, $url)</code></li>
+<li><code>public static function mail_to($text, $email, $subject,
+$body)</code></li>
+<li><code>public static function current_url()</code></li>
+<li><code>public static function current_file($data)</code></li>
+</ul>
+<h3>SubfolioTheme</h3>
+<p>The SubfolioTheme class is used to discover information about
+the current theme.</p>
+<p><em>Functions:</em></p>
+<ul>
+<li><code>public static function get_mobile_viewport()</code></li>
+<li><code>public static function is_iphone()</code></li>
+<li><code>public static function get_page_title()</code></li>
+<li><code>public static function get_site_title()</code></li>
+<li><code>public static function get_site_name()</code></li>
+<li><code>public static function get_view_url()</code></li>
+<li><code>public static function get_listing_mode()</code></li>
+<li><code>public static function get_notice($name=null)</code></li>
+<li><code>public static function get_breadcrumb()</code></li>
+<li><code>public static function subfolio_link()</code></li>
+<li><code>public static function
+get_collapse_header_button($wrap="")</code></li>
+<li><code>public static function get_tiny_url($name,
+$wrap="")</code></li>
+<li><code>public static function get_option($option_name,
+$default_value=null)</code></li>
+</ul>
+<h3>SubfolioUser</h3>
+<p>The SubfolioUser class provides information about the user
+browsing the Subfolio powered website.</p>
+<p><em>Functions:</em></p>
+<ul>
+<li><code>public static function is_logged_in()</code></li>
+<li><code>public static function current_user_name()</code></li>
+</ul>
+<h3>SubfolioLanguage</h3>
+<p>The SubfolioLanguage class provides acess to the language used
+by Subfolio, a mechanism for converting Subfolio into the language
+of your choice.</p>
+<p><em>Functions:</em></p>
+<ul>
+<li><code>public function get_text($name, $args =
+array())</code></li>
+</ul>
+<h3>SubfolioFiles</h3>
+<p>The SubfolioFiles class provides access to the filebrowser
+component of Subfolio. Find all the files and folders, enhancers
+and inline elements that make up a Subfolio listing.</p>
+<p><em>Functions:</em></p>
+<ul>
+<li><code>public function have_inline_images($type)</code></li>
+<li><code>public function inline_images($type)</code></li>
+<li><code>public function have_inline_texts($type)</code></li>
+<li><code>public function inline_texts($type)</code></li>
+<li><code>public function have_features()</code></li>
+<li><code>public function features()</code></li>
+<li><code>public function have_gallery_images()</code></li>
+<li><code>public function gallery_images()</code></li>
+<li><code>public function have_files()</code></li>
+<li><code>public function files()</code></li>
+<li><code>public function have_related()</code></li>
+<li><code>public function related()</code></li>
+<li><code>public function is_root()</code></li>
+<li><code>public function parent_link($name)</code></li>
+<li><code>public function previous_link_or_span($name,
+$directory_name, $link_id, $class)</code></li>
+<li><code>public function next_link_or_span($name, $directory_name,
+$link_id, $class)</code></li>
+<li><code>public function
+updated_since_link_or_span($type)</code></li>
+</ul>
+<h2>Engine Customization</h2>
+<p>If you code PHP and want to change or extend the Subfolio
+engine, go for it. Just remember that you may no longer be able to
+take advantage of our updates and upgrades.</p></div>
+
+
+
+<hr class='pagebreak'><a name='enhancers-intro_to_enhancers'></a>
+<h1>Enhancers - Intro to enhancers </h1><div><h2>Introduction</h2>
+<p>Subfolio enhancers are simple plaintext files or naming
+conventions that changes the behavior of files and folders (eg.
+embedding text or images) or sometimes creates a behavior that
+normally doesn't exist within a file system (eg. external links,
+pop-up windows, etc).</p>
+<h2>How do they work</h2>
+<p>A file browser is not a website for a reason... its just a list
+of files. But sometimes you want to do more and that is where
+enhancers come in.</p>
+<p>Their are two types of enhancers:</p>
+<ol>
+<li>Naming conventions: this is when you append a prefix or suffix
+to an existing file or folder to change its behavior (eg. add the
+suffix .site to a folder to turn it into an HTML prototype
+folder)<br></li>
+<li>Stand alone plaintext files: this is a snippet of code that
+does something cool (eg. if you want to feature a folder or put an
+external link in the file listing)</li>
+</ol>
+<h2>Where are they stored</h2>
+<p>Enhancers are stored alongside your content, not in a database
+or in some global folder. Why? In practice, Subfolio makes it easy
+to move your files around often and its handy to have them right
+with the content they belong with. We like to consider enhancers as
+part of the content. Its like having a link to a website locally on
+your desktop or organized with some other documents.</p></div>
+
+
+
+<hr class='pagebreak'><a name='enhancers-download-enhancer-demo-files'></a><h1>Enhancers - DOWNLOAD enhancer demo files </h1><div><h2>Introduction</h2>
+<p>Here is everything you need to take advantage of enhancers. The
+package below contains demos of every enhancer file and technique.
+The easiest way to get started with enhancers is to just copy these
+files and customize.</p>
+<h2>DOWNLOAD enhancer demo files</h2>
+<p>Download: <strong><a href=
+"https://github.com/area17/subfolio-enhancers/archive/master.zip">
+subfolio-enhancers-master.zip</a></strong></p></div>
+
+<!-- TODO -->
+
+
+<hr class='pagebreak'><a name='enhancers-using-enhancers'></a><h1>Enhancers - UPDATED - Using enhancers </h1><div><h2>Introduction</h2>
+<p>Here is a laundry list of all Subfolio enhancers. Keep it
+handy... or <a href=
+"https://github.com/area17/subfolio-enhancers/archive/master.zip">
+download the enhancer demo files</a>.</p>
+<h3>Working with YAML</h3>
+<p>Enhancer files must be encoded as <code>Unicode (UTF-8)</code>
+for them to work properly. Enhancer files use YAML, a human
+friendly data serialization standard stored in plaintext files.
+Indentation, spacing and text case are super important. Learn more
+at <a href="http://www.yaml.org">yaml.org</a>.</p>
+<h2>Embedding images within a folder</h2>
+<p>Any browser-viewable image can be embedded within a folder (eg.
+if you'd like to add a logo to the top of the page). There is no
+limit to how many images you can embed.</p>
+<ul>
+<li><em>Inline image (top)</em>: Top of the page</li>
+</ul>
+<pre>
+<code>-t-example.jpg</code>
+</pre>
+<ul>
+<li><em>Inline image (middle)</em>: Immediately before the file
+listing</li>
+</ul>
+<pre>
+<code>-m-example.jpg</code>
+</pre>
+<ul>
+<li><em>Inline image (bottom)</em>: Below the file listing</li>
+</ul>
+<pre>
+<code>-b-example.jpg</code>
+</pre>
+<h2>Embedding text within a folder</h2>
+<p>Any plain text file can be embedded within a folder (eg. if
+you'd like to add an introduction to a listing of files). There is
+no limit to how many text files you can embed.</p>
+<ul>
+<li><em>Inline text (top)</em>: Top of the page</li>
+</ul>
+<pre>
+<code>-t-example.txt</code>
+</pre>
+<ul>
+<li><em>Inline text (middle)</em>: Immediately before the file
+listing</li>
+</ul>
+<pre>
+<code>-m-example.txt</code>
+</pre>
+<ul>
+<li><em>Inline text (bottom)</em>: Below the file listing</li>
+</ul>
+<pre>
+<code>-b-example.txt</code>
+</pre>
+<h2>Creating an external link (in the file listing)</h2>
+<ul>
+<li>Create a plain text file</li>
+<li>Name it as you'd like</li>
+<li>Add a <code>.link</code> extension</li>
+</ul>
+<pre>
+<code>example.link</code>
+</pre>
+<ul>
+<li>Within the file, put the following YAML code:</li>
+</ul>
+<pre>
+<code>url: http://www.example.com
+target: parent or _blank
+comment: an optional comment goes here</code>
+</pre>
+<ul>
+<li>For example:</li>
+</ul>
+<pre>
+<code>url: http://www.subfolio.com
+target: _blank
+comment: This is the Subfolio website</code>
+</pre>
+<ul>
+<li>Put the file where ever you'd like</li>
+<li>External links display in the file listing</li>
+</ul>
+<h2>Creating a popup (in the file listing)</h2>
+<ul>
+<li>Create a plain text file</li>
+<li>Name it as you'd like</li>
+<li>Add a <code>.pop</code> extension</li>
+</ul>
+<pre>
+<code>example.pop</code>
+</pre>
+<ul>
+<li>Within the file, put the following YAML code:</li>
+</ul>
+<pre>
+<code>url: Destination URL
+width: The width of the popup window (default 800)
+height: The height of the popup window (default 600)
+name: Name to display in the popup window title bar ('My Popup Example')
+style: WINDOW or POP or POPSCROLL (default POPSCROLL)</code>
+</pre>
+<ul>
+<li><em>WINDOW</em>: includes statusbar, menubar, scrollbars and is
+resizeable.</li>
+<li><em>POP</em>: no statusbar, menubar nor scrollbars and not
+resizeable.</li>
+<li><em>POPSCROLL</em>: no statusbar, menubar not resizeable,
+scrollbars if content is larger than the pop up width &amp; height
+For example:<br></li>
+</ul>
+<pre>
+<code>url: http://www.example.com
+width: 800
+height: 600
+name: My Popup Example
+style: POP</code>
+</pre>
+<ul>
+<li>Put the file where ever you'd like</li>
+<li>Popup links display in the file listing</li>
+</ul>
+<h2>Creating a website shortcut (in the file listing)</h2>
+<ul>
+<li>Create a plain text file</li>
+<li>Name it as you'd like</li>
+<li>Add a <code>.cut</code> extension</li>
+</ul>
+<pre>
+<code>example.cut</code>
+</pre>
+<ul>
+<li>Within the file, put the following YAML code:</li>
+</ul>
+<pre>
+<code>name: shortcut display name
+directory: full location root path</code>
+</pre>
+<ul>
+<li>For example:</li>
+</ul>
+<pre>
+<code>name: My explorations
+directory: /designs/explorations/</code>
+</pre>
+<ul>
+<li>Put the file where ever you'd like</li>
+<li>Subfolio will add an "also see" header above your
+shortcut(s).</li>
+</ul>
+<h2>UPDATED - Featuring a folder</h2>
+<ul>
+<li>Create a thumbnail and put it in a folder called
+<code>-thumbnails-custom</code></li>
+<li>Create a plain text file</li>
+<li>Give it the same name as the folder (optional)</li>
+<li>Add a <code>.ftr</code> extension</li>
+</ul>
+<pre>
+<code>featured_folder.ftr</code>
+</pre>
+<ul>
+<li>Within the file, put the following YAML code:</li>
+</ul>
+<pre>
+<code>title: Feature title
+folder: Exact folder name
+description:&gt;
+ Short description you wish to use for the feature.
+ You can use textile here.
+image: File path and name for feature image
+width: 250
+height: 230</code>
+</pre>
+<ul>
+<li>For example:</li>
+</ul>
+<pre>
+<code>title: My Featured Folder
+folder: featured_folder
+description:&gt;
+ Check out my featured folder, it is so nice. 
+image: -thumbnails-custom/folder_thumbnail.png
+width: 250
+height: 230</code>
+</pre>
+<ul>
+<li>Put the file and thumbnail folder in the same location of the
+folder</li>
+<li>Subfolio will hide the original folder from the listing</li>
+<li>Features always display at the top of the page</li>
+</ul>
+<h3>Misc. Hints:</h3>
+<ul>
+<li>To hide the title, thumbnail or description, put # in front of
+that line.</li>
+<li>Default margin is 15px</li>
+<li>Standard size 249x159, however you can do what you'd like</li>
+</ul>
+<h2>NEW - Featuring a file</h2>
+<p>Follow the same steps as "featuring a folder", except:</p>
+<ul>
+<li>remove the line: <code>folder: Exact folder name</code></li>
+<li>Add the line: <code>file: Exact file name</code></li>
+</ul>
+<h2>UPDATED - Featuring a link (or a specific page)</h2>
+<p>Follow the same steps as "featuring a folder", except:</p>
+<ul>
+<li>remove the line: <code>folder: Exact folder name</code></li>
+<li>Add the line: <code>link: http://www.example.com</code></li>
+</ul>
+<h2>NEW - Creating a slideshow</h2>
+<p>By default, Subfolio creates thumbnails for all images. But if
+you'd rather have users skip the thumbnails and go directly to the
+first image, then you can use a slideshow enhancer.</p>
+<ul>
+<li>Add a <code>.slide</code> extension to any folder</li>
+<li>User will go directly to the first image (or file) in that
+folder</li>
+<li>User can then use the prev/next navigation to go through your
+images (or files)</li>
+</ul>
+<h2>NEW - Display an RSS Feed</h2>
+<p>The RSS enhancer allows you to take any RSS feed from anywhere
+and display it within Subfolio. It could be used as a stand alone
+file (eg. example.rss) or as an embedded text file (eg.
+-t-example.rss).</p>
+<ul>
+<li>Create a plain text file</li>
+<li>Add a <code>-t-</code> or <code>-m-</code> or <code>-b-</code>
+to the beginning of the filename if you'd like to embed it</li>
+<li>Give it the extension <code>.rss</code></li>
+<li>Within the file, put the following YAML code:</li>
+</ul>
+<pre>
+<code>feedurl: http://feeds.example.com
+count: 10
+cache: 3600</code>
+</pre>
+<ul>
+<li>Count is the maximum number of items to show</li>
+<li>Cache is number of seconds to cache the feed for</li>
+<li>Note: It may take a minute or so to work for the first
+time.</li>
+</ul>
+<h2>Displaying HTML pages or prototypes</h2>
+<ul>
+<li>Create a folder</li>
+<li>Name it whatever you'd like</li>
+<li>Add a <code>.site</code> extension</li>
+</ul>
+<pre>
+<code>-example_folder.site</code>
+</pre>
+<ul>
+<li>Place your html files within</li>
+<li>The file index.html must exist</li>
+<li>The folder will open in a new window outside of Subfolio</li>
+</ul>
+<h2>Adding a comment to a folder or file</h2>
+<ul>
+<li>Create a plain text file</li>
+<li>Give it the exact same name (including extension) of the folder
+or file</li>
+<li>Add a <code>.info</code> extension</li>
+</ul>
+<pre>
+<code>example.jpg.info</code>
+</pre>
+<ul>
+<li>Within the file, put the following YAML code:</li>
+</ul>
+<pre>
+<code>comment: your comment goes here.</code>
+</pre>
+<ul>
+<li>Put the file in the same location of the folder or file</li>
+</ul>
+<h2>Specifying video properties</h2>
+<p>Unfortunately, there is no way for Subfolio to detect the
+properties of a video file. Therefore you need to specify them in
+the following way. You can also put a standard size for your video
+files within the file kinds settings file.</p>
+<ul>
+<li>Create a plain text file</li>
+<li>Give it the exact same name (including extension) of the video
+file</li>
+<li>Add a <code>.info</code> extension</li>
+</ul>
+<pre>
+<code>example_video.mov.info</code>
+</pre>
+<ul>
+<li>Within the file, put the following YAML code:</li>
+</ul>
+<pre>
+<code>width: width
+  height: height
+  autoplay: false or true (default false)</code>
+</pre>
+<ul>
+<li>For example:</li>
+</ul>
+<pre>
+<code>width: 640
+height: 500
+autoplay: true</code>
+</pre>
+<ul>
+<li>Put the file in the same location of the video file</li>
+</ul></div><hr class='pagebreak'><a name='enhancers-featuring-content'></a><h1>Enhancers - Featuring content (DRAFT) (draft)</h1><div><p>Draft</p></div><hr class='pagebreak'><a name='enhancers-adding-comment-to-a-file-or-folder-name'></a><h1>Enhancers - Adding comment to a file or folder name (DRAFT) (draft)</h1><div><p>Draft</p></div><hr class='pagebreak'><a name='enhancers-displaying-html-prototypes'></a><h1>Enhancers - Displaying HTML prototypes (DRAFT) (draft)</h1><div><p>Draft</p></div><hr class='pagebreak'><a name='enhancers-specify-video-properties'></a><h1>Enhancers - Specify video properties (DRAFT) (draft)</h1><div><p>Draft</p></div><hr class='pagebreak'><a name='enhancers-using-markup-in-enhancers'></a><h1>Enhancers - Using markup in enhancers </h1><div><h2>Introduction</h2>
+<p>A markup language is a system for annotating a text in a way
+which is syntactically distinguishable from that text (eg. HTML,
+XML). These days we have lightweight markup languages that make it
+easy to style text without the baggage (eg. Textile, Markdown).</p>
+<h2>Using markup in enhancers</h2>
+<p>Markup can be used to style text within enhancers files.
+Subfolio uses Textile by default, however you can change this to
+Markdown or HTML in your general settings:
+<code>_config/settings/settings.yml</code>.</p></div><hr class='pagebreak'><a name='misc-helpers-markdown-cheat-sheet'></a><h1>Misc. Helpers - Markdown Cheat Sheet (DRAFT) (draft)</h1><div><p>DRAFT</p></div><hr class='pagebreak'><a name='misc-helpers-recommended-3rd-party-apps'></a><h1>Misc. Helpers - Recommended 3rd-party apps </h1><div><h2>Introduction</h2>
+<p>Well, you probably have your favorites. But if you don't, here's
+what we use.</p>
+<h2>Text Editors (for settings and enhancers)</h2>
+<p><strong>Mac:</strong> The developers are using <a href=
+"http://macromates.com">TextMate</a> and the rest of us are using
+TextEdit.</p>
+<p><strong>PC:</strong>&nbsp;The developers are using <a href=
+"http://www.e-texteditor.com">E-TextEditor</a> and the rest of us
+are using Notebook.</p>
+<p><strong>File encoding note:</strong> Make sure your file
+encoding is set to <code>Unicode (UTF-8)</code>.</p>
+<h2>S/FTP (for uploading content)</h2>
+<p><strong>Mac:</strong>&nbsp;Most of us are using the all-in-one
+<a href="http://www.panic.com/coda">Coda</a>, but some of us use
+<a href="http://www.panic.com/transmit">Transmit</a>.</p>
+<p><strong>PC:</strong>&nbsp;We're using <a href=
+"http://filezilla-project.org">FileZilla</a> ... cause its free and
+good. Never tried the Mac version.</p>
+<p><strong>File encoding note:</strong> Make sure your file
+encoding is set to <code>Unicode (UTF-8)</code>.</p>
+<h2>Web developer tools</h2>
+<p>We can't live without the Firefox plugin <a href=
+"http://getfirebug.com">Firebug</a>.</p></div><hr class='pagebreak'><a name='misc-helpers-textile-cheat-sheet'></a><h1>Misc. Helpers - Textile cheat sheet  (DRAFT) (draft)</h1><div><p>Draft</p></div><hr class='pagebreak'><a name='solving-common-problems-access-control-not-working'></a><h1>Solving Common Problems - Access control not working (DRAFT) (draft)</h1><div><p>Draft</p></div><hr class='pagebreak'><a name='solving-common-problems-errors-when-uploading-content'></a><h1>Solving Common Problems - Errors when uploading content (DRAFT) (draft)</h1><div><h2>File permissions</h2>
+<p>Different FTP users may generate different permissions</p>
+<p>Make sure your FTP client is set to 777</p></div><hr class='pagebreak'><a name='solving-common-problems-errors-when-uploading-thumbnails'></a><h1>Solving Common Problems - Errors when uploading thumbnails (DRAFT) (draft)</h1><div><p>Draft</p></div><hr class='pagebreak'><a name='solving-common-problems-file-kind-not-showing-appropriately'></a><h1>Solving Common Problems - File kind not showing appropriately (DRAFT) (draft)</h1><div><p>Draft</p></div><hr class='pagebreak'><a name='solving-common-problems-setting-or-enhancer-files-is-not-working-properly'></a><h1>Solving Common Problems - Setting or enhancer files is not working properly (DRAFT) (draft)</h1><div><p>Draft</p>
+<ol>
+<li>YAML formating (eg. spacing)<br></li>
+<li>Plaintext files</li>
+</ol></div><hr class='pagebreak'><a name='solving-common-problems-thumbnail-errors'></a><h1>Solving Common Problems - Thumbnail errors (DRAFT) (draft)</h1><div><h1>Allowed memory size exhausted</h1>
+<p><strong>Problem</strong> When your server PHP configuration does
+not have enough memory to create the thumbnail from the image
+(based on file size) this will error occur.</p>
+<p><strong>Solution</strong> You need to see with your system
+administrator if you can allocate more memory. Otherwise, we have
+added a setting called thumbnail_max_filesize&#8217; so that
+Subfolio knows to not try and generate a thumbnail for image files
+that are larger that your server PHP configuration allows.</p></div><hr class='pagebreak'><a name='hosting-hosting-companies-in-use-by-subfolio-users'></a><h1>Hosting - Hosting companies in use by Subfolio users (draft)</h1><div><p>Hosting Subfolio can be a little confusing, so we're compiling a
+list of web hosting companies that are confirmed to support
+Subfolio. We've only just started, so please let us know when your
+Subfolio is up and running and send over some details about where
+it's hosted.</p>
+<ul>
+<li><a href="http://www.justhost.com">www.justhost.com</a></li>
+<li><a href="http://www.godaddy.com">www.godaddy.com</a></li>
+<li><a href="http://www.ovh.com">www.ovh.com</a></li>
+</ul></div><hr class='pagebreak'>
+
+</div>
+</body>
+</html>
