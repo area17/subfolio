@@ -66,6 +66,7 @@ Main CSS file is main.css, this one is versioned unminified.
 grunt staging
 ```
 
-This task will create a dist folder inside the theme folder.
-This dist folder will contain everything that should be send to production : images, fonts, JS, CSS.
+This task will create a dist folder inside the theme/default folder.
+This dist folder will contain everything that should be send to production : images, fonts, JS, CSS, PHP.
+At last, the task will sftp the content of this dist folder to staging using SFTP-DEPLOY task : https://github.com/thrashr888/grunt-sftp-deploy
 
