@@ -40,3 +40,32 @@ Join us at Twitter: twitter.com/subfolio or join our email newsletter at:
   http://www.subfolio.com/newsletter
 
 (c) 2009-2016 Subfolio by AREA 17. All rights reserved.
+
+# Default Theme
+
+## Front-end Workflow
+
+FE workflow is using Grunt.
+First time working on the project run :
+
+```
+grunt init
+```
+
+When doings devs run :
+
+```
+grunt dev
+```
+
+Main CSS file is main.css, this one is versioned unminified.
+
+## Deploying to staging
+
+```
+grunt staging
+```
+
+This task will create a dist folder inside the theme folder.
+This dist folder will contain everything that should be send to production : images, fonts, JS, CSS.
+
