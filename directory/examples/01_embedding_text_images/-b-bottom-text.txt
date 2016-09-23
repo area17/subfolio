@@ -1,0 +1,8 @@
+h1. Embedding text and images
+
+h2. Bottom of page
+
+
+<pre><code>-b-bottom-text.txt</code></pre>
+
+This text will appear at the bottom of the page, *below the file listing*. You can use textile, markdown or html. Set your preference in your settings. 

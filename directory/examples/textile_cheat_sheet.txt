@@ -1,0 +1,72 @@
+h1. Subfolio Enhancers
+
+h2. Textile cheat sheet
+
+h3. Using markup in enhancers
+
+Markup can be used to style text within enhancers files. Subfolio uses Textile by default, however you can change this to Markdown or HTML in your general settings. 
+
+***
+
+h1. Header 1
+
+<pre><code>h1. Header 1</code></pre>
+
+h2. Header 2
+
+<pre><code>h2. Header 2</code></pre>
+
+h3. Header 3
+
+<pre><code>h3. Header 3</code></pre>
+
+This is _italicized_
+
+<pre><code>This is _italicized_</code></pre>
+
+This is *bold*
+
+<pre><code>This is *bold*</code></pre>
+
+* Bulleted item 1
+* Bulleted item 2
+
+<pre><code>* Bulleted item 1
+* Bulleted item 2</code></pre>
+
+# Numbered item 1
+# Numbered item 2
+
+<pre><code># Bulleted item 1
+# Bulleted item 2</code></pre>
+
+"text link":http://area17.com
+
+<pre><code>"text link":http://area17.com</code></pre>
+
+_Embed an image:_
+
+<pre><code>!http://www.example.com/image.png!</code></pre>
+
+bq. Blockquoted Text
+
+<pre><code>bq. Blockquoted Text</code></pre>
+
+_Embed Code:_
+
+To get this:
+
+<pre><code>/* Code Block */
+#include <stdio.h>
+#include <stdlib.h>
+  int main()
+</code></pre>
+
+Do this: 
+
+<pre><code><pre><code>
+/* Code Block */
+#include <stdio.h>
+#include <stdlib.h>
+      int main()</code></pre>
+</code></pre>

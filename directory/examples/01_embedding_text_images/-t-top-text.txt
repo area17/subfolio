@@ -1,0 +1,7 @@
+h1. Embedding text and images
+
+h2. Top of page
+
+<pre><code>-t-top-text.txt</code></pre>
+
+This text will appear at the top of the page, *above any images or features* you may have in the folder. You can use textile, markdown or html.  Set your preference in your settings. 

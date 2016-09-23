@@ -1,0 +1,16 @@
+# YAML NOTE: Indentation, spacing and text case are super important.
+# This file must be encoded as Unicode (UTF-8) for it to work properly.
+
+# Note: Users and groups have to be created first in your settings before this will work.
+
+allow_users: [username, username, etc]
+allow_groups: [groupname, groupname, etc]
+deny_users: [username, username, etc]
+deny_groups: [groupname, groupname, etc]
+Does not apply to sub-folders:
+
+current_folder:
+ allow_users: [username, username, etc]
+ allow_groups: [groupname, groupname, etc]
+ deny_users: [username, username, etc]
+ deny_groups: [groupname, groupname, etc]

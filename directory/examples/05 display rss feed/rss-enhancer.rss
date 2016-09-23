@@ -1,0 +1,8 @@
+# YAML NOTE: Indentation, spacing and text case are super important.
+# This file must be encoded as Unicode (UTF-8) for it to work properly.
+
+# Note: It may take a few minutes to work for the first time. 
+
+feedurl: http://feeds.feedburner.com/area17/news
+count: 10  # maxiumum number of items to show
+cache: 3600 # number of seconds to cache the feed for

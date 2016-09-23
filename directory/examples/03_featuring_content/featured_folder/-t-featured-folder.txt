@@ -1,0 +1,1 @@
+You've arrived at your featured folder. Notice that featuring a folder in the same directory makes it disappear from the listing. 

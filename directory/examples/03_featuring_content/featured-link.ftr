@@ -1,0 +1,27 @@
+# YAML NOTE: Indentation, spacing and text case are super important.
+# This file must be encoded as Unicode (UTF-8) for it to work properly.
+
+# Note: to hide the title, thumbnail or description, put # in front of that line. 
+
+### Give your feature a title
+### Add the a local or offsite link
+
+title: Featured Link
+link: http://www.area17.com
+
+### Add path to thumbnail image (standard size 249x159)
+### Put your image in a folder called "-thumbnails-custom"
+
+image: -thumbnails-custom/link_thumbnail.png
+
+### Define the size of the entire feature
+### Default margin is 15px
+
+width: 250
+height: 230
+
+### Add a description
+### Make sure there is a space at the beginning of the line.
+
+description:>
+ You can feature any local or offsite link. Also good for surfacing files and folders that are deep in your site.

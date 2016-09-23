@@ -1,0 +1,8 @@
+h1. Embedding text and images
+
+h2. Middle of page
+
+
+<pre><code>-m-middle-text.txt</code></pre>
+
+This text will appear on the top of the page, *below any images or features* you may have in the folder, but above the file listing. You can use textile, markdown or html. Set your preference in your settings.

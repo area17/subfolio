@@ -1,0 +1,6 @@
+# YAML NOTE: Indentation, spacing and text case are super important.
+# This file must be encoded as Unicode (UTF-8) for it to work properly.
+
+target: _blank
+url: http://www.area17.com
+comment: Example link to an external website.
