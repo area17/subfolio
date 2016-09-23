@@ -6,10 +6,6 @@ Subfolio is made for creative types to share their work online with speed and el
 
 Subfolio is a lightweight PHP5 file browser app that installs on your own server. No database or content management needed. And for you geeks out there, it’s extensible too.
 
-Learn more about Subfolio and its features at:
-
-  http://www.subfolio.com
-
 ## Installation
 
 To install Subfolio, we recommend that you read the installation documentation at:
@@ -32,11 +28,5 @@ If you have a problem, question, suggestion or to see full documentation, please
 
 To download Subfolio Enhancers, please visit:
 https://github.com/area17/subfolio-enhancers
-
-## Mailing List
-
-Join us at Twitter: twitter.com/subfolio or join our email newsletter at:
-
-  http://www.subfolio.com/newsletter
 
 (c) 2009-2016 Subfolio by AREA 17. All rights reserved.
