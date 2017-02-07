@@ -951,6 +951,14 @@ class Filebrowser {
       }
     }
 
+    // Excluse Retina image files from listings
+    if(!$hidden) {
+      $pos = strpos($filename, '_2x.');
+      if ($pos) {
+        $hidden = true;
+      }
+    }
+
     if (!$hidden) {
       $info_ext = Kohana::config('filebrowser.info_extension') ?  Kohana::config('filebrowser.info_extension') : ".info" ;
       $ftr_ext = Kohana::config('filebrowser.feature_extension') ?  Kohana::config('filebrowser.feature_extension') : ".ftr" ;
