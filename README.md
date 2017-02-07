@@ -3,6 +3,8 @@
 ## Front-end Workflow
 
 FE workflow is using Grunt.
+Default theme is located here : config/themes/default/
+
 First time working on the project run :
 
 ```
