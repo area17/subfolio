@@ -29,8 +29,6 @@ This task will create a /dist folder inside the theme/default folder.
 This /dist folder will contain everything that should be send to production : images, fonts, JS, CSS, PHP.
 At last, the task will sftp the content of this dist folder to staging using SFTP-DEPLOY task : https://github.com/thrashr888/grunt-sftp-deploy
 
-
-
 # About Subfolio
 
 Subfolio provides an elegant, practical and customizable web interface to your file system. Super fast to set-up and use, you’ll be up and running in minutes. Flexible and feature-rich, you’ll soon be inventing new ways to use it.

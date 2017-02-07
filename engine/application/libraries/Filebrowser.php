@@ -13,6 +13,7 @@ class Filebrowser {
 
   var $file           = "";
   var $filepath       = "";
+  var $filepathretina = "";
   var $fullfilepath   = "";
 
   var $files          = array();
@@ -84,7 +85,7 @@ class Filebrowser {
           $this->sort_order_direction = "Asc";
         }
       }
-      
+
       // redirect to avoid url resorting issue
       url::redirect(request::referrer());
       exit();
@@ -157,6 +158,19 @@ class Filebrowser {
     return $this->path;
   }
 
+  public function get_retina_path($file) {
+    $path_parts = pathinfo($file);
+
+    $extension ="";
+    if (isset($path_parts['extension'])) {
+      $extension = $path_parts['extension'];
+
+      return str_replace('.'.$extension, '_2x.'.$extension, $file);
+    } else {
+      return $file;
+    }
+  }
+
   public function set_path($path='') {
     $this->path = $path;
     $fullpath = $this->config['directory']."/".$path;
@@ -171,9 +185,10 @@ class Filebrowser {
       $this->folder = dirname($path);
       $this->fullfolderpath = $this->config['directory']."/".dirname($path);
 
-      $this->file         = basename($path);
-      $this->filepath     = $path;
-      $this->fullfilepath = $this->config['directory']."/".$path;
+      $this->file           = basename($path);
+      $this->filepath       = $path;
+      $this->filepathretina = $this->get_retina_path($path);
+      $this->fullfilepath   = $this->config['directory']."/".$path;
     }
     if (file_exists($this->fullfolderpath)) {
       chdir($this->fullfolderpath."/");
@@ -224,7 +239,7 @@ class Filebrowser {
   public function prev_next_sort($list) {
     $gallery = array();
     $other = array();
-  
+
     foreach ($list as $item) {
       if ($item->kind == "img") {
         $gallery[] = $item;
@@ -236,10 +251,10 @@ class Filebrowser {
     $items = array();
     foreach ($gallery as $item) {
       $items[] = $item;
-    }    
+    }
     foreach ($other as $item) {
       $items[] = $item;
-    }    
+    }
     return $items;
   }
 
@@ -280,19 +295,19 @@ class Filebrowser {
 
   public function get_parent_file_list($kind=null) {
     $files = array();
-    
+
     $names = $this->sub_glob("*");
     if ($names) {
       foreach ($names as $filename) {
         if (!is_dir($filename)) {
           if (!$this->is_hidden($filename)) {
             $stats = stat($filename);
-  
-  
+
+
             $fkind = $this->filekind->get_kind_by_file($filename);
             $filekind = isset($fkind['kind']) ? $fkind['kind'] : '';
             $ff = new FileFolder($filename, $this->folder, 'file', $filekind, $stats);
-  
+
             if ($kind != null) {
               if ($filekind === $kind) {
                 $files[] = $ff;
@@ -310,7 +325,7 @@ class Filebrowser {
 
   public function get_parent_file_folder_list($kind=null, $folder=false) {
     $files = array();
-    
+
     if ($folder) {
       $names = $this->sub_glob("../*");
     } else {
@@ -326,11 +341,11 @@ class Filebrowser {
         if (is_dir($filename)) {
           if (!$this->is_hidden($just_filename)) {
             $stats = stat($filename);
-  
+
             $fkind = $this->filekind->get_kind_by_file($just_filename);
             $filekind = isset($fkind['kind']) ? $fkind['kind'] : '';
             $ff = new FileFolder($just_filename, $this->folder, 'folder', $filekind, $stats);
-  
+
             if ($kind != null) {
               if ($filekind === $kind) {
                 $files[] = $ff;
@@ -342,11 +357,11 @@ class Filebrowser {
         } else {
           if (!$this->is_hidden($just_filename)) {
             $stats = stat($filename);
-  
+
             $fkind = $this->filekind->get_kind_by_file($just_filename);
             $filekind = isset($fkind['kind']) ? $fkind['kind'] : '';
             $ff = new FileFolder($just_filename, $this->folder, 'file', $filekind, $stats);
-  
+
             if ($kind != null) {
               if ($filekind === $kind) {
                 $files[] = $ff;
@@ -384,10 +399,10 @@ class Filebrowser {
           if ($trim) {
             $tfilename = substr($filename, strlen($prefix));
           }
-            
+
           if ($hidden || !$this->is_hidden($tfilename)) {
             $include = false;
-  
+
             if ($kind != null) {
               $fkind = $this->filekind->get_kind_by_file($filename);
               $filekind = isset($fkind['kind']) ? $fkind['kind'] : '';
@@ -397,7 +412,7 @@ class Filebrowser {
             } else {
               $include = true;
             }
-  
+
             if ($include) {
               $stats = stat($filename);
               $fkind = $this->filekind->get_kind_by_file($filename);
@@ -486,6 +501,10 @@ class Filebrowser {
 
   public function get_file_url() {
     return "/directory/".format::urlencode_parts($this->filepath);
+  }
+
+  public function get_file_retina_url() {
+    return "/directory/".format::urlencode_parts($this->filepathretina);
   }
 
   public function is_feature($foldername) {
@@ -948,7 +967,7 @@ class Filebrowser {
 
     return $hidden;
   }
-  
+
   public function sub_glob($pattern, $flags=NULL)
   {
     $split=explode('/',$pattern);
@@ -977,13 +996,13 @@ class Filebrowser {
       if (!($flags&GLOB_NOSORT)) sort($glob);
       return $glob;
     }
-    }   
+    }
     return array();
   }
 
   function sub_fnmatch($pattern, $string) {
     return preg_match("#^".strtr(preg_quote($pattern, '#'), array('\*' => '.*', '\?' => '.'))."$#i", $string);
-  } 
+  }
 
   /**
    * Work around for bug with + and # characters, double encode the % character
@@ -995,7 +1014,7 @@ class Filebrowser {
       $ret = str_replace('%3B', '%253B', $ret);
       $ret = str_replace('%E9', '%25E9', $ret);
       $ret = str_replace('%26', '%2526', $ret);
-      
+
       return $ret;
   }
 
