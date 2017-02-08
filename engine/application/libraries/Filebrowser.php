@@ -511,6 +511,16 @@ class Filebrowser {
     else return false;
   }
 
+  public function is_retina_url() {
+    $path_parts = pathinfo($this->filepath);
+
+    $extension ="";
+    if (isset($path_parts['extension'])) $extension = $path_parts['extension'];
+
+    $pos = strpos($this->filepath, Kohana::config('filebrowser.retina_naming').'.'.$extension);
+    return $pos;
+  }
+
   public function is_feature($foldername) {
     $is_feature = false;
     $features = $this->get_folder_property('features');
@@ -956,12 +966,12 @@ class Filebrowser {
     }
 
     // Excluse Retina image files from listings
-    if(!$hidden) {
-      $pos = strpos($filename, Kohana::config('filebrowser.retina_naming').'.');
-      if ($pos) {
-        $hidden = true;
-      }
-    }
+    //if(!$hidden) {
+    //  $pos = strpos($filename, Kohana::config('filebrowser.retina_naming').'.');
+    //  if ($pos) {
+    //    $hidden = true;
+    //  }
+    //}
 
     if (!$hidden) {
       $info_ext = Kohana::config('filebrowser.info_extension') ?  Kohana::config('filebrowser.info_extension') : ".info" ;

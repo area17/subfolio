@@ -131,14 +131,21 @@ class Subfolio {
 
     if($data == "retina") {
       $file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$template->content->file->name);
-      if (isset($file_kind['kind'])) {
-        $kind = $file_kind['kind'];
-      } else {
-        $kind = "";
-      }
+      if (isset($file_kind['kind'])) $kind = $file_kind['kind'];
+      else $kind = "";
 
       if ($kind == "img") {
         return Subfolio::$filebrowser->get_file_retina_url();
+      }
+    }
+
+    if($data == "is_retina") {
+      $file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$template->content->file->name);
+      if (isset($file_kind['kind'])) $kind = $file_kind['kind'];
+      else $kind = "";
+
+      if ($kind == "img") {
+        return Subfolio::$filebrowser->is_retina_url();
       }
     }
 
