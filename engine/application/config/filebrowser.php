@@ -16,6 +16,7 @@ $config['directory'] = $site_folder.'directory';
 $config['access_file']     = '-access';
 $config['properties_file'] = '-properties';
 $config['site_root'] = '/';
+$config['retina_naming'] = "@2x";
 
 $config['thumbnail_width'] = 320;
 $config['thumbnail_height'] = 240;

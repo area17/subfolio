@@ -165,10 +165,13 @@ class Filebrowser {
     if (isset($path_parts['extension'])) {
       $extension = $path_parts['extension'];
 
-      return str_replace('.'.$extension, '_2x.'.$extension, $file);
-    } else {
-      return $file;
+      $retina_file_name = str_replace('.'.$extension, Kohana::config('filebrowser.retina_naming').'.'.$extension, $file);
+
+      if (file_exists($this->config['directory']."/".$retina_file_name)) return $retina_file_name;
+      else return false;
     }
+
+    return false;
   }
 
   public function set_path($path='') {
@@ -504,7 +507,8 @@ class Filebrowser {
   }
 
   public function get_file_retina_url() {
-    return "/directory/".format::urlencode_parts($this->filepathretina);
+    if($this->filepathretina) return "/directory/".format::urlencode_parts($this->filepathretina);
+    else return false;
   }
 
   public function is_feature($foldername) {
@@ -953,7 +957,7 @@ class Filebrowser {
 
     // Excluse Retina image files from listings
     if(!$hidden) {
-      $pos = strpos($filename, '_2x.');
+      $pos = strpos($filename, Kohana::config('filebrowser.retina_naming').'.');
       if ($pos) {
         $hidden = true;
       }
