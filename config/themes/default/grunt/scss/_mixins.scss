@@ -30,7 +30,7 @@
 
       }
       &:hover {
-        @extend %icon__#{$type}_hover;
+        @extend %icon__#{$type}_hover !optional;
       }
     }
   }

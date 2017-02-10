@@ -158,31 +158,37 @@ a.icon {
 /* loops the _icons object to make the icons */
 
 .icon__arrow_left {
+  background-repeat: no-repeat;
   width: 20px;
   height: 14px; }
 
 
 .icon__arrow_right {
+  background-repeat: no-repeat;
   width: 20px;
   height: 14px; }
 
 
 .icon__close {
+  background-repeat: no-repeat;
   width: 20px;
   height: 20px; }
 
 
 .icon__dropdown_arrow {
+  background-repeat: no-repeat;
   width: 7px;
   height: 6px; }
 
 
 .icon__filter_arrow {
+  background-repeat: no-repeat;
   width: 9px;
   height: 7px; }
 
 
 .icon__grid_ae {
+  background-repeat: no-repeat;
   width: 45px;
   height: 58px; }
 
@@ -190,32 +196,38 @@ a.icon {
 .icon__grid_ai,
 .icon__grid_ase,
 .icon__grid_eps {
+  background-repeat: no-repeat;
   width: 45px;
   height: 58px; }
 
 
 .icon__grid_cut {
+  background-repeat: no-repeat;
   width: 55px;
   height: 43px; }
 
 
 .icon__grid_dir,
 .icon__grid_cut {
+  background-repeat: no-repeat;
   width: 55px;
   height: 43px; }
 
 
 .icon__grid_dir_protected {
+  background-repeat: no-repeat;
   width: 55px;
   height: 43px; }
 
 
 .icon__grid_dir_shared {
+  background-repeat: no-repeat;
   width: 55px;
   height: 43px; }
 
 
 .icon__grid_dmg {
+  background-repeat: no-repeat;
   width: 45px;
   height: 58px; }
 
@@ -223,11 +235,13 @@ a.icon {
 .icon__grid_doc,
 .icon__grid_merlin,
 .icon__grid_pages {
+  background-repeat: no-repeat;
   width: 45px;
   height: 58px; }
 
 
 .icon__grid_fnt {
+  background-repeat: no-repeat;
   width: 45px;
   height: 58px; }
 
@@ -238,38 +252,45 @@ a.icon {
 .icon__grid_pop,
 .icon__grid_site,
 .icon__grid_txt {
+  background-repeat: no-repeat;
   width: 45px;
   height: 58px; }
 
 
 .icon__grid_html {
+  background-repeat: no-repeat;
   width: 45px;
   height: 58px; }
 
 
 .icon__grid_img {
+  background-repeat: no-repeat;
   width: 45px;
   height: 58px; }
 
 
 .icon__grid_indd {
+  background-repeat: no-repeat;
   width: 45px;
   height: 58px; }
 
 
 .icon__grid_key,
 .icon__grid_ppt {
+  background-repeat: no-repeat;
   width: 45px;
   height: 58px; }
 
 
 .icon__grid_net {
+  background-repeat: no-repeat;
   width: 55px;
   height: 44px; }
 
 
 .icon__grid_numbers,
 .icon__grid_xls {
+  background-repeat: no-repeat;
   width: 45px;
   height: 58px; }
 
@@ -277,53 +298,63 @@ a.icon {
 .icon__grid_pdf,
 .icon__grid_fla,
 .icon__grid_swf {
+  background-repeat: no-repeat;
   width: 45px;
   height: 58px; }
 
 
 .icon__grid_psd,
 .icon__grid_sql {
+  background-repeat: no-repeat;
   width: 45px;
   height: 58px; }
 
 
 .icon__grid_site {
+  background-repeat: no-repeat;
   width: 55px;
   height: 44px; }
 
 
 .icon__grid_slide {
+  background-repeat: no-repeat;
   width: 45px;
   height: 58px; }
 
 
 .icon__grid_snd {
+  background-repeat: no-repeat;
   width: 45px;
   height: 58px; }
 
 
 .icon__grid_vid {
+  background-repeat: no-repeat;
   width: 45px;
   height: 58px; }
 
 
 .icon__grid_zip {
+  background-repeat: no-repeat;
   width: 45px;
   height: 58px; }
 
 
 .icon__info {
+  background-repeat: no-repeat;
   width: 26px;
   height: 26px; }
 
 
 .icon__info_close,
 .icon__info.on {
+  background-repeat: no-repeat;
   width: 26px;
   height: 26px; }
 
 
 .icon__list_ae {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 
@@ -331,31 +362,37 @@ a.icon {
 .icon__list_ai,
 .icon__list_ase,
 .icon__list_eps {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 
 
 .icon__list_cut {
+  background-repeat: no-repeat;
   width: 26px;
   height: 21px; }
 
 
 .icon__list_dir {
+  background-repeat: no-repeat;
   width: 26px;
   height: 21px; }
 
 
 .icon__list_dir_protected {
+  background-repeat: no-repeat;
   width: 26px;
   height: 21px; }
 
 
 .icon__list_dir_shared {
+  background-repeat: no-repeat;
   width: 26px;
   height: 21px; }
 
 
 .icon__list_dmg {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 
@@ -363,11 +400,13 @@ a.icon {
 .icon__list_doc,
 .icon__list_merlin,
 .icon__list_pages {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 
 
 .icon__list_fnt {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 
@@ -376,38 +415,45 @@ a.icon {
 .icon__list_lock,
 .icon__list_net,
 .icon__list_pop {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 
 
 .icon__list_html {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 
 
 .icon__list_img {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 
 
 .icon__list_indd {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 
 
 .icon__list_key,
 .icon__list_ppt {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 
 
 .icon__list_net {
+  background-repeat: no-repeat;
   width: 26px;
   height: 21px; }
 
 
 .icon__list_numbers,
 .icon__list_xls {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 
@@ -415,42 +461,50 @@ a.icon {
 .icon__list_pdf,
 .icon__list_fla,
 .icon__list_swf {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 
 
 .icon__list_psd,
 .icon__list_sql {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 
 
 .icon__list_site {
+  background-repeat: no-repeat;
   width: 26px;
   height: 21px; }
 
 
 .icon__list_slide {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 
 
 .icon__list_snd {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 
 
 .icon__list_txt {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 
 
 .icon__list_vid {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 
 
 .icon__list_zip {
+  background-repeat: no-repeat;
   width: 20px;
   height: 26px; }
 

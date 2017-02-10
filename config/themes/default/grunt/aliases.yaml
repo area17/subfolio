@@ -31,7 +31,6 @@ icons:
     - 'svgmin:all'
     - 'svgcss:all'
     - 'clean:svg_tidy'
-    - 'sass:dev'
 
 assets_dev:
   description: 'Compiles assets without compression'
