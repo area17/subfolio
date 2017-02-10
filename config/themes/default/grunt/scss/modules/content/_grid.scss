@@ -16,17 +16,31 @@
     max-width:200px;
     padding:$half-gutter;
 
+    @include breakpoint(xlarge-and-up) {
+      height: 150px;
+      overflow: hidden;
+    }
+
     @include breakpoint(large) {
       width:20%;
+      &:nth-child(5n + 1) {
+        clear: left;
+      }
     }
 
     @include breakpoint(medium) {
       width:25%;
+      &:nth-child(4n + 1) {
+        clear: left;
+      }
     }
 
     @include breakpoint(small-and-down) {
       width:50%;
       max-width:500px;
+      &:nth-child(2n + 1) {
+        clear: left;
+      }
     }
 
     .list__cell--filenameicon {
