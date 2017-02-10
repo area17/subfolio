@@ -57,10 +57,10 @@
     @if $include == false or ($include == true and $include_icons == false) {
       // don't include the encoded SVG data
       background-repeat: no-repeat;
-      // but do include the fallback png link
-      .no-svg & {
-        background-image: url('#{$path_img}fallback/#{$file_name}.png');
-      }
+      // but do include the fallback png link (this is commented because svg2png is no longer maintained and working on MAC OS Sierra - browser support of SVGs is good)
+      // .no-svg & {
+      //   background-image: url('#{$path_img}fallback/#{$file_name}.png');
+      // }
     }
   } @else {
     @warn "Unknown `#{$file_name}` in $images.";
