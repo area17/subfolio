@@ -2,7 +2,7 @@
 
 	<div id="features">
 	  <ul>
-			<?php foreach ( SubfolioFiles::features() as $feature) : 
+			<?php foreach ( SubfolioFiles::features() as $feature) :
 				$style = 'style="';
 				if (isset($feature['width'])) {
 					$style .= ' width: '.$feature['width'] .'px; ';

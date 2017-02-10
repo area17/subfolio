@@ -68,23 +68,7 @@ $inner_padding_mobile:10px;
 
 #features {
   li {
-    width:16.6666667%;
-
-    @include breakpoint(xlarge) {
-      width:20%;
-    }
-
-    @include breakpoint(large) {
-      width:25%;
-    }
-
-    @include breakpoint(medium) {
-      width:33.333%;
-    }
-
-    @include breakpoint(small-and-down) {
-      width:50%;
-    }
+    width:auto;
   }
 }
 
