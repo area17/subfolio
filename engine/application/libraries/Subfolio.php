@@ -157,6 +157,22 @@ class Subfolio {
       }
     }
 
+    if ($data == "archive") {
+      $archives_path = Subfolio::$filebrowser->config['directory'] . "/-folder_archives/";
+      $archive_path = $archives_path . Subfolio::$filebrowser->get_path() . '.zip';
+      
+      if (!file_exists($archive_path)) {
+        if (!file_exists($archives_path)) {
+          mkdir($archives_path, 0755, true);
+        }
+        
+        $archive = Subfolio::$filebrowser->create_archive(true);
+        $archive->save($archives_path . Subfolio::$filebrowser->get_path());
+      } 
+
+      return "/directory/-folder_archives/". Subfolio::$filebrowser->get_path() .'.zip';
+    }
+
     if ($data == "target") {
       if (Subfolio::$filebrowser->file <> '') {
         return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'target') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'target') : 'blank';
@@ -259,7 +275,11 @@ class Subfolio {
   	}
 
     if ($data == "instructions") {
-    	$file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$filebrowser->file);
+      $file = Subfolio::$filebrowser->file;
+      if ($file == '') {
+        $file = Subfolio::$filebrowser->folder;
+      }
+    	$file_kind = Subfolio::$filekind->get_kind_by_file($file);
     	return isset($file_kind['instructions']) ? $file_kind['instructions'] : '';
   	}
 

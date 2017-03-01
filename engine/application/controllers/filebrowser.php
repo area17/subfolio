@@ -163,7 +163,7 @@ class Filebrowser_Controller extends Website_Controller {
         if (!$single) {
           $fkind = $this->filekind->get_kind_by_file($folder);
           $kind = isset($fkind['kind']) ? $fkind['kind'] : '';
-          if ($kind == "site") {
+          if ($kind == "site" || $kind == "oplx") {
             $single = true;
             $is_folder = true;
           } else if ($kind == "slide") {
