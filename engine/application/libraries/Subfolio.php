@@ -158,20 +158,9 @@ class Subfolio {
     }
 
     if ($data == "archive") {
-      $archives_path = Subfolio::$filebrowser->config['directory'] . "/-folder_archives/";
-      $archive_path = $archives_path . Subfolio::$filebrowser->get_path() . '.zip';
-      $sub_path = dirname($archive_path);
-
-      if (!file_exists($archive_path)) {
-        if (!file_exists($sub_path)) {
-          mkdir($sub_path, 0755, true);
-        }
-        
-        $archive = Subfolio::$filebrowser->create_archive(true);
-        $archive->save($archives_path . Subfolio::$filebrowser->get_path());
-      } 
-
-      return "/directory/-folder_archives/". Subfolio::$filebrowser->get_path() .'.zip';
+      // Currently only used for .oplx packages.
+      // See controllers/filebrowser.php:128
+      return "/directory/" . Subfolio::$filebrowser->get_path();
     }
 
     if ($data == "target") {

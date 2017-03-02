@@ -123,12 +123,15 @@ class Filebrowser_Controller extends Website_Controller {
         fclose($fp);
         exit;
       } else {
-        // must be a folder
-        // $archive = $this->filebrowser->create_archive(true);
-        // $folder = basename($this->filebrowser->get_folder());
-        // $archive->download($folder.".zip");
-        url::redirect("/denied");
-        exit();
+        $folder = basename($this->filebrowser->get_folder());
+        $ext = pathinfo($folder, PATHINFO_EXTENSION);
+        if ($ext === 'oplx') {
+          $archive = $this->filebrowser->create_archive(true);
+          $archive->download($folder.".zip");
+        } else {
+          url::redirect("/denied");
+          exit();
+        }
       }
     } else {
       url::redirect("/denied");
