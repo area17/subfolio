@@ -196,6 +196,13 @@ merlin:
   instructions:>
     To read Merlin files, you need <a href='http://projectwizards.net/' target='_blank'>Merlin</a>.
 
+oplx:
+  extensions: [oplx]
+  icon: merlin
+  display: OmniPlan File
+  instructions:>
+    To read OmniPlan files, you need <a href='https://www.omnigroup.com/omniplan' target='_blank'>OmniPlan</a>.
+
 ### PACKAGES AND FONTS
 
 zip:

@@ -157,6 +157,12 @@ class Subfolio {
       }
     }
 
+    if ($data == "archive") {
+      // Currently only used for .oplx packages.
+      // See controllers/filebrowser.php:128
+      return "/directory/" . Subfolio::$filebrowser->get_path();
+    }
+
     if ($data == "target") {
       if (Subfolio::$filebrowser->file <> '') {
         return Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'target') ? Subfolio::$filebrowser->get_item_property(Subfolio::$filebrowser->file, 'target') : 'blank';
@@ -259,7 +265,11 @@ class Subfolio {
   	}
 
     if ($data == "instructions") {
-    	$file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$filebrowser->file);
+      $file = Subfolio::$filebrowser->file;
+      if ($file == '') {
+        $file = Subfolio::$filebrowser->folder;
+      }
+    	$file_kind = Subfolio::$filekind->get_kind_by_file($file);
     	return isset($file_kind['instructions']) ? $file_kind['instructions'] : '';
   	}
 
