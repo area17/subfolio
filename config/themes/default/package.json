@@ -25,8 +25,7 @@
     "grunt-postcss": "^0.6.0",
     "grunt-sass": "^1.0.0",
     "grunt-svg-css": "^0.2.8",
-    "grunt-svg2png": "^0.2.7",
-    "grunt-svgmin": "^2.0.1",
+    "grunt-svgmin": "^3.0.0",
     "load-grunt-config": "^0.17.2",
     "time-grunt": "^1.2.1",
     "grunt-sftp-deploy": "^0.2.4"

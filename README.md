@@ -1,3 +1,40 @@
+# Default Theme Development
+
+## Front-end Workflow
+
+FE workflow is using Grunt.
+Default theme is located here : config/themes/default/
+
+First time working on the project run :
+
+```
+grunt init
+```
+
+When doings devs run :
+
+```
+grunt dev
+```
+
+Main CSS file is main.css, this one is versioned unminified.
+
+## Deploying to staging
+
+```
+grunt staging
+```
+
+This task will create a /dist folder inside the theme/default folder.
+This /dist folder will contain everything that should be send to production : images, fonts, JS, CSS, PHP.
+At last, the task will sftp the content of this dist folder to staging using SFTP-DEPLOY task : https://github.com/thrashr888/grunt-sftp-deploy
+
+If you only want to create the dist folder (without sftp the content) :
+
+```
+grunt before_deploy
+```
+
 # About Subfolio
 
 Subfolio provides an elegant, practical and customizable web interface to your file system. Super fast to set-up and use, you’ll be up and running in minutes. Flexible and feature-rich, you’ll soon be inventing new ways to use it.
@@ -29,4 +66,4 @@ If you have a problem, question, suggestion or to see full documentation, please
 To download Subfolio Enhancers, please visit:
 https://github.com/area17/subfolio-enhancers
 
-(c) 2009-2016 Subfolio by AREA 17. All rights reserved.
+(c) 2009-2017 Subfolio by AREA 17. All rights reserved.

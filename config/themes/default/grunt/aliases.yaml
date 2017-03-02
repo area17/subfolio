@@ -21,7 +21,6 @@ dev:
 staging:
   description: 'Compiles assets and icons with compression and deploy on staging servers.'
   tasks:
-    - 'icons'
     - 'before_deploy'
     - 'sftp-deploy:staging'
 
@@ -31,9 +30,7 @@ icons:
   tasks:
     - 'svgmin:all'
     - 'svgcss:all'
-    - 'svg2png:all'
     - 'clean:svg_tidy'
-    - 'sass:dev'
 
 assets_dev:
   description: 'Compiles assets without compression'
@@ -45,6 +42,7 @@ assets_dev:
 before_deploy:
   description: 'Before deployement actions'
   tasks:
+    - 'icons'
     - 'clean:staging'
     - 'copy:staging'
     - 'sass:staging'

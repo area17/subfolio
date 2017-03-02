@@ -1755,7 +1755,7 @@
             zoom: !0
         },
         cssProps: {
-            "float": "cssFloat"
+            float: "cssFloat"
         },
         style: function(a, b, c, d) {
             if (a && 3 !== a.nodeType && 8 !== a.nodeType && a.style) {
@@ -2154,8 +2154,8 @@
             }
         },
         propFix: {
-            "for": "htmlFor",
-            "class": "className"
+            for: "htmlFor",
+            class: "className"
         }
     }), l.optSelected || (n.propHooks.selected = {
         get: function(a) {
@@ -2571,7 +2571,7 @@
             dataType: "script",
             async: !1,
             global: !1,
-            "throws": !0
+            throws: !0
         });
     }, n.fn.extend({
         wrapAll: function(a) {
@@ -4139,11 +4139,11 @@ function factory(window, EvEmitter) {
                 number: function(e) {
                     return Number(e);
                 },
-                "boolean": function(e) {
+                boolean: function(e) {
                     var n = [ "false", "null", "undefined", "", "0" ];
                     return -1 === n.indexOf(e);
                 },
-                "null": function(e) {
+                null: function(e) {
                     var n = [ "false", "null", "undefined", "", "0" ];
                     return -1 === n.indexOf(e) ? e : null;
                 },
@@ -4354,7 +4354,7 @@ function factory(window, EvEmitter) {
         DoFn: D
     };
     t.masks = {
-        "default": "ddd MMM DD YYYY HH:mm:ss",
+        default: "ddd MMM DD YYYY HH:mm:ss",
         shortDate: "M/D/YY",
         mediumDate: "MMM D, YYYY",
         longDate: "MMMM D, YYYY",
