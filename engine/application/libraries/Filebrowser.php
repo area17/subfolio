@@ -492,11 +492,13 @@ class Filebrowser {
     if ($this->folder == "") {
       $link = "/".urlencode($name);
       $link = str_replace('%2F', '/', $link);
+      $link = str_replace('%40', '@', $link);
       $link = Filebrowser::double_encode_specialcharacters($link);
     } else {
       $link = "/".urlencode($this->folder)."/".urlencode($name);
       // unencode '/'
       $link = str_replace('%2F', '/', $link);
+      $link = str_replace('%40', '@', $link);
       $link = Filebrowser::double_encode_specialcharacters($link);
     }
     return $link;

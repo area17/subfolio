@@ -1358,6 +1358,7 @@ class SubfolioFiles extends Subfolio {
     if ($ff <> '') {
     	$parent_link = urlencode(dirname($ff));
       $parent_link = str_replace('%2F', '/', $parent_link);
+      $parent_link = str_replace('%40', '@', $parent_link);
       // ## HACK FOR SLIDE
       if (substr($parent_link, -6) == ".slide") {
         $parent_link = substr($parent_link, 0, stripos($parent_link, '/'));
@@ -1381,6 +1382,7 @@ class SubfolioFiles extends Subfolio {
   			if ($prev <> "") {
         	$link = Filebrowser::double_encode_specialcharacters(urlencode($prev->name));
           $link = str_replace('%2F', '/', $link);
+          $link = str_replace('%40', '@', $link);
   				return "<a id='$link_id' href='$link'>$name</a>";
   			} else {
   				return "<span id='$link_id' class='".$class."'>".$name."</span>";
@@ -1396,6 +1398,7 @@ class SubfolioFiles extends Subfolio {
   			if ($prev <> "") {
         	$link = Filebrowser::double_encode_specialcharacters(urlencode($prev->name));
           $link = str_replace('%2F', '/', $link);
+          $link = str_replace('%40', '@', $link);
 
   				return "<a id='$link_id' href='$link'>$directory_name</a>";
   			} else {
@@ -1419,6 +1422,7 @@ class SubfolioFiles extends Subfolio {
   			if ($next <> "") {
         	$link = Filebrowser::double_encode_specialcharacters(urlencode($next->name));
           $link = str_replace('%2F', '/', $link);
+          $link = str_replace('%40', '@', $link);
   				return "<a id='$link_id' href='$link'>$name</a>";
   			} else {
   				return "<span id='$link_id' class='".$class."'>".$name."</span>";
@@ -1434,6 +1438,7 @@ class SubfolioFiles extends Subfolio {
   			if ($next <> "") {
         	$link = Filebrowser::double_encode_specialcharacters(urlencode($next->name));
           $link = str_replace('%2F', '/', $link);
+          $link = str_replace('%40', '@', $link);
 
   				return "<a id='$link_id' href='$link'>$directory_name</a>";
   			} else {
