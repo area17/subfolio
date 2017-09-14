@@ -265,8 +265,9 @@ class text_Core {
         }, $text);
 
 		// Find all naked www.links.com (without http://)
-		$text = preg_replace_callback('~\b(?<!://)www(?:\.[a-z0-9][-a-z0-9]*+)+\.[a-z]{2,6}\b~i', function ($matches) use (&$options) {
-            return html::anchor($matches[0], $matches[0], $options);
+		// Bug: this is going to fail with IDN TLDs
+		$text = preg_replace_callback('~\b(?<!://)www(?:\.[-\S]+?)+?\.\w{2,15}\b~i', function ($matches) use (&$options) {
+			return html::anchor('http://'.$matches[0], $matches[0], $options);
         }, $text);
 
 		return $text;
