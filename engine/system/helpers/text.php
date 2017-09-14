@@ -260,24 +260,14 @@ class text_Core {
 		}
 
 		// Finds all http/https/ftp/ftps links that are not part of an existing html anchor
-		if (preg_match_all('~\b(?<!href="|">)(?:ht|f)tps?://\S+(?:/|\b)~i', $text, $matches))
-		{
-			foreach ($matches[0] as $match)
-			{
-				// Replace each link with an anchor
-				$text = str_replace($match, html::anchor($match, $match, $options), $text);
-			}
-		}
+		$text = preg_replace_callback('~\b(?<!href="|">)(?:ht|f)tps?://\S+(?:/|\b)~i', function ($matches) use (&$options) {
+            return html::anchor($matches[0], $matches[0], $options);
+        }, $text);
 
 		// Find all naked www.links.com (without http://)
-		if (preg_match_all('~\b(?<!://)www(?:\.[a-z0-9][-a-z0-9]*+)+\.[a-z]{2,6}\b~i', $text, $matches))
-		{
-			foreach ($matches[0] as $match)
-			{
-				// Replace each link with an anchor
-				$text = str_replace($match, html::anchor('http://'.$match, $match, $options), $text);
-			}
-		}
+		$text = preg_replace_callback('~\b(?<!://)www(?:\.[a-z0-9][-a-z0-9]*+)+\.[a-z]{2,6}\b~i', function ($matches) use (&$options) {
+            return html::anchor($matches[0], $matches[0], $options);
+        }, $text);
 
 		return $text;
 	}
