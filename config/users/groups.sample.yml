@@ -5,11 +5,11 @@
 # Create unlimited groups, add unlimited users to a group
 
 staff:
- - jane
- - john
- - etc
+  - jane
+  - john
+  - etc
 
 clients:
- - apple
- - microsoft
- - etc
+  - apple
+  - microsoft
+  - etc

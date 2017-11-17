@@ -6,11 +6,11 @@
 # For securing passwords, read the documentation on hashed passwords
 
 johndoe:
- fullname: John Doe
- password: gr8p4ssw0rd
- admin: false
+  fullname: John Doe
+  password: gr8p4ssw0rd
+  admin: false
 
 janedoe:
- fullname: Jane Doe
- hashed_password: 34f28698680030c6dc4873ad82eafdf5
- admin: true
+  fullname: Jane Doe
+  hashed_password: 34f28698680030c6dc4873ad82eafdf5
+  admin: true
