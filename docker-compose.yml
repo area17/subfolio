@@ -1,0 +1,18 @@
+---
+version: "2"
+
+services:
+  web:
+    build: .
+    image: subfolio
+    ports:
+      # NOTE: use port `80` of `docker.a17.io`, change to `8080:80` when
+      # running natively and clashes with local web server.
+      - "80:80"
+    volumes:
+      # mount engine code (for local updates)
+      - ./engine:/var/www/html/engine
+      # mount configuration (settings, themes and users) for local updates
+      - ./config:/var/www/html/config
+      # mount local files
+      - ./directory:/var/www/html/directory
