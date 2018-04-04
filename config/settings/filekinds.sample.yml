@@ -311,3 +311,8 @@ rss:
   extensions: [rss]
   icon: txt
   display: RSS Feed
+
+webloc:
+  extensions: [webloc]
+  icon: net
+  display: Web Location
