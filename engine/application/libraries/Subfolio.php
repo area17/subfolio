@@ -150,10 +150,19 @@ class Subfolio {
     }
 
     if ($data == "link") {
-      if (Subfolio::$filebrowser->file <> '') {
-        return Subfolio::$filebrowser->get_file_url();
+      $file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$template->content->file->name);
+      if (isset($file_kind['kind'])) $kind = $file_kind['kind'];
+      else $kind = "";
+
+
+      if ($kind == "webloc") {
+        return Subfolio::$filebrowser->get_item_property(Subfolio::$template->content->file->name, 'url');
       } else {
-        	return "/directory/".Subfolio::$template->content->folder."/index.html";
+        if (Subfolio::$filebrowser->file <> '') {
+          return Subfolio::$filebrowser->get_file_url();
+        } else {
+          	return "/directory/".Subfolio::$template->content->folder."/index.html";
+        }
       }
     }
 
@@ -1048,6 +1057,23 @@ class SubfolioFiles extends Subfolio {
       			  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
       			  break;
 
+              case "webloc" :
+                $url = Subfolio::$filebrowser->get_item_property($file->name, 'url')    ? Subfolio::$filebrowser->get_item_property($file->name, 'url') : '';
+                $target = Subfolio::$filebrowser->get_item_property($file->name, 'target')    ? Subfolio::$filebrowser->get_item_property($file->name, 'target') : '_blank';
+
+                if ($url) {
+                  $parts = parse_url($url);
+                  if (isset($parts['host'])) {
+                    $display = $parts['host'];
+                  } else {
+                    $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
+                  }
+                } else {
+                  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
+                }
+
+                break;
+
       			default:
       			  $url = Subfolio::$filebrowser->get_link($file->name);
       			  $display = $file->get_display_name($replace_dash_space, $replace_underscore_space, $display_file_extensions);
@@ -1237,6 +1263,22 @@ class SubfolioFiles extends Subfolio {
 
           			  break;
 
+              case "webloc" :
+                $url = Subfolio::$filebrowser->get_item_property($file->name, 'url')    ? Subfolio::$filebrowser->get_item_property($file->name, 'url') : '';
+                $target = Subfolio::$filebrowser->get_item_property($file->name, 'target')    ? Subfolio::$filebrowser->get_item_property($file->name, 'target') : '_blank';
+
+                if ($url) {
+                  $parts = parse_url($url);
+                  if (isset($parts['host'])) {
+                    $display = $parts['host'];
+                  } else {
+                    $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
+                  }
+                } else {
+                  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
+                }
+
+                break;
 
           			default:
           			  $url = Subfolio::$filebrowser->get_link($file->name);
