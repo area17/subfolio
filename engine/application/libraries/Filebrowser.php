@@ -529,6 +529,36 @@ class Filebrowser {
     return $pos;
   }
 
+  public function has_filename_shadow_suffix($name) {
+    $path_parts = pathinfo($name);
+
+    $extension ="";
+    if (isset($path_parts['extension'])) $extension = $path_parts['extension'];
+
+    $pos = strpos($name, Kohana::config('filebrowser.retina_naming') . Kohana::config('filebrowser.shadow_naming') . '.' . $extension);
+
+    if (!$pos) {
+      $pos = strpos($name, Kohana::config('filebrowser.shadow_naming') . '.' . $extension);
+    }
+
+    return $pos;
+  }
+
+  public function has_filename_browser_suffix($name) {
+    $path_parts = pathinfo($name);
+
+    $extension ="";
+    if (isset($path_parts['extension'])) $extension = $path_parts['extension'];
+
+    $pos = strpos($name, Kohana::config('filebrowser.retina_naming') . Kohana::config('filebrowser.browser_naming') . '.' . $extension);
+
+    if (!$pos) {
+      $pos = strpos($name, Kohana::config('filebrowser.browser_naming') . '.' . $extension);
+    }
+
+    return $pos;
+  }
+
   public function has_shadow_suffix() {
     $path_parts = pathinfo($this->filepath);
 

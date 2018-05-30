@@ -783,6 +783,9 @@ class SubfolioFiles extends Subfolio {
         $image = array();
         $image['width'] = $width;
         $image['height'] = $height;
+        $image['shadow'] = Subfolio::$filebrowser->has_filename_shadow_suffix($file->get_url());
+        $image['browser'] = Subfolio::$filebrowser->has_filename_browser_suffix($file->get_url());
+
 				$image['container_width'] = $width;
   			if ($file->has_custom_thumbnail()) {
 
