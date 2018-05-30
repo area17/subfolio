@@ -149,6 +149,18 @@ class Subfolio {
       }
     }
 
+    if($data == "has_shadow") {
+      $file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$template->content->file->name);
+      if (isset($file_kind['kind'])) $kind = $file_kind['kind'];
+      else $kind = "";
+
+      if ($kind == "img") {
+        return Subfolio::$filebrowser->has_shadow_suffix();
+      }
+
+      return false;
+    }
+
     if ($data == "link") {
       $file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$template->content->file->name);
       if (isset($file_kind['kind'])) $kind = $file_kind['kind'];
