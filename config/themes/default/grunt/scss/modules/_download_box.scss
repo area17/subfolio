@@ -20,14 +20,30 @@
 }
 
 .detailIMG__wrapper {
-  border-radius: 3px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
   margin: 20px;
   display:inline-block;
+  overflow:hidden;
 }
 
 .detailIMG__wrapper--browser {
-  background: #CFCFCF;
-  padding-top:34px;
+  background: linear-gradient(to bottom, #DBDCDD, #CECECE 30px);
+  padding-top:30px;
+
+  @media (max-width: 1000px) {
+    background: linear-gradient(to bottom, #DBDCDD, #CECECE 3vw);
+    padding-top:3vw;
+  }
+}
+
+.img__full .detailIMG__wrapper--browser {
+  @media (max-width: 1000px) {
+    background: linear-gradient(to bottom, #DBDCDD, #CECECE 30px);
+    padding-top:30px;
+  }
 }
 
 #download_box {
