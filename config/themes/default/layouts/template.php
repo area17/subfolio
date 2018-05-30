@@ -18,7 +18,7 @@
   <link rel="shortcut icon" href="<?php echo $favicon ?>?v=2" type="image/vnd.microsoft.icon"  />
   <?php } ?>
 
-  <link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/main.css" type="text/css" rel="stylesheet" >
+  <link href="<?php echo SubfolioTheme::get_view_url(); ?>/css/main.css?v=2" type="text/css" rel="stylesheet" >
   <script>
   var A17 = window.A17 || {};
   A17.svgSupport = document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure", "1.1");
