@@ -18,7 +18,8 @@ $config['properties_file'] = '-properties';
 $config['site_root'] = '/';
 $config['retina_naming'] = "@2x";
 $config['shadow_naming'] = "-s";
-$config['shadow_style_css'] = "0px 0px 5px rgba(0,0,0,0.25)";
+$config['browser_naming'] = "-b";
+$config['shadow_style_css'] = "0 0 6px rgba(0,0,0, .35)";
 
 $config['thumbnail_width'] = 320;
 $config['thumbnail_height'] = 240;

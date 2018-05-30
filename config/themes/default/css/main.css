@@ -877,7 +877,8 @@ ul.group {
   /* << text_light_color */
   margin: 0;
   z-index: 9999;
-  animation: hide_notice 0.4s ease-out 3s forwards; }
+  -webkit-animation: hide_notice 0.4s ease-out 3s forwards;
+          animation: hide_notice 0.4s ease-out 3s forwards; }
   #notice p,
   #content #notice p {
     display: block;
@@ -897,11 +898,21 @@ ul.group {
     background-color: #FF0000;
     color: #FFF; }
 
+@-webkit-keyframes hide_notice {
+  0% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%); }
+  100% {
+    -webkit-transform: translateY(101%);
+            transform: translateY(101%); } }
+
 @keyframes hide_notice {
   0% {
-    transform: translateY(0%); }
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%); }
   100% {
-    transform: translateY(101%); } }
+    -webkit-transform: translateY(101%);
+            transform: translateY(101%); } }
 
 .header {
   border-bottom-width: 1px;
@@ -1799,16 +1810,26 @@ body.page--login {
     width: 16.666667%;
     max-width: 200px;
     padding: 15px; }
+    @media (min-width: 1281px) {
+      .listing .list--grid .list__row {
+        height: 150px;
+        overflow: hidden; } }
     @media (max-width: 1280px) and (min-width: 800px) {
       .listing .list--grid .list__row {
-        width: 20%; } }
+        width: 20%; }
+        .listing .list--grid .list__row:nth-child(5n + 1) {
+          clear: left; } }
     @media (max-width: 799px) and (min-width: 640px) {
       .listing .list--grid .list__row {
-        width: 25%; } }
+        width: 25%; }
+        .listing .list--grid .list__row:nth-child(4n + 1) {
+          clear: left; } }
     @media (max-width: 639px) {
       .listing .list--grid .list__row {
         width: 50%;
-        max-width: 500px; } }
+        max-width: 500px; }
+        .listing .list--grid .list__row:nth-child(2n + 1) {
+          clear: left; } }
     .listing .list--grid .list__row .list__cell--filenameicon {
       padding-left: 0;
       padding-right: 0; }
@@ -1899,20 +1920,42 @@ body.page--login {
   overflow: hidden; }
 
 .login__error {
-  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px; }
+  -webkit-animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+          animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+          perspective: 1000px; }
+
+@-webkit-keyframes shake {
+  10%, 90% {
+    -webkit-transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 0, 0); }
+  20%, 80% {
+    -webkit-transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% {
+    -webkit-transform: translate3d(-4px, 0, 0);
+            transform: translate3d(-4px, 0, 0); }
+  40%, 60% {
+    -webkit-transform: translate3d(4px, 0, 0);
+            transform: translate3d(4px, 0, 0); } }
 
 @keyframes shake {
   10%, 90% {
-    transform: translate3d(-1px, 0, 0); }
+    -webkit-transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 0, 0); }
   20%, 80% {
-    transform: translate3d(2px, 0, 0); }
+    -webkit-transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, 0, 0); }
   30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0); }
+    -webkit-transform: translate3d(-4px, 0, 0);
+            transform: translate3d(-4px, 0, 0); }
   40%, 60% {
-    transform: translate3d(4px, 0, 0); } }
+    -webkit-transform: translate3d(4px, 0, 0);
+            transform: translate3d(4px, 0, 0); } }
 
 /* Form header */
 .login__header {
@@ -2111,15 +2154,28 @@ body.page--login {
   overflow-x: scroll;
   width: 100%; }
 
-#content > img.detailIMG {
+#content > img.detailIMG,
+.detailIMG__wrapper > img.detailIMG {
   max-width: 100%;
   height: auto;
   display: block;
+  cursor: -webkit-zoom-in;
   cursor: zoom-in; }
 
-.img__full #content > img.detailIMG {
+.img__full #content > img.detailIMG,
+.img__full .detailIMG__wrapper > img.detailIMG {
+  cursor: -webkit-zoom-out;
   cursor: zoom-out;
   max-width: initial; }
+
+.detailIMG__wrapper {
+  border-radius: 3px;
+  margin: 20px;
+  display: inline-block; }
+
+.detailIMG__wrapper--browser {
+  background: #CFCFCF;
+  padding-top: 34px; }
 
 #download_box {
   max-width: 350px;

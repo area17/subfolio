@@ -521,6 +521,11 @@ class Filebrowser {
     if (!$pos) {
       $pos = strpos($this->filepath, Kohana::config('filebrowser.retina_naming') . Kohana::config('filebrowser.shadow_naming') . '.' . $extension);
     }
+
+    if (!$pos) {
+      $pos = strpos($this->filepath, Kohana::config('filebrowser.retina_naming') . Kohana::config('filebrowser.browser_naming') . '.' . $extension);
+    }
+
     return $pos;
   }
 
@@ -531,11 +536,26 @@ class Filebrowser {
     if (isset($path_parts['extension'])) $extension = $path_parts['extension'];
 
     $pos = strpos($this->filepath, Kohana::config('filebrowser.retina_naming') . Kohana::config('filebrowser.shadow_naming') . '.' . $extension);
-    
+
     if (!$pos) {
       $pos = strpos($this->filepath, Kohana::config('filebrowser.shadow_naming') . '.' . $extension);
     }
-    
+
+    return $pos;
+  }
+
+  public function has_browser_suffix() {
+    $path_parts = pathinfo($this->filepath);
+
+    $extension ="";
+    if (isset($path_parts['extension'])) $extension = $path_parts['extension'];
+
+    $pos = strpos($this->filepath, Kohana::config('filebrowser.retina_naming') . Kohana::config('filebrowser.browser_naming') . '.' . $extension);
+
+    if (!$pos) {
+      $pos = strpos($this->filepath, Kohana::config('filebrowser.browser_naming') . '.' . $extension);
+    }
+
     return $pos;
   }
 
