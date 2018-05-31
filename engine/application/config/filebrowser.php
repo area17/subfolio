@@ -17,6 +17,9 @@ $config['access_file']     = '-access';
 $config['properties_file'] = '-properties';
 $config['site_root'] = '/';
 $config['retina_naming'] = "@2x";
+$config['shadow_naming'] = "-s";
+$config['browser_naming'] = "-b";
+$config['shadow_style_css'] = "0 1px 10px rgba(0,0,0, .20)";
 
 $config['thumbnail_width'] = 320;
 $config['thumbnail_height'] = 240;

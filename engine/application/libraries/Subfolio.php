@@ -149,6 +149,30 @@ class Subfolio {
       }
     }
 
+    if($data == "has_shadow") {
+      $file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$template->content->file->name);
+      if (isset($file_kind['kind'])) $kind = $file_kind['kind'];
+      else $kind = "";
+
+      if ($kind == "img") {
+        return Subfolio::$filebrowser->has_shadow_suffix();
+      }
+
+      return false;
+    }
+
+    if($data == "has_browser") {
+      $file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$template->content->file->name);
+      if (isset($file_kind['kind'])) $kind = $file_kind['kind'];
+      else $kind = "";
+
+      if ($kind == "img") {
+        return Subfolio::$filebrowser->has_browser_suffix();
+      }
+
+      return false;
+    }
+
     if ($data == "link") {
       $file_kind = Subfolio::$filekind->get_kind_by_file(Subfolio::$template->content->file->name);
       if (isset($file_kind['kind'])) $kind = $file_kind['kind'];
@@ -759,6 +783,9 @@ class SubfolioFiles extends Subfolio {
         $image = array();
         $image['width'] = $width;
         $image['height'] = $height;
+        $image['shadow'] = Subfolio::$filebrowser->has_filename_shadow_suffix($file->get_url());
+        $image['browser'] = Subfolio::$filebrowser->has_filename_browser_suffix($file->get_url());
+
 				$image['container_width'] = $width;
   			if ($file->has_custom_thumbnail()) {
 
