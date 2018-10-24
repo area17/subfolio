@@ -684,6 +684,8 @@ class Filebrowser {
           if (isset($link->dict->string)) {
             $property = (string) $link->dict->string;
           }
+        } else {
+          $property = $filename;
         }
       }
     }

@@ -1087,17 +1087,7 @@ class SubfolioFiles extends Subfolio {
               case "webloc" :
                 $url = Subfolio::$filebrowser->get_item_property($file->name, 'url')    ? Subfolio::$filebrowser->get_item_property($file->name, 'url') : '';
                 $target = Subfolio::$filebrowser->get_item_property($file->name, 'target')    ? Subfolio::$filebrowser->get_item_property($file->name, 'target') : '_blank';
-
-                if ($url) {
-                  $parts = parse_url($url);
-                  if (isset($parts['host'])) {
-                    $display = $parts['host'];
-                  } else {
-                    $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
-                  }
-                } else {
-                  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
-                }
+                $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
 
                 break;
 
@@ -1293,17 +1283,7 @@ class SubfolioFiles extends Subfolio {
               case "webloc" :
                 $url = Subfolio::$filebrowser->get_item_property($file->name, 'url')    ? Subfolio::$filebrowser->get_item_property($file->name, 'url') : '';
                 $target = Subfolio::$filebrowser->get_item_property($file->name, 'target')    ? Subfolio::$filebrowser->get_item_property($file->name, 'target') : '_blank';
-
-                if ($url) {
-                  $parts = parse_url($url);
-                  if (isset($parts['host'])) {
-                    $display = $parts['host'];
-                  } else {
-                    $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
-                  }
-                } else {
-                  $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
-                }
+                $display = format::filename($file->get_display_name($replace_dash_space, $replace_underscore_space, TRUE), false);
 
                 break;
 
