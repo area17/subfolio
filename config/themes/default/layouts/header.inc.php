@@ -22,9 +22,9 @@
         <a class="breadcrumb__root" href="<?php print Kohana::config('filebrowser.site_root'); ?>"><?php echo Subfolio::get_setting('site_domain'); ?></a>
         <?php foreach (SubfolioTheme::get_breadcrumb() as $crumb) { ?>
           <span class='breadcrumb__slash'>&nbsp;/&nbsp;</span>
-          <?php if ($crumb['url'] <> '') { ?>
+          <?php if ($crumb['url'] <> '' && $crumb['name'] <> '') { ?>
             <a class="breadcrumb__folder" href="<?php echo $crumb['url'] ?>"><?php echo $crumb['name'] ?></a>
-          <?php } else { ?>
+          <?php } elseif($crumb['name'] <> '') { ?>
             <span class="breadcrumb__current" data-trigger><em><?php echo $crumb['name'] ?></em> <i class="icon icon__dropdown_arrow"></i></span>
           <?php }  ?>
         <?php } ?>
