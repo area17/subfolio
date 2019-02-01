@@ -1440,16 +1440,20 @@ class SubfolioFiles extends Subfolio {
         $items = Subfolio::$filebrowser->get_parent_file_folder_list(null, true);
         $items = Subfolio::$filebrowser->sort($items);
         $items = Subfolio::$filebrowser->prev_next_sort($items);
-  			$prev    = Subfolio::$filebrowser->get_prev($items, $folder);
+        $prev  = Subfolio::$filebrowser->get_prev($items, $folder);
 
-  			if ($prev <> "") {
-        	$link = Filebrowser::double_encode_specialcharacters(urlencode($prev->name));
-          $link = str_replace('%2F', '/', $link);
+        $response = "<span id='$link_id' class='".$class."'>".$directory_name."</span>";
 
-  				return "<a id='$link_id' href='$link'>$directory_name</a>";
-  			} else {
-  				return "<span id='$link_id' class='".$class."'>".$directory_name."</span>";
-  			}
+        if ($prev <> "") {
+          if (!$prev->is_restricted()) {
+            $link = Filebrowser::double_encode_specialcharacters(urlencode($prev->name));
+            $link = str_replace('%2F', '/', $link);
+
+            $response = "<a id='$link_id' href='$link'>$directory_name</a>";
+          }
+        }
+
+        return $response;
   	  }
     }
   }
@@ -1478,18 +1482,22 @@ class SubfolioFiles extends Subfolio {
         $items = Subfolio::$filebrowser->get_parent_file_folder_list(null, true);
         $items = Subfolio::$filebrowser->sort($items);
         $items = Subfolio::$filebrowser->prev_next_sort($items);
-  			$next = Subfolio::$filebrowser->get_next($items, $folder);
+        $next  = Subfolio::$filebrowser->get_next($items, $folder);
 
-  			if ($next <> "") {
-        	$link = Filebrowser::double_encode_specialcharacters(urlencode($next->name));
-          $link = str_replace('%2F', '/', $link);
+        $response = "<span id='$link_id' class='".$class."'>".$directory_name."</span>";
 
-  				return "<a id='$link_id' href='$link'>$directory_name</a>";
-  			} else {
-  				return "<span id='$link_id' class='".$class."'>".$directory_name."</span>";
-  			}
-  	  }
-	  }
+        if ($next <> "") {
+          if (!$next->is_restricted()) {
+            $link = Filebrowser::double_encode_specialcharacters(urlencode($next->name));
+            $link = str_replace('%2F', '/', $link);
+
+            $response = "<a id='$link_id' href='$link'>$directory_name</a>";
+          }
+        }
+
+        return $response;
+      }
+    }
   }
 
   public function updated_since_link_or_span($type)
