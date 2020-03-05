@@ -1,20 +1,20 @@
 {
   "name": "Subfolio",
+  "private": true,
   "version": "1.0.0",
   "description": "Subfolio FE packages",
   "main": "index.php",
   "scripts": {
+    "grunt:init": "grunt init",
+    "grunt:build": "grunt before_deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@a17.unfuddle.com:a17/browser2.git"
-  },
-  "author": "",
+  "author": "AREA 17",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.0.3",
     "grunt": "^0.4.5",
+    "grunt-cli": "^1.2.0",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-copy": "^0.8.0",
     "grunt-contrib-jshint": "^0.11.3",
