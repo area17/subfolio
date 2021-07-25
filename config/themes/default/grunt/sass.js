@@ -1,6 +1,9 @@
+const sass = require('node-sass');
+
 module.exports = {
   dev: {
     options: {
+      implementation: sass,
       sourceMap: false,
       outputStyle: "nested"
     },
@@ -11,6 +14,7 @@ module.exports = {
   },
   staging: {
     options: {
+      implementation: sass,
       sourceMap: false,
       outputStyle: "compressed"
     },

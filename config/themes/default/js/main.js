@@ -1,4 +1,3 @@
-/*! jQuery v2.2.0 | (c) jQuery Foundation | jquery.org/license */
 !function(a, b) {
     "object" == typeof module && "object" == typeof module.exports ? module.exports = a.document ? b(a, !0) : function(a) {
         if (!a.document) throw new Error("jQuery requires a window with a document");
@@ -498,8 +497,10 @@
                     return V.test(a || "") || fa.error("unsupported lang: " + a), a = a.replace(ba, ca).toLowerCase(), 
                     function(b) {
                         var c;
-                        do if (c = p ? b.lang : b.getAttribute("xml:lang") || b.getAttribute("lang")) return c = c.toLowerCase(), 
-                        c === a || 0 === c.indexOf(a + "-"); while ((b = b.parentNode) && 1 === b.nodeType);
+                        do {
+                            if (c = p ? b.lang : b.getAttribute("xml:lang") || b.getAttribute("lang")) return c = c.toLowerCase(), 
+                            c === a || 0 === c.indexOf(a + "-");
+                        } while ((b = b.parentNode) && 1 === b.nodeType);
                         return !1;
                     };
                 }),
@@ -1204,7 +1205,9 @@
         }, i = h(), j = c && c[3] || (n.cssNumber[b] ? "" : "px"), k = (n.cssNumber[b] || "px" !== j && +i) && T.exec(n.css(a, b));
         if (k && k[3] !== j) {
             j = j || k[3], c = c || [], k = +i || 1;
-            do f = f || ".5", k /= f, n.style(a, b, k + j); while (f !== (f = h() / i) && 1 !== f && --g);
+            do {
+                f = f || ".5", k /= f, n.style(a, b, k + j);
+            } while (f !== (f = h() / i) && 1 !== f && --g);
         }
         return c && (k = +k || +i || 0, e = c[1] ? k + (c[1] + 1) * c[2] : +c[2], d && (d.unit = j, 
         d.start = k, d.end = e)), e;
@@ -2974,13 +2977,6 @@
     return p;
 });
 
-/*!
- * Masonry PACKAGED v4.0.0
- * Cascading grid layout library
- * http://masonry.desandro.com
- * MIT License
- * by David DeSandro
- */
 !function(t, e) {
     "use strict";
     "function" == typeof define && define.amd ? define("jquery-bridget/jquery-bridget", [ "jquery" ], function(i) {
@@ -3697,29 +3693,12 @@
     }, i;
 });
 
-/*!
- * imagesLoaded PACKAGED v4.1.0
- * JavaScript is all like "You images are done yet or what?"
- * MIT License
- */
-/**
- * EvEmitter v1.0.1
- * Lil' event emitter
- * MIT License
- */
-/* jshint unused: true, undef: true, strict: true */
 (function(global, factory) {
-    // universal module definition
-    /* jshint strict: false */
-    /* globals define, module */
     if (typeof define == "function" && define.amd) {
-        // AMD - RequireJS
         define("ev-emitter/ev-emitter", factory);
     } else if (typeof module == "object" && module.exports) {
-        // CommonJS - Browserify, Webpack
         module.exports = factory();
     } else {
-        // Browser globals
         global.EvEmitter = factory();
     }
 })(this, function() {
@@ -3729,11 +3708,8 @@
         if (!eventName || !listener) {
             return;
         }
-        // set events hash
         var events = this._events = this._events || {};
-        // set listeners array
         var listeners = events[eventName] = events[eventName] || [];
-        // only add once
         if (listeners.indexOf(listener) == -1) {
             listeners.push(listener);
         }
@@ -3743,14 +3719,9 @@
         if (!eventName || !listener) {
             return;
         }
-        // add event
         this.on(eventName, listener);
-        // set once flag
-        // set onceEvents hash
         var onceEvents = this._onceEvents = this._onceEvents || {};
-        // set onceListeners array
         var onceListeners = onceEvents[eventName] = onceEvents[eventName] || [];
-        // set flag
         onceListeners[listener] = true;
         return this;
     };
@@ -3773,20 +3744,14 @@
         var i = 0;
         var listener = listeners[i];
         args = args || [];
-        // once stuff
         var onceListeners = this._onceEvents && this._onceEvents[eventName];
         while (listener) {
             var isOnce = onceListeners && onceListeners[listener];
             if (isOnce) {
-                // remove listener
-                // remove before trigger to prevent recursion
                 this.off(eventName, listener);
-                // unset once flag
                 delete onceListeners[listener];
             }
-            // trigger listener
             listener.apply(this, args);
-            // get next listener
             i += isOnce ? 0 : 1;
             listener = listeners[i];
         }
@@ -3795,68 +3760,43 @@
     return EvEmitter;
 });
 
-/*!
- * imagesLoaded v4.1.0
- * JavaScript is all like "You images are done yet or what?"
- * MIT License
- */
 (function(window, factory) {
     "use strict";
-    // universal module definition
-    /*global define: false, module: false, require: false */
     if (typeof define == "function" && define.amd) {
-        // AMD
         define([ "ev-emitter/ev-emitter" ], function(EvEmitter) {
             return factory(window, EvEmitter);
         });
     } else if (typeof module == "object" && module.exports) {
-        // CommonJS
         module.exports = factory(window, require("ev-emitter"));
     } else {
-        // browser global
         window.imagesLoaded = factory(window, window.EvEmitter);
     }
-})(window, // --------------------------  factory -------------------------- //
-function factory(window, EvEmitter) {
+})(window, function factory(window, EvEmitter) {
     var $ = window.jQuery;
     var console = window.console;
-    // -------------------------- helpers -------------------------- //
-    // extend objects
     function extend(a, b) {
         for (var prop in b) {
             a[prop] = b[prop];
         }
         return a;
     }
-    // turn element or nodeList into an array
     function makeArray(obj) {
         var ary = [];
         if (Array.isArray(obj)) {
-            // use object if already an array
             ary = obj;
         } else if (typeof obj.length == "number") {
-            // convert nodeList to array
             for (var i = 0; i < obj.length; i++) {
                 ary.push(obj[i]);
             }
         } else {
-            // array of single index
             ary.push(obj);
         }
         return ary;
     }
-    // -------------------------- imagesLoaded -------------------------- //
-    /**
- * @param {Array, Element, NodeList, String} elem
- * @param {Object or Function} options - if function, use as callback
- * @param {Function} onAlways - callback function
- */
     function ImagesLoaded(elem, options, onAlways) {
-        // coerce ImagesLoaded() without new, to be new ImagesLoaded()
         if (!(this instanceof ImagesLoaded)) {
             return new ImagesLoaded(elem, options, onAlways);
         }
-        // use elem as selector string
         if (typeof elem == "string") {
             elem = document.querySelectorAll(elem);
         }
@@ -3872,10 +3812,8 @@ function factory(window, EvEmitter) {
         }
         this.getImages();
         if ($) {
-            // add jQuery Deferred object
             this.jqDeferred = new $.Deferred();
         }
-        // HACK check async to allow time to bind listeners
         setTimeout(function() {
             this.check();
         }.bind(this));
@@ -3884,34 +3822,24 @@ function factory(window, EvEmitter) {
     ImagesLoaded.prototype.options = {};
     ImagesLoaded.prototype.getImages = function() {
         this.images = [];
-        // filter & find items if we have an item selector
         this.elements.forEach(this.addElementImages, this);
     };
-    /**
- * @param {Node} element
- */
     ImagesLoaded.prototype.addElementImages = function(elem) {
-        // filter siblings
         if (elem.nodeName == "IMG") {
             this.addImage(elem);
         }
-        // get background image on element
         if (this.options.background === true) {
             this.addElementBackgroundImages(elem);
         }
-        // find children
-        // no non-element nodes, #143
         var nodeType = elem.nodeType;
         if (!nodeType || !elementNodeTypes[nodeType]) {
             return;
         }
         var childImgs = elem.querySelectorAll("img");
-        // concat childElems to filterFound array
         for (var i = 0; i < childImgs.length; i++) {
             var img = childImgs[i];
             this.addImage(img);
         }
-        // get child background images
         if (typeof this.options.background == "string") {
             var children = elem.querySelectorAll(this.options.background);
             for (i = 0; i < children.length; i++) {
@@ -3928,10 +3856,8 @@ function factory(window, EvEmitter) {
     ImagesLoaded.prototype.addElementBackgroundImages = function(elem) {
         var style = getComputedStyle(elem);
         if (!style) {
-            // Firefox returns null if in a hidden iframe https://bugzil.la/548397
             return;
         }
-        // get url inside url("...")
         var reURL = /url\((['"])?(.*?)\1\)/gi;
         var matches = reURL.exec(style.backgroundImage);
         while (matches !== null) {
@@ -3942,9 +3868,6 @@ function factory(window, EvEmitter) {
             matches = reURL.exec(style.backgroundImage);
         }
     };
-    /**
- * @param {Image} img
- */
     ImagesLoaded.prototype.addImage = function(img) {
         var loadingImage = new LoadingImage(img);
         this.images.push(loadingImage);
@@ -3957,13 +3880,11 @@ function factory(window, EvEmitter) {
         var _this = this;
         this.progressedCount = 0;
         this.hasAnyBroken = false;
-        // complete if no images
         if (!this.images.length) {
             this.complete();
             return;
         }
         function onProgress(image, elem, message) {
-            // HACK - Chrome triggers event before object properties have changed. #83
             setTimeout(function() {
                 _this.progress(image, elem, message);
             });
@@ -3976,12 +3897,10 @@ function factory(window, EvEmitter) {
     ImagesLoaded.prototype.progress = function(image, elem, message) {
         this.progressedCount++;
         this.hasAnyBroken = this.hasAnyBroken || !image.isLoaded;
-        // progress event
         this.emitEvent("progress", [ this, image, elem ]);
         if (this.jqDeferred && this.jqDeferred.notify) {
             this.jqDeferred.notify(this, image);
         }
-        // check if completed
         if (this.progressedCount == this.images.length) {
             this.complete();
         }
@@ -3999,25 +3918,19 @@ function factory(window, EvEmitter) {
             this.jqDeferred[jqMethod](this);
         }
     };
-    // --------------------------  -------------------------- //
     function LoadingImage(img) {
         this.img = img;
     }
     LoadingImage.prototype = Object.create(EvEmitter.prototype);
     LoadingImage.prototype.check = function() {
-        // If complete is true and browser supports natural sizes,
-        // try to check for image status manually.
         var isComplete = this.getIsImageComplete();
         if (isComplete) {
-            // report based on naturalWidth
             this.confirm(this.img.naturalWidth !== 0, "naturalWidth");
             return;
         }
-        // If none of the checks above matched, simulate loading on detached element.
         this.proxyImage = new Image();
         this.proxyImage.addEventListener("load", this);
         this.proxyImage.addEventListener("error", this);
-        // bind to image as well for Firefox. #191
         this.img.addEventListener("load", this);
         this.img.addEventListener("error", this);
         this.proxyImage.src = this.img.src;
@@ -4029,8 +3942,6 @@ function factory(window, EvEmitter) {
         this.isLoaded = isLoaded;
         this.emitEvent("progress", [ this, this.img, message ]);
     };
-    // ----- events ----- //
-    // trigger specified handler for event type
     LoadingImage.prototype.handleEvent = function(event) {
         var method = "on" + event.type;
         if (this[method]) {
@@ -4051,19 +3962,16 @@ function factory(window, EvEmitter) {
         this.img.removeEventListener("load", this);
         this.img.removeEventListener("error", this);
     };
-    // -------------------------- Background -------------------------- //
     function Background(url, element) {
         this.url = url;
         this.element = element;
         this.img = new Image();
     }
-    // inherit LoadingImage prototype
     Background.prototype = Object.create(LoadingImage.prototype);
     Background.prototype.check = function() {
         this.img.addEventListener("load", this);
         this.img.addEventListener("error", this);
         this.img.src = this.url;
-        // check if image is already complete
         var isComplete = this.getIsImageComplete();
         if (isComplete) {
             this.confirm(this.img.naturalWidth !== 0, "naturalWidth");
@@ -4078,35 +3986,21 @@ function factory(window, EvEmitter) {
         this.isLoaded = isLoaded;
         this.emitEvent("progress", [ this, this.element, message ]);
     };
-    // -------------------------- jQuery -------------------------- //
     ImagesLoaded.makeJQueryPlugin = function(jQuery) {
         jQuery = jQuery || window.jQuery;
         if (!jQuery) {
             return;
         }
-        // set local variable
         $ = jQuery;
-        // $().imagesLoaded()
         $.fn.imagesLoaded = function(options, callback) {
             var instance = new ImagesLoaded(this, options, callback);
             return instance.jqDeferred.promise($(this));
         };
     };
-    // try making plugin
     ImagesLoaded.makeJQueryPlugin();
-    // --------------------------  -------------------------- //
     return ImagesLoaded;
 });
 
-/*!
-  SerializeJSON jQuery plugin.
-  https://github.com/marioizquierdo/jquery.serializeJSON
-  version 2.7.2 (Dec, 2015)
-
-  Copyright (c) 2012, 2015 Mario Izquierdo
-  Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
-  and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
-*/
 !function(e) {
     if ("function" == typeof define && define.amd) define([ "jquery" ], e); else if ("object" == typeof exports) {
         var n = require("jquery");
@@ -4459,16 +4353,8 @@ function factory(window, EvEmitter) {
     }
 })(this);
 
-/* --------------------------------------------------------------
-
-main.js
-* Subfolio by AREA 17
-
--------------------------------------------------------------- */
-// set up a master object
 var A17 = window.A17 || {};
 
-// set up some objects within the master one, to hold my Helpers and behaviors
 A17.Behaviors = {};
 
 A17.Util = {};
@@ -4477,9 +4363,6 @@ A17.Helpers = {};
 
 A17.media_query_in_use = "xlarge";
 
-// look through the document (or ajax'd in content if "context" is defined) to look for "data-behavior" attributes.
-// Initialize a new instance of the method if found, passing through the element that had the attribute
-// So in this example it will find 'data-behavior="show_articles"' and run the show_articles method.
 A17.LoadBehavior = function(context) {
     if (context === undefined) {
         context = document;
@@ -4499,21 +4382,14 @@ A17.LoadBehavior = function(context) {
     }
 };
 
-/* What to do when DOM is ready
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 document.addEventListener("DOMContentLoaded", function() {
     A17.onReady();
 });
 
-/* Run when DOM is ready
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 A17.onReady = function() {
-    // sort out which media query we're using
     A17.media_query_in_use = A17.Helpers.get_media_query_in_use();
-    // go go go
     A17.LoadBehavior();
     A17.Helpers.keyPress();
-    // on resize, check
     var resize_timer;
     $(window).on("resize", function() {
         clearTimeout(resize_timer);
@@ -4523,8 +4399,6 @@ A17.onReady = function() {
     });
 };
 
-/* Cookies functions
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 A17.Util.create_cookie = function(name, value) {
     var today = new Date();
     today.setTime(today.getTime() + 24 * 60 * 60 * 1e3 * 365);
@@ -4555,8 +4429,6 @@ A17.Behaviors.hover_list = function($list) {
     var klass_focused = "list__row--focused";
 };
 
-/* Masonry style
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 A17.Behaviors.masonry = function($grid) {
     $grid.masonry({
         itemSelector: "li",
@@ -4567,20 +4439,15 @@ A17.Behaviors.masonry = function($grid) {
     $grid.on("layoutComplete", function() {
         $grid.removeClass("masoned__canceled");
     });
-    // layout Masonry after each image loads
     $grid.imagesLoaded().always(function() {
         $grid.masonry("layout").addClass("masoned__finished");
     });
 };
 
-/* Search
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 A17.Behaviors.search_field = function($field) {
     $field.focus();
 };
 
-/* Show/Hide the info box
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 A17.Behaviors.show_info = function($info_bt) {
     $info_bt.click(function(el) {
         $("#info-box").toggle();
@@ -4590,8 +4457,6 @@ A17.Behaviors.show_info = function($info_bt) {
     });
 };
 
-/* Show/Hide the header + cookie
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 A17.Behaviors.switch_header = function($homeSwitch) {
     var $body = $("body");
     var $header = $(".header__logo");
@@ -4612,8 +4477,6 @@ A17.Behaviors.switch_header = function($homeSwitch) {
     });
 };
 
-/* toggle_dropdown
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 A17.Behaviors.toggle_dropdown = function($el) {
     var $body = $("body");
     $trigger = $el.find("[data-trigger]"), klass = "header__active";
@@ -4636,8 +4499,6 @@ A17.Behaviors.toggle_dropdown = function($el) {
     }
 };
 
-/* toggle_dropdown
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 A17.Behaviors.toggle_img = function($img) {
     var $body = $("body");
     var klass = "img__full";
@@ -4652,57 +4513,6 @@ A17.Helpers.doc_height = function() {
 };
 
 A17.Helpers.get_media_query_in_use = function() {
-    /*
-
-    # A17.Helpers.get_media_query_in_use
-    * v.1
-
-    ## description
-    Returns the current media query in use by looking at the font-family of the head of the document and text in some pseudo content
-
-    ## requires
-    * specific HTML
-
-    ## parameters
-    * none
-
-    ## returns
-    * media query string as a string
-
-    ## example usage:
-    var mq = A17.Helpers.get_media_query_in_use();
-
-    ## HTML required
-    body {
-    }
-      body:after {
-        font: 0/0 a;
-        color: transparent;
-        text-shadow: none;
-        width: 1px;
-        height: 1px;
-        margin: -1px 0 0 -1px;
-        position: absolute;
-        left: -1px;
-        top: -1px;
-      }
-      @media (max-width: 767px) {
-        head {
-          font-family: 'small';
-        }
-        body:after {
-          content: 'small';
-        }
-      }
-      @media (max-width: 768px) {
-        head {
-          font-family: 'medium';
-        }
-        body:after {
-          content: 'medium';
-        }
-      }
-  */
     if (window.opera) {
         return parse(window.getComputedStyle(document.body, ":after").getPropertyValue("content")) || "large";
     } else if (window.getComputedStyle) {
@@ -4715,7 +4525,6 @@ A17.Helpers.get_media_query_in_use = function() {
     }
 };
 
-// Define values for keycodes
 A17.Helpers.keycodes = {
     tab: 9,
     enter: 13,
@@ -4728,53 +4537,43 @@ A17.Helpers.keycodes = {
     backspace: 8
 };
 
-/* Register keypress events on the whole document when navigation/search exists
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 A17.Helpers.keyPress = function() {
     var $body = $("body");
     var $previous = $("#previous");
     var $next = $("#next");
     var is_search_active = false;
-    // focused listing
     var $list = $(".focusable");
     var focused_index = -1;
     var last_focusable = $list.length - 1;
-    // search
     var $search = $("[data-search]");
     $(document).on("keydown", function(e) {
-        // no alt, ctrl or cmd keys pressed
         if (!e.altKey && !e.ctrlKey && !e.metaKey) {
             switch (e.keyCode) {
-              // user pressed "left" arrow
-                case 37:
+              case 37:
                 if ($previous.length && !is_search_active) {
                     var previous_url = $previous.attr("href");
                     if (previous_url) _triggerHover($previous, previous_url);
                 }
                 break;
 
-              // user pressed "up" arrow
-                case 38:
+              case 38:
                 if ($list.length && !is_search_active) _setFocused("prev", e);
                 break;
 
-              // user pressed "right" arrow
-                case 39:
+              case 39:
                 if ($next.length && !is_search_active) {
                     var next_url = $next.attr("href");
                     if (next_url) _triggerHover($next, next_url);
                 }
                 break;
 
-              // user pressed "down" arrow
-                case 40:
+              case 40:
                 if ($list.length && !is_search_active) {
                     _setFocused("next", e);
                 }
                 break;
 
-              // user pressed "esc" down : Escape from the search or go back to parent directory
-                case 27:
+              case 27:
                 if (is_search_active && $search.length) _hideSearch(); else {
                     var $parent_dir = $(".breadcrumb").find("a").last();
                     if ($parent_dir.length) {
@@ -4784,7 +4583,6 @@ A17.Helpers.keyPress = function() {
                 break;
 
               default:
-                // launch search if exist!
                 if ($search.length) {
                     if (e.keyCode >= 65 && e.keyCode <= 90 || e.keyCode >= 48 && e.keyCode <= 57 || e.keyCode >= 96 && e.keyCode <= 105) {
                         if (!is_search_active) _showSearch();
@@ -4793,13 +4591,11 @@ A17.Helpers.keyPress = function() {
             }
         }
     });
-    // Prev / next arrow
     function _triggerHover($el, next_url) {
         $el.addClass("hover").fadeTo(250, 1, function() {
             window.location = next_url;
         });
     }
-    // Set focus state on the list items when using up and down keys
     function _setFocused(dir, e) {
         if ($list.filter(":focus").length) {
             if (dir === "next") {
@@ -4817,9 +4613,7 @@ A17.Helpers.keyPress = function() {
             $list.eq(focused_index).focus();
         }
     }
-    // search engine ----
     if ($search.length) {
-        // DOM
         var $search_input = $("[data-search-input]"), $search_close = $("[data-search-close]"), $search_results = $("[data-search-results]"), $search_template = $("[data-search-template]"), $search_form = $search.find("form"), $search_dropdown = $("[data-search-dropdown]");
         var klass_search_active = "search__active", search_data = "", is_search_loading = false;
     }
@@ -4861,7 +4655,6 @@ A17.Helpers.keyPress = function() {
         is_search_active = false;
     }
     function _setData(data_arr) {
-        // misc requiered params
         data_arr.push({
             name: "start",
             value: 0
@@ -4879,13 +4672,10 @@ A17.Helpers.keyPress = function() {
             var field = this;
             var value = "–";
             if (field.values) {
-                // Clean result url
                 var value = field.values[0].replace("file:/var/www/", "http://").replace("/directory", "");
-                // Display directory of file
                 if (field.fieldName == "fileType") {
                     value = field.values[0] == "directory" ? "dir" : "gen";
                 }
-                // Display the date nicely
                 if (field.fieldName == "fileSystemDate") {
                     var date = new Date(field.values[0].substring(0, 4), field.values[0].substring(4, 6), field.values[0].substring(6, 8));
                     value = fecha.format(date, "MMM DD, YYYY");
@@ -4917,7 +4707,6 @@ A17.Helpers.keyPress = function() {
             }).done(function(response) {
                 $search_results.empty();
                 if (response.documents) {
-                    // display response here
                     var documents = response.documents;
                     if (documents.length > 0) {
                         $.each(documents, function() {
@@ -4977,8 +4766,6 @@ A17.Helpers.matches = function(el, selector) {
     return (el.matches || el.matchesSelector || el.msMatchesSelector || el.mozMatchesSelector || el.webkitMatchesSelector || el.oMatchesSelector).call(el, selector);
 };
 
-/* Open a popup
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 A17.Helpers.pop = function(goPage, nom, windowWidth, windowHeight, style) {
     var x = 0;
     var y = 0;
@@ -5003,28 +4790,6 @@ A17.Helpers.pop = function(goPage, nom, windowWidth, windowHeight, style) {
 };
 
 A17.Helpers.resized = function() {
-    /*
-
-    # A17.Helpers.resized
-    * v.1
-
-    ## description
-    What to do on document resize, also checks if current media query has changed
-
-    ## requires
-    * A17.Helpers.get_media_query_in_use
-    * global variable of: A17.media_query_in_use
-
-    ## parameters
-    * name - required - name of parameter value requested
-    * url - optional - url to check, otherwise checks current browser url
-
-    ## returns
-    * returns value of requested parameter
-
-    ## example usage:
-    var user_name = A17.Helpers.get_url_parameter_by_name("user_name")
-  */
     $(document).trigger("resized");
     if (!A17.Helpers.get_media_query_in_use) {
         console.log("Missing: A17.Helpers.get_media_query_in_use");
@@ -5033,7 +4798,6 @@ A17.Helpers.resized = function() {
     var new_media_query = A17.Helpers.get_media_query_in_use();
     if (A17.media_query_in_use != new_media_query) {
         A17.media_query_in_use = A17.Helpers.get_media_query_in_use();
-        // update the image sizes
         $(document).trigger("media_query_updated");
     }
 };

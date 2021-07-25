@@ -1,7 +1,7 @@
 module.exports = {
   options: {
     processors: [
-      require("autoprefixer")({browsers: "last 5 versions"}), // add vendor prefixes
+      require("autoprefixer")(), // use package.json's `browserslist` to change prefixes
     ]
   },
   all: {
