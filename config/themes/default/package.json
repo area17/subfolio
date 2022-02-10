@@ -31,6 +31,6 @@
     "grunt-sftp-deploy": "^0.2.4"
   },
   "dependencies": {
-    "node-sass": "^4.9.0"
+    "node-sass": "^7.0.0"
   }
 }
