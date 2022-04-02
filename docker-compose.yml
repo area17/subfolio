@@ -13,8 +13,8 @@ services:
       - "80:80"
     volumes:
       # mount engine code (for local updates)
-      - ./engine:/var/www/html/engine
+      - ./engine:/var/www/html/engine:ro
       # mount configuration (settings, themes and users) for local updates
-      - ./config:/var/www/html/config
-      # mount local files
-      - ./directory:/var/www/html/directory
+      - ./config:/var/www/html/config:ro
+      # mount local directory
+      - ./directory:/var/www/html/directory:ro
