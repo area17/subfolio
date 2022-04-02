@@ -4,4 +4,6 @@
 /config/*
 /directory/*
 /engine/application/logs/*
+docker-compose.yml
+Dockerfile
 node_modules
