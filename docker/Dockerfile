@@ -68,4 +68,4 @@ RUN --mount=type=cache,target=/var/cache/apt \
 # 5. Copy configuration and application code, adjusting permissions
 #
 COPY docker/apache.conf /etc/apache2/sites-available/000-default.conf
-COPY --chown=www-data:www-data . /var/www/html
+COPY --chown=www-data:www-data ./engine /var/www/html/engine
